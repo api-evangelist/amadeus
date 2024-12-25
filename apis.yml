@@ -11,7 +11,7 @@ apis:
     properties:
       - url: https://developers.expediagroup.com/docs/products/rapid
         type: Documentation
-      - url: openapiexpedia-rapid-openapi-original.yml
+      - url: openapi/expedia-rapid-openapi-original.yml
         type: OpenAPI
     description: Needs a description
   - aid: expedia-group:loyalty
@@ -23,7 +23,7 @@ apis:
     properties:
       - url: https://developers.expediagroup.com/docs/products/analytics
         type: Documentation
-      - url: openapiexpedia-loyalty-openapi-original.yml
+      - url: openapi/expedia-loyalty-openapi-original.yml
         type: OpenAPI
     description: Needs a description
   - aid: expedia-group:fraud-protection
@@ -35,7 +35,7 @@ apis:
     properties:
       - url: https://developers.expediagroup.com/docs/products/fraud-prevention
         type: Documentation
-      - url: openapiexpedia-fraud-protection-openapi-original.yml
+      - url: openapi/expedia-fraud-protection-openapi-original.yml
         type: OpenAPI
     description: Needs a description
   - aid: expedia-group:deposit
@@ -49,7 +49,7 @@ apis:
       - url: >-
           https://developers.expediagroup.com/supply/lodging/docs/property_mgmt_apis/deposit/getting_started/introduction/
         type: Documentation
-      - url: openapiexpedia-deposit-openapi-original.yml
+      - url: openapi/expedia-deposit-openapi-original.yml
         type: OpenAPI
     description: Needs a description
   - aid: expedia-group:deposit
@@ -61,7 +61,7 @@ apis:
     properties:
       - url: https://developers.expediagroup.com/supply/lodging
         type: Documentation
-      - url: openapiexpedia-lodging-product-openapi-original.yml
+      - url: openapi/expedia-lodging-product-openapi-original.yml
         type: OpenAPI
     description: Needs a description
 name: Expedia Group
@@ -83,9 +83,6 @@ common:
     type: Status
 created: '2024-06-07T00:00:00.000Z'
 modified: '2024-12-16'
-overlays:
-  - url: overlays/apis-io-search.yml
-    type: APIs.io Search
 description: >-
   Expedia Group, Inc. is an American travel technology company that owns and
   operates travel fare aggregators and travel metasearch engines, including
