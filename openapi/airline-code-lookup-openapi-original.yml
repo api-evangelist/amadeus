@@ -1,0 +1,194 @@
+openapi: 3.1.0
+info:
+  title: Amadeus Airline Code Lookup API
+  description: >-
+    The Amadeus Airline Code Lookup API finds the name of an airline by its IATA
+    or ICAO airline codes. It helps travel applications display human-readable
+    airline names alongside flight data that uses industry-standard airline code
+    identifiers. The API accepts a unified airlineCodes parameter supporting both
+    two-letter IATA codes and three-letter ICAO codes.
+  version: '1.1.1'
+  contact:
+    name: Amadeus for Developers
+    url: https://developers.amadeus.com/support
+  termsOfService: https://developers.amadeus.com/legal/terms-of-use
+externalDocs:
+  description: Amadeus Airline Code Lookup API Documentation
+  url: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-code-lookup
+servers:
+  - url: https://api.amadeus.com/v1
+    description: Production Server
+  - url: https://test.api.amadeus.com/v1
+    description: Test Server
+tags:
+  - name: Airlines
+    description: >-
+      Operations for looking up airline information using IATA or ICAO codes.
+security:
+  - bearerAuth: []
+paths:
+  /reference-data/airlines:
+    get:
+      operationId: getAirlines
+      summary: Look up airline by IATA or ICAO code
+      description: >-
+        Returns airline information for the given IATA or ICAO airline codes. The
+        airlineCodes parameter accepts both two-letter IATA codes and three-letter
+        ICAO codes, and supports multiple comma-separated codes in a single
+        request.
+      tags:
+        - Airlines
+      parameters:
+        - $ref: '#/components/parameters/airlineCodes'
+      responses:
+        '200':
+          description: Successful response containing matching airline data.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/AirlineCollection'
+        '400':
+          description: >-
+            Bad request due to invalid parameters such as malformed airline codes.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized request due to missing or invalid access token.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error due to an unexpected system condition.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: >-
+        Access token obtained from the Amadeus OAuth2 token endpoint using
+        client credentials grant.
+  parameters:
+    airlineCodes:
+      name: airlineCodes
+      in: query
+      required: false
+      description: >-
+        IATA or ICAO airline codes. Accepts two-letter IATA codes or three-letter
+        ICAO codes. Multiple codes can be provided separated by commas.
+      schema:
+        type: string
+      example: BA
+  schemas:
+    AirlineCollection:
+      type: object
+      description: >-
+        A collection response containing an array of airline resources and
+        associated metadata.
+      properties:
+        meta:
+          $ref: '#/components/schemas/CollectionMeta'
+        data:
+          type: array
+          description: Array of airline resources matching the query.
+          items:
+            $ref: '#/components/schemas/Airline'
+        warnings:
+          type: array
+          description: >-
+            Non-blocking issues encountered during the request processing.
+          items:
+            $ref: '#/components/schemas/Issue'
+    Airline:
+      type: object
+      description: >-
+        An airline resource containing identifying codes and names for a single
+        airline carrier.
+      properties:
+        type:
+          type: string
+          description: Resource type identifier.
+          const: airline
+        iataCode:
+          type: string
+          description: >-
+            Two-letter IATA airline designator code.
+          pattern: '[A-Z0-9]{2}'
+          example: BA
+        icaoCode:
+          type: string
+          description: >-
+            Three-letter ICAO airline designator code.
+          pattern: '[A-Z]{3}'
+          example: BAW
+        businessName:
+          type: string
+          description: >-
+            The official business name of the airline.
+          example: BRITISH AIRWAYS
+        commonName:
+          type: string
+          description: >-
+            The commonly used abbreviated name of the airline.
+          example: BRITISH A/W
+    CollectionMeta:
+      type: object
+      description: Metadata about the response collection.
+      properties:
+        count:
+          type: integer
+          description: Total number of items in the collection.
+          example: 1
+        links:
+          type: object
+          description: Links related to the collection.
+          properties:
+            self:
+              type: string
+              format: uri
+              description: Link to the current request.
+    Issue:
+      type: object
+      description: >-
+        A non-blocking warning or issue encountered during request processing.
+      properties:
+        status:
+          type: integer
+          description: HTTP status code associated with the issue.
+        code:
+          type: integer
+          description: Application-specific error code.
+        title:
+          type: string
+          description: Short description of the issue.
+        detail:
+          type: string
+          description: Detailed explanation of the issue.
+        source:
+          type: object
+          properties:
+            pointer:
+              type: string
+              description: JSON pointer to the associated entity in the request.
+            parameter:
+              type: string
+              description: Name of the query parameter that caused the issue.
+            example:
+              type: string
+              description: Example of a valid value for the parameter.
+    ErrorResponse:
+      type: object
+      description: Error response containing one or more error details.
+      properties:
+        errors:
+          type: array
+          description: Array of error details.
+          items:
+            $ref: '#/components/schemas/Issue'

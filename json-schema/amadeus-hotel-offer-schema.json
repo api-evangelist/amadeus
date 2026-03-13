@@ -1,0 +1,370 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://amadeus.com/schemas/hotel-offer.json",
+  "title": "Amadeus Hotel Offer",
+  "description": "A hotel offer returned by the Amadeus Hotel Search API, representing a bookable room at a specific hotel with pricing, room details, and guest information.",
+  "type": "object",
+  "required": [
+    "type",
+    "hotel",
+    "available",
+    "offers"
+  ],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "hotel-offers",
+      "description": "Resource type identifier for hotel offers."
+    },
+    "hotel": {
+      "$ref": "#/$defs/Hotel",
+      "description": "Hotel property information."
+    },
+    "available": {
+      "type": "boolean",
+      "description": "Whether the hotel has offers available for the requested dates."
+    },
+    "offers": {
+      "type": "array",
+      "description": "Array of bookable offers for the hotel.",
+      "items": {
+        "$ref": "#/$defs/Offer"
+      }
+    },
+    "self": {
+      "type": "string",
+      "format": "uri",
+      "description": "Self link to this hotel offer resource."
+    }
+  },
+  "$defs": {
+    "Hotel": {
+      "type": "object",
+      "description": "Hotel property details including identification, location, and contact information.",
+      "required": ["hotelId"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "hotel",
+          "description": "Resource type identifier."
+        },
+        "hotelId": {
+          "type": "string",
+          "description": "Unique Amadeus property code, typically 8 characters.",
+          "pattern": "^[A-Z0-9]{8}$"
+        },
+        "chainCode": {
+          "type": "string",
+          "description": "Two-letter code identifying the hotel chain.",
+          "pattern": "^[A-Z]{2}$"
+        },
+        "dupeId": {
+          "type": "string",
+          "description": "Unique property identifier for deduplication across providers."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the hotel property."
+        },
+        "cityCode": {
+          "type": "string",
+          "description": "Three-letter IATA city code where the hotel is located.",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "latitude": {
+          "type": "number",
+          "description": "Geographic latitude of the hotel.",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "longitude": {
+          "type": "number",
+          "description": "Geographic longitude of the hotel.",
+          "minimum": -180,
+          "maximum": 180
+        }
+      }
+    },
+    "Offer": {
+      "type": "object",
+      "description": "A bookable hotel room offer with pricing and policies.",
+      "required": ["id", "checkInDate", "checkOutDate", "room", "guests", "price"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this offer."
+        },
+        "checkInDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Check-in date in ISO 8601 YYYY-MM-DD format."
+        },
+        "checkOutDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Check-out date in ISO 8601 YYYY-MM-DD format."
+        },
+        "rateCode": {
+          "type": "string",
+          "description": "Code identifying the rate plan for this offer."
+        },
+        "rateFamilyEstimated": {
+          "type": "object",
+          "description": "Estimated rate family classification.",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "Rate family code."
+            },
+            "type": {
+              "type": "string",
+              "description": "Rate family type."
+            }
+          }
+        },
+        "room": {
+          "$ref": "#/$defs/Room",
+          "description": "Room details for this offer."
+        },
+        "guests": {
+          "$ref": "#/$defs/Guests",
+          "description": "Guest configuration for this offer."
+        },
+        "price": {
+          "$ref": "#/$defs/HotelPrice",
+          "description": "Pricing details for this offer."
+        },
+        "policies": {
+          "$ref": "#/$defs/Policies",
+          "description": "Booking policies including cancellation and payment terms."
+        },
+        "commission": {
+          "type": "object",
+          "description": "Commission information for travel agents.",
+          "properties": {
+            "percentage": {
+              "type": "string",
+              "description": "Commission percentage."
+            },
+            "amount": {
+              "type": "string",
+              "description": "Commission amount in the offer currency."
+            }
+          }
+        },
+        "boardType": {
+          "type": "string",
+          "description": "Type of meal plan included with the offer.",
+          "enum": ["ROOM_ONLY", "BREAKFAST", "HALF_BOARD", "FULL_BOARD", "ALL_INCLUSIVE"]
+        }
+      }
+    },
+    "Room": {
+      "type": "object",
+      "description": "Room type and description details.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Room type code following hotel industry standards."
+        },
+        "typeEstimated": {
+          "type": "object",
+          "description": "Estimated room characteristics.",
+          "properties": {
+            "category": {
+              "type": "string",
+              "description": "Room category classification."
+            },
+            "beds": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Estimated number of beds in the room."
+            },
+            "bedType": {
+              "type": "string",
+              "description": "Estimated bed type.",
+              "enum": ["SINGLE", "DOUBLE", "TWIN", "QUEEN", "KING"]
+            }
+          }
+        },
+        "description": {
+          "type": "object",
+          "description": "Textual description of the room.",
+          "properties": {
+            "text": {
+              "type": "string",
+              "description": "Room description text."
+            },
+            "lang": {
+              "type": "string",
+              "description": "Language code of the description."
+            }
+          }
+        }
+      }
+    },
+    "Guests": {
+      "type": "object",
+      "description": "Guest count and configuration for the offer.",
+      "properties": {
+        "adults": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9,
+          "description": "Number of adult guests."
+        }
+      }
+    },
+    "HotelPrice": {
+      "type": "object",
+      "description": "Pricing breakdown for the hotel offer.",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "description": "ISO 4217 three-letter currency code.",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "base": {
+          "type": "string",
+          "description": "Base price before taxes."
+        },
+        "total": {
+          "type": "string",
+          "description": "Total price including taxes."
+        },
+        "taxes": {
+          "type": "array",
+          "description": "Breakdown of applicable taxes.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Tax code identifier."
+              },
+              "percentage": {
+                "type": "string",
+                "description": "Tax percentage rate."
+              },
+              "amount": {
+                "type": "string",
+                "description": "Tax amount in the offer currency."
+              },
+              "currency": {
+                "type": "string",
+                "description": "Currency of the tax amount."
+              },
+              "included": {
+                "type": "boolean",
+                "description": "Whether the tax is already included in the base price."
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of the tax."
+              },
+              "pricingFrequency": {
+                "type": "string",
+                "description": "How often the tax is applied.",
+                "enum": ["PER_NIGHT", "PER_STAY"]
+              },
+              "pricingMode": {
+                "type": "string",
+                "description": "How the tax is calculated.",
+                "enum": ["PER_OCCUPANT", "PER_ROOM"]
+              }
+            }
+          }
+        },
+        "variations": {
+          "type": "object",
+          "description": "Price variations during the stay.",
+          "properties": {
+            "average": {
+              "type": "object",
+              "description": "Average nightly price.",
+              "properties": {
+                "base": { "type": "string" },
+                "total": { "type": "string" }
+              }
+            },
+            "changes": {
+              "type": "array",
+              "description": "Price changes during the stay period.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "startDate": { "type": "string", "format": "date" },
+                  "endDate": { "type": "string", "format": "date" },
+                  "base": { "type": "string" },
+                  "total": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Policies": {
+      "type": "object",
+      "description": "Booking policies including cancellation, payment, and guarantee terms.",
+      "properties": {
+        "cancellation": {
+          "type": "object",
+          "description": "Cancellation policy details.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Cancellation policy type.",
+              "enum": ["FULL_STAY", "PARTIAL_STAY"]
+            },
+            "description": {
+              "type": "object",
+              "properties": {
+                "text": { "type": "string" }
+              }
+            },
+            "deadline": {
+              "type": "string",
+              "format": "date-time",
+              "description": "Deadline for free cancellation."
+            },
+            "amount": {
+              "type": "string",
+              "description": "Cancellation penalty amount."
+            },
+            "numberOfNights": {
+              "type": "integer",
+              "description": "Number of nights charged as cancellation penalty."
+            }
+          }
+        },
+        "guarantee": {
+          "type": "object",
+          "description": "Payment guarantee requirements.",
+          "properties": {
+            "acceptedPayments": {
+              "type": "object",
+              "properties": {
+                "creditCards": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Accepted credit card types."
+                },
+                "methods": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Accepted payment methods."
+                }
+              }
+            }
+          }
+        },
+        "paymentType": {
+          "type": "string",
+          "description": "When payment is required.",
+          "enum": ["GUARANTEE", "DEPOSIT", "PREPAY"]
+        }
+      }
+    }
+  }
+}
