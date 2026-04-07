@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 3.0.9
-  title: Hotel Search API
+  title: Amadeus Hotel Search API
   description: >-
     Before using this API, we recommend you read our **[Authorization
     Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
@@ -23,9 +23,9 @@ paths:
   /shopping/hotel-offers:
     get:
       description: ''
-      summary: getMultiHotelOffers
+      summary: Amadeus getMultiHotelOffers
       tags:
-        - - - - shopping
+        -   -   -   - shopping
       operationId: getMultiHotelOffers
       deprecated: false
       parameters:
@@ -237,9 +237,9 @@ paths:
   /shopping/hotel-offers/{offerId}:
     get:
       description: ' '
-      summary: getOfferPricing
+      summary: Amadeus getOfferPricing
       tags:
-        - - - - shopping
+        -   -   -   - shopping
       operationId: getOfferPricing
       deprecated: false
       parameters:

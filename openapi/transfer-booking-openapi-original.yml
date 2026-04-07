@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.11.0
-  title: Transfer Booking
+  title: Amadeus Transfer Booking
   description: >-
     Before using this API, we recommend you read our **[Authorization
     Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
@@ -25,9 +25,9 @@ paths:
   /ordering/transfer-orders:
     post:
       tags:
-        - - - - Booking
+        -   -   -   - Booking
       operationId: createTransferOrder
-      summary: Performs a transfer reservation.
+      summary: Amadeus Performs a transfer reservation.
       parameters:
         - in: query
           name: offerId

@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.10.0
-  title: Flight Order Management
+  title: Amadeus Flight Order Management
   x-tags:
     - '#online-retail'
     - '#mobile-services'
@@ -67,9 +67,9 @@ paths:
       - $ref: '#/parameters/flight-orderId'
     get:
       tags:
-        - - - - Booking
+        -   -   -   - Booking
       operationId: getFlightOrder
-      summary: Retrieve a given flight order
+      summary: Amadeus Retrieve a given flight order
       responses:
         '200':
           $ref: '#/responses/returnFlightOrders'
@@ -82,9 +82,9 @@ paths:
       description: ''
     delete:
       tags:
-        - - - - Booking
+        -   -   -   - Booking
       operationId: cancelFlightOrder
-      summary: Cancel a given flight order
+      summary: Amadeus Cancel a given flight order
       responses:
         '204':
           $ref: '#/responses/204'

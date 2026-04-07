@@ -1,8 +1,8 @@
 openapi: 3.0.0
 info:
-  title: Trip Parser
+  title: Amadeus Trip Parser
   version: 3.0.2
-  description: "\nBefore using this API, we recommend you read our\_**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\_for more information on how to generate an access token."
+  description: "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token."
 x-release-note:
   '3.0':
     - First release of Trip Parser V3
@@ -12,8 +12,8 @@ paths:
   /travel/trip-parser:
     post:
       tags:
-        - - - - Trip
-      summary: POST Trip Parser request
+        -   -   -   - Trip
+      summary: Amadeus POST Trip Parser request
       operationId: PostTripParserRequest
       responses:
         '200':

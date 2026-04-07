@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Flight Price Analysis API
+  title: Amadeus Flight Price Analysis API
   version: 1.0.1
   description: >-
     Before using this API, we recommend you read our **[Authorization
@@ -11,7 +11,7 @@ servers:
 paths:
   /analytics/itinerary-price-metrics:
     get:
-      summary: GET itinerary price metric
+      summary: Amadeus GET itinerary price metric
       responses:
         '200':
           description: Successful reply
@@ -173,7 +173,7 @@ paths:
             false to get price metrics for a round trip
       description: ''
       tags:
-        - - - - price-metrics
+        -   -   -   - price-metrics
     parameters: []
 components:
   schemas:

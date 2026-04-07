@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.2.0
-  title: Branded Fares Upsell
+  title: Amadeus Branded Fares Upsell
   x-tags:
     - '#quick-connect'
     - '#online-retail'
@@ -18,7 +18,7 @@ info:
         available in Enterprise**
     1.0.0:
       - First version of Branded Fares Upsell
-  description: >-
+  description: >2-
 
     Before using this API, we recommend you read our **[Authorization
     Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
@@ -40,9 +40,9 @@ paths:
   /shopping/flight-offers/upselling:
     post:
       tags:
-        - - - - Shopping
+        -   -   -   - Shopping
       operationId: upsellAirOffers
-      summary: Return a list of upsell Flight Offers based on given Flight Offers
+      summary: Amadeus Return a list of upsell Flight Offers based on given Flight Offers
       parameters:
         - $ref: '#/parameters/getOverride'
         - name: upsellFlightOffersBody

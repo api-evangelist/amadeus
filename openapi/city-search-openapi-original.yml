@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: City Search
+  title: Amadeus City Search
   version: 1.0.2
   description: >-
     Before using the API you will need to get an access token. Please read our
@@ -12,9 +12,9 @@ servers:
 paths:
   /reference-data/locations/cities:
     get:
-      summary: GET Cities by keyword
+      summary: Amadeus GET Cities by keyword
       tags:
-        - - - - City
+        -   -   -   - City
       operationId: GETCities
       parameters:
         - schema:

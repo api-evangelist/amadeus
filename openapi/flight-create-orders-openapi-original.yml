@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.10.0
-  title: Flight Create Orders
+  title: Amadeus Flight Create Orders
   x-tags:
     - '#travel-booking'
     - '#quick-connect'
@@ -61,9 +61,9 @@ paths:
   /booking/flight-orders:
     post:
       tags:
-        - - - - Booking
+        -   -   -   - Booking
       operationId: createFligtOrders
-      summary: Create Order associated to the Flight offers.
+      summary: Amadeus Create Order associated to the Flight offers.
       parameters:
         - name: body
           description: list of element needed to book a flight Order

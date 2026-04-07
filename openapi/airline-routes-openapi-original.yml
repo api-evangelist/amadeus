@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Airline Routes
+  title: Amadeus Airline Routes
   version: 1.1.1
   description: >-
     Before using the API you will need to get an access token. Please read our
@@ -12,9 +12,9 @@ servers:
 paths:
   /airline/destinations:
     get:
-      summary: get airline destinations
+      summary: Amadeus get airline destinations
       tags:
-        - - - - destinations
+        -   -   -   - destinations
       responses:
         '200':
           description: Success Response

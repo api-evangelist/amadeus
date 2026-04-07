@@ -11,7 +11,7 @@ info:
     New-York. You can find the list in our **[data
     collection](https://github.com/amadeus4dev/data-collection)**.
   version: 1.0.2
-  title: Hotel Ratings
+  title: Amadeus Hotel Ratings
 host: test.api.amadeus.com
 basePath: /v2
 tags:
@@ -25,7 +25,7 @@ paths:
   /e-reputation/hotel-sentiments:
     get:
       tags:
-        - - - - Hotel Ratings
+        -   -   -   - Hotel Ratings
       summary: Get sentiments by Amadeus Hotel Ids
       description: ''
       operationId: getSentimentsByHotelIds

@@ -1,14 +1,14 @@
 swagger: '2.0'
 info:
   version: 2.0.2
-  title: Flight Choice Prediction
+  title: Amadeus Flight Choice Prediction
   x-tags:
     - '#ama-for-dev'
   x-status: validated
   x-release-note:
     2.0.0:
       - Initial Version
-  description: >
+  description: >2
 
     Before using this API, we recommend you read our **[Authorization
     Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
@@ -34,9 +34,9 @@ paths:
       - $ref: '#/parameters/getOverride'
     post:
       tags:
-        - - - - flight-choice-prediction
+        -   -   -   - flight-choice-prediction
       operationId: getFlightChoicePredict
-      summary: Predict the choice of flight offers.
+      summary: Amadeus Predict the choice of flight offers.
       parameters:
         - name: body
           in: body

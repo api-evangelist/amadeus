@@ -1,14 +1,14 @@
 swagger: '2.0'
 info:
   version: 1.0.4
-  title: Airport On-Time Performance
+  title: Amadeus Airport On-Time Performance
   x-tags:
     - '#ama-for-dev'
   x-status: validated
   x-release-note:
     '1.0':
       - Initial Version
-  description: "Before using this API, we recommend you read our\_**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\_for more information on how to generate an access token."
+  description: "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token."
 host: test.api.amadeus.com
 basePath: /v1
 schemes:
@@ -21,9 +21,9 @@ paths:
   /airport/predictions/on-time:
     get:
       tags:
-        - - - - airport-ontime-prediction
+        -   -   -   - airport-ontime-prediction
       operationId: getAirportOnTimePrediction
-      summary: Returns a percentage of on-time flight departures from a given airport.
+      summary: Amadeus Returns a percentage of on-time flight departures from a given airport.
       parameters:
         - name: airportCode
           in: query

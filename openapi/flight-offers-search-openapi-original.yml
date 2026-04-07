@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 2.9.0
-  title: Flight Offers Search
+  title: Amadeus Flight Offers Search
   x-tags:
     - '#online-retail'
     - '#mobile-services'
@@ -31,7 +31,7 @@ info:
     2.0.0:
       - Initial Version
       - Includes search and price flight offer
-  description: >-
+  description: >2-
 
     Before using this API, we recommend you read our **[Authorization
     Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
@@ -53,9 +53,9 @@ paths:
   /shopping/flight-offers:
     post:
       tags:
-        - - - - Shopping
+        -   -   -   - Shopping
       operationId: searchFlightOffers
-      summary: Return list of Flight Offers based on posted searching criteria.
+      summary: Amadeus Return list of Flight Offers based on posted searching criteria.
       parameters:
         - $ref: '#/parameters/getOverride'
         - name: getFlightOffersBody
@@ -74,9 +74,9 @@ paths:
       description: ''
     get:
       tags:
-        - - - - Shopping
+        -   -   -   - Shopping
       operationId: getFlightOffers
-      summary: Return list of Flight Offers based on searching criteria.
+      summary: Amadeus Return list of Flight Offers based on searching criteria.
       parameters:
         - name: originLocationCode
           in: query

@@ -21,8 +21,8 @@ paths:
         To learn more about this endpoint please refer to the specification at
         https://tools.ietf.org/html/rfc6749#section-3.2
       tags:
-        - - - - OAuth2 Access Token
-      summary: The OAuth 2.0 token endpoint
+        -   -   -   - OAuth2 Access Token
+      summary: Amadeus The OAuth 2.0 token endpoint
       operationId: oauth2Token
       requestBody:
         content:
@@ -64,8 +64,8 @@ paths:
     get:
       description: Get token information
       tags:
-        - - - - OAuth2 Access Token
-      summary: The OAuth 2.0 token info endpoint
+        -   -   -   - OAuth2 Access Token
+      summary: Amadeus The OAuth 2.0 token info endpoint
       operationId: getOauth2TokenInfo
       parameters:
         - in: path

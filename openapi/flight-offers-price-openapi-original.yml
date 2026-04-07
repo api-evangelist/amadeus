@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.3.0
-  title: Flight Offers Price
+  title: Amadeus Flight Offers Price
   x-tags:
     - '#quick-connect'
     - '#online-retail'
@@ -38,9 +38,9 @@ paths:
   /shopping/flight-offers/pricing:
     post:
       tags:
-        - - - - Shopping
+        -   -   -   - Shopping
       operationId: quoteAirOffers
-      summary: Confirm pricing of given flightOffers.
+      summary: Amadeus Confirm pricing of given flightOffers.
       parameters:
         - $ref: '#/parameters/getOverride'
         - name: priceFlightOffersBody

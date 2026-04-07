@@ -30,7 +30,7 @@ paths:
   /reference-data/airlines:
     get:
       operationId: getAirlines
-      summary: Look up airline by IATA or ICAO code
+      summary: Amadeus Look up airline by IATA or ICAO code
       description: >-
         Returns airline information for the given IATA or ICAO airline codes. The
         airlineCodes parameter accepts both two-letter IATA codes and three-letter

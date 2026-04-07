@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.0.6
-  title: Flight Delay Prediction
+  title: Amadeus Flight Delay Prediction
   x-tags:
     - '#ama-for-dev'
   x-status: validated
@@ -14,7 +14,7 @@ info:
       - Add enum values on result
     1.0.0:
       - Initial Version
-  description: "\nBefore using this API, we recommend you read our\_**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\_for more information on how to generate an access token."
+  description: "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token."
 host: test.api.amadeus.com
 basePath: /v1
 schemes:
@@ -29,9 +29,9 @@ paths:
   /travel/predictions/flight-delay:
     get:
       tags:
-        - - - - flight-delay-prediction
+        -   -   -   - flight-delay-prediction
       operationId: getFlightDelayPrediction
-      summary: Return the delay segment where the flight is likely to lay.
+      summary: Amadeus Return the delay segment where the flight is likely to lay.
       parameters:
         - name: originLocationCode
           in: query

@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Airport Routes
+  title: Amadeus Airport Routes
   version: 1.1.1
   description: >-
     Before using the API you will need to get an access token. Please read our
@@ -12,9 +12,9 @@ servers:
 paths:
   /airport/direct-destinations:
     get:
-      summary: get airport direct routes
+      summary: Amadeus get airport direct routes
       tags:
-        - - - - direct-destinations
+        -   -   -   - direct-destinations
       responses:
         '200':
           description: Success Response
@@ -186,8 +186,8 @@ components:
                 The number of digits to represent the precision of the
                 coordinate.
               example: '48.85837'
-              minimum: -3.402823669209385e+38
-              multipleOf: 3.402823669209385e+38
+              minimum: -3.402823669209384e+38
+              multipleOf: 3.402823669209384e+38
             longitude:
               type: number
               description: >-
@@ -196,8 +196,8 @@ components:
                 prime meridian, and a negative value denotes west longitude. The
                 number of digits to represent the precision of the coordinate.
               example: '2.294481'
-              minimum: -3.402823669209385e+38
-              multipleOf: 3.402823669209385e+38
+              minimum: -3.402823669209384e+38
+              multipleOf: 3.402823669209384e+38
         address:
           type: object
           properties:

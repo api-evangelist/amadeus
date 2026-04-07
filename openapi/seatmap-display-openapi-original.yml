@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.9.2
-  title: Seatmap Display
+  title: Amadeus Seatmap Display
   x-status: validated
   x-tags:
     - '#online-retail'
@@ -66,9 +66,9 @@ paths:
   /shopping/seatmaps:
     get:
       tags:
-        - - - - Display SeatMaps
+        -   -   -   - Display SeatMaps
       operationId: getSeatmapFromOrder
-      summary: Returns all the seat maps of a given order.
+      summary: Amadeus Returns all the seat maps of a given order.
       parameters:
         - $ref: '#/parameters/orderId'
         - $ref: '#/parameters/oldOrderId'
@@ -84,9 +84,9 @@ paths:
       description: ''
     post:
       tags:
-        - - - - Display SeatMaps
+        -   -   -   - Display SeatMaps
       operationId: getSeatmapFromFlightOffer
-      summary: Returns all the seat maps of a given flightOffer.
+      summary: Amadeus Returns all the seat maps of a given flightOffer.
       parameters:
         - $ref: '#/parameters/getOverride'
         - name: body

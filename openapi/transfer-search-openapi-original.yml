@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.11.2
-  title: Transfer Search
+  title: Amadeus Transfer Search
   description: >-
     Before using this API, we recommend you read our **[Authorization
     Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
@@ -25,9 +25,9 @@ paths:
   /shopping/transfer-offers:
     post:
       tags:
-        - - - - Shopping
+        -   -   -   - Shopping
       operationId: getTransferOffers
-      summary: Gets transfer offers.
+      summary: Amadeus Gets transfer offers.
       parameters:
         - name: body
           in: body

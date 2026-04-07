@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.2.3
-  title: Airport & City Search
+  title: Amadeus Airport & City Search
   x-status: validated
   x-tags:
     - '#ama-for-dev'
@@ -20,7 +20,7 @@ info:
       - add a characters restriction on keyword parameter
     '1.0':
       - Initial Version
-  description: >-
+  description: >2-
 
     Before using this API, we recommend you read our **[Authorization
     Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
@@ -42,9 +42,9 @@ paths:
   /reference-data/locations:
     get:
       tags:
-        - - - - location
+        -   -   -   - location
       operationId: getAirportCitySearch
-      summary: Returns a list of airports and cities matching a given keyword.
+      summary: Amadeus Returns a list of airports and cities matching a given keyword.
       parameters:
         - name: subType
           description: sub type of the location (AIRPORT and/or CITY)
@@ -92,9 +92,9 @@ paths:
   /reference-data/locations/{locationId}:
     get:
       tags:
-        - - - - location
+        -   -   -   - location
       operationId: getAirportCity
-      summary: Returns a specific airports or cities based on its id.
+      summary: Amadeus Returns a specific airports or cities based on its id.
       parameters:
         - $ref: '#/parameters/locationId'
       responses:

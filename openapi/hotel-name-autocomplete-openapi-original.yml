@@ -10,7 +10,7 @@ info:
     production for this API it may change dynamically. For your tests, use big
     cities like LON (London) or NYC (New-York).
   version: 1.0.3
-  title: Hotel Name Autocomplete
+  title: Amadeus Hotel Name Autocomplete
 host: test.api.amadeus.com
 basePath: /v1
 schemes:
@@ -23,8 +23,8 @@ paths:
   /reference-data/locations/hotel:
     get:
       tags:
-        - - - - Search
-      summary: Returns a list of hotels matching a given keyword.
+        -   -   -   - Search
+      summary: Amadeus Returns a list of hotels matching a given keyword.
       operationId: gethotels
       description: ''
       parameters:

@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.0.2
-  title: Flight Availibilities Search
+  title: Amadeus Flight Availibilities Search
   x-tags:
     - '#quick-connect'
     - '#online-retail'
@@ -11,7 +11,7 @@ info:
   x-release-note:
     1.0.0:
       - Initial release of Flight Availibilities Search
-  description: >-
+  description: >2-
 
     Before using this API, we recommend you read our **[Authorization
     Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
@@ -33,9 +33,9 @@ paths:
   /shopping/availability/flight-availabilities:
     post:
       tags:
-        - - - - Availibility
+        -   -   -   - Availibility
       operationId: searchFlightAvailabilities
-      summary: Return list of Flight Availabilities based on posted searching criteria.
+      summary: Amadeus Return list of Flight Availabilities based on posted searching criteria.
       parameters:
         - $ref: '#/parameters/getOverride'
         - name: getFlightAvailabilitiesBody

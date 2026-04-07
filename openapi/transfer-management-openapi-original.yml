@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   version: 1.11.0
-  title: Transfer Management
+  title: Amadeus Transfer Management
   description: >-
     Before using this API, we recommend you read our **[Authorization
     Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
@@ -25,9 +25,9 @@ paths:
   /ordering/transfer-orders/{orderId}/transfers/cancellation:
     post:
       tags:
-        - - - - Booking
+        -   -   -   - Booking
       operationId: cancelTransfer
-      summary: Cancel a transfer in an existing orderId.
+      summary: Amadeus Cancel a transfer in an existing orderId.
       parameters:
         - name: orderId
           in: path
