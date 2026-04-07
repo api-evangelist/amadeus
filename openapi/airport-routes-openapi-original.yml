@@ -14,7 +14,7 @@ paths:
     get:
       summary: Amadeus get airport direct routes
       tags:
-        -   -   -   - direct-destinations
+        - Airport
       responses:
         '200':
           description: Success Response
@@ -186,8 +186,8 @@ components:
                 The number of digits to represent the precision of the
                 coordinate.
               example: '48.85837'
-              minimum: -3.402823669209384e+38
-              multipleOf: 3.402823669209384e+38
+              minimum: -3.402823669209383e+38
+              multipleOf: 3.402823669209383e+38
             longitude:
               type: number
               description: >-
@@ -196,8 +196,8 @@ components:
                 prime meridian, and a negative value denotes west longitude. The
                 number of digits to represent the precision of the coordinate.
               example: '2.294481'
-              minimum: -3.402823669209384e+38
-              multipleOf: 3.402823669209384e+38
+              minimum: -3.402823669209383e+38
+              multipleOf: 3.402823669209383e+38
         address:
           type: object
           properties:
@@ -364,4 +364,5 @@ components:
             $ref: '#/components/schemas/locations'
         meta:
           $ref: '#/components/schemas/meta'
-tags: []
+tags:
+  - name: Airport

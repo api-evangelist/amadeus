@@ -132,7 +132,7 @@ paths:
           description: Longitude in decimal coordinates
           example: 2.160873
       tags:
-        -   -   -   - category-rated-areas
+        - Location
     parameters: []
 components:
   schemas:
@@ -376,4 +376,5 @@ components:
             example:
               type: string
               description: A sample input to guide the user when resolving this issue
-tags: []
+tags:
+  - name: Location

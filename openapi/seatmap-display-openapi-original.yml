@@ -66,7 +66,7 @@ paths:
   /shopping/seatmaps:
     get:
       tags:
-        -   -   -   - Display SeatMaps
+        - Shopping
       operationId: getSeatmapFromOrder
       summary: Amadeus Returns all the seat maps of a given order.
       parameters:
@@ -84,7 +84,7 @@ paths:
       description: ''
     post:
       tags:
-        -   -   -   - Display SeatMaps
+        - Shopping
       operationId: getSeatmapFromFlightOffer
       summary: Amadeus Returns all the seat maps of a given flightOffer.
       parameters:
@@ -12224,4 +12224,5 @@ responses:
     schema:
       $ref: '#/definitions/Error_400'
 x-generatedAt: '2021-01-07T18:16:56.364Z'
-tags: []
+tags:
+  - name: Shopping

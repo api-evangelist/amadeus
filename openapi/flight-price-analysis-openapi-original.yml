@@ -173,7 +173,7 @@ paths:
             false to get price metrics for a round trip
       description: ''
       tags:
-        -   -   -   - price-metrics
+        - Analytics
     parameters: []
 components:
   schemas:
@@ -400,4 +400,5 @@ components:
       required:
         - code
         - title
-tags: []
+tags:
+  - name: Analytics

@@ -14,7 +14,7 @@ paths:
     get:
       summary: Amadeus get airline destinations
       tags:
-        -   -   -   - destinations
+        - Airline
       responses:
         '200':
           description: Success Response
@@ -360,4 +360,5 @@ components:
             $ref: '#/components/schemas/locations'
         meta:
           $ref: '#/components/schemas/meta'
-tags: []
+tags:
+  - name: Airline

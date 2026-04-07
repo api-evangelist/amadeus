@@ -21,7 +21,7 @@ paths:
   /airport/predictions/on-time:
     get:
       tags:
-        -   -   -   - airport-ontime-prediction
+        - Airport
       operationId: getAirportOnTimePrediction
       summary: Amadeus Returns a percentage of on-time flight departures from a given airport.
       parameters:
@@ -185,4 +185,5 @@ responses:
     schema:
       $ref: '#/definitions/Error_500'
 x-generatedAt: '2020-07-23T14:07:22.902Z'
-tags: []
+tags:
+  - name: Airport

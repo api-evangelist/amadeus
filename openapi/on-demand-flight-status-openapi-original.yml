@@ -19,7 +19,7 @@ paths:
   /schedule/flights:
     get:
       tags:
-        -   -   -   - flights
+        - Schedule
       operationId: getFlightsStatus
       summary: Amadeus Retrieves a unique flight by search criteria.
       parameters:
@@ -439,4 +439,5 @@ responses:
                   aircraftType: E90
                 scheduledLegDuration: PT2H35M
 x-generatedAt: '2020-09-07T09:52:13.997Z'
-tags: []
+tags:
+  - name: Schedule

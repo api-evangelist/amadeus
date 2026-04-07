@@ -33,7 +33,7 @@ paths:
   /shopping/flight-destinations:
     get:
       tags:
-        -   -   -   - flight-destinations
+        - Shopping
       operationId: getFlightDestinations
       summary: Amadeus Find the cheapest destinations where you can fly to.
       parameters:
@@ -912,4 +912,5 @@ responses:
     schema:
       $ref: '#/definitions/Error_500'
 x-generatedAt: '2020-07-23T08:15:14.050Z'
-tags: []
+tags:
+  - name: Shopping

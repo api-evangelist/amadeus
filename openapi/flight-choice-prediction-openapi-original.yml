@@ -34,7 +34,7 @@ paths:
       - $ref: '#/parameters/getOverride'
     post:
       tags:
-        -   -   -   - flight-choice-prediction
+        - Shopping
       operationId: getFlightChoicePredict
       summary: Amadeus Predict the choice of flight offers.
       parameters:
@@ -2201,4 +2201,5 @@ parameters:
     type: string
     default: GET
 x-generatedAt: '2020-07-30T12:58:11.566Z'
-tags: []
+tags:
+  - name: Shopping

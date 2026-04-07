@@ -14,7 +14,7 @@ paths:
     get:
       summary: Amadeus Search Hotels using its unique Id
       tags:
-        -   -   -   - Hotels
+        - Reference Data
       responses:
         '200':
           description: OK
@@ -104,7 +104,7 @@ paths:
     get:
       summary: Amadeus Search Hotels in a city
       tags:
-        -   -   -   - Hotels
+        - Reference Data
       responses:
         '200':
           description: OK
@@ -319,7 +319,7 @@ paths:
     get:
       summary: Amadeus Search Hotels using Geocode
       tags:
-        -   -   -   - Hotels
+        - Reference Data
       responses:
         '200':
           description: OK
@@ -967,4 +967,5 @@ components:
               type: string
               format: url
               description: Link to the last page.
-tags: []
+tags:
+  - name: Reference Data

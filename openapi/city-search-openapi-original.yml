@@ -14,7 +14,7 @@ paths:
     get:
       summary: Amadeus GET Cities by keyword
       tags:
-        -   -   -   - City
+        - Reference Data
       operationId: GETCities
       parameters:
         - schema:
@@ -371,4 +371,5 @@ components:
             example:
               type: string
               description: A sample input to guide the user when resolving this issue
-tags: []
+tags:
+  - name: Reference Data

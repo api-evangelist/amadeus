@@ -25,7 +25,7 @@ paths:
       description: ''
       summary: Amadeus getMultiHotelOffers
       tags:
-        -   -   -   - shopping
+        - Shopping
       operationId: getMultiHotelOffers
       deprecated: false
       parameters:
@@ -239,7 +239,7 @@ paths:
       description: ' '
       summary: Amadeus getOfferPricing
       tags:
-        -   -   -   - shopping
+        - Shopping
       operationId: getOfferPricing
       deprecated: false
       parameters:
