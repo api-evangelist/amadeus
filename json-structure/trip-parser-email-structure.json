@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "email",
+  "type": "record",
+  "fields": [
+    {
+      "name": "category",
+      "type": "string",
+      "description": "Category of the contact element"
+    },
+    {
+      "name": "address",
+      "type": "string",
+      "description": "Email address (e.g. john@smith.com)"
+    }
+  ]
+}

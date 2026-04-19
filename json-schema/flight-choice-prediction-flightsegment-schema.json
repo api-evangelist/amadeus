@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FlightSegment",
+  "description": "defining a flight segment; including both operating and marketing details when applicable",
+  "type": "object",
+  "properties": {
+    "departure": {
+      "$ref": "#/definitions/FlightEndPoint"
+    },
+    "arrival": {
+      "$ref": "#/definitions/FlightEndPoint"
+    },
+    "carrierCode": {
+      "type": "string",
+      "description": "providing the airline / carrier code"
+    },
+    "number": {
+      "type": "string",
+      "description": "the flight number as assigned by the carrier"
+    },
+    "suffix": {
+      "type": "string",
+      "description": "the flight number suffix as assigned by the carrier"
+    },
+    "aircraft": {
+      "$ref": "#/definitions/AircraftEquipment"
+    },
+    "class": {
+      "type": "string",
+      "description": "reservation booking designator (RBD) of the carrier"
+    },
+    "cabin": {
+      "type": "string",
+      "description": "booking cabin / class of service of the carrier"
+    },
+    "operating": {
+      "$ref": "#/definitions/OperatingFlight"
+    },
+    "duration": {
+      "type": "string",
+      "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M"
+    },
+    "stops": {
+      "type": "array",
+      "description": "information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge...",
+      "items": {
+        "$ref": "#/definitions/FlightStop"
+      }
+    }
+  }
+}

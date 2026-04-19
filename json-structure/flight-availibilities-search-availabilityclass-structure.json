@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AvailabilityClass",
+  "type": "record",
+  "fields": [
+    {
+      "name": "numberOfBookableSeats",
+      "type": "double",
+      "description": "Number of seats bookable in a single request. Can not be higher than 9."
+    },
+    {
+      "name": "class",
+      "type": "string",
+      "description": "The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)"
+    },
+    {
+      "name": "closedStatus",
+      "type": "string",
+      "description": "Status of the booking class when it is closed."
+    },
+    {
+      "name": "tourAllotment",
+      "type": "string",
+      "description": "Detail of the allotment if available."
+    }
+  ]
+}

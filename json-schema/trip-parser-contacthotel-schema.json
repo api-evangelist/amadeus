@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "contactHotel",
+  "type": "object",
+  "properties": {
+    "phone": {
+      "type": "string",
+      "description": "phome number"
+    }
+  }
+}

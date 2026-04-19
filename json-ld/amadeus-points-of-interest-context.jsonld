@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "id": {
+      "@id": "@id"
+    },
+    "self": {
+      "@id": "schema:self",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "schema:type",
+      "@type": "xsd:string"
+    },
+    "subType": {
+      "@id": "schema:subType",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "geoCode": {
+      "@id": "schema:geoCode",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "schema:category",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "schema:tags"
+    },
+    "rank": {
+      "@id": "schema:rank",
+      "@type": "xsd:string"
+    },
+    "latitude": {
+      "@id": "schema:latitude",
+      "@type": "xsd:decimal"
+    },
+    "longitude": {
+      "@id": "schema:longitude",
+      "@type": "xsd:decimal"
+    },
+    "errors": {
+      "@id": "schema:errors"
+    }
+  }
+}

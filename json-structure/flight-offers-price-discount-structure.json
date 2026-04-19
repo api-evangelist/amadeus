@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Discount",
+  "type": "record",
+  "fields": [
+    {
+      "name": "subType",
+      "type": "string"
+    },
+    {
+      "name": "cityName",
+      "type": "string",
+      "description": "city of residence"
+    },
+    {
+      "name": "travelerType",
+      "type": "string"
+    },
+    {
+      "name": "cardNumber",
+      "type": "string",
+      "description": "resident card number"
+    },
+    {
+      "name": "certificateNumber",
+      "type": "string",
+      "description": "resident certificate number"
+    }
+  ]
+}

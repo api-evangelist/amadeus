@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_GuaranteePolicy",
+  "description": "the guarantee policy information applicable to the offer. It includes accepted payments",
+  "type": "object",
+  "properties": {
+    "description": {
+      "$ref": "#/definitions/QualifiedFreeText"
+    },
+    "acceptedPayments": {
+      "$ref": "#/definitions/HotelProduct_PaymentPolicy"
+    }
+  }
+}

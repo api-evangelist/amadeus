@@ -1,0 +1,8 @@
+{
+  "currency": "example-currency",
+  "total": "example-total",
+  "base": "example-base",
+  "fees": [],
+  "taxes": [],
+  "refundableTaxes": "example-refundableTaxes"
+}

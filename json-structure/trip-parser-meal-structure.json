@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "meal",
+  "type": "record",
+  "fields": [
+    {
+      "name": "code",
+      "type": "string",
+      "description": "Code of the meal served on board"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "Description of the meal served on board"
+    }
+  ]
+}

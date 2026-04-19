@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Links",
+  "type": "record",
+  "fields": [
+    {
+      "name": "href",
+      "type": "uri"
+    },
+    {
+      "name": "methods",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "count",
+      "type": "int32"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "ContactDictionary",
+  "type": "record",
+  "fields": [
+    {
+      "name": "addresseeName",
+      "type": "string",
+      "description": "the name of the person addressed by these contact details"
+    },
+    {
+      "name": "address",
+      "type": "string"
+    },
+    {
+      "name": "language",
+      "type": "string",
+      "description": "the preferred language of communication with this Contact"
+    },
+    {
+      "name": "purpose",
+      "type": "string"
+    }
+  ]
+}

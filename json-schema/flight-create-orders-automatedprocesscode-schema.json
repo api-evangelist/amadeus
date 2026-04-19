@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AutomatedProcessCode",
+  "description": "queuing action to be taken",
+  "type": "string",
+  "enum": [
+    "IMMEDIATE",
+    "DELAYED",
+    "ERROR"
+  ]
+}

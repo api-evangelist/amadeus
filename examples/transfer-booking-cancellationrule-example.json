@@ -1,0 +1,9 @@
+{
+  "ruleDescription": "example-ruleDescription",
+  "feeType": "PERCENTAGE",
+  "feeValue": "example-feeValue",
+  "currencyCode": "example-currencyCode",
+  "metricType": "MINUTES",
+  "metricMin": "example-metricMin",
+  "metricMax": "example-metricMax"
+}

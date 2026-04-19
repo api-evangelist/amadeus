@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Facility",
+  "type": "record",
+  "fields": [
+    {
+      "name": "code",
+      "type": "string",
+      "description": "Facility code, as described in the facility dictionary"
+    },
+    {
+      "name": "column",
+      "type": "string"
+    },
+    {
+      "name": "row",
+      "type": "string"
+    },
+    {
+      "name": "position",
+      "type": "string",
+      "description": "Position is either front, rear or seat (in case the facility takes the place of a seat)"
+    },
+    {
+      "name": "coordinates",
+      "type": "string"
+    }
+  ]
+}

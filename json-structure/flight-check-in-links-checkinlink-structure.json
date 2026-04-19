@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "CheckinLink",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "the resource name"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "identifier of the resource"
+    },
+    {
+      "name": "href",
+      "type": "uri",
+      "description": "direct URL to the relevant page"
+    },
+    {
+      "name": "channel",
+      "type": "string",
+      "description": "indicates the type of channel supported by the URL"
+    },
+    {
+      "name": "parameters",
+      "type": "string",
+      "description": "list of URL parameters with descriptive information such as description and/or type and/or format"
+    }
+  ]
+}

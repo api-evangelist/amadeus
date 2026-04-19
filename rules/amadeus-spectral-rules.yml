@@ -1,0 +1,125 @@
+extends:
+- - spectral:oas
+  - all
+rules:
+  amadeus-info-title-required:
+    description: API info must have a title field.
+    message: Info object must include a title.
+    severity: error
+    given: $.info
+    then:
+      field: title
+      function: truthy
+  amadeus-info-description-required:
+    description: API info must have a description.
+    message: Info object must include a description.
+    severity: error
+    given: $.info
+    then:
+      field: description
+      function: truthy
+  amadeus-info-version-required:
+    description: API info must have a version.
+    message: Info object must include a version.
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+  amadeus-operation-summary-required:
+    description: All operations must have a summary.
+    message: Operation must include a summary.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: summary
+      function: truthy
+  amadeus-operation-description-required:
+    description: All operations should have a description.
+    message: Operation should include a description.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: description
+      function: truthy
+  amadeus-operation-tags-required:
+    description: All operations must have at least one tag.
+    message: Operation must include at least one tag.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: tags
+      function: truthy
+  amadeus-operation-operationid-required:
+    description: All operations must have an operationId.
+    message: Operation must include an operationId.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: operationId
+      function: truthy
+  amadeus-parameter-description-required:
+    description: All parameters must have a description.
+    message: Parameter must include a description.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[*]
+    then:
+      field: description
+      function: truthy
+  amadeus-response-200-required:
+    description: All GET operations must have a 200 response.
+    message: GET operation must include a 200 response.
+    severity: error
+    given: $.paths[*].get
+    then:
+      field: responses.200
+      function: truthy
+  amadeus-response-description-required:
+    description: All responses must have a description.
+    message: Response must include a description.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].responses[*]
+    then:
+      field: description
+      function: truthy
+  amadeus-security-bearer-defined:
+    description: API should define bearer security scheme.
+    message: API should include BearerAuth security scheme.
+    severity: warn
+    given: $.components.securitySchemes
+    then:
+      field: BearerAuth
+      function: truthy
+  amadeus-schema-description:
+    description: Schemas should have descriptions.
+    message: Schema component should include a description.
+    severity: info
+    given: $.components.schemas[*]
+    then:
+      field: description
+      function: truthy
+  amadeus-paths-kebab-case:
+    description: API paths should use kebab-case.
+    message: Path must use kebab-case.
+    severity: warn
+    given: $.paths
+    then:
+      function: pattern
+      functionOptions:
+        match: ^(/[a-z0-9{}-]+)+$
+  amadeus-contact-required:
+    description: API info should include contact information.
+    message: Info object should include contact details.
+    severity: info
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+  amadeus-servers-required:
+    description: API must define at least one server.
+    message: API must include a servers array.
+    severity: error
+    given: $
+    then:
+      field: servers
+      function: truthy

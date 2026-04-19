@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TransferCancellation",
+  "description": "information returned in cancelation response",
+  "type": "object",
+  "properties": {
+    "confirmNbr": {
+      "type": "string",
+      "description": "transfer identifier - confirmation number from service provider that identifies the ride"
+    },
+    "reservationStatus": {
+      "type": "string",
+      "description": "status of reservation",
+      "enum": [
+        "CANCELLED",
+        "CONFIRMED"
+      ]
+    }
+  }
+}

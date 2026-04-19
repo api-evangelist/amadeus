@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "vehicle",
+  "type": "record",
+  "fields": [
+    {
+      "name": "vehicleType",
+      "type": "string",
+      "description": "Code (codelist TVT) for the generic transport service returned, e.g. High speed, Intercities, Night and so on"
+    },
+    {
+      "name": "code",
+      "type": "string"
+    },
+    {
+      "name": "number",
+      "type": "string"
+    },
+    {
+      "name": "displayName",
+      "type": "string"
+    }
+  ]
+}

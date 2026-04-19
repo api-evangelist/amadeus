@@ -1,0 +1,17 @@
+{
+  "type": "example-type",
+  "id": "example-id",
+  "self": "example-self",
+  "departure": "example-departure",
+  "arrival": "example-arrival",
+  "carrierCode": "example-carrierCode",
+  "number": "example-number",
+  "operating": "example-operating",
+  "aircraft": "example-aircraft",
+  "class": "example-class",
+  "flightOfferId": "example-flightOfferId",
+  "segmentId": "example-segmentId",
+  "decks": [],
+  "aircraftCabinAmenities": "example-aircraftCabinAmenities",
+  "availableSeatsCounters": []
+}

@@ -1,0 +1,18 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "confirmNbr": {
+      "@id": "schema:confirmNbr",
+      "@type": "xsd:string"
+    },
+    "reservationStatus": {
+      "@id": "schema:reservationStatus",
+      "@type": "xsd:string"
+    },
+    "errors": {
+      "@id": "schema:errors"
+    }
+  }
+}

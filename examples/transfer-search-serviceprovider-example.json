@@ -1,0 +1,10 @@
+{
+  "code": "example-code",
+  "name": "example-name",
+  "logoUrl": "example-logoUrl",
+  "termsUrl": "example-termsUrl",
+  "isPreferred": true,
+  "contacts": "example-contacts",
+  "settings": [],
+  "businessIdentification": "example-businessIdentification"
+}

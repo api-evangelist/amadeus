@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AircraftEquipment",
+  "type": "record",
+  "fields": [
+    {
+      "name": "code",
+      "type": "string",
+      "description": "IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)\n"
+    },
+    {
+      "name": "configurationVersion",
+      "type": "string",
+      "description": "aircraft Configuration Version code. Physical configuration, also called ACV code (aircraft type + fitted configuration)\n"
+    }
+  ]
+}

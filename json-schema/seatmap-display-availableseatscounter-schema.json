@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AvailableSeatsCounter",
+  "type": "object",
+  "properties": {
+    "travelerId": {
+      "type": "string",
+      "description": "Traveler id"
+    },
+    "value": {
+      "type": "integer",
+      "description": "Number of Seats with status AVAILABLE"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_Commission",
+  "type": "object",
+  "properties": {
+    "percentage": {
+      "type": "string",
+      "description": "Percentage of the commission paid to the travel seller. Value is between 0 and 100"
+    },
+    "amount": {
+      "type": "string",
+      "description": "Amount of the commission paid to the travel seller. The amount is always linked to the currency code of the offer"
+    },
+    "description": {
+      "$ref": "#/definitions/QualifiedFreeText"
+    }
+  }
+}

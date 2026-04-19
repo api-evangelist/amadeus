@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "stakeholder",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "item identifier"
+    },
+    {
+      "name": "nationality",
+      "type": "string",
+      "description": "Nationality of the Stakeholder"
+    },
+    {
+      "name": "passangerTypeCode",
+      "type": "string",
+      "description": "3-characters code defining the passenger type - possible values: ADT, CHD, INS, INF, UNA"
+    },
+    {
+      "name": "dateOfBirth",
+      "type": "string",
+      "description": "The individual's date of birth."
+    },
+    {
+      "name": "age",
+      "type": "int32",
+      "description": "Current age of the individual."
+    },
+    {
+      "name": "name",
+      "type": "string"
+    }
+  ]
+}

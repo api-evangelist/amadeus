@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AvailableSeatsCounter",
+  "type": "record",
+  "fields": [
+    {
+      "name": "travelerId",
+      "type": "string",
+      "description": "Traveler id"
+    },
+    {
+      "name": "value",
+      "type": "int32",
+      "description": "Number of Seats with status AVAILABLE"
+    }
+  ]
+}

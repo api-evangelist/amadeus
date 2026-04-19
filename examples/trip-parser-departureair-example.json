@@ -1,0 +1,6 @@
+{
+  "iataCode": "example-iataCode",
+  "terminal": "example-terminal",
+  "checkInEndTime": "example-checkInEndTime",
+  "localDateTime": "example-localDateTime"
+}

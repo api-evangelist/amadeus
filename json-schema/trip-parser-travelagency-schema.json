@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "travelAgency",
+  "description": "details on the travel agency owning the trip",
+  "type": "object",
+  "properties": {
+    "officeName": {
+      "type": "string",
+      "description": "Office name of the travel agency"
+    },
+    "address": {
+      "$ref": "#/definitions/address"
+    },
+    "phone": {
+      "$ref": "#/definitions/phone"
+    },
+    "email": {
+      "$ref": "#/definitions/email"
+    }
+  }
+}

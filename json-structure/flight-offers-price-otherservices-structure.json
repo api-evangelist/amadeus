@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "OtherServices",
+  "type": "record",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "string"
+    },
+    {
+      "name": "bookableByTraveler",
+      "type": "boolean",
+      "description": "Specify if the service is bookable by traveler or for all travelers"
+    },
+    {
+      "name": "bookableByItinerary",
+      "type": "boolean",
+      "description": "Specify if the service is bookable by itinerary or for all itineraries"
+    },
+    {
+      "name": "segmentIds",
+      "type": "array",
+      "description": "Id of the segment concerned by the service",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "travelerIds",
+      "type": "array",
+      "description": "Id of the traveler concerned by the service",
+      "items": {
+        "type": "string"
+      }
+    }
+  ]
+}

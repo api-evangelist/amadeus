@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "TicketingAgreement",
+  "type": "record",
+  "fields": [
+    {
+      "name": "option",
+      "type": "string"
+    },
+    {
+      "name": "delay",
+      "type": "string",
+      "description": "Delay before applying automatic process if no issuance in days"
+    },
+    {
+      "name": "dateTime",
+      "type": "string",
+      "description": "Exact date to apply automatic process if no issuance. YYYY-MM-DD format, e.g. 2019-06-07"
+    },
+    {
+      "name": "segmentIds",
+      "type": "array",
+      "description": "Ids of the impacted segments",
+      "items": {
+        "type": "string"
+      }
+    }
+  ]
+}

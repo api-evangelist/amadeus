@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Price",
+  "type": "record",
+  "fields": [
+    {
+      "name": "currency",
+      "type": "string"
+    },
+    {
+      "name": "total",
+      "type": "string",
+      "description": "Total amount paid by the user"
+    },
+    {
+      "name": "base",
+      "type": "string",
+      "description": "Amount without taxes"
+    },
+    {
+      "name": "fees",
+      "type": "array",
+      "description": "List of applicable fees",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "taxes",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

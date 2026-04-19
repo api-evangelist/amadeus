@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Document",
+  "type": "record",
+  "fields": [
+    {
+      "name": "number",
+      "type": "string",
+      "description": "The document number (shown on the document) . E.g. QFU514563221J"
+    },
+    {
+      "name": "issuanceDate",
+      "type": "date",
+      "description": "Date at which the document has been issued."
+    },
+    {
+      "name": "expiryDate",
+      "type": "date",
+      "description": "Date after which the document is not valid anymore."
+    },
+    {
+      "name": "issuanceCountry",
+      "type": "string",
+      "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the country that issued the document"
+    },
+    {
+      "name": "issuanceLocation",
+      "type": "string",
+      "description": "A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York"
+    },
+    {
+      "name": "nationality",
+      "type": "string",
+      "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the nationality appearing on the document"
+    },
+    {
+      "name": "birthPlace",
+      "type": "string",
+      "description": "Birth place as indicated on the document"
+    }
+  ]
+}

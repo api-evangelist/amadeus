@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "carrier",
+  "description": "Includes the common name of the carrier (Operating or Marketing)",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Common name of the organization."
+    }
+  }
+}

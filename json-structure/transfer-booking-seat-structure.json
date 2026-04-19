@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Seat",
+  "type": "record",
+  "fields": [
+    {
+      "name": "count",
+      "type": "int32",
+      "description": "seat capacity"
+    },
+    {
+      "name": "row",
+      "type": "string",
+      "description": "seat row"
+    },
+    {
+      "name": "size",
+      "type": "string",
+      "description": "seat size"
+    }
+  ]
+}

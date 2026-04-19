@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "stakeholder",
+  "description": "Definition of PNR travelers. Fields gender, nationality, placeOfBirth, countryOfResidence are only populated for passengerDelivery resources.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "item identifier"
+    },
+    "nationality": {
+      "type": "string",
+      "description": "Nationality of the Stakeholder"
+    },
+    "passangerTypeCode": {
+      "type": "string",
+      "description": "3-characters code defining the passenger type - possible values: ADT, CHD, INS, INF, UNA"
+    },
+    "dateOfBirth": {
+      "type": "string",
+      "description": "The individual's date of birth."
+    },
+    "age": {
+      "type": "integer",
+      "description": "Current age of the individual."
+    },
+    "name": {
+      "$ref": "#/definitions/name"
+    }
+  }
+}

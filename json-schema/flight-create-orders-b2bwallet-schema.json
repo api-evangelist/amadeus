@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "B2bWallet",
+  "description": "b2b wallet",
+  "type": "object",
+  "properties": {
+    "cardId": {
+      "type": "string",
+      "description": "card identifier"
+    },
+    "cardUsageName": {
+      "type": "string",
+      "description": "card usage name"
+    },
+    "cardFriendlyName": {
+      "type": "string",
+      "description": "card name"
+    },
+    "reportingData": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "virtualCreditCardDetails": {
+      "$ref": "#/definitions/VirtualCreditCardDetails"
+    },
+    "flightOfferIds": {
+      "type": "array",
+      "description": "Id of the concern flightOffers",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

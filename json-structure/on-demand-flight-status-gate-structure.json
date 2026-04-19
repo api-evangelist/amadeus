@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Gate",
+  "type": "record",
+  "fields": [
+    {
+      "name": "mainGate",
+      "type": "string",
+      "description": "the main gate number"
+    }
+  ]
+}

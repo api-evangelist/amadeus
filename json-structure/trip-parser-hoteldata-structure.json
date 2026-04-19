@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "hotelData",
+  "type": "record",
+  "fields": [
+    {
+      "name": "confirmationNumber",
+      "type": "string",
+      "description": "Confirmation number"
+    },
+    {
+      "name": "checkInDate",
+      "type": "string",
+      "description": "heck-in date of the stay (hotel local date). Format YYYY-MM-DD The lowest accepted value is today date (no dates in the past)."
+    },
+    {
+      "name": "checkOutDate",
+      "type": "string",
+      "description": "check-out date of the stay (hotel local date). Format YYYY-MM-DD The lowest accepted value is checkInDate+1."
+    },
+    {
+      "name": "roomQuantity",
+      "type": "int32",
+      "description": "number of rooms (1-9)"
+    },
+    {
+      "name": "contact",
+      "type": "string"
+    },
+    {
+      "name": "address",
+      "type": "string"
+    },
+    {
+      "name": "amenities",
+      "type": "array",
+      "description": "amenities (list)",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Hotel Name"
+    },
+    {
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "name": "policies",
+      "type": "string"
+    },
+    {
+      "name": "guests",
+      "type": "string"
+    },
+    {
+      "name": "room",
+      "type": "string"
+    }
+  ]
+}

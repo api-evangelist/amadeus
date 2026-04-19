@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FlightAvailability",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "id": {
+      "type": "string",
+      "description": "Id of the flight availability"
+    },
+    "originDestinationId": {
+      "type": "string",
+      "description": "Id of the originDestination in query"
+    },
+    "source": {
+      "$ref": "#/definitions/FlightOfferSource"
+    },
+    "instantTicketingRequired": {
+      "type": "boolean",
+      "description": "If true, inform that a ticketing will be required at booking step."
+    },
+    "paymentCardRequired": {
+      "type": "boolean",
+      "description": "If true, a payment card is mandatory to book this flight offer"
+    },
+    "duration": {
+      "type": "string",
+      "description": "duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m"
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Extended_Segment"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "source",
+    "segments"
+  ]
+}

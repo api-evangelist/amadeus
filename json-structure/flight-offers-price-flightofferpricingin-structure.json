@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "FlightOfferPricingIn",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "the resource name"
+    },
+    {
+      "name": "flightOffers",
+      "type": "array",
+      "description": "list of flight offer to price",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "payments",
+      "type": "array",
+      "description": "payment information for retrieve eventual credit card fees",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "travelers",
+      "type": "array",
+      "description": "list of travelers",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

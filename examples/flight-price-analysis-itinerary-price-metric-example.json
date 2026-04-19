@@ -1,0 +1,10 @@
+{
+  "type": "example-type",
+  "origin": {},
+  "destination": {},
+  "departureDate": "example-departureDate",
+  "transportType": "FLIGHT",
+  "currencyCode": "example-currencyCode",
+  "oneWay": true,
+  "priceMetrics": []
+}

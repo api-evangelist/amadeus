@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "OriginalFlightStop",
+  "type": "record",
+  "fields": [
+    {
+      "name": "iataCode",
+      "type": "string",
+      "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)"
+    },
+    {
+      "name": "duration",
+      "type": "string",
+      "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M"
+    }
+  ]
+}

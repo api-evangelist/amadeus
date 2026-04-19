@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "HotelProduct_PriceVariation",
+  "type": "record",
+  "fields": [
+    {
+      "name": "startDate",
+      "type": "date",
+      "description": "Begin date of the period\nFormat: YYYY-MM-DD"
+    },
+    {
+      "name": "endDate",
+      "type": "date",
+      "description": "End date of the period\nFormat: YYYY-MM-DD"
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "description": "currency Code apply to all elements of the price"
+    },
+    {
+      "name": "sellingTotal",
+      "type": "string",
+      "description": "sellingTotal = Total + margins + markup + totalFees - discounts"
+    },
+    {
+      "name": "total",
+      "type": "string",
+      "description": "total = base + totalTaxes"
+    },
+    {
+      "name": "base",
+      "type": "string"
+    },
+    {
+      "name": "markups",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

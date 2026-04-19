@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Vehicle",
+  "type": "record",
+  "fields": [
+    {
+      "name": "code",
+      "type": "string",
+      "description": "vehicle type, which can take following values\n\nvalue           | description\n--  | \nCAR             | Car\nSED             | Sedan\nWGN             | Wagon\nELC             | Electric car\nVAN             | Van or minivan\nSUV             | Sport utility vehicle\nLMS             | Limousine\nMBR             | Motorbike\nTRN             | Train\nBUS             | Bus\nHLC             | Helicopter (accessible only for private jet transfer)\nJET             | Jet (accessible only for private jet transfer)\n"
+    },
+    {
+      "name": "category",
+      "type": "string",
+      "description": "category of the vehicle, which can take following values\n\nvalue           | description\n--  | \nST              | Standard\nBU              | Business\nFC              | First class\n"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "description of the vehicle. Can describe a list of potential vehicles, e.g. VW Polo or similar"
+    },
+    {
+      "name": "seats",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "baggages",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "imageURL",
+      "type": "string",
+      "description": "URL to vehicle image"
+    }
+  ]
+}

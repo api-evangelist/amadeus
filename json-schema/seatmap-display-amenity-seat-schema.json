@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Amenity_Seat",
+  "description": "Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space",
+  "type": "object",
+  "properties": {
+    "legSpace": {
+      "type": "integer",
+      "description": "Space between 2 seats"
+    },
+    "spaceUnit": {
+      "type": "string",
+      "enum": [
+        "INCHES",
+        "CENTIMENTERS"
+      ]
+    },
+    "tilt": {
+      "type": "string",
+      "description": "Flatness of a seat",
+      "enum": [
+        "FULL_FLAT",
+        "ANGLE_FLAT",
+        "NORMAL"
+      ]
+    },
+    "amenityType": {
+      "type": "string",
+      "enum": [
+        "SEAT"
+      ]
+    },
+    "medias": {
+      "type": "array",
+      "description": "list of media associated to the seat (rich content)",
+      "items": {
+        "$ref": "#/definitions/Amenity_Media"
+      }
+    }
+  }
+}

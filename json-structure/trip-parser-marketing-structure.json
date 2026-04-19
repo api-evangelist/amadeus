@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "marketing",
+  "type": "record",
+  "fields": [
+    {
+      "name": "carrier",
+      "type": "string"
+    },
+    {
+      "name": "flightDesignator",
+      "type": "string"
+    }
+  ]
+}

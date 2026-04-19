@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "warnings",
+  "type": "record",
+  "fields": [
+    {
+      "name": "code",
+      "type": "int32",
+      "description": "A machine-readable error code from the Canned Messages table, that will enable the API Consumers code to handle this type of error"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized"
+    },
+    {
+      "name": "detail",
+      "type": "string",
+      "description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field\u2019s value can be localized."
+    },
+    {
+      "name": "source",
+      "type": "object",
+      "description": "The Warning Source Definition"
+    }
+  ]
+}

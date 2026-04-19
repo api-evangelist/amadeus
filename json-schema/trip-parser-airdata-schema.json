@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "airData",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "confirmationNumber": {
+      "type": "string"
+    },
+    "baggages": {
+      "$ref": "#/definitions/baggages"
+    },
+    "meal": {
+      "$ref": "#/definitions/meal"
+    },
+    "departureAirportLocation": {
+      "$ref": "#/definitions/departureAirportLocation"
+    },
+    "arrivalAirportLocation": {
+      "$ref": "#/definitions/arrivalAirportLocation"
+    },
+    "departure": {
+      "$ref": "#/definitions/departureAir"
+    },
+    "arrival": {
+      "$ref": "#/definitions/arrivalAir"
+    },
+    "marketing": {
+      "$ref": "#/definitions/marketing"
+    },
+    "operating": {
+      "$ref": "#/definitions/operating"
+    },
+    "aircraft": {
+      "$ref": "#/definitions/aircraft"
+    },
+    "seats": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/seats"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "associationRefs": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/associationRefs"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

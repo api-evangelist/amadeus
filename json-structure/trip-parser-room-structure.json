@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "room",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Room type code, 3 character identifier of the room. The first character identifies the room type category. The second numeric character identifies the number of beds. The third character identifies the bed type. There is a special case where ROH is returned, this value stands for Run Of House."
+    },
+    {
+      "name": "typeEstimated",
+      "type": "string"
+    }
+  ]
+}

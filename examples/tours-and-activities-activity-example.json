@@ -1,0 +1,14 @@
+{
+  "type": "example-type",
+  "id": "example-id",
+  "self": "example-self",
+  "name": "example-name",
+  "shortDescription": "example-shortDescription",
+  "description": "example-description",
+  "geoCode": "example-geoCode",
+  "rating": "example-rating",
+  "price": "example-price",
+  "pictures": [],
+  "bookingLink": "example-bookingLink",
+  "minimumDuration": "example-minimumDuration"
+}

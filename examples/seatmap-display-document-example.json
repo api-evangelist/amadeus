@@ -1,0 +1,9 @@
+{
+  "number": "example-number",
+  "issuanceDate": "2024-01-15",
+  "expiryDate": "2024-01-15",
+  "issuanceCountry": "example-issuanceCountry",
+  "issuanceLocation": "example-issuanceLocation",
+  "nationality": "example-nationality",
+  "birthPlace": "example-birthPlace"
+}

@@ -1,0 +1,10 @@
+{
+  "code": "BBS",
+  "itemId": "example-itemId",
+  "description": "example-description",
+  "quotation": "example-quotation",
+  "converted": "example-converted",
+  "isBookable": true,
+  "taxIncluded": true,
+  "includedInTotal": true
+}

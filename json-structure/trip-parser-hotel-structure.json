@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "hotel",
+  "type": "record",
+  "fields": [
+    {
+      "name": "hotel",
+      "type": "string"
+    }
+  ]
+}

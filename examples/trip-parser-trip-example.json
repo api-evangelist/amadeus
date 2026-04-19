@@ -1,0 +1,16 @@
+{
+  "type": "example-type",
+  "reference": "example-reference",
+  "creationDateTime": "example-creationDateTime",
+  "bookingDate": "example-bookingDate",
+  "bookingNumber": "example-bookingNumber",
+  "provider": "example-provider",
+  "title": "example-title",
+  "description": "example-description",
+  "start": "example-start",
+  "end": "example-end",
+  "travelAgency": "example-travelAgency",
+  "stakeholders": [],
+  "price": "example-price",
+  "products": []
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "response_citySearch",
+  "type": "record",
+  "fields": [
+    {
+      "name": "warnings",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "meta",
+      "type": "string"
+    },
+    {
+      "name": "data",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "included",
+      "type": "object"
+    }
+  ]
+}

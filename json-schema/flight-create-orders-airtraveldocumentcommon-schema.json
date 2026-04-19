@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AirTravelDocumentCommon",
+  "type": "object",
+  "properties": {
+    "documentType": {
+      "type": "string",
+      "description": "Type of the travel document",
+      "enum": [
+        "ETICKET",
+        "PTICKET",
+        "EMD",
+        "MCO"
+      ]
+    },
+    "documentNumber": {
+      "type": "string",
+      "description": "Identifier of the travel document prefixed by its owner code [NALC - 3 digits]. Can either be a primary or a conjunctive document number. Necessary for TicketingReference definition."
+    },
+    "documentStatus": {
+      "type": "string",
+      "description": "Status of the travel document contained in the fare element",
+      "enum": [
+        "ISSUED",
+        "REFUNDED",
+        "VOID",
+        "ORIGINAL",
+        "EXCHANGED"
+      ]
+    }
+  }
+}

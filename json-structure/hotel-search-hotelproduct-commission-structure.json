@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "HotelProduct_Commission",
+  "type": "record",
+  "fields": [
+    {
+      "name": "percentage",
+      "type": "string",
+      "description": "Percentage of the commission paid to the travel seller. Value is between 0 and 100"
+    },
+    {
+      "name": "amount",
+      "type": "string",
+      "description": "Amount of the commission paid to the travel seller. The amount is always linked to the currency code of the offer"
+    },
+    {
+      "name": "description",
+      "type": "string"
+    }
+  ]
+}

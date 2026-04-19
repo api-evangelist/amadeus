@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PredictionResultType",
+  "description": "forecast description",
+  "type": "string",
+  "enum": [
+    "LESS_THAN_30_MINUTES",
+    "BETWEEN_30_AND_60_MINUTES",
+    "BETWEEN_60_AND_120_MINUTES",
+    "OVER_120_MINUTES_OR_CANCELLED"
+  ]
+}

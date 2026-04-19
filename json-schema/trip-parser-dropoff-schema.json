@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "dropoff",
+  "description": "dropoff location and time of the rented vehicle.",
+  "type": "object",
+  "properties": {
+    "localDateTime": {
+      "type": "string",
+      "description": "local date and time compliant with ISO8601."
+    },
+    "location": {
+      "$ref": "#/definitions/location"
+    }
+  }
+}

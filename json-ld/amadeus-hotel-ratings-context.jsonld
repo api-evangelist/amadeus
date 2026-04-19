@@ -1,0 +1,62 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "hotelId": {
+      "@id": "schema:hotelId",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "schema:type",
+      "@type": "xsd:string"
+    },
+    "overallRating": {
+      "@id": "schema:overallRating",
+      "@type": "xsd:string"
+    },
+    "numberOfRatings": {
+      "@id": "schema:numberOfRatings",
+      "@type": "xsd:integer"
+    },
+    "numberOfReviews": {
+      "@id": "schema:numberOfReviews",
+      "@type": "xsd:integer"
+    },
+    "sentiments": {
+      "@id": "schema:sentiments"
+    },
+    "count": {
+      "@id": "schema:count",
+      "@type": "xsd:integer"
+    },
+    "links": {
+      "@id": "schema:links",
+      "@type": "xsd:string"
+    },
+    "self": {
+      "@id": "schema:self",
+      "@type": "@id"
+    },
+    "next": {
+      "@id": "schema:next",
+      "@type": "@id"
+    },
+    "previous": {
+      "@id": "schema:previous",
+      "@type": "@id"
+    },
+    "last": {
+      "@id": "schema:last",
+      "@type": "@id"
+    },
+    "first": {
+      "@id": "schema:first",
+      "@type": "@id"
+    },
+    "up": {
+      "@id": "schema:up",
+      "@type": "@id"
+    }
+  }
+}

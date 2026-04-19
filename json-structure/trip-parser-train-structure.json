@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "train",
+  "type": "record",
+  "fields": [
+    {
+      "name": "train",
+      "type": "string"
+    }
+  ]
+}

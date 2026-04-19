@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Arrival",
+  "type": "record",
+  "fields": [
+    {
+      "name": "terminal",
+      "type": "string",
+      "description": "the arrival terminal of the airport"
+    },
+    {
+      "name": "gate",
+      "type": "string",
+      "description": "the arrival gate of the airport"
+    },
+    {
+      "name": "timings",
+      "type": "array",
+      "description": "the list of timings",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

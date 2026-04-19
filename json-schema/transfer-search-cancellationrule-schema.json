@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CancellationRule",
+  "description": "cancellation rule information",
+  "type": "object",
+  "properties": {
+    "ruleDescription": {
+      "type": "string",
+      "description": "description of cancellation rule"
+    },
+    "feeType": {
+      "type": "string",
+      "description": "type of fee - percentage of total amount (PERCENTAGE) or fixed amount (VALUE)\n",
+      "enum": [
+        "PERCENTAGE",
+        "VALUE"
+      ]
+    },
+    "feeValue": {
+      "type": "string",
+      "description": "value of the fee, e.g. \"100\" or \"12.50\""
+    },
+    "currencyCode": {
+      "type": "string",
+      "description": "currency code of the fee in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. USD, EUR"
+    },
+    "metricType": {
+      "type": "string",
+      "description": "type of metric",
+      "enum": [
+        "MINUTES",
+        "HOURS",
+        "DAYS",
+        "YEARS"
+      ]
+    },
+    "metricMin": {
+      "type": "string",
+      "description": "metric min value"
+    },
+    "metricMax": {
+      "type": "string",
+      "description": "metric max value"
+    }
+  }
+}

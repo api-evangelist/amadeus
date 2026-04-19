@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Issue",
+  "description": "A non-blocking warning or issue encountered during request processing.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "integer",
+      "description": "HTTP status code associated with the issue."
+    },
+    "code": {
+      "type": "integer",
+      "description": "Application-specific error code."
+    },
+    "title": {
+      "type": "string",
+      "description": "Short description of the issue."
+    },
+    "detail": {
+      "type": "string",
+      "description": "Detailed explanation of the issue."
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "pointer": {
+          "type": "string",
+          "description": "JSON pointer to the associated entity in the request."
+        },
+        "parameter": {
+          "type": "string",
+          "description": "Name of the query parameter that caused the issue."
+        },
+        "example": {
+          "type": "string",
+          "description": "Example of a valid value for the parameter."
+        }
+      }
+    }
+  }
+}

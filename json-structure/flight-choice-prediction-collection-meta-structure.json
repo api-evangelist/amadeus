@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Collection_Meta",
+  "type": "record",
+  "fields": [
+    {
+      "name": "count",
+      "type": "int32"
+    },
+    {
+      "name": "links",
+      "type": "string"
+    },
+    {
+      "name": "oneWayCombinations",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FlightOfferPricingOut",
+  "description": "priced flight Offers and conditions",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "flightOffers": {
+      "type": "array",
+      "description": "list of flight offer to price",
+      "items": {
+        "$ref": "#/definitions/FlightOffer"
+      }
+    },
+    "bookingRequirements": {
+      "type": "object",
+      "description": "pricing condition at booking level",
+      "properties": {
+        "invoiceAddressRequired": {
+          "type": "boolean",
+          "description": "If true, an invoice address is required for the creation of the flight-order"
+        },
+        "mailingAddressRequired": {
+          "type": "boolean",
+          "description": "If true, a postal address is required for the creation of the flight-order"
+        },
+        "emailAddressRequired": {
+          "type": "boolean",
+          "description": "If true, an email address is required for the creation of the flight-order"
+        },
+        "phoneCountryCodeRequired": {
+          "type": "boolean",
+          "description": "If true, the phone country code (e.g. '33') associated for each phone number is required for the creation of the flight-order"
+        },
+        "mobilePhoneNumberRequired": {
+          "type": "boolean",
+          "description": "If true, a mobile phone number is required for the creation of the flight-order"
+        },
+        "phoneNumberRequired": {
+          "type": "boolean",
+          "description": "If true, a phone number is required for the creation of the flight-order"
+        },
+        "postalCodeRequired": {
+          "type": "boolean",
+          "description": "If true, a postal code is required for the creation of the flight-order"
+        },
+        "travelerRequirements": {
+          "type": "array",
+          "description": "traveler pricing condition",
+          "items": {
+            "properties": {
+              "travelerId": {
+                "type": "string",
+                "description": "Id of the traveler"
+              },
+              "genderRequired": {
+                "type": "boolean",
+                "description": "If true, the gender is required for the concerned traveler for the creation of the flight-order"
+              },
+              "documentRequired": {
+                "type": "boolean",
+                "description": "If true, a document is required for the concerned traveler for the creation of the flight-order"
+              },
+              "documentIssuanceCityRequired": {
+                "type": "boolean",
+                "description": "If true, the isuance city of the document is required for the concerned traveler for the creation of the flight-order"
+              },
+              "dateOfBirthRequired": {
+                "type": "boolean",
+                "description": "If true, the date of bitrth is required for the concerned traveler for the creation of the flight-order"
+              },
+              "redressRequiredIfAny": {
+                "type": "boolean",
+                "description": "If true, the redress is required if any for the concerned traveler for the creation of the flight-order"
+              },
+              "airFranceDiscountRequired": {
+                "type": "boolean",
+                "description": "If true, the Air France discount is required for the concerned traveler for the creation of the flight-order"
+              },
+              "spanishResidentDiscountRequired": {
+                "type": "boolean",
+                "description": "If true, the Spanish resident discount is required for the concerned traveler for the creation of the flight-order"
+              },
+              "residenceRequired": {
+                "type": "boolean",
+                "description": "If true, the address is required for the concerned traveler for the creation of the flight-order"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "type",
+    "flightOffers"
+  ]
+}

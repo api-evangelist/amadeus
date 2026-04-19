@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GeneralRemark",
+  "type": "object",
+  "properties": {
+    "subType": {
+      "$ref": "#/definitions/GeneralRemarkType"
+    },
+    "category": {
+      "type": "string",
+      "description": "remark category"
+    },
+    "text": {
+      "type": "string",
+      "description": "remark free text"
+    },
+    "travelerIds": {
+      "type": "array",
+      "description": "Id of the concerned traveler",
+      "items": {
+        "type": "string"
+      }
+    },
+    "flightOfferIds": {
+      "type": "array",
+      "description": "Id of the concern flightOffers",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "subType",
+    "text"
+  ]
+}

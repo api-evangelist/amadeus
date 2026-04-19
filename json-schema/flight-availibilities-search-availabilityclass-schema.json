@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AvailabilityClass",
+  "type": "object",
+  "properties": {
+    "numberOfBookableSeats": {
+      "type": "number",
+      "description": "Number of seats bookable in a single request. Can not be higher than 9."
+    },
+    "class": {
+      "type": "string",
+      "description": "The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)"
+    },
+    "closedStatus": {
+      "type": "string",
+      "description": "Status of the booking class when it is closed.",
+      "enum": [
+        "WAITLIST_OPEN",
+        "WAITLIST_CLOSED",
+        "ON_REQUEST"
+      ]
+    },
+    "tourAllotment": {
+      "$ref": "#/definitions/TourAllotment"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "includedCheckedBagsOnly": true,
+  "refundableFare": true,
+  "noRestrictionFare": true,
+  "noPenaltyFare": true
+}

@@ -1,0 +1,8 @@
+{
+  "type": "example-type",
+  "scheduledDepartureDate": "2024-01-15",
+  "flightDesignator": "example-flightDesignator",
+  "flightPoints": [],
+  "segments": [],
+  "legs": []
+}

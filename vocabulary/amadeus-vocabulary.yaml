@@ -1,0 +1,254 @@
+vocabulary: 1.0.0
+info:
+  provider: Amadeus
+  description: Vocabulary capturing the full taxonomy of the Amadeus self-service API surface, covering flights, hotels, transfers, destination experiences, market insights, and itinerary management.
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - namespace: flight-offers-search
+    name: Flight Offers Search API
+    version: 2.0.0
+    baseUrl: https://test.api.amadeus.com/v2
+    status: active
+  - namespace: flight-offers-price
+    name: Flight Offers Price API
+    version: 1.1.0
+    baseUrl: https://test.api.amadeus.com/v1
+    status: active
+  - namespace: flight-create-orders
+    name: Flight Create Orders API
+    version: 1.0.0
+    baseUrl: https://test.api.amadeus.com/v1
+    status: active
+  - namespace: flight-order-management
+    name: Flight Order Management API
+    version: 1.0.0
+    baseUrl: https://test.api.amadeus.com/v1
+    status: active
+  - namespace: seatmap-display
+    name: Seatmap Display API
+    version: 1.0.0
+    baseUrl: https://test.api.amadeus.com/v1
+    status: active
+  - namespace: branded-fares-upsell
+    name: Branded Fares Upsell API
+    version: 1.0.0
+    baseUrl: https://test.api.amadeus.com/v1
+    status: active
+  - namespace: hotel-list
+    name: Hotel List API
+    version: 1.0.4
+    baseUrl: https://test.api.amadeus.com/v1
+    status: active
+  - namespace: hotel-search
+    name: Hotel Search API
+    version: 3.0.8
+    baseUrl: https://test.api.amadeus.com/v3
+    status: active
+  - namespace: hotel-booking
+    name: Hotel Booking API
+    version: 2.0.0
+    baseUrl: https://test.api.amadeus.com/v2
+    status: active
+  - namespace: transfer-search
+    name: Transfer Search API
+    version: 1.0.0
+    baseUrl: https://test.api.amadeus.com/v1
+    status: active
+  - namespace: transfer-booking
+    name: Transfer Booking API
+    version: 1.0.0
+    baseUrl: https://test.api.amadeus.com/v1
+    status: active
+  - namespace: points-of-interest
+    name: Points of Interest API
+    version: 1.0.0
+    baseUrl: https://test.api.amadeus.com/v1
+    status: active
+  - namespace: tours-and-activities
+    name: Tours and Activities API
+    version: 1.0.0
+    baseUrl: https://test.api.amadeus.com/v1
+    status: active
+  resources:
+  - name: flight-offers
+    description: Flight search results with pricing and availability.
+    apis:
+    - flight-offers-search
+    - flight-offers-price
+    actions:
+    - search
+    - price
+  - name: flight-orders
+    description: Booked flight reservations and order management.
+    apis:
+    - flight-create-orders
+    - flight-order-management
+    actions:
+    - create
+    - get
+    - delete
+  - name: hotels
+    description: Hotel property listings and identifiers.
+    apis:
+    - hotel-list
+    actions:
+    - search-by-city
+    - search-by-geocode
+    - search-by-hotel-ids
+  - name: hotel-offers
+    description: Hotel room availability and pricing.
+    apis:
+    - hotel-search
+    actions:
+    - search
+    - get
+  - name: hotel-orders
+    description: Hotel booking reservations.
+    apis:
+    - hotel-booking
+    actions:
+    - create
+  - name: transfers
+    description: Ground transportation search and booking.
+    apis:
+    - transfer-search
+    - transfer-booking
+    actions:
+    - search
+    - create
+    - delete
+  - name: points-of-interest
+    description: Tourist attractions and popular places.
+    apis:
+    - points-of-interest
+    actions:
+    - search-by-location
+    - get
+  actions:
+  - name: search
+    description: Search for available options by query parameters.
+    httpMethod: GET
+    pattern: query
+  - name: get
+    description: Retrieve a specific resource by identifier.
+    httpMethod: GET
+    pattern: read
+  - name: create
+    description: Create a new booking or order.
+    httpMethod: POST
+    pattern: write
+  - name: delete
+    description: Cancel or delete an existing order.
+    httpMethod: DELETE
+    pattern: delete
+  - name: price
+    description: Confirm pricing for a selected offer.
+    httpMethod: POST
+    pattern: write
+  - name: search-by-city
+    description: Find resources within a city using IATA code.
+    httpMethod: GET
+    pattern: query
+  - name: search-by-geocode
+    description: Find resources near geographic coordinates.
+    httpMethod: GET
+    pattern: query
+  - name: search-by-hotel-ids
+    description: Retrieve hotel data for specific property codes.
+    httpMethod: GET
+    pattern: query
+  - name: search-by-location
+    description: Find attractions near a geographic location.
+    httpMethod: GET
+    pattern: query
+  authentication:
+    schemes:
+    - type: bearer
+      description: OAuth2 Bearer token from Amadeus Authorization API.
+      tokenEndpoint: https://test.api.amadeus.com/v1/security/oauth2/token
+  enums:
+    cabinClasses:
+    - ECONOMY
+    - PREMIUM_ECONOMY
+    - BUSINESS
+    - FIRST
+    tripPurpose:
+    - LEISURE
+    - BUSINESS
+    transferTypes:
+    - PRIVATE
+    - SHARED
+    - TAXI
+    - HOURLY
+    - AIRPORT_EXPRESS
+    - AIRPORT_BUS
+    - HELICOPTER
+    - PRIVATE_JET
+    delayCategories:
+    - LESS_THAN_30_MINUTES
+    - BETWEEN_30_AND_60_MINUTES
+    - BETWEEN_60_AND_120_MINUTES
+    - OVER_120_MINUTES_OR_CANCELLED
+capability:
+  workflows:
+  - name: Full Travel Booking
+    file: capabilities/travel-booking.yaml
+    description: End-to-end trip booking combining flight search, hotel search, and transfer booking.
+    apisCombined:
+    - Flight Offers Search API
+    - Hotel Search API
+    - Transfer Search API
+    toolCount: 2
+    personas:
+    - Travel Developer
+    - OTA Booking Team
+  personas:
+  - id: travel-developer
+    name: Travel Developer
+    description: Developer building travel search and booking applications using Amadeus APIs.
+    workflows:
+    - Full Travel Booking
+  - id: ota-booking-team
+    name: OTA Booking Team
+    description: Online travel agency team managing flight, hotel, and transfer bookings.
+    workflows:
+    - Full Travel Booking
+  domains:
+  - name: Flight Commerce
+    description: Flight search, pricing, booking, and order management.
+    resources:
+    - flight-offers
+    - flight-orders
+  - name: Hotel Commerce
+    description: Hotel search, availability, and booking.
+    resources:
+    - hotels
+    - hotel-offers
+    - hotel-orders
+  - name: Ground Transportation
+    description: Transfer search, booking, and management.
+    resources:
+    - transfers
+  - name: Destination Experiences
+    description: Points of interest, tours, activities, and destination data.
+    resources:
+    - points-of-interest
+  namespaces:
+    consumed:
+    - flight-offers-search
+    - hotel-search
+    - transfer-search
+    rest:
+    - amadeus-travel-booking-api (port 8080)
+    - flight-offers-search-api (port 8110)
+    - hotel-search-api (port 8111)
+    mcp:
+    - amadeus-travel-booking-mcp (port 9090)
+    - flight-offers-search-mcp (port 9110)
+    - hotel-search-mcp (port 9111)
+  binds:
+  - AMADEUS_API_KEY
+  - AMADEUS_API_SECRET
+  - AMADEUS_BEARER_TOKEN

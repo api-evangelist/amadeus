@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "GetFlightAvailabilitiesQuery",
+  "type": "record",
+  "fields": [
+    {
+      "name": "originDestinations",
+      "type": "array",
+      "description": "Origins and Destinations must be properly ordered in time (chronological order in accordance with the timezone of each location) to describe the journey consistently. Dates and times must not be past nor more than 365 days in the future, according to provider settings.Number of Origins and Destinations must not exceed the limit defined in provider settings.",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "travelers",
+      "type": "array",
+      "description": "List of travelers composing the travel",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "sources",
+      "type": "array",
+      "description": "Allows enable one or more sources. If present in the list, these sources will be called by the system. \nGDS : Full service carriers",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "searchCriteria",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "example-type",
+  "username": "example-username",
+  "application_name": "example-application_name",
+  "client_id": "example-client_id",
+  "token_type": "example-token_type",
+  "access_token": "example-access_token",
+  "expires_in": 1,
+  "state": "example-state",
+  "scope": "example-scope"
+}

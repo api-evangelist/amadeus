@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FlightStop",
+  "description": "details of stops for direct or change of gauge flights",
+  "type": "object",
+  "properties": {
+    "iataCode": {
+      "type": "string",
+      "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)"
+    },
+    "newAircraft": {
+      "$ref": "#/definitions/AircraftEquipment"
+    },
+    "duration": {
+      "type": "string",
+      "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M"
+    },
+    "arrivalAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "arrival at the stop in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm\u00b1hh:mm format, e.g. 2017-02-10T20:40:00+02:00"
+    },
+    "departureAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "departure from the stop in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm\u00b1hh:mm format, e.g. 2017-02-10T20:40:00+02:00"
+    }
+  }
+}

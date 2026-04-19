@@ -1,0 +1,56 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "type": {
+      "@id": "schema:type",
+      "@type": "xsd:string"
+    },
+    "subtype": {
+      "@id": "schema:subtype",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "iataCode": {
+      "@id": "schema:iataCode",
+      "@type": "xsd:string"
+    },
+    "geoCode": {
+      "@id": "schema:geoCode"
+    },
+    "address": {
+      "@id": "schema:address"
+    },
+    "timeZone": {
+      "@id": "schema:timeZone"
+    },
+    "metrics": {
+      "@id": "schema:metrics"
+    },
+    "count": {
+      "@id": "schema:count",
+      "@type": "xsd:integer"
+    },
+    "links": {
+      "@id": "schema:links"
+    },
+    "code": {
+      "@id": "schema:code",
+      "@type": "xsd:integer"
+    },
+    "title": {
+      "@id": "schema:title",
+      "@type": "xsd:string"
+    },
+    "detail": {
+      "@id": "schema:detail",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "schema:source"
+    }
+  }
+}

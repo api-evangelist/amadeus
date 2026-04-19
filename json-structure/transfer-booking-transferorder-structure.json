@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "TransferOrder",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "the resource name"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "transfer order identifier"
+    },
+    {
+      "name": "reference",
+      "type": "string",
+      "description": "reference of the Trip e.g. YNK4JQ"
+    },
+    {
+      "name": "transfers",
+      "type": "array",
+      "description": "transfer reservations, included in the order",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "passengers",
+      "type": "array",
+      "description": "passengers, related to the Transfer Order",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "agency",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Seat",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "seat capacity"
+    },
+    "row": {
+      "type": "string",
+      "description": "seat row"
+    },
+    "size": {
+      "type": "string",
+      "description": "seat size"
+    }
+  }
+}

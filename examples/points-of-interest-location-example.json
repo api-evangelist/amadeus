@@ -1,0 +1,11 @@
+{
+  "id": "example-id",
+  "self": "example-self",
+  "type": "example-type",
+  "subType": "AIRPORT",
+  "name": "example-name",
+  "geoCode": "example-geoCode",
+  "category": "SIGHTS",
+  "tags": [],
+  "rank": "example-rank"
+}

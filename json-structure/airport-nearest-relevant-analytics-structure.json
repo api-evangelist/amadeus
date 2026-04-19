@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Analytics",
+  "type": "record",
+  "fields": [
+    {
+      "name": "flights",
+      "type": "string"
+    },
+    {
+      "name": "travelers",
+      "type": "string"
+    }
+  ]
+}

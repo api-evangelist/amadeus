@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FlightOfferSource",
+  "description": "source of the flight offer",
+  "type": "string",
+  "enum": [
+    "GDS",
+    "PYTON"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "type": {
+      "@id": "schema:type",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "@id"
+    },
+    "choiceProbability": {
+      "@id": "schema:choiceProbability",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "schema:source",
+      "@type": "xsd:string"
+    },
+    "instantTicketingRequired": {
+      "@id": "schema:instantTicketingRequired",
+      "@type": "xsd:boolean"
+    },
+    "disablePricing": {
+      "@id": "schema:disablePricing",
+      "@type": "xsd:boolean"
+    },
+    "nonHomogeneous": {
+      "@id": "schema:nonHomogeneous",
+      "@type": "xsd:boolean"
+    },
+    "oneWay": {
+      "@id": "schema:oneWay",
+      "@type": "xsd:boolean"
+    },
+    "paymentCardRequired": {
+      "@id": "schema:paymentCardRequired",
+      "@type": "xsd:boolean"
+    },
+    "lastTicketingDate": {
+      "@id": "schema:lastTicketingDate",
+      "@type": "xsd:string"
+    },
+    "numberOfBookableSeats": {
+      "@id": "schema:numberOfBookableSeats",
+      "@type": "xsd:decimal"
+    },
+    "itineraries": {
+      "@id": "schema:itineraries"
+    },
+    "price": {
+      "@id": "schema:price",
+      "@type": "xsd:string"
+    },
+    "pricingOptions": {
+      "@id": "schema:pricingOptions"
+    },
+    "validatingAirlineCodes": {
+      "@id": "schema:validatingAirlineCodes"
+    },
+    "travelerPricings": {
+      "@id": "schema:travelerPricings"
+    },
+    "fareRules": {
+      "@id": "schema:fareRules",
+      "@type": "xsd:string"
+    }
+  }
+}

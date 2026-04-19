@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OtherServices",
+  "type": "object",
+  "properties": {
+    "name": {
+      "$ref": "#/definitions/ServiceName"
+    },
+    "price": {
+      "$ref": "#/definitions/ElementaryPrice"
+    },
+    "bookableByTraveler": {
+      "type": "boolean",
+      "description": "Specify if the service is bookable by traveler or for all travelers"
+    },
+    "bookableByItinerary": {
+      "type": "boolean",
+      "description": "Specify if the service is bookable by itinerary or for all itineraries"
+    },
+    "segmentIds": {
+      "type": "array",
+      "description": "Id of the segment concerned by the service",
+      "items": {
+        "type": "string"
+      }
+    },
+    "travelerIds": {
+      "type": "array",
+      "description": "Id of the traveler concerned by the service",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

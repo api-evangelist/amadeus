@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Issue",
+  "type": "record",
+  "fields": [
+    {
+      "name": "status",
+      "type": "int32",
+      "description": "HTTP status code associated with the issue."
+    },
+    {
+      "name": "code",
+      "type": "int32",
+      "description": "Application-specific error code."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Short description of the issue."
+    },
+    {
+      "name": "detail",
+      "type": "string",
+      "description": "Detailed explanation of the issue."
+    },
+    {
+      "name": "source",
+      "type": "object"
+    }
+  ]
+}

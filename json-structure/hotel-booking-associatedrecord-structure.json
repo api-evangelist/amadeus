@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AssociatedRecord",
+  "type": "record",
+  "fields": [
+    {
+      "name": "reference",
+      "type": "string",
+      "description": "Amadeus GDS Record"
+    },
+    {
+      "name": "originSystemCode",
+      "type": "string",
+      "description": "* GDS: Associated Amadeus GDS Flight Booking PNR Record"
+    }
+  ]
+}

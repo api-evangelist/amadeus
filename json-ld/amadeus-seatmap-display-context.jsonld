@@ -1,0 +1,62 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "departure": {
+      "@id": "schema:departure",
+      "@type": "xsd:string"
+    },
+    "arrival": {
+      "@id": "schema:arrival",
+      "@type": "xsd:string"
+    },
+    "carrierCode": {
+      "@id": "schema:carrierCode",
+      "@type": "xsd:string"
+    },
+    "number": {
+      "@id": "schema:number",
+      "@type": "xsd:string"
+    },
+    "aircraft": {
+      "@id": "schema:aircraft",
+      "@type": "xsd:string"
+    },
+    "operating": {
+      "@id": "schema:operating",
+      "@type": "xsd:string"
+    },
+    "duration": {
+      "@id": "schema:duration",
+      "@type": "xsd:string"
+    },
+    "stops": {
+      "@id": "schema:stops"
+    },
+    "iataCode": {
+      "@id": "schema:iataCode",
+      "@type": "xsd:string"
+    },
+    "terminal": {
+      "@id": "schema:terminal",
+      "@type": "xsd:string"
+    },
+    "at": {
+      "@id": "schema:at",
+      "@type": "xsd:dateTime"
+    },
+    "newAircraft": {
+      "@id": "schema:newAircraft",
+      "@type": "xsd:string"
+    },
+    "arrivalAt": {
+      "@id": "schema:arrivalAt",
+      "@type": "xsd:dateTime"
+    },
+    "departureAt": {
+      "@id": "schema:departureAt",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

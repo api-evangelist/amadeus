@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AircraftEquipment",
+  "type": "object",
+  "properties": {
+    "aircraftType": {
+      "type": "string",
+      "description": "the type of aircraft that will operate the leg"
+    }
+  }
+}

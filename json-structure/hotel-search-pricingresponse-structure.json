@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "PricingResponse",
+  "type": "record",
+  "fields": [
+    {
+      "name": "data",
+      "type": "string"
+    }
+  ]
+}

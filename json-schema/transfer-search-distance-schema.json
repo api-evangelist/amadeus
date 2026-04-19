@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Distance",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer",
+      "description": "great-circle distance between two locations. This distance thus do not take into account traffic conditions; international boundaries; mountains; water; or other elements that might make the a nearby location hard to reach."
+    },
+    "unit": {
+      "type": "string",
+      "description": "unit of the distance",
+      "enum": [
+        "KM",
+        "MI"
+      ]
+    }
+  }
+}

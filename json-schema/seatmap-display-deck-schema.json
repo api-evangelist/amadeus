@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Deck",
+  "description": "deck information",
+  "type": "object",
+  "properties": {
+    "deckType": {
+      "type": "string",
+      "description": "A deck is a level on an aircraft. The deck location of the cabin (current possible values are upper or main) The main deck, where passengers are seated on a passenger flight. Upper deck is above the main deck where more passengers are seated.",
+      "enum": [
+        "UPPER",
+        "MAIN",
+        "LOWER"
+      ]
+    },
+    "deckConfiguration": {
+      "$ref": "#/definitions/DeckConfiguration"
+    },
+    "facilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Facility"
+      }
+    },
+    "seats": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Seat"
+      }
+    }
+  }
+}

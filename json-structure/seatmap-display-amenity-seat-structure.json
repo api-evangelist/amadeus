@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Amenity_Seat",
+  "type": "record",
+  "fields": [
+    {
+      "name": "legSpace",
+      "type": "int32",
+      "description": "Space between 2 seats"
+    },
+    {
+      "name": "spaceUnit",
+      "type": "string"
+    },
+    {
+      "name": "tilt",
+      "type": "string",
+      "description": "Flatness of a seat"
+    },
+    {
+      "name": "amenityType",
+      "type": "string"
+    },
+    {
+      "name": "medias",
+      "type": "array",
+      "description": "list of media associated to the seat (rich content)",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

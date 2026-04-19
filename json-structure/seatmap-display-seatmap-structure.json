@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "SeatMap",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Ressource name"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "item identifier"
+    },
+    {
+      "name": "self",
+      "type": "string"
+    },
+    {
+      "name": "departure",
+      "type": "string"
+    },
+    {
+      "name": "arrival",
+      "type": "string"
+    },
+    {
+      "name": "carrierCode",
+      "type": "string",
+      "description": "providing the marketing airline carrier code"
+    },
+    {
+      "name": "number",
+      "type": "string",
+      "description": "the flight number as assigned by the marketing carrier"
+    },
+    {
+      "name": "operating",
+      "type": "string"
+    },
+    {
+      "name": "aircraft",
+      "type": "string"
+    },
+    {
+      "name": "class",
+      "type": "string",
+      "description": "reservation booking designator (RBD) of the carrier"
+    },
+    {
+      "name": "flightOfferId",
+      "type": "string",
+      "description": "Id of the impacted flight offer"
+    },
+    {
+      "name": "segmentId",
+      "type": "string",
+      "description": "Id of the impacted segment"
+    },
+    {
+      "name": "decks",
+      "type": "array",
+      "description": "decks information",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "aircraftCabinAmenities",
+      "type": "string"
+    },
+    {
+      "name": "availableSeatsCounters",
+      "type": "array",
+      "description": "number of seats available for each passenger",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

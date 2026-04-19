@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Terminal",
+  "type": "record",
+  "fields": [
+    {
+      "name": "code",
+      "type": "string",
+      "description": "the code of the terminal"
+    }
+  ]
+}

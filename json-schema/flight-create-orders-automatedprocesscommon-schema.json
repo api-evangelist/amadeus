@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AutomatedProcessCommon",
+  "description": "Provides information on ticketing arrangements and Amadeus Time Limits",
+  "type": "object",
+  "properties": {
+    "code": {
+      "$ref": "#/definitions/AutomatedProcessCode"
+    },
+    "queue": {
+      "type": "object",
+      "description": "Identifies the queue onto which PNR must be automatically placed upon process execution.",
+      "properties": {
+        "number": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        }
+      }
+    },
+    "text": {
+      "type": "string",
+      "description": "Free text"
+    }
+  }
+}

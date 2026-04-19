@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "aircraft",
+  "type": "record",
+  "fields": [
+    {
+      "name": "aircraftType",
+      "type": "string",
+      "description": "aircraft type (ex 320, 777, ...)"
+    },
+    {
+      "name": "aircraftDescription",
+      "type": "string",
+      "description": "aircraft description (ex BOEING 737 ALL SERIES PASSENGER)"
+    }
+  ]
+}

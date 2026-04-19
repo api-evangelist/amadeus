@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "itinerary-price-metric",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "ressource type - always price-metrics"
+    },
+    {
+      "name": "origin",
+      "type": "object",
+      "description": "Description of a particular point or place in physical space"
+    },
+    {
+      "name": "destination",
+      "type": "object",
+      "description": "Description of a particular point or place in physical space"
+    },
+    {
+      "name": "departureDate",
+      "type": "string",
+      "description": "The date on which the traveler will depart from the origin to go to the destination. \n\nDates are specified in the[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format."
+    },
+    {
+      "name": "transportType",
+      "type": "string",
+      "description": "transportation type"
+    },
+    {
+      "name": "currencyCode",
+      "type": "string",
+      "description": "currency of the prices.\n\nCurrency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro"
+    },
+    {
+      "name": "oneWay",
+      "type": "boolean",
+      "description": "true for a one way trip,\nfalse for a round trip"
+    },
+    {
+      "name": "priceMetrics",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

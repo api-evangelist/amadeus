@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "seats",
+  "type": "record",
+  "fields": [
+    {
+      "name": "number",
+      "type": "string",
+      "description": "Seat number corresponding to the concatenation of the seatmap row and the column information, for example 12B'"
+    },
+    {
+      "name": "cabin",
+      "type": "string",
+      "description": "Cabin code associated to the seat"
+    }
+  ]
+}

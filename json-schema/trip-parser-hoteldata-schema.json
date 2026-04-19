@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "hotelData",
+  "description": "\t\nHotel product",
+  "type": "object",
+  "properties": {
+    "confirmationNumber": {
+      "type": "string",
+      "description": "Confirmation number"
+    },
+    "checkInDate": {
+      "type": "string",
+      "description": "heck-in date of the stay (hotel local date). Format YYYY-MM-DD The lowest accepted value is today date (no dates in the past)."
+    },
+    "checkOutDate": {
+      "type": "string",
+      "description": "check-out date of the stay (hotel local date). Format YYYY-MM-DD The lowest accepted value is checkInDate+1."
+    },
+    "roomQuantity": {
+      "type": "integer",
+      "description": "number of rooms (1-9)"
+    },
+    "contact": {
+      "$ref": "#/definitions/contactHotel"
+    },
+    "address": {
+      "$ref": "#/definitions/address"
+    },
+    "amenities": {
+      "type": "array",
+      "description": "amenities (list)",
+      "items": {
+        "type": "string"
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "Hotel Name"
+    },
+    "description": {
+      "$ref": "#/definitions/description"
+    },
+    "policies": {
+      "$ref": "#/definitions/policies"
+    },
+    "guests": {
+      "$ref": "#/definitions/guests"
+    },
+    "room": {
+      "$ref": "#/definitions/room"
+    }
+  }
+}

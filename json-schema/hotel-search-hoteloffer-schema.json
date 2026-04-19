@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelOffer",
+  "description": "Hotel Offer",
+  "type": "object",
+  "properties": {
+    "type": {
+      "$ref": "#/definitions/Type"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of this offer. Might be valid for a temporary period only."
+    },
+    "checkInDate": {
+      "type": "string",
+      "format": "date",
+      "description": "check-in date of the stay (hotel local date). Format YYYY-MM-DD\nThe lowest accepted value is today date (no dates in the past)."
+    },
+    "checkOutDate": {
+      "type": "string",
+      "format": "date",
+      "description": "check-out date of the stay (hotel local date). Format YYYY-MM-DD\nThe lowest accepted value is `checkInDate`+1."
+    },
+    "roomQuantity": {
+      "type": "string",
+      "description": "number of rooms (1-9)"
+    },
+    "rateCode": {
+      "type": "string",
+      "description": "Special Rate - Provider Response Code (3 chars)\nExamples\n\n  * RAC - Rack\n\n  * BAR - Best Available Rate\n\n  * PRO - Promotional\n\n  * COR - Corporate\n\n  * GOV - Government (qualified)\n\n  * AAA - AAA (qualified)\n\n  * BNB - Bed and Breakfast\n\n  * PKG - Package\n\n  * TVL - Travel Industry\n\n  * SPC - Special Promo Rate\n\n  * WKD - Weekend\n\n  * CON - Convention\n\n  * SNR - Senior (Europe) (qualified)\n\n  * ARP - AARP - American Association of Retired People (50+) (qualified)\n\n  * SRS - Senior (qualified)\n\n  * ROR - Room Only Rate (no breakfast)\n\n  * FAM - Family\n\n  * DAY - Day rate"
+    },
+    "rateFamilyEstimated": {
+      "$ref": "#/definitions/HotelProduct_RateFamily"
+    },
+    "category": {
+      "type": "string",
+      "description": "Special Rate Category\nExamples:\n  ASSOCIATION\n  FAMILY_PLAN"
+    },
+    "description": {
+      "$ref": "#/definitions/QualifiedFreeText"
+    },
+    "commission": {
+      "$ref": "#/definitions/HotelProduct_Commission"
+    },
+    "boardType": {
+      "$ref": "#/definitions/BoardType"
+    },
+    "room": {
+      "$ref": "#/definitions/HotelProduct_RoomDetails"
+    },
+    "guests": {
+      "$ref": "#/definitions/HotelProduct_Guests"
+    },
+    "price": {
+      "$ref": "#/definitions/HotelProduct_HotelPrice"
+    },
+    "policies": {
+      "$ref": "#/definitions/HotelProduct_PolicyDetails"
+    },
+    "self": {
+      "type": "string",
+      "description": "A self link to the object. Use this to refresh the Offer price"
+    }
+  },
+  "required": [
+    "id",
+    "rateCode",
+    "room",
+    "price"
+  ]
+}

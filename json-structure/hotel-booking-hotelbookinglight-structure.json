@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "HotelBookingLight",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "Response Type"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Booking Id"
+    },
+    {
+      "name": "providerConfirmationId",
+      "type": "string",
+      "description": "GDS Confirmation Number. If you call the Provider, this Reference may be asked"
+    },
+    {
+      "name": "associatedRecords",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "self",
+      "type": "uri",
+      "description": "Retrieve Booking Details"
+    }
+  ]
+}

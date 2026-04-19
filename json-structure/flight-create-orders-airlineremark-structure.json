@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AirlineRemark",
+  "type": "record",
+  "fields": [
+    {
+      "name": "subType",
+      "type": "string"
+    },
+    {
+      "name": "keyword",
+      "type": "string",
+      "description": "keyword code - only applicable for subType Keyword"
+    },
+    {
+      "name": "airlineCode",
+      "type": "string",
+      "description": "Code of the airline following IATA standard ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx))\n\nWhen it apply to any airline, value is YY.\n"
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "remark free text"
+    },
+    {
+      "name": "travelerIds",
+      "type": "array",
+      "description": "Id of the concerned traveler",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "flightOfferIds",
+      "type": "array",
+      "description": "Id of the concern flightOffers",
+      "items": {
+        "type": "string"
+      }
+    }
+  ]
+}

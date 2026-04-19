@@ -1,0 +1,98 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: Amadeus Flight Offers Search API
+  description: Shared capability for searching flight offers across 500+ airlines.
+  tags:
+  - Amadeus
+  - Flights
+  - Search
+  - Travel
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AMADEUS_API_KEY: AMADEUS_API_KEY
+    AMADEUS_BEARER_TOKEN: AMADEUS_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: flight-offers-search
+    baseUri: https://test.api.amadeus.com/v2
+    description: Amadeus Flight Offers Search API
+    authentication:
+      type: bearer
+      token: '{{AMADEUS_BEARER_TOKEN}}'
+    resources:
+    - name: flight-offers
+      path: /shopping/flight-offers
+      description: Search for flight offers.
+      operations:
+      - name: search-flight-offers
+        method: GET
+        description: Search one-way or round-trip flight offers.
+        inputParameters:
+        - name: originLocationCode
+          in: query
+          type: string
+          required: true
+          description: IATA code of departure airport.
+        - name: destinationLocationCode
+          in: query
+          type: string
+          required: true
+          description: IATA code of destination airport.
+        - name: departureDate
+          in: query
+          type: string
+          required: true
+          description: Departure date (YYYY-MM-DD).
+        - name: adults
+          in: query
+          type: integer
+          required: true
+          description: Number of adult passengers.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8110
+    namespace: flight-offers-search-api
+    resources:
+    - path: /v1/flights/offers
+      name: flight-offers
+      operations:
+      - method: GET
+        name: search-flight-offers
+        description: Search flight offers.
+        call: flight-offers-search.search-flight-offers
+        with:
+          originLocationCode: rest.originLocationCode
+          destinationLocationCode: rest.destinationLocationCode
+          departureDate: rest.departureDate
+          adults: rest.adults
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9110
+    namespace: flight-offers-search-mcp
+    transport: http
+    tools:
+    - name: search-flights
+      description: Search for available flights between two airports on a given date.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: flight-offers-search.search-flight-offers
+      with:
+        originLocationCode: tools.originLocationCode
+        destinationLocationCode: tools.destinationLocationCode
+        departureDate: tools.departureDate
+        adults: tools.adults
+      outputParameters:
+      - type: object
+        mapping: $.

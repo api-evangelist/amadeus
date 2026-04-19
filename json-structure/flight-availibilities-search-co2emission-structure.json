@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Co2Emission",
+  "type": "record",
+  "fields": [
+    {
+      "name": "weight",
+      "type": "int32",
+      "description": "Weight of Co2 emitted for the concerned segment"
+    },
+    {
+      "name": "weightUnit",
+      "type": "string",
+      "description": "Code to qualify unit as pounds or kilos"
+    },
+    {
+      "name": "cabin",
+      "type": "string"
+    }
+  ]
+}

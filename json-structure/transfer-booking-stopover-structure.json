@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "StopOver",
+  "type": "record",
+  "fields": [
+    {
+      "name": "duration",
+      "type": "string",
+      "description": "transfer stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M."
+    },
+    {
+      "name": "sequenceNumber",
+      "type": "double",
+      "description": "sequence number of the stop e.g. 3"
+    },
+    {
+      "name": "location",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Leg",
+  "type": "record",
+  "fields": [
+    {
+      "name": "boardPointIataCode",
+      "type": "string",
+      "description": "3-letter IATA code of the departure airport. e.g. LHR"
+    },
+    {
+      "name": "offPointIataCode",
+      "type": "string",
+      "description": "3-letter IATA code of the arrival airport. e.g. BKK"
+    },
+    {
+      "name": "aircraftEquipment",
+      "type": "string"
+    },
+    {
+      "name": "scheduledLegDuration",
+      "type": "string",
+      "description": "duration of the leg following standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)"
+    }
+  ]
+}

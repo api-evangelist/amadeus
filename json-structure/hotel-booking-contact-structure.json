@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Contact",
+  "type": "record",
+  "fields": [
+    {
+      "name": "phone",
+      "type": "string",
+      "description": "Phone Number in standard E.123(https://en.wikipedia.org/wiki/E.123)"
+    },
+    {
+      "name": "email",
+      "type": "string",
+      "description": "Email Address"
+    }
+  ]
+}

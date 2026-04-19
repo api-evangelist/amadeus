@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "ErrorResponse",
+  "type": "record",
+  "fields": [
+    {
+      "name": "error",
+      "type": "string",
+      "description": "Name is the error name."
+    },
+    {
+      "name": "error_description",
+      "type": "string",
+      "description": "A small description about the error"
+    },
+    {
+      "name": "code",
+      "type": "int64",
+      "description": "Debug contains debug information."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Debug contains debug information. This is usually not available and has to be enabled."
+    }
+  ]
+}

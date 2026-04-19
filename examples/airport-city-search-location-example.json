@@ -1,0 +1,18 @@
+{
+  "id": "example-id",
+  "self": "example-self",
+  "type": "example-type",
+  "subType": "AIRPORT",
+  "name": "example-name",
+  "detailedName": "example-detailedName",
+  "timeZoneOffset": "example-timeZoneOffset",
+  "iataCode": "example-iataCode",
+  "geoCode": "example-geoCode",
+  "address": "example-address",
+  "distance": "example-distance",
+  "analytics": "example-analytics",
+  "relevance": 1.0,
+  "category": "SIGHTS",
+  "tags": [],
+  "rank": "example-rank"
+}

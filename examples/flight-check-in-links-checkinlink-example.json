@@ -1,0 +1,7 @@
+{
+  "type": "example-type",
+  "id": "example-id",
+  "href": "https://example.com",
+  "channel": "Mobile",
+  "parameters": "example-parameters"
+}

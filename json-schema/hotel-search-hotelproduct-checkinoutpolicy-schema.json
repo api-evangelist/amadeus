@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_CheckInOutPolicy",
+  "type": "object",
+  "properties": {
+    "checkIn": {
+      "type": "string",
+      "description": "Check-in From time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]"
+    },
+    "checkInDescription": {
+      "$ref": "#/definitions/QualifiedFreeText"
+    },
+    "checkOut": {
+      "type": "string",
+      "description": "Check-out Until time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]"
+    },
+    "checkOutDescription": {
+      "$ref": "#/definitions/QualifiedFreeText"
+    }
+  }
+}

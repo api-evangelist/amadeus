@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "meta",
+  "type": "record",
+  "fields": [
+    {
+      "name": "count",
+      "type": "int64",
+      "description": "Total number of object(s) retrieved"
+    },
+    {
+      "name": "links",
+      "type": "object",
+      "description": "Links related to the returned object(s)"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "CarrierRestrictions",
+  "type": "record",
+  "fields": [
+    {
+      "name": "blacklistedInEUAllowed",
+      "type": "boolean",
+      "description": "This flag enable/disable filtering of blacklisted airline by EU. The list of the banned airlines is published in the Official Journal of the European Union, where they are included as annexes A and B to the Commission Regulation. The blacklist of an airline can concern all its flights or some specific aircraft types pertaining to the airline"
+    },
+    {
+      "name": "excludedCarrierCodes",
+      "type": "array",
+      "description": "This option ensures that the system will only consider these airlines.",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "includedCarrierCodes",
+      "type": "array",
+      "description": "This option ensures that the system will only consider these airlines.",
+      "items": {
+        "type": "string"
+      }
+    }
+  ]
+}

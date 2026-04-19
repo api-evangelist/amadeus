@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "contactHotel",
+  "type": "record",
+  "fields": [
+    {
+      "name": "phone",
+      "type": "string",
+      "description": "phome number"
+    }
+  ]
+}

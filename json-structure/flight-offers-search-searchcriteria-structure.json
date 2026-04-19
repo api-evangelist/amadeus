@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "SearchCriteria",
+  "type": "record",
+  "fields": [
+    {
+      "name": "excludeAllotments",
+      "type": "boolean",
+      "description": "This option allows to exclude the isAllotment flag associated to a booking class in the search response when it exist."
+    },
+    {
+      "name": "addOneWayOffers",
+      "type": "boolean",
+      "description": "This option allows activate the one-way combinable feature"
+    },
+    {
+      "name": "maxFlightOffers",
+      "type": "double",
+      "description": "Maximum number of flight offers returned (Max 250)"
+    },
+    {
+      "name": "maxPrice",
+      "type": "int32",
+      "description": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals"
+    },
+    {
+      "name": "allowAlternativeFareOptions",
+      "type": "boolean",
+      "description": "This option allows to default to a standard fareOption if no offers are found for the selected fareOption."
+    },
+    {
+      "name": "oneFlightOfferPerDay",
+      "type": "boolean",
+      "description": "Requests the system to find at least one flight-offer per day, if possible, when a range of dates is specified. Default is false."
+    },
+    {
+      "name": "additionalInformation",
+      "type": "object"
+    },
+    {
+      "name": "pricingOptions",
+      "type": "string"
+    },
+    {
+      "name": "flightFilters",
+      "type": "string"
+    }
+  ]
+}

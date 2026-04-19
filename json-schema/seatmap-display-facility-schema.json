@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Facility",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "Facility code, as described in the facility dictionary"
+    },
+    "column": {
+      "type": "string"
+    },
+    "row": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string",
+      "description": "Position is either front, rear or seat (in case the facility takes the place of a seat)",
+      "enum": [
+        "FRONT",
+        "REAR",
+        "SEAT"
+      ]
+    },
+    "coordinates": {
+      "$ref": "#/definitions/Coordinates"
+    }
+  }
+}

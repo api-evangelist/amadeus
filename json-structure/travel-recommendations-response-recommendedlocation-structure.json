@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "response_recommendedLocation",
+  "type": "record",
+  "fields": [
+    {
+      "name": "warnings",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "data",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "meta",
+      "type": "string"
+    }
+  ]
+}

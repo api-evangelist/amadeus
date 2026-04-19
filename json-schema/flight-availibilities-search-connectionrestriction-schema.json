@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ConnectionRestriction",
+  "description": "Restriction towards number of connections.",
+  "type": "object",
+  "properties": {
+    "maxNumberOfConnections": {
+      "type": "number",
+      "description": "The maximal number of connections for each itinerary. Value can be 0, 1 or 2."
+    },
+    "airportChangeAllowed": {
+      "type": "boolean",
+      "description": "Allow to change airport during connection"
+    },
+    "technicalStopsAllowed": {
+      "type": "boolean",
+      "description": "This option allows the single segment to have one or more intermediate stops (technical stops)."
+    }
+  }
+}

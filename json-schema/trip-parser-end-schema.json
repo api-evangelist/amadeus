@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "end",
+  "description": "Description of a particular point or place in physical space",
+  "type": "object",
+  "properties": {
+    "localDateTime": {
+      "type": "string",
+      "description": "Local Date/Time of the itinerary end in format ISO 8601 (YYYY-MM-DDTHH:MM:SS)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Label associated to the location (e.g. Eiffel Tower, Madison Square)"
+    },
+    "iataCode": {
+      "type": "string",
+      "description": "IATA location code"
+    },
+    "address": {
+      "$ref": "#/definitions/address"
+    }
+  }
+}

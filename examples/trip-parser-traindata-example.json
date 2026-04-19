@@ -1,0 +1,14 @@
+{
+  "confirmNbr": "example-confirmNbr",
+  "serviceProviderName": "example-serviceProviderName",
+  "bookingClass": "example-bookingClass",
+  "departure": "example-departure",
+  "departureDateTime": "example-departureDateTime",
+  "arrivalDateTime": "example-arrivalDateTime",
+  "arrival": "example-arrival",
+  "duration": "example-duration",
+  "departureTrack": "example-departureTrack",
+  "arrivalTrack": "example-arrivalTrack",
+  "seats": [],
+  "vehicle": "example-vehicle"
+}

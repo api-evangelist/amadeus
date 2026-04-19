@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "description",
+  "description": "\t\nSpecific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string",
+      "description": "Free Text"
+    }
+  }
+}

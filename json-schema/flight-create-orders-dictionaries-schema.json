@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Dictionaries",
+  "type": "object",
+  "properties": {
+    "locations": {
+      "$ref": "#/definitions/LocationEntry"
+    },
+    "aircraft": {
+      "$ref": "#/definitions/AircraftEntry"
+    },
+    "currencies": {
+      "$ref": "#/definitions/CurrencyEntry"
+    },
+    "carriers": {
+      "$ref": "#/definitions/CarrierEntry"
+    }
+  }
+}

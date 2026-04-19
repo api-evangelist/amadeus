@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Travelers",
+  "type": "object",
+  "properties": {
+    "score": {
+      "type": "number",
+      "format": "integer",
+      "description": "Approximate score for ranking purposes calculated based on number of travelers in the location."
+    }
+  }
+}

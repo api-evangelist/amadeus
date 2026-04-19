@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Payment",
+  "type": "record",
+  "fields": [
+    {
+      "name": "methodOfPayment",
+      "type": "string",
+      "description": "Method of payment required when PaymentType equal BT (applicable only for reservation action)."
+    },
+    {
+      "name": "paymentReference",
+      "type": "string",
+      "description": "payment refence that will be passed to provider in case \"INVOICE\" or \"TRAVEL_ACCOUNT\" method of payment"
+    },
+    {
+      "name": "paymentServiceProvider",
+      "type": "string",
+      "description": "payment service provider details will be passed to provider in case \"PAYMENT_SERVICE_PROVIDER\" method of payment."
+    },
+    {
+      "name": "creditCard",
+      "type": "string"
+    }
+  ]
+}

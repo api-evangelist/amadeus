@@ -1,0 +1,9 @@
+{
+  "line": "example-line",
+  "zip": "example-zip",
+  "countryCode": "example-countryCode",
+  "cityName": "example-cityName",
+  "stateCode": "example-stateCode",
+  "latitude": 1.0,
+  "longitude": 1.0
+}

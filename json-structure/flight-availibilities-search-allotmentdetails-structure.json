@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AllotmentDetails",
+  "type": "record",
+  "fields": [
+    {
+      "name": "tourName",
+      "type": "string",
+      "description": "The tour name agreed for this specific allotment."
+    },
+    {
+      "name": "tourReference",
+      "type": "string",
+      "description": "The tour reference agreed for this specific allotment."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TravelerInfo",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "travelerType": {
+      "$ref": "#/definitions/TravelerType"
+    },
+    "associatedAdultId": {
+      "type": "string",
+      "description": "if type=\"HELD_INFANT\", corresponds to the adult travelers's id who will share the seat"
+    }
+  },
+  "required": [
+    "id",
+    "travelerType"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "carData",
+  "type": "record",
+  "fields": [
+    {
+      "name": "confirmationNumber",
+      "type": "string",
+      "description": "Confirmation number"
+    },
+    {
+      "name": "serviceProviderName",
+      "type": "string",
+      "description": "car provider information(Car rental compay name)"
+    },
+    {
+      "name": "associatedEquipments",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "pickup",
+      "type": "string"
+    },
+    {
+      "name": "dropoff",
+      "type": "string"
+    },
+    {
+      "name": "driver",
+      "type": "string"
+    },
+    {
+      "name": "vehicle",
+      "type": "string"
+    }
+  ]
+}

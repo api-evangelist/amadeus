@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_Guests",
+  "type": "object",
+  "properties": {
+    "adults": {
+      "type": "integer",
+      "format": "int32",
+      "description": "number of adult guests (1-9) per room"
+    },
+    "childAges": {
+      "type": "array",
+      "description": "Comma separated list of ages of each child at the time of check-out from the hotel. If several children have the same age, the ages will be repeated.",
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    }
+  }
+}

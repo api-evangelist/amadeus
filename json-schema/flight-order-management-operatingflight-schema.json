@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OperatingFlight",
+  "description": "information about the operating flight",
+  "type": "object",
+  "properties": {
+    "carrierCode": {
+      "type": "string",
+      "description": "providing the airline / carrier code"
+    }
+  }
+}

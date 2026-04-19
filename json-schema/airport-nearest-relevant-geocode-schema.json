@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GeoCode",
+  "type": "object",
+  "properties": {
+    "latitude": {
+      "type": "number",
+      "format": "double",
+      "description": "latitude of the location"
+    },
+    "longitude": {
+      "type": "number",
+      "format": "double",
+      "description": "longitude of the location"
+    }
+  }
+}

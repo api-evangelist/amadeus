@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AssociatedRecord",
+  "description": "record associated to the order",
+  "type": "object"
+}

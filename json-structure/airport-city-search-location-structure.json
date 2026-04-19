@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Location",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "id of the ressource"
+    },
+    {
+      "name": "self",
+      "type": "string"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "the resource name"
+    },
+    {
+      "name": "subType",
+      "type": "string",
+      "description": "location sub type"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "short name of the location"
+    },
+    {
+      "name": "detailedName",
+      "type": "string",
+      "description": "detailed name of the location. For a city location it contains city name and country code. For an airport location it contains city name; country code and airport full name"
+    },
+    {
+      "name": "timeZoneOffset",
+      "type": "string",
+      "description": "timezone offset of the location at the date of the API call (including daylight saving time)"
+    },
+    {
+      "name": "iataCode",
+      "type": "string",
+      "description": "IATA code of the location. ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) here)"
+    },
+    {
+      "name": "geoCode",
+      "type": "string"
+    },
+    {
+      "name": "address",
+      "type": "string"
+    },
+    {
+      "name": "distance",
+      "type": "string"
+    },
+    {
+      "name": "analytics",
+      "type": "string"
+    },
+    {
+      "name": "relevance",
+      "type": "double",
+      "description": "score value calculated based on distance and analytics"
+    },
+    {
+      "name": "category",
+      "type": "string",
+      "description": "category of the location"
+    },
+    {
+      "name": "tags",
+      "type": "array",
+      "description": "list of tags related to the location",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "rank",
+      "type": "string",
+      "description": "the rank is the position compared to other locations based on how famous is a place. 1 being the highest."
+    }
+  ]
+}

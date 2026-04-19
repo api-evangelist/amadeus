@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Error_Source",
+  "type": "object",
+  "properties": {
+    "parameter": {
+      "type": "string",
+      "description": "The key of the URI path or query parameter that caused the error"
+    },
+    "pointer": {
+      "type": "string",
+      "description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+    },
+    "example": {
+      "type": "string",
+      "description": "A sample input to guide the user when resolving this issue"
+    }
+  }
+}

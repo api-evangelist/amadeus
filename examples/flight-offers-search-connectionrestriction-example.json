@@ -1,0 +1,7 @@
+{
+  "maxNumberOfConnections": 1.0,
+  "nonStopPreferred": true,
+  "nonStopPreferredWeight": 1.0,
+  "airportChangeAllowed": true,
+  "technicalStopsAllowed": true
+}

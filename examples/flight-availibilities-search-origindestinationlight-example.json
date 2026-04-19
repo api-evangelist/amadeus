@@ -1,0 +1,7 @@
+{
+  "id": "example-id",
+  "originLocationCode": "example-originLocationCode",
+  "destinationLocationCode": "example-destinationLocationCode",
+  "includedConnectionPoints": [],
+  "excludedConnectionPoints": []
+}

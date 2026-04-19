@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Method",
+  "description": "The Payment Methods\n * CREDIT_CARD (CC) - Payment Cards in `creditCards` are accepted\n * AGENCY_ACCOUNT - Agency Account (Credit Line) is accepted. Agency is Charged at CheckOut\n * TRAVEL_AGENT_ID - Agency IATA/ARC Number is accepted to Guarantee the booking\n * CORPORATE_ID (COR-ID) - Corporate Account is accepted to Guarantee the booking\n * HOTEL_GUEST_ID - Hotel Chain Rewards Card Number is accepted to Guarantee the booking\n * CHECK - Checks are accepted\n * MISC_CHARGE_ORDER - Miscellaneous Charge Order is accepted\n * ADVANCE_DEPOSIT - Cash is accepted for Deposit/PrePay\n * COMPANY_ADDRESS - Company Billing Address is accepted to Guarantee the booking",
+  "type": "string",
+  "enum": [
+    "CREDIT_CARD",
+    "AGENCY_ACCOUNT",
+    "TRAVEL_AGENT_ID",
+    "CORPORATE_ID",
+    "HOTEL_GUEST_ID",
+    "CHECK",
+    "MISC_CHARGE_ORDER",
+    "ADVANCE_DEPOSIT",
+    "COMPANY_ADDRESS",
+    "VCC_BILLBACK",
+    "VCC_B2B_WALLET",
+    "DEFERED_PAYMENT",
+    "TRAVEL_AGENT_IMMEDIATE"
+  ]
+}

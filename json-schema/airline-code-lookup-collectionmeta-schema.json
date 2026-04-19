@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CollectionMeta",
+  "description": "Metadata about the response collection.",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "Total number of items in the collection."
+    },
+    "links": {
+      "type": "object",
+      "description": "Links related to the collection.",
+      "properties": {
+        "self": {
+          "type": "string",
+          "format": "uri",
+          "description": "Link to the current request."
+        }
+      }
+    }
+  }
+}

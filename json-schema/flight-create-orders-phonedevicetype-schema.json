@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PhoneDeviceType",
+  "description": "Type of the device (Landline, Mobile or Fax)",
+  "type": "string",
+  "enum": [
+    "MOBILE",
+    "LANDLINE",
+    "FAX"
+  ]
+}

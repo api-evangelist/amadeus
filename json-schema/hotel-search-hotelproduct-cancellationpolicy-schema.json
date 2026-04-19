@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_CancellationPolicy",
+  "type": "object",
+  "properties": {
+    "type": {
+      "$ref": "#/definitions/CancellationType"
+    },
+    "amount": {
+      "type": "string",
+      "description": "Amount of the cancellation fee."
+    },
+    "numberOfNights": {
+      "type": "integer",
+      "format": "int32",
+      "description": "Number of nights due as fee in case of cancellation."
+    },
+    "percentage": {
+      "type": "string",
+      "description": "Percentage of the total stay amount to be paid in case of cancellation. Value is between 0 and 100."
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Represents the deadline after which the penalty applies. DateTime is in ISO 8601 [https://www.w3.org/TR/NOTE-datetime].\nExample: 2010-08-14T12:00:00+01:00\nExample: 2010-08-14T12:00:00Z\nExample: 2010-08-14T12:00:00-01:00\nThe value is expressed in the hotel local time zone, with the added time zone difference. So you can compute the deadline in UTC(GMT) if desired."
+    },
+    "description": {
+      "$ref": "#/definitions/QualifiedFreeText"
+    }
+  }
+}

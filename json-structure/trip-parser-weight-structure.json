@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "weight",
+  "type": "record",
+  "fields": [
+    {
+      "name": "amount",
+      "type": "string",
+      "description": "Defines the weight value with the specified unit with decimal position."
+    }
+  ]
+}

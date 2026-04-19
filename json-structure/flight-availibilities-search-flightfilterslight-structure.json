@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "FlightFiltersLight",
+  "type": "record",
+  "fields": [
+    {
+      "name": "carrierRestrictions",
+      "type": "string",
+      "description": "Restriction towards carriers."
+    },
+    {
+      "name": "cabinRestrictions",
+      "type": "array",
+      "description": "Restriction towards cabins.",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "connectionRestriction",
+      "type": "string",
+      "description": "Restriction towards number of connections."
+    }
+  ]
+}

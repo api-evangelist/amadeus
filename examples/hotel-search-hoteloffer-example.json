@@ -1,0 +1,18 @@
+{
+  "type": "example-type",
+  "id": "example-id",
+  "checkInDate": "2024-01-15",
+  "checkOutDate": "2024-01-15",
+  "roomQuantity": "example-roomQuantity",
+  "rateCode": "example-rateCode",
+  "rateFamilyEstimated": "example-rateFamilyEstimated",
+  "category": "example-category",
+  "description": "example-description",
+  "commission": "example-commission",
+  "boardType": "example-boardType",
+  "room": "example-room",
+  "guests": "example-guests",
+  "price": "example-price",
+  "policies": "example-policies",
+  "self": "example-self"
+}

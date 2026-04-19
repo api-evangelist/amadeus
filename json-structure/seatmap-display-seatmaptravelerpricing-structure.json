@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "SeatmapTravelerPricing",
+  "type": "record",
+  "fields": [
+    {
+      "name": "travelerId",
+      "type": "string",
+      "description": "Traveler id"
+    },
+    {
+      "name": "seatAvailabilityStatus",
+      "type": "string",
+      "description": "Seat availability for this specific traveler. Allows better seat choice per traveler"
+    },
+    {
+      "name": "price",
+      "type": "string",
+      "description": "Price for a given seat"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "phone",
+  "description": "Phone information.",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "description": "Category of the contact element",
+      "enum": [
+        "BUSINESS",
+        "PERSONAL",
+        "OTHER"
+      ]
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "Country code of the country (ISO3166-1). E.g. \"US\" for the United States"
+    },
+    "number": {
+      "type": "string",
+      "description": "Phone number. Composed of digits only. The number of digits depends on the country."
+    }
+  }
+}

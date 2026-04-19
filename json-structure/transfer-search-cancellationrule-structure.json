@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "CancellationRule",
+  "type": "record",
+  "fields": [
+    {
+      "name": "ruleDescription",
+      "type": "string",
+      "description": "description of cancellation rule"
+    },
+    {
+      "name": "feeType",
+      "type": "string",
+      "description": "type of fee - percentage of total amount (PERCENTAGE) or fixed amount (VALUE)\n"
+    },
+    {
+      "name": "feeValue",
+      "type": "string",
+      "description": "value of the fee, e.g. \"100\" or \"12.50\""
+    },
+    {
+      "name": "currencyCode",
+      "type": "string",
+      "description": "currency code of the fee in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. USD, EUR"
+    },
+    {
+      "name": "metricType",
+      "type": "string",
+      "description": "type of metric"
+    },
+    {
+      "name": "metricMin",
+      "type": "string",
+      "description": "metric min value"
+    },
+    {
+      "name": "metricMax",
+      "type": "string",
+      "description": "metric max value"
+    }
+  ]
+}

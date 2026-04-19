@@ -1,0 +1,22 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "data": {
+      "@id": "schema:data"
+    },
+    "meta": {
+      "@id": "schema:meta",
+      "@type": "xsd:string"
+    },
+    "count": {
+      "@id": "schema:count",
+      "@type": "xsd:integer"
+    },
+    "links": {
+      "@id": "schema:links",
+      "@type": "xsd:string"
+    }
+  }
+}

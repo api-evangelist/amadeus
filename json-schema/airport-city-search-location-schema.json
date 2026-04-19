@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Location",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "id of the ressource"
+    },
+    "self": {
+      "$ref": "#/definitions/Links"
+    },
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "subType": {
+      "type": "string",
+      "description": "location sub type",
+      "enum": [
+        "AIRPORT",
+        "CITY",
+        "POINT_OF_INTEREST",
+        "DISTRICT"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "short name of the location"
+    },
+    "detailedName": {
+      "type": "string",
+      "description": "detailed name of the location. For a city location it contains city name and country code. For an airport location it contains city name; country code and airport full name"
+    },
+    "timeZoneOffset": {
+      "type": "string",
+      "description": "timezone offset of the location at the date of the API call (including daylight saving time)"
+    },
+    "iataCode": {
+      "type": "string",
+      "description": "IATA code of the location. ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) here)"
+    },
+    "geoCode": {
+      "$ref": "#/definitions/GeoCode"
+    },
+    "address": {
+      "$ref": "#/definitions/Address"
+    },
+    "distance": {
+      "$ref": "#/definitions/Distance"
+    },
+    "analytics": {
+      "$ref": "#/definitions/Analytics"
+    },
+    "relevance": {
+      "type": "number",
+      "format": "double",
+      "description": "score value calculated based on distance and analytics"
+    },
+    "category": {
+      "type": "string",
+      "description": "category of the location",
+      "enum": [
+        "SIGHTS",
+        "BEACH_PARK",
+        "HISTORICAL",
+        "NIGHTLIFE",
+        "RESTAURANT",
+        "SHOPPING"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "description": "list of tags related to the location",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rank": {
+      "type": "string",
+      "description": "the rank is the position compared to other locations based on how famous is a place. 1 being the highest."
+    }
+  }
+}

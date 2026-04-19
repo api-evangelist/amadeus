@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "meta": {
+      "@id": "schema:meta",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "schema:data"
+    },
+    "warnings": {
+      "@id": "schema:warnings"
+    },
+    "type": {
+      "@id": "schema:type",
+      "@type": "xsd:string"
+    },
+    "iataCode": {
+      "@id": "schema:iataCode",
+      "@type": "xsd:string"
+    },
+    "icaoCode": {
+      "@id": "schema:icaoCode",
+      "@type": "xsd:string"
+    },
+    "businessName": {
+      "@id": "schema:businessName",
+      "@type": "xsd:string"
+    },
+    "commonName": {
+      "@id": "schema:commonName",
+      "@type": "xsd:string"
+    },
+    "count": {
+      "@id": "schema:count",
+      "@type": "xsd:integer"
+    },
+    "links": {
+      "@id": "schema:links"
+    }
+  }
+}

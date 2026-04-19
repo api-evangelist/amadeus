@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "TransferCancellation",
+  "type": "record",
+  "fields": [
+    {
+      "name": "confirmNbr",
+      "type": "string",
+      "description": "transfer identifier - confirmation number from service provider that identifies the ride"
+    },
+    {
+      "name": "reservationStatus",
+      "type": "string",
+      "description": "status of reservation"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "ExtraService",
+  "type": "record",
+  "fields": [
+    {
+      "name": "code",
+      "type": "string",
+      "description": "extra service code, which can take following values\n\ncode   | name                                 \n\n | - \n\nDSL    | Driver language specified\nEWT    | Extra waiting time\nMAG    | Meet & Greet\nFLM    | Flight monitoring\nNWS    | Newspaper\nCAI    | Cancellation insurance\nWNR    | Wait and Return. Driver waits at destination and brings back the customer to pick-up point\n"
+    },
+    {
+      "name": "itemId",
+      "type": "string",
+      "description": "extra service identifier"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "extra service description"
+    },
+    {
+      "name": "metricType",
+      "type": "string",
+      "description": "extra service time metric type"
+    },
+    {
+      "name": "metricValue",
+      "type": "string",
+      "description": "extra service metric value"
+    },
+    {
+      "name": "quotation",
+      "type": "string"
+    },
+    {
+      "name": "converted",
+      "type": "string"
+    },
+    {
+      "name": "isBookable",
+      "type": "boolean",
+      "description": "true if extra service is available for booking"
+    },
+    {
+      "name": "taxIncluded",
+      "type": "boolean",
+      "description": "true if tax included in extra service price"
+    },
+    {
+      "name": "includedInTotal",
+      "type": "boolean",
+      "description": "true if extra service price is included in total transfer amount"
+    }
+  ]
+}

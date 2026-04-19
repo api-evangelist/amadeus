@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Amenity_Media",
+  "type": "record",
+  "fields": [
+    {
+      "name": "title",
+      "type": "string",
+      "description": "media title"
+    },
+    {
+      "name": "href",
+      "type": "uri",
+      "description": "href to display the original media.\n"
+    },
+    {
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "name": "mediaType",
+      "type": "string",
+      "description": "media type as per IANA (https://www.iana.org/assignments/media-types/media-types.xhtml)"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "type": "example-type",
+  "id": "example-id",
+  "reference": "example-reference",
+  "transfers": [],
+  "passengers": [],
+  "agency": "example-agency"
+}

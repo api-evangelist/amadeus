@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DeckConfiguration",
+  "description": "deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)",
+  "type": "object",
+  "properties": {
+    "width": {
+      "type": "integer",
+      "description": "Width (y-axis) of the deck."
+    },
+    "length": {
+      "type": "integer",
+      "description": "Length (x-axis) of the deck."
+    },
+    "startSeatRow": {
+      "type": "integer",
+      "description": "seat row where the deck is starting"
+    },
+    "endSeatRow": {
+      "type": "integer",
+      "description": "seat row where the deck is ending"
+    },
+    "startWingsX": {
+      "type": "integer",
+      "description": "Start x coordinate of the wings.The wings display starts relatively to the length."
+    },
+    "endWingsX": {
+      "type": "integer",
+      "description": "End x coordinate of the wings.The wings display ends relatively to the length."
+    },
+    "startWingsRow": {
+      "type": "integer",
+      "description": "seat row where the wing is starting"
+    },
+    "endWingsRow": {
+      "type": "integer",
+      "description": "seat row where the wing is ending"
+    },
+    "exitRowsX": {
+      "type": "array",
+      "description": "X coordinate of the exit rows.The exit rows are displayed relatively to the length.",
+      "items": {
+        "type": "integer"
+      }
+    }
+  }
+}

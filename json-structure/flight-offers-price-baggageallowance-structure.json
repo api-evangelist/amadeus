@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "BaggageAllowance",
+  "type": "record",
+  "fields": [
+    {
+      "name": "quantity",
+      "type": "int32",
+      "description": "Total number of units"
+    },
+    {
+      "name": "weight",
+      "type": "int32",
+      "description": "Weight of the baggage allowance"
+    },
+    {
+      "name": "weightUnit",
+      "type": "string",
+      "description": "Code to qualify unit as pounds or kilos"
+    }
+  ]
+}

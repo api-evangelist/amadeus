@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FlightDestinations",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/FlightDestination"
+      }
+    },
+    "dictionaries": {
+      "$ref": "#/definitions/Dictionaries"
+    },
+    "meta": {
+      "$ref": "#/definitions/Meta"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Issue"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Meta",
+  "type": "record",
+  "fields": [
+    {
+      "name": "links",
+      "type": "string"
+    },
+    {
+      "name": "defaults",
+      "type": "string"
+    }
+  ]
+}

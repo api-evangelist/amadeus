@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DateTimeType",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-12-25"
+    },
+    "time": {
+      "type": "string",
+      "description": "Local time. hh:mm:ss format, e.g 10:30:00"
+    }
+  },
+  "required": [
+    "date"
+  ]
+}

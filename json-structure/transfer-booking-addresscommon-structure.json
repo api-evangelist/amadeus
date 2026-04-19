@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AddressCommon",
+  "type": "record",
+  "fields": [
+    {
+      "name": "line",
+      "type": "string",
+      "description": "Address line with street, number, bulding, etc..."
+    },
+    {
+      "name": "zip",
+      "type": "string",
+      "description": "Post office code number"
+    },
+    {
+      "name": "countryCode",
+      "type": "string",
+      "description": "Country code (two character standard IATA country code)"
+    },
+    {
+      "name": "cityName",
+      "type": "string",
+      "description": "City, town or postal station"
+    },
+    {
+      "name": "stateCode",
+      "type": "string",
+      "description": "State code (two character standard IATA state code)"
+    }
+  ]
+}

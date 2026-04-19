@@ -1,0 +1,6 @@
+{
+  "methodOfPayment": "CREDIT_CARD",
+  "paymentReference": "example-paymentReference",
+  "paymentServiceProvider": "STRIPE_CONNECT",
+  "creditCard": "example-creditCard"
+}

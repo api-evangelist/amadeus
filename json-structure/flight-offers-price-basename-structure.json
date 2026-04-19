@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "BaseName",
+  "type": "record",
+  "fields": [
+    {
+      "name": "firstName",
+      "type": "string",
+      "description": "First name."
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "description": "Last name."
+    },
+    {
+      "name": "middleName",
+      "type": "string",
+      "description": "Middle name(s), for example \"Lee\" in \"John Lee Smith\"."
+    }
+  ]
+}

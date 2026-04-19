@@ -1,0 +1,7 @@
+{
+  "type": "example-type",
+  "iataCode": "example-iataCode",
+  "icaoCode": "example-icaoCode",
+  "businessName": "example-businessName",
+  "commonName": "example-commonName"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "OtherMethod",
+  "type": "record",
+  "fields": [
+    {
+      "name": "method",
+      "type": "string"
+    },
+    {
+      "name": "flightOfferIds",
+      "type": "array",
+      "description": "Id of the concern flightOffers",
+      "items": {
+        "type": "string"
+      }
+    }
+  ]
+}

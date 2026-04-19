@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "HotelProduct_DepositPolicy",
+  "type": "record",
+  "fields": [
+    {
+      "name": "amount",
+      "type": "string",
+      "description": "Deposit-Prepay amount"
+    },
+    {
+      "name": "deadline",
+      "type": "datetime",
+      "description": "The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. \n Example: 2010-08-14T13:00:00\n Please note that this value is expressed in the hotels local time zone"
+    },
+    {
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "name": "acceptedPayments",
+      "type": "string"
+    }
+  ]
+}

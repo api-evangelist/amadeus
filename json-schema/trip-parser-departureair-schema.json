@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "departureAir",
+  "description": "Departure or arrival information",
+  "type": "object",
+  "properties": {
+    "iataCode": {
+      "type": "string",
+      "description": "IATA Airport code"
+    },
+    "terminal": {
+      "type": "string",
+      "description": "Terminal name / number"
+    },
+    "checkInEndTime": {
+      "type": "string"
+    },
+    "localDateTime": {
+      "type": "string",
+      "description": "Local schedule dateTime of the departure or arrival. Conversion of dateTime in local date time."
+    }
+  }
+}

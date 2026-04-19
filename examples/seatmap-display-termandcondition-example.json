@@ -1,0 +1,7 @@
+{
+  "category": "REFUND",
+  "circumstances": "example-circumstances",
+  "notApplicable": true,
+  "maxPenaltyAmount": "example-maxPenaltyAmount",
+  "descriptions": []
+}

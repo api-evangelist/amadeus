@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Fee",
+  "description": "a fee",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "string"
+    },
+    "type": {
+      "$ref": "#/definitions/FeeType"
+    }
+  }
+}

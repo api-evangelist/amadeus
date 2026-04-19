@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Coordinates",
+  "type": "record",
+  "fields": [
+    {
+      "name": "x",
+      "type": "int32",
+      "description": "coordinate for the Length"
+    },
+    {
+      "name": "y",
+      "type": "int32",
+      "description": "coordinate for the Width"
+    }
+  ]
+}

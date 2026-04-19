@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Collection_Meta_Link",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "string",
+          "format": "uri"
+        },
+        "next": {
+          "type": "string",
+          "format": "uri"
+        },
+        "previous": {
+          "type": "string",
+          "format": "uri"
+        },
+        "last": {
+          "type": "string",
+          "format": "uri"
+        },
+        "first": {
+          "type": "string",
+          "format": "uri"
+        },
+        "up": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_PaymentPolicy",
+  "description": "Accepted Payment Methods and Card Types. Several Payment Methods and Card Types may be available.",
+  "type": "object",
+  "properties": {
+    "creditCards": {
+      "type": "array",
+      "description": "Accepted Payment Card Types for the `method` CREDIT_CARD",
+      "items": {
+        "type": "string"
+      }
+    },
+    "methods": {
+      "type": "array",
+      "description": "Accepted Payment Methods",
+      "items": {
+        "$ref": "#/definitions/Method"
+      }
+    }
+  }
+}

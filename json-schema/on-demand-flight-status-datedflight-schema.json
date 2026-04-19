@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DatedFlight",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "scheduledDepartureDate": {
+      "type": "string",
+      "format": "date",
+      "description": "the scheduled departure date"
+    },
+    "flightDesignator": {
+      "$ref": "#/definitions/FlightDesignator"
+    },
+    "flightPoints": {
+      "type": "array",
+      "description": "the flight points of the flight.\nAt least one departure, one arrival\n",
+      "items": {
+        "$ref": "#/definitions/FlightPoint"
+      }
+    },
+    "segments": {
+      "type": "array",
+      "description": "the list of segments of the datedFlight\n- definition of segment: the commercial unit corresponding to the passenger journey traveling between two points with the same flight (same flight designator)\n",
+      "items": {
+        "$ref": "#/definitions/Segment"
+      }
+    },
+    "legs": {
+      "type": "array",
+      "description": "the list of legs of the datedFlight.\n- definition of leg: operation of the aircraft between a departure station and the next arrival station (between take off and landing)\n",
+      "items": {
+        "$ref": "#/definitions/Leg"
+      }
+    }
+  }
+}

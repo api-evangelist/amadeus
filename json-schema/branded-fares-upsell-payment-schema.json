@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Payment",
+  "type": "object",
+  "properties": {
+    "brand": {
+      "$ref": "#/definitions/PaymentBrand"
+    },
+    "binNumber": {
+      "type": "integer",
+      "description": "The first 6 digits of the credit card"
+    },
+    "flightOfferIds": {
+      "type": "array",
+      "description": "Id of the flightOffers to pay",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

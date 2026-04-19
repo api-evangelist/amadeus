@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_RoomDetails",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Room type code, 3 character identifier of the room.\nThe first character identifies the room type category. \nThe second numeric character identifies the number of beds. \nThe third character identifies the bed type. \nThere is a special case where ROH is returned, this value stands for Run Of House."
+    },
+    "typeEstimated": {
+      "$ref": "#/definitions/HotelProduct_EstimatedRoomType"
+    },
+    "description": {
+      "$ref": "#/definitions/QualifiedFreeText"
+    }
+  }
+}

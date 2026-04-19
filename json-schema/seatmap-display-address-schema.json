@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Address",
+  "description": "address information",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "description": "Category of the contact element",
+      "enum": [
+        "BUSINESS",
+        "PERSONAL",
+        "OTHER"
+      ]
+    },
+    "lines": {
+      "type": "array",
+      "description": "Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc",
+      "items": {
+        "type": "string"
+      }
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Example: 74130"
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "country code [ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)"
+    },
+    "cityName": {
+      "type": "string",
+      "description": "Full city name. Example: Dublin"
+    },
+    "stateCode": {
+      "type": "string",
+      "description": "State code - two character standard [ISO 3166-2 state code](https://en.wikipedia.org/wiki/ISO_3166-2)"
+    },
+    "stateName": {
+      "type": "string",
+      "description": "Full state name"
+    },
+    "postalBox": {
+      "type": "string",
+      "description": "E.g. BP 220"
+    },
+    "text": {
+      "type": "string",
+      "description": "Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled."
+    }
+  }
+}

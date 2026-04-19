@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Dictionaries",
+  "type": "record",
+  "fields": [
+    {
+      "name": "locations",
+      "type": "string"
+    },
+    {
+      "name": "aircraft",
+      "type": "string"
+    },
+    {
+      "name": "currencies",
+      "type": "string"
+    },
+    {
+      "name": "carriers",
+      "type": "string"
+    }
+  ]
+}

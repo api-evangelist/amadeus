@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "carVehicle",
+  "type": "object",
+  "properties": {
+    "acrissCode": {
+      "type": "string",
+      "description": "Association of car rental industry systems standards"
+    },
+    "carModel": {
+      "type": "string",
+      "description": "Car model name"
+    },
+    "doors": {
+      "type": "integer",
+      "description": "Number of doors"
+    }
+  }
+}

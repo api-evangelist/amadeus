@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SeatmapTravelerPricing",
+  "type": "object",
+  "properties": {
+    "travelerId": {
+      "type": "string",
+      "description": "Traveler id"
+    },
+    "seatAvailabilityStatus": {
+      "type": "string",
+      "description": "Seat availability for this specific traveler. Allows better seat choice per traveler",
+      "enum": [
+        "AVAILABLE",
+        "BLOCKED",
+        "OCCUPIED"
+      ]
+    },
+    "price": {
+      "$ref": "#/definitions/Price"
+    }
+  }
+}

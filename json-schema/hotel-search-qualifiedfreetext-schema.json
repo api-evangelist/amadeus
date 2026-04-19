@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QualifiedFreeText",
+  "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string",
+      "description": "Free Text"
+    },
+    "lang": {
+      "type": "string",
+      "description": "see RFC 5646"
+    }
+  }
+}

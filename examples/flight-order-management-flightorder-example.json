@@ -1,0 +1,16 @@
+{
+  "type": "example-type",
+  "id": "example-id",
+  "queuingOfficeId": "example-queuingOfficeId",
+  "ownerOfficeId": "example-ownerOfficeId",
+  "associatedRecords": [],
+  "flightOffers": [],
+  "travelers": [],
+  "remarks": "example-remarks",
+  "formOfPayments": [],
+  "ticketingAgreement": "example-ticketingAgreement",
+  "automatedProcess": [],
+  "contacts": [],
+  "tickets": [],
+  "formOfIdentifications": []
+}

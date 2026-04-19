@@ -1,0 +1,9 @@
+{
+  "dateTime": "example-dateTime",
+  "locationCode": "example-locationCode",
+  "lfiCode": "example-lfiCode",
+  "address": "example-address",
+  "name": "example-name",
+  "googlePlaceId": "example-googlePlaceId",
+  "uicCode": "example-uicCode"
+}

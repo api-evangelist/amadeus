@@ -1,0 +1,14 @@
+{
+  "confirmationNumber": "example-confirmationNumber",
+  "checkInDate": "example-checkInDate",
+  "checkOutDate": "example-checkOutDate",
+  "roomQuantity": 1,
+  "contact": "example-contact",
+  "address": "example-address",
+  "amenities": [],
+  "name": "example-name",
+  "description": "example-description",
+  "policies": "example-policies",
+  "guests": "example-guests",
+  "room": "example-room"
+}

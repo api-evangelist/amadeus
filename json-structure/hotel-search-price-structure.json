@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Price",
+  "type": "record",
+  "fields": [
+    {
+      "name": "currency",
+      "type": "string",
+      "description": "currency Code apply to all elements of the price"
+    },
+    {
+      "name": "sellingTotal",
+      "type": "string",
+      "description": "sellingTotal = Total + margins + markup + totalFees - discounts"
+    },
+    {
+      "name": "total",
+      "type": "string",
+      "description": "total = base + totalTaxes"
+    },
+    {
+      "name": "base",
+      "type": "string"
+    },
+    {
+      "name": "markups",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

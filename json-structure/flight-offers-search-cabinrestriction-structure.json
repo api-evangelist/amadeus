@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "CabinRestriction",
+  "type": "record",
+  "fields": [
+    {
+      "name": "cabin",
+      "type": "string"
+    },
+    {
+      "name": "originDestinationIds",
+      "type": "array",
+      "description": "The list of originDestination identifiers for which the cabinRestriction applies",
+      "items": {
+        "type": "string"
+      }
+    }
+  ]
+}

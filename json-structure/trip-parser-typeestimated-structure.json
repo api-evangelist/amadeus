@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "typeEstimated",
+  "type": "record",
+  "fields": [
+    {
+      "name": "category",
+      "type": "string",
+      "description": "Category code"
+    },
+    {
+      "name": "beds",
+      "type": "int32",
+      "description": "Number of beds in the room (1-9)"
+    },
+    {
+      "name": "bedType",
+      "type": "string",
+      "description": "Type of the bed"
+    }
+  ]
+}

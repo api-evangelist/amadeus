@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Payment",
+  "description": "form of payment (mandatory in case of `acceptedPayments`/`methods`)",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "method": {
+      "type": "string",
+      "description": "The Payment Methods:\n * creditCard (CC) - Payment Cards in `creditCards` are accepted           ",
+      "enum": [
+        "creditCard"
+      ]
+    },
+    "card": {
+      "type": "object",
+      "description": "payment card details (mandatory in case of `method` creditCard)",
+      "properties": {
+        "vendorCode": {
+          "type": "string",
+          "description": "card type (CA, VI, AX, DC...)\nExamples:\n  * CA - MasterCard (warning: use it instead of MC/IK/EC/MD/XS)\n  * VI - Visa\n  * AX - American Express\n  * DC - Diners Club\n  * AU - Carte Aurore\n  * CG - Cofinoga\n  * DS - Discover\n  * GK - Lufthansa GK Card\n  * JC - Japanese Credit Bureau\n  * TC - Torch Club\n  * TP - Universal Air Travel Card\n  * BC - Bank Card\n  * DL - Delta\n  * MA - Maestro\n  * UP - China UnionPay   \n  * VE - Visa Electron\n"
+        },
+        "cardNumber": {
+          "type": "string",
+          "description": "card number"
+        },
+        "expiryDate": {
+          "type": "string",
+          "description": "Expiration Date YYYY-MM"
+        }
+      }
+    }
+  },
+  "required": [
+    "method"
+  ]
+}

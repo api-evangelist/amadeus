@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Purpose_Prediction",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "the resource name (`prediction`)"
+    },
+    {
+      "name": "subType",
+      "type": "string"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "item identifier"
+    },
+    {
+      "name": "result",
+      "type": "string"
+    },
+    {
+      "name": "probability",
+      "type": "string",
+      "description": "probability of the forecast (between 0 and 1)"
+    }
+  ]
+}

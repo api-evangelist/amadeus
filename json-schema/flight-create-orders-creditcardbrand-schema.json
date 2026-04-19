@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CreditCardBrand",
+  "description": "credit card brand",
+  "type": "string",
+  "enum": [
+    "VISA",
+    "AMERICAN_EXPRESS",
+    "MASTERCARD",
+    "VISA_ELECTRON",
+    "VISA_DEBIT",
+    "MASTERCARD_DEBIT",
+    "MAESTRO",
+    "DINERS",
+    "EASYPAY"
+  ]
+}

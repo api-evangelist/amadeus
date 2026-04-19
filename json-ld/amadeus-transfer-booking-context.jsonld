@@ -1,0 +1,89 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "transferType": {
+      "@id": "schema:transferType",
+      "@type": "xsd:string"
+    },
+    "start": {
+      "@id": "schema:start",
+      "@type": "xsd:string"
+    },
+    "end": {
+      "@id": "schema:end",
+      "@type": "xsd:string"
+    },
+    "stopOvers": {
+      "@id": "schema:stopOvers"
+    },
+    "passenegerCharacteristics": {
+      "@id": "schema:passenegerCharacteristics"
+    },
+    "duration": {
+      "@id": "schema:duration",
+      "@type": "xsd:string"
+    },
+    "vehicle": {
+      "@id": "schema:vehicle",
+      "@type": "xsd:string"
+    },
+    "serviceProvider": {
+      "@id": "schema:serviceProvider",
+      "@type": "xsd:string"
+    },
+    "partnerInfo": {
+      "@id": "schema:partnerInfo",
+      "@type": "xsd:string"
+    },
+    "quotation": {
+      "@id": "schema:quotation",
+      "@type": "xsd:string"
+    },
+    "converted": {
+      "@id": "schema:converted",
+      "@type": "xsd:string"
+    },
+    "extraServices": {
+      "@id": "schema:extraServices"
+    },
+    "equipment": {
+      "@id": "schema:equipment"
+    },
+    "cancellationRules": {
+      "@id": "schema:cancellationRules"
+    },
+    "methodsOfPaymentAccepted": {
+      "@id": "schema:methodsOfPaymentAccepted"
+    },
+    "discountCodes": {
+      "@id": "schema:discountCodes"
+    },
+    "distance": {
+      "@id": "schema:distance",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "schema:type",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "@id"
+    },
+    "reference": {
+      "@id": "schema:reference",
+      "@type": "xsd:string"
+    },
+    "transfers": {
+      "@id": "schema:transfers"
+    },
+    "passengers": {
+      "@id": "schema:passengers"
+    },
+    "agency": {
+      "@id": "schema:agency",
+      "@type": "xsd:string"
+    }
+  }
+}

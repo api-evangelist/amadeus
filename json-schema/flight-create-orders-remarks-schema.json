@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Remarks",
+  "description": "remarks",
+  "type": "object",
+  "properties": {
+    "general": {
+      "type": "array",
+      "description": "list of general remarks",
+      "items": {
+        "$ref": "#/definitions/GeneralRemark"
+      }
+    },
+    "airline": {
+      "type": "array",
+      "description": "list of airline remarks",
+      "items": {
+        "$ref": "#/definitions/AirlineRemark"
+      }
+    }
+  }
+}

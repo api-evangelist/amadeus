@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "flightDesignator",
+  "type": "record",
+  "fields": [
+    {
+      "name": "carrierCode",
+      "type": "string",
+      "description": "Two letter IATA standard carrier code"
+    },
+    {
+      "name": "flightNumber",
+      "type": "string",
+      "description": "1-4 digit number"
+    },
+    {
+      "name": "operationalSuffix",
+      "type": "string",
+      "description": "the operational suffix"
+    }
+  ]
+}

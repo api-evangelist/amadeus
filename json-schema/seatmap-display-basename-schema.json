@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BaseName",
+  "description": "description of the name of a physical person",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "First name."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name."
+    },
+    "middleName": {
+      "type": "string",
+      "description": "Middle name(s), for example \"Lee\" in \"John Lee Smith\"."
+    }
+  }
+}

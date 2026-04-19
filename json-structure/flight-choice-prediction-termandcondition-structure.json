@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "TermAndCondition",
+  "type": "record",
+  "fields": [
+    {
+      "name": "category",
+      "type": "string",
+      "description": "This defines what type of modification is concerned in this rule."
+    },
+    {
+      "name": "circumstances",
+      "type": "string"
+    },
+    {
+      "name": "notApplicable",
+      "type": "boolean"
+    },
+    {
+      "name": "maxPenaltyAmount",
+      "type": "string"
+    },
+    {
+      "name": "descriptions",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

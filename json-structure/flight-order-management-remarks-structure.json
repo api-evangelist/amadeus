@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Remarks",
+  "type": "record",
+  "fields": [
+    {
+      "name": "general",
+      "type": "array",
+      "description": "list of general remarks",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "airline",
+      "type": "array",
+      "description": "list of airline remarks",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

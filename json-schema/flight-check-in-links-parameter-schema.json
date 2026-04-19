@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Parameter",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "parameter descriptive information"
+    },
+    "type": {
+      "type": "string",
+      "description": "type of the parameter"
+    },
+    "format": {
+      "type": "string",
+      "description": "format of the parameter"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

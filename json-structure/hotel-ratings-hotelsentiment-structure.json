@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "HotelSentiment",
+  "type": "record",
+  "fields": [
+    {
+      "name": "hotelId",
+      "type": "string",
+      "description": "Amadeus Hotel Ids are found in the Hotel Search response (parameter name is 'hotelId')"
+    },
+    {
+      "name": "type",
+      "type": "string"
+    },
+    {
+      "name": "overallRating",
+      "type": "string"
+    },
+    {
+      "name": "numberOfRatings",
+      "type": "int32"
+    },
+    {
+      "name": "numberOfReviews",
+      "type": "int32"
+    },
+    {
+      "name": "sentiments",
+      "type": "object",
+      "description": "Dictionary containing scores for all the available categories.  If a property does not have any category this object will not be present in the response."
+    }
+  ]
+}

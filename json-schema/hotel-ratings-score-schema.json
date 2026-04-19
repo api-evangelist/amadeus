@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Score",
+  "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+  "type": "integer"
+}

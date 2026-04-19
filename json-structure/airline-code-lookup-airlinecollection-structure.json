@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AirlineCollection",
+  "type": "record",
+  "fields": [
+    {
+      "name": "meta",
+      "type": "string"
+    },
+    {
+      "name": "data",
+      "type": "array",
+      "description": "Array of airline resources matching the query.",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "warnings",
+      "type": "array",
+      "description": "Non-blocking issues encountered during the request processing.",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

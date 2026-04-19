@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FlightPoint",
+  "type": "object",
+  "properties": {
+    "iataCode": {
+      "type": "string",
+      "description": "3-letter IATA code of the airport. e.g. CDG"
+    },
+    "departure": {
+      "$ref": "#/definitions/Departure"
+    },
+    "arrival": {
+      "$ref": "#/definitions/Arrival"
+    }
+  }
+}

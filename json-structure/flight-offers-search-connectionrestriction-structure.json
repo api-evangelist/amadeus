@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "ConnectionRestriction",
+  "type": "record",
+  "fields": [
+    {
+      "name": "maxNumberOfConnections",
+      "type": "double",
+      "description": "The maximal number of connections for each itinerary. Value can be 0, 1 or 2."
+    },
+    {
+      "name": "nonStopPreferred",
+      "type": "boolean",
+      "description": "When this option is requested, recommendations made of Non-Stop flights only are favoured by the search, on the whole itinerary, with a weight of 75%. It is possible to override this default 75% weight of Non-Stop recommendations by providing the requested weight in the attribute nonStopPreferredWeight"
+    },
+    {
+      "name": "nonStopPreferredWeight",
+      "type": "double",
+      "description": "This weight is the percentage of total number of recommendations that could be returned for Non-Stop flight recommendations. It is only relevant when combined with nonSTopPreferred set to true. If not specified, the default weight of 75% is applied"
+    },
+    {
+      "name": "airportChangeAllowed",
+      "type": "boolean",
+      "description": "Allow to change airport during connection"
+    },
+    {
+      "name": "technicalStopsAllowed",
+      "type": "boolean",
+      "description": "This option allows the single segment to have one or more intermediate stops (technical stops)."
+    }
+  ]
+}

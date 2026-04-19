@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "start",
+  "type": "record",
+  "fields": [
+    {
+      "name": "localDateTime",
+      "type": "string",
+      "description": "Local Date/Time of the itinerary end in format ISO 8601 (YYYY-MM-DDTHH:MM:SS)"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Label associated to the location (e.g. Eiffel Tower, Madison Square)"
+    },
+    {
+      "name": "iataCode",
+      "type": "string",
+      "description": "IATA location code"
+    },
+    {
+      "name": "address",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "phone",
+  "type": "record",
+  "fields": [
+    {
+      "name": "category",
+      "type": "string",
+      "description": "Category of the contact element"
+    },
+    {
+      "name": "countryCode",
+      "type": "string",
+      "description": "Country code of the country (ISO3166-1). E.g. \"US\" for the United States"
+    },
+    {
+      "name": "number",
+      "type": "string",
+      "description": "Phone number. Composed of digits only. The number of digits depends on the country."
+    }
+  ]
+}

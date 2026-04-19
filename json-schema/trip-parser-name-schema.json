@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "name",
+  "description": "Description of the name of a physical person",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "First name."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name."
+    },
+    "title": {
+      "type": "string",
+      "description": "Contains all the suffixes and prefixes that can be appended to a name - Mr, Miss, Pr. - E.g. \" Mr\"."
+    },
+    "middleName": {
+      "type": "string",
+      "description": "Middle name(s), for example \"Lee\" in \"John Lee Smith\"."
+    },
+    "prefix": {
+      "type": "string",
+      "description": "Name prefix (e.g. Doctor)"
+    },
+    "suffix": {
+      "type": "string",
+      "description": "Name suffix (e.g. Junior, III, etc)."
+    }
+  }
+}

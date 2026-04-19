@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TermAndCondition",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "description": "This defines what type of modification is concerned in this rule.",
+      "enum": [
+        "REFUND",
+        "EXCHANGE",
+        "REVALIDATION",
+        "REISSUE",
+        "REBOOK",
+        "CANCELLATION"
+      ]
+    },
+    "circumstances": {
+      "type": "string"
+    },
+    "notApplicable": {
+      "type": "boolean"
+    },
+    "maxPenaltyAmount": {
+      "type": "string"
+    },
+    "descriptions": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "descriptionType": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

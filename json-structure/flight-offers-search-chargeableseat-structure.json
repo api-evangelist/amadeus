@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "ChargeableSeat",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "Id of the chargeable seat"
+    },
+    {
+      "name": "number",
+      "type": "string",
+      "description": "seat number"
+    }
+  ]
+}

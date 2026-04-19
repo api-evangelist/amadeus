@@ -1,915 +1,1649 @@
 aid: amadeus
-url: https://raw.githubusercontent.com/api-search/travel/main/_apis/amadeus/apis.md
+url: https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/apis.yml
 apis:
-  - aid: amadeus:flight-offers-search
-    name: Amadeus Flight Offers Search API
-    tags:
-      - Airlines
-      - Booking
-      - Flights
-      - Search
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search/api-reference
-        type: APIReference
-      - url: openapi/flight-offers-search-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Offers Search API searches over 500 airlines to find the
-      cheapest flights for a given itinerary. It lets you search flights between
-      two cities, perform multi-city searches, and access one-way combinable fares
-      to offer the cheapest options possible.
-  - aid: amadeus:flight-offers-price
-    name: Amadeus Flight Offers Price API
-    tags:
-      - Fares
-      - Flights
-      - Pricing
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price/api-reference
-        type: APIReference
-      - url: openapi/flight-offers-price-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Offers Price API confirms the availability and final price
-      of flights, including taxes and fees. It is used after a flight search to
-      verify that the offer is still available and to get the final price before
-      proceeding to booking.
-  - aid: amadeus:flight-create-orders
-    name: Amadeus Flight Create Orders API
-    tags:
-      - Booking
-      - Flights
-      - Orders
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-create-orders
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-create-orders
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-create-orders/api-reference
-        type: APIReference
-      - url: openapi/flight-create-orders-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Create Orders API completes the air booking flow by
-      creating a flight order. It provides a unique booking ID and reservation
-      details once the reservation is completed, allowing travelers to finalize
-      their flight bookings.
-  - aid: amadeus:flight-order-management
-    name: Amadeus Flight Order Management API
-    tags:
-      - Flights
-      - Management
-      - Orders
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-order-management
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-order-management
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-order-management/api-reference
-        type: APIReference
-      - url: openapi/flight-order-management-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Order Management API allows you to check reservation
-      status, view post-booking modifications, and enable cancellations for
-      existing flight orders. It provides full lifecycle management of flight
-      bookings after they have been created.
-  - aid: amadeus:seatmap-display
-    name: Amadeus Seatmap Display API
-    tags:
-      - Cabin
-      - Flights
-      - Seats
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/seatmap-display
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/seatmap-display
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/seatmap-display/api-reference
-        type: APIReference
-      - url: openapi/seatmap-display-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Seatmap Display API shows the airplane cabin plan from a flight
-      offer so travelers can choose their seat during the booking process. It
-      provides seat availability, pricing, and cabin layout information for
-      supported flights.
-  - aid: amadeus:branded-fares-upsell
-    name: Amadeus Branded Fares Upsell API
-    tags:
-      - Fares
-      - Flights
-      - Upsell
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/branded-fares-upsell
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/branded-fares-upsell
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/branded-fares-upsell/api-reference
-        type: APIReference
-      - url: openapi/branded-fares-upsell-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Branded Fares Upsell API provides the branded fares available
-      for a given flight, along with pricing and a fare description. It enables
-      travel applications to offer travelers upgrade options and premium fare
-      bundles with additional services.
-  - aid: amadeus:flight-price-analysis
-    name: Amadeus Flight Price Analysis API
-    tags:
-      - Analytics
-      - Flights
-      - Pricing
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-price-analysis
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-price-analysis
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-price-analysis/api-reference
-        type: APIReference
-      - url: openapi/flight-price-analysis-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Price Analysis API uses AI and historical fare data to
-      determine whether a flight price is a good deal. It compares current flight
-      prices against historical fares to help travelers decide whether to book now
-      or wait for a better price.
-  - aid: amadeus:flight-choice-prediction
-    name: Amadeus Flight Choice Prediction API
-    tags:
-      - Flights
-      - Machine Learning
-      - Prediction
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-choice-prediction
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-choice-prediction
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-choice-prediction/api-reference
-        type: APIReference
-      - url: openapi/flight-choice-prediction-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Choice Prediction API uses machine learning to identify
-      which flight offers users are most likely to book from a list of search
-      results. It helps travel applications sort and highlight the most relevant
-      flight options for each traveler.
-  - aid: amadeus:flight-inspiration-search
-    name: Amadeus Flight Inspiration Search API
-    tags:
-      - Destinations
-      - Flights
-      - Inspiration
-      - Search
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-inspiration-search
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-inspiration-search
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-inspiration-search/api-reference
-        type: APIReference
-      - url: openapi/flight-inspiration-search-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Inspiration Search API returns a list of destinations from
-      a given city ordered by price, helping travelers discover where they can fly
-      for the best deals. It is designed for flexible travelers who are open to
-      exploring new destinations based on affordability.
-  - aid: amadeus:flight-cheapest-date-search
-    name: Amadeus Flight Cheapest Date Search API
-    tags:
-      - Dates
-      - Flights
-      - Pricing
-      - Search
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-cheapest-date-search
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-cheapest-date-search
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-cheapest-date-search/api-reference
-        type: APIReference
-      - url: openapi/flight-cheapest-date-search-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Cheapest Date Search API provides a list of flight options
-      with dates and prices for a given route. It helps travelers find the cheapest
-      dates to fly between two cities, enabling flexible date planning for the best
-      fares.
-  - aid: amadeus:flight-availabilities-search
-    name: Amadeus Flight Availabilities Search API
-    tags:
-      - Availability
-      - Flights
-      - Search
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-availabilities-search
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-availabilities-search
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-availabilities-search/api-reference
-        type: APIReference
-      - url: openapi/flight-availibilities-search-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Availabilities Search API provides a list of flights with
-      seats for sale on a given itinerary. It checks real-time seat availability
-      across airlines, helping travel agents and applications verify that flights
-      have available inventory before proceeding.
-  - aid: amadeus:travel-recommendations
-    name: Amadeus Travel Recommendations API
-    tags:
-      - Destinations
-      - Flights
-      - Machine Learning
-      - Recommendations
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/travel-recommendations
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/travel-recommendations
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/travel-recommendations/api-reference
-        type: APIReference
-      - url: openapi/travel-recommendations-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Travel Recommendations API uses AI to suggest destinations based
-      on traveler profiles and past search and booking history. It helps travel
-      applications provide personalized destination recommendations to improve user
-      engagement and conversion.
-  - aid: amadeus:on-demand-flight-status
-    name: Amadeus On-Demand Flight Status API
-    tags:
-      - Flights
-      - Real-Time
-      - Status
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/on-demand-flight-status
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/on-demand-flight-status
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/on-demand-flight-status/api-reference
-        type: APIReference
-      - url: openapi/on-demand-flight-status-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus On-Demand Flight Status API delivers real-time flight schedule
-      data including delays, cancellations, gate changes, and terminal
-      information. It helps travel applications keep travelers informed about the
-      current status of their flights.
-  - aid: amadeus:flight-delay-prediction
-    name: Amadeus Flight Delay Prediction API
-    tags:
-      - Delays
-      - Flights
-      - Machine Learning
-      - Prediction
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-delay-prediction
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-delay-prediction
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-delay-prediction/api-reference
-        type: APIReference
-      - url: openapi/flight-delay-prediction-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Delay Prediction API provides delay probabilities for four
-      possible delay lengths using machine learning. It takes carrier, airport, and
-      aircraft information as input to estimate the likelihood that a specific
-      flight will be delayed.
-  - aid: amadeus:airport-and-city-search
-    name: Amadeus Airport and City Search API
-    tags:
-      - Airports
-      - Autocomplete
-      - Cities
-      - Search
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-and-city-search
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-and-city-search
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-and-city-search/api-reference
-        type: APIReference
-      - url: openapi/airport-city-search-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Airport and City Search API finds airports and cities that match
-      a specific word or string of letters. It powers autocomplete functionality in
-      travel search interfaces, helping users quickly find their departure and
-      arrival locations.
-  - aid: amadeus:airport-nearest-relevant
-    name: Amadeus Airport Nearest Relevant API
-    tags:
-      - Airports
-      - Location
-      - Proximity
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-nearest-relevant
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-nearest-relevant
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-nearest-relevant/api-reference
-        type: APIReference
-      - url: openapi/airport-nearest-relevant-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Airport Nearest Relevant API provides a list of commercial
-      airports within a 500km radius of a given location. It helps travelers find
-      the most convenient airports for their journey based on geographic
-      coordinates.
-  - aid: amadeus:airport-routes
-    name: Amadeus Airport Routes API
-    tags:
-      - Airports
-      - Destinations
-      - Routes
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-routes
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-routes
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-routes/api-reference
-        type: APIReference
-      - url: openapi/airport-routes-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Airport Routes API finds all destinations served by a given
-      airport. It allows travel applications to show travelers the complete network
-      of routes available from any airport, helping with trip planning and
-      destination discovery.
-  - aid: amadeus:airport-on-time-performance
-    name: Amadeus Airport On-Time Performance API
-    tags:
-      - Airports
-      - Analytics
-      - Performance
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-on-time-performance
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-on-time-performance
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-on-time-performance/api-reference
-        type: APIReference
-      - url: openapi/airport-on-time-performance-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Airport On-Time Performance API predicts overall airport
-      performance based on historical flight delay data. It estimates the
-      probability of flights being delayed at a specific airport, helping travelers
-      plan around potential disruptions.
-  - aid: amadeus:flight-check-in-links
-    name: Amadeus Flight Check-in Links API
-    tags:
-      - Airlines
-      - Check-In
-      - Flights
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-check-in-links
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-check-in-links
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-check-in-links/api-reference
-        type: APIReference
-      - url: openapi/flight-check-in-links-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Check-in Links API simplifies the check-in process by
-      providing direct links to airline online check-in pages. It returns the
-      appropriate check-in URL for a given airline, making it easy for travel
-      applications to redirect travelers to check in for their flights.
-  - aid: amadeus:airline-code-lookup
-    name: Amadeus Airline Code Lookup API
-    tags:
-      - Airlines
-      - Codes
-      - IATA
-      - ICAO
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-code-lookup
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-code-lookup
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-code-lookup/api-reference
-        type: APIReference
-    description: >-
-      The Amadeus Airline Code Lookup API finds the name of an airline by its IATA
-      or ICAO airline codes. It helps travel applications display human-readable
-      airline names alongside flight data that uses industry-standard airline code
-      identifiers.
-  - aid: amadeus:airline-routes
-    name: Amadeus Airline Routes API
-    tags:
-      - Airlines
-      - Destinations
-      - Routes
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-routes
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-routes
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-routes/api-reference
-        type: APIReference
-      - url: openapi/airline-routes-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Airline Routes API finds all destinations served by a given
-      airline. It enables travel applications to display the complete route network
-      of any airline, useful for trip planning and understanding airline coverage
-      in specific regions.
-  - aid: amadeus:hotel-list
-    name: Amadeus Hotel List API
-    tags:
-      - Accommodation
-      - Hotels
-      - Search
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list/api-reference
-        type: APIReference
-      - url: openapi/hotel-list-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Hotel List API returns the name, address, geoCode, and time zone
-      for each hotel bookable in Amadeus. It supports searching by city, geographic
-      coordinates, or unique Amadeus hotel ID, providing the foundation for hotel
-      search workflows.
-  - aid: amadeus:hotel-search
-    name: Amadeus Hotel Search API
-    tags:
-      - Accommodation
-      - Hotels
-      - Pricing
-      - Search
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-search
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-search
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-search/api-reference
-        type: APIReference
-      - url: openapi/hotel-search-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Hotel Search API provides a list of the cheapest hotels in a
-      given location with detailed information on each hotel and the option to
-      filter by category, chain, facilities, or budget range. It returns offers
-      with room descriptions and payment policies.
-  - aid: amadeus:hotel-booking
-    name: Amadeus Hotel Booking API
-    tags:
-      - Accommodation
-      - Booking
-      - Hotels
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-booking
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-booking
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-booking/api-reference
-        type: APIReference
-      - url: openapi/hotel-booking-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Hotel Booking API lets you complete bookings at over 150,000
-      hotels and accommodations around the world. It works in conjunction with the
-      Hotel List and Hotel Search APIs to provide an end-to-end hotel booking
-      workflow.
-  - aid: amadeus:hotel-ratings
-    name: Amadeus Hotel Ratings API
-    tags:
-      - Hotels
-      - Ratings
-      - Reviews
-      - Sentiment
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-ratings
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-ratings
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-ratings/api-reference
-        type: APIReference
-      - url: openapi/hotel-ratings-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Hotel Ratings API uses sentiment analysis of hotel reviews to
-      provide overall hotel ratings and ratings for specific categories like
-      location, comfort, service, staff, internet, food, facilities, pool, and
-      sleep quality.
-  - aid: amadeus:hotel-name-autocomplete
-    name: Amadeus Hotel Name Autocomplete API
-    tags:
-      - Autocomplete
-      - Hotels
-      - Search
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-name-autocomplete
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-name-autocomplete
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-name-autocomplete/api-reference
-        type: APIReference
-      - url: openapi/hotel-name-autocomplete-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Hotel Name Autocomplete API provides a list of up to 20 hotels
-      whose names most closely match a search query string. It powers
-      autocomplete functionality in hotel search interfaces, helping users quickly
-      find specific hotels by name.
-  - aid: amadeus:tours-and-activities
-    name: Amadeus Tours and Activities API
-    tags:
-      - Activities
-      - Destinations
-      - Experiences
-      - Tours
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities/api-reference
-        type: APIReference
-      - url: openapi/tours-and-activities-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Tours and Activities API enables you to find the best tours,
-      activities, and tickets in any city or neighborhood. It aggregates offers
-      from over 45 top activity platforms such as Viator, GetYourGuide, Klook, and
-      Musement, returning photos, descriptions, prices, and booking links.
-  - aid: amadeus:points-of-interest
-    name: Amadeus Points of Interest API
-    tags:
-      - Attractions
-      - Destinations
-      - Points of Interest
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/points-of-interest
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/points-of-interest
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/points-of-interest/api-reference
-        type: APIReference
-      - url: openapi/points-of-interest-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Points of Interest API returns tourist attractions and popular
-      places in a given location. It provides data on over two million places
-      worldwide, scored by categories such as restaurants, shopping, sightseeing,
-      and nightlife.
-  - aid: amadeus:safe-place
-    name: Amadeus Safe Place API
-    tags:
-      - Destinations
-      - Safety
-      - Travel Safety
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/covid-19-and-travel-safety/api-doc/safe-place
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/covid-19-and-travel-safety/api-doc/safe-place
-        type: Documentation
-      - url: openapi/safe-place-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Safe Place API provides safety information for over 65,000
-      cities and neighborhoods worldwide. It returns crime, health, and
-      neighborhood safety ratings powered by GeoSure, helping travelers make
-      informed decisions about their destinations.
-  - aid: amadeus:city-search
-    name: Amadeus City Search API
-    tags:
-      - Cities
-      - Destinations
-      - Search
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/city-search
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/city-search
-        type: Documentation
-      - url: openapi/city-search-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus City Search API enables searching for cities using keywords, with
-      optional filtering by country code and airport inclusion. It helps travel
-      applications provide destination autocomplete and city lookup functionality.
-  - aid: amadeus:transfer-search
-    name: Amadeus Transfer Search API
-    tags:
-      - Ground Transportation
-      - Search
-      - Transfers
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-search
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-search
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-search/api-reference
-        type: APIReference
-      - url: openapi/transfer-search-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Transfer Search API provides live prices for private transfers,
-      hourly services, taxis, shared transfers, airport express, airport buses,
-      private jets, and helicopter transfers. It searches across multiple mobility
-      providers to find the best options for ground transportation.
-  - aid: amadeus:transfer-booking
-    name: Amadeus Transfer Booking API
-    tags:
-      - Booking
-      - Ground Transportation
-      - Transfers
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-booking
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-booking
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-booking/api-reference
-        type: APIReference
-      - url: openapi/transfer-booking-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Transfer Booking API allows you to create transfer orders by
-      providing passenger information, contact details, and other booking
-      parameters. It works with the Transfer Search API to complete end-to-end
-      ground transportation bookings.
-  - aid: amadeus:transfer-management
-    name: Amadeus Transfer Management API
-    tags:
-      - Ground Transportation
-      - Management
-      - Transfers
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-management
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-management
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-management/api-reference
-        type: APIReference
-      - url: openapi/transfer-management-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Transfer Management API allows you to cancel transfers linked
-      with existing orders. It provides post-booking management capabilities for
-      ground transportation reservations, including cancellation confirmation.
-  - aid: amadeus:flight-most-traveled-destinations
-    name: Amadeus Flight Most Traveled Destinations API
-    tags:
-      - Analytics
-      - Destinations
-      - Flights
-      - Market Insights
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-traveled-destinations
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-traveled-destinations
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-traveled-destinations/api-reference
-        type: APIReference
-      - url: openapi/flight-most-traveled-destinations-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Most Traveled Destinations API returns the most popular
-      flight destinations from a given origin based on the number of travelers. It
-      helps travel applications identify trending destinations and provide data-
-      driven recommendations.
-  - aid: amadeus:flight-most-booked-destinations
-    name: Amadeus Flight Most Booked Destinations API
-    tags:
-      - Analytics
-      - Booking
-      - Flights
-      - Market Insights
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-booked-destinations
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-booked-destinations
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-booked-destinations/api-reference
-        type: APIReference
-      - url: openapi/flight-most-booked-destinations-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Most Booked Destinations API returns the most frequently
-      booked flight destinations from a given origin. It provides booking trend
-      data as a percentage of total departures, helping travel applications
-      understand market demand.
-  - aid: amadeus:flight-busiest-traveling-period
-    name: Amadeus Flight Busiest Traveling Period API
-    tags:
-      - Analytics
-      - Flights
-      - Market Insights
-      - Trends
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-busiest-traveling-period
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-busiest-traveling-period
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-busiest-traveling-period/api-reference
-        type: APIReference
-      - url: openapi/flight-busiest-traveling-period-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Flight Busiest Traveling Period API returns the peak travel
-      periods for a specific city based on historical air traffic data. It helps
-      travel applications identify high and low seasons, enabling better planning
-      and pricing strategies.
-  - aid: amadeus:location-score
-    name: Amadeus Location Score API
-    tags:
-      - Analytics
-      - Location
-      - Market Insights
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/market-insights/api-doc/location-score
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/location-score
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/location-score/api-reference
-        type: APIReference
-      - url: openapi/location-score-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Location Score API provides travel and location intelligence
-      scores for specific areas. It evaluates locations based on various criteria
-      to help travel applications assess the desirability and characteristics of
-      different neighborhoods and areas.
-  - aid: amadeus:trip-purpose-prediction
-    name: Amadeus Trip Purpose Prediction API
-    tags:
-      - Itinerary
-      - Machine Learning
-      - Prediction
-      - Trips
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/itinerary-management/api-doc/trip-purpose-prediction
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/itinerary-management/api-doc/trip-purpose-prediction
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/itinerary-management/api-doc/trip-purpose-prediction/api-reference
-        type: APIReference
-      - url: openapi/trip-purpose-prediction-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Trip Purpose Prediction API predicts whether a flight search is
-      for business or leisure travel using machine learning. It analyzes patterns
-      in departure and arrival cities, flight dates, and search dates to help
-      travel applications personalize offers for each traveler.
-  - aid: amadeus:trip-parser
-    name: Amadeus Trip Parser API
-    tags:
-      - Email
-      - Itinerary
-      - Parsing
-      - Trips
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/category/trip/api-doc/trip-parser
-    properties:
-      - url: https://developers.amadeus.com/self-service/category/trip/api-doc/trip-parser
-        type: Documentation
-      - url: https://developers.amadeus.com/self-service/category/trip/api-doc/trip-parser/api-reference
-        type: APIReference
-      - url: openapi/trip-parser-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus Trip Parser API parses travel booking confirmation emails and
-      documents to extract structured itinerary data. It enables travel
-      applications to automatically import bookings from email confirmations and
-      build organized trip itineraries.
-  - aid: amadeus:oauth2-login
-    name: Amadeus OAuth2 Login API
-    tags:
-      - Authentication
-      - OAuth
-      - Security
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://api.amadeus.com
-    humanURL: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/API-Keys/authorization
-    properties:
-      - url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/API-Keys/authorization
-        type: Documentation
-      - url: openapi/amadeus-oauth2-login-openapi-original.yml
-        type: OpenAPI
-    description: >-
-      The Amadeus OAuth2 Login API provides authentication for all Amadeus self-
-      service APIs. It implements the OAuth 2.0 client credentials grant type,
-      allowing applications to obtain access tokens required to make authenticated
-      requests to any Amadeus API endpoint.
-name: Amadeus
-tags:
+- aid: amadeus:flight-offers-search
+  name: Amadeus Flight Offers Search API
+  tags:
   - Airlines
-  - Aviation
   - Booking
   - Flights
-  - Hospitality
-  - Hotels
-  - Market Insights
-  - Tourism
-  - Transfers
-  - Travel
-image: https://developers.amadeus.com/images/logo.png
-common:
-  - url: https://developers.amadeus.com/
-    type: Portal
-  - url: https://developers.amadeus.com/self-service
+  - Search
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
     type: Documentation
-  - url: https://developers.amadeus.com/get-started/get-started-with-self-service-apis-335
-    type: Getting Started
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search/api-reference
+    type: APIReference
+  - url: openapi/flight-offers-search-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-offers-search-additionalservicetype-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-offers-search-aircraftentry-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-offers-search-aircraftequipment-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-offers-search-allotmentdetails-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-offers-search-baggageallowance-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-offers-search-additionalservicetype-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-offers-search-aircraftentry-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-offers-search-aircraftequipment-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-offers-search-context.jsonld
+  description: >-
+    The Amadeus Flight Offers Search API searches over 500 airlines to find the
+    cheapest flights for a given itinerary. It lets you search flights between
+    two cities, perform multi-city searches, and access one-way combinable fares
+    to offer the cheapest options possible.
+- aid: amadeus:flight-offers-price
+  name: Amadeus Flight Offers Price API
+  tags:
+  - Fares
+  - Flights
+  - Pricing
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price/api-reference
+    type: APIReference
+  - url: openapi/flight-offers-price-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-offers-price-additionalservicetype-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-offers-price-address-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-offers-price-aircraftentry-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-offers-price-aircraftequipment-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-offers-price-allotmentdetails-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-offers-price-additionalservicetype-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-offers-price-address-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-offers-price-aircraftentry-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-offers-price-context.jsonld
+  description: >-
+    The Amadeus Flight Offers Price API confirms the availability and final price
+    of flights, including taxes and fees. It is used after a flight search to
+    verify that the offer is still available and to get the final price before
+    proceeding to booking.
+- aid: amadeus:flight-create-orders
+  name: Amadeus Flight Create Orders API
+  tags:
+  - Booking
+  - Flights
+  - Orders
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-create-orders
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-create-orders
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-create-orders/api-reference
+    type: APIReference
+  - url: openapi/flight-create-orders-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-create-orders-additionalservicetype-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-create-orders-address-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-create-orders-aircraftentry-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-create-orders-aircraftequipment-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-create-orders-airlineremark-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-create-orders-additionalservicetype-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-create-orders-address-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-create-orders-aircraftentry-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-create-orders-context.jsonld
+  description: >-
+    The Amadeus Flight Create Orders API completes the air booking flow by
+    creating a flight order. It provides a unique booking ID and reservation
+    details once the reservation is completed, allowing travelers to finalize
+    their flight bookings.
+- aid: amadeus:flight-order-management
+  name: Amadeus Flight Order Management API
+  tags:
+  - Flights
+  - Management
+  - Orders
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-order-management
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-order-management
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-order-management/api-reference
+    type: APIReference
+  - url: openapi/flight-order-management-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-order-management-additionalservicetype-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-order-management-address-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-order-management-aircraftentry-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-order-management-aircraftequipment-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-order-management-airlineremark-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-order-management-additionalservicetype-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-order-management-address-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-order-management-aircraftentry-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-order-management-context.jsonld
+  description: >-
+    The Amadeus Flight Order Management API allows you to check reservation
+    status, view post-booking modifications, and enable cancellations for
+    existing flight orders. It provides full lifecycle management of flight
+    bookings after they have been created.
+- aid: amadeus:seatmap-display
+  name: Amadeus Seatmap Display API
+  tags:
+  - Cabin
+  - Flights
+  - Seats
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/seatmap-display
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/seatmap-display
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/seatmap-display/api-reference
+    type: APIReference
+  - url: openapi/seatmap-display-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/seatmap-display-additionalservicetype-schema.json
+  - type: JSONSchema
+    url: json-schema/seatmap-display-address-schema.json
+  - type: JSONSchema
+    url: json-schema/seatmap-display-aircraftcabinamenities-beverage-schema.json
+  - type: JSONSchema
+    url: json-schema/seatmap-display-aircraftcabinamenities-entertainment-schema.json
+  - type: JSONSchema
+    url: json-schema/seatmap-display-aircraftcabinamenities-food-schema.json
+  - type: JSONStructure
+    url: json-structure/seatmap-display-additionalservicetype-structure.json
+  - type: JSONStructure
+    url: json-structure/seatmap-display-address-structure.json
+  - type: JSONStructure
+    url: json-structure/seatmap-display-aircraftcabinamenities-beverage-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-seatmap-display-context.jsonld
+  description: >-
+    The Amadeus Seatmap Display API shows the airplane cabin plan from a flight
+    offer so travelers can choose their seat during the booking process. It
+    provides seat availability, pricing, and cabin layout information for
+    supported flights.
+- aid: amadeus:branded-fares-upsell
+  name: Amadeus Branded Fares Upsell API
+  tags:
+  - Fares
+  - Flights
+  - Upsell
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/branded-fares-upsell
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/branded-fares-upsell
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/branded-fares-upsell/api-reference
+    type: APIReference
+  - url: openapi/branded-fares-upsell-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/branded-fares-upsell-additionalservicetype-schema.json
+  - type: JSONSchema
+    url: json-schema/branded-fares-upsell-aircraftentry-schema.json
+  - type: JSONSchema
+    url: json-schema/branded-fares-upsell-aircraftequipment-schema.json
+  - type: JSONSchema
+    url: json-schema/branded-fares-upsell-allotmentdetails-schema.json
+  - type: JSONSchema
+    url: json-schema/branded-fares-upsell-baggageallowance-schema.json
+  - type: JSONStructure
+    url: json-structure/branded-fares-upsell-additionalservicetype-structure.json
+  - type: JSONStructure
+    url: json-structure/branded-fares-upsell-aircraftentry-structure.json
+  - type: JSONStructure
+    url: json-structure/branded-fares-upsell-aircraftequipment-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-branded-fares-upsell-context.jsonld
+  description: >-
+    The Amadeus Branded Fares Upsell API provides the branded fares available
+    for a given flight, along with pricing and a fare description. It enables
+    travel applications to offer travelers upgrade options and premium fare
+    bundles with additional services.
+- aid: amadeus:flight-price-analysis
+  name: Amadeus Flight Price Analysis API
+  tags:
+  - Analytics
+  - Flights
+  - Pricing
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-price-analysis
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-price-analysis
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-price-analysis/api-reference
+    type: APIReference
+  - url: openapi/flight-price-analysis-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-price-analysis-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-price-analysis-error-500-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-price-analysis-itinerary-price-metric-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-price-analysis-warning-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-price-analysis-error-400-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-price-analysis-error-500-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-price-analysis-itinerary-price-metric-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-price-analysis-context.jsonld
+  description: >-
+    The Amadeus Flight Price Analysis API uses AI and historical fare data to
+    determine whether a flight price is a good deal. It compares current flight
+    prices against historical fares to help travelers decide whether to book now
+    or wait for a better price.
+- aid: amadeus:flight-choice-prediction
+  name: Amadeus Flight Choice Prediction API
+  tags:
+  - Flights
+  - Machine Learning
+  - Prediction
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-choice-prediction
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-choice-prediction
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-choice-prediction/api-reference
+    type: APIReference
+  - url: openapi/flight-choice-prediction-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-choice-prediction-additionalservicetype-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-choice-prediction-aircraftentry-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-choice-prediction-aircraftequipment-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-choice-prediction-baggageallowance-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-choice-prediction-carrierentry-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-choice-prediction-additionalservicetype-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-choice-prediction-aircraftentry-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-choice-prediction-aircraftequipment-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-choice-prediction-context.jsonld
+  description: >-
+    The Amadeus Flight Choice Prediction API uses machine learning to identify
+    which flight offers users are most likely to book from a list of search
+    results. It helps travel applications sort and highlight the most relevant
+    flight options for each traveler.
+- aid: amadeus:flight-inspiration-search
+  name: Amadeus Flight Inspiration Search API
+  tags:
+  - Destinations
+  - Flights
+  - Inspiration
+  - Search
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-inspiration-search
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-inspiration-search
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-inspiration-search/api-reference
+    type: APIReference
+  - url: openapi/flight-inspiration-search-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-inspiration-search-currencydictionary-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-inspiration-search-defaults-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-inspiration-search-dictionaries-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-inspiration-search-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-inspiration-search-error-404-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-inspiration-search-currencydictionary-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-inspiration-search-defaults-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-inspiration-search-dictionaries-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-inspiration-search-context.jsonld
+  description: >-
+    The Amadeus Flight Inspiration Search API returns a list of destinations from
+    a given city ordered by price, helping travelers discover where they can fly
+    for the best deals. It is designed for flexible travelers who are open to
+    exploring new destinations based on affordability.
+- aid: amadeus:flight-cheapest-date-search
+  name: Amadeus Flight Cheapest Date Search API
+  tags:
+  - Dates
+  - Flights
+  - Pricing
+  - Search
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-cheapest-date-search
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-cheapest-date-search
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-cheapest-date-search/api-reference
+    type: APIReference
+  - url: openapi/flight-cheapest-date-search-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-cheapest-date-search-currencydictionary-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-cheapest-date-search-defaults-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-cheapest-date-search-dictionaries-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-cheapest-date-search-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-cheapest-date-search-error-404-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-cheapest-date-search-currencydictionary-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-cheapest-date-search-defaults-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-cheapest-date-search-dictionaries-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-cheapest-date-search-context.jsonld
+  description: >-
+    The Amadeus Flight Cheapest Date Search API provides a list of flight options
+    with dates and prices for a given route. It helps travelers find the cheapest
+    dates to fly between two cities, enabling flexible date planning for the best
+    fares.
+- aid: amadeus:flight-availabilities-search
+  name: Amadeus Flight Availabilities Search API
+  tags:
+  - Availability
+  - Flights
+  - Search
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-availabilities-search
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-availabilities-search
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-availabilities-search/api-reference
+    type: APIReference
+  - url: openapi/flight-availibilities-search-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-availibilities-search-aircraftentry-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-availibilities-search-aircraftequipment-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-availibilities-search-allotmentdetails-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-availibilities-search-availabilityclass-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-availibilities-search-cabinrestriction-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-availibilities-search-aircraftentry-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-availibilities-search-aircraftequipment-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-availibilities-search-allotmentdetails-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-availibilities-search-context.jsonld
+  description: >-
+    The Amadeus Flight Availabilities Search API provides a list of flights with
+    seats for sale on a given itinerary. It checks real-time seat availability
+    across airlines, helping travel agents and applications verify that flights
+    have available inventory before proceeding.
+- aid: amadeus:travel-recommendations
+  name: Amadeus Travel Recommendations API
+  tags:
+  - Destinations
+  - Flights
+  - Machine Learning
+  - Recommendations
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/travel-recommendations
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/travel-recommendations
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/travel-recommendations/api-reference
+    type: APIReference
+  - url: openapi/travel-recommendations-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/travel-recommendations-errors-schema.json
+  - type: JSONSchema
+    url: json-schema/travel-recommendations-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/travel-recommendations-recommendedlocation-schema.json
+  - type: JSONSchema
+    url: json-schema/travel-recommendations-response-error-schema.json
+  - type: JSONSchema
+    url: json-schema/travel-recommendations-response-recommendedlocation-schema.json
+  - type: JSONStructure
+    url: json-structure/travel-recommendations-errors-structure.json
+  - type: JSONStructure
+    url: json-structure/travel-recommendations-meta-structure.json
+  - type: JSONStructure
+    url: json-structure/travel-recommendations-recommendedlocation-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-travel-recommendations-context.jsonld
+  description: >-
+    The Amadeus Travel Recommendations API uses AI to suggest destinations based
+    on traveler profiles and past search and booking history. It helps travel
+    applications provide personalized destination recommendations to improve user
+    engagement and conversion.
+- aid: amadeus:on-demand-flight-status
+  name: Amadeus On-Demand Flight Status API
+  tags:
+  - Flights
+  - Real-Time
+  - Status
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/on-demand-flight-status
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/on-demand-flight-status
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/on-demand-flight-status/api-reference
+    type: APIReference
+  - url: openapi/on-demand-flight-status-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/on-demand-flight-status-aircraftequipment-schema.json
+  - type: JSONSchema
+    url: json-schema/on-demand-flight-status-arrival-schema.json
+  - type: JSONSchema
+    url: json-schema/on-demand-flight-status-collection-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/on-demand-flight-status-datedflight-schema.json
+  - type: JSONSchema
+    url: json-schema/on-demand-flight-status-delay-schema.json
+  - type: JSONStructure
+    url: json-structure/on-demand-flight-status-aircraftequipment-structure.json
+  - type: JSONStructure
+    url: json-structure/on-demand-flight-status-arrival-structure.json
+  - type: JSONStructure
+    url: json-structure/on-demand-flight-status-collection-meta-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-on-demand-flight-status-context.jsonld
+  description: >-
+    The Amadeus On-Demand Flight Status API delivers real-time flight schedule
+    data including delays, cancellations, gate changes, and terminal
+    information. It helps travel applications keep travelers informed about the
+    current status of their flights.
+- aid: amadeus:flight-delay-prediction
+  name: Amadeus Flight Delay Prediction API
+  tags:
+  - Delays
+  - Flights
+  - Machine Learning
+  - Prediction
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-delay-prediction
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-delay-prediction
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-delay-prediction/api-reference
+    type: APIReference
+  - url: openapi/flight-delay-prediction-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-delay-prediction-collection-meta-link-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-delay-prediction-delay-prediction-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-delay-prediction-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-delay-prediction-error-500-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-delay-prediction-issue-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-delay-prediction-collection-meta-link-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-delay-prediction-delay-prediction-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-delay-prediction-error-400-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-delay-prediction-context.jsonld
+  description: >-
+    The Amadeus Flight Delay Prediction API provides delay probabilities for four
+    possible delay lengths using machine learning. It takes carrier, airport, and
+    aircraft information as input to estimate the likelihood that a specific
+    flight will be delayed.
+- aid: amadeus:airport-and-city-search
+  name: Amadeus Airport and City Search API
+  tags:
+  - Airports
+  - Autocomplete
+  - Cities
+  - Search
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-and-city-search
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-and-city-search
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-and-city-search/api-reference
+    type: APIReference
+  - url: openapi/airport-city-search-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/airport-city-search-address-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-city-search-analytics-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-city-search-collection-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-city-search-distance-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-city-search-error-400-schema.json
+  - type: JSONStructure
+    url: json-structure/airport-city-search-address-structure.json
+  - type: JSONStructure
+    url: json-structure/airport-city-search-analytics-structure.json
+  - type: JSONStructure
+    url: json-structure/airport-city-search-collection-meta-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-airport-city-search-context.jsonld
+  description: >-
+    The Amadeus Airport and City Search API finds airports and cities that match
+    a specific word or string of letters. It powers autocomplete functionality in
+    travel search interfaces, helping users quickly find their departure and
+    arrival locations.
+- aid: amadeus:airport-nearest-relevant
+  name: Amadeus Airport Nearest Relevant API
+  tags:
+  - Airports
+  - Location
+  - Proximity
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-nearest-relevant
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-nearest-relevant
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-nearest-relevant/api-reference
+    type: APIReference
+  - url: openapi/airport-nearest-relevant-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/airport-nearest-relevant-address-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-nearest-relevant-analytics-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-nearest-relevant-collection-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-nearest-relevant-distance-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-nearest-relevant-error-400-schema.json
+  - type: JSONStructure
+    url: json-structure/airport-nearest-relevant-address-structure.json
+  - type: JSONStructure
+    url: json-structure/airport-nearest-relevant-analytics-structure.json
+  - type: JSONStructure
+    url: json-structure/airport-nearest-relevant-collection-meta-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-airport-nearest-relevant-context.jsonld
+  description: >-
+    The Amadeus Airport Nearest Relevant API provides a list of commercial
+    airports within a 500km radius of a given location. It helps travelers find
+    the most convenient airports for their journey based on geographic
+    coordinates.
+- aid: amadeus:airport-routes
+  name: Amadeus Airport Routes API
+  tags:
+  - Airports
+  - Destinations
+  - Routes
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-routes
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-routes
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-routes/api-reference
+    type: APIReference
+  - url: openapi/airport-routes-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/airport-routes-errors-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-routes-locations-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-routes-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-routes-response-airportroutes-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-routes-response-error-schema.json
+  - type: JSONStructure
+    url: json-structure/airport-routes-errors-structure.json
+  - type: JSONStructure
+    url: json-structure/airport-routes-locations-structure.json
+  - type: JSONStructure
+    url: json-structure/airport-routes-meta-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-airport-routes-context.jsonld
+  description: >-
+    The Amadeus Airport Routes API finds all destinations served by a given
+    airport. It allows travel applications to show travelers the complete network
+    of routes available from any airport, helping with trip planning and
+    destination discovery.
+- aid: amadeus:airport-on-time-performance
+  name: Amadeus Airport On-Time Performance API
+  tags:
+  - Airports
+  - Analytics
+  - Performance
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-on-time-performance
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-on-time-performance
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-on-time-performance/api-reference
+    type: APIReference
+  - url: openapi/airport-on-time-performance-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/airport-on-time-performance-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-on-time-performance-error-500-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-on-time-performance-issue-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-on-time-performance-links-schema.json
+  - type: JSONSchema
+    url: json-schema/airport-on-time-performance-meta-schema.json
+  - type: JSONStructure
+    url: json-structure/airport-on-time-performance-error-400-structure.json
+  - type: JSONStructure
+    url: json-structure/airport-on-time-performance-error-500-structure.json
+  - type: JSONStructure
+    url: json-structure/airport-on-time-performance-issue-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-airport-on-time-performance-context.jsonld
+  description: >-
+    The Amadeus Airport On-Time Performance API predicts overall airport
+    performance based on historical flight delay data. It estimates the
+    probability of flights being delayed at a specific airport, helping travelers
+    plan around potential disruptions.
+- aid: amadeus:flight-check-in-links
+  name: Amadeus Flight Check-in Links API
+  tags:
+  - Airlines
+  - Check-In
+  - Flights
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-check-in-links
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-check-in-links
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-check-in-links/api-reference
+    type: APIReference
+  - url: openapi/flight-check-in-links-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-check-in-links-checkinlink-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-check-in-links-collection-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-check-in-links-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-check-in-links-error-500-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-check-in-links-issue-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-check-in-links-checkinlink-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-check-in-links-collection-meta-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-check-in-links-error-400-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-check-in-links-context.jsonld
+  description: >-
+    The Amadeus Flight Check-in Links API simplifies the check-in process by
+    providing direct links to airline online check-in pages. It returns the
+    appropriate check-in URL for a given airline, making it easy for travel
+    applications to redirect travelers to check in for their flights.
+- aid: amadeus:airline-code-lookup
+  name: Amadeus Airline Code Lookup API
+  tags:
+  - Airlines
+  - Codes
+  - IATA
+  - ICAO
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-code-lookup
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-code-lookup
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-code-lookup/api-reference
+    type: APIReference
+  - type: OpenAPI
+    url: openapi/airline-code-lookup-openapi.yaml
+  - type: JSONSchema
+    url: json-schema/airline-code-lookup-airline-schema.json
+  - type: JSONSchema
+    url: json-schema/airline-code-lookup-airlinecollection-schema.json
+  - type: JSONSchema
+    url: json-schema/airline-code-lookup-collectionmeta-schema.json
+  - type: JSONSchema
+    url: json-schema/airline-code-lookup-errorresponse-schema.json
+  - type: JSONSchema
+    url: json-schema/airline-code-lookup-issue-schema.json
+  - type: JSONStructure
+    url: json-structure/airline-code-lookup-airline-structure.json
+  - type: JSONStructure
+    url: json-structure/airline-code-lookup-airlinecollection-structure.json
+  - type: JSONStructure
+    url: json-structure/airline-code-lookup-collectionmeta-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-airline-code-lookup-context.jsonld
+  description: >-
+    The Amadeus Airline Code Lookup API finds the name of an airline by its IATA
+    or ICAO airline codes. It helps travel applications display human-readable
+    airline names alongside flight data that uses industry-standard airline code
+    identifiers.
+- aid: amadeus:airline-routes
+  name: Amadeus Airline Routes API
+  tags:
+  - Airlines
+  - Destinations
+  - Routes
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-routes
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-routes
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-routes/api-reference
+    type: APIReference
+  - url: openapi/airline-routes-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/airline-routes-errors-schema.json
+  - type: JSONSchema
+    url: json-schema/airline-routes-locations-schema.json
+  - type: JSONSchema
+    url: json-schema/airline-routes-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/airline-routes-response-airlineroutes-schema.json
+  - type: JSONSchema
+    url: json-schema/airline-routes-response-error-schema.json
+  - type: JSONStructure
+    url: json-structure/airline-routes-errors-structure.json
+  - type: JSONStructure
+    url: json-structure/airline-routes-locations-structure.json
+  - type: JSONStructure
+    url: json-structure/airline-routes-meta-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-airline-routes-context.jsonld
+  description: >-
+    The Amadeus Airline Routes API finds all destinations served by a given
+    airline. It enables travel applications to display the complete route network
+    of any airline, useful for trip planning and understanding airline coverage
+    in specific regions.
+- aid: amadeus:hotel-list
+  name: Amadeus Hotel List API
+  tags:
+  - Accommodation
+  - Hotels
+  - Search
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list/api-reference
+    type: APIReference
+  - url: openapi/hotel-list-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/hotel-list-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-list-error-404-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-list-error-500-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-list-hotel-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-list-hotelsearchresponse-schema.json
+  - type: JSONStructure
+    url: json-structure/hotel-list-error-400-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-list-error-404-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-list-error-500-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-hotel-list-context.jsonld
+  description: >-
+    The Amadeus Hotel List API returns the name, address, geoCode, and time zone
+    for each hotel bookable in Amadeus. It supports searching by city, geographic
+    coordinates, or unique Amadeus hotel ID, providing the foundation for hotel
+    search workflows.
+- aid: amadeus:hotel-search
+  name: Amadeus Hotel Search API
+  tags:
+  - Accommodation
+  - Hotels
+  - Pricing
+  - Search
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-search
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-search
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-search/api-reference
+    type: APIReference
+  - url: openapi/hotel-search-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/hotel-search-boardtype-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-search-cancellationtype-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-search-error-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-search-error-source-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-search-errors-schema.json
+  - type: JSONStructure
+    url: json-structure/hotel-search-boardtype-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-search-cancellationtype-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-search-error-source-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-hotel-search-context.jsonld
+  description: >-
+    The Amadeus Hotel Search API provides a list of the cheapest hotels in a
+    given location with detailed information on each hotel and the option to
+    filter by category, chain, facilities, or budget range. It returns offers
+    with room descriptions and payment policies.
+- aid: amadeus:hotel-booking
+  name: Amadeus Hotel Booking API
+  tags:
+  - Accommodation
+  - Booking
+  - Hotels
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-booking
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-booking
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-booking/api-reference
+    type: APIReference
+  - url: openapi/hotel-booking-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/hotel-booking-associatedrecord-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-booking-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-booking-error-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-booking-errorresponse-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-booking-hotelbookinglight-schema.json
+  - type: JSONStructure
+    url: json-structure/hotel-booking-associatedrecord-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-booking-contact-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-booking-error-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-hotel-booking-context.jsonld
+  description: >-
+    The Amadeus Hotel Booking API lets you complete bookings at over 150,000
+    hotels and accommodations around the world. It works in conjunction with the
+    Hotel List and Hotel Search APIs to provide an end-to-end hotel booking
+    workflow.
+- aid: amadeus:hotel-ratings
+  name: Amadeus Hotel Ratings API
+  tags:
+  - Hotels
+  - Ratings
+  - Reviews
+  - Sentiment
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-ratings
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-ratings
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-ratings/api-reference
+    type: APIReference
+  - url: openapi/hotel-ratings-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/hotel-ratings-collectionlinks-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-ratings-collectionmeta-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-ratings-error-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-ratings-error400-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-ratings-error401-schema.json
+  - type: JSONStructure
+    url: json-structure/hotel-ratings-collectionlinks-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-ratings-collectionmeta-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-ratings-error-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-hotel-ratings-context.jsonld
+  description: >-
+    The Amadeus Hotel Ratings API uses sentiment analysis of hotel reviews to
+    provide overall hotel ratings and ratings for specific categories like
+    location, comfort, service, staff, internet, food, facilities, pool, and
+    sleep quality.
+- aid: amadeus:hotel-name-autocomplete
+  name: Amadeus Hotel Name Autocomplete API
+  tags:
+  - Autocomplete
+  - Hotels
+  - Search
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-name-autocomplete
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-name-autocomplete
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-name-autocomplete/api-reference
+    type: APIReference
+  - url: openapi/hotel-name-autocomplete-openapi.yaml
+    type: OpenAPI
+  description: >-
+    The Amadeus Hotel Name Autocomplete API provides a list of up to 20 hotels
+    whose names most closely match a search query string. It powers
+    autocomplete functionality in hotel search interfaces, helping users quickly
+    find specific hotels by name.
+- aid: amadeus:tours-and-activities
+  name: Amadeus Tours and Activities API
+  tags:
+  - Activities
+  - Destinations
+  - Experiences
+  - Tours
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities/api-reference
+    type: APIReference
+  - url: openapi/tours-and-activities-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/tours-and-activities-activity-schema.json
+  - type: JSONSchema
+    url: json-schema/tours-and-activities-collection-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/tours-and-activities-elementaryprice-schema.json
+  - type: JSONSchema
+    url: json-schema/tours-and-activities-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/tours-and-activities-error-404-schema.json
+  - type: JSONStructure
+    url: json-structure/tours-and-activities-activity-structure.json
+  - type: JSONStructure
+    url: json-structure/tours-and-activities-collection-meta-structure.json
+  - type: JSONStructure
+    url: json-structure/tours-and-activities-elementaryprice-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-tours-and-activities-context.jsonld
+  description: >-
+    The Amadeus Tours and Activities API enables you to find the best tours,
+    activities, and tickets in any city or neighborhood. It aggregates offers
+    from over 45 top activity platforms such as Viator, GetYourGuide, Klook, and
+    Musement, returning photos, descriptions, prices, and booking links.
+- aid: amadeus:points-of-interest
+  name: Amadeus Points of Interest API
+  tags:
+  - Attractions
+  - Destinations
+  - Points of Interest
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/points-of-interest
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/points-of-interest
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/points-of-interest/api-reference
+    type: APIReference
+  - url: openapi/points-of-interest-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/points-of-interest-collection-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/points-of-interest-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/points-of-interest-error-404-schema.json
+  - type: JSONSchema
+    url: json-schema/points-of-interest-error-500-schema.json
+  - type: JSONSchema
+    url: json-schema/points-of-interest-geocode-schema.json
+  - type: JSONStructure
+    url: json-structure/points-of-interest-collection-meta-structure.json
+  - type: JSONStructure
+    url: json-structure/points-of-interest-error-400-structure.json
+  - type: JSONStructure
+    url: json-structure/points-of-interest-error-404-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-points-of-interest-context.jsonld
+  description: >-
+    The Amadeus Points of Interest API returns tourist attractions and popular
+    places in a given location. It provides data on over two million places
+    worldwide, scored by categories such as restaurants, shopping, sightseeing,
+    and nightlife.
+- aid: amadeus:safe-place
+  name: Amadeus Safe Place API
+  tags:
+  - Destinations
+  - Safety
+  - Travel Safety
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/covid-19-and-travel-safety/api-doc/safe-place
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/covid-19-and-travel-safety/api-doc/safe-place
+    type: Documentation
+  - url: openapi/safe-place-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/safe-place-collection-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/safe-place-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/safe-place-error-404-schema.json
+  - type: JSONSchema
+    url: json-schema/safe-place-error-500-schema.json
+  - type: JSONSchema
+    url: json-schema/safe-place-geocode-schema.json
+  - type: JSONStructure
+    url: json-structure/safe-place-collection-meta-structure.json
+  - type: JSONStructure
+    url: json-structure/safe-place-error-400-structure.json
+  - type: JSONStructure
+    url: json-structure/safe-place-error-404-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-safe-place-context.jsonld
+  description: >-
+    The Amadeus Safe Place API provides safety information for over 65,000
+    cities and neighborhoods worldwide. It returns crime, health, and
+    neighborhood safety ratings powered by GeoSure, helping travelers make
+    informed decisions about their destinations.
+- aid: amadeus:city-search
+  name: Amadeus City Search API
+  tags:
+  - Cities
+  - Destinations
+  - Search
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/city-search
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/city-search
+    type: Documentation
+  - url: openapi/city-search-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/city-search-errors-schema.json
+  - type: JSONSchema
+    url: json-schema/city-search-location-schema.json
+  - type: JSONSchema
+    url: json-schema/city-search-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/city-search-response-citysearch-schema.json
+  - type: JSONSchema
+    url: json-schema/city-search-response-error-schema.json
+  - type: JSONStructure
+    url: json-structure/city-search-errors-structure.json
+  - type: JSONStructure
+    url: json-structure/city-search-location-structure.json
+  - type: JSONStructure
+    url: json-structure/city-search-meta-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-city-search-context.jsonld
+  description: >-
+    The Amadeus City Search API enables searching for cities using keywords, with
+    optional filtering by country code and airport inclusion. It helps travel
+    applications provide destination autocomplete and city lookup functionality.
+- aid: amadeus:transfer-search
+  name: Amadeus Transfer Search API
+  tags:
+  - Ground Transportation
+  - Search
+  - Transfers
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-search
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-search
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-search/api-reference
+    type: APIReference
+  - url: openapi/transfer-search-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/transfer-search-address-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-search-addresscommon-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-search-baggage-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-search-cancellationrule-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-search-contact-schema.json
+  - type: JSONStructure
+    url: json-structure/transfer-search-address-structure.json
+  - type: JSONStructure
+    url: json-structure/transfer-search-addresscommon-structure.json
+  - type: JSONStructure
+    url: json-structure/transfer-search-baggage-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-transfer-search-context.jsonld
+  description: >-
+    The Amadeus Transfer Search API provides live prices for private transfers,
+    hourly services, taxis, shared transfers, airport express, airport buses,
+    private jets, and helicopter transfers. It searches across multiple mobility
+    providers to find the best options for ground transportation.
+- aid: amadeus:transfer-booking
+  name: Amadeus Transfer Booking API
+  tags:
+  - Booking
+  - Ground Transportation
+  - Transfers
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-booking
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-booking
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-booking/api-reference
+    type: APIReference
+  - url: openapi/transfer-booking-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/transfer-booking-address-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-booking-addresscommon-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-booking-agency-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-booking-baggage-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-booking-cancellationrule-schema.json
+  - type: JSONStructure
+    url: json-structure/transfer-booking-address-structure.json
+  - type: JSONStructure
+    url: json-structure/transfer-booking-addresscommon-structure.json
+  - type: JSONStructure
+    url: json-structure/transfer-booking-agency-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-transfer-booking-context.jsonld
+  description: >-
+    The Amadeus Transfer Booking API allows you to create transfer orders by
+    providing passenger information, contact details, and other booking
+    parameters. It works with the Transfer Search API to complete end-to-end
+    ground transportation bookings.
+- aid: amadeus:transfer-management
+  name: Amadeus Transfer Management API
+  tags:
+  - Ground Transportation
+  - Management
+  - Transfers
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-management
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-management
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-management/api-reference
+    type: APIReference
+  - url: openapi/transfer-management-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/transfer-management-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-management-error-401-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-management-error-404-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-management-error-500-schema.json
+  - type: JSONSchema
+    url: json-schema/transfer-management-issue-schema.json
+  - type: JSONStructure
+    url: json-structure/transfer-management-error-400-structure.json
+  - type: JSONStructure
+    url: json-structure/transfer-management-error-401-structure.json
+  - type: JSONStructure
+    url: json-structure/transfer-management-error-404-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-transfer-management-context.jsonld
+  description: >-
+    The Amadeus Transfer Management API allows you to cancel transfers linked
+    with existing orders. It provides post-booking management capabilities for
+    ground transportation reservations, including cancellation confirmation.
+- aid: amadeus:flight-most-traveled-destinations
+  name: Amadeus Flight Most Traveled Destinations API
+  tags:
+  - Analytics
+  - Destinations
+  - Flights
+  - Market Insights
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-traveled-destinations
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-traveled-destinations
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-traveled-destinations/api-reference
+    type: APIReference
+  - url: openapi/flight-most-traveled-destinations-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-most-traveled-destinations-air-traffic-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-most-traveled-destinations-analytics-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-most-traveled-destinations-collection-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-most-traveled-destinations-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-most-traveled-destinations-error-500-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-most-traveled-destinations-air-traffic-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-most-traveled-destinations-analytics-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-most-traveled-destinations-collection-meta-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-most-traveled-destinations-context.jsonld
+  description: >-
+    The Amadeus Flight Most Traveled Destinations API returns the most popular
+    flight destinations from a given origin based on the number of travelers. It
+    helps travel applications identify trending destinations and provide data-
+    driven recommendations.
+- aid: amadeus:flight-most-booked-destinations
+  name: Amadeus Flight Most Booked Destinations API
+  tags:
+  - Analytics
+  - Booking
+  - Flights
+  - Market Insights
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-booked-destinations
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-booked-destinations
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-booked-destinations/api-reference
+    type: APIReference
+  - url: openapi/flight-most-booked-destinations-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-most-booked-destinations-air-traffic-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-most-booked-destinations-analytics-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-most-booked-destinations-collection-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-most-booked-destinations-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-most-booked-destinations-error-500-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-most-booked-destinations-air-traffic-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-most-booked-destinations-analytics-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-most-booked-destinations-collection-meta-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-most-booked-destinations-context.jsonld
+  description: >-
+    The Amadeus Flight Most Booked Destinations API returns the most frequently
+    booked flight destinations from a given origin. It provides booking trend
+    data as a percentage of total departures, helping travel applications
+    understand market demand.
+- aid: amadeus:flight-busiest-traveling-period
+  name: Amadeus Flight Busiest Traveling Period API
+  tags:
+  - Analytics
+  - Flights
+  - Market Insights
+  - Trends
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-busiest-traveling-period
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-busiest-traveling-period
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-busiest-traveling-period/api-reference
+    type: APIReference
+  - url: openapi/flight-busiest-traveling-period-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/flight-busiest-traveling-period-air-traffic-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-busiest-traveling-period-analytics-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-busiest-traveling-period-collection-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-busiest-traveling-period-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/flight-busiest-traveling-period-error-500-schema.json
+  - type: JSONStructure
+    url: json-structure/flight-busiest-traveling-period-air-traffic-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-busiest-traveling-period-analytics-structure.json
+  - type: JSONStructure
+    url: json-structure/flight-busiest-traveling-period-collection-meta-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-flight-busiest-traveling-period-context.jsonld
+  description: >-
+    The Amadeus Flight Busiest Traveling Period API returns the peak travel
+    periods for a specific city based on historical air traffic data. It helps
+    travel applications identify high and low seasons, enabling better planning
+    and pricing strategies.
+- aid: amadeus:location-score
+  name: Amadeus Location Score API
+  tags:
+  - Analytics
+  - Location
+  - Market Insights
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/market-insights/api-doc/location-score
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/location-score
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/location-score/api-reference
+    type: APIReference
+  - url: openapi/location-score-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/location-score-category-rated-areas-schema.json
+  - type: JSONSchema
+    url: json-schema/location-score-errors-schema.json
+  - type: JSONSchema
+    url: json-schema/location-score-meta-schema.json
+  - type: JSONSchema
+    url: json-schema/location-score-response-error-schema.json
+  - type: JSONSchema
+    url: json-schema/location-score-response-locationscore-schema.json
+  - type: JSONStructure
+    url: json-structure/location-score-category-rated-areas-structure.json
+  - type: JSONStructure
+    url: json-structure/location-score-errors-structure.json
+  - type: JSONStructure
+    url: json-structure/location-score-meta-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-location-score-context.jsonld
+  description: >-
+    The Amadeus Location Score API provides travel and location intelligence
+    scores for specific areas. It evaluates locations based on various criteria
+    to help travel applications assess the desirability and characteristics of
+    different neighborhoods and areas.
+- aid: amadeus:trip-purpose-prediction
+  name: Amadeus Trip Purpose Prediction API
+  tags:
+  - Itinerary
+  - Machine Learning
+  - Prediction
+  - Trips
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/itinerary-management/api-doc/trip-purpose-prediction
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/itinerary-management/api-doc/trip-purpose-prediction
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/itinerary-management/api-doc/trip-purpose-prediction/api-reference
+    type: APIReference
+  - url: openapi/trip-purpose-prediction-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/trip-purpose-prediction-defaults-schema.json
+  - type: JSONSchema
+    url: json-schema/trip-purpose-prediction-error-400-schema.json
+  - type: JSONSchema
+    url: json-schema/trip-purpose-prediction-error-500-schema.json
+  - type: JSONSchema
+    url: json-schema/trip-purpose-prediction-issue-schema.json
+  - type: JSONSchema
+    url: json-schema/trip-purpose-prediction-links-schema.json
+  - type: JSONStructure
+    url: json-structure/trip-purpose-prediction-defaults-structure.json
+  - type: JSONStructure
+    url: json-structure/trip-purpose-prediction-error-400-structure.json
+  - type: JSONStructure
+    url: json-structure/trip-purpose-prediction-error-500-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-trip-purpose-prediction-context.jsonld
+  description: >-
+    The Amadeus Trip Purpose Prediction API predicts whether a flight search is
+    for business or leisure travel using machine learning. It analyzes patterns
+    in departure and arrival cities, flight dates, and search dates to help
+    travel applications personalize offers for each traveler.
+- aid: amadeus:trip-parser
+  name: Amadeus Trip Parser API
+  tags:
+  - Email
+  - Itinerary
+  - Parsing
+  - Trips
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/category/trip/api-doc/trip-parser
+  properties:
+  - url: https://developers.amadeus.com/self-service/category/trip/api-doc/trip-parser
+    type: Documentation
+  - url: https://developers.amadeus.com/self-service/category/trip/api-doc/trip-parser/api-reference
+    type: APIReference
+  - url: openapi/trip-parser-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/trip-parser-address-schema.json
+  - type: JSONSchema
+    url: json-schema/trip-parser-air-schema.json
+  - type: JSONSchema
+    url: json-schema/trip-parser-aircraft-schema.json
+  - type: JSONSchema
+    url: json-schema/trip-parser-airdata-schema.json
+  - type: JSONSchema
+    url: json-schema/trip-parser-arrival-schema.json
+  - type: JSONStructure
+    url: json-structure/trip-parser-address-structure.json
+  - type: JSONStructure
+    url: json-structure/trip-parser-air-structure.json
+  - type: JSONStructure
+    url: json-structure/trip-parser-aircraft-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-trip-parser-context.jsonld
+  description: >-
+    The Amadeus Trip Parser API parses travel booking confirmation emails and
+    documents to extract structured itinerary data. It enables travel
+    applications to automatically import bookings from email confirmations and
+    build organized trip itineraries.
+- aid: amadeus:oauth2-login
+  name: Amadeus OAuth2 Login API
+  tags:
+  - Authentication
+  - OAuth
+  - Security
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://api.amadeus.com
+  humanURL: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/API-Keys/authorization
+  properties:
   - url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/API-Keys/authorization
-    type: Authentication
-  - url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/pricing/
-    type: Pricing
-  - url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/developer-tools/
-    type: Developer Tools
-  - url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/
-    type: API Guides
-  - url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/resources/
-    type: Tutorials
-  - url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/faq/
-    type: FAQ
-  - url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/quick-start/
-    type: Quickstart
-  - url: https://developers.amadeus.com/legal/terms-of-use
-    type: Terms of Service
-  - url: https://developers.amadeus.com/legal/privacy-policy
-    type: Privacy Policy
-  - url: https://developers.amadeus.com/register
-    type: Sign Up
-  - url: https://developers.amadeus.com/support
-    type: Support
-  - url: https://developers.amadeus.com/blog
-    type: Blog
-  - url: https://github.com/amadeus4dev
-    type: GitHub Organization
-  - url: https://github.com/amadeus4dev/amadeus-python
-    type: SDKs
-  - url: https://www.postman.com/amadeus4dev/amadeus-for-developers-s-public-workspace/collection/kquqijj/amadeus-for-developers
-    type: PostmanCollection
-  - url: https://stackoverflow.com/questions/tagged/amadeus
-    type: Stack Overflow
-  - url: https://amadeus.com
-    type: Website
-created: '2024-06-07T00:00:00.000Z'
-modified: '2026-03-16'
+    type: Documentation
+  - url: openapi/amadeus-oauth2-login-openapi.yaml
+    type: OpenAPI
+  - type: JSONSchema
+    url: json-schema/amadeus-oauth2-login-amadeusoauth2token-schema.json
+  - type: JSONSchema
+    url: json-schema/amadeus-oauth2-login-errorresponse-schema.json
+  - type: JSONStructure
+    url: json-structure/amadeus-oauth2-login-amadeusoauth2token-structure.json
+  - type: JSONStructure
+    url: json-structure/amadeus-oauth2-login-errorresponse-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-amadeus-oauth2-login-context.jsonld
+  description: >-
+    The Amadeus OAuth2 Login API provides authentication for all Amadeus self-
+    service APIs. It implements the OAuth 2.0 client credentials grant type,
+    allowing applications to obtain access tokens required to make authenticated
+    requests to any Amadeus API endpoint.
+name: Amadeus
+tags:
+- Airlines
+- Aviation
+- Booking
+- Destinations
+- Flights
+- Hospitality
+- Hotels
+- Market Insights
+- Tourism
+- Transfers
+- Travel
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+common:
+- url: https://developers.amadeus.com/
+  type: Portal
+- url: https://developers.amadeus.com/self-service
+  type: Documentation
+- url: https://developers.amadeus.com/get-started/get-started-with-self-service-apis-335
+  type: GettingStarted
+- url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/API-Keys/authorization
+  type: Authentication
+- url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/pricing/
+  type: Pricing
+- url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/developer-tools/
+  type: DeveloperTools
+- url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/
+  type: APIGuides
+- url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/resources/
+  type: Tutorials
+- url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/faq/
+  type: FAQ
+- url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/quick-start/
+  type: Quickstart
+- url: https://developers.amadeus.com/legal/terms-of-use
+  type: TermsOfService
+- url: https://developers.amadeus.com/legal/privacy-policy
+  type: PrivacyPolicy
+- url: https://developers.amadeus.com/register
+  type: SignUp
+- url: https://developers.amadeus.com/support
+  type: Support
+- url: https://developers.amadeus.com/blog
+  type: Blog
+- url: https://github.com/amadeus4dev
+  type: GitHubOrganization
+- url: https://github.com/amadeus4dev/amadeus-python
+  type: SDKs
+- url: https://www.postman.com/amadeus4dev/amadeus-for-developers-s-public-workspace/collection/kquqijj/amadeus-for-developers
+  type: PostmanCollection
+- url: https://stackoverflow.com/questions/tagged/amadeus
+  type: StackOverflow
+- url: https://amadeus.com
+  type: Website
+- type: SpectralRules
+  url: rules/amadeus-spectral-rules.yml
+- type: NaftikoCapability
+  url: capabilities/travel-booking.yaml
+- type: Vocabulary
+  url: vocabulary/amadeus-vocabulary.yaml
+- type: Features
+  data:
+  - name: Flight Search and Booking
+    description: Search over 500 airlines, confirm pricing, and create flight bookings with the Amadeus flight APIs including offers search, price confirmation, and order creation.
+  - name: Hotel Search and Booking
+    description: Search hotels by city, geocoordinates, or hotel ID, view room offers and pricing, and complete hotel bookings at over 150,000 properties worldwide.
+  - name: Ground Transportation
+    description: Search and book private transfers, taxis, shared rides, airport express, and helicopter services across multiple mobility providers.
+  - name: Destination Experiences
+    description: Discover tours, activities, tickets, points of interest, and safety scores for destinations worldwide, powered by 45+ activity platforms.
+  - name: AI-Powered Travel Insights
+    description: Use machine learning APIs to predict flight delays, recommend destinations, identify trip purpose, analyze flight prices, and predict traveler flight choices.
+- type: UseCases
+  data:
+  - name: Flight Booking Engine
+    description: Build end-to-end flight booking flows using flight offers search, price confirmation, and order creation APIs.
+  - name: Hotel Booking Platform
+    description: Create hotel booking experiences by combining hotel list, hotel search, and hotel booking APIs.
+  - name: Trip Planning Application
+    description: Build complete trip planners that combine flights, hotels, transfers, and local activities in a unified travel experience.
+  - name: Travel Intelligence Dashboard
+    description: Build market insights dashboards using flight analytics APIs for trending destinations, busiest periods, and price analysis.
+  - name: Corporate Travel Management
+    description: Power corporate travel tools with flight search, trip purpose prediction, delay predictions, and itinerary parsing capabilities.
+- type: Integrations
+  data:
+  - name: Viator
+    description: Amadeus Tours and Activities API aggregates offers from Viator for tours, experiences, and activity bookings at destinations worldwide.
+  - name: GetYourGuide
+    description: GetYourGuide activity offers are included in the Amadeus Tours and Activities API for comprehensive activity discovery.
+  - name: GeoSure
+    description: The Amadeus Safe Place API is powered by GeoSure neighborhood safety scores covering crime, health, and safety ratings for over 65,000 locations.
+  - name: Leonardo
+    description: Amadeus recommends Leonardo as the trusted content partner for hotel images and property media not available through self-service APIs.
+  - name: Postman
+    description: Amadeus provides a public Postman workspace for developers to explore and test all self-service APIs interactively.
+created: '2024-06-07'
+modified: '2026-04-19'
 description: >-
-  Amadeus for Developers provides a comprehensive set of self-service APIs for
-  the travel industry. The platform offers over 30 APIs across six categories
-  including flight search and booking, hotel search and booking, destination
-  experiences, cars and transfers, market insights, and itinerary management,
-  serving developers and startups building travel applications.
+  Amadeus for Developers provides a comprehensive set of self-service APIs for the travel industry, covering flights, hotels, destination experiences, ground transportation, market insights, and itinerary
+  management. The platform serves developers and travel companies building search, booking, and analytics applications.
 maintainers:
-  - FN: Kin Lane
-    url: http://apievangelist.com
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  url: http://apievangelist.com
+  email: kin@apievangelist.com
 specificationVersion: '0.19'

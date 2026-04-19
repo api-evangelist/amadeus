@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Travelers",
+  "type": "record",
+  "fields": [
+    {
+      "name": "score",
+      "type": "double",
+      "description": "Approximate score for ranking purposes calculated based on number of travelers in the location."
+    }
+  ]
+}

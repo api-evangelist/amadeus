@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SearchCriteria",
+  "type": "object",
+  "properties": {
+    "excludeAllotments": {
+      "type": "boolean",
+      "description": "This option allows to exclude the isAllotment flag associated to a booking class in the search response when it exist."
+    },
+    "addOneWayOffers": {
+      "type": "boolean",
+      "description": "This option allows activate the one-way combinable feature"
+    },
+    "maxFlightOffers": {
+      "type": "number",
+      "description": "Maximum number of flight offers returned (Max 250)"
+    },
+    "maxPrice": {
+      "type": "integer",
+      "description": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals"
+    },
+    "allowAlternativeFareOptions": {
+      "type": "boolean",
+      "description": "This option allows to default to a standard fareOption if no offers are found for the selected fareOption."
+    },
+    "oneFlightOfferPerDay": {
+      "type": "boolean",
+      "description": "Requests the system to find at least one flight-offer per day, if possible, when a range of dates is specified. Default is false."
+    },
+    "additionalInformation": {
+      "type": "object",
+      "properties": {
+        "chargeableCheckedBags": {
+          "type": "boolean",
+          "description": "If true, returns the price of the first additional bag when the airline is an \"Amadeus Ancillary Services\" member."
+        },
+        "brandedFares": {
+          "type": "boolean",
+          "description": "If true, returns the fare family name for each flight-offer which supports fare family"
+        }
+      }
+    },
+    "pricingOptions": {
+      "$ref": "#/definitions/Extended_PricingOptions"
+    },
+    "flightFilters": {
+      "$ref": "#/definitions/FlightFilters"
+    }
+  }
+}

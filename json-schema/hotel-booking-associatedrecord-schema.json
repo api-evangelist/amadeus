@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AssociatedRecord",
+  "description": "Associated Record (Flight Booking Record)",
+  "type": "object",
+  "properties": {
+    "reference": {
+      "type": "string",
+      "description": "Amadeus GDS Record"
+    },
+    "originSystemCode": {
+      "type": "string",
+      "description": "* GDS: Associated Amadeus GDS Flight Booking PNR Record",
+      "enum": [
+        "GDS"
+      ]
+    }
+  },
+  "required": [
+    "reference",
+    "originSystemCode"
+  ]
+}

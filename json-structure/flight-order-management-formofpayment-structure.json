@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "FormOfPayment",
+  "type": "record",
+  "fields": [
+    {
+      "name": "b2bWallet",
+      "type": "string",
+      "description": "payment with the solution B2B Wallet"
+    },
+    {
+      "name": "creditCard",
+      "type": "string",
+      "description": "payment with a credit card"
+    },
+    {
+      "name": "other",
+      "type": "string",
+      "description": "payment with an other method"
+    }
+  ]
+}

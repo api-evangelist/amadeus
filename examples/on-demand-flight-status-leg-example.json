@@ -1,0 +1,6 @@
+{
+  "boardPointIataCode": "example-boardPointIataCode",
+  "offPointIataCode": "example-offPointIataCode",
+  "aircraftEquipment": "example-aircraftEquipment",
+  "scheduledLegDuration": "example-scheduledLegDuration"
+}

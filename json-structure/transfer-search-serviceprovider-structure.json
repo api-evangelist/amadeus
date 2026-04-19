@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "ServiceProvider",
+  "type": "record",
+  "fields": [
+    {
+      "name": "code",
+      "type": "string",
+      "description": "provider code"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "provider name"
+    },
+    {
+      "name": "logoUrl",
+      "type": "string",
+      "description": "URL to provider logo"
+    },
+    {
+      "name": "termsUrl",
+      "type": "string",
+      "description": "URL to provider's terms and conditions page"
+    },
+    {
+      "name": "isPreferred",
+      "type": "boolean",
+      "description": "indicates if sub-provider is preferred for the travel-seller"
+    },
+    {
+      "name": "contacts",
+      "type": "string"
+    },
+    {
+      "name": "settings",
+      "type": "array",
+      "description": "list of provider settings",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "businessIdentification",
+      "type": "string",
+      "description": "Information about the Customer stakeholder participating to the described sales summary."
+    }
+  ]
+}

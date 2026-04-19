@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "HotelProduct_PaymentPolicy",
+  "type": "record",
+  "fields": [
+    {
+      "name": "creditCards",
+      "type": "array",
+      "description": "Accepted Payment Card Types for the `method` CREDIT_CARD",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "methods",
+      "type": "array",
+      "description": "Accepted Payment Methods",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

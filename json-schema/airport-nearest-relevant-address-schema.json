@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Address",
+  "type": "object",
+  "properties": {
+    "cityName": {
+      "type": "string",
+      "description": "name of the city of the location; equal to name if the location is a city"
+    },
+    "cityCode": {
+      "type": "string",
+      "description": "IATA code of the city of the location; equal to IATAcode if the location is a city"
+    },
+    "countryName": {
+      "type": "string",
+      "description": "name of the country of the location"
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "code of the country of the location in ISO standard"
+    },
+    "stateCode": {
+      "type": "string",
+      "description": "code of the state of the location if any"
+    },
+    "regionCode": {
+      "type": "string",
+      "description": "code of the region of the location in ISO standard"
+    }
+  }
+}

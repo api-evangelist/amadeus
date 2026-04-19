@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Stakeholder",
+  "description": "stakeholder definition",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "item identifier"
+    },
+    "dateOfBirth": {
+      "type": "string",
+      "format": "date",
+      "description": "The date of birth in ISO 8601 format (yyyy-mm-dd)"
+    },
+    "gender": {
+      "$ref": "#/definitions/StakeholderGender"
+    },
+    "name": {
+      "$ref": "#/definitions/Name"
+    },
+    "documents": {
+      "type": "array",
+      "description": "Advanced Passenger Information - regulatory identity documents - SSR DOCS & DOCO elements",
+      "items": {
+        "$ref": "#/definitions/IdentityDocument"
+      }
+    }
+  }
+}

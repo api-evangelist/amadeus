@@ -1,0 +1,12 @@
+{
+  "code": "DSL",
+  "itemId": "example-itemId",
+  "description": "example-description",
+  "metricType": "YEARS",
+  "metricValue": "example-metricValue",
+  "quotation": "example-quotation",
+  "converted": "example-converted",
+  "isBookable": true,
+  "taxIncluded": true,
+  "includedInTotal": true
+}

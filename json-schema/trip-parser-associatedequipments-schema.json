@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "associatedEquipments",
+  "description": "Used to convey information about special equipments (GPS, Baby seat, ...) associated to the car booking.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Equipment name"
+    }
+  }
+}

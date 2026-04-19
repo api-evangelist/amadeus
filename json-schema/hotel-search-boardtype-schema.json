@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BoardType",
+  "description": "The included Breakfast/Meals",
+  "type": "string",
+  "enum": [
+    "ROOM_ONLY",
+    "BREAKFAST",
+    "HALF_BOARD",
+    "FULL_BOARD",
+    "ALL_INCLUSIVE",
+    "BUFFET_BREAKFAST",
+    "CARIBBEAN_BREAKFAST",
+    "CONTINENTAL_BREAKFAST",
+    "ENGLISH_BREAKFAST",
+    "FULL_BREAKFAST",
+    "DINNER_BED_AND_BREAKFAST",
+    "LUNCH",
+    "DINNER",
+    "FAMILY_PLAN",
+    "AS_BROCHURED",
+    "SELF_CATERING",
+    "BERMUDA",
+    "AMERICAN",
+    "FAMILY_AMERICAN",
+    "MODIFIED"
+  ]
+}

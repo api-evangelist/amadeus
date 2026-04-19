@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Distance",
+  "type": "record",
+  "fields": [
+    {
+      "name": "value",
+      "type": "int32",
+      "description": "great-circle distance between two locations. This distance thus do not take into account traffic conditions; international boundaries; mountains; water; or other elements that might make the a nearby location hard to reach."
+    },
+    {
+      "name": "unit",
+      "type": "string",
+      "description": "unit of the distance"
+    }
+  ]
+}

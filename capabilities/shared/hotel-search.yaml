@@ -1,0 +1,98 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: Amadeus Hotel Search API
+  description: Shared capability for searching hotel offers and availability.
+  tags:
+  - Amadeus
+  - Hotels
+  - Search
+  - Travel
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AMADEUS_API_KEY: AMADEUS_API_KEY
+    AMADEUS_BEARER_TOKEN: AMADEUS_BEARER_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: hotel-search
+    baseUri: https://test.api.amadeus.com/v3
+    description: Amadeus Hotel Search API
+    authentication:
+      type: bearer
+      token: '{{AMADEUS_BEARER_TOKEN}}'
+    resources:
+    - name: hotel-offers
+      path: /shopping/hotel-offers
+      description: Search for hotel offers.
+      operations:
+      - name: search-hotel-offers
+        method: GET
+        description: Search hotels by city or location.
+        inputParameters:
+        - name: hotelIds
+          in: query
+          type: array
+          required: true
+          description: Amadeus hotel identifiers.
+        - name: checkInDate
+          in: query
+          type: string
+          required: false
+          description: Check-in date (YYYY-MM-DD).
+        - name: checkOutDate
+          in: query
+          type: string
+          required: false
+          description: Check-out date (YYYY-MM-DD).
+        - name: adults
+          in: query
+          type: integer
+          required: false
+          description: Number of adult guests.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8111
+    namespace: hotel-search-api
+    resources:
+    - path: /v1/hotels/offers
+      name: hotel-offers
+      operations:
+      - method: GET
+        name: search-hotel-offers
+        description: Search hotel offers.
+        call: hotel-search.search-hotel-offers
+        with:
+          hotelIds: rest.hotelIds
+          checkInDate: rest.checkInDate
+          checkOutDate: rest.checkOutDate
+          adults: rest.adults
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9111
+    namespace: hotel-search-mcp
+    transport: http
+    tools:
+    - name: search-hotels
+      description: Search for available hotel rooms and rates for given hotel IDs and dates.
+      hints:
+        readOnly: true
+        openWorld: true
+      call: hotel-search.search-hotel-offers
+      with:
+        hotelIds: tools.hotelIds
+        checkInDate: tools.checkInDate
+        checkOutDate: tools.checkOutDate
+        adults: tools.adults
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Parameter",
+  "type": "record",
+  "fields": [
+    {
+      "name": "description",
+      "type": "string",
+      "description": "parameter descriptive information"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "type of the parameter"
+    },
+    {
+      "name": "format",
+      "type": "string",
+      "description": "format of the parameter"
+    }
+  ]
+}

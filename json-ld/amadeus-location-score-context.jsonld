@@ -1,0 +1,20 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "errors": {
+      "@id": "schema:errors"
+    },
+    "meta": {
+      "@id": "schema:meta",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "schema:data"
+    },
+    "warnings": {
+      "@id": "schema:warnings"
+    }
+  }
+}

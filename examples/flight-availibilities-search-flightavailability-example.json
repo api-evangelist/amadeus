@@ -1,0 +1,10 @@
+{
+  "type": "example-type",
+  "id": "example-id",
+  "originDestinationId": "example-originDestinationId",
+  "source": "example-source",
+  "instantTicketingRequired": true,
+  "paymentCardRequired": true,
+  "duration": "example-duration",
+  "segments": []
+}

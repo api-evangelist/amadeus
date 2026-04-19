@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_PolicyDetails",
+  "description": "Booking Rules",
+  "type": "object",
+  "properties": {
+    "paymentType": {
+      "$ref": "#/definitions/PaymentType"
+    },
+    "guarantee": {
+      "$ref": "#/definitions/HotelProduct_GuaranteePolicy"
+    },
+    "deposit": {
+      "$ref": "#/definitions/HotelProduct_DepositPolicy"
+    },
+    "prepay": {
+      "$ref": "#/definitions/HotelProduct_DepositPolicy"
+    },
+    "holdTime": {
+      "$ref": "#/definitions/HotelProduct_HoldPolicy"
+    },
+    "cancellations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/HotelProduct_CancellationPolicy"
+      }
+    },
+    "checkInOut": {
+      "$ref": "#/definitions/HotelProduct_CheckInOutPolicy"
+    }
+  }
+}

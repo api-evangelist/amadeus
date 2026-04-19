@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "TravelSegmentLocation",
+  "type": "record",
+  "fields": [
+    {
+      "name": "uicCode",
+      "type": "string",
+      "description": "The railway UIC code defined by the worldwide railway organization, e.g. 7400001"
+    },
+    {
+      "name": "iataCode",
+      "type": "string",
+      "description": "The airport code from IATA table codes, e.g. CDG"
+    },
+    {
+      "name": "localDateTime",
+      "type": "datetime",
+      "description": "The date and time inspired from ISO 8601 (YYYY-MM-DDTHH:MM:SS) format"
+    }
+  ]
+}

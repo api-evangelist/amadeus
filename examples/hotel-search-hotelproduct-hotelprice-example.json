@@ -1,0 +1,9 @@
+{
+  "currency": "example-currency",
+  "sellingTotal": "example-sellingTotal",
+  "total": "example-total",
+  "base": "example-base",
+  "taxes": [],
+  "markups": [],
+  "variations": "example-variations"
+}

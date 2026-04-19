@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FlightOfferUpsellIn",
+  "description": "input parameter to upsell flight offers element",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "flightOffers": {
+      "type": "array",
+      "description": "list of flight offer to price",
+      "items": {
+        "$ref": "#/definitions/FlightOffer"
+      }
+    },
+    "payments": {
+      "type": "array",
+      "description": "payment information for retrieve eventual credit card fees",
+      "items": {
+        "$ref": "#/definitions/Payment"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "flightOffers"
+  ]
+}

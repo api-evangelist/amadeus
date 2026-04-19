@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "travelAgency",
+  "type": "record",
+  "fields": [
+    {
+      "name": "officeName",
+      "type": "string",
+      "description": "Office name of the travel agency"
+    },
+    {
+      "name": "address",
+      "type": "string"
+    },
+    {
+      "name": "phone",
+      "type": "string"
+    },
+    {
+      "name": "email",
+      "type": "string"
+    }
+  ]
+}

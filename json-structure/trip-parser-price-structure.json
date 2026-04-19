@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "price",
+  "type": "record",
+  "fields": [
+    {
+      "name": "currency",
+      "type": "string",
+      "description": "currency Code apply to all elements of the price"
+    },
+    {
+      "name": "total",
+      "type": "string",
+      "description": "Total = base + totalTaxes +"
+    },
+    {
+      "name": "base",
+      "type": "string"
+    },
+    {
+      "name": "totalTaxes",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Discount",
+  "description": "traveler discount",
+  "type": "object",
+  "properties": {
+    "subType": {
+      "$ref": "#/definitions/DiscountType"
+    },
+    "cityName": {
+      "type": "string",
+      "description": "city of residence"
+    },
+    "travelerType": {
+      "$ref": "#/definitions/DiscountTravelerType"
+    },
+    "cardNumber": {
+      "type": "string",
+      "description": "resident card number"
+    },
+    "certificateNumber": {
+      "type": "string",
+      "description": "resident certificate number"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "description",
+  "type": "record",
+  "fields": [
+    {
+      "name": "text",
+      "type": "string",
+      "description": "Free Text"
+    }
+  ]
+}

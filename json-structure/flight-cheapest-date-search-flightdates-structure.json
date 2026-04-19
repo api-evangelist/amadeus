@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "FlightDates",
+  "type": "record",
+  "fields": [
+    {
+      "name": "data",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "dictionaries",
+      "type": "string"
+    },
+    {
+      "name": "meta",
+      "type": "string"
+    },
+    {
+      "name": "warnings",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

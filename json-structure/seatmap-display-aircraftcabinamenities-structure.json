@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AircraftCabinAmenities",
+  "type": "record",
+  "fields": [
+    {
+      "name": "power",
+      "type": "string"
+    },
+    {
+      "name": "seat",
+      "type": "string"
+    },
+    {
+      "name": "wifi",
+      "type": "string"
+    },
+    {
+      "name": "entertainment",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "food",
+      "type": "string"
+    },
+    {
+      "name": "beverage",
+      "type": "string"
+    }
+  ]
+}

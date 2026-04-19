@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OriginalFlightEndPoint",
+  "description": "departure or arrival information",
+  "type": "object",
+  "properties": {
+    "iataCode": {
+      "type": "string",
+      "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)"
+    },
+    "terminal": {
+      "type": "string",
+      "description": "terminal name / number"
+    }
+  }
+}

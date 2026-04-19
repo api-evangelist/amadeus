@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_PriceVariation",
+  "description": "Some prices may vary during a stay, thus here you can see the daily price per period of the stay",
+  "type": "object",
+  "properties": {
+    "startDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Begin date of the period\nFormat: YYYY-MM-DD"
+    },
+    "endDate": {
+      "type": "string",
+      "format": "date",
+      "description": "End date of the period\nFormat: YYYY-MM-DD"
+    },
+    "currency": {
+      "type": "string",
+      "description": "currency Code apply to all elements of the price"
+    },
+    "sellingTotal": {
+      "type": "string",
+      "description": "sellingTotal = Total + margins + markup + totalFees - discounts"
+    },
+    "total": {
+      "type": "string",
+      "description": "total = base + totalTaxes"
+    },
+    "base": {
+      "type": "string"
+    },
+    "markups": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Markup"
+      }
+    }
+  },
+  "required": [
+    "startDate",
+    "endDate"
+  ]
+}

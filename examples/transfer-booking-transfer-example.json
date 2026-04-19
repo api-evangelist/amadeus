@@ -1,0 +1,19 @@
+{
+  "transferType": "PRIVATE",
+  "start": "example-start",
+  "end": "example-end",
+  "stopOvers": [],
+  "passenegerCharacteristics": [],
+  "duration": "example-duration",
+  "vehicle": "example-vehicle",
+  "serviceProvider": "example-serviceProvider",
+  "partnerInfo": "example-partnerInfo",
+  "quotation": "example-quotation",
+  "converted": "example-converted",
+  "extraServices": [],
+  "equipment": [],
+  "cancellationRules": [],
+  "methodsOfPaymentAccepted": [],
+  "discountCodes": [],
+  "distance": "example-distance"
+}

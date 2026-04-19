@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DiscountType",
+  "description": "type of discount applied",
+  "type": "string",
+  "enum": [
+    "SPANISH_RESIDENT",
+    "AIR_FRANCE_DOMESTIC",
+    "AIR_FRANCE_COMBINED",
+    "AIR_FRANCE_METROPOLITAN"
+  ]
+}

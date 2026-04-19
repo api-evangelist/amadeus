@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CancellationType",
+  "description": "* FULL_STAY: the Penalty amount equals the `total` price.",
+  "type": "string",
+  "enum": [
+    "FULL_STAY"
+  ]
+}

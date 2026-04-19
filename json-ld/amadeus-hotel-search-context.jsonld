@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "type": {
+      "@id": "schema:type",
+      "@type": "xsd:string"
+    },
+    "available": {
+      "@id": "schema:available",
+      "@type": "xsd:boolean"
+    },
+    "self": {
+      "@id": "schema:self",
+      "@type": "xsd:string"
+    },
+    "offers": {
+      "@id": "schema:offers"
+    },
+    "hotel": {
+      "@id": "schema:hotel",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "schema:data",
+      "@type": "xsd:string"
+    },
+    "errors": {
+      "@id": "schema:errors"
+    }
+  }
+}

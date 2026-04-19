@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Seat",
+  "type": "object",
+  "properties": {
+    "cabin": {
+      "type": "string",
+      "description": "Cabin of the seat."
+    },
+    "number": {
+      "type": "string",
+      "description": "Concatenation of the row id and the column id, for example 12B"
+    },
+    "characteristicsCodes": {
+      "type": "array",
+      "description": "List of seat characteristics (the characteristic's names can be retrieved in the seat characteristic dictionary) Possible values are part of:\n\n  IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825\n\n  Amadeus Code: defined as extension, example MV=row with movie screen\n\n  Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat",
+      "items": {
+        "type": "string"
+      }
+    },
+    "travelerPricing": {
+      "type": "array",
+      "description": "Traveler's information and price",
+      "items": {
+        "$ref": "#/definitions/SeatmapTravelerPricing"
+      }
+    },
+    "coordinates": {
+      "$ref": "#/definitions/Coordinates"
+    }
+  }
+}

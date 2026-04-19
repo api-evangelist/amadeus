@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Error_Source",
+  "type": "record",
+  "fields": [
+    {
+      "name": "parameter",
+      "type": "string",
+      "description": "The key of the URI path or query parameter that caused the error"
+    },
+    {
+      "name": "pointer",
+      "type": "string",
+      "description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+    },
+    {
+      "name": "example",
+      "type": "string",
+      "description": "A sample input to guide the user when resolving this issue"
+    }
+  ]
+}

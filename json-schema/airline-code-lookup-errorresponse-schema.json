@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ErrorResponse",
+  "description": "Error response containing one or more error details.",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array",
+      "description": "Array of error details.",
+      "items": {
+        "$ref": "#/definitions/Issue"
+      }
+    }
+  }
+}

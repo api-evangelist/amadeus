@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "DeckConfiguration",
+  "type": "record",
+  "fields": [
+    {
+      "name": "width",
+      "type": "int32",
+      "description": "Width (y-axis) of the deck."
+    },
+    {
+      "name": "length",
+      "type": "int32",
+      "description": "Length (x-axis) of the deck."
+    },
+    {
+      "name": "startSeatRow",
+      "type": "int32",
+      "description": "seat row where the deck is starting"
+    },
+    {
+      "name": "endSeatRow",
+      "type": "int32",
+      "description": "seat row where the deck is ending"
+    },
+    {
+      "name": "startWingsX",
+      "type": "int32",
+      "description": "Start x coordinate of the wings.The wings display starts relatively to the length."
+    },
+    {
+      "name": "endWingsX",
+      "type": "int32",
+      "description": "End x coordinate of the wings.The wings display ends relatively to the length."
+    },
+    {
+      "name": "startWingsRow",
+      "type": "int32",
+      "description": "seat row where the wing is starting"
+    },
+    {
+      "name": "endWingsRow",
+      "type": "int32",
+      "description": "seat row where the wing is ending"
+    },
+    {
+      "name": "exitRowsX",
+      "type": "array",
+      "description": "X coordinate of the exit rows.The exit rows are displayed relatively to the length.",
+      "items": {
+        "type": "int32"
+      }
+    }
+  ]
+}

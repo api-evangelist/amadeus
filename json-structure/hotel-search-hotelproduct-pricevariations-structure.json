@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "HotelProduct_PriceVariations",
+  "type": "record",
+  "fields": [
+    {
+      "name": "average",
+      "type": "string"
+    },
+    {
+      "name": "changes",
+      "type": "array",
+      "description": "A collection of price periods if the daily price changes during the stay",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

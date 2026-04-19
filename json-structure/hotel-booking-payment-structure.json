@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Payment",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "int32"
+    },
+    {
+      "name": "method",
+      "type": "string",
+      "description": "The Payment Methods:\n * creditCard (CC) - Payment Cards in `creditCards` are accepted           "
+    },
+    {
+      "name": "card",
+      "type": "object",
+      "description": "payment card details (mandatory in case of `method` creditCard)"
+    }
+  ]
+}

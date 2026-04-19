@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FlightOffersSearchReply",
+  "type": "object",
+  "properties": {
+    "warnings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Issue"
+      }
+    },
+    "meta": {
+      "$ref": "#/definitions/Collection_Meta"
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/FlightOffer"
+      }
+    },
+    "dictionaries": {
+      "$ref": "#/definitions/Dictionaries"
+    }
+  },
+  "required": [
+    "data"
+  ]
+}

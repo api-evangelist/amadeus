@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "OriginDestinationLight",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "originLocationCode",
+      "type": "string",
+      "description": "Origin location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported."
+    },
+    {
+      "name": "destinationLocationCode",
+      "type": "string",
+      "description": "Destination location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported."
+    },
+    {
+      "name": "includedConnectionPoints",
+      "type": "array",
+      "description": "List of included connections points. When an includedViaPoints option is specified, all FlightOffer returned must at least go via this Connecting Point. Currently, only the locations defined in IATA are supported. Used only by the AMADEUS provider",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "excludedConnectionPoints",
+      "type": "array",
+      "description": "List of excluded connections points. Any FlightOffer with these connections points will be present in response. Currently, only the locations defined in IATA are supported. Used only by the AMADEUS provider",
+      "items": {
+        "type": "string"
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "weight",
+  "description": "An object representing weight and unit.",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "string",
+      "description": "Defines the weight value with the specified unit with decimal position."
+    }
+  }
+}

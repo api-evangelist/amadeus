@@ -1,0 +1,11 @@
+{
+  "crossBorderAllowed": true,
+  "moreOvernightsAllowed": true,
+  "returnToDepartureAirport": true,
+  "railSegmentAllowed": true,
+  "busSegmentAllowed": true,
+  "maxFlightTime": 1.0,
+  "carrierRestrictions": "example-carrierRestrictions",
+  "cabinRestrictions": [],
+  "connectionRestriction": "example-connectionRestriction"
+}

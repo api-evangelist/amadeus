@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Delay",
+  "type": "record",
+  "fields": [
+    {
+      "name": "duration",
+      "type": "string",
+      "description": "the delay recorded for the timing following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)"
+    }
+  ]
+}

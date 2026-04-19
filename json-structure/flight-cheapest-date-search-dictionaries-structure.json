@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Dictionaries",
+  "type": "record",
+  "fields": [
+    {
+      "name": "currencies",
+      "type": "string"
+    },
+    {
+      "name": "locations",
+      "type": "string"
+    }
+  ]
+}

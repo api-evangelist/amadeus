@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "airData",
+  "type": "record",
+  "fields": [
+    {
+      "name": "confirmationNumber",
+      "type": "string"
+    },
+    {
+      "name": "baggages",
+      "type": "string"
+    },
+    {
+      "name": "meal",
+      "type": "string"
+    },
+    {
+      "name": "departureAirportLocation",
+      "type": "string"
+    },
+    {
+      "name": "arrivalAirportLocation",
+      "type": "string"
+    },
+    {
+      "name": "departure",
+      "type": "string"
+    },
+    {
+      "name": "arrival",
+      "type": "string"
+    },
+    {
+      "name": "marketing",
+      "type": "string"
+    },
+    {
+      "name": "operating",
+      "type": "string"
+    },
+    {
+      "name": "aircraft",
+      "type": "string"
+    },
+    {
+      "name": "seats",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

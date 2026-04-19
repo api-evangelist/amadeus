@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PricingOptionsFareType",
+  "description": "type of fare of the flight-offer",
+  "type": "array"
+}

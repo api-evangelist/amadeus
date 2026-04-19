@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_PriceVariations",
+  "description": "Daily price variations and the average daily price (when available) is shown here",
+  "type": "object",
+  "properties": {
+    "average": {
+      "$ref": "#/definitions/Price"
+    },
+    "changes": {
+      "type": "array",
+      "description": "A collection of price periods if the daily price changes during the stay",
+      "items": {
+        "$ref": "#/definitions/HotelProduct_PriceVariation"
+      }
+    }
+  }
+}

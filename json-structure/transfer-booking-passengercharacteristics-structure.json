@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "PassengerCharacteristics",
+  "type": "record",
+  "fields": [
+    {
+      "name": "passengerTypeCode",
+      "type": "string",
+      "description": "Passenger type codes e.g. CHD , ADT. CHD is for child and ADT for Adult."
+    },
+    {
+      "name": "age",
+      "type": "int32",
+      "description": "Age of the Passenger (Mandatory if typeCode= \u201cCHD\u201d)"
+    }
+  ]
+}

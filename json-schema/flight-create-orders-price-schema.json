@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Price",
+  "type": "object",
+  "properties": {
+    "currency": {
+      "type": "string"
+    },
+    "total": {
+      "type": "string",
+      "description": "Total amount paid by the user"
+    },
+    "base": {
+      "type": "string",
+      "description": "Amount without taxes"
+    },
+    "fees": {
+      "type": "array",
+      "description": "List of applicable fees",
+      "items": {
+        "$ref": "#/definitions/Fee"
+      }
+    },
+    "taxes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Tax"
+      }
+    },
+    "refundableTaxes": {
+      "type": "string",
+      "description": "The amount of taxes which are refundable"
+    }
+  }
+}

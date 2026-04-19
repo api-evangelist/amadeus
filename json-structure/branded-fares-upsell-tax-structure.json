@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Tax",
+  "type": "record",
+  "fields": [
+    {
+      "name": "amount",
+      "type": "string"
+    },
+    {
+      "name": "code",
+      "type": "string"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Activity",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "the ressource name"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "unique id of the ressource"
+    },
+    {
+      "name": "self",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "activity name"
+    },
+    {
+      "name": "shortDescription",
+      "type": "string",
+      "description": "short description of the activity"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "description": "full description of the activity"
+    },
+    {
+      "name": "geoCode",
+      "type": "string"
+    },
+    {
+      "name": "rating",
+      "type": "string",
+      "description": "rating of the activity"
+    },
+    {
+      "name": "price",
+      "type": "string"
+    },
+    {
+      "name": "pictures",
+      "type": "array",
+      "description": "link to picture related to the activity",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "bookingLink",
+      "type": "string",
+      "description": "url to book the activity"
+    },
+    {
+      "name": "minimumDuration",
+      "type": "string",
+      "description": "Minimum recommended duration for the activity"
+    }
+  ]
+}

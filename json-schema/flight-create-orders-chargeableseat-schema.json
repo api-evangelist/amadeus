@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ChargeableSeat",
+  "description": "Details of chargeable seat",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Id of the chargeable seat"
+    },
+    "number": {
+      "type": "string",
+      "description": "seat number"
+    }
+  }
+}

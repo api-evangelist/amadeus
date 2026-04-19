@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AdditionalServiceType",
+  "description": "additional service type",
+  "type": "string",
+  "enum": [
+    "CHECKED_BAGS",
+    "MEALS",
+    "SEATS",
+    "OTHER_SERVICES"
+  ]
+}

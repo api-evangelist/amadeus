@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "HotelOffers",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "the type of the object (hotel-offers)"
+    },
+    {
+      "name": "available",
+      "type": "boolean"
+    },
+    {
+      "name": "self",
+      "type": "string"
+    },
+    {
+      "name": "offers",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "hotel",
+      "type": "string"
+    }
+  ]
+}

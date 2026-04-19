@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "CreditCardFee",
+  "type": "record",
+  "fields": [
+    {
+      "name": "brand",
+      "type": "string"
+    },
+    {
+      "name": "amount",
+      "type": "string"
+    },
+    {
+      "name": "currency",
+      "type": "string"
+    },
+    {
+      "name": "flightOfferId",
+      "type": "string",
+      "description": "Id of the flightOffer concerned by the credit card fee"
+    }
+  ]
+}

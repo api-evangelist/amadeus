@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BaggageAllowance",
+  "description": "baggageAllowance",
+  "type": "object",
+  "properties": {
+    "excessRate": {
+      "$ref": "#/definitions/ElementaryPrice"
+    },
+    "quantity": {
+      "type": "integer",
+      "description": "Total number of units"
+    },
+    "weight": {
+      "type": "integer",
+      "description": "Weight of the baggage allowance"
+    },
+    "weightUnit": {
+      "type": "string",
+      "description": "Code to qualify unit as pounds or kilos"
+    }
+  }
+}

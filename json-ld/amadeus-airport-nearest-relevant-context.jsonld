@@ -1,0 +1,82 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "type": {
+      "@id": "schema:type",
+      "@type": "xsd:string"
+    },
+    "subType": {
+      "@id": "schema:subType",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "detailedName": {
+      "@id": "schema:detailedName",
+      "@type": "xsd:string"
+    },
+    "timeZoneOffset": {
+      "@id": "schema:timeZoneOffset",
+      "@type": "xsd:string"
+    },
+    "iataCode": {
+      "@id": "schema:iataCode",
+      "@type": "xsd:string"
+    },
+    "geoCode": {
+      "@id": "schema:geoCode",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "schema:address",
+      "@type": "xsd:string"
+    },
+    "distance": {
+      "@id": "schema:distance",
+      "@type": "xsd:string"
+    },
+    "analytics": {
+      "@id": "schema:analytics",
+      "@type": "xsd:string"
+    },
+    "relevance": {
+      "@id": "schema:relevance",
+      "@type": "xsd:decimal"
+    },
+    "cityName": {
+      "@id": "schema:cityName",
+      "@type": "xsd:string"
+    },
+    "cityCode": {
+      "@id": "schema:cityCode",
+      "@type": "xsd:string"
+    },
+    "countryName": {
+      "@id": "schema:countryName",
+      "@type": "xsd:string"
+    },
+    "countryCode": {
+      "@id": "schema:countryCode",
+      "@type": "xsd:string"
+    },
+    "stateCode": {
+      "@id": "schema:stateCode",
+      "@type": "xsd:string"
+    },
+    "regionCode": {
+      "@id": "schema:regionCode",
+      "@type": "xsd:string"
+    },
+    "value": {
+      "@id": "schema:value",
+      "@type": "xsd:integer"
+    },
+    "unit": {
+      "@id": "schema:unit",
+      "@type": "xsd:string"
+    }
+  }
+}

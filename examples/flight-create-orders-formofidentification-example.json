@@ -1,0 +1,7 @@
+{
+  "identificationType": "DRIVERS_LICENSE",
+  "carrierCode": "example-carrierCode",
+  "number": "example-number",
+  "travelerIds": [],
+  "flightOfferIds": []
+}

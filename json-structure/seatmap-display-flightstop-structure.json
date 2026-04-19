@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "FlightStop",
+  "type": "record",
+  "fields": [
+    {
+      "name": "iataCode",
+      "type": "string",
+      "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)"
+    },
+    {
+      "name": "newAircraft",
+      "type": "string"
+    },
+    {
+      "name": "duration",
+      "type": "string",
+      "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M"
+    },
+    {
+      "name": "arrivalAt",
+      "type": "datetime",
+      "description": "arrival at the stop in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm\u00b1hh:mm format, e.g. 2017-02-10T20:40:00+02:00"
+    },
+    {
+      "name": "departureAt",
+      "type": "datetime",
+      "description": "departure from the stop in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm\u00b1hh:mm format, e.g. 2017-02-10T20:40:00+02:00"
+    }
+  ]
+}

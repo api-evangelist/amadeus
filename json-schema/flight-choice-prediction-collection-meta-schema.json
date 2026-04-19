@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Collection_Meta",
+  "description": "meta information",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "links": {
+      "$ref": "#/definitions/CollectionLinks"
+    },
+    "oneWayCombinations": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "originDestinationId": {
+            "type": "string"
+          },
+          "flightOfferIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

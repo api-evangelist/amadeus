@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "aircraft",
+  "description": "description of the aircraft equipment",
+  "type": "object",
+  "properties": {
+    "aircraftType": {
+      "type": "string",
+      "description": "aircraft type (ex 320, 777, ...)"
+    },
+    "aircraftDescription": {
+      "type": "string",
+      "description": "aircraft description (ex BOEING 737 ALL SERIES PASSENGER)"
+    }
+  }
+}

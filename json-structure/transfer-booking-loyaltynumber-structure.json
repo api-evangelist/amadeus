@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "LoyaltyNumber",
+  "type": "record",
+  "fields": [
+    {
+      "name": "program",
+      "type": "string",
+      "description": "loyalty program name"
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "loyalty number value"
+    }
+  ]
+}

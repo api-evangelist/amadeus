@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "carVehicle",
+  "type": "record",
+  "fields": [
+    {
+      "name": "acrissCode",
+      "type": "string",
+      "description": "Association of car rental industry systems standards"
+    },
+    {
+      "name": "carModel",
+      "type": "string",
+      "description": "Car model name"
+    },
+    {
+      "name": "doors",
+      "type": "int32",
+      "description": "Number of doors"
+    }
+  ]
+}

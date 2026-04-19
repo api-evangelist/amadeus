@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Air_Traffic",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string"
+    },
+    {
+      "name": "subType",
+      "type": "string"
+    },
+    {
+      "name": "destination",
+      "type": "string",
+      "description": "IATA code of the destination city - [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)"
+    },
+    {
+      "name": "analytics",
+      "type": "string"
+    }
+  ]
+}

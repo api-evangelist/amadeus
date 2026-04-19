@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "trip",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "reference": {
+      "type": "string",
+      "description": "Reference of the Trip"
+    },
+    "creationDateTime": {
+      "type": "string",
+      "description": "Date of the trip point optional time and time offset in ISO 8601 format, e.g. 2017-02-10T20:40:00+02:00"
+    },
+    "bookingDate": {
+      "type": "string",
+      "description": "itinerary booking date"
+    },
+    "bookingNumber": {
+      "type": "string",
+      "description": "Ticket No(Specially for Air and Train segment)"
+    },
+    "provider": {
+      "type": "string",
+      "description": "information of the booking provider"
+    },
+    "title": {
+      "type": "string",
+      "description": "Trip label or name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Trip description"
+    },
+    "start": {
+      "$ref": "#/definitions/start"
+    },
+    "end": {
+      "$ref": "#/definitions/end"
+    },
+    "travelAgency": {
+      "$ref": "#/definitions/travelAgency"
+    },
+    "stakeholders": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/stakeholder"
+      }
+    },
+    "price": {
+      "$ref": "#/definitions/price"
+    },
+    "products": {
+      "type": "array",
+      "items": {}
+    }
+  }
+}

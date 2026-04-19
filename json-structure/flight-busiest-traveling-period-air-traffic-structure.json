@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Air_Traffic",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string"
+    },
+    {
+      "name": "period",
+      "type": "string",
+      "description": "Time period following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard"
+    },
+    {
+      "name": "analytics",
+      "type": "string"
+    }
+  ]
+}

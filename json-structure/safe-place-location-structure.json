@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Location",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "id of the ressource"
+    },
+    {
+      "name": "self",
+      "type": "string"
+    },
+    {
+      "name": "type",
+      "type": "string",
+      "description": "the resource name"
+    },
+    {
+      "name": "subType",
+      "type": "string",
+      "description": "location sub type"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "short name of the location"
+    },
+    {
+      "name": "geoCode",
+      "type": "string"
+    }
+  ]
+}

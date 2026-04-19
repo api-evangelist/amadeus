@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "CreditCardCommon",
+  "type": "record",
+  "fields": [
+    {
+      "name": "brand",
+      "type": "string"
+    },
+    {
+      "name": "holder",
+      "type": "string",
+      "description": "card holder as on the card"
+    },
+    {
+      "name": "number",
+      "type": "string",
+      "description": "card number"
+    },
+    {
+      "name": "expiryDate",
+      "type": "string",
+      "description": "credit card expiration date following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (YYYY-MM format, e.g. 2012-08)"
+    }
+  ]
+}

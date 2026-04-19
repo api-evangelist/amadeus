@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "TravelerInfo",
+  "type": "record",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "travelerType",
+      "type": "string"
+    },
+    {
+      "name": "associatedAdultId",
+      "type": "string",
+      "description": "if type=\"HELD_INFANT\", corresponds to the adult travelers's id who will share the seat"
+    }
+  ]
+}

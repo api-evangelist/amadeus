@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Name",
+  "type": "record",
+  "fields": [
+    {
+      "name": "title",
+      "type": "string",
+      "description": "title/gender of room guest"
+    },
+    {
+      "name": "firstName",
+      "type": "string",
+      "description": "first name (and middle name) of room guest"
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "description": "last name of room guest"
+    }
+  ]
+}

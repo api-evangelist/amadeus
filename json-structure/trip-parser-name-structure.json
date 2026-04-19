@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "name",
+  "type": "record",
+  "fields": [
+    {
+      "name": "firstName",
+      "type": "string",
+      "description": "First name."
+    },
+    {
+      "name": "lastName",
+      "type": "string",
+      "description": "Last name."
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "description": "Contains all the suffixes and prefixes that can be appended to a name - Mr, Miss, Pr. - E.g. \" Mr\"."
+    },
+    {
+      "name": "middleName",
+      "type": "string",
+      "description": "Middle name(s), for example \"Lee\" in \"John Lee Smith\"."
+    },
+    {
+      "name": "prefix",
+      "type": "string",
+      "description": "Name prefix (e.g. Doctor)"
+    },
+    {
+      "name": "suffix",
+      "type": "string",
+      "description": "Name suffix (e.g. Junior, III, etc)."
+    }
+  ]
+}

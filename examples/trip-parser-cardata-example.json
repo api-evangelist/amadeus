@@ -1,0 +1,9 @@
+{
+  "confirmationNumber": "example-confirmationNumber",
+  "serviceProviderName": "example-serviceProviderName",
+  "associatedEquipments": [],
+  "pickup": "example-pickup",
+  "dropoff": "example-dropoff",
+  "driver": "example-driver",
+  "vehicle": "example-vehicle"
+}

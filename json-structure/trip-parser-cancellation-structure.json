@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "cancellation",
+  "type": "record",
+  "fields": [
+    {
+      "name": "description",
+      "type": "string"
+    }
+  ]
+}

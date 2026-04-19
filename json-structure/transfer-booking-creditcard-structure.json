@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "CreditCard",
+  "type": "record",
+  "fields": [
+    {
+      "name": "number",
+      "type": "string",
+      "description": "card number"
+    },
+    {
+      "name": "holderName",
+      "type": "string",
+      "description": "card holder name"
+    },
+    {
+      "name": "vendorCode",
+      "type": "string",
+      "description": "card vendor code, e.g VI \u2013 VISA, CA \u2013 MasterCard, AX \u2013 American Express etc"
+    },
+    {
+      "name": "expiryDate",
+      "type": "string",
+      "description": "card expiry date in format MMYY, e.g. 0237 for February 2037"
+    },
+    {
+      "name": "cvv",
+      "type": "string",
+      "description": "cerification calue number, as indicated on the credit card. Only for query"
+    }
+  ]
+}

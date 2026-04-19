@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Phone",
+  "description": "phone information",
+  "type": "object",
+  "properties": {
+    "deviceType": {
+      "$ref": "#/definitions/PhoneDeviceType"
+    },
+    "countryCallingCode": {
+      "type": "string",
+      "description": "Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia."
+    },
+    "number": {
+      "type": "string",
+      "description": "Phone number. Composed of digits only. The number of digits depends on the country."
+    }
+  }
+}

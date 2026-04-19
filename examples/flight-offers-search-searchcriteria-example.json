@@ -1,0 +1,11 @@
+{
+  "excludeAllotments": true,
+  "addOneWayOffers": true,
+  "maxFlightOffers": 1.0,
+  "maxPrice": 1,
+  "allowAlternativeFareOptions": true,
+  "oneFlightOfferPerDay": true,
+  "additionalInformation": {},
+  "pricingOptions": "example-pricingOptions",
+  "flightFilters": "example-flightFilters"
+}

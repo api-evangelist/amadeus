@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "locations",
+  "type": "record",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "description": "type of API result \"location\""
+    },
+    {
+      "name": "subtype",
+      "type": "string",
+      "description": "Location sub-type (e.g. airport, port, rail-station, restaurant, atm...)"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Label associated to the location (e.g. Eiffel Tower, Madison Square)"
+    },
+    {
+      "name": "iataCode",
+      "type": "string",
+      "description": "IATA location code"
+    },
+    {
+      "name": "geoCode",
+      "type": "object",
+      "description": "Geographic coordinates describing the position of any location on the surface of Earth"
+    },
+    {
+      "name": "address",
+      "type": "object"
+    },
+    {
+      "name": "timeZone",
+      "type": "object"
+    },
+    {
+      "name": "metrics",
+      "type": "object"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "CollectionMeta",
+  "type": "record",
+  "fields": [
+    {
+      "name": "count",
+      "type": "int32",
+      "description": "Total number of items in the collection."
+    },
+    {
+      "name": "links",
+      "type": "object",
+      "description": "Links related to the collection."
+    }
+  ]
+}

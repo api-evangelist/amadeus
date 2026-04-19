@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_RateFamily",
+  "description": "The estimated rate code family of the offer. Grouping various rate plan codes that belongs to the same family and indicates the type of the rate",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "The estimated rate family (PRO,FAM,GOV)"
+    },
+    "type": {
+      "type": "string",
+      "description": "The type of the rate (public=P, negotiated=N, conditional=C)"
+    }
+  }
+}

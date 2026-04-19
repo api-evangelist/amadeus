@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LocationValue",
+  "type": "object",
+  "properties": {
+    "subType": {
+      "type": "string",
+      "description": "location type: airport or city",
+      "enum": [
+        "AIRPORT",
+        "CITY"
+      ]
+    },
+    "detailedName": {
+      "type": "string",
+      "description": "name of the location"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_HotelPrice",
+  "description": "price information",
+  "type": "object",
+  "properties": {
+    "currency": {
+      "type": "string",
+      "description": "currency Code apply to all elements of the price"
+    },
+    "sellingTotal": {
+      "type": "string",
+      "description": "sellingTotal = Total + margins + markup + totalFees - discounts"
+    },
+    "total": {
+      "type": "string",
+      "description": "total = base + totalTaxes"
+    },
+    "base": {
+      "type": "string"
+    },
+    "taxes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Tax"
+      }
+    },
+    "markups": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Markup"
+      }
+    },
+    "variations": {
+      "$ref": "#/definitions/HotelProduct_PriceVariations"
+    }
+  }
+}

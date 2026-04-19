@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FlightDesignator",
+  "type": "object",
+  "properties": {
+    "carrierCode": {
+      "type": "string",
+      "description": "2 to 3-character IATA code of the carrier. e.g. 6X"
+    },
+    "flightNumber": {
+      "type": "integer",
+      "format": "int64",
+      "description": "1 to 4-digit number of the flight e.g. 4537"
+    },
+    "operationalSuffix": {
+      "type": "string",
+      "description": "1-letter operational suffix of the flight e.g. A"
+    }
+  }
+}

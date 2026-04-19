@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Meta",
+  "type": "record",
+  "fields": [
+    {
+      "name": "count",
+      "type": "int64",
+      "description": "Total number of object(s) retrieved"
+    },
+    {
+      "name": "sort",
+      "type": "array",
+      "description": "Sorting fields criteria and their associated priority and direction. Sorting priority is indicated by the order of the strings within the array. E.g. sort=title,size means that items are ordered by title and then, as a second ordering by size. A '-' sign before the search criteria indicates a descending ordering direction (Z to A), whereas no sign indicates a ascending direction (A to Z). E.g. sort=-title mean that the objects are ordered by title in reverse order (Z to A).",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "links",
+      "type": "object",
+      "description": "Links related to the returned object(s)"
+    }
+  ]
+}

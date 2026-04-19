@@ -1,0 +1,9 @@
+{
+  "startDate": "2024-01-15",
+  "endDate": "2024-01-15",
+  "currency": "example-currency",
+  "sellingTotal": "example-sellingTotal",
+  "total": "example-total",
+  "base": "example-base",
+  "markups": []
+}

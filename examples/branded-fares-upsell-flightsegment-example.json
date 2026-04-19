@@ -1,0 +1,10 @@
+{
+  "departure": "example-departure",
+  "arrival": "example-arrival",
+  "carrierCode": "example-carrierCode",
+  "number": "example-number",
+  "aircraft": "example-aircraft",
+  "operating": "example-operating",
+  "duration": "example-duration",
+  "stops": []
+}

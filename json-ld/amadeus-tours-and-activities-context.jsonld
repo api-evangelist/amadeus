@@ -1,0 +1,67 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "type": {
+      "@id": "schema:type",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "@id"
+    },
+    "self": {
+      "@id": "schema:self",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "shortDescription": {
+      "@id": "schema:shortDescription",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "geoCode": {
+      "@id": "schema:geoCode",
+      "@type": "xsd:string"
+    },
+    "rating": {
+      "@id": "schema:rating",
+      "@type": "xsd:string"
+    },
+    "price": {
+      "@id": "schema:price",
+      "@type": "xsd:string"
+    },
+    "pictures": {
+      "@id": "schema:pictures"
+    },
+    "bookingLink": {
+      "@id": "schema:bookingLink",
+      "@type": "xsd:string"
+    },
+    "minimumDuration": {
+      "@id": "schema:minimumDuration",
+      "@type": "xsd:string"
+    },
+    "latitude": {
+      "@id": "schema:latitude",
+      "@type": "xsd:decimal"
+    },
+    "longitude": {
+      "@id": "schema:longitude",
+      "@type": "xsd:decimal"
+    },
+    "amount": {
+      "@id": "schema:amount",
+      "@type": "xsd:string"
+    },
+    "currencyCode": {
+      "@id": "schema:currencyCode",
+      "@type": "xsd:string"
+    }
+  }
+}

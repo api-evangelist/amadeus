@@ -1,0 +1,7 @@
+{
+  "iataCode": "example-iataCode",
+  "newAircraft": "example-newAircraft",
+  "duration": "example-duration",
+  "arrivalAt": "2024-01-15T10:30:00Z",
+  "departureAt": "2024-01-15T10:30:00Z"
+}

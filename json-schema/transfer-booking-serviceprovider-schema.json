@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ServiceProvider",
+  "description": "information about provider",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "provider code"
+    },
+    "name": {
+      "type": "string",
+      "description": "provider name"
+    },
+    "logoUrl": {
+      "type": "string",
+      "description": "URL to provider logo"
+    },
+    "termsUrl": {
+      "type": "string",
+      "description": "URL to provider's terms and conditions page"
+    },
+    "isPreferred": {
+      "type": "boolean",
+      "description": "indicates if sub-provider is preferred for the travel-seller"
+    },
+    "contacts": {
+      "$ref": "#/definitions/ContactWithAddress"
+    },
+    "settings": {
+      "type": "array",
+      "description": "list of provider settings",
+      "items": {
+        "type": "string",
+        "description": "provider setting",
+        "enum": [
+          "BILLING_ADDRESS_REQUIRED",
+          "FLIGHT_NUMBER_REQUIRED",
+          "CVV_NUMBER_REQUIRED"
+        ]
+      }
+    },
+    "businessIdentification": {
+      "description": "Information about the Customer stakeholder participating to the described sales summary.",
+      "properties": {
+        "vatRegistrationNumber": {
+          "type": "string",
+          "description": "VAT (Value Added Tax) Registration Number of the customer applicable ot the current sales."
+        }
+      }
+    }
+  },
+  "required": [
+    "code",
+    "name",
+    "logoUrl"
+  ]
+}

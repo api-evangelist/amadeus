@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "HotelSearchResponse",
+  "type": "record",
+  "fields": [
+    {
+      "name": "data",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "meta",
+      "type": "string"
+    }
+  ]
+}

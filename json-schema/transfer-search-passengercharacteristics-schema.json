@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PassengerCharacteristics",
+  "type": "object",
+  "properties": {
+    "passengerTypeCode": {
+      "type": "string",
+      "description": "Passenger type codes e.g. CHD , ADT. CHD is for child and ADT for Adult."
+    },
+    "age": {
+      "type": "integer",
+      "description": "Age of the Passenger (Mandatory if typeCode= \u201cCHD\u201d)"
+    }
+  }
+}

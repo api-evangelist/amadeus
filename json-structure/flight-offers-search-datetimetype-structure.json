@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "DateTimeType",
+  "type": "record",
+  "fields": [
+    {
+      "name": "date",
+      "type": "date",
+      "description": "Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-12-25"
+    },
+    {
+      "name": "time",
+      "type": "string",
+      "description": "Local time. hh:mm:ss format, e.g 10:30:00"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Hotel",
+  "type": "record",
+  "fields": [
+    {
+      "name": "hotelId",
+      "type": "string",
+      "description": "Amadeus Property Code (8 chars)"
+    },
+    {
+      "name": "chainCode",
+      "type": "string",
+      "description": "Brand (RT...) or Merchant (AD...) (Amadeus 2 chars Code)"
+    },
+    {
+      "name": "brandCode",
+      "type": "string",
+      "description": "Brand (RT...) (Amadeus 2 chars Code). Small Properties distributed by Merchants may not have a Brand.\nExample - AD (Value Hotels) is the Provider/Merchant, and RT (Accor) is the Brand of the Property"
+    },
+    {
+      "name": "dupeId",
+      "type": "string",
+      "description": "Unique Property identifier of the physical hotel.\nOne physical hotel can be represented by different Providers, each one having its own `hotelID`.\nThis attribute allows a client application to group together hotels that are actually the same."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Hotel Name"
+    },
+    {
+      "name": "cityCode",
+      "type": "string",
+      "description": "Warning: The IATA city code associated to the hotel (not necessary the real Hotel City)"
+    }
+  ]
+}

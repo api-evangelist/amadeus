@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "driver",
+  "type": "record",
+  "fields": [
+    {
+      "name": "contacts",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

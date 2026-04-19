@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "FlightSegment",
+  "type": "record",
+  "fields": [
+    {
+      "name": "departure",
+      "type": "string"
+    },
+    {
+      "name": "arrival",
+      "type": "string"
+    },
+    {
+      "name": "carrierCode",
+      "type": "string",
+      "description": "providing the airline / carrier code"
+    },
+    {
+      "name": "number",
+      "type": "string",
+      "description": "the flight number as assigned by the carrier"
+    },
+    {
+      "name": "suffix",
+      "type": "string",
+      "description": "the flight number suffix as assigned by the carrier"
+    },
+    {
+      "name": "aircraft",
+      "type": "string"
+    },
+    {
+      "name": "class",
+      "type": "string",
+      "description": "reservation booking designator (RBD) of the carrier"
+    },
+    {
+      "name": "cabin",
+      "type": "string",
+      "description": "booking cabin / class of service of the carrier"
+    },
+    {
+      "name": "operating",
+      "type": "string"
+    },
+    {
+      "name": "duration",
+      "type": "string",
+      "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M"
+    },
+    {
+      "name": "stops",
+      "type": "array",
+      "description": "information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge...",
+      "items": {
+        "type": "object"
+      }
+    }
+  ]
+}

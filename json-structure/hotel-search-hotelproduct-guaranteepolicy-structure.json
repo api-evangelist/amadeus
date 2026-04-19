@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "HotelProduct_GuaranteePolicy",
+  "type": "record",
+  "fields": [
+    {
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "name": "acceptedPayments",
+      "type": "string"
+    }
+  ]
+}

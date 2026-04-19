@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AircraftEquipment",
+  "type": "record",
+  "fields": [
+    {
+      "name": "aircraftType",
+      "type": "string",
+      "description": "the type of aircraft that will operate the leg"
+    }
+  ]
+}

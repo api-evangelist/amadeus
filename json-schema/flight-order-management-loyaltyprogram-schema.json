@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LoyaltyProgram",
+  "description": "loyalty program information",
+  "type": "object",
+  "properties": {
+    "programOwner": {
+      "type": "string",
+      "description": "loyalty program airline code"
+    },
+    "id": {
+      "type": "string",
+      "description": "loyalty program number"
+    }
+  }
+}

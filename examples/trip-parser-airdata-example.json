@@ -1,0 +1,13 @@
+{
+  "confirmationNumber": "example-confirmationNumber",
+  "baggages": "example-baggages",
+  "meal": "example-meal",
+  "departureAirportLocation": "example-departureAirportLocation",
+  "arrivalAirportLocation": "example-arrivalAirportLocation",
+  "departure": "example-departure",
+  "arrival": "example-arrival",
+  "marketing": "example-marketing",
+  "operating": "example-operating",
+  "aircraft": "example-aircraft",
+  "seats": []
+}

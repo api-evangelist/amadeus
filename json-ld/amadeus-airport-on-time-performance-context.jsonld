@@ -1,0 +1,38 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "data": {
+      "@id": "schema:data",
+      "@type": "xsd:string"
+    },
+    "meta": {
+      "@id": "schema:meta",
+      "@type": "xsd:string"
+    },
+    "links": {
+      "@id": "schema:links",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "schema:type",
+      "@type": "xsd:string"
+    },
+    "subType": {
+      "@id": "schema:subType",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "@id"
+    },
+    "result": {
+      "@id": "schema:result",
+      "@type": "xsd:string"
+    },
+    "probability": {
+      "@id": "schema:probability",
+      "@type": "xsd:string"
+    }
+  }
+}

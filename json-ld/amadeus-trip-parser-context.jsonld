@@ -1,0 +1,110 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "type": {
+      "@id": "schema:type",
+      "@type": "xsd:string"
+    },
+    "reference": {
+      "@id": "schema:reference",
+      "@type": "xsd:string"
+    },
+    "creationDateTime": {
+      "@id": "schema:creationDateTime",
+      "@type": "xsd:string"
+    },
+    "bookingDate": {
+      "@id": "schema:bookingDate",
+      "@type": "xsd:string"
+    },
+    "bookingNumber": {
+      "@id": "schema:bookingNumber",
+      "@type": "xsd:string"
+    },
+    "provider": {
+      "@id": "schema:provider",
+      "@type": "xsd:string"
+    },
+    "title": {
+      "@id": "schema:title",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "start": {
+      "@id": "schema:start",
+      "@type": "xsd:string"
+    },
+    "end": {
+      "@id": "schema:end",
+      "@type": "xsd:string"
+    },
+    "travelAgency": {
+      "@id": "schema:travelAgency",
+      "@type": "xsd:string"
+    },
+    "stakeholders": {
+      "@id": "schema:stakeholders"
+    },
+    "price": {
+      "@id": "schema:price",
+      "@type": "xsd:string"
+    },
+    "products": {
+      "@id": "schema:products"
+    },
+    "localDateTime": {
+      "@id": "schema:localDateTime",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "iataCode": {
+      "@id": "schema:iataCode",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "schema:address",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "schema:category",
+      "@type": "xsd:string"
+    },
+    "lines": {
+      "@id": "schema:lines"
+    },
+    "postalCode": {
+      "@id": "schema:postalCode",
+      "@type": "xsd:string"
+    },
+    "countryCode": {
+      "@id": "schema:countryCode",
+      "@type": "xsd:string"
+    },
+    "cityName": {
+      "@id": "schema:cityName",
+      "@type": "xsd:string"
+    },
+    "stateCode": {
+      "@id": "schema:stateCode",
+      "@type": "xsd:string"
+    },
+    "postalBox": {
+      "@id": "schema:postalBox",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "schema:text",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "schema:state",
+      "@type": "xsd:string"
+    }
+  }
+}

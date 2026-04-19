@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Timing",
+  "type": "object",
+  "properties": {
+    "qualifier": {
+      "type": "string",
+      "description": "the qualifier of the timing. e.g. STD (stands for Schedule Time Departure)"
+    },
+    "value": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "delays": {
+      "type": "array",
+      "description": "delays that might be recorded on a timing",
+      "items": {
+        "$ref": "#/definitions/Delay"
+      }
+    }
+  }
+}

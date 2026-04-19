@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "departure",
+  "type": "record",
+  "fields": [
+    {
+      "name": "subType",
+      "type": "string",
+      "description": "Location sub-type (e.g. airport, port, rail-station, restaurant, atm...)"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Label associated to the location (e.g. Eiffel Tower, Madison Square)"
+    },
+    {
+      "name": "iataCode",
+      "type": "string",
+      "description": "IATA location code"
+    }
+  ]
+}

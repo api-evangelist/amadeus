@@ -1,0 +1,10 @@
+{
+  "type": "example-type",
+  "subtype": "example-subtype",
+  "name": "example-name",
+  "iataCode": "example-iataCode",
+  "geoCode": {},
+  "address": {},
+  "timeZone": {},
+  "metrics": {}
+}

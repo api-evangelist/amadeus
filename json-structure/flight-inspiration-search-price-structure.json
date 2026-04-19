@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Price",
+  "type": "record",
+  "fields": [
+    {
+      "name": "total",
+      "type": "string",
+      "description": "Total amount paid by the user"
+    }
+  ]
+}

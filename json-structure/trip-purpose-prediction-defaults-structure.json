@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Defaults",
+  "type": "record",
+  "fields": [
+    {
+      "name": "searchDate",
+      "type": "string",
+      "description": "the date on which the traveler is performing the search."
+    }
+  ]
+}

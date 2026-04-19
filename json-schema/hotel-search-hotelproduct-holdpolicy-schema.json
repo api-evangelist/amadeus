@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HotelProduct_HoldPolicy",
+  "description": "the hold policy",
+  "type": "object",
+  "properties": {
+    "deadline": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. \n Example: 2010-08-14T13:00:00\n Please note that this value is expressed in the hotels local time zone"
+    }
+  },
+  "required": [
+    "deadline"
+  ]
+}

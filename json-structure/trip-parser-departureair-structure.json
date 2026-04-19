@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "departureAir",
+  "type": "record",
+  "fields": [
+    {
+      "name": "iataCode",
+      "type": "string",
+      "description": "IATA Airport code"
+    },
+    {
+      "name": "terminal",
+      "type": "string",
+      "description": "Terminal name / number"
+    },
+    {
+      "name": "checkInEndTime",
+      "type": "string"
+    },
+    {
+      "name": "localDateTime",
+      "type": "string",
+      "description": "Local schedule dateTime of the departure or arrival. Conversion of dateTime in local date time."
+    }
+  ]
+}

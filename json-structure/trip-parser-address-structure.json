@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "address",
+  "type": "record",
+  "fields": [
+    {
+      "name": "category",
+      "type": "string",
+      "description": "Category of the contact element"
+    },
+    {
+      "name": "lines",
+      "type": "array",
+      "description": "Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "postalCode",
+      "type": "string",
+      "description": "Example: 74130"
+    },
+    {
+      "name": "countryCode",
+      "type": "string",
+      "description": "ISO 3166-1 country code"
+    },
+    {
+      "name": "cityName",
+      "type": "string",
+      "description": "Full city name. Example: Dublin"
+    },
+    {
+      "name": "stateCode",
+      "type": "string",
+      "description": "State code (two character standard IATA state code)"
+    },
+    {
+      "name": "postalBox",
+      "type": "string",
+      "description": "E.g. BP 220"
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled."
+    },
+    {
+      "name": "state",
+      "type": "string",
+      "description": "State, province or country name"
+    }
+  ]
+}

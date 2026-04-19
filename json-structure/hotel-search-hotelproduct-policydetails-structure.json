@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "HotelProduct_PolicyDetails",
+  "type": "record",
+  "fields": [
+    {
+      "name": "paymentType",
+      "type": "string"
+    },
+    {
+      "name": "guarantee",
+      "type": "string"
+    },
+    {
+      "name": "deposit",
+      "type": "string"
+    },
+    {
+      "name": "prepay",
+      "type": "string"
+    },
+    {
+      "name": "holdTime",
+      "type": "string"
+    },
+    {
+      "name": "cancellations",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "checkInOut",
+      "type": "string"
+    }
+  ]
+}

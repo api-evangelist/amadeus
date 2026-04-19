@@ -1,0 +1,15 @@
+{
+  "duration": "example-duration",
+  "locationCode": "example-locationCode",
+  "addressLine": "example-addressLine",
+  "countryCode": "example-countryCode",
+  "cityName": "example-cityName",
+  "zipCode": "example-zipCode",
+  "googlePlaceId": "example-googlePlaceId",
+  "name": "example-name",
+  "lfiCode": "example-lfiCode",
+  "stateCode": "example-stateCode",
+  "geoCode": "example-geoCode",
+  "sequenceNumber": 1.0,
+  "uicCode": "example-uicCode"
+}

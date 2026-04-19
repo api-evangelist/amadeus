@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ContactDictionary",
+  "description": "represents a contact",
+  "type": "object",
+  "properties": {
+    "addresseeName": {
+      "$ref": "#/definitions/Name"
+    },
+    "address": {
+      "$ref": "#/definitions/Address"
+    },
+    "language": {
+      "type": "string",
+      "description": "the preferred language of communication with this Contact"
+    },
+    "purpose": {
+      "$ref": "#/definitions/ContactPurpose"
+    }
+  }
+}

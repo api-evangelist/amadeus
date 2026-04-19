@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Address",
+  "description": "address information",
+  "type": "object",
+  "properties": {
+    "line": {
+      "type": "string",
+      "description": "Address line with street, number, bulding, etc..."
+    },
+    "zip": {
+      "type": "string",
+      "description": "Post office code number"
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "Country code (two character standard IATA country code)"
+    },
+    "cityName": {
+      "type": "string",
+      "description": "City, town or postal station"
+    },
+    "stateCode": {
+      "type": "string",
+      "description": "State code (two character standard IATA state code)"
+    },
+    "latitude": {
+      "type": "number",
+      "format": "double",
+      "description": "latitude of the location"
+    },
+    "longitude": {
+      "type": "number",
+      "format": "double",
+      "description": "longitude of the location"
+    }
+  }
+}

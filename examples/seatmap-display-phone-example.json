@@ -1,0 +1,11 @@
+{
+  "category": "BUSINESS",
+  "addresseeName": "example-addresseeName",
+  "deviceType": "example-deviceType",
+  "countryCode": "example-countryCode",
+  "countryCallingCode": "example-countryCallingCode",
+  "areaCode": "example-areaCode",
+  "number": "example-number",
+  "extension": "example-extension",
+  "text": "example-text"
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "trainData",
+  "description": "Train Product",
+  "type": "object",
+  "properties": {
+    "confirmNbr": {
+      "type": "string",
+      "description": "Confirmation number"
+    },
+    "serviceProviderName": {
+      "type": "string",
+      "description": "Provider name"
+    },
+    "bookingClass": {
+      "type": "string",
+      "description": "Booking class"
+    },
+    "departure": {
+      "$ref": "#/definitions/departure"
+    },
+    "departureDateTime": {
+      "type": "string",
+      "description": "Date in ISO 8601 (http://www.w3.org/TR/NOTE-datetime), YYYY-MM-DDTHH:MM:SSZ."
+    },
+    "arrivalDateTime": {
+      "type": "string",
+      "description": "Date in ISO 8601 (http://www.w3.org/TR/NOTE-datetime), YYYY-MM-DDTHH:MM:SSZ."
+    },
+    "arrival": {
+      "$ref": "#/definitions/arrival"
+    },
+    "duration": {
+      "type": "string",
+      "description": "Duration in ISO 8601 / RFC 3339 (https://www.ietf.org/rfc/rfc3339.txt), P[n]Y[n]M[n]DT[n]H[n]M[n]S."
+    },
+    "departureTrack": {
+      "type": "string"
+    },
+    "arrivalTrack": {
+      "type": "string"
+    },
+    "seats": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/seats"
+      }
+    },
+    "vehicle": {
+      "$ref": "#/definitions/vehicle"
+    }
+  }
+}

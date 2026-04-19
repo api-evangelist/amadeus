@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TravelSegmentLocation",
+  "description": "The flight or train departure/arrival date&time, location information",
+  "type": "object",
+  "properties": {
+    "uicCode": {
+      "type": "string",
+      "description": "The railway UIC code defined by the worldwide railway organization, e.g. 7400001"
+    },
+    "iataCode": {
+      "type": "string",
+      "description": "The airport code from IATA table codes, e.g. CDG"
+    },
+    "localDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time inspired from ISO 8601 (YYYY-MM-DDTHH:MM:SS) format"
+    }
+  }
+}

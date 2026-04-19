@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AirTravelDocumentCommon",
+  "type": "record",
+  "fields": [
+    {
+      "name": "documentType",
+      "type": "string",
+      "description": "Type of the travel document"
+    },
+    {
+      "name": "documentNumber",
+      "type": "string",
+      "description": "Identifier of the travel document prefixed by its owner code [NALC - 3 digits]. Can either be a primary or a conjunctive document number. Necessary for TicketingReference definition."
+    },
+    {
+      "name": "documentStatus",
+      "type": "string",
+      "description": "Status of the travel document contained in the fare element"
+    }
+  ]
+}

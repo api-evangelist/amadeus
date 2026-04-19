@@ -1,0 +1,10 @@
+{
+  "amount": "example-amount",
+  "currency": "example-currency",
+  "code": "example-code",
+  "percentage": "example-percentage",
+  "included": true,
+  "description": "example-description",
+  "pricingFrequency": "example-pricingFrequency",
+  "pricingMode": "example-pricingMode"
+}

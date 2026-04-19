@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Meta",
+  "type": "record",
+  "fields": [
+    {
+      "name": "currency",
+      "type": "string",
+      "description": "the currency in which the prices of the flight offers are returned. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro"
+    },
+    {
+      "name": "links",
+      "type": "string"
+    },
+    {
+      "name": "defaults",
+      "type": "string"
+    }
+  ]
+}

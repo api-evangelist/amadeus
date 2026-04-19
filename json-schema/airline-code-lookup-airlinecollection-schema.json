@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AirlineCollection",
+  "description": "A collection response containing an array of airline resources and associated metadata.",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "$ref": "#/definitions/CollectionMeta"
+    },
+    "data": {
+      "type": "array",
+      "description": "Array of airline resources matching the query.",
+      "items": {
+        "$ref": "#/definitions/Airline"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "description": "Non-blocking issues encountered during the request processing.",
+      "items": {
+        "$ref": "#/definitions/Issue"
+      }
+    }
+  }
+}

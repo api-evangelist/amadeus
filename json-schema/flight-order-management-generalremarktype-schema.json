@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GeneralRemarkType",
+  "description": "general remark type",
+  "type": "string",
+  "enum": [
+    "GENERAL_MISCELLANEOUS",
+    "CONFIDENTIAL",
+    "INVOICE",
+    "QUALITY_CONTROL",
+    "BACKOFFICE",
+    "FULFILLMENT",
+    "ITINERARY",
+    "TICKETING_MISCELLANEOUS",
+    "TOUR_CODE"
+  ]
+}

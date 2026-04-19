@@ -1,0 +1,7 @@
+{
+  "departureDate": "example-departureDate",
+  "oneWay": true,
+  "duration": "example-duration",
+  "nonStop": true,
+  "viewBy": "COUNTRY"
+}

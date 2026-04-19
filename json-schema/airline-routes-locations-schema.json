@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "locations",
+  "description": "Description of a particular point or place in physical space",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "type of API result \"location\""
+    },
+    "subtype": {
+      "type": "string",
+      "description": "Location sub-type (e.g. airport, port, rail-station, restaurant, atm...)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Label associated to the location (e.g. Eiffel Tower, Madison Square)"
+    },
+    "iataCode": {
+      "type": "string",
+      "description": "IATA location code"
+    },
+    "geoCode": {
+      "type": "object",
+      "description": "Geographic coordinates describing the position of any location on the surface of Earth",
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "description": "Latitude of the position expressed in decimal degrees (WSG 84), e.g. 6.244203. A positive value denotes northern hemisphere or the equator, and a negative value denotes southern hemisphere. The number of digits to represent the precision of the coordinate."
+        },
+        "longitude": {
+          "type": "number",
+          "description": "Longitude of the position expressed in decimal degrees (WSG 84), e.g. -75.581211. A positive value denotes east longitude or the prime meridian, and a negative value denotes west longitude. The number of digits to represent the precision of the coordinate."
+        }
+      }
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "countryName": {
+          "type": "string",
+          "description": "Name of the country of the location"
+        },
+        "countryCode": {
+          "type": "string",
+          "description": "Code of the country of the location in ISO standard"
+        },
+        "stateCode": {
+          "type": "string",
+          "description": "Code of the state of the location (if any)"
+        },
+        "regionCode": {
+          "type": "string",
+          "description": "Code of the region of the location in ISO standard"
+        }
+      }
+    },
+    "timeZone": {
+      "type": "object",
+      "properties": {
+        "offSet": {
+          "type": "string",
+          "description": "'Total offset from UTC including the Daylight Saving Time (DST) following ISO 8601 (https://en.wikipedia.org/wiki/ISO_8601) standard'"
+        },
+        "referenceLocalDateTime": {
+          "type": "string",
+          "description": "Date and time used as reference to determine the time zone name, code, offset, and dstOffset following ISO 8601 (https://en.wikipedia.org/wiki/ISO_8601) standard."
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "relevance": {
+          "type": "integer",
+          "description": "Score value based on the number of travelers per year and per destination. Score is between 0 and 100, 100 being the value for the destination city with the highest value of travelers for the origin airport"
+        }
+      }
+    }
+  }
+}

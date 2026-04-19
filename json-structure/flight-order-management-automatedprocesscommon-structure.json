@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "AutomatedProcessCommon",
+  "type": "record",
+  "fields": [
+    {
+      "name": "code",
+      "type": "string"
+    },
+    {
+      "name": "queue",
+      "type": "object",
+      "description": "Identifies the queue onto which PNR must be automatically placed upon process execution."
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "description": "Free text"
+    }
+  ]
+}

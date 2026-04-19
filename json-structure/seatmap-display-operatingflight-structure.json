@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "OperatingFlight",
+  "type": "record",
+  "fields": [
+    {
+      "name": "carrierCode",
+      "type": "string",
+      "description": "providing the airline / carrier code"
+    },
+    {
+      "name": "number",
+      "type": "string",
+      "description": "the flight number as assigned by the carrier"
+    },
+    {
+      "name": "suffix",
+      "type": "string",
+      "description": "the flight number suffix as assigned by the carrier"
+    }
+  ]
+}

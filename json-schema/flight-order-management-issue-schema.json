@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Issue",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "integer",
+      "description": "the HTTP status code applicable to this error"
+    },
+    "code": {
+      "type": "integer",
+      "format": "int64",
+      "description": "an application-specific error code"
+    },
+    "title": {
+      "type": "string",
+      "description": "a short summary of the error"
+    },
+    "detail": {
+      "type": "string",
+      "description": "explanation of the error"
+    },
+    "source": {
+      "type": "object",
+      "description": "an object containing references to the source of the error",
+      "properties": {
+        "pointer": {
+          "type": "string",
+          "description": "a JSON Pointer [RFC6901] to the associated entity in the request document"
+        },
+        "parameter": {
+          "type": "string",
+          "description": "a string indicating which URI query parameter caused the issue"
+        },
+        "example": {
+          "type": "string",
+          "description": "a string indicating an example of the right value"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "example-type",
+  "origin": "example-origin",
+  "destination": "example-destination",
+  "departureDate": "example-departureDate",
+  "returnDate": "example-returnDate",
+  "price": "example-price",
+  "links": {}
+}

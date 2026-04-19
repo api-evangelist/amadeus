@@ -1,0 +1,18 @@
+{
+  "type": "example-type",
+  "id": "example-id",
+  "source": "example-source",
+  "instantTicketingRequired": true,
+  "disablePricing": true,
+  "nonHomogeneous": true,
+  "oneWay": true,
+  "paymentCardRequired": true,
+  "lastTicketingDate": "example-lastTicketingDate",
+  "lastTicketingDateTime": "2024-01-15T10:30:00Z",
+  "numberOfBookableSeats": 1.0,
+  "itineraries": [],
+  "price": "example-price",
+  "pricingOptions": {},
+  "validatingAirlineCodes": [],
+  "travelerPricings": []
+}

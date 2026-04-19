@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "FlightPoint",
+  "type": "record",
+  "fields": [
+    {
+      "name": "iataCode",
+      "type": "string",
+      "description": "3-letter IATA code of the airport. e.g. CDG"
+    },
+    {
+      "name": "departure",
+      "type": "string",
+      "description": "the departure information if the flightPoint is a departure for the flight"
+    },
+    {
+      "name": "arrival",
+      "type": "string",
+      "description": "the arrival information if the flightPoint is an arrival for the flight"
+    }
+  ]
+}

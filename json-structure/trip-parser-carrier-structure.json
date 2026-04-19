@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "carrier",
+  "type": "record",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Common name of the organization."
+    }
+  ]
+}

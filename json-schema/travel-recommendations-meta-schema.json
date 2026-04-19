@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Meta",
+  "description": "Meta information about the returned object(s) in \"data\"",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Total number of object(s) retrieved"
+    },
+    "links": {
+      "type": "object",
+      "description": "Links related to the returned object(s)",
+      "properties": {
+        "self": {
+          "type": "string",
+          "format": "url",
+          "description": "Link to the same page."
+        }
+      }
+    }
+  }
+}

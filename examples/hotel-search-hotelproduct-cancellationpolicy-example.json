@@ -1,0 +1,8 @@
+{
+  "type": "example-type",
+  "amount": "example-amount",
+  "numberOfNights": 1,
+  "percentage": "example-percentage",
+  "deadline": "2024-01-15T10:30:00Z",
+  "description": "example-description"
+}

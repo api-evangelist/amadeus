@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "name": "Transfer",
+  "type": "record",
+  "fields": [
+    {
+      "name": "transferType",
+      "type": "string",
+      "description": "amadeus transfer service type\n\nvalue           | description                                 \n--  | \nPRIVATE         | Private transfer from point to point\nSHARED          | Shared transfer from point to point\nTAXI            | Taxi reservation from point to point, price is estimated\nHOURLY          | Chauffeured driven transfer per hour\nAIRPORT_EXPRESS | Express Train from/to Airport\nAIRPORT_BUS     | Express Bus from/to Airport\nHELICOPTER      | Private helicopter flight from/to airport\nPRIVATE_JET     | Private flight from airport to airport\n"
+    },
+    {
+      "name": "start",
+      "type": "string"
+    },
+    {
+      "name": "end",
+      "type": "string"
+    },
+    {
+      "name": "stopOvers",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "passenegerCharacteristics",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "duration",
+      "type": "string",
+      "description": "transfer duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M"
+    },
+    {
+      "name": "vehicle",
+      "type": "string"
+    },
+    {
+      "name": "serviceProvider",
+      "type": "string"
+    },
+    {
+      "name": "partnerInfo",
+      "type": "string"
+    },
+    {
+      "name": "quotation",
+      "type": "string"
+    },
+    {
+      "name": "converted",
+      "type": "string"
+    },
+    {
+      "name": "extraServices",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "equipment",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "cancellationRules",
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "methodsOfPaymentAccepted",
+      "type": "array",
+      "description": "list of payment methods, allowed by provider",
+      "items": {
+        "type": "string"
+      }
+    },
+    {
+      "name": "discountCodes",
+      "type": "array",
+      "description": "list of discount codes",
+      "items": {
+        "type": "object"
+      }
+    },
+    {
+      "name": "distance",
+      "type": "string"
+    }
+  ]
+}
