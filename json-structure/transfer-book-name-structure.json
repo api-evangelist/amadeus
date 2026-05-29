@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-book-name-structure.json",
+  "title": "Name",
+  "description": "description of the name of a physical person",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "The type of the Name"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "First name."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name."
+    },
+    "title": {
+      "type": "string",
+      "description": "Contains all the suffixes and prefixes that can be appended to a name - Mr, Miss, Pr. - E.g. \" Mr\"."
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-availabilities-search-dictionaries-schema.json",
+  "title": "Dictionaries",
+  "description": "Dictionaries schema from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "locations": {
+      "additionalProperties": {
+        "properties": {
+          "cityCode": {
+            "type": "string",
+            "description": "City code associated to the airport",
+            "example": "PAR"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "Country code of the airport",
+            "example": "FR"
+          }
+        }
+      }
+    },
+    "aircraft": {
+      "additionalProperties": {
+        "description": "the manufacturer/model of aircraft",
+        "type": "string"
+      }
+    },
+    "currencies": {
+      "additionalProperties": {
+        "type": "string",
+        "example": "EUR"
+      }
+    },
+    "carriers": {
+      "additionalProperties": {
+        "description": "the carrier name",
+        "type": "string"
+      }
+    }
+  }
+}

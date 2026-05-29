@@ -1,19 +1,20 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Links",
-  "type": "record",
-  "fields": [
-    {
-      "name": "self",
-      "type": "uri"
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/trip-purpose-prediction-links-structure.json",
+  "title": "Links",
+  "description": "Links structure from Trip Purpose Prediction",
+  "type": "object",
+  "properties": {
+    "self": {
+      "type": "string",
+      "format": "uri"
     },
-    {
-      "name": "related",
-      "type": "uri"
+    "related": {
+      "type": "string",
+      "format": "uri"
     },
-    {
-      "name": "type",
+    "type": {
       "type": "string"
     }
-  ]
+  }
 }

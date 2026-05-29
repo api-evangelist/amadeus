@@ -1,0 +1,92 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Flight Busiest Traveling Period — Air Traffic"
+  description: 'Flight Busiest Traveling Period — Air Traffic. 1 operation(s). Lead operation: Amadeus Returns a List of Air Traffic Reports.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Air Traffic
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: flight-busiest-traveling-period-air-traffic
+      baseUri: https://test.api.amadeus.com/v1
+      description: Flight Busiest Traveling Period — Air Traffic business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: travel-analytics-air-traffic-busiest-period
+          path: /travel/analytics/air-traffic/busiest-period
+          operations:
+            - name: getAirTraffic
+              method: GET
+              description: Amadeus Returns a List of Air Traffic Reports.
+              inputParameters:
+                - name: cityCode
+                  in: query
+                  type: string
+                  required: true
+                  description: Code for the city following IATA standard. [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. BOS for Boston
+                - name: period
+                  in: query
+                  type: string
+                  required: true
+                  description: "time period (year) of the statistics.\n\nYear for which the statistic are requested following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)\n"
+                - name: direction
+                  in: query
+                  type: string
+                  required: false
+                  description: "Use ARRIVING to have statistics on travelers coming to the city or DEPARTING for statistics on travelers leaving the city.\n\nBy default, statistics are given on travelers ARRIVING the city.\n"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: flight-busiest-traveling-period-air-traffic-rest
+      port: 8080
+      description: REST adapter for Flight Busiest Traveling Period — Air Traffic. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/travel/analytics/air-traffic/busiest-period
+          name: travel-analytics-air-traffic-busiest-period
+          description: REST surface for travel-analytics-air-traffic-busiest-period.
+          operations:
+            - method: GET
+              name: getAirTraffic
+              description: Amadeus Returns a List of Air Traffic Reports.
+              call: flight-busiest-traveling-period-air-traffic.getAirTraffic
+              with:
+                cityCode: rest.cityCode
+                period: rest.period
+                direction: rest.direction
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: flight-busiest-traveling-period-air-traffic-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Flight Busiest Traveling Period — Air Traffic. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: returns-list-air-traffic-reports
+          description: Amadeus Returns a List of Air Traffic Reports.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: flight-busiest-traveling-period-air-traffic.getAirTraffic
+          with:
+            cityCode: tools.cityCode
+            period: tools.period
+            direction: tools.direction
+          outputParameters:
+            - type: object
+              mapping: $.

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-payment-type-schema.json",
+  "title": "PaymentType",
+  "description": "payment type. Guarantee means Pay at Check Out. Check the `methods` in `guarantee` or `deposit` or `prepay`.",
+  "type": "string",
+  "enum": [
+    "GUARANTEE",
+    "DEPOSIT",
+    "PREPAY",
+    "HOLDTIME"
+  ]
+}

@@ -1,44 +1,38 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "locations",
-  "type": "record",
-  "fields": [
-    {
-      "name": "type",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/airline-routes-locations-structure.json",
+  "title": "locations",
+  "description": "Description of a particular point or place in physical space",
+  "type": "object",
+  "properties": {
+    "type": {
       "type": "string",
       "description": "type of API result \"location\""
     },
-    {
-      "name": "subtype",
+    "subtype": {
       "type": "string",
       "description": "Location sub-type (e.g. airport, port, rail-station, restaurant, atm...)"
     },
-    {
-      "name": "name",
+    "name": {
       "type": "string",
       "description": "Label associated to the location (e.g. Eiffel Tower, Madison Square)"
     },
-    {
-      "name": "iataCode",
+    "iataCode": {
       "type": "string",
       "description": "IATA location code"
     },
-    {
-      "name": "geoCode",
+    "geoCode": {
       "type": "object",
       "description": "Geographic coordinates describing the position of any location on the surface of Earth"
     },
-    {
-      "name": "address",
+    "address": {
       "type": "object"
     },
-    {
-      "name": "timeZone",
+    "timeZone": {
       "type": "object"
     },
-    {
-      "name": "metrics",
+    "metrics": {
       "type": "object"
     }
-  ]
+  }
 }

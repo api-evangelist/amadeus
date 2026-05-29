@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-discount-type-structure.json",
+  "title": "DiscountType",
+  "description": "type of discount applied",
+  "type": "string"
+}

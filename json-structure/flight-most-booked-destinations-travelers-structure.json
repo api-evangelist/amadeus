@@ -1,12 +1,14 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Travelers",
-  "type": "record",
-  "fields": [
-    {
-      "name": "score",
-      "type": "double",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-most-booked-destinations-travelers-structure.json",
+  "title": "Travelers",
+  "description": "Travelers structure from Flight Most Booked Destinations",
+  "type": "object",
+  "properties": {
+    "score": {
+      "type": "number",
+      "format": "integer",
       "description": "Approximate score for ranking purposes calculated based on number of travelers in the location."
     }
-  ]
+  }
 }

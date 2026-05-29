@@ -1,0 +1,168 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Amadeus
+providerId: amadeus
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+description: >-
+  Amadeus Self-Service APIs enforce per-application, per-environment transaction-per-second (TPS)
+  limits with a minimum inter-request delay. Standard APIs allow 10 TPS in Test and 40 TPS in
+  Production with a 100 ms minimum interval. AI and Partner APIs enforce a stricter 20 TPS in both
+  environments with a 50 ms minimum interval. Throttling returns HTTP 429 with a "Too Many
+  Requests" error; clients should back off and retry. Monthly transaction quotas are tracked
+  separately by the billing system (see plans/amadeus-plans-pricing.yml).
+sources:
+  - https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/api-rate-limits/
+  - https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/pricing/
+  - https://github.com/gustavo-bertoldi/APIRateLimits
+policies:
+  - id: amadeus-standard-test
+    label: Standard Self-Service APIs — Test
+    description: >-
+      Per-application TPS limit for standard Self-Service APIs in the Test environment. Applies to
+      all APIs except AI and Partner APIs.
+    scope: per-application
+    environment: test
+    request_rate:
+      limit: 10
+      unit: transaction
+      window: second
+    concurrency:
+      min_interval_ms: 100
+    quota:
+      limit: 'free monthly quota — varies by API'
+      window: month
+    enforcement:
+      status_code: 429
+      header: x-ratelimit-remaining
+      retry_after_header: Retry-After
+    appliesTo:
+      - Flight Offers Search
+      - Flight Offers Price
+      - Flight Create Orders
+      - Flight Order Management
+      - Flight Availabilities Search
+      - SeatMap Display
+      - Branded Fares Upsell
+      - Flight Check-in Links
+      - On Demand Flight Status
+      - Flight Inspiration Search
+      - Flight Cheapest Date Search
+      - Airport On-Time Performance
+      - Airport Routes
+      - Airline Routes
+      - Airport Nearest Relevant
+      - Airport and City Search
+      - City Search
+      - Airline Code Lookup
+      - Flight Most Booked Destinations
+      - Flight Most Traveled Destinations
+      - Flight Busiest Traveling Period
+      - Hotel List
+      - Hotel Search
+      - Hotel Booking
+      - Hotel Name Autocomplete
+      - Hotel Ratings
+      - Points of Interest
+      - Tours and Activities
+      - Safe Place
+      - Location Score
+      - Transfer Search
+      - Transfer Book
+      - Transfer Management
+      - Authorization
+
+  - id: amadeus-standard-production
+    label: Standard Self-Service APIs — Production
+    description: >-
+      Per-application TPS limit for standard Self-Service APIs in the Production environment.
+    scope: per-application
+    environment: production
+    request_rate:
+      limit: 40
+      unit: transaction
+      window: second
+    concurrency:
+      min_interval_ms: 100
+    quota:
+      limit: 'free monthly quota + pay-as-you-go above'
+      window: month
+    enforcement:
+      status_code: 429
+      header: x-ratelimit-remaining
+      retry_after_header: Retry-After
+    appliesTo:
+      - Flight Offers Search
+      - Flight Offers Price
+      - Flight Create Orders
+      - Flight Order Management
+      - Flight Availabilities Search
+      - SeatMap Display
+      - Branded Fares Upsell
+      - Flight Check-in Links
+      - On Demand Flight Status
+      - Flight Inspiration Search
+      - Flight Cheapest Date Search
+      - Airport On-Time Performance
+      - Airport Routes
+      - Airline Routes
+      - Airport Nearest Relevant
+      - Airport and City Search
+      - City Search
+      - Airline Code Lookup
+      - Flight Most Booked Destinations
+      - Flight Most Traveled Destinations
+      - Flight Busiest Traveling Period
+      - Hotel List
+      - Hotel Search
+      - Hotel Booking
+      - Hotel Name Autocomplete
+      - Hotel Ratings
+      - Points of Interest
+      - Tours and Activities
+      - Safe Place
+      - Location Score
+      - Transfer Search
+      - Transfer Book
+      - Transfer Management
+      - Authorization
+
+  - id: amadeus-ai-partner
+    label: AI and Partner APIs (Test and Production)
+    description: >-
+      Stricter TPS limit applied to AI-powered and partner-sourced APIs in both Test and Production.
+      A 50 ms minimum interval prevents burst traffic.
+    scope: per-application
+    environment: both
+    request_rate:
+      limit: 20
+      unit: transaction
+      window: second
+    concurrency:
+      min_interval_ms: 50
+    quota:
+      limit: 'free monthly quota + pay-as-you-go above'
+      window: month
+    enforcement:
+      status_code: 429
+      header: x-ratelimit-remaining
+      retry_after_header: Retry-After
+    appliesTo:
+      - Flight Choice Prediction
+      - Flight Delay Prediction
+      - Flight Price Analysis
+      - Trip Purpose Prediction
+      - Travel Recommendations
+      - Location Score
+      - Safe Place
+      - Hotel Ratings
+      - Tours and Activities
+
+guidance:
+  - Use the official SDKs (Node, Python, Java, Ruby) for built-in token refresh and pagination but plan to add explicit rate-limit handling.
+  - For Node.js, the official guidance recommends the `bottleneck` library to enforce TPS and minimum-interval constraints.
+  - Implement exponential backoff with jitter for 429 responses; honor the Retry-After header when present.
+  - OAuth2 tokens expire after ~30 minutes (1799 seconds); refresh proactively to avoid wasting TPS on re-auth retries.
+  - Free monthly transaction quotas are tracked at the application level and renew at the start of each calendar month.

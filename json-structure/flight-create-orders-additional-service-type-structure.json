@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-create-orders-additional-service-type-structure.json",
+  "title": "AdditionalServiceType",
+  "description": "additional service type",
+  "type": "string"
+}

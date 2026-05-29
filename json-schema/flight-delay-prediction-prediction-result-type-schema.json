@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-delay-prediction-prediction-result-type-schema.json",
+  "title": "PredictionResultType",
+  "description": "forecast description",
+  "type": "string",
+  "enum": [
+    "LESS_THAN_30_MINUTES",
+    "BETWEEN_30_AND_60_MINUTES",
+    "BETWEEN_60_AND_120_MINUTES",
+    "OVER_120_MINUTES_OR_CANCELLED"
+  ],
+  "example": "LESS_THAN_30_MINUTES"
+}

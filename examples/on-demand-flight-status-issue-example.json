@@ -1,7 +1,11 @@
 {
   "status": 1,
   "code": 1,
-  "title": "example-title",
-  "detail": "example-detail",
-  "source": {}
+  "title": "string-value",
+  "detail": "string-value",
+  "source": {
+    "pointer": "string-value",
+    "parameter": "string-value",
+    "example": "string-value"
+  }
 }

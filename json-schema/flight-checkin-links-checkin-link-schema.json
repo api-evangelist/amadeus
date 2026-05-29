@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-checkin-links-checkin-link-schema.json",
+  "title": "CheckinLink",
+  "description": "CheckinLink schema from Flight Check-in Links",
+  "properties": {
+    "type": {
+      "description": "the resource name",
+      "type": "string",
+      "example": "checkin-link"
+    },
+    "id": {
+      "type": "string",
+      "description": "identifier of the resource",
+      "example": "1XEN-GBMobile"
+    },
+    "href": {
+      "description": "direct URL to the relevant page",
+      "type": "string",
+      "format": "uri",
+      "example": "https://example.com/resource"
+    },
+    "channel": {
+      "description": "indicates the type of channel supported by the URL",
+      "type": "string",
+      "enum": [
+        "Mobile",
+        "Web",
+        "All"
+      ],
+      "example": "Mobile"
+    },
+    "parameters": {
+      "description": "list of URL parameters with descriptive information such as description and/or type and/or format",
+      "additionalProperties": {
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "description": {
+            "description": "parameter descriptive information",
+            "type": "string",
+            "example": "Passenger last name"
+          },
+          "type": {
+            "description": "type of the parameter",
+            "type": "string",
+            "example": "string"
+          },
+          "format": {
+            "description": "format of the parameter",
+            "type": "string",
+            "example": "([a-zA-Z]|[0-9]){6}"
+          }
+        }
+      },
+      "example": "string-value"
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "href",
+    "channel"
+  ],
+  "type": "object"
+}

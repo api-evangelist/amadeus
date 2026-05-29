@@ -1,5 +1,14 @@
 {
   "count": 1,
-  "links": "example-links",
-  "oneWayCombinations": []
+  "links": {
+    "self": "https://test.api.amadeus.com/v1/area/resources?param=value"
+  },
+  "oneWayCombinations": [
+    {
+      "originDestinationId": "12345",
+      "flightOfferIds": [
+        "string-value"
+      ]
+    }
+  ]
 }

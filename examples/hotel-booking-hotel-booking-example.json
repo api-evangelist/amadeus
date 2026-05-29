@@ -1,0 +1,86 @@
+{
+  "type": "string-value",
+  "id": "456123",
+  "bookingStatus": "CONFIRMED",
+  "roomAssociations": [
+    {
+      "guestReferences": [
+        {
+          "guestReference": "string-value",
+          "hotelLoyaltyId": "3081031320523260"
+        }
+      ],
+      "specialRequest": "TEST I will arrive at midnight",
+      "hotelOfferId": "63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3"
+    }
+  ],
+  "hotel": {
+    "hotelId": "ADPAR001",
+    "chainCode": "AD",
+    "name": "Hotel de Paris",
+    "self": "string-value"
+  },
+  "hotelProviderInformation": [
+    {
+      "hotelProviderCode": "RT",
+      "confirmationNumber": "818319951754",
+      "cancellationNumber": "C818319951754",
+      "onRequestNumber": "818319951754"
+    }
+  ],
+  "payment": {
+    "iataTravelAgency": {
+      "iataNumber": "CDG"
+    },
+    "billBack": {
+      "travelAgencyId": "12345",
+      "bookerId": "12345",
+      "paymentInstructions": "string-value",
+      "billbackProviderDeploymentId": "12345",
+      "billbackProviderCode": "string-value",
+      "billbackProviderAccountNumber": 1,
+      "hotelSupplierInformation": {
+        "phone": "+33679278416",
+        "fax": "+33679278417",
+        "email": "hotel@brand.com"
+      }
+    },
+    "method": "CREDIT_CARD",
+    "b2bWallet": {
+      "virtualCreditCardId": "12345",
+      "paymentProvider": "string-value"
+    },
+    "paymentCard": {
+      "paymentCardInfo": {
+        "vendorCode": "VI",
+        "holderName": "Sample Name",
+        "cardNumber": 1,
+        "expiryDate": "2026-08-15"
+      },
+      "cardOwnerType": "TravelAgency",
+      "VCC": true,
+      "address": {
+        "lines": [],
+        "postalCode": "string-value",
+        "countryCode": "FR",
+        "cityName": "Paris",
+        "stateCode": "string-value"
+      }
+    }
+  },
+  "travelAgentId": "12345",
+  "arrivalInformation": {
+    "arrivalFlightDetails": {
+      "carrierCode": "LH",
+      "number": "1050",
+      "departure": {
+        "iataCode": "JFK"
+      },
+      "arrival": {
+        "iataCode": "JFK",
+        "terminal": "T2",
+        "at": "2017-10-23T20:00:00+02:00"
+      }
+    }
+  }
+}

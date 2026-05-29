@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-available-seats-counter-structure.json",
+  "title": "AvailableSeatsCounter",
+  "description": "AvailableSeatsCounter structure from Seatmap Display",
+  "type": "object",
+  "properties": {
+    "travelerId": {
+      "type": "string",
+      "description": "Traveler id"
+    },
+    "value": {
+      "type": "integer",
+      "description": "Number of Seats with status AVAILABLE"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-search-date-time-range-structure.json",
+  "title": "DateTimeRange",
+  "description": "DateTimeRange structure from Flight Offers Search",
+  "type": "object",
+  "required": [
+    "date"
+  ]
+}

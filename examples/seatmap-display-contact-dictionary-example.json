@@ -1,0 +1,16 @@
+{
+  "address": {
+    "category": "BUSINESS",
+    "lines": [
+      "string-value"
+    ],
+    "postalCode": "string-value",
+    "countryCode": "FR",
+    "cityName": "Paris",
+    "stateCode": "string-value",
+    "stateName": "Sample Name",
+    "postalBox": "string-value",
+    "text": "string-value"
+  },
+  "purpose": "STANDARD"
+}

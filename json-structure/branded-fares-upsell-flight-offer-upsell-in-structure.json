@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/branded-fares-upsell-flight-offer-upsell-in-structure.json",
+  "title": "FlightOfferUpsellIn",
+  "description": "input parameter to upsell flight offers element",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "flightOffers": {
+      "type": "array",
+      "description": "list of flight offer to price"
+    },
+    "payments": {
+      "type": "array",
+      "description": "payment information for retrieve eventual credit card fees"
+    }
+  },
+  "required": [
+    "type",
+    "flightOffers"
+  ]
+}

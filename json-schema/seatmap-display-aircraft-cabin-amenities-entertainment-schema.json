@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-aircraft-cabin-amenities-entertainment-schema.json",
+  "title": "AircraftCabinAmenities_Entertainment",
+  "description": "AircraftCabinAmenities_Entertainment schema from Seatmap Display",
+  "allOf": [
+    {
+      "type": "object",
+      "description": "Base data model related to Amenity, inherited amenities can be created using this baseline for extension ( using type for polymorphism ) amenityType : Enum related to generic Amenity model to identify which amenityType",
+      "title": "Amenity",
+      "properties": {
+        "isChargeable": {
+          "description": "Specify if the traveler will need to pay extra in-flight to get the amenity",
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    {
+      "type": "object",
+      "description": "Type of entertainment contents for a given flight",
+      "properties": {
+        "entertainmentType": {
+          "type": "string",
+          "enum": [
+            "LIVE_TV",
+            "MOVIES",
+            "AUDIO_VIDEO_ON_DEMAND",
+            "TV_SHOWS",
+            "IP_TV"
+          ]
+        }
+      }
+    }
+  ]
+}

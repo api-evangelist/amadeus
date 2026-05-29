@@ -1,51 +1,45 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Phone",
-  "type": "record",
-  "fields": [
-    {
-      "name": "category",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-phone-structure.json",
+  "title": "Phone",
+  "description": "phone information",
+  "type": "object",
+  "properties": {
+    "category": {
       "type": "string",
       "description": "Category of the contact element"
     },
-    {
-      "name": "addresseeName",
+    "addresseeName": {
       "type": "string",
       "description": "Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)."
     },
-    {
-      "name": "deviceType",
-      "type": "string"
+    "deviceType": {
+      "type": "string",
+      "description": "Type of the device (Landline, Mobile or Fax)"
     },
-    {
-      "name": "countryCode",
+    "countryCode": {
       "type": "string",
       "description": "Country code of the country (ISO3166-1). E.g. \"US\" for the United States"
     },
-    {
-      "name": "countryCallingCode",
+    "countryCallingCode": {
       "type": "string",
       "description": "Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia."
     },
-    {
-      "name": "areaCode",
+    "areaCode": {
       "type": "string",
       "description": "Corresponds to a regional code or a city code. The length of the field varies depending on the area."
     },
-    {
-      "name": "number",
+    "number": {
       "type": "string",
       "description": "Phone number. Composed of digits only. The number of digits depends on the country."
     },
-    {
-      "name": "extension",
+    "extension": {
       "type": "string",
       "description": "Extension of the phone"
     },
-    {
-      "name": "text",
+    "text": {
       "type": "string",
       "description": "String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided"
     }
-  ]
+  }
 }

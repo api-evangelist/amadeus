@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-booking-v1-name-structure.json",
+  "title": "Name",
+  "description": "Guest Name",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "title/gender of room guest"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "first name (and middle name) of room guest"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "last name of room guest"
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName"
+  ]
+}

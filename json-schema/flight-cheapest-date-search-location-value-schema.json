@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-cheapest-date-search-location-value-schema.json",
+  "title": "LocationValue",
+  "description": "LocationValue schema from Flight Cheapest Date Search",
+  "properties": {
+    "subType": {
+      "type": "string",
+      "description": "location type: airport or city",
+      "enum": [
+        "AIRPORT",
+        "CITY"
+      ],
+      "example": "AIRPORT"
+    },
+    "detailedName": {
+      "type": "string",
+      "description": "name of the location",
+      "example": "Paris/FR: Charles de Gaulle"
+    }
+  },
+  "type": "object"
+}

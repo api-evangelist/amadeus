@@ -1,0 +1,12 @@
+{
+  "type": "hotel-booking",
+  "id": "XD_8138319951754",
+  "providerConfirmationId": "8138319951754",
+  "associatedRecords": [
+    {
+      "reference": "QVH2BX",
+      "originSystemCode": "GDS"
+    }
+  ],
+  "self": "https://test.api.amadeus.com/v1/booking/hotel-bookings/XD_8138319951754"
+}

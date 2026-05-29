@@ -1,7 +1,0 @@
-{
-  "type": "example-type",
-  "id": "example-id",
-  "providerConfirmationId": "example-providerConfirmationId",
-  "associatedRecords": [],
-  "self": "https://example.com"
-}

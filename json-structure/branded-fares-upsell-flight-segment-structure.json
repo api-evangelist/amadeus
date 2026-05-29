@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/branded-fares-upsell-flight-segment-structure.json",
+  "title": "FlightSegment",
+  "description": "defining a flight segment; including both operating and marketing details when applicable",
+  "type": "object",
+  "properties": {
+    "departure": {
+      "type": "string",
+      "description": "departure or arrival information"
+    },
+    "arrival": {
+      "type": "string",
+      "description": "departure or arrival information"
+    },
+    "carrierCode": {
+      "type": "string",
+      "description": "providing the airline / carrier code"
+    },
+    "number": {
+      "type": "string",
+      "description": "the flight number as assigned by the carrier"
+    },
+    "aircraft": {
+      "type": "string",
+      "description": "information related to the aircraft"
+    },
+    "operating": {
+      "type": "object",
+      "description": "information about the operating flight"
+    },
+    "duration": {
+      "type": "string",
+      "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M"
+    },
+    "stops": {
+      "type": "array",
+      "description": "information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge..."
+    }
+  }
+}

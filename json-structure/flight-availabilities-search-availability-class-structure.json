@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-availabilities-search-availability-class-structure.json",
+  "title": "AvailabilityClass",
+  "description": "AvailabilityClass structure from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "numberOfBookableSeats": {
+      "type": "number",
+      "description": "Number of seats bookable in a single request. Can not be higher than 9."
+    },
+    "class": {
+      "type": "string",
+      "description": "The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)"
+    },
+    "closedStatus": {
+      "type": "string",
+      "description": "Status of the booking class when it is closed."
+    },
+    "tourAllotment": {
+      "type": "string"
+    }
+  }
+}

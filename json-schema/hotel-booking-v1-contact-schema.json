@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-booking-v1-contact-schema.json",
+  "title": "Contact",
+  "description": "Contact Details",
+  "type": "object",
+  "properties": {
+    "phone": {
+      "type": "string",
+      "description": "Phone Number in standard E.123(https://en.wikipedia.org/wiki/E.123)",
+      "pattern": "^[+][1-9][0-9]{4,18}$",
+      "minLength": 6,
+      "maxLength": 20,
+      "example": "+33679278416"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email Address",
+      "pattern": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\\\.[a-zA-Z0-9-.]+$",
+      "minLength": 3,
+      "maxLength": 90,
+      "example": "bob.smith@email.com"
+    }
+  },
+  "required": [
+    "phone",
+    "email"
+  ]
+}

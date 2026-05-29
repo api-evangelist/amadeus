@@ -1,6 +1,7 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Quotation",
-  "type": "record",
-  "fields": []
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-search-quotation-structure.json",
+  "title": "Quotation",
+  "description": "quotation representing a price valuation and its components. The monetaryAmount at the root are the sum of base and all the taxes/fees/discounts",
+  "type": "object"
 }

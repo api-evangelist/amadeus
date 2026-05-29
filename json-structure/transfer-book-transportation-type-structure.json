@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-book-transportation-type-structure.json",
+  "title": "TransportationType",
+  "description": "The type of connection \"FLIGHT\" or \"TRAIN\"",
+  "type": "string"
+}

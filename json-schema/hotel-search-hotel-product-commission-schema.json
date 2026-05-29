@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-hotel-product-commission-schema.json",
+  "title": "HotelProduct_Commission",
+  "description": "HotelProduct_Commission schema from Hotel Search API",
+  "type": "object",
+  "properties": {
+    "percentage": {
+      "description": "Percentage of the commission paid to the travel seller. Value is between 0 and 100",
+      "type": "string",
+      "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+      "example": 50
+    },
+    "amount": {
+      "description": "Amount of the commission paid to the travel seller. The amount is always linked to the currency code of the offer",
+      "type": "string",
+      "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+      "example": "199.50"
+    },
+    "description": {
+      "title": "QualifiedFreeText",
+      "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "Free Text",
+          "example": "A description",
+          "type": "string"
+        },
+        "lang": {
+          "description": "see RFC 5646",
+          "example": "fr-FR",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

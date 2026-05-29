@@ -1,30 +1,23 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Deck",
-  "type": "record",
-  "fields": [
-    {
-      "name": "deckType",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-deck-structure.json",
+  "title": "Deck",
+  "description": "deck information",
+  "type": "object",
+  "properties": {
+    "deckType": {
       "type": "string",
       "description": "A deck is a level on an aircraft. The deck location of the cabin (current possible values are upper or main) The main deck, where passengers are seated on a passenger flight. Upper deck is above the main deck where more passengers are seated."
     },
-    {
-      "name": "deckConfiguration",
-      "type": "string"
+    "deckConfiguration": {
+      "type": "object",
+      "description": "deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)"
     },
-    {
-      "name": "facilities",
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+    "facilities": {
+      "type": "array"
     },
-    {
-      "name": "seats",
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+    "seats": {
+      "type": "array"
     }
-  ]
+  }
 }

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-offers-price-term-and-condition-schema.json",
+  "title": "TermAndCondition",
+  "description": "TermAndCondition schema from Flight Offers Price",
+  "properties": {
+    "category": {
+      "type": "string",
+      "description": "This defines what type of modification is concerned in this rule.",
+      "enum": [
+        "REFUND",
+        "EXCHANGE",
+        "REVALIDATION",
+        "REISSUE",
+        "REBOOK",
+        "CANCELLATION"
+      ],
+      "example": "EXCHANGE"
+    },
+    "circumstances": {
+      "type": "string",
+      "example": "string-value"
+    },
+    "notApplicable": {
+      "type": "boolean",
+      "example": true
+    },
+    "maxPenaltyAmount": {
+      "type": "string",
+      "example": "199.50"
+    },
+    "descriptions": {
+      "type": "array",
+      "items": {
+        "title": "Description",
+        "properties": {
+          "descriptionType": {
+            "type": "string",
+            "example": "Sample description text."
+          },
+          "text": {
+            "type": "string",
+            "example": "string-value"
+          }
+        }
+      }
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-availabilities-search-flight-availability-schema.json",
+  "title": "FlightAvailability",
+  "description": "FlightAvailability schema from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name",
+      "example": "flight-availability"
+    },
+    "id": {
+      "description": "Id of the flight availability",
+      "type": "string",
+      "example": "1"
+    },
+    "originDestinationId": {
+      "description": "Id of the originDestination in query",
+      "type": "string",
+      "example": "1"
+    },
+    "source": {
+      "description": "source of the flight offer",
+      "type": "string",
+      "enum": [
+        "GDS"
+      ],
+      "example": "GDS"
+    },
+    "instantTicketingRequired": {
+      "description": "If true, inform that a ticketing will be required at booking step.",
+      "type": "boolean",
+      "example": false
+    },
+    "paymentCardRequired": {
+      "description": "If true, a payment card is mandatory to book this flight offer",
+      "type": "boolean",
+      "example": false
+    },
+    "duration": {
+      "description": "duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m",
+      "type": "string",
+      "example": "PT2H10M"
+    },
+    "segments": {
+      "title": "Segments",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 9,
+      "items": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "closedStatus": {
+                "description": "Status of the segment when it is closed.",
+                "type": "string",
+                "enum": [
+                  "CANCELLED",
+                  "DEPARTED",
+                  "NOT_AVAILABLE"
+                ],
+                "example": "CANCELLED"
+              },
+              "availabilityClasses": {
+                "title": "AvailabilityClasses",
+                "description": "List of booking classes for the segment",
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 50,
+                "items": {
+                  "$ref": "#/definitions/AvailabilityClass"
+                }
+              }
+            }
+          },
+          {
+            "allOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "description": "Id of the segment",
+                    "type": "string",
+                    "example": 1
+                  },
+                  "numberOfStops": {
+                    "description": "Number of stops",
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "blacklistedInEU": {
+                    "description": "When the flight has a marketing or/and operating airline that is identified as blacklisted by the European Commission. \n\nTo improve travel safety, the European Commission regularly updates the list of the banned carriers from operating in Europe. It allows any Travel Agency located in the European Union to easily identify and hide any travel recommendation based on some unsafe airlines. \nThe [list of the banned airlines](https://ec.europa.eu/transport/sites/transport/files/air-safety-list_en.pdf) is published in the Official Journal of the European Union, where they are included as annexes A and B to the Commission Regulation. The blacklist of an airline can concern all its flights or some specific aircraft types pertaining to the airline   \n",
+                    "type": "boolean",
+                    "example": false
+                  },
+                  "co2Emissions": {
+                    "description": "Co2 informations",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "title": "Co2Emission",
+                      "$ref": "#/definitions/Co2Emission"
+                    }
+                  }
+                }
+              },
+              {
+                "$ref": "#/definitions/FlightSegment"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "source",
+    "segments"
+  ]
+}

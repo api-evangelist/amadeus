@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-book-quotation-schema.json",
+  "title": "Quotation",
+  "description": "quotation representing a price valuation and its components. The monetaryAmount at the root are the sum of base and all the taxes/fees/discounts",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "monetaryAmount": {
+          "type": "string",
+          "example": "10.5"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "currencyCode": {
+          "type": "string",
+          "example": "USD"
+        },
+        "isEstimated": {
+          "type": "boolean",
+          "description": "indicates if the price is pre-estimated prior to ride. Becomes mandatory for transferType = TAXI"
+        },
+        "base": {
+          "description": "base price",
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "monetaryAmount": {
+                  "type": "string",
+                  "example": "10.5"
+                }
+              }
+            }
+          ]
+        },
+        "discount": {
+          "description": "discount amount of base price",
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "monetaryAmount": {
+                  "type": "string",
+                  "example": "10.5"
+                }
+              }
+            }
+          ]
+        },
+        "taxes": {
+          "description": "Taxes breakdown",
+          "type": "array",
+          "items": {
+            "description": "single tax information",
+            "allOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "monetaryAmount": {
+                    "type": "string",
+                    "example": "10.5"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "indicator": {
+                    "type": "string",
+                    "description": "Tax category"
+                  },
+                  "natureCode": {
+                    "type": "string",
+                    "description": "Tax code"
+                  },
+                  "countryCode": {
+                    "type": "string",
+                    "description": "Tax iso country code"
+                  },
+                  "rate": {
+                    "type": "string",
+                    "description": "Tax rate"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "fees": {
+          "description": "Fees breakdown",
+          "type": "array",
+          "items": {
+            "description": "single fee information",
+            "allOf": [
+              {
+                "$ref": "#/definitions/PointsAndCash"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "currencyCode": {
+                    "type": "string",
+                    "example": "USD"
+                  },
+                  "indicator": {
+                    "type": "string",
+                    "description": "fee category e.g. \"AIRPORT\", \"CREDITCARD\" ,\"CANCELLATION\""
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "totalTaxes": {
+          "type": "object",
+          "properties": {
+            "monetaryAmount": {
+              "type": "string",
+              "example": "10.5"
+            }
+          }
+        },
+        "totalFees": {
+          "type": "object",
+          "properties": {
+            "monetaryAmount": {
+              "type": "string",
+              "example": "10.5"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

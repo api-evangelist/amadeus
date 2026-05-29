@@ -1,0 +1,42 @@
+{
+  "excludeAllotments": false,
+  "addOneWayOffers": true,
+  "maxFlightOffers": 250,
+  "maxPrice": 100,
+  "allowAlternativeFareOptions": true,
+  "oneFlightOfferPerDay": true,
+  "additionalInformation": {
+    "chargeableCheckedBags": true,
+    "brandedFares": true
+  },
+  "pricingOptions": {
+    "includedCheckedBagsOnly": true,
+    "refundableFare": true,
+    "noRestrictionFare": true,
+    "noPenaltyFare": true
+  },
+  "flightFilters": {
+    "crossBorderAllowed": false,
+    "moreOvernightsAllowed": false,
+    "returnToDepartureAirport": false,
+    "railSegmentAllowed": true,
+    "busSegmentAllowed": true,
+    "maxFlightTime": 200,
+    "carrierRestrictions": {
+      "blacklistedInEUAllowed": true,
+      "excludedCarrierCodes": [
+        "string-value"
+      ],
+      "includedCarrierCodes": [
+        "string-value"
+      ]
+    },
+    "cabinRestrictions": [],
+    "connectionRestriction": {
+      "maxNumberOfConnections": 2,
+      "nonStopPreferred": false,
+      "airportChangeAllowed": false,
+      "technicalStopsAllowed": true
+    }
+  }
+}

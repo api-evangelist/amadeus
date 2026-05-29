@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-contact-dictionary-structure.json",
+  "title": "ContactDictionary",
+  "description": "represents a contact",
+  "type": "object",
+  "properties": {
+    "addresseeName": {
+      "type": "string",
+      "description": "name"
+    },
+    "address": {
+      "type": "object",
+      "description": "address information"
+    },
+    "purpose": {
+      "type": "string",
+      "description": "the purpose for which this contact is to be used"
+    }
+  }
+}

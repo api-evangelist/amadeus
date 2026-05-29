@@ -1,12 +1,13 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Defaults",
-  "type": "record",
-  "fields": [
-    {
-      "name": "searchDate",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/trip-purpose-prediction-defaults-structure.json",
+  "title": "Defaults",
+  "description": "the query parameters for which default values were used are returned here",
+  "type": "object",
+  "properties": {
+    "searchDate": {
       "type": "string",
       "description": "the date on which the traveler is performing the search."
     }
-  ]
+  }
 }

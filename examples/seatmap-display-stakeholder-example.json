@@ -1,7 +1,6 @@
 {
-  "id": "example-id",
-  "dateOfBirth": "2024-01-15",
-  "gender": "example-gender",
-  "name": "example-name",
+  "id": "12345",
+  "dateOfBirth": "2026-08-15",
+  "gender": "FEMALE",
   "documents": []
 }

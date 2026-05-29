@@ -1,0 +1,7 @@
+{
+  "number": 1,
+  "holderName": "Sample Name",
+  "vendorCode": "string-value",
+  "expiryDate": "2026-08-15",
+  "cvv": "string-value"
+}

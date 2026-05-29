@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-booking-arrival-flight-details-structure.json",
+  "title": "ArrivalFlightDetails",
+  "description": "ArrivalFlightDetails structure from Hotel Booking API",
+  "type": "object",
+  "properties": {
+    "carrierCode": {
+      "type": "string",
+      "description": "Carrier code"
+    },
+    "number": {
+      "type": "string",
+      "description": "Flight segment number"
+    },
+    "departure": {
+      "type": "object",
+      "description": "Departure or arrival information"
+    },
+    "arrival": {
+      "type": "object",
+      "description": "Departure or arrival information"
+    }
+  },
+  "required": [
+    "carrierCode",
+    "number",
+    "departure"
+  ]
+}

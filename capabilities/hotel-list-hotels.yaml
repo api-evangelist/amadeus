@@ -1,0 +1,253 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Hotel List — Hotels"
+  description: 'Hotel List — Hotels. 3 operation(s). Lead operation: Amadeus Search Hotels Using its Unique ID. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Hotels
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: hotel-list-hotels
+      baseUri: https://test.api.amadeus.com/v1
+      description: Hotel List — Hotels business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: reference-data-locations-hotels-by-hotels
+          path: /reference-data/locations/hotels/by-hotels
+          operations:
+            - name: get-shopping-hotels-by-hotels
+              method: GET
+              description: Amadeus Search Hotels Using its Unique ID
+              inputParameters:
+                - name: hotelIds
+                  in: query
+                  type: array
+                  required: true
+                  description: Amadeus Property Codes (8 chars)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: reference-data-locations-hotels-by-city
+          path: /reference-data/locations/hotels/by-city
+          operations:
+            - name: get-shopping-hotels-by-city
+              method: GET
+              description: Amadeus Search Hotels in a City
+              inputParameters:
+                - name: cityCode
+                  in: query
+                  type: string
+                  required: true
+                  description: Destination city code or airport code. In case of city  code , the search will be done around the city center. Available codes can be found in [IATA table codes](http://www.iata.org/publications/Pages
+                - name: radius
+                  in: query
+                  type: integer
+                  required: false
+                  description: Maximum distance from the geographical coordinates express in defined units. The default unit is metric kilometer.
+                - name: radiusUnit
+                  in: query
+                  type: string
+                  required: false
+                  description: Unit of measurement used to express the radius. It can be either metric kilometer or imperial mile.
+                - name: chainCodes
+                  in: query
+                  type: array
+                  required: false
+                  description: Array of hotel chain codes. Each code is a string consisted of 2 capital alphabetic characters.
+                - name: amenities
+                  in: query
+                  type: array
+                  required: false
+                  description: List of amenities.
+                - name: ratings
+                  in: query
+                  type: array
+                  required: false
+                  description: Hotel stars. Up to four values can be requested at the same time in a comma separated list.
+                - name: hotelSource
+                  in: query
+                  type: string
+                  required: false
+                  description: Hotel source with values BEDBANK for aggregators, DIRECTCHAIN for GDS/Distribution and ALL for both.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: reference-data-locations-hotels-by-geocode
+          path: /reference-data/locations/hotels/by-geocode
+          operations:
+            - name: get-shopping-hotels-geocodes
+              method: GET
+              description: Amadeus Search Hotels Using Geocode
+              inputParameters:
+                - name: latitude
+                  in: query
+                  type: number
+                  required: true
+                  description: The latitude of the searched geographical point expressed in geometric degrees.
+                - name: longitude
+                  in: query
+                  type: number
+                  required: true
+                  description: The longitude of the searched geographical point expressed in geometric degrees.
+                - name: radius
+                  in: query
+                  type: integer
+                  required: false
+                  description: Maximum distance from the geographical coordinates expressed in defined units. The default unit is metric kilometer.
+                - name: radiusUnit
+                  in: query
+                  type: string
+                  required: false
+                  description: Unit of measurement used to express the radius. It can be either metric kilometer or imperial mile.
+                - name: chainCodes
+                  in: query
+                  type: array
+                  required: false
+                  description: Array of hotel chain codes. Each code is a string consisted of 2 capital alphabetic characters.
+                - name: amenities
+                  in: query
+                  type: array
+                  required: false
+                  description: List of amenities.
+                - name: ratings
+                  in: query
+                  type: array
+                  required: false
+                  description: Hotel stars. Up to four values can be requested at the same time in a comma separated list.
+                - name: hotelSource
+                  in: query
+                  type: string
+                  required: false
+                  description: Hotel source with values BEDBANK for aggregators, DIRECTCHAIN for GDS/Distribution and ALL for both.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: hotel-list-hotels-rest
+      port: 8080
+      description: REST adapter for Hotel List — Hotels. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/reference-data/locations/hotels/by-hotels
+          name: reference-data-locations-hotels-by-hotels
+          description: REST surface for reference-data-locations-hotels-by-hotels.
+          operations:
+            - method: GET
+              name: get-shopping-hotels-by-hotels
+              description: Amadeus Search Hotels Using its Unique ID
+              call: hotel-list-hotels.get-shopping-hotels-by-hotels
+              with:
+                hotelIds: rest.hotelIds
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/reference-data/locations/hotels/by-city
+          name: reference-data-locations-hotels-by-city
+          description: REST surface for reference-data-locations-hotels-by-city.
+          operations:
+            - method: GET
+              name: get-shopping-hotels-by-city
+              description: Amadeus Search Hotels in a City
+              call: hotel-list-hotels.get-shopping-hotels-by-city
+              with:
+                cityCode: rest.cityCode
+                radius: rest.radius
+                radiusUnit: rest.radiusUnit
+                chainCodes: rest.chainCodes
+                amenities: rest.amenities
+                ratings: rest.ratings
+                hotelSource: rest.hotelSource
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/reference-data/locations/hotels/by-geocode
+          name: reference-data-locations-hotels-by-geocode
+          description: REST surface for reference-data-locations-hotels-by-geocode.
+          operations:
+            - method: GET
+              name: get-shopping-hotels-geocodes
+              description: Amadeus Search Hotels Using Geocode
+              call: hotel-list-hotels.get-shopping-hotels-geocodes
+              with:
+                latitude: rest.latitude
+                longitude: rest.longitude
+                radius: rest.radius
+                radiusUnit: rest.radiusUnit
+                chainCodes: rest.chainCodes
+                amenities: rest.amenities
+                ratings: rest.ratings
+                hotelSource: rest.hotelSource
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: hotel-list-hotels-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Hotel List — Hotels. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: search-hotels-using-its-unique
+          description: Amadeus Search Hotels Using its Unique ID
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: hotel-list-hotels.get-shopping-hotels-by-hotels
+          with:
+            hotelIds: tools.hotelIds
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: search-hotels-city
+          description: Amadeus Search Hotels in a City
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: hotel-list-hotels.get-shopping-hotels-by-city
+          with:
+            cityCode: tools.cityCode
+            radius: tools.radius
+            radiusUnit: tools.radiusUnit
+            chainCodes: tools.chainCodes
+            amenities: tools.amenities
+            ratings: tools.ratings
+            hotelSource: tools.hotelSource
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: search-hotels-using-geocode
+          description: Amadeus Search Hotels Using Geocode
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: hotel-list-hotels.get-shopping-hotels-geocodes
+          with:
+            latitude: tools.latitude
+            longitude: tools.longitude
+            radius: tools.radius
+            radiusUnit: tools.radiusUnit
+            chainCodes: tools.chainCodes
+            amenities: tools.amenities
+            ratings: tools.ratings
+            hotelSource: tools.hotelSource
+          outputParameters:
+            - type: object
+              mapping: $.

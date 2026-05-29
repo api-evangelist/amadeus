@@ -1,0 +1,7 @@
+{
+  "type": "string-value",
+  "subType": "trip-purpose",
+  "id": "12345",
+  "result": 0.8,
+  "probability": "string-value"
+}

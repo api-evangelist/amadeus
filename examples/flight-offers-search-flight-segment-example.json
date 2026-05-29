@@ -1,0 +1,12 @@
+{
+  "carrierCode": "DL",
+  "number": "212",
+  "aircraft": {
+    "code": "318"
+  },
+  "operating": {
+    "carrierCode": "DL"
+  },
+  "duration": "PT2H10M",
+  "stops": []
+}

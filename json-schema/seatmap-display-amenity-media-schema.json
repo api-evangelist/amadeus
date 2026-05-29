@@ -1,20 +1,37 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-amenity-media-schema.json",
   "title": "Amenity_Media",
   "description": "Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also.",
   "type": "object",
   "properties": {
     "title": {
       "type": "string",
-      "description": "media title"
+      "description": "media title",
+      "example": "My image title"
     },
     "href": {
       "type": "string",
       "format": "uri",
+      "example": "http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6",
       "description": "href to display the original media.\n"
     },
     "description": {
-      "$ref": "#/definitions/QualifiedFreeText"
+      "type": "object",
+      "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+      "title": "QualifiedFreeText",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "Free Text",
+          "example": "Do you need and example ?"
+        },
+        "lang": {
+          "type": "string",
+          "description": "see RFC 5646",
+          "example": "fr-FR"
+        }
+      }
     },
     "mediaType": {
       "type": "string",
@@ -30,7 +47,8 @@
         "multipart",
         "text",
         "video"
-      ]
+      ],
+      "example": "image"
     }
   }
 }

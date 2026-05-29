@@ -1,0 +1,13 @@
+{
+  "startDate": "2026-08-15",
+  "endDate": "2026-08-15",
+  "currency": "EUR",
+  "sellingTotal": "199.50",
+  "total": "199.50",
+  "base": "string-value",
+  "markups": [
+    {
+      "amount": "10"
+    }
+  ]
+}

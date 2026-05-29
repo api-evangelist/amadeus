@@ -1,15 +1,15 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Collection_Meta_Link",
-  "type": "record",
-  "fields": [
-    {
-      "name": "count",
-      "type": "int32"
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-delay-prediction-collection-meta-link-structure.json",
+  "title": "Collection_Meta_Link",
+  "description": "Collection_Meta_Link structure from Flight Delay Prediction",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer"
     },
-    {
-      "name": "links",
+    "links": {
       "type": "string"
     }
-  ]
+  }
 }

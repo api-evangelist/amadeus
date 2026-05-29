@@ -1,0 +1,321 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-booking-hotel-order-schema.json",
+  "title": "HotelOrder",
+  "description": "An Hotel Order is one or several hotel bookings done for a set of guest.",
+  "type": "object",
+  "properties": {
+    "hotelBookings": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "description": "Array of hotel-bookings",
+      "items": {
+        "title": "HotelBooking",
+        "type": "object",
+        "description": "An hotel booking represent one or several rooms booked in the same physical hotel.\nThere is always a reference to this booking, provided by the hotel provider, stored in associated records section.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Type of data - set to \"hotel-booking\".",
+            "example": "string-value"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique ID of the hotel booking ID.\nIt is computed by Amadeus System based on technical data.",
+            "minLength": 1,
+            "pattern": "[A-Za-z0-9+/=]",
+            "example": "456123"
+          },
+          "bookingStatus": {
+            "type": "string",
+            "description": "Status of the booking - Possible values \n- \"CONFIRMED\"\n- \"PENDING\" for on-request \n- \"CANCELLED\" (It will be returned only in the retrieve byHistory as it repreents a DELETED resource.)\n- \"On HOLD\" for deferred payment (HO)\n- \"UNCONFIRMED\" (UC) when confirmation finaly refused by Hotel Provider\n- \"DENIED\" (NO) when an on-request booking is denied by the hotelier\n- \"GHOST\" (GK) for ghost booking\n- \"PAST\" for a confirmed booking with the check-out date in the past\n",
+            "enum": [
+              "CONFIRMED",
+              "PENDING",
+              "CANCELLED",
+              "ON_HOLD",
+              "PAST",
+              "UNCONFIRMED",
+              "DENIED",
+              "GHOST",
+              "DELETED"
+            ],
+            "example": "CONFIRMED"
+          },
+          "roomAssociations": {
+            "type": "array",
+            "description": "Array of room associations. Each room association correlates one single room to guest(s), a payment and an hotel offer.\n\nIf multiple identical rooms are requested, one roomAssociation is created per hotelBooking (one hotelBooking is created per room).",
+            "items": {
+              "$ref": "#/definitions/roomAssociation"
+            }
+          },
+          "hotelOffer": {
+            "$ref": "#/definitions/HotelOffer"
+          },
+          "hotel": {
+            "type": "object",
+            "description": "Hotel Content",
+            "title": "Hotel",
+            "properties": {
+              "hotelId": {
+                "type": "string",
+                "pattern": "^[A-Z0-9]{8}$",
+                "example": "ADPAR001",
+                "description": "Amadeus Property Code (8 chars)\n"
+              },
+              "chainCode": {
+                "type": "string",
+                "pattern": "^[A-Z]{2}$",
+                "example": "AD",
+                "description": "Brand (RT...) or Merchant (AD...) (Amadeus 2 chars Code)\n"
+              },
+              "name": {
+                "type": "string",
+                "example": "Hotel de Paris",
+                "description": "Hotel Name"
+              },
+              "self": {
+                "type": "string",
+                "description": "link to retrieve the hotel details",
+                "example": "string-value"
+              }
+            },
+            "required": [
+              "hotelId",
+              "chainCode",
+              "name"
+            ]
+          },
+          "hotelProviderInformation": {
+            "type": "array",
+            "uniqueItems": true,
+            "minItems": 1,
+            "description": "References and origin of the hotel bookings records",
+            "items": {
+              "type": "object",
+              "properties": {
+                "hotelProviderCode": {
+                  "type": "string",
+                  "description": "2 letters - Hotel provider code  e.g.RT  (for Accor)",
+                  "example": "RT",
+                  "minLength": 2,
+                  "maxLength": 2
+                },
+                "confirmationNumber": {
+                  "type": "string",
+                  "description": "Provider confirmation number. \nNever empty, in case of on-request it can be .......\nIf you call the Provider, this Reference may be asked",
+                  "example": "818319951754",
+                  "minLength": 2,
+                  "maxLength": 16,
+                  "pattern": "^[A-Z0-9]*$"
+                },
+                "cancellationNumber": {
+                  "type": "string",
+                  "description": "Provider cancellation number\nFor cancelled booking it will ablways be filled.\nIf it was not returned by the hotel provider, it will be filled with \"NONE\".",
+                  "example": "C818319951754",
+                  "minLength": 2,
+                  "maxLength": 16,
+                  "pattern": "^[A-Z0-9]*$"
+                },
+                "onRequestNumber": {
+                  "type": "string",
+                  "description": "Used to describe the on-request identifier",
+                  "example": "818319951754",
+                  "minLength": 2,
+                  "maxLength": 16,
+                  "pattern": "^[A-Z0-9]*$"
+                }
+              },
+              "required": [
+                "hotelProviderCode",
+                "confirmationNumber"
+              ]
+            }
+          },
+          "payment": {
+            "$ref": "#/definitions/PaymentOutput"
+          },
+          "travelAgentId": {
+            "type": "string",
+            "description": "Travel Agent ID also called Booking source or IATA number.\n- When received in booking request, it indicates that the travel agent wants to override the booking source receiving the commission. \n- If not provided in booking request, it is set to the IATA Number of the office profile of the agent making the booking. (the commission is given to that office) ",
+            "example": "12345"
+          },
+          "arrivalInformation": {
+            "type": "object",
+            "description": "Optional information on the way the guest is arriving to the hotel. Today the application only supports Flight details.\nIf this information is provided at booking creation time, it is displayed in the response and in the retrieve.",
+            "properties": {
+              "arrivalFlightDetails": {
+                "$ref": "#/definitions/ArrivalFlightDetails"
+              }
+            }
+          }
+        },
+        "required": [
+          "type",
+          "id",
+          "roomAssociations",
+          "hotelOffer",
+          "hotel",
+          "hotelProviderInformation",
+          "travelAgentId"
+        ]
+      }
+    },
+    "associatedRecords": {
+      "type": "array",
+      "uniqueItems": false,
+      "minItems": 1,
+      "description": "Reference and origin of the hotel order record",
+      "items": {
+        "type": "object",
+        "properties": {
+          "reference": {
+            "type": "string",
+            "description": "Record locator of the PNR in which the hotel order is stored in Amadeus GDS.",
+            "example": "ABCDEF",
+            "minLength": 6,
+            "maxLength": 6,
+            "pattern": "^[A-Z0-9]{6}$"
+          },
+          "originSystemCode": {
+            "type": "string",
+            "minLength": 1,
+            "description": "As the reference is a PNR record locator, the originSystemCode is set to GDS.",
+            "example": "GDS"
+          }
+        },
+        "required": [
+          "reference",
+          "originSystemCode"
+        ]
+      }
+    },
+    "self": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Self URL for retrieving the Hotel Order",
+      "example": "string-value"
+    },
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Resource name - Is set to \"hotel-order\"",
+      "example": "string-value"
+    },
+    "guests": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "tid": {
+                "type": "integer",
+                "description": "The tid is a temporary unique id of a guest. \nIt is arbitrarily chosen by the user until Amadeus application provides one."
+              },
+              "id": {
+                "type": "integer",
+                "description": "unique id of the Guest provided by Amadeus application"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          },
+          {
+            "type": "object",
+            "description": "This modele represent a guest, his name, his loyalty programs, his age when it is a child...",
+            "title": "Guest",
+            "properties": {
+              "frequentTraveler": {
+                "type": "array",
+                "description": "Airline frequent flyer of the guest \n/!\\ In case of creation of a new hotel booking, only the first element of the array will be transmitted to the hotel provier. Please only provider one.\nIn case of retrieve of an hotel order, when a guest is having several frequent flyer numbers used in different hotel bookings, they will all be listed here.",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "airlineCode": {
+                      "type": "string",
+                      "description": "Code of the Airline",
+                      "example": "AF",
+                      "minLength": 2,
+                      "maxLength": 3
+                    },
+                    "frequentTravelerId": {
+                      "type": "string",
+                      "example": "32546971326"
+                    }
+                  },
+                  "required": [
+                    "airlineCode",
+                    "frequentTravelerId"
+                  ]
+                }
+              },
+              "phone": {
+                "type": "string",
+                "description": "Phone number of the guest\n\nIt is recommanded to use the standard E.123 (https://en.wikipedia.org/wiki/E.123)",
+                "maxLength": 199,
+                "minLength": 2,
+                "example": "+33679278416"
+              },
+              "email": {
+                "type": "string",
+                "description": "Email Adress of the guest",
+                "pattern": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",
+                "example": "test.test@test.com",
+                "maxLength": 90,
+                "minLength": 3,
+                "format": "email"
+              },
+              "title": {
+                "type": "string",
+                "description": "Title/gender of the guest",
+                "example": "MR",
+                "minLength": 1,
+                "maxLength": 54,
+                "pattern": "^[A-Za-z -]*$"
+              },
+              "firstName": {
+                "type": "string",
+                "description": "First Name (and middle name) of the guest. It is mandatory at create order but not mandatory at booking creation.\n- Complex pattern '^[A-Za-z \\p{Han}\\p{Katakana}\\p{Hiragana}\\p{Hangul}-]*$' \n",
+                "example": "TEST",
+                "maxLength": 56,
+                "minLength": 1
+              },
+              "lastName": {
+                "type": "string",
+                "description": "Last name of the guest - \nIt is mandatory at create order but not mandatory at booking creation.\nComplex pattern: '^[A-Za-z \\p{Han}\\p{Katakana}\\p{Hiragana}\\p{Hangul}-]*$' ",
+                "example": "TEST",
+                "maxLength": 57,
+                "minLength": 1
+              },
+              "childAge": {
+                "type": "integer",
+                "description": "if the guest is a child, it is mandatory to provide a child age. Else the system will consider him as an adult",
+                "example": 1
+              }
+            }
+          }
+        ]
+      },
+      "description": "Array of guests sharing the hotelOrder."
+    },
+    "id": {
+      "type": "string",
+      "description": "Id of the hotelorder. \nIt is a crucial information and must be stored in the client system as it is mandatory to provide it in any further step such as cancel or retrieve.",
+      "minLength": 1,
+      "pattern": "[A-Za-z0-9+/=]",
+      "example": "12312"
+    }
+  },
+  "required": [
+    "hotelBookings",
+    "associatedRecords",
+    "self",
+    "type",
+    "guests",
+    "id"
+  ]
+}

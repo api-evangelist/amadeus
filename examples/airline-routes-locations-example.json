@@ -1,10 +1,23 @@
 {
-  "type": "example-type",
-  "subtype": "example-subtype",
-  "name": "example-name",
-  "iataCode": "example-iataCode",
-  "geoCode": {},
-  "address": {},
-  "timeZone": {},
-  "metrics": {}
+  "type": "string-value",
+  "subtype": "string-value",
+  "name": "\"Eiffel Tower\"",
+  "iataCode": "\"PAR\"",
+  "geoCode": {
+    "latitude": "48.85837",
+    "longitude": "2.294481"
+  },
+  "address": {
+    "countryName": "France",
+    "countryCode": "FR",
+    "stateCode": "FR-13",
+    "regionCode": "EUROP"
+  },
+  "timeZone": {
+    "offSet": "+01:00",
+    "referenceLocalDateTime": "2022-09-28T19:20:30"
+  },
+  "metrics": {
+    "relevance": "100"
+  }
 }

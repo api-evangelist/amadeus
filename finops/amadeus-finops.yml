@@ -1,0 +1,169 @@
+specification: API Commons FinOps
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/FinOps
+provider: Amadeus
+providerId: amadeus
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+focusVersion: '1.0'
+description: >-
+  FinOps profile aligning the Amadeus for Developers Self-Service billing surface to the FinOps
+  Foundation FOCUS data spec. Amadeus bills per-transaction in the Production environment after a
+  monthly free quota; rates vary by API. The billing surface is per-application, with usage and
+  invoices visible in the Self-Service developer console. Enterprise customers are invoiced through
+  separate Amadeus Enterprise contracts. NOTE: Self-Service portal scheduled for decommissioning
+  17 July 2026; Enterprise billing surface unaffected.
+sources:
+  - https://developers.amadeus.com/pricing
+  - https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/pricing/
+  - https://developers.amadeus.com/my-apps
+  - https://focus.finops.org/
+
+focusMapping:
+  ProviderName: Amadeus IT Group
+  PublisherName: Amadeus IT Group
+  InvoiceIssuerName: Amadeus IT Group
+  ChargeCategory: Usage
+  ChargeClass: Standard
+  BillingAccount: Self-Service application (clientId)
+  SubAccount: Self-Service application (per-app)
+  Region: global
+  PricingUnit: transaction
+  PricingCategory: Usage-Based
+  CommitmentDiscountType: None
+  CommitmentDiscountCategory: None
+  PricingCurrency: USD
+  BillingPeriodStart: first day of calendar month
+  BillingPeriodEnd: last day of calendar month
+  ChargePeriodStart: per-transaction timestamp
+  ChargePeriodEnd: per-transaction timestamp
+
+services:
+  - serviceCategory: Travel APIs
+    serviceSubCategory: Flight Search and Booking
+    productName: Amadeus Self-Service Flights
+    skuExamples:
+      - flight-offers-search-transaction
+      - flight-offers-price-transaction
+      - flight-create-orders-transaction
+      - flight-order-management-transaction
+      - flight-availabilities-search-transaction
+      - seatmap-display-transaction
+      - branded-fares-upsell-transaction
+      - flight-checkin-links-transaction
+      - on-demand-flight-status-transaction
+
+  - serviceCategory: Travel APIs
+    serviceSubCategory: Flight Discovery and Pricing Insights
+    productName: Amadeus Self-Service Flight Insights
+    skuExamples:
+      - flight-inspiration-search-transaction
+      - flight-cheapest-date-search-transaction
+      - flight-price-analysis-transaction
+      - flight-choice-prediction-transaction
+      - flight-delay-prediction-transaction
+
+  - serviceCategory: Travel APIs
+    serviceSubCategory: Airport and Airline Reference Data
+    productName: Amadeus Self-Service Reference Data
+    skuExamples:
+      - airport-on-time-performance-transaction
+      - airport-routes-transaction
+      - airline-routes-transaction
+      - airport-nearest-relevant-transaction
+      - airport-city-search-transaction
+      - city-search-transaction
+      - airline-code-lookup-transaction
+
+  - serviceCategory: Travel APIs
+    serviceSubCategory: Market Insights
+    productName: Amadeus Self-Service Market Insights
+    skuExamples:
+      - flight-most-booked-destinations-transaction
+      - flight-most-traveled-destinations-transaction
+      - flight-busiest-traveling-period-transaction
+
+  - serviceCategory: Travel APIs
+    serviceSubCategory: Hotel Search and Booking
+    productName: Amadeus Self-Service Hotels
+    skuExamples:
+      - hotel-list-transaction
+      - hotel-search-transaction
+      - hotel-booking-transaction
+      - hotel-name-autocomplete-transaction
+      - hotel-ratings-transaction
+
+  - serviceCategory: Travel APIs
+    serviceSubCategory: Destination Experiences
+    productName: Amadeus Self-Service Destination Content
+    skuExamples:
+      - points-of-interest-transaction
+      - tours-and-activities-transaction
+      - safe-place-transaction
+      - location-score-transaction
+      - travel-recommendations-transaction
+
+  - serviceCategory: Travel APIs
+    serviceSubCategory: Cars and Transfers
+    productName: Amadeus Self-Service Transfers
+    skuExamples:
+      - transfer-search-transaction
+      - transfer-book-transaction
+      - transfer-management-transaction
+
+  - serviceCategory: Travel APIs
+    serviceSubCategory: Itinerary Management and AI
+    productName: Amadeus Self-Service AI Predictions
+    skuExamples:
+      - trip-purpose-prediction-transaction
+
+  - serviceCategory: Authentication
+    serviceSubCategory: OAuth2
+    productName: Amadeus Authorization
+    skuExamples:
+      - oauth2-client-credentials-token-issuance
+
+discounts:
+  - name: Monthly Free Tier
+    type: free-tier
+    description: >-
+      Each application receives a monthly free transaction quota per API that carries forward from
+      Test into Production. Quotas reset at the start of each calendar month.
+    appliesTo: All Self-Service APIs
+  - name: Enterprise Volume Commitments
+    type: committed-use
+    description: >-
+      Negotiated through Amadeus Enterprise contracts. Includes committed-use pricing tiers,
+      volume discounts, and dedicated support. Not exposed via the Self-Service billing surface.
+    appliesTo: Enterprise customers only
+
+reporting:
+  invoiceCadence: monthly
+  invoiceCurrency: USD
+  usageDashboard: https://developers.amadeus.com/my-apps
+  invoiceFormat: PDF, downloadable from developer console
+  invoiceItems:
+    - per-API transaction count
+    - per-API free-tier consumption
+    - per-API paid-tier transactions
+    - applicable taxes by jurisdiction
+
+operatingModel:
+  responsibilityModel: shared
+  optimizationOpportunities:
+    - Promote heavy traffic to a single application to maximize free-tier headroom (free tier is per-app, not per-account).
+    - Cache reference-data APIs (airline code lookup, airport/city search) locally to avoid per-call charges on static data.
+    - Use Test environment for development to avoid burning production free-tier quotas.
+    - For production traffic above predictable volumes, evaluate moving to an Amadeus Enterprise contract for committed-use pricing.
+    - Implement client-side rate limiters (e.g. bottleneck) to avoid 429-driven retries that waste transactions.
+    - Monitor monthly usage in the Self-Service console to detect runaway integrations early.
+
+decommissioning:
+  status: scheduled
+  date: '2026-07-17'
+  notice: >-
+    Amadeus has announced the Self-Service developer portal will be fully decommissioned on
+    17 July 2026. Registration for new applications has been paused; existing API keys will be
+    disabled on the cutover date. Customers requiring continued access must migrate to Amadeus
+    Enterprise. Plan budget transitions and contract negotiations accordingly.

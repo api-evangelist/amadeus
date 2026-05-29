@@ -1,18 +1,43 @@
 {
-  "id": "example-id",
-  "self": "example-self",
-  "type": "example-type",
+  "id": "12345",
+  "self": {
+    "href": "string"
+  },
+  "type": "location",
   "subType": "AIRPORT",
-  "name": "example-name",
-  "detailedName": "example-detailedName",
-  "timeZoneOffset": "example-timeZoneOffset",
-  "iataCode": "example-iataCode",
-  "geoCode": "example-geoCode",
-  "address": "example-address",
-  "distance": "example-distance",
-  "analytics": "example-analytics",
-  "relevance": 1.0,
-  "category": "SIGHTS",
-  "tags": [],
-  "rank": "example-rank"
+  "name": "Paris CDG",
+  "detailedName": "Paris/FR: Charles de Gaulle",
+  "timeZoneOffset": "+01:00",
+  "iataCode": "CDG",
+  "geoCode": {
+    "latitude": 43.580418,
+    "longitude": 7.125102
+  },
+  "address": {
+    "cityName": "Paris",
+    "cityCode": "PAR",
+    "countryName": "France",
+    "countryCode": "FR",
+    "stateCode": "TO",
+    "regionCode": "EUROP"
+  },
+  "distance": {
+    "value": 152,
+    "unit": "KM"
+  },
+  "analytics": {
+    "travelers": {
+      "score": 68
+    }
+  },
+  "relevance": 9.6584,
+  "category": "HISTORICAL",
+  "tags": [
+    [
+      "grocery",
+      "japanese",
+      "cafe"
+    ]
+  ],
+  "rank": 1
 }

@@ -1,6 +1,7 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Type",
-  "type": "record",
-  "fields": []
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-search-type-structure.json",
+  "title": "Type",
+  "description": "data type",
+  "type": "string"
 }

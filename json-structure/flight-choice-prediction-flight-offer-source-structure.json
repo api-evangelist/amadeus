@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-choice-prediction-flight-offer-source-structure.json",
+  "title": "FlightOfferSource",
+  "description": "source of the flight offer",
+  "type": "string"
+}

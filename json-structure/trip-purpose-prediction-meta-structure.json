@@ -1,15 +1,16 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Meta",
-  "type": "record",
-  "fields": [
-    {
-      "name": "links",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/trip-purpose-prediction-meta-structure.json",
+  "title": "Meta",
+  "description": "Meta structure from Trip Purpose Prediction",
+  "type": "object",
+  "properties": {
+    "links": {
       "type": "string"
     },
-    {
-      "name": "defaults",
-      "type": "string"
+    "defaults": {
+      "type": "object",
+      "description": "the query parameters for which default values were used are returned here"
     }
-  ]
+  }
 }

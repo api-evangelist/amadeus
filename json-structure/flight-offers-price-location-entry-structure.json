@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-price-location-entry-structure.json",
+  "title": "LocationEntry",
+  "description": "LocationEntry structure from Flight Offers Price",
+  "type": "object"
+}

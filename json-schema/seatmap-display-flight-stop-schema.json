@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-flight-stop-schema.json",
+  "title": "FlightStop",
+  "description": "details of stops for direct or change of gauge flights",
+  "type": "object",
+  "properties": {
+    "iataCode": {
+      "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)",
+      "type": "string",
+      "example": "JFK"
+    },
+    "newAircraft": {
+      "description": "information related to the aircraft",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)\n",
+          "pattern": "[a-zA-Z0-9]{3}",
+          "example": "318"
+        }
+      }
+    },
+    "duration": {
+      "type": "string",
+      "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+      "example": "PT2H10M"
+    },
+    "arrivalAt": {
+      "description": "arrival at the stop in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm\u00b1hh:mm format, e.g. 2017-02-10T20:40:00+02:00",
+      "type": "string",
+      "format": "date-time",
+      "example": "2017-10-23T20:00:00+02:00"
+    },
+    "departureAt": {
+      "description": "departure from the stop in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm\u00b1hh:mm format, e.g. 2017-02-10T20:40:00+02:00",
+      "type": "string",
+      "format": "date-time",
+      "example": "2017-10-23T20:00:00+02:00"
+    }
+  }
+}

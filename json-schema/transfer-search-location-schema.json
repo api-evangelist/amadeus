@@ -1,35 +1,86 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-search-location-schema.json",
   "title": "Location",
   "description": "location information",
   "type": "object",
   "properties": {
     "dateTime": {
+      "description": "date and time specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DDThh:mm:ss format e.g. 2017-11-10T10:00:00\nnot supported for stopOvers object\n",
       "type": "string",
-      "description": "date and time specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DDThh:mm:ss format e.g. 2017-11-10T10:00:00\nnot supported for stopOvers object\n"
+      "example": "2019-11-10T10:30:00"
     },
     "locationCode": {
       "type": "string",
-      "description": "airport code from [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx), e.g. CDG."
-    },
-    "lfiCode": {
-      "type": "string",
-      "description": "internal airport identifier used for private jets and helicopters e.g. IT87100"
+      "description": "airport code from [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx), e.g. CDG.",
+      "pattern": "[A-Za-z]{3}",
+      "example": "CDG"
     },
     "address": {
-      "$ref": "#/definitions/Address"
+      "type": "object",
+      "description": "address information",
+      "properties": {
+        "line": {
+          "description": "Address line with street, number, bulding, etc...",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 70,
+          "example": "string-value"
+        },
+        "zip": {
+          "description": "Post office code number",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "example": "string-value"
+        },
+        "countryCode": {
+          "description": "Country code (two character standard IATA country code)",
+          "type": "string",
+          "pattern": "[a-zA-Z]{2}",
+          "example": "FR"
+        },
+        "cityName": {
+          "description": "City, town or postal station",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 35,
+          "example": "Paris"
+        },
+        "stateCode": {
+          "description": "State code (two character standard IATA state code)",
+          "type": "string",
+          "pattern": "[a-zA-Z0-9]{1-2}",
+          "example": "string-value"
+        },
+        "latitude": {
+          "description": "latitude of the location",
+          "type": "number",
+          "format": "double",
+          "example": 43.580418
+        },
+        "longitude": {
+          "description": "longitude of the location",
+          "type": "number",
+          "format": "double",
+          "example": 7.125102
+        }
+      }
     },
     "name": {
       "type": "string",
-      "description": "Place name e.g. Airport Name, Hotel Name etc."
+      "description": "Place name e.g. Airport Name, Hotel Name etc.",
+      "example": "Sample Name"
     },
     "googlePlaceId": {
+      "description": "Google place id only for google address e.g. ChIJL-DOWeBv5kcRfTbh97PimNc.",
       "type": "string",
-      "description": "Google place id only for google address e.g. ChIJL-DOWeBv5kcRfTbh97PimNc."
+      "example": "ChIJrTLr-GyuEmsRBfy61i59si0"
     },
     "uicCode": {
       "type": "string",
-      "description": "UIC code defined by the worldwide railway organization e.g. 8600626"
+      "description": "UIC code defined by the worldwide railway organization e.g. 8600626",
+      "example": "string-value"
     }
   }
 }

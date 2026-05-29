@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-book-agency-structure.json",
+  "title": "Agency",
+  "description": "Agency email information.",
+  "type": "object",
+  "properties": {
+    "contacts": {
+      "type": "array",
+      "description": "List of contact information"
+    }
+  }
+}

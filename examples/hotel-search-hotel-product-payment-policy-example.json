@@ -1,0 +1,8 @@
+{
+  "creditCards": [
+    "string-value"
+  ],
+  "methods": [
+    "CREDIT_CARD"
+  ]
+}

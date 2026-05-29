@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-aircraft-cabin-amenities-structure.json",
+  "title": "AircraftCabinAmenities",
+  "description": "Type of available amenities for a given flight",
+  "type": "object",
+  "properties": {
+    "power": {
+      "type": "string"
+    },
+    "seat": {
+      "type": "object",
+      "description": "Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space"
+    },
+    "wifi": {
+      "type": "string"
+    },
+    "entertainment": {
+      "type": "array"
+    },
+    "food": {
+      "type": "string"
+    },
+    "beverage": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-availabilities-search-search-criteria-light-schema.json",
+  "title": "SearchCriteriaLight",
+  "description": "SearchCriteriaLight schema from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "excludeAllotments": {
+      "description": "This option allows to exclude the isAllotment flag associated to a booking class in the search response when it exist.",
+      "type": "boolean",
+      "example": false
+    },
+    "flightFilters": {
+      "type": "object",
+      "properties": {
+        "carrierRestrictions": {
+          "description": "Restriction towards carriers.",
+          "type": "object",
+          "properties": {
+            "blacklistedInEUAllowed": {
+              "description": "This flag enable/disable filtering of blacklisted airline by EU. The list of the banned airlines is published in the Official Journal of the European Union, where they are included as annexes A and B to the Commission Regulation. The blacklist of an airline can concern all its flights or some specific aircraft types pertaining to the airline",
+              "type": "boolean",
+              "example": true
+            },
+            "excludedCarrierCodes": {
+              "description": "This option ensures that the system will only consider these airlines.",
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 99,
+              "items": {
+                "type": "string"
+              }
+            },
+            "includedCarrierCodes": {
+              "description": "This option ensures that the system will only consider these airlines.",
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 99,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "cabinRestrictions": {
+          "title": "CabinRestrictions",
+          "description": "Restriction towards cabins.",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "items": {
+            "$ref": "#/definitions/CabinRestriction"
+          }
+        },
+        "connectionRestriction": {
+          "description": "Restriction towards number of connections.",
+          "type": "object",
+          "properties": {
+            "maxNumberOfConnections": {
+              "description": "The maximal number of connections for each itinerary. Value can be 0, 1 or 2.",
+              "type": "number",
+              "example": 2
+            },
+            "airportChangeAllowed": {
+              "description": "Allow to change airport during connection",
+              "type": "boolean",
+              "example": false
+            },
+            "technicalStopsAllowed": {
+              "description": "This option allows the single segment to have one or more intermediate stops (technical stops).",
+              "type": "boolean",
+              "example": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

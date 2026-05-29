@@ -1,12 +1,13 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-search-equipment-schema.json",
   "title": "Equipment",
   "description": "extra equipment information",
   "type": "object",
   "properties": {
     "code": {
       "type": "string",
-      "description": "extra equipment codes, which can take following values\n\ncode   | name                                 \n\n | -  \n\nBBS    | Baby stroller/Push chair\nBYC    | Bicycle rack\nCBB    | Cargo barrier rack\nCBF    | Cargo barrier front\nCBS    | Booster seat for child under 135cm or up to 12 years\nCSB    | Child seat determined by weight/age of child 1-3 years / 9-18 Kg\nCSI    | Child seat determined by weight/age of child 0-12 month/0-13Kg\nCST    | Child seat determined by weight/age of child 4-7 years/15 \u2013 30 Kg\nSBR    | Snow board racks\nSKB    | Ski box\nSKR    | Ski rack\nTAB    | Travel Tablet \nWAR    | Wheelchair access ramp\nWHC    | Wheelchair\nWIF    | Wi-Fi access\nCNT    | Charger cable\n",
+      "description": "extra equipment codes, which can take following values\n\ncode   | name                                 \n------ | -------------------------------------  \nBBS    | Baby stroller/Push chair\nBYC    | Bicycle rack\nCBB    | Cargo barrier rack\nCBF    | Cargo barrier front\nCBS    | Booster seat for child under 135cm or up to 12 years\nCSB    | Child seat determined by weight/age of child 1-3 years / 9-18 Kg\nCSI    | Child seat determined by weight/age of child 0-12 month/0-13Kg\nCST    | Child seat determined by weight/age of child 4-7 years/15 \u2013 30 Kg\nSBR    | Snow board racks\nSKB    | Ski box\nSKR    | Ski rack\nTAB    | Travel Tablet \nWAR    | Wheelchair access ramp\nWHC    | Wheelchair\nWIF    | Wi-Fi access\nCNT    | Charger cable\n",
       "enum": [
         "BBS",
         "BYC",
@@ -24,33 +25,159 @@
         "WHC",
         "WIF",
         "CNT"
-      ]
+      ],
+      "example": "BBS"
     },
     "itemId": {
       "type": "string",
-      "description": "extra equipment identifier"
+      "description": "extra equipment identifier",
+      "example": "12345"
     },
     "description": {
       "type": "string",
-      "description": "extra equipment description"
+      "description": "extra equipment description",
+      "example": "Sample description text."
     },
     "quotation": {
-      "$ref": "#/definitions/Quotation"
+      "description": "quotation representing a price valuation and its components. The monetaryAmount at the root are the sum of base and all the taxes/fees/discounts",
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "monetaryAmount": {
+              "type": "string",
+              "example": "10.5"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "currencyCode": {
+              "type": "string",
+              "example": "USD"
+            },
+            "isEstimated": {
+              "type": "boolean",
+              "description": "indicates if the price is pre-estimated prior to ride. Becomes mandatory for transferType = TAXI"
+            },
+            "base": {
+              "description": "base price",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/PointsAndCash"
+                }
+              ]
+            },
+            "discount": {
+              "description": "discount amount of base price",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/PointsAndCash"
+                }
+              ]
+            },
+            "taxes": {
+              "description": "Taxes breakdown",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tax"
+              }
+            },
+            "fees": {
+              "description": "Fees breakdown",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Fee"
+              }
+            },
+            "totalTaxes": {
+              "$ref": "#/definitions/PointsAndCash"
+            },
+            "totalFees": {
+              "$ref": "#/definitions/PointsAndCash"
+            }
+          }
+        }
+      ]
     },
     "converted": {
-      "$ref": "#/definitions/Quotation"
+      "description": "quotation representing a price valuation and its components. The monetaryAmount at the root are the sum of base and all the taxes/fees/discounts",
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "monetaryAmount": {
+              "type": "string",
+              "example": "10.5"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "currencyCode": {
+              "type": "string",
+              "example": "USD"
+            },
+            "isEstimated": {
+              "type": "boolean",
+              "description": "indicates if the price is pre-estimated prior to ride. Becomes mandatory for transferType = TAXI"
+            },
+            "base": {
+              "description": "base price",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/PointsAndCash"
+                }
+              ]
+            },
+            "discount": {
+              "description": "discount amount of base price",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/PointsAndCash"
+                }
+              ]
+            },
+            "taxes": {
+              "description": "Taxes breakdown",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tax"
+              }
+            },
+            "fees": {
+              "description": "Fees breakdown",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Fee"
+              }
+            },
+            "totalTaxes": {
+              "$ref": "#/definitions/PointsAndCash"
+            },
+            "totalFees": {
+              "$ref": "#/definitions/PointsAndCash"
+            }
+          }
+        }
+      ]
     },
     "isBookable": {
       "type": "boolean",
-      "description": "true if extra equipment is available for booking"
+      "description": "true if extra equipment is available for booking",
+      "example": true
     },
     "taxIncluded": {
       "type": "boolean",
-      "description": "true if tax included in extra equipment price"
+      "description": "true if tax included in extra equipment price",
+      "example": true
     },
     "includedInTotal": {
       "type": "boolean",
-      "description": "true if extra equipment price is included in total transfer amount"
+      "description": "true if extra equipment price is included in total transfer amount",
+      "example": "199.50"
     }
   },
   "required": [

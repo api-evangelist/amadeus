@@ -1,3 +1,5 @@
 {
-  "travelers": "example-travelers"
+  "travelers": {
+    "score": 68
+  }
 }

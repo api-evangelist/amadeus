@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/airport-on-time-performance-on-time-prediction-structure.json",
+  "title": "OnTimePrediction",
+  "description": "OnTimePrediction structure from Airport On-Time Performance",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name (`prediction`)"
+    },
+    "subType": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "description": "item identifier"
+    },
+    "result": {
+      "type": "string",
+      "description": "forecast description"
+    },
+    "probability": {
+      "type": "string",
+      "description": "probability of the forecast (between 0 and 1)"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "type": "example-type",
-  "iataCode": "example-iataCode",
-  "icaoCode": "example-icaoCode",
-  "businessName": "example-businessName",
-  "commonName": "example-commonName"
+  "type": "airline",
+  "iataCode": "WN",
+  "icaoCode": "SWA",
+  "businessName": "SOUTHWEST AIRLINES TEXAS",
+  "commonName": "SW AIRLINES"
 }

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-offers-search-extended-cabin-restriction-schema.json",
+  "title": "Extended_CabinRestriction",
+  "description": "Extended_CabinRestriction schema from Flight Offers Search",
+  "allOf": [
+    {
+      "title": "CabinRestriction",
+      "type": "object",
+      "properties": {
+        "cabin": {
+          "description": "quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class",
+          "type": "string",
+          "enum": [
+            "ECONOMY",
+            "PREMIUM_ECONOMY",
+            "BUSINESS",
+            "FIRST"
+          ],
+          "example": "PREMIUM_ECONOMY"
+        },
+        "originDestinationIds": {
+          "title": "originDestinationIds",
+          "description": "The list of originDestination identifiers for which the cabinRestriction applies",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            1,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "coverage": {
+          "description": "part of the trip covered by the travel class restriction (ALL_SEGMENTS if ommited)",
+          "type": "string",
+          "enum": [
+            "MOST_SEGMENTS",
+            "AT_LEAST_ONE_SEGMENT",
+            "ALL_SEGMENTS"
+          ],
+          "example": "MOST_SEGMENTS"
+        }
+      }
+    }
+  ]
+}

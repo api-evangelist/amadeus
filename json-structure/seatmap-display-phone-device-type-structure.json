@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-phone-device-type-structure.json",
+  "title": "PhoneDeviceType",
+  "description": "Type of the device (Landline, Mobile or Fax)",
+  "type": "string"
+}

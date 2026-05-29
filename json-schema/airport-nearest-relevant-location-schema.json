@@ -1,54 +1,143 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/airport-nearest-relevant-location-schema.json",
   "title": "Location",
-  "type": "object",
+  "description": "Location schema from Airport Nearest Relevant",
   "properties": {
     "type": {
+      "description": "the resource name",
       "type": "string",
-      "description": "the resource name"
+      "example": "location"
     },
     "subType": {
-      "type": "string",
       "description": "location sub type",
+      "type": "string",
       "enum": [
         "AIRPORT",
         "CITY",
         "POINT_OF_INTEREST",
         "DISTRICT"
-      ]
+      ],
+      "example": "AIRPORT"
     },
     "name": {
+      "description": "short name of the location",
       "type": "string",
-      "description": "short name of the location"
+      "example": "Paris CDG"
     },
     "detailedName": {
+      "description": "detailed name of the location. For a city location it contains city name and country code. For an airport location it contains city name; country code and airport full name",
       "type": "string",
-      "description": "detailed name of the location. For a city location it contains city name and country code. For an airport location it contains city name; country code and airport full name"
+      "example": "Paris/FR: Charles de Gaulle"
     },
     "timeZoneOffset": {
+      "description": "timezone offset of the location at the date of the API call (including daylight saving time)",
       "type": "string",
-      "description": "timezone offset of the location at the date of the API call (including daylight saving time)"
+      "example": "+01:00"
     },
     "iataCode": {
+      "description": "IATA code of the location. ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) here)",
       "type": "string",
-      "description": "IATA code of the location. ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) here)"
+      "example": "CDG"
     },
     "geoCode": {
-      "$ref": "#/definitions/GeoCode"
+      "properties": {
+        "latitude": {
+          "description": "latitude of the location",
+          "type": "number",
+          "format": "double",
+          "example": 43.580418
+        },
+        "longitude": {
+          "description": "longitude of the location",
+          "type": "number",
+          "format": "double",
+          "example": 7.125102
+        }
+      }
     },
     "address": {
-      "$ref": "#/definitions/Address"
+      "properties": {
+        "cityName": {
+          "description": "name of the city of the location; equal to name if the location is a city",
+          "type": "string",
+          "example": "Paris"
+        },
+        "cityCode": {
+          "description": "IATA code of the city of the location; equal to IATAcode if the location is a city",
+          "type": "string",
+          "example": "PAR"
+        },
+        "countryName": {
+          "description": "name of the country of the location",
+          "type": "string",
+          "example": "France"
+        },
+        "countryCode": {
+          "description": "code of the country of the location in ISO standard",
+          "type": "string",
+          "example": "FR"
+        },
+        "stateCode": {
+          "description": "code of the state of the location if any",
+          "type": "string",
+          "example": "TO"
+        },
+        "regionCode": {
+          "description": "code of the region of the location in ISO standard",
+          "type": "string",
+          "example": "EUROP"
+        }
+      }
     },
     "distance": {
-      "$ref": "#/definitions/Distance"
+      "properties": {
+        "value": {
+          "description": "great-circle distance between two locations. This distance thus do not take into account traffic conditions; international boundaries; mountains; water; or other elements that might make the a nearby location hard to reach.",
+          "type": "integer",
+          "example": 152
+        },
+        "unit": {
+          "description": "unit of the distance",
+          "type": "string",
+          "example": "KM",
+          "enum": [
+            "KM",
+            "MI"
+          ]
+        }
+      }
     },
     "analytics": {
-      "$ref": "#/definitions/Analytics"
+      "properties": {
+        "flights": {
+          "properties": {
+            "score": {
+              "type": "number",
+              "format": "integer",
+              "description": "Approximate score for ranking purposes calculated based on number of flights from / to the airport or city",
+              "example": 56
+            }
+          }
+        },
+        "travelers": {
+          "properties": {
+            "score": {
+              "type": "number",
+              "format": "integer",
+              "description": "Approximate score for ranking purposes calculated based on number of travelers in the location.",
+              "example": 68
+            }
+          }
+        }
+      }
     },
     "relevance": {
       "type": "number",
       "format": "double",
-      "description": "score value calculated based on distance and analytics"
+      "description": "score value calculated based on distance and analytics",
+      "example": 9.6584
     }
-  }
+  },
+  "type": "object"
 }

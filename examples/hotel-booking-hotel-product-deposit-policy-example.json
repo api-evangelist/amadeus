@@ -1,0 +1,18 @@
+{
+  "amount": "199.50",
+  "deadline": "2026-08-15T10:30:00Z",
+  "description": {
+    "text": "Do you need and example ?",
+    "lang": "fr-FR"
+  },
+  "acceptedPayments": {
+    "creditCards": [
+      "CA",
+      "VI",
+      "AX"
+    ],
+    "methods": [
+      "CREDIT_CARD"
+    ]
+  }
+}

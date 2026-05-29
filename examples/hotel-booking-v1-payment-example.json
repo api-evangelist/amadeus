@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "method": "creditCard",
+  "card": {
+    "vendorCode": "VI",
+    "cardNumber": 1,
+    "expiryDate": "2019-01"
+  }
+}

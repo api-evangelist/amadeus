@@ -1,16 +1,124 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-delay-prediction-prediction-schema.json",
   "title": "Prediction",
+  "description": "Prediction schema from Flight Delay Prediction",
   "type": "object",
   "properties": {
     "data": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Delay_Prediction"
+        "properties": {
+          "type": {
+            "description": "the resource name (`prediction`)",
+            "type": "string",
+            "example": "string-value"
+          },
+          "subType": {
+            "type": "string",
+            "example": "trip-purpose"
+          },
+          "id": {
+            "description": "item identifier",
+            "type": "string",
+            "readOnly": true,
+            "example": "12345"
+          },
+          "result": {
+            "$ref": "#/definitions/PredictionResultType"
+          },
+          "probability": {
+            "description": "probability of the forecast (between 0 and 1)",
+            "type": "string",
+            "example": "string-value"
+          }
+        }
       }
     },
     "meta": {
-      "$ref": "#/definitions/Collection_Meta_Link"
+      "title": "Collection_Meta",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "example": 1
+        },
+        "links": {
+          "title": "CollectionLinks",
+          "properties": {
+            "self": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://test.api.amadeus.com/v1/area/resources?..."
+            },
+            "next": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://test.api.amadeus.com/v1/area/resources?..."
+            },
+            "previous": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://test.api.amadeus.com/v1/area/resources?..."
+            },
+            "last": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://test.api.amadeus.com/v1/area/resources?..."
+            },
+            "first": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://test.api.amadeus.com/v1/area/resources?..."
+            },
+            "up": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://test.api.amadeus.com/v1/area/resources?..."
+            }
+          },
+          "example": {
+            "self": "https://test.api.amadeus.com/v1/area/resources?param=value"
+          }
+        }
+      }
+    }
+  },
+  "example": {
+    "data": [
+      {
+        "id": "TK1816NCEIST20200801",
+        "probability": "0.13336977",
+        "result": "LESS_THAN_30_MINUTES",
+        "subType": "flight-delay",
+        "type": "prediction"
+      },
+      {
+        "id": "TK1816NCEIST20200801",
+        "probability": "0.42023364",
+        "result": "BETWEEN_30_AND_60_MINUTES",
+        "subType": "flight-delay",
+        "type": "prediction"
+      },
+      {
+        "id": "TK1816NCEIST20200801",
+        "probability": "0.34671372",
+        "result": "BETWEEN_60_AND_120_MINUTES",
+        "subType": "flight-delay",
+        "type": "prediction"
+      },
+      {
+        "id": "TK1816NCEIST20200801",
+        "probability": "0.09968289",
+        "result": "OVER_120_MINUTES_OR_CANCELLED",
+        "subType": "flight-delay",
+        "type": "prediction"
+      }
+    ],
+    "meta": {
+      "count": 4,
+      "links": {
+        "self": "https://test.api.amadeus.com/v1/travel/predictions/flight-delay?originLocationCode=NCE&destinationLocationCode=IST&departureDate=2020-08-01&departureTime=18:20:00&arrivalDate=2020-08-01&arrivalTime=22:15:00&aircraftCode=321&carrierCode=TK&flightNumber=1816&duration=PT31H10M"
+      }
     }
   }
 }

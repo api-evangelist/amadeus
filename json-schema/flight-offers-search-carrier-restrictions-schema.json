@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-offers-search-carrier-restrictions-schema.json",
+  "title": "CarrierRestrictions",
+  "description": "Restriction towards carriers.",
+  "type": "object",
+  "properties": {
+    "blacklistedInEUAllowed": {
+      "description": "This flag enable/disable filtering of blacklisted airline by EU. The list of the banned airlines is published in the Official Journal of the European Union, where they are included as annexes A and B to the Commission Regulation. The blacklist of an airline can concern all its flights or some specific aircraft types pertaining to the airline",
+      "type": "boolean",
+      "default": false,
+      "example": true
+    },
+    "excludedCarrierCodes": {
+      "description": "This option ensures that the system will only consider these airlines.",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 99,
+      "items": {
+        "type": "string"
+      }
+    },
+    "includedCarrierCodes": {
+      "description": "This option ensures that the system will only consider these airlines.",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 99,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

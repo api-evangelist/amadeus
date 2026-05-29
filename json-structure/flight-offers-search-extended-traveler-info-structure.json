@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-search-extended-traveler-info-structure.json",
+  "title": "Extended_TravelerInfo",
+  "description": "Extended_TravelerInfo structure from Flight Offers Search",
+  "type": "object",
+  "required": [
+    "id",
+    "travelerType"
+  ]
+}

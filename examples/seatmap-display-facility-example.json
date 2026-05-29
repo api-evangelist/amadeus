@@ -1,7 +1,10 @@
 {
-  "code": "example-code",
-  "column": "example-column",
-  "row": "example-row",
+  "code": "string-value",
+  "column": "string-value",
+  "row": "string-value",
   "position": "FRONT",
-  "coordinates": "example-coordinates"
+  "coordinates": {
+    "x": 1,
+    "y": 1
+  }
 }

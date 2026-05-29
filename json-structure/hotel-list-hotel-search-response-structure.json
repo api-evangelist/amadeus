@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-list-hotel-search-response-structure.json",
+  "title": "HotelSearchResponse",
+  "description": "HotelSearchResponse structure from Hotel List",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array"
+    },
+    "meta": {
+      "type": "object",
+      "description": "Meta information about the returned object(s) in \"data\""
+    }
+  }
+}

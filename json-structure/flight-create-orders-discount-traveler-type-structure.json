@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-create-orders-discount-traveler-type-structure.json",
+  "title": "DiscountTravelerType",
+  "description": "type of discount applied",
+  "type": "string"
+}

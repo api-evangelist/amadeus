@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-ratings-collection-links-structure.json",
+  "title": "CollectionLinks",
+  "description": "CollectionLinks structure from Hotel Ratings",
+  "type": "object",
+  "properties": {
+    "self": {
+      "type": "string",
+      "format": "uri"
+    },
+    "next": {
+      "type": "string",
+      "format": "uri"
+    },
+    "previous": {
+      "type": "string",
+      "format": "uri"
+    },
+    "last": {
+      "type": "string",
+      "format": "uri"
+    },
+    "first": {
+      "type": "string",
+      "format": "uri"
+    },
+    "up": {
+      "type": "string",
+      "format": "uri"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-seat-characteristic-dictionary-structure.json",
+  "title": "SeatCharacteristicDictionary",
+  "description": "seat characteristics dictionary allows mapping a service characteristic to its name. Possible values are part of:\n  IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825, Example: CH = Chargeable Seat, W = Window Seat, A = Aisle\n             Seat, Q = Seat in a quiet zone, E = Exit Row Seat\n  Amadeus Code: defined as extension, example MV=row with movie screen\n  Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat",
+  "type": "object"
+}

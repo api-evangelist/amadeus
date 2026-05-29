@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-create-orders-flight-segment-schema.json",
+  "title": "FlightSegment",
+  "description": "defining a flight segment; including both operating and marketing details when applicable",
+  "type": "object",
+  "properties": {
+    "departure": {
+      "title": "FlightEndPoint",
+      "description": "departure or arrival information",
+      "allOf": [
+        {
+          "type": "object",
+          "description": "departure or arrival information",
+          "properties": {
+            "iataCode": {
+              "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)",
+              "type": "string",
+              "example": "JFK"
+            },
+            "terminal": {
+              "description": "terminal name / number",
+              "type": "string",
+              "example": "T2"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "at": {
+              "description": "local date and time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00",
+              "type": "string",
+              "format": "date-time",
+              "example": "2017-10-23T20:00:00"
+            }
+          }
+        }
+      ]
+    },
+    "arrival": {
+      "title": "FlightEndPoint",
+      "description": "departure or arrival information",
+      "allOf": [
+        {
+          "type": "object",
+          "description": "departure or arrival information",
+          "properties": {
+            "iataCode": {
+              "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)",
+              "type": "string",
+              "example": "JFK"
+            },
+            "terminal": {
+              "description": "terminal name / number",
+              "type": "string",
+              "example": "T2"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "at": {
+              "description": "local date and time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00",
+              "type": "string",
+              "format": "date-time",
+              "example": "2017-10-23T20:00:00"
+            }
+          }
+        }
+      ]
+    },
+    "carrierCode": {
+      "type": "string",
+      "description": "providing the airline / carrier code",
+      "minLength": 1,
+      "maxLength": 2,
+      "example": "DL"
+    },
+    "number": {
+      "type": "string",
+      "description": "the flight number as assigned by the carrier",
+      "minLength": 1,
+      "maxLength": 4,
+      "example": "212"
+    },
+    "aircraft": {
+      "description": "information related to the aircraft",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)\n",
+          "pattern": "[a-zA-Z0-9]{3}",
+          "example": "318"
+        }
+      }
+    },
+    "operating": {
+      "type": "object",
+      "description": "information about the operating flight",
+      "properties": {
+        "carrierCode": {
+          "type": "string",
+          "description": "providing the airline / carrier code",
+          "minLength": 1,
+          "maxLength": 2,
+          "example": "DL"
+        }
+      }
+    },
+    "duration": {
+      "type": "string",
+      "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+      "example": "PT2H10M"
+    },
+    "stops": {
+      "type": "array",
+      "description": "information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge...",
+      "items": {
+        "title": "FlightStop",
+        "description": "details of stops for direct or change of gauge flights",
+        "allOf": [
+          {
+            "description": "details of stops for direct or change of gauge flights",
+            "type": "object",
+            "properties": {
+              "iataCode": {
+                "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)",
+                "type": "string",
+                "example": "JFK"
+              },
+              "duration": {
+                "type": "string",
+                "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+                "example": "PT2H10M"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "arrivalAt": {
+                "description": "arrival at the stop in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00",
+                "type": "string",
+                "format": "date-time",
+                "example": "2017-10-23T20:00:00"
+              },
+              "departureAt": {
+                "description": "departure from the stop in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00",
+                "type": "string",
+                "format": "date-time",
+                "example": "2017-10-23T20:00:00"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

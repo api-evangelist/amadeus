@@ -1,11 +1,12 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Analytics",
-  "type": "record",
-  "fields": [
-    {
-      "name": "travelers",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/airport-city-search-analytics-structure.json",
+  "title": "Analytics",
+  "description": "Analytics structure from Airport & City Search",
+  "type": "object",
+  "properties": {
+    "travelers": {
       "type": "string"
     }
-  ]
+  }
 }

@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-order-management-address-schema.json",
   "title": "Address",
   "description": "address information",
   "type": "object",
@@ -13,23 +14,30 @@
     },
     "postalCode": {
       "type": "string",
-      "description": "Example: 74130"
+      "description": "Example: 74130",
+      "example": "string-value"
     },
     "countryCode": {
       "type": "string",
-      "description": "country code [ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)"
+      "description": "country code [ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)",
+      "pattern": "[a-zA-Z]{2}",
+      "example": "FR"
     },
     "cityName": {
       "type": "string",
-      "description": "Full city name. Example: Dublin"
+      "description": "Full city name. Example: Dublin",
+      "pattern": "[a-zA-Z -]{1,35}",
+      "example": "Paris"
     },
     "stateName": {
       "type": "string",
-      "description": "Full state name"
+      "description": "Full state name",
+      "example": "Sample Name"
     },
     "postalBox": {
       "type": "string",
-      "description": "E.g. BP 220"
+      "description": "E.g. BP 220",
+      "example": "string-value"
     }
   }
 }

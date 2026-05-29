@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-multi-response-schema.json",
+  "title": "MultiResponse",
+  "description": "MultiResponse schema from Hotel Search API",
+  "type": "object",
+  "properties": {
+    "data": {
+      "title": "HotelOffers",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "the type of the object (hotel-offers)",
+          "type": "string",
+          "example": "string-value"
+        },
+        "available": {
+          "type": "boolean",
+          "example": true
+        },
+        "self": {
+          "type": "string",
+          "example": "string-value"
+        },
+        "offers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HotelOffer"
+          }
+        },
+        "hotel": {
+          "title": "Hotel",
+          "description": "Hotel Content",
+          "type": "object",
+          "properties": {
+            "hotelId": {
+              "description": "Amadeus Property Code (8 chars)",
+              "example": "ADPAR001",
+              "type": "string",
+              "pattern": "^[A-Z0-9]{8}$"
+            },
+            "chainCode": {
+              "description": "Brand (RT...) or Merchant (AD...) (Amadeus 2 chars Code)",
+              "example": "AD",
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            },
+            "brandCode": {
+              "description": "Brand (RT...) (Amadeus 2 chars Code). Small Properties distributed by Merchants may not have a Brand.\nExample - AD (Value Hotels) is the Provider/Merchant, and RT (Accor) is the Brand of the Property",
+              "example": "RT",
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            },
+            "dupeId": {
+              "description": "Unique Property identifier of the physical hotel.\nOne physical hotel can be represented by different Providers, each one having its own `hotelID`.\nThis attribute allows a client application to group together hotels that are actually the same.",
+              "example": "501132260",
+              "type": "string"
+            },
+            "name": {
+              "description": "Hotel Name",
+              "example": "Hotel de Paris",
+              "type": "string"
+            },
+            "cityCode": {
+              "description": "Warning: The IATA city code associated to the hotel (not necessary the real Hotel City)",
+              "example": "PAR",
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            }
+          }
+        }
+      }
+    }
+  },
+  "example": {
+    "data": [
+      {
+        "type": "hotel-offers",
+        "hotel": {
+          "type": "hotel",
+          "hotelId": "MCLONGHM",
+          "chainCode": "MC",
+          "dupeId": "700031300",
+          "name": "JW Marriott Grosvenor House London",
+          "cityCode": "LON",
+          "latitude": 51.50988,
+          "longitude": -0.15509
+        },
+        "available": true,
+        "offers": [
+          {
+            "id": "TSXOJ6LFQ2",
+            "checkInDate": "2023-11-22",
+            "checkOutDate": "2023-11-23",
+            "rateCode": "V  ",
+            "rateFamilyEstimated": {
+              "code": "PRO",
+              "type": "P"
+            },
+            "room": {
+              "type": "ELE",
+              "typeEstimated": {
+                "category": "EXECUTIVE_ROOM",
+                "beds": 1,
+                "bedType": "DOUBLE"
+              },
+              "description": {
+                "text": "Prepay Non-refundable Non-changeable, prepay in full\nExecutive King Room, Executive Lounge Access,\n1 King, 35sqm/377sqft-40sqm/430sqft, Wireless",
+                "lang": "EN"
+              }
+            },
+            "guests": {
+              "adults": 1
+            },
+            "price": {
+              "currency": "GBP",
+              "base": "716.00",
+              "total": "716.00",
+              "variations": {
+                "average": {
+                  "base": "716.00"
+                },
+                "changes": [
+                  {
+                    "startDate": "2023-11-22",
+                    "endDate": "2023-11-23",
+                    "total": "716.00"
+                  }
+                ]
+              }
+            },
+            "policies": {
+              "paymentType": "deposit",
+              "cancellation": {
+                "description": {
+                  "text": "NON-REFUNDABLE RATE"
+                },
+                "type": "FULL_STAY"
+              }
+            },
+            "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers/TSXOJ6LFQ2"
+          }
+        ],
+        "self": "https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=MCLONGHM&adults=1&checkInDate=2023-11-22&paymentPolicy=NONE&roomQuantity=1"
+      }
+    ]
+  }
+}

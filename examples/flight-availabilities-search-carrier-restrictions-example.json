@@ -1,0 +1,9 @@
+{
+  "blacklistedInEUAllowed": true,
+  "excludedCarrierCodes": [
+    "string-value"
+  ],
+  "includedCarrierCodes": [
+    "string-value"
+  ]
+}

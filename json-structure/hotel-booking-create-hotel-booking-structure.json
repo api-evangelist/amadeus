@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-booking-create-hotel-booking-structure.json",
+  "title": "CreateHotelBooking",
+  "description": "This model allows the creation of an hotel order.",
+  "type": "object",
+  "properties": {
+    "arrivalInformation": {
+      "type": "object",
+      "description": "Optional information on the way the guest is arriving to the hotel. Today the application only supports Flight details."
+    },
+    "payment": {
+      "type": "object",
+      "description": "Model with the hotel payment information"
+    },
+    "roomAssociations": {
+      "type": "array",
+      "description": "Is to correlate a room to a guest and an offer."
+    },
+    "travelAgent": {
+      "type": "object",
+      "description": "Travel Agent details"
+    }
+  },
+  "required": [
+    "travelAgent"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-hotel-product-check-in-out-policy-schema.json",
+  "title": "HotelProduct_CheckInOutPolicy",
+  "description": "HotelProduct_CheckInOutPolicy schema from Hotel Search API",
+  "type": "object",
+  "properties": {
+    "checkIn": {
+      "description": "Check-in From time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+      "example": "13:00:00",
+      "type": "string"
+    },
+    "checkInDescription": {
+      "title": "QualifiedFreeText",
+      "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "Free Text",
+          "example": "A description",
+          "type": "string"
+        },
+        "lang": {
+          "description": "see RFC 5646",
+          "example": "fr-FR",
+          "type": "string"
+        }
+      }
+    },
+    "checkOut": {
+      "description": "Check-out Until time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+      "example": "11:00:00",
+      "type": "string"
+    },
+    "checkOutDescription": {
+      "title": "QualifiedFreeText",
+      "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "Free Text",
+          "example": "A description",
+          "type": "string"
+        },
+        "lang": {
+          "description": "see RFC 5646",
+          "example": "fr-FR",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

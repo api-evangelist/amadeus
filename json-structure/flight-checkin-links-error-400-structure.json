@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-checkin-links-error-400-structure.json",
+  "title": "Error_400",
+  "description": "Error_400 structure from Flight Check-in Links",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "errors"
+  ]
+}

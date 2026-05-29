@@ -1,0 +1,78 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Flight Availibilities Search — Availibility"
+  description: 'Flight Availibilities Search — Availibility. 1 operation(s). Lead operation: Amadeus Return List of Flight Availabilities Based on Posted Searching Criteria.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Availibility
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: flight-availabilities-search-availibility
+      baseUri: https://test.api.amadeus.com/v1
+      description: Flight Availibilities Search — Availibility business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: shopping-availability-flight-availabilities
+          path: /shopping/availability/flight-availabilities
+          operations:
+            - name: searchFlightAvailabilities
+              method: POST
+              description: Amadeus Return List of Flight Availabilities Based on Posted Searching Criteria.
+              inputParameters:
+                - name: getFlightAvailabilitiesBody
+                  in: body
+                  type: object
+                  required: true
+                  description: list of criteria to retrieve a list of flight availabilities
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: flight-availabilities-search-availibility-rest
+      port: 8080
+      description: REST adapter for Flight Availibilities Search — Availibility. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shopping/availability/flight-availabilities
+          name: shopping-availability-flight-availabilities
+          description: REST surface for shopping-availability-flight-availabilities.
+          operations:
+            - method: POST
+              name: searchFlightAvailabilities
+              description: Amadeus Return List of Flight Availabilities Based on Posted Searching Criteria.
+              call: flight-availabilities-search-availibility.searchFlightAvailabilities
+              with:
+                getFlightAvailabilitiesBody: rest.getFlightAvailabilitiesBody
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: flight-availabilities-search-availibility-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Flight Availibilities Search — Availibility. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: return-list-flight-availabilities-based
+          description: Amadeus Return List of Flight Availabilities Based on Posted Searching Criteria.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: false
+          call: flight-availabilities-search-availibility.searchFlightAvailabilities
+          with:
+            getFlightAvailabilitiesBody: tools.getFlightAvailabilitiesBody
+          outputParameters:
+            - type: object
+              mapping: $.

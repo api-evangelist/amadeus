@@ -1,29 +1,26 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Facility",
-  "type": "record",
-  "fields": [
-    {
-      "name": "code",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-facility-structure.json",
+  "title": "Facility",
+  "description": "Facility structure from Seatmap Display",
+  "type": "object",
+  "properties": {
+    "code": {
       "type": "string",
       "description": "Facility code, as described in the facility dictionary"
     },
-    {
-      "name": "column",
+    "column": {
       "type": "string"
     },
-    {
-      "name": "row",
+    "row": {
       "type": "string"
     },
-    {
-      "name": "position",
+    "position": {
       "type": "string",
       "description": "Position is either front, rear or seat (in case the facility takes the place of a seat)"
     },
-    {
-      "name": "coordinates",
-      "type": "string"
+    "coordinates": {
+      "type": "object"
     }
-  ]
+  }
 }

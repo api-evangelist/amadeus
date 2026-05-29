@@ -1,11 +1,14 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/on-demand-flight-status-terminal-schema.json",
   "title": "Terminal",
-  "type": "object",
+  "description": "Terminal schema from On-Demand Flight Status",
   "properties": {
     "code": {
+      "description": "the code of the terminal",
       "type": "string",
-      "description": "the code of the terminal"
+      "example": 1
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-loyalty-program-structure.json",
+  "title": "LoyaltyProgram",
+  "description": "loyalty program information",
+  "type": "object",
+  "properties": {
+    "programOwner": {
+      "type": "string",
+      "description": "loyalty program airline code"
+    },
+    "id": {
+      "type": "string",
+      "description": "loyalty program number"
+    }
+  }
+}

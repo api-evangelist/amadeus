@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/airline-routes-response-airline-routes-structure.json",
+  "title": "response_airlineRoutes",
+  "description": "response_airlineRoutes structure from Airline Routes",
+  "type": "object",
+  "properties": {
+    "warnings": {
+      "type": "array"
+    },
+    "data": {
+      "type": "array"
+    },
+    "meta": {
+      "type": "object",
+      "description": "Meta information about the returned object(s) in \"data\""
+    }
+  }
+}

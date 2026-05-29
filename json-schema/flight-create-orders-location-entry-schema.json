@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-create-orders-location-entry-schema.json",
+  "title": "LocationEntry",
+  "description": "LocationEntry schema from Flight Create Orders",
+  "additionalProperties": {
+    "properties": {
+      "cityCode": {
+        "type": "string",
+        "description": "City code associated to the airport",
+        "example": "PAR"
+      },
+      "countryCode": {
+        "type": "string",
+        "description": "Country code of the airport",
+        "example": "FR"
+      }
+    }
+  }
+}

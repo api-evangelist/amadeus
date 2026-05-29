@@ -1,0 +1,16 @@
+{
+  "type": "string-value",
+  "id": "12345",
+  "reference": "string-value",
+  "transfers": [],
+  "passengers": [],
+  "agency": {
+    "contacts": [
+      {
+        "email": {
+          "address": "traveler@example.com"
+        }
+      }
+    ]
+  }
+}

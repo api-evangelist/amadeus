@@ -1,19 +1,43 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-choice-prediction-dictionaries-schema.json",
   "title": "Dictionaries",
+  "description": "Dictionaries schema from Flight Choice Prediction",
   "type": "object",
   "properties": {
     "locations": {
-      "$ref": "#/definitions/LocationEntry"
+      "additionalProperties": {
+        "properties": {
+          "cityCode": {
+            "type": "string",
+            "description": "City code associated to the airport",
+            "example": "PAR"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "Country code of the airport",
+            "example": "FR"
+          }
+        }
+      }
     },
     "aircraft": {
-      "$ref": "#/definitions/AircraftEntry"
+      "additionalProperties": {
+        "description": "the manufacturer/model of aircraft",
+        "type": "string"
+      }
     },
     "currencies": {
-      "$ref": "#/definitions/CurrencyEntry"
+      "additionalProperties": {
+        "type": "string",
+        "example": "EUR"
+      }
     },
     "carriers": {
-      "$ref": "#/definitions/CarrierEntry"
+      "additionalProperties": {
+        "description": "the carrier name",
+        "type": "string"
+      }
     }
   }
 }

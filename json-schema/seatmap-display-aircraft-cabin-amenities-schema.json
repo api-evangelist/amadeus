@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-aircraft-cabin-amenities-schema.json",
+  "title": "AircraftCabinAmenities",
+  "description": "Type of available amenities for a given flight",
+  "type": "object",
+  "properties": {
+    "power": {
+      "allOf": [
+        {
+          "type": "object",
+          "description": "Base data model related to Amenity, inherited amenities can be created using this baseline for extension ( using type for polymorphism ) amenityType : Enum related to generic Amenity model to identify which amenityType",
+          "title": "Amenity",
+          "properties": {
+            "isChargeable": {
+              "description": "Specify if the traveler will need to pay extra in-flight to get the amenity",
+              "type": "boolean",
+              "example": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "description": "Type of power outlet for a given flight",
+          "properties": {
+            "powerType": {
+              "type": "string",
+              "enum": [
+                "PLUG",
+                "USB_PORT",
+                "ADAPTOR",
+                "PLUG_OR_USB_PORT"
+              ]
+            },
+            "usbType": {
+              "type": "string",
+              "enum": [
+                "USB_A",
+                "USB_C",
+                "USB_A_AND_USB_C"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "seat": {
+      "type": "object",
+      "description": "Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space",
+      "properties": {
+        "legSpace": {
+          "description": "Space between 2 seats",
+          "type": "integer",
+          "example": 33
+        },
+        "spaceUnit": {
+          "type": "string",
+          "enum": [
+            "INCHES",
+            "CENTIMENTERS"
+          ],
+          "example": "INCHES"
+        },
+        "tilt": {
+          "description": "Flatness of a seat",
+          "type": "string",
+          "enum": [
+            "FULL_FLAT",
+            "ANGLE_FLAT",
+            "NORMAL"
+          ],
+          "example": "FULL_FLAT"
+        },
+        "amenityType": {
+          "type": "string",
+          "enum": [
+            "SEAT"
+          ],
+          "example": "SEAT"
+        },
+        "medias": {
+          "description": "list of media associated to the seat (rich content)",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Amenity_Media"
+          }
+        }
+      }
+    },
+    "wifi": {
+      "allOf": [
+        {
+          "type": "object",
+          "description": "Base data model related to Amenity, inherited amenities can be created using this baseline for extension ( using type for polymorphism ) amenityType : Enum related to generic Amenity model to identify which amenityType",
+          "title": "Amenity",
+          "properties": {
+            "isChargeable": {
+              "description": "Specify if the traveler will need to pay extra in-flight to get the amenity",
+              "type": "boolean",
+              "example": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "description": "Level of area coverage for a given flight",
+          "properties": {
+            "wifiCoverage": {
+              "type": "string",
+              "enum": [
+                "FULL",
+                "PARTIAL"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "entertainment": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "type": "object",
+            "description": "Base data model related to Amenity, inherited amenities can be created using this baseline for extension ( using type for polymorphism ) amenityType : Enum related to generic Amenity model to identify which amenityType",
+            "title": "Amenity",
+            "properties": {
+              "isChargeable": {
+                "description": "Specify if the traveler will need to pay extra in-flight to get the amenity",
+                "type": "boolean",
+                "example": true
+              }
+            }
+          },
+          {
+            "type": "object",
+            "description": "Type of entertainment contents for a given flight",
+            "properties": {
+              "entertainmentType": {
+                "type": "string",
+                "enum": [
+                  "LIVE_TV",
+                  "MOVIES",
+                  "AUDIO_VIDEO_ON_DEMAND",
+                  "TV_SHOWS",
+                  "IP_TV"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "food": {
+      "allOf": [
+        {
+          "type": "object",
+          "description": "Base data model related to Amenity, inherited amenities can be created using this baseline for extension ( using type for polymorphism ) amenityType : Enum related to generic Amenity model to identify which amenityType",
+          "title": "Amenity",
+          "properties": {
+            "isChargeable": {
+              "description": "Specify if the traveler will need to pay extra in-flight to get the amenity",
+              "type": "boolean",
+              "example": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "description": "Type of food for a given flight",
+          "properties": {
+            "foodType": {
+              "type": "string",
+              "enum": [
+                "MEAL",
+                "FRESH_MEAL",
+                "SNACK",
+                "FRESH_SNACK"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "beverage": {
+      "allOf": [
+        {
+          "type": "object",
+          "description": "Base data model related to Amenity, inherited amenities can be created using this baseline for extension ( using type for polymorphism ) amenityType : Enum related to generic Amenity model to identify which amenityType",
+          "title": "Amenity",
+          "properties": {
+            "isChargeable": {
+              "description": "Specify if the traveler will need to pay extra in-flight to get the amenity",
+              "type": "boolean",
+              "example": true
+            }
+          }
+        },
+        {
+          "type": "object",
+          "description": "Type of beverage for a given flight",
+          "properties": {
+            "beverageType": {
+              "type": "string",
+              "enum": [
+                "ALCOHOLIC",
+                "NON_ALCOHOLIC",
+                "ALCOHOLIC_AND_NON_ALCOHOLIC"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

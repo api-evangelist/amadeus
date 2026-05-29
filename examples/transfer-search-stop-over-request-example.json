@@ -1,0 +1,14 @@
+{
+  "duration": "PT2H30M",
+  "locationCode": "CDG",
+  "addressLine": "5 Avenue Anatole France",
+  "countryCode": "US",
+  "cityName": "Paris",
+  "zipCode": 75007,
+  "googlePlaceId": "ChIJrTLr-GyuEmsRBfy61i59si0",
+  "name": "Sample Name",
+  "stateCode": "string-value",
+  "geoCode": "48.858093,2.294694",
+  "sequenceNumber": 1,
+  "uicCode": "string-value"
+}

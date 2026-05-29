@@ -1,20 +1,46 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-most-traveled-destinations-air-traffic-schema.json",
   "title": "Air_Traffic",
-  "type": "object",
+  "description": "Air_Traffic schema from Flight Most Traveled Destinations",
   "properties": {
     "type": {
-      "type": "string"
+      "type": "string",
+      "example": "air-traffic"
     },
     "subType": {
-      "type": "string"
+      "type": "string",
+      "example": "string-value"
     },
     "destination": {
+      "description": "IATA code of the destination city - [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)",
       "type": "string",
-      "description": "IATA code of the destination city - [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)"
+      "example": "WAS"
     },
     "analytics": {
-      "$ref": "#/definitions/Analytics"
+      "properties": {
+        "flights": {
+          "properties": {
+            "score": {
+              "type": "number",
+              "format": "integer",
+              "description": "Approximate score for ranking purposes calculated based on number of flights from / to the airport or city",
+              "example": 56
+            }
+          }
+        },
+        "travelers": {
+          "properties": {
+            "score": {
+              "type": "number",
+              "format": "integer",
+              "description": "Approximate score for ranking purposes calculated based on number of travelers in the location.",
+              "example": 68
+            }
+          }
+        }
+      }
     }
-  }
+  },
+  "type": "object"
 }

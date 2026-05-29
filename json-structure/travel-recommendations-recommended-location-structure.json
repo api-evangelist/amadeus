@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/travel-recommendations-recommended-location-structure.json",
+  "title": "RecommendedLocation",
+  "description": "Similar Location",
+  "type": "object"
+}

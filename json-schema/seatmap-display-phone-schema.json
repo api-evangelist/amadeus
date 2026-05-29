@@ -1,48 +1,68 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-phone-schema.json",
   "title": "Phone",
   "description": "phone information",
   "type": "object",
   "properties": {
     "category": {
-      "type": "string",
       "description": "Category of the contact element",
+      "type": "string",
       "enum": [
         "BUSINESS",
         "PERSONAL",
         "OTHER"
-      ]
+      ],
+      "example": "BUSINESS"
     },
     "addresseeName": {
       "type": "string",
-      "description": "Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)."
+      "description": "Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted).",
+      "pattern": "[a-zA-Z -]",
+      "example": "Sample Name"
     },
     "deviceType": {
-      "$ref": "#/definitions/PhoneDeviceType"
+      "type": "string",
+      "description": "Type of the device (Landline, Mobile or Fax)",
+      "enum": [
+        "MOBILE",
+        "LANDLINE",
+        "FAX"
+      ]
     },
     "countryCode": {
       "type": "string",
-      "description": "Country code of the country (ISO3166-1). E.g. \"US\" for the United States"
+      "description": "Country code of the country (ISO3166-1). E.g. \"US\" for the United States",
+      "pattern": "[A-Z]{2}",
+      "example": "FR"
     },
     "countryCallingCode": {
       "type": "string",
-      "description": "Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia."
+      "description": "Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia.",
+      "pattern": "[0-9+]{2,5}",
+      "example": 1
     },
     "areaCode": {
       "type": "string",
-      "description": "Corresponds to a regional code or a city code. The length of the field varies depending on the area."
+      "description": "Corresponds to a regional code or a city code. The length of the field varies depending on the area.",
+      "pattern": "[0-9]{1,4}",
+      "example": "string-value"
     },
     "number": {
       "type": "string",
-      "description": "Phone number. Composed of digits only. The number of digits depends on the country."
+      "description": "Phone number. Composed of digits only. The number of digits depends on the country.",
+      "pattern": "[0-9]{1,15}",
+      "example": 1
     },
     "extension": {
       "type": "string",
-      "description": "Extension of the phone"
+      "description": "Extension of the phone",
+      "example": "string-value"
     },
     "text": {
       "type": "string",
-      "description": "String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided"
+      "description": "String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided",
+      "example": "string-value"
     }
   }
 }

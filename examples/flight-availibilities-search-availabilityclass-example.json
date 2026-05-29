@@ -1,6 +1,0 @@
-{
-  "numberOfBookableSeats": 1.0,
-  "class": "example-class",
-  "closedStatus": "WAITLIST_OPEN",
-  "tourAllotment": "example-tourAllotment"
-}

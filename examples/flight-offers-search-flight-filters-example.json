@@ -1,0 +1,24 @@
+{
+  "crossBorderAllowed": false,
+  "moreOvernightsAllowed": false,
+  "returnToDepartureAirport": false,
+  "railSegmentAllowed": true,
+  "busSegmentAllowed": true,
+  "maxFlightTime": 200,
+  "carrierRestrictions": {
+    "blacklistedInEUAllowed": true,
+    "excludedCarrierCodes": [
+      "string-value"
+    ],
+    "includedCarrierCodes": [
+      "string-value"
+    ]
+  },
+  "cabinRestrictions": [],
+  "connectionRestriction": {
+    "maxNumberOfConnections": 2,
+    "nonStopPreferred": false,
+    "airportChangeAllowed": false,
+    "technicalStopsAllowed": true
+  }
+}

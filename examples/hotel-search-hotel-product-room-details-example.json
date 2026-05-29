@@ -1,0 +1,12 @@
+{
+  "type": "string-value",
+  "typeEstimated": {
+    "category": "string-value",
+    "beds": 1,
+    "bedType": "string-value"
+  },
+  "description": {
+    "text": "A description",
+    "lang": "fr-FR"
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "paymentType": "example-paymentType",
-  "guarantee": "example-guarantee",
-  "deposit": "example-deposit",
-  "prepay": "example-prepay",
-  "holdTime": "example-holdTime",
-  "cancellations": [],
-  "checkInOut": "example-checkInOut"
-}

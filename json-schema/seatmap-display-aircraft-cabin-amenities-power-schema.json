@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-aircraft-cabin-amenities-power-schema.json",
+  "title": "AircraftCabinAmenities_Power",
+  "description": "AircraftCabinAmenities_Power schema from Seatmap Display",
+  "allOf": [
+    {
+      "type": "object",
+      "description": "Base data model related to Amenity, inherited amenities can be created using this baseline for extension ( using type for polymorphism ) amenityType : Enum related to generic Amenity model to identify which amenityType",
+      "title": "Amenity",
+      "properties": {
+        "isChargeable": {
+          "description": "Specify if the traveler will need to pay extra in-flight to get the amenity",
+          "type": "boolean",
+          "example": true
+        }
+      }
+    },
+    {
+      "type": "object",
+      "description": "Type of power outlet for a given flight",
+      "properties": {
+        "powerType": {
+          "type": "string",
+          "enum": [
+            "PLUG",
+            "USB_PORT",
+            "ADAPTOR",
+            "PLUG_OR_USB_PORT"
+          ]
+        },
+        "usbType": {
+          "type": "string",
+          "enum": [
+            "USB_A",
+            "USB_C",
+            "USB_A_AND_USB_C"
+          ]
+        }
+      }
+    }
+  ]
+}

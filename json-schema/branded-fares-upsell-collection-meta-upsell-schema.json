@@ -1,17 +1,21 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/branded-fares-upsell-collection-meta-upsell-schema.json",
   "title": "Collection_Meta_Upsell",
-  "type": "object",
+  "description": "Collection_Meta_Upsell schema from Branded Fares Upsell",
   "properties": {
     "count": {
-      "type": "integer"
+      "type": "integer",
+      "example": 1
     },
     "oneWayUpselledCombinations": {
       "type": "array",
       "items": {
+        "title": "oneWayUpselledCombinations",
         "properties": {
           "flightOfferId": {
-            "type": "string"
+            "type": "string",
+            "example": "12345"
           },
           "upselledFlightOfferIds": {
             "type": "array",
@@ -22,5 +26,6 @@
         }
       }
     }
-  }
+  },
+  "type": "object"
 }

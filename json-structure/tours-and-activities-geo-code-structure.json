@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/tours-and-activities-geo-code-structure.json",
+  "title": "GeoCode",
+  "description": "geo position",
+  "type": "object",
+  "properties": {
+    "latitude": {
+      "type": "number",
+      "format": "double",
+      "description": "latitude of the location"
+    },
+    "longitude": {
+      "type": "number",
+      "format": "double",
+      "description": "longitude of the location"
+    }
+  }
+}

@@ -1,14 +1,24 @@
 {
-  "type": "example-type",
-  "id": "example-id",
-  "self": "example-self",
-  "name": "example-name",
-  "shortDescription": "example-shortDescription",
-  "description": "example-description",
-  "geoCode": "example-geoCode",
-  "rating": "example-rating",
-  "price": "example-price",
-  "pictures": [],
-  "bookingLink": "example-bookingLink",
-  "minimumDuration": "example-minimumDuration"
+  "type": "string-value",
+  "id": "12345",
+  "self": {
+    "href": "string"
+  },
+  "name": "Sample Name",
+  "shortDescription": "Sample description text.",
+  "description": "Sample description text.",
+  "geoCode": {
+    "latitude": 43.580418,
+    "longitude": 7.125102
+  },
+  "rating": "string-value",
+  "price": {
+    "amount": "199.50",
+    "currencyCode": "EUR"
+  },
+  "pictures": [
+    "string-value"
+  ],
+  "bookingLink": "string-value",
+  "minimumDuration": "PT2H30M"
 }

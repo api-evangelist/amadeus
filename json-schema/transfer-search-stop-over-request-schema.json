@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-search-stop-over-request-schema.json",
+  "title": "StopOverRequest",
+  "description": "StopOverRequest schema from Transfer Search",
+  "properties": {
+    "duration": {
+      "description": "the intermediate stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+      "type": "string",
+      "example": "PT2H30M"
+    },
+    "locationCode": {
+      "type": "string",
+      "description": "the intermediate stop airport IATA code, e.g. CDG. Location could be defined either using location code or address (address line, zip code, country code, city, geo code)",
+      "pattern": "[A-Za-z]{3}",
+      "example": "CDG"
+    },
+    "addressLine": {
+      "type": "string",
+      "description": "the intermediate stop street address including building number, e.g. 5 Avenue Anatole France",
+      "example": "5 Avenue Anatole France"
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "the intermediate stop country, the location with [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format (e.g. US)",
+      "pattern": "[A-Za-z]{2}",
+      "example": "US"
+    },
+    "cityName": {
+      "type": "string",
+      "description": "the intermediate stop city name, e.g. Paris",
+      "example": "Paris"
+    },
+    "zipCode": {
+      "type": "string",
+      "description": "the intermediate stop postal/zip code, e.g. 75007",
+      "pattern": "[a-zA-Z0-9]{1,20}",
+      "example": 75007
+    },
+    "googlePlaceId": {
+      "description": "the intermediate stop google place id only for google address e.g. ChIJL-DOWeBv5kcRfTbh97PimNc.",
+      "type": "string",
+      "example": "ChIJrTLr-GyuEmsRBfy61i59si0"
+    },
+    "name": {
+      "type": "string",
+      "description": "the intermediate stop name e.g. Airport Name, Hotel Name etc.",
+      "example": "Sample Name"
+    },
+    "stateCode": {
+      "type": "string",
+      "description": "the intermediate stop state code according to [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2)",
+      "example": "string-value"
+    },
+    "geoCode": {
+      "type": "string",
+      "description": "the intermediate stop latitude and longitude of geographical location following the structure {latitude},{longitude} e.g. 48.858093,2.294694",
+      "example": "48.858093,2.294694"
+    },
+    "sequenceNumber": {
+      "description": "sequence number of the stop e.g. 3",
+      "type": "number",
+      "example": 1
+    },
+    "uicCode": {
+      "type": "string",
+      "description": "UIC code defined by the worldwide railway organization e.g. 8600626",
+      "example": "string-value"
+    }
+  },
+  "type": "object"
+}

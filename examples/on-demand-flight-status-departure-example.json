@@ -1,5 +1,17 @@
 {
-  "terminal": "example-terminal",
-  "gate": "example-gate",
-  "timings": []
+  "terminal": {
+    "code": 1
+  },
+  "gate": {
+    "mainGate": "10A"
+  },
+  "timings": [
+    {
+      "qualifier": "STD",
+      "value": "06:00:00",
+      "delays": [
+        {}
+      ]
+    }
+  ]
 }

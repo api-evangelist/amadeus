@@ -1,6 +1,9 @@
 {
-  "title": "example-title",
-  "href": "https://example.com",
-  "description": "example-description",
-  "mediaType": "application"
+  "title": "My image title",
+  "href": "http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6",
+  "description": {
+    "text": "Do you need and example ?",
+    "lang": "fr-FR"
+  },
+  "mediaType": "image"
 }

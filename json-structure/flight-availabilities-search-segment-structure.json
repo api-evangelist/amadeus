@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-availabilities-search-segment-structure.json",
+  "title": "Segment",
+  "description": "Segment structure from Flight Availibilities Search",
+  "type": "object"
+}

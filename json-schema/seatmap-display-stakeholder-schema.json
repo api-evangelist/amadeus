@@ -1,29 +1,144 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-stakeholder-schema.json",
   "title": "Stakeholder",
   "description": "stakeholder definition",
   "type": "object",
   "properties": {
     "id": {
+      "description": "item identifier",
       "type": "string",
-      "description": "item identifier"
+      "example": "12345"
     },
     "dateOfBirth": {
       "type": "string",
       "format": "date",
-      "description": "The date of birth in ISO 8601 format (yyyy-mm-dd)"
+      "description": "The date of birth in ISO 8601 format (yyyy-mm-dd)",
+      "example": "2026-08-15"
     },
     "gender": {
-      "$ref": "#/definitions/StakeholderGender"
+      "type": "string",
+      "description": "The gender",
+      "enum": [
+        "MALE",
+        "FEMALE"
+      ],
+      "example": "FEMALE"
     },
     "name": {
-      "$ref": "#/definitions/Name"
+      "title": "name",
+      "description": "name",
+      "allOf": [
+        {
+          "type": "object",
+          "description": "description of the name of a physical person",
+          "properties": {
+            "firstName": {
+              "description": "First name.",
+              "type": "string",
+              "example": "Marie"
+            },
+            "lastName": {
+              "description": "Last name.",
+              "type": "string",
+              "example": "Dupont"
+            },
+            "middleName": {
+              "description": "Middle name(s), for example \"Lee\" in \"John Lee Smith\".",
+              "type": "string",
+              "example": "Sample Name"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "secondLastName": {
+              "description": "second last name",
+              "type": "string"
+            }
+          }
+        }
+      ]
     },
     "documents": {
       "type": "array",
       "description": "Advanced Passenger Information - regulatory identity documents - SSR DOCS & DOCO elements",
       "items": {
-        "$ref": "#/definitions/IdentityDocument"
+        "title": "traveler documents",
+        "description": "documents of the traveler",
+        "allOf": [
+          {
+            "type": "object",
+            "description": "the information that are found on an ID document",
+            "properties": {
+              "number": {
+                "type": "string",
+                "description": "The document number (shown on the document) . E.g. QFU514563221J",
+                "example": 1
+              },
+              "issuanceDate": {
+                "type": "string",
+                "description": "Date at which the document has been issued.",
+                "format": "date",
+                "example": "2026-08-15"
+              },
+              "expiryDate": {
+                "type": "string",
+                "description": "Date after which the document is not valid anymore.",
+                "format": "date",
+                "example": "2026-08-15"
+              },
+              "issuanceCountry": {
+                "type": "string",
+                "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the country that issued the document",
+                "pattern": "[a-zA-Z]{2}",
+                "example": 1
+              },
+              "issuanceLocation": {
+                "type": "string",
+                "description": "A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York",
+                "example": "string-value"
+              },
+              "nationality": {
+                "type": "string",
+                "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the nationality appearing on the document",
+                "pattern": "[a-zA-Z]{2}",
+                "example": "string-value"
+              },
+              "birthPlace": {
+                "type": "string",
+                "description": "Birth place as indicated on the document",
+                "example": "string-value"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "documentType": {
+                "$ref": "#/definitions/DocumentType"
+              },
+              "validityCountry": {
+                "type": "string",
+                "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the country where the document is valid",
+                "example": "IN",
+                "pattern": "[a-zA-Z]{2}"
+              },
+              "birthCountry": {
+                "type": "string",
+                "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the country of birth",
+                "example": "FR",
+                "pattern": "[a-zA-Z]{2}"
+              },
+              "holder": {
+                "type": "boolean",
+                "description": "boolean to specify if the traveler is the holder of the document",
+                "example": true
+              }
+            }
+          }
+        ]
       }
     }
   }

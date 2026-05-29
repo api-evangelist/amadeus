@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-aircraft-cabin-amenities-power-structure.json",
+  "title": "AircraftCabinAmenities_Power",
+  "description": "AircraftCabinAmenities_Power structure from Seatmap Display",
+  "type": "object"
+}

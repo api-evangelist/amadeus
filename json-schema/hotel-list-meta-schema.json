@@ -1,5 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-list-meta-schema.json",
   "title": "Meta",
   "description": "Meta information about the returned object(s) in \"data\"",
   "type": "object",
@@ -7,7 +8,10 @@
     "count": {
       "type": "integer",
       "format": "int64",
-      "description": "Total number of object(s) retrieved"
+      "description": "Total number of object(s) retrieved",
+      "minimum": 0,
+      "exclusiveMinimum": false,
+      "example": 1
     },
     "sort": {
       "type": "array",
@@ -18,32 +22,38 @@
     },
     "links": {
       "type": "object",
+      "title": "Links",
       "description": "Links related to the returned object(s)",
       "properties": {
         "self": {
           "type": "string",
           "format": "url",
-          "description": "Link to the same page."
+          "description": "Link to the same page.",
+          "example": "https://example.com/resource"
         },
         "first": {
           "type": "string",
           "format": "url",
-          "description": "Link to the first page."
+          "description": "Link to the first page.",
+          "example": "https://example.com/resource"
         },
         "prev": {
           "type": "string",
           "format": "url",
-          "description": "Link to the previous page."
+          "description": "Link to the previous page.",
+          "example": "https://example.com/resource"
         },
         "next": {
           "type": "string",
           "format": "url",
-          "description": "Link to the next page."
+          "description": "Link to the next page.",
+          "example": "https://example.com/resource"
         },
         "last": {
           "type": "string",
           "format": "url",
-          "description": "Link to the last page."
+          "description": "Link to the last page.",
+          "example": "https://example.com/resource"
         }
       }
     }

@@ -1,0 +1,7 @@
+{
+  "type": "checkin-link",
+  "id": "1XEN-GBMobile",
+  "href": "https://example.com/resource",
+  "channel": "Mobile",
+  "parameters": "string-value"
+}

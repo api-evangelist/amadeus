@@ -1,0 +1,85 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Transfer Management — Booking"
+  description: 'Transfer Management — Booking. 1 operation(s). Lead operation: Amadeus Cancel a Transfer in an Existing OrderId.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Booking
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: transfer-management-booking
+      baseUri: https://test.api.amadeus.com/v1
+      description: Transfer Management — Booking business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: ordering-transfer-orders-transfers-cancellation
+          path: /ordering/transfer-orders/{orderId}/transfers/cancellation
+          operations:
+            - name: cancelTransfer
+              method: POST
+              description: Amadeus Cancel a Transfer in an Existing OrderId.
+              inputParameters:
+                - name: orderId
+                  in: path
+                  type: string
+                  required: true
+                  description: transfer order identifier
+                - name: confirmNbr
+                  in: query
+                  type: string
+                  required: true
+                  description: transfer identifier - confirmation number from transfer supplier that identifies the ride
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: transfer-management-booking-rest
+      port: 8080
+      description: REST adapter for Transfer Management — Booking. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/ordering/transfer-orders/{order-id}/transfers/cancellation
+          name: ordering-transfer-orders-transfers-cancellation
+          description: REST surface for ordering-transfer-orders-transfers-cancellation.
+          operations:
+            - method: POST
+              name: cancelTransfer
+              description: Amadeus Cancel a Transfer in an Existing OrderId.
+              call: transfer-management-booking.cancelTransfer
+              with:
+                orderId: rest.orderId
+                confirmNbr: rest.confirmNbr
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: transfer-management-booking-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Transfer Management — Booking. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: cancel-transfer-existing-orderid
+          description: Amadeus Cancel a Transfer in an Existing OrderId.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: transfer-management-booking.cancelTransfer
+          with:
+            orderId: tools.orderId
+            confirmNbr: tools.confirmNbr
+          outputParameters:
+            - type: object
+              mapping: $.

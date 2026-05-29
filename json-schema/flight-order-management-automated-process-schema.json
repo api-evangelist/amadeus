@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-order-management-automated-process-schema.json",
+  "title": "AutomatedProcess",
+  "description": "automatic process applied to the Order",
+  "allOf": [
+    {
+      "type": "object",
+      "description": "Provides information on ticketing arrangements and Amadeus Time Limits",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "queuing action to be taken",
+          "enum": [
+            "IMMEDIATE",
+            "DELAYED",
+            "ERROR"
+          ],
+          "example": "IMMEDIATE"
+        },
+        "queue": {
+          "title": "Queue",
+          "type": "object",
+          "description": "Identifies the queue onto which PNR must be automatically placed upon process execution.",
+          "properties": {
+            "number": {
+              "type": "string",
+              "example": 1
+            },
+            "category": {
+              "type": "string",
+              "example": "string-value"
+            }
+          }
+        },
+        "text": {
+          "type": "string",
+          "description": "Free text",
+          "example": "string-value"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "delay": {
+          "description": "Delay before applying process in days",
+          "type": "string"
+        },
+        "officeId": {
+          "description": "Office into which the process must be triggered.",
+          "type": "string",
+          "example": "NCE1A0955"
+        },
+        "dateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Datetime limit at which the process takes action in case issuance is not done."
+        }
+      }
+    }
+  ]
+}

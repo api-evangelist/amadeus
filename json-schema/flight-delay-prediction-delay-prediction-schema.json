@@ -1,25 +1,40 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-delay-prediction-delay-prediction-schema.json",
   "title": "Delay_Prediction",
-  "type": "object",
+  "description": "Delay_Prediction schema from Flight Delay Prediction",
   "properties": {
     "type": {
+      "description": "the resource name (`prediction`)",
       "type": "string",
-      "description": "the resource name (`prediction`)"
+      "example": "string-value"
     },
     "subType": {
-      "type": "string"
+      "type": "string",
+      "example": "trip-purpose"
     },
     "id": {
+      "description": "item identifier",
       "type": "string",
-      "description": "item identifier"
+      "readOnly": true,
+      "example": "12345"
     },
     "result": {
-      "$ref": "#/definitions/PredictionResultType"
+      "description": "forecast description",
+      "type": "string",
+      "enum": [
+        "LESS_THAN_30_MINUTES",
+        "BETWEEN_30_AND_60_MINUTES",
+        "BETWEEN_60_AND_120_MINUTES",
+        "OVER_120_MINUTES_OR_CANCELLED"
+      ],
+      "example": "LESS_THAN_30_MINUTES"
     },
     "probability": {
+      "description": "probability of the forecast (between 0 and 1)",
       "type": "string",
-      "description": "probability of the forecast (between 0 and 1)"
+      "example": "string-value"
     }
-  }
+  },
+  "type": "object"
 }

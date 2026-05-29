@@ -1,0 +1,83 @@
+{
+  "type": "flight-offer",
+  "id": "1",
+  "source": "GDS",
+  "instantTicketingRequired": false,
+  "disablePricing": false,
+  "nonHomogeneous": false,
+  "oneWay": false,
+  "paymentCardRequired": false,
+  "lastTicketingDate": "2018-06-19T00:00:00.000Z",
+  "numberOfBookableSeats": 9,
+  "itineraries": [
+    {
+      "duration": "PT2H10M",
+      "segments": []
+    }
+  ],
+  "price": {},
+  "pricingOptions": {
+    "fareType": [
+      "PUBLISHED"
+    ],
+    "corporateCodes": [
+      "123456"
+    ],
+    "includedCheckedBagsOnly": true,
+    "refundableFare": true,
+    "noRestrictionFare": true,
+    "noPenaltyFare": true
+  },
+  "validatingAirlineCodes": [
+    "AF"
+  ],
+  "travelerPricings": [
+    {
+      "travelerId": "1",
+      "fareOption": "STANDARD",
+      "travelerType": "ADULT",
+      "associatedAdultId": "12345",
+      "price": {
+        "currency": "USD",
+        "total": "932.70",
+        "base": "632.70",
+        "fees": [],
+        "taxes": []
+      },
+      "fareDetailsBySegment": [
+        {
+          "segmentId": "1",
+          "cabin": "PREMIUM_ECONOMY",
+          "fareBasis": "ANNNNF4K",
+          "brandedFare": "LIGHTONE",
+          "class": "A",
+          "isAllotment": true,
+          "allotmentDetails": {
+            "tourName": "Sample Name",
+            "tourReference": "string-value"
+          },
+          "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+          "includedCheckedBags": {},
+          "additionalServices": {
+            "chargeableSeatNumber": "33D",
+            "otherServices": [
+              "PRIORITY_BOARDING"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "fareRules": {
+    "currency": "EUR",
+    "rules": [
+      {
+        "category": "EXCHANGE",
+        "circumstances": "string-value",
+        "notApplicable": true,
+        "maxPenaltyAmount": "199.50",
+        "descriptions": []
+      }
+    ]
+  }
+}

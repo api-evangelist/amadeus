@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/airport-on-time-performance-on-time-prediction-schema.json",
+  "title": "OnTimePrediction",
+  "description": "OnTimePrediction schema from Airport On-Time Performance",
+  "properties": {
+    "type": {
+      "description": "the resource name (`prediction`)",
+      "type": "string",
+      "example": "string-value"
+    },
+    "subType": {
+      "type": "string",
+      "example": "trip-purpose"
+    },
+    "id": {
+      "description": "item identifier",
+      "type": "string",
+      "readOnly": true,
+      "example": "12345"
+    },
+    "result": {
+      "description": "forecast description",
+      "type": "string",
+      "example": 0.8
+    },
+    "probability": {
+      "description": "probability of the forecast (between 0 and 1)",
+      "type": "string",
+      "example": "string-value"
+    }
+  },
+  "type": "object"
+}

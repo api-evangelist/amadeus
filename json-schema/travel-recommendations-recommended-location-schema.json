@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/travel-recommendations-recommended-location-schema.json",
+  "title": "RecommendedLocation",
+  "description": "Similar Location",
+  "allOf": [
+    {
+      "type": "object",
+      "description": "Description of a particular point or place in physical space",
+      "title": "Location",
+      "properties": {
+        "subtype": {
+          "type": "string",
+          "description": "Location sub-type (e.g. airport, port, rail-station, restaurant, atm...)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Label associated to the location (e.g. Eiffel Tower, Madison Square)",
+          "example": "Eiffel Tower"
+        },
+        "iataCode": {
+          "type": "string",
+          "description": "IATA location code",
+          "example": "PAR"
+        },
+        "geoCode": {
+          "type": "object",
+          "description": "Geographic coordinates describing the position of any location on the surface of Earth",
+          "title": "GeoCode",
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "format": "float",
+              "description": "Latitude of the position expressed in decimal degrees (WSG 84), e.g. 6.244203. A positive value denotes northern hemisphere or the equator, and a negative value denotes southern hemisphere. The number of digits to represent the precision of the coordinate.",
+              "minimum": -90,
+              "exclusiveMinimum": false,
+              "maximum": 90,
+              "exclusiveMaximum": false,
+              "example": 48.85837
+            },
+            "longitude": {
+              "type": "number",
+              "format": "float",
+              "description": "Longitude of the position expressed in decimal degrees (WSG 84), e.g. -75.581211. A positive value denotes east longitude or the prime meridian, and a negative value denotes west longitude.  The number of digits to represent the precision of the coordinate.",
+              "minimum": -180,
+              "exclusiveMinimum": false,
+              "maximum": 180,
+              "exclusiveMaximum": false,
+              "example": 2.294481
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Ressource type"
+        },
+        "relevance": {
+          "type": "number",
+          "description": "percentage of similarity.\n\n0 for not similar to 1 for exactly the same"
+        }
+      }
+    }
+  ]
+}

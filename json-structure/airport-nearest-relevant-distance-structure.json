@@ -1,17 +1,17 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Distance",
-  "type": "record",
-  "fields": [
-    {
-      "name": "value",
-      "type": "int32",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/airport-nearest-relevant-distance-structure.json",
+  "title": "Distance",
+  "description": "Distance structure from Airport Nearest Relevant",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer",
       "description": "great-circle distance between two locations. This distance thus do not take into account traffic conditions; international boundaries; mountains; water; or other elements that might make the a nearby location hard to reach."
     },
-    {
-      "name": "unit",
+    "unit": {
       "type": "string",
       "description": "unit of the distance"
     }
-  ]
+  }
 }

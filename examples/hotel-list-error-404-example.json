@@ -1,3 +1,13 @@
 {
-  "errors": []
+  "errors": [
+    {
+      "status": 404,
+      "code": 1797,
+      "title": "NOT FOUND",
+      "detail": "no response found for this query parameter",
+      "source": {
+        "parameter": "hotelIds"
+      }
+    }
+  ]
 }

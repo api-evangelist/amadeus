@@ -1,0 +1,155 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Points of Interest — Search"
+  description: 'Points of Interest — Search. 2 operation(s). Lead operation: Amadeus Returns Points of Interest for a Given Location and Radius.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Search
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: points-of-interest-search
+      baseUri: https://test.api.amadeus.com/v1
+      description: Points of Interest — Search business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: reference-data-locations-pois
+          path: /reference-data/locations/pois
+          operations:
+            - name: getPointsOfInterest
+              method: GET
+              description: Amadeus Returns Points of Interest for a Given Location and Radius.
+              inputParameters:
+                - name: latitude
+                  in: query
+                  type: number
+                  required: true
+                  description: Latitude (decimal coordinates)
+                - name: longitude
+                  in: query
+                  type: number
+                  required: true
+                  description: Longitude (decimal coordinates)
+                - name: radius
+                  in: query
+                  type: integer
+                  required: false
+                  description: radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: reference-data-locations-pois-by-square
+          path: /reference-data/locations/pois/by-square
+          operations:
+            - name: getPointsOfInterestBySquare
+              method: GET
+              description: Amadeus Returns Points of Interest for a Given Area
+              inputParameters:
+                - name: north
+                  in: query
+                  type: number
+                  required: true
+                  description: Latitude north of bounding box (decimal coordinates)
+                - name: west
+                  in: query
+                  type: number
+                  required: true
+                  description: Longitude west of bounding box (decimal coordinates)
+                - name: south
+                  in: query
+                  type: number
+                  required: true
+                  description: Latitude south of bounding box (decimal coordinates)
+                - name: east
+                  in: query
+                  type: number
+                  required: true
+                  description: Longitude east of bounding box (decimal coordinates)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: points-of-interest-search-rest
+      port: 8080
+      description: REST adapter for Points of Interest — Search. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/reference-data/locations/pois
+          name: reference-data-locations-pois
+          description: REST surface for reference-data-locations-pois.
+          operations:
+            - method: GET
+              name: getPointsOfInterest
+              description: Amadeus Returns Points of Interest for a Given Location and Radius.
+              call: points-of-interest-search.getPointsOfInterest
+              with:
+                latitude: rest.latitude
+                longitude: rest.longitude
+                radius: rest.radius
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/reference-data/locations/pois/by-square
+          name: reference-data-locations-pois-by-square
+          description: REST surface for reference-data-locations-pois-by-square.
+          operations:
+            - method: GET
+              name: getPointsOfInterestBySquare
+              description: Amadeus Returns Points of Interest for a Given Area
+              call: points-of-interest-search.getPointsOfInterestBySquare
+              with:
+                north: rest.north
+                west: rest.west
+                south: rest.south
+                east: rest.east
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: points-of-interest-search-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Points of Interest — Search. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: returns-points-interest-given-location
+          description: Amadeus Returns Points of Interest for a Given Location and Radius.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: points-of-interest-search.getPointsOfInterest
+          with:
+            latitude: tools.latitude
+            longitude: tools.longitude
+            radius: tools.radius
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: returns-points-interest-given-area
+          description: Amadeus Returns Points of Interest for a Given Area
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: points-of-interest-search.getPointsOfInterestBySquare
+          with:
+            north: tools.north
+            west: tools.west
+            south: tools.south
+            east: tools.east
+          outputParameters:
+            - type: object
+              mapping: $.

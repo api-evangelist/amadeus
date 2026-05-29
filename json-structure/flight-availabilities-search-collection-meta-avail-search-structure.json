@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-availabilities-search-collection-meta-avail-search-structure.json",
+  "title": "Collection_Meta_AvailSearch",
+  "description": "Collection_Meta_AvailSearch structure from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer"
+    }
+  }
+}

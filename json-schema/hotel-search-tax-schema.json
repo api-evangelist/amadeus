@@ -1,40 +1,51 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-tax-schema.json",
   "title": "Tax",
   "description": "IATA Tax definition: An impost for raising revenue for the general treasury and which will be used for general public purposes.",
   "type": "object",
   "properties": {
     "amount": {
+      "description": "Defines amount with decimal separator.",
       "type": "string",
-      "description": "Defines amount with decimal separator."
+      "example": "199.50"
     },
     "currency": {
+      "description": "Defines a monetary unit. It is a three alpha code (iata code). Example: EUR for Euros, USD for US dollar, etc.",
       "type": "string",
-      "description": "Defines a monetary unit. It is a three alpha code (iata code). Example: EUR for Euros, USD for US dollar, etc."
+      "minLength": 1,
+      "maxLength": 3,
+      "example": "EUR"
     },
     "code": {
+      "description": "International Standards Organization (ISO) Tax code.It is a two-letter country code.",
       "type": "string",
-      "description": "International Standards Organization (ISO) Tax code.It is a two-letter country code."
+      "example": "string-value"
     },
     "percentage": {
+      "description": "In the case of a tax on TST value, the percentage of the tax will be indicated in this field.",
       "type": "string",
-      "description": "In the case of a tax on TST value, the percentage of the tax will be indicated in this field."
+      "example": 50
     },
     "included": {
+      "description": "Indicates if tax is included or not",
       "type": "boolean",
-      "description": "Indicates if tax is included or not"
+      "example": true
     },
     "description": {
+      "description": "Example - \"Governement tax\"",
       "type": "string",
-      "description": "Example - \"Governement tax\""
+      "example": "Sample description text."
     },
     "pricingFrequency": {
+      "description": "Specifies if the tax applies per stay or per night\n  - PER_STAY\n  - PER_NIGHT",
       "type": "string",
-      "description": "Specifies if the tax applies per stay or per night\n  - PER_STAY\n  - PER_NIGHT"
+      "example": "string-value"
     },
     "pricingMode": {
+      "description": "Specifies if the tax applies per occupant or per room\n  - PER_OCCUPANT\n  - PER_PRODUCT",
       "type": "string",
-      "description": "Specifies if the tax applies per occupant or per room\n  - PER_OCCUPANT\n  - PER_PRODUCT"
+      "example": "string-value"
     }
   }
 }

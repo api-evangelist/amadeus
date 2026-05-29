@@ -1,0 +1,112 @@
+{
+  "checkInDate": "2020-12-30",
+  "checkOutDate": "2020-12-31",
+  "roomQuantity": 1,
+  "rateCode": "RAC",
+  "category": "FAMILY_PLAN",
+  "commission": {
+    "percentage": 50,
+    "amount": "199.50",
+    "description": {
+      "text": "Do you need and example ?",
+      "lang": "fr-FR"
+    }
+  },
+  "room": {
+    "type": "string-value",
+    "description": {
+      "text": "Do you need and example ?",
+      "lang": "fr-FR"
+    }
+  },
+  "guests": {
+    "adults": 2,
+    "childAges": [
+      1
+    ]
+  },
+  "price": "199.50",
+  "policies": {
+    "paymentType": "DEPOSIT",
+    "guarantee": {
+      "description": {
+        "text": "Do you need and example ?",
+        "lang": "fr-FR"
+      },
+      "acceptedPayments": {
+        "creditCards": [
+          "CA",
+          "VI",
+          "AX"
+        ],
+        "methods": [
+          "CREDIT_CARD"
+        ]
+      }
+    },
+    "deposit": {
+      "amount": "199.50",
+      "deadline": "2026-08-15T10:30:00Z",
+      "description": {
+        "text": "Do you need and example ?",
+        "lang": "fr-FR"
+      },
+      "acceptedPayments": {
+        "creditCards": [
+          "CA",
+          "VI",
+          "AX"
+        ],
+        "methods": []
+      }
+    },
+    "prepay": {
+      "amount": "199.50",
+      "deadline": "2026-08-15T10:30:00Z",
+      "description": {
+        "text": "Do you need and example ?",
+        "lang": "fr-FR"
+      },
+      "acceptedPayments": {
+        "creditCards": [
+          "CA",
+          "VI",
+          "AX"
+        ],
+        "methods": []
+      }
+    },
+    "holdTime": {
+      "deadline": "2026-08-15T10:30:00Z"
+    },
+    "checkInOut": {
+      "checkIn": "13:00:00",
+      "checkInDescription": {
+        "text": "Do you need and example ?",
+        "lang": "fr-FR"
+      },
+      "checkOut": "11:00:00",
+      "checkOutDescription": {
+        "text": "Do you need and example ?",
+        "lang": "fr-FR"
+      }
+    },
+    "cancellations": [
+      {
+        "type": "FULL_STAY",
+        "amount": "199.50",
+        "numberOfNights": 1,
+        "percentage": 50,
+        "deadline": "2026-08-15T10:30:00Z",
+        "description": {
+          "text": "Do you need and example ?",
+          "lang": "fr-FR"
+        }
+      }
+    ]
+  },
+  "rateFamilyEstimated": {
+    "code": "string-value",
+    "type": "string-value"
+  }
+}

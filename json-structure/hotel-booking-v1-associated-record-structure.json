@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-booking-v1-associated-record-structure.json",
+  "title": "AssociatedRecord",
+  "description": "Associated Record (Flight Booking Record)",
+  "type": "object",
+  "properties": {
+    "reference": {
+      "type": "string",
+      "description": "Amadeus GDS Record"
+    },
+    "originSystemCode": {
+      "type": "string",
+      "description": "* GDS: Associated Amadeus GDS Flight Booking PNR Record"
+    }
+  },
+  "required": [
+    "reference",
+    "originSystemCode"
+  ]
+}

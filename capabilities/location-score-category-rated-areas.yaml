@@ -1,0 +1,85 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Location Score — Category Rated Areas"
+  description: 'Location Score — Category Rated Areas. 1 operation(s). Lead operation: Amadeus GET Category Rated Areas. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Category Rated Areas
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: location-score-category-rated-areas
+      baseUri: https://test.api.amadeus.com/v1
+      description: Location Score — Category Rated Areas business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: location-analytics-category-rated-areas
+          path: /location/analytics/category-rated-areas
+          operations:
+            - name: get-category-rated-areas
+              method: GET
+              description: Amadeus GET Category Rated Areas
+              inputParameters:
+                - name: latitude
+                  in: query
+                  type: number
+                  required: true
+                  description: Latitude in decimal coordinates
+                - name: longitude
+                  in: query
+                  type: number
+                  required: true
+                  description: Longitude in decimal coordinates
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: location-score-category-rated-areas-rest
+      port: 8080
+      description: REST adapter for Location Score — Category Rated Areas. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/location/analytics/category-rated-areas
+          name: location-analytics-category-rated-areas
+          description: REST surface for location-analytics-category-rated-areas.
+          operations:
+            - method: GET
+              name: get-category-rated-areas
+              description: Amadeus GET Category Rated Areas
+              call: location-score-category-rated-areas.get-category-rated-areas
+              with:
+                latitude: rest.latitude
+                longitude: rest.longitude
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: location-score-category-rated-areas-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Location Score — Category Rated Areas. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-category-rated-areas
+          description: Amadeus GET Category Rated Areas
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: location-score-category-rated-areas.get-category-rated-areas
+          with:
+            latitude: tools.latitude
+            longitude: tools.longitude
+          outputParameters:
+            - type: object
+              mapping: $.

@@ -1,0 +1,68 @@
+{
+  "type": "seatmap",
+  "id": "12345",
+  "self": {
+    "href": "string"
+  },
+  "departure": {
+    "iataCode": "JFK",
+    "terminal": "T2",
+    "at": "2017-10-23T20:00:00+02:00"
+  },
+  "arrival": {
+    "iataCode": "JFK",
+    "terminal": "T2",
+    "at": "2017-10-23T20:00:00+02:00"
+  },
+  "carrierCode": "DL",
+  "number": "212",
+  "operating": {
+    "carrierCode": "DL",
+    "number": "212",
+    "suffix": "string-value"
+  },
+  "aircraft": {
+    "code": "318"
+  },
+  "class": "string-value",
+  "flightOfferId": "1",
+  "segmentId": "1",
+  "decks": [
+    {
+      "deckType": "UPPER",
+      "deckConfiguration": {
+        "width": 1,
+        "length": 1,
+        "startSeatRow": 1,
+        "endSeatRow": 1,
+        "startWingsX": 1,
+        "endWingsX": 1,
+        "startWingsRow": 1,
+        "endWingsRow": 1,
+        "exitRowsX": []
+      },
+      "facilities": [
+        {}
+      ],
+      "seats": [
+        {}
+      ]
+    }
+  ],
+  "aircraftCabinAmenities": {
+    "seat": {
+      "legSpace": 33,
+      "spaceUnit": "INCHES",
+      "tilt": "FULL_FLAT",
+      "amenityType": "SEAT",
+      "medias": []
+    },
+    "entertainment": []
+  },
+  "availableSeatsCounters": [
+    {
+      "travelerId": "12345",
+      "value": 5
+    }
+  ]
+}

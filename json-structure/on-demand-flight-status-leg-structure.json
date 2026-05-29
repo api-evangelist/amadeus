@@ -1,26 +1,24 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Leg",
-  "type": "record",
-  "fields": [
-    {
-      "name": "boardPointIataCode",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/on-demand-flight-status-leg-structure.json",
+  "title": "Leg",
+  "description": "Leg structure from On-Demand Flight Status",
+  "type": "object",
+  "properties": {
+    "boardPointIataCode": {
       "type": "string",
       "description": "3-letter IATA code of the departure airport. e.g. LHR"
     },
-    {
-      "name": "offPointIataCode",
+    "offPointIataCode": {
       "type": "string",
       "description": "3-letter IATA code of the arrival airport. e.g. BKK"
     },
-    {
-      "name": "aircraftEquipment",
+    "aircraftEquipment": {
       "type": "string"
     },
-    {
-      "name": "scheduledLegDuration",
+    "scheduledLegDuration": {
       "type": "string",
       "description": "duration of the leg following standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)"
     }
-  ]
+  }
 }

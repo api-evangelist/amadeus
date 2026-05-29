@@ -1,12 +1,15 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-busiest-traveling-period-travelers-schema.json",
   "title": "Travelers",
-  "type": "object",
+  "description": "Travelers schema from Flight Busiest Traveling Period",
   "properties": {
     "score": {
       "type": "number",
       "format": "integer",
-      "description": "Approximate score for ranking purposes calculated based on number of travelers in the location."
+      "description": "Approximate score for ranking purposes calculated based on number of travelers in the location.",
+      "example": 68
     }
-  }
+  },
+  "type": "object"
 }

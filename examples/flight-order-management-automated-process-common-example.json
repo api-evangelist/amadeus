@@ -1,0 +1,8 @@
+{
+  "code": "IMMEDIATE",
+  "queue": {
+    "number": 1,
+    "category": "string-value"
+  },
+  "text": "string-value"
+}

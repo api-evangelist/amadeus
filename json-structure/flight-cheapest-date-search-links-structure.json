@@ -1,11 +1,13 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Links",
-  "type": "record",
-  "fields": [
-    {
-      "name": "self",
-      "type": "uri"
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-cheapest-date-search-links-structure.json",
+  "title": "Links",
+  "description": "Links structure from Flight Cheapest Date Search",
+  "type": "object",
+  "properties": {
+    "self": {
+      "type": "string",
+      "format": "uri"
     }
-  ]
+  }
 }

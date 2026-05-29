@@ -1,8 +1,13 @@
 {
-  "id": "example-id",
-  "self": "example-self",
-  "type": "example-type",
+  "id": "12345",
+  "self": {
+    "href": "string"
+  },
+  "type": "location",
   "subType": "AIRPORT",
-  "name": "example-name",
-  "geoCode": "example-geoCode"
+  "name": "Paris CDG",
+  "geoCode": {
+    "latitude": 43.580418,
+    "longitude": 7.125102
+  }
 }

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-create-orders-aircraft-entry-structure.json",
+  "title": "AircraftEntry",
+  "description": "AircraftEntry structure from Flight Create Orders",
+  "type": "object"
+}

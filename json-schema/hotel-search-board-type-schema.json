@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-board-type-schema.json",
+  "title": "BoardType",
+  "description": "The included Breakfast/Meals",
+  "type": "string",
+  "enum": [
+    "ROOM_ONLY",
+    "BREAKFAST",
+    "HALF_BOARD",
+    "FULL_BOARD",
+    "ALL_INCLUSIVE",
+    "BUFFET_BREAKFAST",
+    "CARIBBEAN_BREAKFAST",
+    "CONTINENTAL_BREAKFAST",
+    "ENGLISH_BREAKFAST",
+    "FULL_BREAKFAST",
+    "DINNER_BED_AND_BREAKFAST",
+    "LUNCH",
+    "DINNER",
+    "FAMILY_PLAN",
+    "AS_BROCHURED",
+    "SELF_CATERING",
+    "BERMUDA",
+    "AMERICAN",
+    "FAMILY_AMERICAN",
+    "MODIFIED"
+  ]
+}

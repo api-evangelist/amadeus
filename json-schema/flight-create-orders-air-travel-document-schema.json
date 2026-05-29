@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-create-orders-air-travel-document-schema.json",
+  "title": "AirTravelDocument",
+  "description": "ticket information",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "documentType": {
+          "type": "string",
+          "description": "Type of the travel document",
+          "enum": [
+            "ETICKET",
+            "PTICKET",
+            "EMD",
+            "MCO"
+          ],
+          "example": "ETICKET"
+        },
+        "documentNumber": {
+          "type": "string",
+          "description": "Identifier of the travel document prefixed by its owner code [NALC - 3 digits]. Can either be a primary or a conjunctive document number. Necessary for TicketingReference definition.",
+          "example": 1
+        },
+        "documentStatus": {
+          "type": "string",
+          "description": "Status of the travel document contained in the fare element",
+          "enum": [
+            "ISSUED",
+            "REFUNDED",
+            "VOID",
+            "ORIGINAL",
+            "EXCHANGED"
+          ],
+          "example": "ISSUED"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "travelerId": {
+          "type": "string",
+          "description": "id of the impacted traveler",
+          "example": "1"
+        },
+        "segmentIds": {
+          "description": "Ids of the impacted segments",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": "1"
+        }
+      }
+    }
+  ]
+}

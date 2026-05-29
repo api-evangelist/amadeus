@@ -1,7 +1,7 @@
 {
-  "type": "example-type",
-  "subType": "example-subType",
-  "id": "example-id",
-  "result": "example-result",
-  "probability": "example-probability"
+  "type": "string-value",
+  "subType": "trip-purpose",
+  "id": "12345",
+  "result": "LESS_THAN_30_MINUTES",
+  "probability": "string-value"
 }

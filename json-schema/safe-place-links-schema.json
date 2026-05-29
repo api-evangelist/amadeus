@@ -1,11 +1,13 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/safe-place-links-schema.json",
   "title": "Links",
-  "type": "object",
+  "description": "Links schema from Safe Place",
   "properties": {
     "href": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "example": "https://example.com/resource"
     },
     "methods": {
       "type": "array",
@@ -21,10 +23,15 @@
       }
     },
     "count": {
-      "type": "integer"
+      "type": "integer",
+      "example": 1
     }
   },
   "required": [
     "href"
-  ]
+  ],
+  "example": {
+    "href": "string"
+  },
+  "type": "object"
 }

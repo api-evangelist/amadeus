@@ -1,16 +1,21 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-search-contact-schema.json",
   "title": "Contact",
+  "description": "Contact schema from Transfer Search",
   "type": "object",
   "properties": {
     "phoneNumber": {
       "type": "string",
-      "description": "Contact phone number"
+      "pattern": "([+]?)[0-9]{1,20}",
+      "description": "Contact phone number",
+      "example": "+33123456789"
     },
     "email": {
       "type": "string",
       "format": "email",
-      "description": "Contact email"
+      "description": "Contact email",
+      "example": "traveler@example.com"
     }
   }
 }

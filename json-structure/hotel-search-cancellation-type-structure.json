@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-search-cancellation-type-structure.json",
+  "title": "CancellationType",
+  "description": "* FULL_STAY: the Penalty amount equals the `total` price.",
+  "type": "string"
+}

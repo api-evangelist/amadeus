@@ -1,14 +1,15 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Error_404",
-  "type": "record",
-  "fields": [
-    {
-      "name": "errors",
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-management-error-404-structure.json",
+  "title": "Error_404",
+  "description": "Error_404 structure from Transfer Management",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array"
     }
+  },
+  "required": [
+    "errors"
   ]
 }

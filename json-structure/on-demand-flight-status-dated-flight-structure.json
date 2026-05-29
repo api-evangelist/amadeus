@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/on-demand-flight-status-dated-flight-structure.json",
+  "title": "DatedFlight",
+  "description": "DatedFlight structure from On-Demand Flight Status",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "scheduledDepartureDate": {
+      "type": "string",
+      "format": "date",
+      "description": "the scheduled departure date"
+    },
+    "flightDesignator": {
+      "type": "string"
+    },
+    "flightPoints": {
+      "type": "array",
+      "description": "the flight points of the flight.\nAt least one departure, one arrival\n"
+    },
+    "segments": {
+      "type": "array",
+      "description": "the list of segments of the datedFlight\n- definition of segment: the commercial unit corresponding to the passenger journey traveling between two points with the same flight (same flight designator)\n"
+    },
+    "legs": {
+      "type": "array",
+      "description": "the list of legs of the datedFlight.\n- definition of leg: operation of the aircraft between a departure station and the next arrival station (between take off and landing)\n"
+    }
+  }
+}

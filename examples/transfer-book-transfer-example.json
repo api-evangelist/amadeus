@@ -1,0 +1,144 @@
+{
+  "transferType": "PRIVATE",
+  "start": {
+    "dateTime": "2019-11-10T10:30:00",
+    "locationCode": "CDG",
+    "address": {
+      "line": "string-value",
+      "zip": "string-value",
+      "countryCode": "FR",
+      "cityName": "Paris",
+      "stateCode": "string-value",
+      "latitude": 43.580418,
+      "longitude": 7.125102
+    },
+    "name": "Sample Name",
+    "googlePlaceId": "ChIJrTLr-GyuEmsRBfy61i59si0",
+    "uicCode": "string-value"
+  },
+  "end": {
+    "dateTime": "2019-11-10T10:30:00",
+    "locationCode": "CDG",
+    "address": {
+      "line": "string-value",
+      "zip": "string-value",
+      "countryCode": "FR",
+      "cityName": "Paris",
+      "stateCode": "string-value",
+      "latitude": 43.580418,
+      "longitude": 7.125102
+    },
+    "name": "Sample Name",
+    "googlePlaceId": "ChIJrTLr-GyuEmsRBfy61i59si0",
+    "uicCode": "string-value"
+  },
+  "stopOvers": [
+    {
+      "duration": "PT2H30M",
+      "sequenceNumber": 1,
+      "location": {
+        "dateTime": "2019-11-10T10:30:00",
+        "locationCode": "CDG",
+        "name": "Sample Name",
+        "googlePlaceId": "ChIJrTLr-GyuEmsRBfy61i59si0",
+        "uicCode": "string-value"
+      }
+    }
+  ],
+  "passenegerCharacteristics": [
+    {
+      "passengerTypeCode": "child",
+      "age": 12
+    }
+  ],
+  "duration": "PT2H30M",
+  "vehicle": {
+    "code": "CAR",
+    "category": "ST",
+    "description": "Sample description text.",
+    "seats": [
+      {
+        "count": 3,
+        "row": "front",
+        "size": "XL"
+      }
+    ],
+    "baggages": [
+      {
+        "count": 3,
+        "size": "S"
+      }
+    ],
+    "imageURL": "https://example.com/resource"
+  },
+  "serviceProvider": {
+    "code": "string-value",
+    "name": "Sample Name",
+    "logoUrl": "https://example.com/resource",
+    "termsUrl": "https://example.com/resource",
+    "isPreferred": true,
+    "settings": [
+      "BILLING_ADDRESS_REQUIRED"
+    ],
+    "businessIdentification": "string-value"
+  },
+  "partnerInfo": {
+    "serviceProvider": {
+      "code": "string-value",
+      "name": "Sample Name",
+      "logoUrl": "https://example.com/resource",
+      "termsUrl": "https://example.com/resource",
+      "isPreferred": true,
+      "settings": [
+        "BILLING_ADDRESS_REQUIRED"
+      ],
+      "businessIdentification": "string-value"
+    }
+  },
+  "extraServices": [
+    {
+      "code": "DSL",
+      "itemId": "12345",
+      "description": "Sample description text.",
+      "metricType": "YEARS",
+      "metricValue": "string-value",
+      "isBookable": true,
+      "taxIncluded": true,
+      "includedInTotal": "199.50"
+    }
+  ],
+  "equipment": [
+    {
+      "code": "BBS",
+      "itemId": "12345",
+      "description": "Sample description text.",
+      "isBookable": true,
+      "taxIncluded": true,
+      "includedInTotal": "199.50"
+    }
+  ],
+  "cancellationRules": [
+    {
+      "ruleDescription": "Sample description text.",
+      "feeType": "PERCENTAGE",
+      "feeValue": "string-value",
+      "currencyCode": "EUR",
+      "metricType": "MINUTES",
+      "metricMin": "string-value",
+      "metricMax": "string-value"
+    }
+  ],
+  "methodsOfPaymentAccepted": [
+    "CREDIT_CARD"
+  ],
+  "discountCodes": [
+    {
+      "type": "CD",
+      "value": "string-value"
+    }
+  ],
+  "distance": {
+    "value": 152,
+    "unit": "KM"
+  }
+}

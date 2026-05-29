@@ -1,6 +1,7 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Coverage",
-  "type": "record",
-  "fields": []
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-search-coverage-structure.json",
+  "title": "Coverage",
+  "description": "part of the trip covered by the travel class restriction (ALL_SEGMENTS if ommited)",
+  "type": "string"
 }

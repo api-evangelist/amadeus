@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-order-management-chargeable-checkd-bags-schema.json",
+  "title": "ChargeableCheckdBags",
+  "description": "Details of chargeable checked bags",
+  "allOf": [
+    {
+      "description": "baggageAllowance",
+      "type": "object",
+      "properties": {
+        "quantity": {
+          "type": "integer",
+          "description": "Total number of units",
+          "example": 1
+        },
+        "weight": {
+          "type": "integer",
+          "description": "Weight of the baggage allowance",
+          "example": 20
+        },
+        "weightUnit": {
+          "type": "string",
+          "description": "Code to qualify unit as pounds or kilos",
+          "example": "KG"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Id of the chargeable bag",
+          "type": "string",
+          "example": "1"
+        }
+      }
+    }
+  ]
+}

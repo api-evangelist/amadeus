@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-deck-configuration-schema.json",
+  "title": "DeckConfiguration",
+  "description": "deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)",
+  "type": "object",
+  "properties": {
+    "width": {
+      "description": "Width (y-axis) of the deck.",
+      "type": "integer",
+      "example": 1
+    },
+    "length": {
+      "description": "Length (x-axis) of the deck.",
+      "type": "integer",
+      "example": 1
+    },
+    "startSeatRow": {
+      "description": "seat row where the deck is starting",
+      "type": "integer",
+      "example": 1
+    },
+    "endSeatRow": {
+      "description": "seat row where the deck is ending",
+      "type": "integer",
+      "example": 1
+    },
+    "startWingsX": {
+      "description": "Start x coordinate of the wings.The wings display starts relatively to the length.",
+      "type": "integer",
+      "example": 1
+    },
+    "endWingsX": {
+      "description": "End x coordinate of the wings.The wings display ends relatively to the length.",
+      "type": "integer",
+      "example": 1
+    },
+    "startWingsRow": {
+      "description": "seat row where the wing is starting",
+      "type": "integer",
+      "example": 1
+    },
+    "endWingsRow": {
+      "description": "seat row where the wing is ending",
+      "type": "integer",
+      "example": 1
+    },
+    "exitRowsX": {
+      "description": "X coordinate of the exit rows.The exit rows are displayed relatively to the length.",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  }
+}

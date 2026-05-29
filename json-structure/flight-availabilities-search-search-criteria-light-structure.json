@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-availabilities-search-search-criteria-light-structure.json",
+  "title": "SearchCriteriaLight",
+  "description": "SearchCriteriaLight structure from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "excludeAllotments": {
+      "type": "boolean",
+      "description": "This option allows to exclude the isAllotment flag associated to a booking class in the search response when it exist."
+    },
+    "flightFilters": {
+      "type": "object"
+    }
+  }
+}

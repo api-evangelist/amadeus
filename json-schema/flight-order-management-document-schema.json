@@ -1,38 +1,48 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-order-management-document-schema.json",
   "title": "Document",
   "description": "the information that are found on an ID document",
   "type": "object",
   "properties": {
     "number": {
       "type": "string",
-      "description": "The document number (shown on the document) . E.g. QFU514563221J"
+      "description": "The document number (shown on the document) . E.g. QFU514563221J",
+      "example": 1
     },
     "issuanceDate": {
       "type": "string",
+      "description": "Date at which the document has been issued.",
       "format": "date",
-      "description": "Date at which the document has been issued."
+      "example": "2026-08-15"
     },
     "expiryDate": {
       "type": "string",
+      "description": "Date after which the document is not valid anymore.",
       "format": "date",
-      "description": "Date after which the document is not valid anymore."
+      "example": "2026-08-15"
     },
     "issuanceCountry": {
       "type": "string",
-      "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the country that issued the document"
+      "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the country that issued the document",
+      "pattern": "[a-zA-Z]{2}",
+      "example": 1
     },
     "issuanceLocation": {
       "type": "string",
-      "description": "A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York"
+      "description": "A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York",
+      "example": "string-value"
     },
     "nationality": {
       "type": "string",
-      "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the nationality appearing on the document"
+      "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the nationality appearing on the document",
+      "pattern": "[a-zA-Z]{2}",
+      "example": "string-value"
     },
     "birthPlace": {
       "type": "string",
-      "description": "Birth place as indicated on the document"
+      "description": "Birth place as indicated on the document",
+      "example": "string-value"
     }
   }
 }

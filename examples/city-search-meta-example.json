@@ -1,4 +1,6 @@
 {
   "count": 1,
-  "links": {}
+  "links": {
+    "self": "https://example.com/resource"
+  }
 }

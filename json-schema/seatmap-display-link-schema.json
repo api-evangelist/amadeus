@@ -1,11 +1,14 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-link-schema.json",
   "title": "Link",
+  "description": "Link schema from Seatmap Display",
   "type": "object",
   "properties": {
     "href": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "example": "https://example.com/resource"
     },
     "methods": {
       "type": "array",
@@ -21,10 +24,14 @@
       }
     },
     "count": {
-      "type": "integer"
+      "type": "integer",
+      "example": 1
     }
   },
   "required": [
     "href"
-  ]
+  ],
+  "example": {
+    "href": "string"
+  }
 }

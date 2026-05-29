@@ -1,0 +1,38 @@
+{
+  "type": "string-value",
+  "scheduledDepartureDate": "2018-11-06",
+  "flightDesignator": {
+    "carrierCode": "AF",
+    "flightNumber": 1,
+    "operationalSuffix": "string-value"
+  },
+  "flightPoints": [
+    {
+      "iataCode": "CDG",
+      "departure": {
+        "timings": []
+      },
+      "arrival": {
+        "timings": []
+      }
+    }
+  ],
+  "segments": [
+    {
+      "boardPointIataCode": "LHR",
+      "offPointIataCode": "BKK",
+      "scheduledSegmentDuration": "PT14H50M",
+      "partnership": {}
+    }
+  ],
+  "legs": [
+    {
+      "boardPointIataCode": "LHR",
+      "offPointIataCode": "BKK",
+      "aircraftEquipment": {
+        "aircraftType": 733
+      },
+      "scheduledLegDuration": "PT14H50M"
+    }
+  ]
+}

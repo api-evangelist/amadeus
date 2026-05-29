@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-availabilities-search-cabin-restriction-schema.json",
+  "title": "CabinRestriction",
+  "description": "CabinRestriction schema from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "cabin": {
+      "description": "quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class",
+      "type": "string",
+      "enum": [
+        "ECONOMY",
+        "PREMIUM_ECONOMY",
+        "BUSINESS",
+        "FIRST"
+      ],
+      "example": "PREMIUM_ECONOMY"
+    },
+    "originDestinationIds": {
+      "title": "originDestinationIds",
+      "description": "The list of originDestination identifiers for which the cabinRestriction applies",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        1,
+        2
+      ]
+    }
+  }
+}

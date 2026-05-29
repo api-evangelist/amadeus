@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-inspiration-search-location-dictionary-schema.json",
+  "title": "LocationDictionary",
+  "description": "LocationDictionary schema from Flight Inspiration Search",
+  "additionalProperties": {
+    "properties": {
+      "subType": {
+        "type": "string",
+        "description": "location type: airport or city",
+        "enum": [
+          "AIRPORT",
+          "CITY"
+        ],
+        "example": "AIRPORT"
+      },
+      "detailedName": {
+        "type": "string",
+        "description": "name of the location",
+        "example": "Paris/FR: Charles de Gaulle"
+      }
+    }
+  }
+}

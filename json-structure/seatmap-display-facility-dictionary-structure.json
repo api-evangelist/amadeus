@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-facility-dictionary-structure.json",
+  "title": "FacilityDictionary",
+  "description": "on board facilities map. E.g: bulkhead, closet, exit door, galley, lavatory",
+  "type": "object"
+}

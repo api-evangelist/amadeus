@@ -1,0 +1,369 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-seat-map-schema.json",
+  "title": "SeatMap",
+  "description": "seat map information",
+  "properties": {
+    "type": {
+      "description": "Ressource name",
+      "type": "string",
+      "readOnly": true,
+      "example": "seatmap"
+    },
+    "id": {
+      "description": "item identifier",
+      "type": "string",
+      "example": "12345"
+    },
+    "self": {
+      "type": "object",
+      "required": [
+        "href"
+      ],
+      "properties": {
+        "href": {
+          "type": "string",
+          "format": "uri",
+          "example": "https://example.com/resource"
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "GET",
+              "PUT",
+              "DELETE",
+              "POST",
+              "PATCH"
+            ]
+          }
+        },
+        "count": {
+          "type": "integer",
+          "example": 1
+        }
+      },
+      "example": {
+        "href": "string"
+      }
+    },
+    "departure": {
+      "type": "object",
+      "description": "departure or arrival information",
+      "properties": {
+        "iataCode": {
+          "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)",
+          "type": "string",
+          "example": "JFK"
+        },
+        "terminal": {
+          "description": "terminal name / number",
+          "type": "string",
+          "example": "T2"
+        },
+        "at": {
+          "description": "local date and time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm\u00b1hh:mm format, e.g. 2017-02-10T20:40:00+02:00",
+          "type": "string",
+          "format": "date-time",
+          "example": "2017-10-23T20:00:00+02:00"
+        }
+      }
+    },
+    "arrival": {
+      "type": "object",
+      "description": "departure or arrival information",
+      "properties": {
+        "iataCode": {
+          "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)",
+          "type": "string",
+          "example": "JFK"
+        },
+        "terminal": {
+          "description": "terminal name / number",
+          "type": "string",
+          "example": "T2"
+        },
+        "at": {
+          "description": "local date and time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm\u00b1hh:mm format, e.g. 2017-02-10T20:40:00+02:00",
+          "type": "string",
+          "format": "date-time",
+          "example": "2017-10-23T20:00:00+02:00"
+        }
+      }
+    },
+    "carrierCode": {
+      "type": "string",
+      "description": "providing the marketing airline carrier code",
+      "minLength": 1,
+      "maxLength": 2,
+      "example": "DL"
+    },
+    "number": {
+      "type": "string",
+      "description": "the flight number as assigned by the marketing carrier",
+      "minLength": 1,
+      "maxLength": 4,
+      "example": "212"
+    },
+    "operating": {
+      "type": "object",
+      "description": "information about the operating flight",
+      "properties": {
+        "carrierCode": {
+          "type": "string",
+          "description": "providing the airline / carrier code",
+          "minLength": 1,
+          "maxLength": 2,
+          "example": "DL"
+        },
+        "number": {
+          "type": "string",
+          "description": "the flight number as assigned by the carrier",
+          "minLength": 1,
+          "maxLength": 4,
+          "example": "212"
+        },
+        "suffix": {
+          "type": "string",
+          "description": "the flight number suffix as assigned by the carrier",
+          "minLength": 1,
+          "maxLength": 4,
+          "example": "string-value"
+        }
+      }
+    },
+    "aircraft": {
+      "description": "information related to the aircraft",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)\n",
+          "pattern": "[a-zA-Z0-9]{3}",
+          "example": "318"
+        }
+      }
+    },
+    "class": {
+      "type": "string",
+      "description": "reservation booking designator (RBD) of the carrier",
+      "minLength": 1,
+      "maxLength": 2,
+      "example": "string-value"
+    },
+    "flightOfferId": {
+      "description": "Id of the impacted flight offer",
+      "type": "string",
+      "example": "1"
+    },
+    "segmentId": {
+      "description": "Id of the impacted segment",
+      "type": "string",
+      "example": "1"
+    },
+    "decks": {
+      "type": "array",
+      "description": "decks information",
+      "items": {
+        "type": "object",
+        "description": "deck information",
+        "properties": {
+          "deckType": {
+            "description": "A deck is a level on an aircraft. The deck location of the cabin (current possible values are upper or main) The main deck, where passengers are seated on a passenger flight. Upper deck is above the main deck where more passengers are seated.",
+            "type": "string",
+            "enum": [
+              "UPPER",
+              "MAIN",
+              "LOWER"
+            ],
+            "example": "UPPER"
+          },
+          "deckConfiguration": {
+            "$ref": "#/definitions/DeckConfiguration"
+          },
+          "facilities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Facility"
+            }
+          },
+          "seats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Seat"
+            }
+          }
+        }
+      }
+    },
+    "aircraftCabinAmenities": {
+      "type": "object",
+      "description": "Type of available amenities for a given flight",
+      "properties": {
+        "power": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Amenity"
+            },
+            {
+              "type": "object",
+              "description": "Type of power outlet for a given flight",
+              "properties": {
+                "powerType": {
+                  "type": "string",
+                  "enum": [
+                    "PLUG",
+                    "USB_PORT",
+                    "ADAPTOR",
+                    "PLUG_OR_USB_PORT"
+                  ]
+                },
+                "usbType": {
+                  "type": "string",
+                  "enum": [
+                    "USB_A",
+                    "USB_C",
+                    "USB_A_AND_USB_C"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "seat": {
+          "type": "object",
+          "description": "Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space",
+          "properties": {
+            "legSpace": {
+              "description": "Space between 2 seats",
+              "type": "integer",
+              "example": 33
+            },
+            "spaceUnit": {
+              "type": "string",
+              "enum": [
+                "INCHES",
+                "CENTIMENTERS"
+              ],
+              "example": "INCHES"
+            },
+            "tilt": {
+              "description": "Flatness of a seat",
+              "type": "string",
+              "enum": [
+                "FULL_FLAT",
+                "ANGLE_FLAT",
+                "NORMAL"
+              ],
+              "example": "FULL_FLAT"
+            },
+            "amenityType": {
+              "type": "string",
+              "enum": [
+                "SEAT"
+              ],
+              "example": "SEAT"
+            },
+            "medias": {
+              "description": "list of media associated to the seat (rich content)",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Amenity_Media"
+              }
+            }
+          }
+        },
+        "wifi": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Amenity"
+            },
+            {
+              "type": "object",
+              "description": "Level of area coverage for a given flight",
+              "properties": {
+                "wifiCoverage": {
+                  "type": "string",
+                  "enum": [
+                    "FULL",
+                    "PARTIAL"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "entertainment": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AircraftCabinAmenities_Entertainment"
+          }
+        },
+        "food": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Amenity"
+            },
+            {
+              "type": "object",
+              "description": "Type of food for a given flight",
+              "properties": {
+                "foodType": {
+                  "type": "string",
+                  "enum": [
+                    "MEAL",
+                    "FRESH_MEAL",
+                    "SNACK",
+                    "FRESH_SNACK"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "beverage": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Amenity"
+            },
+            {
+              "type": "object",
+              "description": "Type of beverage for a given flight",
+              "properties": {
+                "beverageType": {
+                  "type": "string",
+                  "enum": [
+                    "ALCOHOLIC",
+                    "NON_ALCOHOLIC",
+                    "ALCOHOLIC_AND_NON_ALCOHOLIC"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "availableSeatsCounters": {
+      "type": "array",
+      "description": "number of seats available for each passenger",
+      "items": {
+        "type": "object",
+        "properties": {
+          "travelerId": {
+            "description": "Traveler id",
+            "type": "string",
+            "pattern": "[a-zA-Z0-9-]{1,20}",
+            "example": "12345"
+          },
+          "value": {
+            "description": "Number of Seats with status AVAILABLE",
+            "type": "integer",
+            "example": 5
+          }
+        }
+      }
+    }
+  },
+  "type": "object"
+}

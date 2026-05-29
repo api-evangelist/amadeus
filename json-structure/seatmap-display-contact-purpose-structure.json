@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-contact-purpose-structure.json",
+  "title": "ContactPurpose",
+  "description": "the purpose for which this contact is to be used",
+  "type": "string"
+}

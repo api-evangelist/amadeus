@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-price-original-flight-end-point-structure.json",
+  "title": "OriginalFlightEndPoint",
+  "description": "departure or arrival information",
+  "type": "object",
+  "properties": {
+    "iataCode": {
+      "type": "string",
+      "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)"
+    },
+    "terminal": {
+      "type": "string",
+      "description": "terminal name / number"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-hotel-product-price-variation-schema.json",
+  "title": "HotelProduct_PriceVariation",
+  "description": "Some prices may vary during a stay, thus here you can see the daily price per period of the stay",
+  "type": "object",
+  "properties": {
+    "startDate": {
+      "description": "Begin date of the period\nFormat: YYYY-MM-DD",
+      "type": "string",
+      "format": "date",
+      "example": "2026-08-15"
+    },
+    "endDate": {
+      "description": "End date of the period\nFormat: YYYY-MM-DD",
+      "type": "string",
+      "format": "date",
+      "example": "2026-08-15"
+    },
+    "currency": {
+      "description": "currency Code apply to all elements of the price",
+      "type": "string",
+      "example": "EUR"
+    },
+    "sellingTotal": {
+      "description": "sellingTotal = Total + margins + markup + totalFees - discounts",
+      "type": "string",
+      "example": "199.50"
+    },
+    "total": {
+      "description": "total = base + totalTaxes",
+      "type": "string",
+      "example": "199.50"
+    },
+    "base": {
+      "type": "string",
+      "example": "string-value"
+    },
+    "markups": {
+      "type": "array",
+      "items": {
+        "title": "Markup",
+        "description": "Markup applied to provide a service or a product to the client. The markup can be introduced by any stakeholder. Typical use case is to convey markup information set by the travel agent or in case of merchant mode.",
+        "type": "object",
+        "properties": {
+          "amount": {
+            "description": "Defines the monetary value with decimal position as a String.",
+            "example": "10",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "startDate",
+    "endDate"
+  ]
+}

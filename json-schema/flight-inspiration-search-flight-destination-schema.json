@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-inspiration-search-flight-destination-schema.json",
+  "title": "FlightDestination",
+  "description": "FlightDestination schema from Flight Inspiration Search",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name",
+      "example": "flight-destination"
+    },
+    "origin": {
+      "type": "string",
+      "example": "PAR"
+    },
+    "destination": {
+      "type": "string",
+      "example": "DXB"
+    },
+    "departureDate": {
+      "type": "string",
+      "example": "2017-08-19"
+    },
+    "returnDate": {
+      "type": "string",
+      "example": "2017-08-22"
+    },
+    "price": {
+      "properties": {
+        "total": {
+          "description": "Total amount paid by the user",
+          "type": "string",
+          "example": "932.70"
+        }
+      }
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "flightDates": {
+          "type": "string",
+          "example": "https://test.api.amadeus.com/v1/shopping/flight-dates?origin=PAR"
+        },
+        "flightOffers": {
+          "type": "string",
+          "example": "https://test.api.amadeus.com/v1/shopping/flight-offers?origin=PAR&destination=MAD&departureDate=2017-08-26&returnDate=2017-08-30&adults=1"
+        }
+      }
+    }
+  }
+}

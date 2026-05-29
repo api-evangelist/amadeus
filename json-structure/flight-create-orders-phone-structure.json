@@ -1,21 +1,21 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Phone",
-  "type": "record",
-  "fields": [
-    {
-      "name": "deviceType",
-      "type": "string"
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-create-orders-phone-structure.json",
+  "title": "Phone",
+  "description": "phone information",
+  "type": "object",
+  "properties": {
+    "deviceType": {
+      "type": "string",
+      "description": "Type of the device (Landline, Mobile or Fax)"
     },
-    {
-      "name": "countryCallingCode",
+    "countryCallingCode": {
       "type": "string",
       "description": "Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia."
     },
-    {
-      "name": "number",
+    "number": {
       "type": "string",
       "description": "Phone number. Composed of digits only. The number of digits depends on the country."
     }
-  ]
+  }
 }

@@ -1,38 +1,51 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-collection-meta-schema.json",
   "title": "Collection_Meta",
+  "description": "Collection_Meta schema from Seatmap Display",
   "type": "object",
   "properties": {
     "count": {
-      "type": "integer"
+      "type": "integer",
+      "example": 1
     },
     "links": {
       "type": "object",
+      "title": "CollectionLinks",
       "properties": {
         "self": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "example": "https://test.api.amadeus.com/v1/area/resources?..."
         },
         "next": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "example": "https://test.api.amadeus.com/v1/area/resources?..."
         },
         "previous": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "example": "https://test.api.amadeus.com/v1/area/resources?..."
         },
         "last": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "example": "https://test.api.amadeus.com/v1/area/resources?..."
         },
         "first": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "example": "https://test.api.amadeus.com/v1/area/resources?..."
         },
         "up": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "example": "https://test.api.amadeus.com/v1/area/resources?..."
         }
+      },
+      "example": {
+        "self": "https://test.api.amadeus.com/v1/area/resources?param=value"
       }
     }
   }

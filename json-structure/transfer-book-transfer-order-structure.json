@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-book-transfer-order-structure.json",
+  "title": "TransferOrder",
+  "description": "TransferOrder structure from Transfer Booking",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "id": {
+      "type": "string",
+      "description": "transfer order identifier"
+    },
+    "reference": {
+      "type": "string",
+      "description": "reference of the Trip e.g. YNK4JQ"
+    },
+    "transfers": {
+      "type": "array",
+      "description": "transfer reservations, included in the order"
+    },
+    "passengers": {
+      "type": "array",
+      "description": "passengers, related to the Transfer Order"
+    },
+    "agency": {
+      "type": "object",
+      "description": "Agency email information."
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "transfers"
+  ]
+}

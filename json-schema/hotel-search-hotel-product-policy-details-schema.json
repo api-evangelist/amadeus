@@ -1,0 +1,303 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-hotel-product-policy-details-schema.json",
+  "title": "HotelProduct_PolicyDetails",
+  "description": "Booking Rules",
+  "type": "object",
+  "properties": {
+    "paymentType": {
+      "title": "PaymentType",
+      "description": "payment type. Guarantee means Pay at Check Out. Check the `methods` in `guarantee` or `deposit` or `prepay`.",
+      "type": "string",
+      "enum": [
+        "GUARANTEE",
+        "DEPOSIT",
+        "PREPAY",
+        "HOLDTIME"
+      ]
+    },
+    "guarantee": {
+      "title": "HotelProduct_GuaranteePolicy",
+      "description": "the guarantee policy information applicable to the offer. It includes accepted payments",
+      "type": "object",
+      "properties": {
+        "description": {
+          "title": "QualifiedFreeText",
+          "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "Free Text",
+              "example": "A description",
+              "type": "string"
+            },
+            "lang": {
+              "description": "see RFC 5646",
+              "example": "fr-FR",
+              "type": "string"
+            }
+          }
+        },
+        "acceptedPayments": {
+          "title": "HotelProduct_PaymentPolicy",
+          "description": "Accepted Payment Methods and Card Types. Several Payment Methods and Card Types may be available.",
+          "type": "object",
+          "properties": {
+            "creditCards": {
+              "description": "Accepted Payment Card Types for the `method` CREDIT_CARD",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 2,
+                "pattern": "^[A-Z]{2}$"
+              },
+              "minLength": 2,
+              "maxLength": 2,
+              "pattern": "^[A-Z]{2}$"
+            },
+            "methods": {
+              "description": "Accepted Payment Methods",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Method"
+              }
+            }
+          }
+        }
+      }
+    },
+    "deposit": {
+      "title": "HotelProduct_DepositPolicy",
+      "description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "description": "Deposit-Prepay amount",
+          "type": "string",
+          "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+          "example": "199.50"
+        },
+        "deadline": {
+          "description": "The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. \n Example: 2010-08-14T13:00:00\n Please note that this value is expressed in the hotels local time zone",
+          "type": "string",
+          "format": "date-time",
+          "example": "2026-08-15T10:30:00Z"
+        },
+        "description": {
+          "title": "QualifiedFreeText",
+          "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "Free Text",
+              "example": "A description",
+              "type": "string"
+            },
+            "lang": {
+              "description": "see RFC 5646",
+              "example": "fr-FR",
+              "type": "string"
+            }
+          }
+        },
+        "acceptedPayments": {
+          "title": "HotelProduct_PaymentPolicy",
+          "description": "Accepted Payment Methods and Card Types. Several Payment Methods and Card Types may be available.",
+          "type": "object",
+          "properties": {
+            "creditCards": {
+              "description": "Accepted Payment Card Types for the `method` CREDIT_CARD",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 2,
+                "pattern": "^[A-Z]{2}$"
+              },
+              "minLength": 2,
+              "maxLength": 2,
+              "pattern": "^[A-Z]{2}$"
+            },
+            "methods": {
+              "description": "Accepted Payment Methods",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Method"
+              }
+            }
+          }
+        }
+      }
+    },
+    "prepay": {
+      "title": "HotelProduct_DepositPolicy",
+      "description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "description": "Deposit-Prepay amount",
+          "type": "string",
+          "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+          "example": "199.50"
+        },
+        "deadline": {
+          "description": "The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. \n Example: 2010-08-14T13:00:00\n Please note that this value is expressed in the hotels local time zone",
+          "type": "string",
+          "format": "date-time",
+          "example": "2026-08-15T10:30:00Z"
+        },
+        "description": {
+          "title": "QualifiedFreeText",
+          "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "Free Text",
+              "example": "A description",
+              "type": "string"
+            },
+            "lang": {
+              "description": "see RFC 5646",
+              "example": "fr-FR",
+              "type": "string"
+            }
+          }
+        },
+        "acceptedPayments": {
+          "title": "HotelProduct_PaymentPolicy",
+          "description": "Accepted Payment Methods and Card Types. Several Payment Methods and Card Types may be available.",
+          "type": "object",
+          "properties": {
+            "creditCards": {
+              "description": "Accepted Payment Card Types for the `method` CREDIT_CARD",
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 2,
+                "pattern": "^[A-Z]{2}$"
+              },
+              "minLength": 2,
+              "maxLength": 2,
+              "pattern": "^[A-Z]{2}$"
+            },
+            "methods": {
+              "description": "Accepted Payment Methods",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Method"
+              }
+            }
+          }
+        }
+      }
+    },
+    "holdTime": {
+      "title": "HotelProduct_HoldPolicy",
+      "description": "the hold policy",
+      "type": "object",
+      "properties": {
+        "deadline": {
+          "description": "The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. \n Example: 2010-08-14T13:00:00\n Please note that this value is expressed in the hotels local time zone",
+          "type": "string",
+          "format": "date-time",
+          "example": "2026-08-15T10:30:00Z"
+        }
+      },
+      "required": [
+        "deadline"
+      ]
+    },
+    "cancellations": {
+      "type": "array",
+      "items": {
+        "title": "HotelProduct_CancellationPolicy",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/definitions/CancellationType"
+          },
+          "amount": {
+            "description": "Amount of the cancellation fee.",
+            "type": "string",
+            "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+            "example": "199.50"
+          },
+          "numberOfNights": {
+            "description": "Number of nights due as fee in case of cancellation.",
+            "type": "integer",
+            "minimum": 0,
+            "format": "int32",
+            "example": 1
+          },
+          "percentage": {
+            "description": "Percentage of the total stay amount to be paid in case of cancellation. Value is between 0 and 100.",
+            "type": "string",
+            "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+            "example": 50
+          },
+          "deadline": {
+            "description": "Represents the deadline after which the penalty applies. DateTime is in ISO 8601 [https://www.w3.org/TR/NOTE-datetime].\nExample: 2010-08-14T12:00:00+01:00\nExample: 2010-08-14T12:00:00Z\nExample: 2010-08-14T12:00:00-01:00\nThe value is expressed in the hotel local time zone, with the added time zone difference. So you can compute the deadline in UTC(GMT) if desired.",
+            "type": "string",
+            "format": "date-time",
+            "example": "2026-08-15T10:30:00Z"
+          },
+          "description": {
+            "$ref": "#/definitions/QualifiedFreeText"
+          }
+        }
+      }
+    },
+    "checkInOut": {
+      "title": "HotelProduct_CheckInOutPolicy",
+      "type": "object",
+      "properties": {
+        "checkIn": {
+          "description": "Check-in From time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+          "example": "13:00:00",
+          "type": "string"
+        },
+        "checkInDescription": {
+          "title": "QualifiedFreeText",
+          "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "Free Text",
+              "example": "A description",
+              "type": "string"
+            },
+            "lang": {
+              "description": "see RFC 5646",
+              "example": "fr-FR",
+              "type": "string"
+            }
+          }
+        },
+        "checkOut": {
+          "description": "Check-out Until time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+          "example": "11:00:00",
+          "type": "string"
+        },
+        "checkOutDescription": {
+          "title": "QualifiedFreeText",
+          "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "Free Text",
+              "example": "A description",
+              "type": "string"
+            },
+            "lang": {
+              "description": "see RFC 5646",
+              "example": "fr-FR",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

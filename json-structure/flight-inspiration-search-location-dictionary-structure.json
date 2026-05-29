@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-inspiration-search-location-dictionary-structure.json",
+  "title": "LocationDictionary",
+  "description": "LocationDictionary structure from Flight Inspiration Search",
+  "type": "object"
+}

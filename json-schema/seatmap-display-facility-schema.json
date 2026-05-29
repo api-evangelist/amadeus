@@ -1,17 +1,22 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-facility-schema.json",
   "title": "Facility",
+  "description": "Facility schema from Seatmap Display",
   "type": "object",
   "properties": {
     "code": {
+      "description": "Facility code, as described in the facility dictionary",
       "type": "string",
-      "description": "Facility code, as described in the facility dictionary"
+      "example": "string-value"
     },
     "column": {
-      "type": "string"
+      "type": "string",
+      "example": "string-value"
     },
     "row": {
-      "type": "string"
+      "type": "string",
+      "example": "string-value"
     },
     "position": {
       "type": "string",
@@ -20,10 +25,23 @@
         "FRONT",
         "REAR",
         "SEAT"
-      ]
+      ],
+      "example": "FRONT"
     },
     "coordinates": {
-      "$ref": "#/definitions/Coordinates"
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "integer",
+          "description": "coordinate for the Length",
+          "example": 1
+        },
+        "y": {
+          "type": "integer",
+          "description": "coordinate for the Width",
+          "example": 1
+        }
+      }
     }
   }
 }

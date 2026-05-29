@@ -1,0 +1,51 @@
+{
+  "type": "flight-offer-upsell",
+  "flightOffers": [
+    {
+      "type": "flight-offer",
+      "id": "1",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "disablePricing": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "paymentCardRequired": false,
+      "lastTicketingDate": "2018-06-19",
+      "lastTicketingDateTime": "2018-06-19T15:00:00",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT2H10M",
+          "segments": []
+        }
+      ],
+      "price": {},
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true,
+        "refundableFare": true,
+        "noRestrictionFare": true,
+        "noPenaltyFare": true
+      },
+      "validatingAirlineCodes": [
+        "AF"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "associatedAdultId": "12345",
+          "fareDetailsBySegment": []
+        }
+      ]
+    }
+  ],
+  "payments": [
+    {
+      "brand": "VISA_IXARIS",
+      "binNumber": 123456,
+      "flightOfferIds": "1"
+    }
+  ]
+}

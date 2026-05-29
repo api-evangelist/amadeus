@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-create-orders-flight-order-structure.json",
+  "title": "FlightOrder",
+  "description": "input parameter to create a flight order",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "id": {
+      "type": "string",
+      "description": "unique identifier of the flight order"
+    },
+    "queuingOfficeId": {
+      "type": "string",
+      "description": "office Id where to queue the order"
+    },
+    "ownerOfficeId": {
+      "type": "string",
+      "description": "office Id where will be transfered the ownership of the order"
+    },
+    "associatedRecords": {
+      "type": "array",
+      "description": "list of associated record"
+    },
+    "flightOffers": {
+      "type": "array",
+      "description": "list of flight offer"
+    },
+    "travelers": {
+      "type": "array",
+      "description": "list of travelers"
+    },
+    "remarks": {
+      "type": "object",
+      "description": "remarks"
+    },
+    "formOfPayments": {
+      "type": "array",
+      "description": "list of form of payments"
+    },
+    "ticketingAgreement": {
+      "type": "object",
+      "description": "ticketing agreement"
+    },
+    "automatedProcess": {
+      "type": "array",
+      "description": "list of automatic queuing"
+    },
+    "contacts": {
+      "type": "array",
+      "description": "list of general contact information"
+    },
+    "tickets": {
+      "type": "array",
+      "description": "list of tickets"
+    },
+    "formOfIdentifications": {
+      "type": "array",
+      "description": "list of forms of identifications applicable to travelers by airline"
+    }
+  },
+  "required": [
+    "type",
+    "flightOffers"
+  ]
+}

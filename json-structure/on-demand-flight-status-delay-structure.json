@@ -1,12 +1,13 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Delay",
-  "type": "record",
-  "fields": [
-    {
-      "name": "duration",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/on-demand-flight-status-delay-structure.json",
+  "title": "Delay",
+  "description": "Delay structure from On-Demand Flight Status",
+  "type": "object",
+  "properties": {
+    "duration": {
       "type": "string",
       "description": "the delay recorded for the timing following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)"
     }
-  ]
+  }
 }

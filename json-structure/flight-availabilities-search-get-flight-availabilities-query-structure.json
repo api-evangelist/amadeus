@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-availabilities-search-get-flight-availabilities-query-structure.json",
+  "title": "GetFlightAvailabilitiesQuery",
+  "description": "GetFlightAvailabilitiesQuery structure from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "originDestinations": {
+      "type": "array",
+      "description": "Origins and Destinations must be properly ordered in time (chronological order in accordance with the timezone of each location) to describe the journey consistently. Dates and times must not be past nor more than 365 days in the future, according to provider settings.Number of Origins and Destinations must not exceed the limit defined in provider settings."
+    },
+    "travelers": {
+      "type": "array",
+      "description": "List of travelers composing the travel"
+    },
+    "sources": {
+      "type": "array",
+      "description": "Allows enable one or more sources. If present in the list, these sources will be called by the system. \nGDS : Full service carriers"
+    },
+    "searchCriteria": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "originDestinations",
+    "travelers",
+    "sources"
+  ]
+}

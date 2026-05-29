@@ -1,31 +1,39 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/airport-nearest-relevant-address-schema.json",
   "title": "Address",
-  "type": "object",
+  "description": "Address schema from Airport Nearest Relevant",
   "properties": {
     "cityName": {
+      "description": "name of the city of the location; equal to name if the location is a city",
       "type": "string",
-      "description": "name of the city of the location; equal to name if the location is a city"
+      "example": "Paris"
     },
     "cityCode": {
+      "description": "IATA code of the city of the location; equal to IATAcode if the location is a city",
       "type": "string",
-      "description": "IATA code of the city of the location; equal to IATAcode if the location is a city"
+      "example": "PAR"
     },
     "countryName": {
+      "description": "name of the country of the location",
       "type": "string",
-      "description": "name of the country of the location"
+      "example": "France"
     },
     "countryCode": {
+      "description": "code of the country of the location in ISO standard",
       "type": "string",
-      "description": "code of the country of the location in ISO standard"
+      "example": "FR"
     },
     "stateCode": {
+      "description": "code of the state of the location if any",
       "type": "string",
-      "description": "code of the state of the location if any"
+      "example": "TO"
     },
     "regionCode": {
+      "description": "code of the region of the location in ISO standard",
       "type": "string",
-      "description": "code of the region of the location in ISO standard"
+      "example": "EUROP"
     }
-  }
+  },
+  "type": "object"
 }

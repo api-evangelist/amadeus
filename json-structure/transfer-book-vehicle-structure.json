@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-book-vehicle-structure.json",
+  "title": "Vehicle",
+  "description": "Vehicle structure from Transfer Booking",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "vehicle type, which can take following values\n\nvalue           | description\n--------------  | ------------------------\nCAR             | Car\nSED             | Sedan\nWGN             | Wagon\nELC             | Electric car\nVAN             | Van or minivan\nSUV             | Sport utility vehicle\nLMS             | Limousine\nMBR             | Motorbike\nTRN             | Train\nBUS             | Bus\n"
+    },
+    "category": {
+      "type": "string",
+      "description": "category of the vehicle, which can take following values\n\nvalue           | description\n--------------  | ------------------------\nST              | Standard\nBU              | Business\nFC              | First class\n"
+    },
+    "description": {
+      "type": "string",
+      "description": "description of the vehicle. Can describe a list of potential vehicles, e.g. VW Polo or similar"
+    },
+    "seats": {
+      "type": "array"
+    },
+    "baggages": {
+      "type": "array"
+    },
+    "imageURL": {
+      "type": "string",
+      "description": "URL to vehicle image"
+    }
+  },
+  "required": [
+    "code",
+    "category",
+    "description",
+    "seats"
+  ]
+}

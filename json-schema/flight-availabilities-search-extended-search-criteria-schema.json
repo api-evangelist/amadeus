@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-availabilities-search-extended-search-criteria-schema.json",
+  "title": "Extended_SearchCriteria",
+  "description": "Extended_SearchCriteria schema from Flight Availibilities Search",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "excludeAllotments": {
+          "description": "This option allows to exclude the isAllotment flag associated to a booking class in the search response when it exist.",
+          "type": "boolean",
+          "example": false
+        },
+        "flightFilters": {
+          "type": "object",
+          "properties": {
+            "carrierRestrictions": {
+              "title": "CarrierRestrictions",
+              "description": "Restriction towards carriers.",
+              "$ref": "#/definitions/CarrierRestrictions"
+            },
+            "cabinRestrictions": {
+              "title": "CabinRestrictions",
+              "description": "Restriction towards cabins.",
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 6,
+              "items": {
+                "$ref": "#/definitions/CabinRestriction"
+              }
+            },
+            "connectionRestriction": {
+              "title": "ConnectionRestriction",
+              "description": "Restriction towards number of connections.",
+              "$ref": "#/definitions/ConnectionRestriction"
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "includeClosedContent": {
+          "type": "boolean",
+          "description": "If true, closed booking classes, departed flights and cancelled flights will also be included in the response.",
+          "example": false
+        },
+        "class": {
+          "type": "string",
+          "description": "The code of the booking class",
+          "example": "A"
+        }
+      }
+    }
+  ]
+}

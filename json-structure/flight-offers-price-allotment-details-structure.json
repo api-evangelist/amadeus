@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-price-allotment-details-structure.json",
+  "title": "AllotmentDetails",
+  "description": "AllotmentDetails structure from Flight Offers Price",
+  "type": "object",
+  "properties": {
+    "tourName": {
+      "type": "string",
+      "description": "The tour name agreed for this specific allotment."
+    },
+    "tourReference": {
+      "type": "string",
+      "description": "The tour reference agreed for this specific allotment."
+    }
+  }
+}

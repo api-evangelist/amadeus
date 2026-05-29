@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-pricing-response-schema.json",
+  "title": "PricingResponse",
+  "description": "PricingResponse schema from Hotel Search API",
+  "type": "object",
+  "properties": {
+    "data": {
+      "title": "HotelOffers",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "the type of the object (hotel-offers)",
+          "type": "string",
+          "example": "string-value"
+        },
+        "available": {
+          "type": "boolean",
+          "example": true
+        },
+        "self": {
+          "type": "string",
+          "example": "string-value"
+        },
+        "offers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HotelOffer"
+          }
+        },
+        "hotel": {
+          "title": "Hotel",
+          "description": "Hotel Content",
+          "type": "object",
+          "properties": {
+            "hotelId": {
+              "description": "Amadeus Property Code (8 chars)",
+              "example": "ADPAR001",
+              "type": "string",
+              "pattern": "^[A-Z0-9]{8}$"
+            },
+            "chainCode": {
+              "description": "Brand (RT...) or Merchant (AD...) (Amadeus 2 chars Code)",
+              "example": "AD",
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            },
+            "brandCode": {
+              "description": "Brand (RT...) (Amadeus 2 chars Code). Small Properties distributed by Merchants may not have a Brand.\nExample - AD (Value Hotels) is the Provider/Merchant, and RT (Accor) is the Brand of the Property",
+              "example": "RT",
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            },
+            "dupeId": {
+              "description": "Unique Property identifier of the physical hotel.\nOne physical hotel can be represented by different Providers, each one having its own `hotelID`.\nThis attribute allows a client application to group together hotels that are actually the same.",
+              "example": "501132260",
+              "type": "string"
+            },
+            "name": {
+              "description": "Hotel Name",
+              "example": "Hotel de Paris",
+              "type": "string"
+            },
+            "cityCode": {
+              "description": "Warning: The IATA city code associated to the hotel (not necessary the real Hotel City)",
+              "example": "PAR",
+              "type": "string",
+              "pattern": "^[A-Z]{3}$"
+            }
+          }
+        }
+      }
+    }
+  },
+  "example": {
+    "data": {
+      "type": "hotel-offers",
+      "hotel": {
+        "type": "hotel",
+        "hotelId": "MCLONGHM",
+        "chainCode": "MC",
+        "name": "JW MARRIOTT GROSVENOR HOUSE",
+        "cityCode": "LON",
+        "address": {
+          "countryCode": "GB"
+        },
+        "amenities": [
+          "CRIBS_AVAILABLE"
+        ]
+      },
+      "available": true,
+      "offers": [
+        {
+          "id": "TSXOJ6LFQ2",
+          "checkInDate": "2023-11-22",
+          "checkOutDate": "2023-11-23",
+          "rateCode": "V  ",
+          "rateFamilyEstimated": {
+            "code": "PRO",
+            "type": "P"
+          },
+          "description": {
+            "text": "Executive King Room, Executive Lounge Access, 1 King, 35sqm/377sqft-40sqm/430sqft, Wireless in ternet, for a fee, Wired internet, for a fee, C A credit card is required for payment to guarantee the Prepay Non-refundable Non-changeable rate. Prepay rates will be charged the full cost of the reservation within 24 hours of making the reservation. If payment is unsuccessful within 48 hours of making the reservation, the hotel reserves the right to cancel the reservation. Date changes to the reservation are not allowed. Cancellation will result in forfeiture of the prepayment. The credit card used at the time of making the reservation must be valid for the entire stay.",
+            "lang": "EN"
+          },
+          "room": {
+            "type": "ELE",
+            "typeEstimated": {
+              "beds": 1,
+              "bedType": "DOUBLE"
+            },
+            "description": {
+              "text": "Prepay Non-refundable Non-changeable, prepay in full",
+              "lang": "EN"
+            }
+          },
+          "guests": {
+            "adults": 1
+          },
+          "price": {
+            "currency": "GBP",
+            "base": "716.00",
+            "total": "716.00",
+            "variations": {
+              "changes": [
+                {
+                  "startDate": "2023-11-22",
+                  "endDate": "2023-11-23",
+                  "base": "716.00"
+                }
+              ]
+            }
+          },
+          "policies": {
+            "paymentType": "deposit",
+            "cancellation": {
+              "description": {
+                "text": "NON-REFUNDABLE RATE"
+              },
+              "type": "FULL_STAY"
+            }
+          }
+        }
+      ]
+    },
+    "meta": {
+      "lang": "EN"
+    }
+  }
+}

@@ -1,14 +1,15 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Error_500",
-  "type": "record",
-  "fields": [
-    {
-      "name": "errors",
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-most-traveled-destinations-error-500-structure.json",
+  "title": "Error_500",
+  "description": "Error_500 structure from Flight Most Traveled Destinations",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array"
     }
+  },
+  "required": [
+    "errors"
   ]
 }

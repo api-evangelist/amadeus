@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-hotel-product-rate-family-schema.json",
+  "title": "HotelProduct_RateFamily",
+  "description": "The estimated rate code family of the offer. Grouping various rate plan codes that belongs to the same family and indicates the type of the rate",
+  "type": "object",
+  "properties": {
+    "code": {
+      "description": "The estimated rate family (PRO,FAM,GOV)",
+      "type": "string",
+      "pattern": "[A-Z0-9]{3}",
+      "example": "string-value"
+    },
+    "type": {
+      "description": "The type of the rate (public=P, negotiated=N, conditional=C)",
+      "type": "string",
+      "pattern": "[PNC]",
+      "example": "string-value"
+    }
+  }
+}

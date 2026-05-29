@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-create-orders-automated-process-common-schema.json",
+  "title": "AutomatedProcessCommon",
+  "description": "Provides information on ticketing arrangements and Amadeus Time Limits",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "queuing action to be taken",
+      "enum": [
+        "IMMEDIATE",
+        "DELAYED",
+        "ERROR"
+      ],
+      "example": "IMMEDIATE"
+    },
+    "queue": {
+      "title": "Queue",
+      "type": "object",
+      "description": "Identifies the queue onto which PNR must be automatically placed upon process execution.",
+      "properties": {
+        "number": {
+          "type": "string",
+          "example": 1
+        },
+        "category": {
+          "type": "string",
+          "example": "string-value"
+        }
+      }
+    },
+    "text": {
+      "type": "string",
+      "description": "Free text",
+      "example": "string-value"
+    }
+  }
+}

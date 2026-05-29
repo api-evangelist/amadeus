@@ -1,0 +1,42 @@
+{
+  "iataTravelAgency": {
+    "iataNumber": "CDG"
+  },
+  "billBack": {
+    "travelAgencyId": "12345",
+    "bookerId": "12345",
+    "paymentInstructions": "string-value",
+    "billbackProviderDeploymentId": "12345",
+    "billbackProviderCode": "string-value",
+    "billbackProviderAccountNumber": 1,
+    "hotelSupplierInformation": {
+      "phone": "+33679278416",
+      "fax": "+33679278417",
+      "email": "hotel@brand.com"
+    }
+  },
+  "method": "CREDIT_CARD",
+  "b2bWallet": {
+    "virtualCreditCardId": "12345",
+    "paymentProvider": "string-value"
+  },
+  "paymentCard": {
+    "paymentCardInfo": {
+      "vendorCode": "VI",
+      "holderName": "Sample Name",
+      "cardNumber": 1,
+      "expiryDate": "2026-08-15"
+    },
+    "cardOwnerType": "TravelAgency",
+    "VCC": true,
+    "address": {
+      "lines": [
+        "string-value"
+      ],
+      "postalCode": "string-value",
+      "countryCode": "FR",
+      "cityName": "Paris",
+      "stateCode": "string-value"
+    }
+  }
+}

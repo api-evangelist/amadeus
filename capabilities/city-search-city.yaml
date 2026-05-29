@@ -1,0 +1,99 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "City Search — City"
+  description: 'City Search — City. 1 operation(s). Lead operation: Amadeus GET Cities by Keyword. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - City
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: city-search-city
+      baseUri: https://test.api.amadeus.com/v1
+      description: City Search — City business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: reference-data-locations-cities
+          path: /reference-data/locations/cities
+          operations:
+            - name: GETCities
+              method: GET
+              description: Amadeus GET Cities by Keyword
+              inputParameters:
+                - name: countryCode
+                  in: query
+                  type: string
+                  required: false
+                  description: ISO 3166 Alpha-2 code. e.g. "US" United States of America.
+                - name: keyword
+                  in: query
+                  type: string
+                  required: true
+                  description: keyword that should represent the start of a word in a city name.
+                - name: max
+                  in: query
+                  type: integer
+                  required: false
+                  description: Number of results user want to see in response.
+                - name: include
+                  in: query
+                  type: array
+                  required: false
+                  description: 'Resources to be included example : Airports'
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: city-search-city-rest
+      port: 8080
+      description: REST adapter for City Search — City. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/reference-data/locations/cities
+          name: reference-data-locations-cities
+          description: REST surface for reference-data-locations-cities.
+          operations:
+            - method: GET
+              name: GETCities
+              description: Amadeus GET Cities by Keyword
+              call: city-search-city.GETCities
+              with:
+                countryCode: rest.countryCode
+                keyword: rest.keyword
+                max: rest.max
+                include: rest.include
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: city-search-city-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for City Search — City. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-cities-keyword
+          description: Amadeus GET Cities by Keyword
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: city-search-city.GETCities
+          with:
+            countryCode: tools.countryCode
+            keyword: tools.keyword
+            max: tools.max
+            include: tools.include
+          outputParameters:
+            - type: object
+              mapping: $.

@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-search-partner-info-schema.json",
+  "title": "PartnerInfo",
+  "description": "Information about partner/subprovider. Below settings configuration is not applicable for sub-provider. Fields 'code', 'name' and 'logoUrl' are not mandatory for sub-provider.",
+  "type": "object",
+  "properties": {
+    "serviceProvider": {
+      "type": "object",
+      "description": "information about provider",
+      "required": [
+        "code",
+        "name",
+        "logoUrl"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "[a-zA-Z]{3}",
+          "description": "provider code",
+          "example": "string-value"
+        },
+        "name": {
+          "type": "string",
+          "pattern": "[a-zA-Z]{30}",
+          "description": "provider name",
+          "example": "Sample Name"
+        },
+        "logoUrl": {
+          "type": "string",
+          "description": "URL to provider logo",
+          "example": "https://example.com/resource"
+        },
+        "termsUrl": {
+          "type": "string",
+          "description": "URL to provider's terms and conditions page",
+          "example": "https://example.com/resource"
+        },
+        "isPreferred": {
+          "type": "boolean",
+          "description": "indicates if sub-provider is preferred for the travel-seller",
+          "example": true
+        },
+        "contacts": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/Contact"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "address": {
+                  "$ref": "#/definitions/AddressCommon"
+                }
+              }
+            }
+          ],
+          "description": "Contact and Adress details"
+        },
+        "settings": {
+          "type": "array",
+          "description": "list of provider settings",
+          "items": {
+            "type": "string",
+            "description": "provider setting",
+            "enum": [
+              "BILLING_ADDRESS_REQUIRED",
+              "FLIGHT_NUMBER_REQUIRED",
+              "CVV_NUMBER_REQUIRED"
+            ]
+          }
+        },
+        "businessIdentification": {
+          "description": "Information about the Customer stakeholder participating to the described sales summary.",
+          "properties": {
+            "vatRegistrationNumber": {
+              "type": "string",
+              "description": "VAT (Value Added Tax) Registration Number of the customer applicable ot the current sales."
+            }
+          },
+          "example": "string-value"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/branded-fares-upsell-baggage-allowance-structure.json",
+  "title": "BaggageAllowance",
+  "description": "baggageAllowance",
+  "type": "object",
+  "properties": {
+    "quantity": {
+      "type": "integer",
+      "description": "Total number of units"
+    },
+    "weight": {
+      "type": "integer",
+      "description": "Weight of the baggage allowance"
+    },
+    "weightUnit": {
+      "type": "string",
+      "description": "Code to qualify unit as pounds or kilos"
+    }
+  }
+}

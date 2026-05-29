@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-offers-search-origin-destination-schema.json",
+  "title": "OriginDestination",
+  "description": "OriginDestination schema from Flight Offers Search",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": 1
+        },
+        "originLocationCode": {
+          "description": "Origin location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+          "type": "string",
+          "example": "PAR"
+        },
+        "destinationLocationCode": {
+          "description": "Destination location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+          "type": "string",
+          "example": "NYC"
+        },
+        "includedConnectionPoints": {
+          "type": "array",
+          "description": "List of included connections points. When an includedViaPoints option is specified, all FlightOffer returned must at least go via this Connecting Point. Currently, only the locations defined in IATA are supported. Used only by the AMADEUS provider",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": {
+            "title": "code",
+            "type": "string"
+          },
+          "example": [
+            "MRS"
+          ]
+        },
+        "excludedConnectionPoints": {
+          "type": "array",
+          "description": "List of excluded connections points. Any FlightOffer with these connections points will be present in response. Currently, only the locations defined in IATA are supported. Used only by the AMADEUS provider",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "title": "code",
+            "type": "string"
+          },
+          "example": [
+            "MRS"
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "originRadius": {
+          "description": "Include other possible locations around the point, located less than this distance in kilometers away. Max:300\n\nCan not be combined with \"dateWindow\" or \"timeWindow\".\n",
+          "type": "number",
+          "example": 200
+        },
+        "alternativeOriginsCodes": {
+          "type": "array",
+          "description": "Set of alternative origin location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": {
+            "title": "code",
+            "type": "string"
+          },
+          "example": [
+            "LON",
+            "MUC"
+          ]
+        },
+        "destinationRadius": {
+          "description": "Include other possible locations around the point, located less than this distance in kilometers away. Max:300\n\nCan not be combined with \"dateWindow\" or \"timeWindow\".\n",
+          "type": "number",
+          "example": 200
+        },
+        "alternativeDestinationsCodes": {
+          "type": "array",
+          "description": "Set of alternative destination location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": {
+            "title": "code",
+            "type": "string"
+          }
+        },
+        "departureDateTimeRange": {
+          "title": "dateTimeRange",
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "description": "Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-12-25",
+                  "type": "string",
+                  "format": "date",
+                  "example": "2018-09-22"
+                },
+                "time": {
+                  "description": "Local time. hh:mm:ss format, e.g 10:30:00",
+                  "type": "string",
+                  "example": "10:30:00"
+                }
+              },
+              "required": [
+                "date"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "dateWindow": {
+                  "description": "Either 1, 2 or 3 extra days around the local date (IxD for +/- x days - Ex: I3D), Either 1 to 3 days after the local date (PxD for +x days - Ex: P3D), or 1 to 3 days before the local date (MxD for -x days - Ex: M3D)\n\nCan not be combined with \"originRadius\" or \"destinationRadius\".\n",
+                  "type": "string",
+                  "example": "I3D",
+                  "pattern": "^[MPI][1-3]D"
+                },
+                "timeWindow": {
+                  "description": "1 to 12 hours around (both +and -) the local time. Possibly limited by the number of extra days when specified, i.e.  in some situations, it may not be used to exceed the maximum date range. [1-12]H format, e.g. 6H\n\nCan not be combined with \"originRadius\" or \"destinationRadius\".\n",
+                  "type": "string",
+                  "example": "2H",
+                  "pattern": "^([1-9]|10|11|12)H"
+                }
+              }
+            }
+          ],
+          "required": [
+            "date"
+          ]
+        },
+        "arrivalDateTimeRange": {
+          "title": "dateTimeRange",
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "description": "Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-12-25",
+                  "type": "string",
+                  "format": "date",
+                  "example": "2018-09-22"
+                },
+                "time": {
+                  "description": "Local time. hh:mm:ss format, e.g 10:30:00",
+                  "type": "string",
+                  "example": "10:30:00"
+                }
+              },
+              "required": [
+                "date"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "dateWindow": {
+                  "description": "Either 1, 2 or 3 extra days around the local date (IxD for +/- x days - Ex: I3D), Either 1 to 3 days after the local date (PxD for +x days - Ex: P3D), or 1 to 3 days before the local date (MxD for -x days - Ex: M3D)\n\nCan not be combined with \"originRadius\" or \"destinationRadius\".\n",
+                  "type": "string",
+                  "example": "I3D",
+                  "pattern": "^[MPI][1-3]D"
+                },
+                "timeWindow": {
+                  "description": "1 to 12 hours around (both +and -) the local time. Possibly limited by the number of extra days when specified, i.e.  in some situations, it may not be used to exceed the maximum date range. [1-12]H format, e.g. 6H\n\nCan not be combined with \"originRadius\" or \"destinationRadius\".\n",
+                  "type": "string",
+                  "example": "2H",
+                  "pattern": "^([1-9]|10|11|12)H"
+                }
+              }
+            }
+          ],
+          "required": [
+            "date"
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/location-score-response-location-score-structure.json",
+  "title": "response_locationScore",
+  "description": "response_locationScore structure from Location Score",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object",
+      "description": "Meta information about the returned object(s) in \"data\""
+    },
+    "data": {
+      "type": "array"
+    },
+    "warnings": {
+      "type": "array"
+    }
+  }
+}

@@ -1,15 +1,16 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Fee",
-  "type": "record",
-  "fields": [
-    {
-      "name": "amount",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-fee-structure.json",
+  "title": "Fee",
+  "description": "a fee",
+  "type": "object",
+  "properties": {
+    "amount": {
       "type": "string"
     },
-    {
-      "name": "type",
-      "type": "string"
+    "type": {
+      "type": "string",
+      "description": "type of fee"
     }
-  ]
+  }
 }

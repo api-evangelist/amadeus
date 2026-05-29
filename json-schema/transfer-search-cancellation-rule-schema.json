@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-search-cancellation-rule-schema.json",
+  "title": "CancellationRule",
+  "description": "cancellation rule information",
+  "type": "object",
+  "properties": {
+    "ruleDescription": {
+      "type": "string",
+      "description": "description of cancellation rule",
+      "example": "Sample description text."
+    },
+    "feeType": {
+      "type": "string",
+      "enum": [
+        "PERCENTAGE",
+        "VALUE"
+      ],
+      "description": "type of fee - percentage of total amount (PERCENTAGE) or fixed amount (VALUE)\n",
+      "example": "PERCENTAGE"
+    },
+    "feeValue": {
+      "type": "string",
+      "description": "value of the fee, e.g. \"100\" or \"12.50\"",
+      "example": "string-value"
+    },
+    "currencyCode": {
+      "type": "string",
+      "pattern": "[A-Z]{3}",
+      "description": "currency code of the fee in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. USD, EUR",
+      "example": "EUR"
+    },
+    "metricType": {
+      "type": "string",
+      "description": "type of metric",
+      "enum": [
+        "MINUTES",
+        "HOURS",
+        "DAYS",
+        "YEARS"
+      ],
+      "example": "MINUTES"
+    },
+    "metricMin": {
+      "type": "string",
+      "description": "metric min value",
+      "example": "string-value"
+    },
+    "metricMax": {
+      "type": "string",
+      "description": "metric max value",
+      "example": "string-value"
+    }
+  }
+}

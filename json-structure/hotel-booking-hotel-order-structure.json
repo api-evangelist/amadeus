@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-booking-hotel-order-structure.json",
+  "title": "HotelOrder",
+  "description": "An Hotel Order is one or several hotel bookings done for a set of guest.",
+  "type": "object",
+  "properties": {
+    "hotelBookings": {
+      "type": "array",
+      "description": "Array of hotel-bookings"
+    },
+    "associatedRecords": {
+      "type": "array",
+      "description": "Reference and origin of the hotel order record"
+    },
+    "self": {
+      "type": "string",
+      "description": "Self URL for retrieving the Hotel Order"
+    },
+    "type": {
+      "type": "string",
+      "description": "Resource name - Is set to \"hotel-order\""
+    },
+    "guests": {
+      "type": "array",
+      "description": "Array of guests sharing the hotelOrder."
+    },
+    "id": {
+      "type": "string",
+      "description": "Id of the hotelorder. \nIt is a crucial information and must be stored in the client system as it is mandatory to provide it in any further step such as cancel or retrieve."
+    }
+  },
+  "required": [
+    "hotelBookings",
+    "associatedRecords",
+    "self",
+    "type",
+    "guests",
+    "id"
+  ]
+}

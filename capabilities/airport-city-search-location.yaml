@@ -1,0 +1,124 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Airport & City Search — Location"
+  description: 'Airport & City Search — Location. 2 operation(s). Lead operation: Amadeus Returns a List of Airports and Cities Matching a Given Keyword.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Location
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: airport-city-search-location
+      baseUri: https://test.api.amadeus.com/v1
+      description: Airport & City Search — Location business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: reference-data-locations
+          path: /reference-data/locations
+          operations:
+            - name: getAirportCitySearch
+              method: GET
+              description: Amadeus Returns a List of Airports and Cities Matching a Given Keyword.
+              inputParameters:
+                - name: subType
+                  in: query
+                  type: array
+                  required: true
+                  description: sub type of the location (AIRPORT and/or CITY)
+                - name: keyword
+                  in: query
+                  type: string
+                  required: true
+                  description: "keyword that should represent the start of a word in a city or airport name or code. \nSupported charaters are: A-Za-z0-9./:-'()\""
+                - name: countryCode
+                  in: query
+                  type: string
+                  required: false
+                  description: Country code of the location using [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US).
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: reference-data-locations
+          path: '/reference-data/locations/{locationId}'
+          operations:
+            - name: getAirportCity
+              method: GET
+              description: Amadeus Returns a Specific Airports or Cities Based on its ID.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: airport-city-search-location-rest
+      port: 8080
+      description: REST adapter for Airport & City Search — Location. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/reference-data/locations
+          name: reference-data-locations
+          description: REST surface for reference-data-locations.
+          operations:
+            - method: GET
+              name: getAirportCitySearch
+              description: Amadeus Returns a List of Airports and Cities Matching a Given Keyword.
+              call: airport-city-search-location.getAirportCitySearch
+              with:
+                subType: rest.subType
+                keyword: rest.keyword
+                countryCode: rest.countryCode
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/reference-data/locations/{location-id}
+          name: reference-data-locations
+          description: REST surface for reference-data-locations.
+          operations:
+            - method: GET
+              name: getAirportCity
+              description: Amadeus Returns a Specific Airports or Cities Based on its ID.
+              call: airport-city-search-location.getAirportCity
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: airport-city-search-location-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Airport & City Search — Location. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: returns-list-airports-cities-matching
+          description: Amadeus Returns a List of Airports and Cities Matching a Given Keyword.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: airport-city-search-location.getAirportCitySearch
+          with:
+            subType: tools.subType
+            keyword: tools.keyword
+            countryCode: tools.countryCode
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: returns-specific-airports-cities-based
+          description: Amadeus Returns a Specific Airports or Cities Based on its ID.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: airport-city-search-location.getAirportCity
+          outputParameters:
+            - type: object
+              mapping: $.

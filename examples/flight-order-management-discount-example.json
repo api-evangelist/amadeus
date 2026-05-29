@@ -1,7 +1,7 @@
 {
-  "subType": "example-subType",
-  "cityName": "example-cityName",
-  "travelerType": "example-travelerType",
-  "cardNumber": "example-cardNumber",
-  "certificateNumber": "example-certificateNumber"
+  "subType": "SPANISH_RESIDENT",
+  "cityName": "MADRID",
+  "travelerType": "SPANISH_CITIZEN",
+  "cardNumber": "12568215Z",
+  "certificateNumber": "12568215Z"
 }

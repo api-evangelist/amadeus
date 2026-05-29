@@ -1,6 +1,7 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "category-rated-areas",
-  "type": "record",
-  "fields": []
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/location-score-category-rated-areas-structure.json",
+  "title": "category-rated-areas",
+  "description": "category-rated-areas structure from Location Score",
+  "type": "object"
 }

@@ -1,15 +1,15 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Collection_Meta",
-  "type": "record",
-  "fields": [
-    {
-      "name": "count",
-      "type": "int32"
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/airport-nearest-relevant-collection-meta-structure.json",
+  "title": "Collection_Meta",
+  "description": "Collection_Meta structure from Airport Nearest Relevant",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer"
     },
-    {
-      "name": "links",
+    "links": {
       "type": "string"
     }
-  ]
+  }
 }

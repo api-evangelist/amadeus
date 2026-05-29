@@ -1,67 +1,56 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Activity",
-  "type": "record",
-  "fields": [
-    {
-      "name": "type",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/tours-and-activities-activity-structure.json",
+  "title": "Activity",
+  "description": "Activity description",
+  "type": "object",
+  "properties": {
+    "type": {
       "type": "string",
       "description": "the ressource name"
     },
-    {
-      "name": "id",
+    "id": {
       "type": "string",
       "description": "unique id of the ressource"
     },
-    {
-      "name": "self",
-      "type": "string"
+    "self": {
+      "type": "object"
     },
-    {
-      "name": "name",
+    "name": {
       "type": "string",
       "description": "activity name"
     },
-    {
-      "name": "shortDescription",
+    "shortDescription": {
       "type": "string",
       "description": "short description of the activity"
     },
-    {
-      "name": "description",
+    "description": {
       "type": "string",
       "description": "full description of the activity"
     },
-    {
-      "name": "geoCode",
-      "type": "string"
+    "geoCode": {
+      "type": "object",
+      "description": "geo position"
     },
-    {
-      "name": "rating",
+    "rating": {
       "type": "string",
       "description": "rating of the activity"
     },
-    {
-      "name": "price",
-      "type": "string"
+    "price": {
+      "type": "object",
+      "description": "elementaryPrice"
     },
-    {
-      "name": "pictures",
+    "pictures": {
       "type": "array",
-      "description": "link to picture related to the activity",
-      "items": {
-        "type": "string"
-      }
+      "description": "link to picture related to the activity"
     },
-    {
-      "name": "bookingLink",
+    "bookingLink": {
       "type": "string",
       "description": "url to book the activity"
     },
-    {
-      "name": "minimumDuration",
+    "minimumDuration": {
       "type": "string",
       "description": "Minimum recommended duration for the activity"
     }
-  ]
+  }
 }

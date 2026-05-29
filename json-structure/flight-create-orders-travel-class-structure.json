@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-create-orders-travel-class-structure.json",
+  "title": "TravelClass",
+  "description": "quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class",
+  "type": "string"
+}

@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-booking-v1-stakeholder-schema.json",
+  "title": "Stakeholder",
+  "description": "Guest Details",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "item identifier",
+      "example": 1
+    },
+    "name": {
+      "type": "object",
+      "description": "Guest Name",
+      "required": [
+        "firstName",
+        "lastName"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "title/gender of room guest",
+          "pattern": "^[A-Za-z -]*$",
+          "minLength": 1,
+          "maxLength": 54,
+          "enum": [
+            "MR",
+            "MRS",
+            "MS"
+          ],
+          "example": "MR"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "first name (and middle name) of room guest",
+          "pattern": "^[A-Za-z \\p{Han}\\p{Katakana}\\p{Hiragana}\\p{Hangul}-]*$",
+          "minLength": 1,
+          "maxLength": 56,
+          "example": "BOB"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "last name of room guest",
+          "pattern": "^[A-Za-z \\p{Han}\\p{Katakana}\\p{Hiragana}\\p{Hangul}-]*$",
+          "minLength": 1,
+          "maxLength": 57,
+          "example": "SMITH"
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "description": "Contact Details",
+      "required": [
+        "phone",
+        "email"
+      ],
+      "properties": {
+        "phone": {
+          "type": "string",
+          "description": "Phone Number in standard E.123(https://en.wikipedia.org/wiki/E.123)",
+          "pattern": "^[+][1-9][0-9]{4,18}$",
+          "minLength": 6,
+          "maxLength": 20,
+          "example": "+33679278416"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email Address",
+          "pattern": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\\\.[a-zA-Z0-9-.]+$",
+          "minLength": 3,
+          "maxLength": 90,
+          "example": "bob.smith@email.com"
+        }
+      }
+    },
+    "hotelRewardsMember": {
+      "type": "string",
+      "pattern": "^[A-Z0-9-]{1,21}$",
+      "minLength": 1,
+      "maxLength": 21,
+      "example": "3081031320523260",
+      "description": "Hotel Chain Rewards Member Number. To receive your Rewards Points, access online check in, fast check out. An error is returned by the Chain if the number is invalid.\nExample Rewards Programs:\n* Marriott Bonvoy\n* Hilton Honors\n* Hyatt Rewards\n* IHG Rewards\n* Wyndham Rewards\n* Accor Live Limitless ALL\n* Best Western Rewards\n* Choice Privileges\n* Radisson Rewards\n"
+    }
+  },
+  "required": [
+    "name",
+    "contact"
+  ],
+  "example": {
+    "id": 1,
+    "name": {
+      "title": "MR",
+      "firstName": "BOB",
+      "lastName": "SMITH"
+    },
+    "contact": {
+      "phone": "+33679278416",
+      "email": "bob.smith@email.com"
+    }
+  }
+}

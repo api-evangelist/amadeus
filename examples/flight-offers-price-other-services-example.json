@@ -1,0 +1,11 @@
+{
+  "name": "PRIORITY_BOARDING",
+  "price": {
+    "amount": "199.50",
+    "currencyCode": "EUR"
+  },
+  "bookableByTraveler": true,
+  "bookableByItinerary": false,
+  "segmentIds": "1",
+  "travelerIds": "1"
+}

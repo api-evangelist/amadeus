@@ -1,4 +1,11 @@
 {
   "count": 1,
-  "oneWayCombinations": []
+  "oneWayCombinations": [
+    {
+      "originDestinationId": "12345",
+      "flightOfferIds": [
+        "string-value"
+      ]
+    }
+  ]
 }

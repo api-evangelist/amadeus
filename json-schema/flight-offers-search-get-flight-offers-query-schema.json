@@ -1,0 +1,343 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-offers-search-get-flight-offers-query-schema.json",
+  "title": "GetFlightOffersQuery",
+  "description": "GetFlightOffersQuery schema from Flight Offers Search",
+  "properties": {
+    "currencyCode": {
+      "type": "string",
+      "description": "The currency code, as defined in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217), to reflect the currency in which this amount is expressed.",
+      "example": "EUR"
+    },
+    "originDestinations": {
+      "title": "originDestinations",
+      "description": "Origins and Destinations must be properly ordered in time (chronological order in accordance with the timezone of each location) to describe the journey consistently. Dates and times must not be past nor more than 365 days in the future, according to provider settings.Number of Origins and Destinations must not exceed the limit defined in provider settings.",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "items": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": 1
+              },
+              "originLocationCode": {
+                "description": "Origin location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+                "type": "string",
+                "example": "PAR"
+              },
+              "destinationLocationCode": {
+                "description": "Destination location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+                "type": "string",
+                "example": "NYC"
+              },
+              "includedConnectionPoints": {
+                "type": "array",
+                "description": "List of included connections points. When an includedViaPoints option is specified, all FlightOffer returned must at least go via this Connecting Point. Currently, only the locations defined in IATA are supported. Used only by the AMADEUS provider",
+                "minItems": 1,
+                "maxItems": 2,
+                "items": {
+                  "title": "code",
+                  "type": "string"
+                },
+                "example": [
+                  "MRS"
+                ]
+              },
+              "excludedConnectionPoints": {
+                "type": "array",
+                "description": "List of excluded connections points. Any FlightOffer with these connections points will be present in response. Currently, only the locations defined in IATA are supported. Used only by the AMADEUS provider",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "title": "code",
+                  "type": "string"
+                },
+                "example": [
+                  "MRS"
+                ]
+              }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "originRadius": {
+                "description": "Include other possible locations around the point, located less than this distance in kilometers away. Max:300\n\nCan not be combined with \"dateWindow\" or \"timeWindow\".\n",
+                "type": "number",
+                "example": 200
+              },
+              "alternativeOriginsCodes": {
+                "type": "array",
+                "description": "Set of alternative origin location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+                "minItems": 1,
+                "maxItems": 2,
+                "items": {
+                  "title": "code",
+                  "type": "string"
+                },
+                "example": [
+                  "LON",
+                  "MUC"
+                ]
+              },
+              "destinationRadius": {
+                "description": "Include other possible locations around the point, located less than this distance in kilometers away. Max:300\n\nCan not be combined with \"dateWindow\" or \"timeWindow\".\n",
+                "type": "number",
+                "example": 200
+              },
+              "alternativeDestinationsCodes": {
+                "type": "array",
+                "description": "Set of alternative destination location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+                "minItems": 1,
+                "maxItems": 2,
+                "items": {
+                  "title": "code",
+                  "type": "string"
+                }
+              },
+              "departureDateTimeRange": {
+                "description": "Approximate date and time of departure, specified as a local date and time range.",
+                "$ref": "#/definitions/DateTimeRange"
+              },
+              "arrivalDateTimeRange": {
+                "description": "Approximate date and time of arrival, specified as a local date and time range.",
+                "$ref": "#/definitions/DateTimeRange"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "travelers": {
+      "title": "travelers",
+      "description": "travelers in the trip. \n\n Maximum number of passengers older than 2 yo (CHILD, ADULT, YOUGHT): 9.\n Each adult can travel with one INFANT so maximum total number of passengers: 18",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 18,
+      "items": {
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": 1
+              },
+              "travelerType": {
+                "$ref": "#/definitions/TravelerType"
+              },
+              "associatedAdultId": {
+                "type": "string",
+                "description": "if type=\"HELD_INFANT\", corresponds to the adult travelers's id who will share the seat",
+                "example": "12345"
+              }
+            },
+            "required": [
+              "id",
+              "travelerType"
+            ]
+          }
+        ],
+        "required": [
+          "id",
+          "travelerType"
+        ]
+      }
+    },
+    "sources": {
+      "title": "sources",
+      "description": "Allows enable one or more sources. If present in the list, these sources will be called by the system.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "description": "source of the flight offer",
+        "type": "string",
+        "enum": [
+          "GDS"
+        ],
+        "example": "GDS"
+      }
+    },
+    "searchCriteria": {
+      "type": "object",
+      "properties": {
+        "excludeAllotments": {
+          "description": "This option allows to exclude the isAllotment flag associated to a booking class in the search response when it exist.",
+          "type": "boolean",
+          "example": false
+        },
+        "addOneWayOffers": {
+          "description": "This option allows activate the one-way combinable feature",
+          "type": "boolean",
+          "example": true
+        },
+        "maxFlightOffers": {
+          "description": "Maximum number of flight offers returned (Max 250)",
+          "type": "number",
+          "default": 250,
+          "example": 250
+        },
+        "maxPrice": {
+          "description": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals",
+          "type": "integer",
+          "example": 100
+        },
+        "allowAlternativeFareOptions": {
+          "description": "This option allows to default to a standard fareOption if no offers are found for the selected fareOption.",
+          "type": "boolean",
+          "example": true
+        },
+        "oneFlightOfferPerDay": {
+          "description": "Requests the system to find at least one flight-offer per day, if possible, when a range of dates is specified. Default is false.",
+          "type": "boolean",
+          "example": true
+        },
+        "additionalInformation": {
+          "title": "AdditionalInformation",
+          "type": "object",
+          "properties": {
+            "chargeableCheckedBags": {
+              "description": "If true, returns the price of the first additional bag when the airline is an \"Amadeus Ancillary Services\" member.",
+              "type": "boolean",
+              "example": true
+            },
+            "brandedFares": {
+              "description": "If true, returns the fare family name for each flight-offer which supports fare family",
+              "type": "boolean",
+              "example": true
+            }
+          }
+        },
+        "pricingOptions": {
+          "title": "pricingOptions",
+          "description": "fare filter options",
+          "type": "object",
+          "properties": {
+            "includedCheckedBagsOnly": {
+              "type": "boolean",
+              "description": "If true, returns the flight-offers with included checked bags only",
+              "example": true
+            },
+            "refundableFare": {
+              "type": "boolean",
+              "description": "If true, returns the flight-offers with refundable fares only",
+              "example": true
+            },
+            "noRestrictionFare": {
+              "type": "boolean",
+              "description": "If true, returns the flight-offers with no restriction fares only",
+              "example": true
+            },
+            "noPenaltyFare": {
+              "type": "boolean",
+              "description": "If true, returns the flight-offers with no penalty fares only",
+              "example": true
+            }
+          }
+        },
+        "flightFilters": {
+          "type": "object",
+          "properties": {
+            "crossBorderAllowed": {
+              "description": "Allows to search a location outside the borders when a radius around a location is specified. Default is false.",
+              "type": "boolean",
+              "example": false
+            },
+            "moreOvernightsAllowed": {
+              "description": "This flag enables/disables the possibility to have more overnight flights in Low Fare Search",
+              "type": "boolean",
+              "example": false
+            },
+            "returnToDepartureAirport": {
+              "description": "This option force to retrieve flight-offer with a departure and a return in the same airport",
+              "type": "boolean",
+              "example": false
+            },
+            "railSegmentAllowed": {
+              "description": "This flag enable/disable filtering of rail segment (TGV AIR, RAIL ...)",
+              "type": "boolean",
+              "example": true
+            },
+            "busSegmentAllowed": {
+              "description": "This flag enable/disable filtering of bus segment",
+              "type": "boolean",
+              "example": true
+            },
+            "maxFlightTime": {
+              "description": "Maximum flight time as a percentage relative to the shortest flight time available for the itinerary",
+              "type": "number",
+              "example": 200
+            },
+            "carrierRestrictions": {
+              "title": "CarrierRestrictions",
+              "description": "Restriction towards carriers.",
+              "$ref": "#/definitions/CarrierRestrictions"
+            },
+            "cabinRestrictions": {
+              "title": "CabinRestrictions",
+              "description": "Restriction towards cabins.",
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 6,
+              "items": {
+                "$ref": "#/definitions/Extended_CabinRestriction"
+              }
+            },
+            "connectionRestriction": {
+              "title": "ConnectionRestriction",
+              "description": "Restriction towards number of connections.",
+              "$ref": "#/definitions/ConnectionRestriction"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "originDestinations",
+    "travelers",
+    "sources"
+  ],
+  "example": {
+    "currencyCode": "USD",
+    "originDestinations": [
+      {
+        "id": "1",
+        "originLocationCode": "NYC",
+        "destinationLocationCode": "MAD",
+        "departureDateTimeRange": {
+          "date": "2023-11-01",
+          "time": "10:00:00"
+        }
+      }
+    ],
+    "travelers": [
+      {
+        "id": "1",
+        "travelerType": "ADULT"
+      }
+    ],
+    "sources": [
+      "GDS"
+    ],
+    "searchCriteria": {
+      "maxFlightOffers": 2,
+      "flightFilters": {
+        "cabinRestrictions": [
+          {
+            "cabin": "BUSINESS",
+            "coverage": "MOST_SEGMENTS",
+            "originDestinationIds": [
+              "1"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "type": "object"
+}

@@ -1,3 +1,7 @@
 {
-  "links": "example-links"
+  "links": {
+    "self": "https://example.com/resource",
+    "related": "https://example.com/resource",
+    "type": "string-value"
+  }
 }

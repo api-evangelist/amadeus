@@ -1,6 +1,7 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Extended_Price",
-  "type": "record",
-  "fields": []
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-search-extended-price-structure.json",
+  "title": "Extended_Price",
+  "description": "price information",
+  "type": "object"
 }

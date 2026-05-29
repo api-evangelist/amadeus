@@ -1,0 +1,342 @@
+extends: spectral:oas
+documentationUrl: https://github.com/api-evangelist/amadeus
+
+formats:
+  - oas2
+  - oas3
+
+# ----------------------------------------------------------------------
+# Amadeus for Developers — Spectral Ruleset
+# ----------------------------------------------------------------------
+# Enforces the conventions observed across the 40 Amadeus Self-Service
+# OpenAPI/Swagger specifications published at amadeus4dev/amadeus-open-api-specification.
+# ----------------------------------------------------------------------
+
+rules:
+
+  # ── INFO / METADATA ─────────────────────────────────────────────────
+  info-title-required:
+    description: API title must be present.
+    severity: error
+    given: $.info
+    then:
+      field: title
+      function: truthy
+
+  info-description-required:
+    description: API description must be present and informative.
+    severity: warn
+    given: $.info
+    then:
+      field: description
+      function: truthy
+
+  info-version-semver:
+    description: API version should follow semantic versioning.
+    severity: warn
+    given: $.info.version
+    then:
+      function: pattern
+      functionOptions:
+        match: '^\d+\.\d+(\.\d+)?$'
+
+  info-title-amadeus-suffix:
+    description: API title should end with "API" (e.g. "Flight Offers Search API", "Hotel Search API").
+    severity: info
+    given: $.info.title
+    then:
+      function: pattern
+      functionOptions:
+        match: '\bAPI\b'
+
+  # ── OPENAPI / SWAGGER VERSION ──────────────────────────────────────
+  spec-version-allowed:
+    description: Spec must be Swagger 2.0 or OpenAPI 3.x — both are observed across the Amadeus catalog.
+    severity: warn
+    given: $
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          oneOf:
+            - required: [swagger]
+              properties:
+                swagger:
+                  type: string
+                  pattern: '^2\.'
+            - required: [openapi]
+              properties:
+                openapi:
+                  type: string
+                  pattern: '^3\.'
+
+  # ── SERVERS / HOST ─────────────────────────────────────────────────
+  servers-https-only:
+    description: Amadeus exposes APIs over HTTPS only.
+    severity: error
+    formats: [oas3]
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+
+  swagger-schemes-https:
+    description: Swagger 2.0 schemes must include "https".
+    severity: error
+    formats: [oas2]
+    given: $.schemes
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            type: string
+            enum: [https]
+
+  swagger-host-amadeus-domain:
+    description: Swagger 2.0 host should be test.api.amadeus.com or api.amadeus.com.
+    severity: warn
+    formats: [oas2]
+    given: $.host
+    then:
+      function: pattern
+      functionOptions:
+        match: '^(test\.api\.amadeus\.com|api\.amadeus\.com)$'
+
+  servers-amadeus-domain:
+    description: OpenAPI 3 server URLs should target test.api.amadeus.com or api.amadeus.com.
+    severity: warn
+    formats: [oas3]
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://(test\.api\.amadeus\.com|api\.amadeus\.com)(/|$)'
+
+  # ── PATHS ──────────────────────────────────────────────────────────
+  paths-versioned-base:
+    description: Paths or basePath should be versioned (e.g. /v1, /v2, /v3).
+    severity: warn
+    formats: [oas2]
+    given: $.basePath
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/v\d+'
+
+  paths-kebab-case-segments:
+    description: Path segments should use lowercase kebab-case (Amadeus convention).
+    severity: warn
+    given: $.paths
+    then:
+      function: alphabetical
+      field: '@key'
+
+  paths-no-trailing-slash:
+    description: Paths must not end with a trailing slash.
+    severity: error
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: '.+/$'
+
+  # ── OPERATIONS ─────────────────────────────────────────────────────
+  operation-operationid-required:
+    description: Every operation must have an operationId.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: operationId
+      function: truthy
+
+  operation-operationid-camelcase:
+    description: operationId should be camelCase (Amadeus convention — e.g. getFlightOffers, createOrder).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]*$'
+
+  operation-summary-required:
+    description: Every operation must have a summary.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: summary
+      function: truthy
+
+  operation-summary-amadeus-prefix:
+    description: Operation summaries should be prefixed with "Amadeus" (Title Case convention from title-case-summaries skill).
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: '^Amadeus '
+
+  operation-tags-required:
+    description: Every operation should have at least one tag to support capability bucketing.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: tags
+      function: truthy
+
+  operation-description-recommended:
+    description: Operations should have a description in addition to the summary.
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: description
+      function: truthy
+
+  # ── PARAMETERS ─────────────────────────────────────────────────────
+  parameter-description-required:
+    description: Every parameter should have a description.
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[*]
+    then:
+      field: description
+      function: truthy
+
+  parameter-name-camelcase:
+    description: Parameter names should be camelCase (Amadeus convention — e.g. originLocationCode, departureDate, hotelIds).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.in!='body' && @.in!='header')].name
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]*$'
+
+  iata-code-pattern:
+    description: IATA-code-style query parameters (originLocationCode, destinationLocationCode, airlineCode, carrierCode) must be uppercase 2-3 letter strings.
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.name=='originLocationCode' || @.name=='destinationLocationCode' || @.name=='airlineCode' || @.name=='carrierCode' || @.name=='iataCode')]
+    then:
+      field: pattern
+      function: pattern
+      functionOptions:
+        match: '^\[A-Z]\{2,3\}$|^[A-Z]{2,3}$'
+
+  # ── RESPONSES ──────────────────────────────────────────────────────
+  response-success-required:
+    description: Every operation must define at least one 2xx response.
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          patternProperties:
+            '^2[0-9][0-9]$':
+              type: object
+          minProperties: 1
+
+  response-400-defined:
+    description: Operations should document 400 Bad Request responses.
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '400'
+      function: truthy
+
+  response-401-defined:
+    description: Operations should document 401 Unauthorized responses (OAuth2 required).
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '401'
+      function: truthy
+
+  response-500-defined:
+    description: Operations should document 500 Internal Server Error responses.
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '500'
+      function: truthy
+
+  response-content-amadeus-mediatype:
+    description: Amadeus uses the application/vnd.amadeus+json media type alongside application/json — at least one must be declared.
+    severity: info
+    formats: [oas2]
+    given: $.produces
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: array
+          contains:
+            type: string
+            enum:
+              - application/json
+              - application/vnd.amadeus+json
+
+  # ── SCHEMAS ────────────────────────────────────────────────────────
+  schema-property-camelcase:
+    description: Schema property names should be camelCase (Amadeus convention — e.g. originLocationCode, departureDate).
+    severity: warn
+    given: $..properties[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]*$'
+
+  schema-type-defined:
+    description: Every schema must declare a type or use $ref / oneOf / anyOf / allOf.
+    severity: warn
+    given: $.definitions[*]
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          anyOf:
+            - required: [type]
+            - required: [$ref]
+            - required: [oneOf]
+            - required: [anyOf]
+            - required: [allOf]
+
+  # ── SECURITY ───────────────────────────────────────────────────────
+  security-oauth2-defined:
+    description: Specs that require authentication should reference an OAuth2 security scheme (Amadeus uses client_credentials).
+    severity: info
+    formats: [oas3]
+    given: $.components.securitySchemes
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          additionalProperties:
+            type: object
+
+  # ── TAGS ───────────────────────────────────────────────────────────
+  global-tags-defined:
+    description: Global tags array should be defined so operations can be bucketed into capabilities.
+    severity: info
+    given: $.tags
+    then:
+      function: truthy
+
+  tag-description-required:
+    description: Each global tag should have a description.
+    severity: info
+    given: $.tags[*]
+    then:
+      field: description
+      function: truthy
+
+  # ── MICROCKS / TOOLING ─────────────────────────────────────────────
+  microcks-operation-required:
+    description: Every operation should carry x-microcks-operation for Microcks mock-server compatibility.
+    severity: info
+    given: $.paths[*][get,post,put,patch,delete]
+    then:
+      field: x-microcks-operation
+      function: truthy

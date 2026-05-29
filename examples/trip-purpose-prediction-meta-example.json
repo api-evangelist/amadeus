@@ -1,4 +1,10 @@
 {
-  "links": "example-links",
-  "defaults": "example-defaults"
+  "links": {
+    "self": "https://example.com/resource",
+    "related": "https://example.com/resource",
+    "type": "string-value"
+  },
+  "defaults": {
+    "searchDate": "2019-06-11"
+  }
 }

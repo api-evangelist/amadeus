@@ -1,13 +1,35 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-cheapest-date-search-dictionaries-schema.json",
   "title": "Dictionaries",
+  "description": "Dictionaries schema from Flight Cheapest Date Search",
   "type": "object",
   "properties": {
     "currencies": {
-      "$ref": "#/definitions/CurrencyDictionary"
+      "additionalProperties": {
+        "type": "string",
+        "example": "EUR"
+      }
     },
     "locations": {
-      "$ref": "#/definitions/LocationDictionary"
+      "additionalProperties": {
+        "properties": {
+          "subType": {
+            "type": "string",
+            "description": "location type: airport or city",
+            "enum": [
+              "AIRPORT",
+              "CITY"
+            ],
+            "example": "AIRPORT"
+          },
+          "detailedName": {
+            "type": "string",
+            "description": "name of the location",
+            "example": "Paris/FR: Charles de Gaulle"
+          }
+        }
+      }
     }
   }
 }

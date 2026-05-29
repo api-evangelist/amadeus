@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/on-demand-flight-status-aircraft-equipment-structure.json",
+  "title": "AircraftEquipment",
+  "description": "AircraftEquipment structure from On-Demand Flight Status",
+  "type": "object",
+  "properties": {
+    "aircraftType": {
+      "type": "string",
+      "description": "the type of aircraft that will operate the leg"
+    }
+  }
+}

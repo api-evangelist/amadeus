@@ -1,0 +1,10 @@
+{
+  "code": "DSL",
+  "itemId": "12345",
+  "description": "Sample description text.",
+  "metricType": "YEARS",
+  "metricValue": "string-value",
+  "isBookable": true,
+  "taxIncluded": true,
+  "includedInTotal": "199.50"
+}

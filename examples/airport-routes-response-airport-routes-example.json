@@ -1,0 +1,45 @@
+{
+  "warnings": [
+    {
+      "code": 1,
+      "title": "string-value",
+      "detail": "string-value",
+      "source": {
+        "parameter": "string-value",
+        "pointer": "string-value",
+        "example": "string-value"
+      }
+    }
+  ],
+  "data": [
+    {
+      "type": "string-value",
+      "subtype": "string-value",
+      "name": "\"Eiffel Tower\"",
+      "iataCode": "\"PAR\"",
+      "geoCode": {
+        "latitude": "48.85837",
+        "longitude": "2.294481"
+      },
+      "address": {
+        "countryName": "France",
+        "countryCode": "FR",
+        "stateCode": "FR-13",
+        "regionCode": "EUROP"
+      },
+      "timeZone": {
+        "offSet": "+01:00",
+        "referenceLocalDateTime": "2022-09-28T19:20:30"
+      },
+      "metrics": {
+        "relevance": "100"
+      }
+    }
+  ],
+  "meta": {
+    "count": 1,
+    "links": {
+      "self": "https://example.com/resource"
+    }
+  }
+}

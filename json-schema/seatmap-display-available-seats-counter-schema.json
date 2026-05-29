@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-available-seats-counter-schema.json",
+  "title": "AvailableSeatsCounter",
+  "description": "AvailableSeatsCounter schema from Seatmap Display",
+  "type": "object",
+  "properties": {
+    "travelerId": {
+      "description": "Traveler id",
+      "type": "string",
+      "pattern": "[a-zA-Z0-9-]{1,20}",
+      "example": "12345"
+    },
+    "value": {
+      "description": "Number of Seats with status AVAILABLE",
+      "type": "integer",
+      "example": 5
+    }
+  }
+}

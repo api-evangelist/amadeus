@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-order-management-b2b-wallet-structure.json",
+  "title": "B2bWallet",
+  "description": "b2b wallet",
+  "type": "object",
+  "properties": {
+    "cardId": {
+      "type": "string",
+      "description": "card identifier"
+    },
+    "cardUsageName": {
+      "type": "string",
+      "description": "card usage name"
+    },
+    "cardFriendlyName": {
+      "type": "string",
+      "description": "card name"
+    },
+    "reportingData": {
+      "type": "array"
+    },
+    "virtualCreditCardDetails": {
+      "type": "string",
+      "description": "detail information of the virtual card"
+    },
+    "flightOfferIds": {
+      "type": "array",
+      "description": "Id of the concern flightOffers"
+    }
+  }
+}

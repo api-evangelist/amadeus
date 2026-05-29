@@ -1,6 +1,7 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Score",
-  "type": "record",
-  "fields": []
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-ratings-score-structure.json",
+  "title": "Score",
+  "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+  "type": "integer"
 }

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-search-qualified-free-text-structure.json",
+  "title": "QualifiedFreeText",
+  "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string",
+      "description": "Free Text"
+    },
+    "lang": {
+      "type": "string",
+      "description": "see RFC 5646"
+    }
+  }
+}

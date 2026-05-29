@@ -1,20 +1,52 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/on-demand-flight-status-departure-schema.json",
   "title": "Departure",
-  "type": "object",
+  "description": "Departure schema from On-Demand Flight Status",
   "properties": {
     "terminal": {
-      "$ref": "#/definitions/Terminal"
+      "properties": {
+        "code": {
+          "description": "the code of the terminal",
+          "type": "string",
+          "example": 1
+        }
+      }
     },
     "gate": {
-      "$ref": "#/definitions/Gate"
+      "properties": {
+        "mainGate": {
+          "description": "the main gate number",
+          "type": "string",
+          "example": "10A"
+        }
+      }
     },
     "timings": {
-      "type": "array",
       "description": "the list of timings",
+      "type": "array",
       "items": {
-        "$ref": "#/definitions/Timing"
+        "properties": {
+          "qualifier": {
+            "description": "the qualifier of the timing. e.g. STD (stands for Schedule Time Departure)",
+            "type": "string",
+            "example": "STD"
+          },
+          "value": {
+            "type": "string",
+            "format": "date-time",
+            "example": "06:00:00"
+          },
+          "delays": {
+            "description": "delays that might be recorded on a timing",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Delay"
+            }
+          }
+        }
       }
     }
-  }
+  },
+  "type": "object"
 }

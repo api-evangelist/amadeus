@@ -1,0 +1,93 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Flight Order Management — Booking"
+  description: 'Flight Order Management — Booking. 2 operation(s). Lead operation: Amadeus Retrieve a Given Flight Order. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Booking
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: flight-order-management-booking
+      baseUri: https://test.api.amadeus.com/v1
+      description: Flight Order Management — Booking business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: booking-flight-orders
+          path: /booking/flight-orders/{flight-orderId}
+          operations:
+            - name: getFlightOrder
+              method: GET
+              description: Amadeus Retrieve a Given Flight Order
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: cancelFlightOrder
+              method: DELETE
+              description: Amadeus Cancel a Given Flight Order
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: flight-order-management-booking-rest
+      port: 8080
+      description: REST adapter for Flight Order Management — Booking. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/booking/flight-orders/{flight-order-id}
+          name: booking-flight-orders
+          description: REST surface for booking-flight-orders.
+          operations:
+            - method: GET
+              name: getFlightOrder
+              description: Amadeus Retrieve a Given Flight Order
+              call: flight-order-management-booking.getFlightOrder
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: DELETE
+              name: cancelFlightOrder
+              description: Amadeus Cancel a Given Flight Order
+              call: flight-order-management-booking.cancelFlightOrder
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: flight-order-management-booking-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Flight Order Management — Booking. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: retrieve-given-flight-order
+          description: Amadeus Retrieve a Given Flight Order
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: flight-order-management-booking.getFlightOrder
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: cancel-given-flight-order
+          description: Amadeus Cancel a Given Flight Order
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: flight-order-management-booking.cancelFlightOrder
+          outputParameters:
+            - type: object
+              mapping: $.

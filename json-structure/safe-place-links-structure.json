@@ -1,22 +1,22 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Links",
-  "type": "record",
-  "fields": [
-    {
-      "name": "href",
-      "type": "uri"
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/safe-place-links-structure.json",
+  "title": "Links",
+  "description": "Links structure from Safe Place",
+  "type": "object",
+  "properties": {
+    "href": {
+      "type": "string",
+      "format": "uri"
     },
-    {
-      "name": "methods",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+    "methods": {
+      "type": "array"
     },
-    {
-      "name": "count",
-      "type": "int32"
+    "count": {
+      "type": "integer"
     }
+  },
+  "required": [
+    "href"
   ]
 }

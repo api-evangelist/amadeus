@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-offers-price-base-name-schema.json",
+  "title": "BaseName",
+  "description": "description of the name of a physical person",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "description": "First name.",
+      "type": "string",
+      "example": "Marie"
+    },
+    "lastName": {
+      "description": "Last name.",
+      "type": "string",
+      "example": "Dupont"
+    },
+    "middleName": {
+      "description": "Middle name(s), for example \"Lee\" in \"John Lee Smith\".",
+      "type": "string",
+      "example": "Sample Name"
+    }
+  }
+}

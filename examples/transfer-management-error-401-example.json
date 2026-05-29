@@ -1,3 +1,10 @@
 {
-  "errors": []
+  "errors": [
+    {
+      "status": 401,
+      "code": 20,
+      "title": "RESTRICTED",
+      "detail": "Query unauthorized"
+    }
+  ]
 }

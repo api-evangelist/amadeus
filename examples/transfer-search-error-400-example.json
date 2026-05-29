@@ -1,3 +1,13 @@
 {
-  "errors": []
+  "errors": [
+    {
+      "status": 400,
+      "code": 4926,
+      "title": "INVALID DATA RECEIVED",
+      "detail": "Transfer type is not valid",
+      "source": {
+        "parameter": "transferType"
+      }
+    }
+  ]
 }

@@ -1,6 +1,30 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-search-fee-schema.json",
   "title": "Fee",
   "description": "single fee information",
-  "type": "object"
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "monetaryAmount": {
+          "type": "string",
+          "example": "10.5"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "currencyCode": {
+          "type": "string",
+          "example": "USD"
+        },
+        "indicator": {
+          "type": "string",
+          "description": "fee category e.g. \"AIRPORT\", \"CREDITCARD\" ,\"CANCELLATION\""
+        }
+      }
+    }
+  ]
 }

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-availabilities-search-origin-destination-light-schema.json",
+  "title": "OriginDestinationLight",
+  "description": "OriginDestinationLight schema from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": 1
+    },
+    "originLocationCode": {
+      "description": "Origin location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+      "type": "string",
+      "example": "PAR"
+    },
+    "destinationLocationCode": {
+      "description": "Destination location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+      "type": "string",
+      "example": "NYC"
+    },
+    "includedConnectionPoints": {
+      "type": "array",
+      "description": "List of included connections points. When an includedViaPoints option is specified, all FlightOffer returned must at least go via this Connecting Point. Currently, only the locations defined in IATA are supported. Used only by the AMADEUS provider",
+      "minItems": 1,
+      "maxItems": 2,
+      "items": {
+        "title": "code",
+        "type": "string"
+      },
+      "example": [
+        "MRS"
+      ]
+    },
+    "excludedConnectionPoints": {
+      "type": "array",
+      "description": "List of excluded connections points. Any FlightOffer with these connections points will be present in response. Currently, only the locations defined in IATA are supported. Used only by the AMADEUS provider",
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "title": "code",
+        "type": "string"
+      },
+      "example": [
+        "MRS"
+      ]
+    }
+  }
+}

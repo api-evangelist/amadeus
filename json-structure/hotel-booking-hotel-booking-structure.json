@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-booking-hotel-booking-structure.json",
+  "title": "HotelBooking",
+  "description": "An hotel booking represent one or several rooms booked in the same physical hotel.\nThere is always a reference to this booking, provided by the hotel provider, stored in associated records section.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Type of data - set to \"hotel-booking\"."
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique ID of the hotel booking ID.\nIt is computed by Amadeus System based on technical data."
+    },
+    "bookingStatus": {
+      "type": "string",
+      "description": "Status of the booking - Possible values \n- \"CONFIRMED\"\n- \"PENDING\" for on-request \n- \"CANCELLED\" (It will be returned only in the retrieve byHistory as it repreents a DELETED resource.)\n- \"On HOLD\" for deferred payment (HO)\n- \"UNCONFIRMED\" (UC) when confirmation finaly refused by Hotel Provider\n- \"DENIED\" (NO) when an on-request booking is denied by the hotelier\n- \"GHOST\" (GK) for ghost booking\n- \"PAST\" for a confirmed booking with the check-out date in the past\n"
+    },
+    "roomAssociations": {
+      "type": "array",
+      "description": "Array of room associations. Each room association correlates one single room to guest(s), a payment and an hotel offer.\n\nIf multiple identical rooms are requested, one roomAssociation is created per hotelBooking (one hotelBooking is created per room)."
+    },
+    "hotelOffer": {
+      "type": "string",
+      "description": "Hotel Offer"
+    },
+    "hotel": {
+      "type": "object",
+      "description": "Hotel Content"
+    },
+    "hotelProviderInformation": {
+      "type": "array",
+      "description": "References and origin of the hotel bookings records"
+    },
+    "payment": {
+      "type": "object",
+      "description": "Model with the hotel payment information"
+    },
+    "travelAgentId": {
+      "type": "string",
+      "description": "Travel Agent ID also called Booking source or IATA number.\n- When received in booking request, it indicates that the travel agent wants to override the booking source receiving the commission. \n- If not provided in booking request, it is set to the IATA Number of the office profile of the agent making the booking. (the commission is given to that office) "
+    },
+    "arrivalInformation": {
+      "type": "object",
+      "description": "Optional information on the way the guest is arriving to the hotel. Today the application only supports Flight details.\nIf this information is provided at booking creation time, it is displayed in the response and in the retrieve."
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "roomAssociations",
+    "hotelOffer",
+    "hotel",
+    "hotelProviderInformation",
+    "travelAgentId"
+  ]
+}

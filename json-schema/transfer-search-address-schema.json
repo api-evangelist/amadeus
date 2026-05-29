@@ -1,38 +1,54 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-search-address-schema.json",
   "title": "Address",
   "description": "address information",
   "type": "object",
   "properties": {
     "line": {
+      "description": "Address line with street, number, bulding, etc...",
       "type": "string",
-      "description": "Address line with street, number, bulding, etc..."
+      "minLength": 1,
+      "maxLength": 70,
+      "example": "string-value"
     },
     "zip": {
+      "description": "Post office code number",
       "type": "string",
-      "description": "Post office code number"
+      "minLength": 1,
+      "maxLength": 120,
+      "example": "string-value"
     },
     "countryCode": {
+      "description": "Country code (two character standard IATA country code)",
       "type": "string",
-      "description": "Country code (two character standard IATA country code)"
+      "pattern": "[a-zA-Z]{2}",
+      "example": "FR"
     },
     "cityName": {
+      "description": "City, town or postal station",
       "type": "string",
-      "description": "City, town or postal station"
+      "minLength": 1,
+      "maxLength": 35,
+      "example": "Paris"
     },
     "stateCode": {
+      "description": "State code (two character standard IATA state code)",
       "type": "string",
-      "description": "State code (two character standard IATA state code)"
+      "pattern": "[a-zA-Z0-9]{1-2}",
+      "example": "string-value"
     },
     "latitude": {
+      "description": "latitude of the location",
       "type": "number",
       "format": "double",
-      "description": "latitude of the location"
+      "example": 43.580418
     },
     "longitude": {
+      "description": "longitude of the location",
       "type": "number",
       "format": "double",
-      "description": "longitude of the location"
+      "example": 7.125102
     }
   }
 }

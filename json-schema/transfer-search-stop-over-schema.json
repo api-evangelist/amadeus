@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-search-stop-over-schema.json",
+  "title": "StopOver",
+  "description": "Location of the stop over or the several stop over points. It can be defined either using IATA code or Address (address line, zip, country, city, state, latitude, longitude). Vehicle change via stop overs is not supported.",
+  "properties": {
+    "duration": {
+      "description": "transfer stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M.",
+      "type": "string",
+      "example": "PT2H30M"
+    },
+    "sequenceNumber": {
+      "description": "sequence number of the stop e.g. 3",
+      "type": "number",
+      "example": 1
+    },
+    "location": {
+      "type": "object",
+      "description": "location information",
+      "properties": {
+        "dateTime": {
+          "description": "date and time specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DDThh:mm:ss format e.g. 2017-11-10T10:00:00\nnot supported for stopOvers object\n",
+          "type": "string",
+          "example": "2019-11-10T10:30:00"
+        },
+        "locationCode": {
+          "type": "string",
+          "description": "airport code from [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx), e.g. CDG.",
+          "pattern": "[A-Za-z]{3}",
+          "example": "CDG"
+        },
+        "address": {
+          "type": "object",
+          "description": "address information",
+          "properties": {
+            "line": {
+              "description": "Address line with street, number, bulding, etc...",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 70,
+              "example": "string-value"
+            },
+            "zip": {
+              "description": "Post office code number",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120,
+              "example": "string-value"
+            },
+            "countryCode": {
+              "description": "Country code (two character standard IATA country code)",
+              "type": "string",
+              "pattern": "[a-zA-Z]{2}",
+              "example": "FR"
+            },
+            "cityName": {
+              "description": "City, town or postal station",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 35,
+              "example": "Paris"
+            },
+            "stateCode": {
+              "description": "State code (two character standard IATA state code)",
+              "type": "string",
+              "pattern": "[a-zA-Z0-9]{1-2}",
+              "example": "string-value"
+            },
+            "latitude": {
+              "description": "latitude of the location",
+              "type": "number",
+              "format": "double",
+              "example": 43.580418
+            },
+            "longitude": {
+              "description": "longitude of the location",
+              "type": "number",
+              "format": "double",
+              "example": 7.125102
+            }
+          }
+        },
+        "name": {
+          "type": "string",
+          "description": "Place name e.g. Airport Name, Hotel Name etc.",
+          "example": "Sample Name"
+        },
+        "googlePlaceId": {
+          "description": "Google place id only for google address e.g. ChIJL-DOWeBv5kcRfTbh97PimNc.",
+          "type": "string",
+          "example": "ChIJrTLr-GyuEmsRBfy61i59si0"
+        },
+        "uicCode": {
+          "type": "string",
+          "description": "UIC code defined by the worldwide railway organization e.g. 8600626",
+          "example": "string-value"
+        }
+      }
+    }
+  },
+  "type": "object"
+}

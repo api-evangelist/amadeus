@@ -1,10 +1,19 @@
 {
-  "type": "example-type",
-  "origin": {},
-  "destination": {},
-  "departureDate": "example-departureDate",
+  "type": "string-value",
+  "origin": {
+    "iataCode": "PAR"
+  },
+  "destination": {
+    "iataCode": "PAR"
+  },
+  "departureDate": "2026-08-15",
   "transportType": "FLIGHT",
-  "currencyCode": "example-currencyCode",
+  "currencyCode": "EUR",
   "oneWay": true,
-  "priceMetrics": []
+  "priceMetrics": [
+    {
+      "amount": "199.50",
+      "quartileRanking": "MINIMUM"
+    }
+  ]
 }

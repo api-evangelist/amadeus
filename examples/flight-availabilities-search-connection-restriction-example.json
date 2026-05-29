@@ -1,0 +1,5 @@
+{
+  "maxNumberOfConnections": 2,
+  "airportChangeAllowed": false,
+  "technicalStopsAllowed": true
+}

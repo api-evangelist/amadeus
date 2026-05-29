@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-offers-price-other-services-schema.json",
+  "title": "OtherServices",
+  "description": "OtherServices schema from Flight Offers Price",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "type of service",
+      "type": "string",
+      "enum": [
+        "PRIORITY_BOARDING",
+        "AIRPORT_CHECKIN"
+      ],
+      "example": "PRIORITY_BOARDING"
+    },
+    "price": {
+      "description": "elementaryPrice",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "description": "Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection.",
+          "example": "199.50"
+        },
+        "currencyCode": {
+          "type": "string",
+          "description": "Currency type of the fare.",
+          "example": "EUR"
+        }
+      }
+    },
+    "bookableByTraveler": {
+      "description": "Specify if the service is bookable by traveler or for all travelers",
+      "type": "boolean",
+      "example": true
+    },
+    "bookableByItinerary": {
+      "description": "Specify if the service is bookable by itinerary or for all itineraries",
+      "type": "boolean",
+      "example": false
+    },
+    "segmentIds": {
+      "description": "Id of the segment concerned by the service",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": "1"
+    },
+    "travelerIds": {
+      "description": "Id of the traveler concerned by the service",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "example": "1"
+    }
+  }
+}

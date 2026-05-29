@@ -1,4 +1,8 @@
 {
-  "flights": "example-flights",
-  "travelers": "example-travelers"
+  "flights": {
+    "score": 56
+  },
+  "travelers": {
+    "score": 68
+  }
 }

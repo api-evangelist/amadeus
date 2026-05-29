@@ -1,0 +1,20 @@
+{
+  "hotelId": "BBLONBTL",
+  "type": "hotelSentiment",
+  "overallRating": 82,
+  "numberOfRatings": 350,
+  "numberOfReviews": 200,
+  "sentiments": {
+    "sleepQuality": 82,
+    "service": 82,
+    "facilities": 82,
+    "roomComforts": 82,
+    "valueForMoney": 82,
+    "catering": 82,
+    "swimmingPool": 82,
+    "location": 82,
+    "internet": 82,
+    "pointsOfInterest": 82,
+    "staff": 82
+  }
+}

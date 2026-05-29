@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-seatmap-traveler-pricing-schema.json",
+  "title": "SeatmapTravelerPricing",
+  "description": "SeatmapTravelerPricing schema from Seatmap Display",
+  "type": "object",
+  "properties": {
+    "travelerId": {
+      "description": "Traveler id",
+      "type": "string",
+      "pattern": "[a-zA-Z0-9-]{1,20}",
+      "example": "12345"
+    },
+    "seatAvailabilityStatus": {
+      "description": "Seat availability for this specific traveler. Allows better seat choice per traveler",
+      "type": "string",
+      "enum": [
+        "AVAILABLE",
+        "BLOCKED",
+        "OCCUPIED"
+      ],
+      "example": "AVAILABLE"
+    },
+    "price": {
+      "properties": {
+        "currency": {
+          "type": "string",
+          "example": "USD"
+        },
+        "total": {
+          "description": "Total amount paid by the user",
+          "type": "string",
+          "example": "932.70"
+        },
+        "base": {
+          "description": "Amount without taxes",
+          "type": "string",
+          "example": "632.70"
+        },
+        "fees": {
+          "description": "List of applicable fees",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Fee"
+          }
+        },
+        "taxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tax"
+          }
+        }
+      }
+    }
+  }
+}

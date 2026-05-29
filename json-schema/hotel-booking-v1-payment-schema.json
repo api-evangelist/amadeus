@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-booking-v1-payment-schema.json",
+  "title": "Payment",
+  "description": "form of payment (mandatory in case of `acceptedPayments`/`methods`)",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "example": 1
+    },
+    "method": {
+      "type": "string",
+      "example": "creditCard",
+      "enum": [
+        "creditCard"
+      ],
+      "description": "The Payment Methods:\n * creditCard (CC) - Payment Cards in `creditCards` are accepted           "
+    },
+    "card": {
+      "type": "object",
+      "title": "Card",
+      "description": "payment card details (mandatory in case of `method` creditCard)",
+      "required": [
+        "vendorCode",
+        "cardNumber",
+        "expiryDate"
+      ],
+      "properties": {
+        "vendorCode": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "minLength": 2,
+          "maxLength": 2,
+          "example": "VI",
+          "description": "card type (CA, VI, AX, DC...)\nExamples:\n  * CA - MasterCard (warning: use it instead of MC/IK/EC/MD/XS)\n  * VI - Visa\n  * AX - American Express\n  * DC - Diners Club\n  * AU - Carte Aurore\n  * CG - Cofinoga\n  * DS - Discover\n  * GK - Lufthansa GK Card\n  * JC - Japanese Credit Bureau\n  * TC - Torch Club\n  * TP - Universal Air Travel Card\n  * BC - Bank Card\n  * DL - Delta\n  * MA - Maestro\n  * UP - China UnionPay   \n  * VE - Visa Electron\n"
+        },
+        "cardNumber": {
+          "type": "string",
+          "description": "card number",
+          "pattern": "^[0-9]*$",
+          "minLength": 2,
+          "maxLength": 22,
+          "example": 1
+        },
+        "expiryDate": {
+          "type": "string",
+          "description": "Expiration Date YYYY-MM",
+          "pattern": "^[0-9]{4}-[0-9]{2}$",
+          "minLength": 7,
+          "maxLength": 7,
+          "example": "2019-01"
+        }
+      }
+    }
+  },
+  "required": [
+    "method"
+  ]
+}

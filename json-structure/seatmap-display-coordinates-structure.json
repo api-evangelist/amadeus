@@ -1,17 +1,17 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Coordinates",
-  "type": "record",
-  "fields": [
-    {
-      "name": "x",
-      "type": "int32",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-coordinates-structure.json",
+  "title": "Coordinates",
+  "description": "Coordinates structure from Seatmap Display",
+  "type": "object",
+  "properties": {
+    "x": {
+      "type": "integer",
       "description": "coordinate for the Length"
     },
-    {
-      "name": "y",
-      "type": "int32",
+    "y": {
+      "type": "integer",
       "description": "coordinate for the Width"
     }
-  ]
+  }
 }

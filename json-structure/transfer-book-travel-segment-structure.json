@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-book-travel-segment-structure.json",
+  "title": "TravelSegment",
+  "description": "A segment of an itinerary used by a traveler between 2 locations at a given date and time using a particular transportation type FLIGHT or TRAIN",
+  "type": "object",
+  "properties": {
+    "transportationType": {
+      "type": "string",
+      "description": "The type of connection \"FLIGHT\" or \"TRAIN\""
+    },
+    "transportationNumber": {
+      "type": "string",
+      "description": "The flight number or train number, e.g. AF380"
+    },
+    "departure": {
+      "type": "object",
+      "description": "The flight or train departure/arrival date&time, location information"
+    },
+    "arrival": {
+      "type": "object",
+      "description": "The flight or train departure/arrival date&time, location information"
+    }
+  }
+}

@@ -1,12 +1,13 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Gate",
-  "type": "record",
-  "fields": [
-    {
-      "name": "mainGate",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/on-demand-flight-status-gate-structure.json",
+  "title": "Gate",
+  "description": "Gate structure from On-Demand Flight Status",
+  "type": "object",
+  "properties": {
+    "mainGate": {
       "type": "string",
       "description": "the main gate number"
     }
-  ]
+  }
 }

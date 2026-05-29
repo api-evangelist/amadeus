@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-create-orders-allotment-details-schema.json",
+  "title": "AllotmentDetails",
+  "description": "AllotmentDetails schema from Flight Create Orders",
+  "type": "object",
+  "properties": {
+    "tourName": {
+      "description": "The tour name agreed for this specific allotment.",
+      "type": "string",
+      "example": "Sample Name"
+    },
+    "tourReference": {
+      "description": "The tour reference agreed for this specific allotment.",
+      "type": "string",
+      "example": "string-value"
+    }
+  }
+}

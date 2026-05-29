@@ -1,35 +1,31 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Location",
-  "type": "record",
-  "fields": [
-    {
-      "name": "id",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/safe-place-location-structure.json",
+  "title": "Location",
+  "description": "Location structure from Safe Place",
+  "type": "object",
+  "properties": {
+    "id": {
       "type": "string",
       "description": "id of the ressource"
     },
-    {
-      "name": "self",
+    "self": {
       "type": "string"
     },
-    {
-      "name": "type",
+    "type": {
       "type": "string",
       "description": "the resource name"
     },
-    {
-      "name": "subType",
+    "subType": {
       "type": "string",
       "description": "location sub type"
     },
-    {
-      "name": "name",
+    "name": {
       "type": "string",
       "description": "short name of the location"
     },
-    {
-      "name": "geoCode",
+    "geoCode": {
       "type": "string"
     }
-  ]
+  }
 }

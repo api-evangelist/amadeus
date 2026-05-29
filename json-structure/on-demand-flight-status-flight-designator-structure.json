@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/on-demand-flight-status-flight-designator-structure.json",
+  "title": "FlightDesignator",
+  "description": "FlightDesignator structure from On-Demand Flight Status",
+  "type": "object",
+  "properties": {
+    "carrierCode": {
+      "type": "string",
+      "description": "2 to 3-character IATA code of the carrier. e.g. 6X"
+    },
+    "flightNumber": {
+      "type": "integer",
+      "format": "int64",
+      "description": "1 to 4-digit number of the flight e.g. 4537"
+    },
+    "operationalSuffix": {
+      "type": "string",
+      "description": "1-letter operational suffix of the flight e.g. A"
+    }
+  }
+}

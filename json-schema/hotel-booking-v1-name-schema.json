@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-booking-v1-name-schema.json",
+  "title": "Name",
+  "description": "Guest Name",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "title/gender of room guest",
+      "pattern": "^[A-Za-z -]*$",
+      "minLength": 1,
+      "maxLength": 54,
+      "enum": [
+        "MR",
+        "MRS",
+        "MS"
+      ],
+      "example": "MR"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "first name (and middle name) of room guest",
+      "pattern": "^[A-Za-z \\p{Han}\\p{Katakana}\\p{Hiragana}\\p{Hangul}-]*$",
+      "minLength": 1,
+      "maxLength": 56,
+      "example": "BOB"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "last name of room guest",
+      "pattern": "^[A-Za-z \\p{Han}\\p{Katakana}\\p{Hiragana}\\p{Hangul}-]*$",
+      "minLength": 1,
+      "maxLength": 57,
+      "example": "SMITH"
+    }
+  },
+  "required": [
+    "firstName",
+    "lastName"
+  ]
+}

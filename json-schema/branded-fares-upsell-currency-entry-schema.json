@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/branded-fares-upsell-currency-entry-schema.json",
+  "title": "CurrencyEntry",
+  "description": "CurrencyEntry schema from Branded Fares Upsell",
+  "additionalProperties": {
+    "type": "string",
+    "example": "EUR"
+  }
+}

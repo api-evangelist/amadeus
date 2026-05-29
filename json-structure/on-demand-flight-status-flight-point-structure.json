@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/on-demand-flight-status-flight-point-structure.json",
+  "title": "FlightPoint",
+  "description": "FlightPoint structure from On-Demand Flight Status",
+  "type": "object",
+  "properties": {
+    "iataCode": {
+      "type": "string",
+      "description": "3-letter IATA code of the airport. e.g. CDG"
+    },
+    "departure": {
+      "type": "string"
+    },
+    "arrival": {
+      "type": "string"
+    }
+  }
+}

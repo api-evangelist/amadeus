@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-search-passenger-characteristics-structure.json",
+  "title": "PassengerCharacteristics",
+  "description": "PassengerCharacteristics structure from Transfer Search",
+  "type": "object",
+  "properties": {
+    "passengerTypeCode": {
+      "type": "string",
+      "description": "Passenger type codes e.g. CHD , ADT. CHD is for child and ADT for Adult."
+    },
+    "age": {
+      "type": "integer",
+      "description": "Age of the Passenger (Mandatory if typeCode= \u201cCHD\u201d)"
+    }
+  }
+}

@@ -1,0 +1,78 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Airline Code Lookup API — Airlines"
+  description: 'Airline Code Lookup API — Airlines. 1 operation(s). Lead operation: Amadeus Return Airlines Information.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Airlines
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: airline-code-lookup-airlines
+      baseUri: https://test.api.amadeus.com/v1
+      description: Airline Code Lookup API — Airlines business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: reference-data-airlines
+          path: /reference-data/airlines
+          operations:
+            - name: getairlines
+              method: GET
+              description: Amadeus Return Airlines Information.
+              inputParameters:
+                - name: airlineCodes
+                  in: query
+                  type: string
+                  required: false
+                  description: Code of the airline following IATA standard([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)) or ICAO standard ([ICAO airlines table codes](https://en.wikipedia.org/wiki/Lis
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: airline-code-lookup-airlines-rest
+      port: 8080
+      description: REST adapter for Airline Code Lookup API — Airlines. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/reference-data/airlines
+          name: reference-data-airlines
+          description: REST surface for reference-data-airlines.
+          operations:
+            - method: GET
+              name: getairlines
+              description: Amadeus Return Airlines Information.
+              call: airline-code-lookup-airlines.getairlines
+              with:
+                airlineCodes: rest.airlineCodes
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: airline-code-lookup-airlines-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Airline Code Lookup API — Airlines. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: return-airlines-information
+          description: Amadeus Return Airlines Information.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: airline-code-lookup-airlines.getairlines
+          with:
+            airlineCodes: tools.airlineCodes
+          outputParameters:
+            - type: object
+              mapping: $.

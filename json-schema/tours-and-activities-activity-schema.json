@@ -1,41 +1,101 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/tours-and-activities-activity-schema.json",
   "title": "Activity",
   "description": "Activity description",
   "type": "object",
   "properties": {
     "type": {
       "type": "string",
-      "description": "the ressource name"
+      "description": "the ressource name",
+      "readOnly": true,
+      "example": "string-value"
     },
     "id": {
       "type": "string",
-      "description": "unique id of the ressource"
+      "description": "unique id of the ressource",
+      "readOnly": true,
+      "example": "12345"
     },
     "self": {
-      "$ref": "#/definitions/Link"
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "format": "uri",
+          "example": "https://example.com/resource"
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "GET",
+              "PUT",
+              "DELETE",
+              "POST",
+              "PATCH"
+            ]
+          }
+        }
+      },
+      "example": {
+        "href": "string"
+      }
     },
     "name": {
       "type": "string",
-      "description": "activity name"
+      "description": "activity name",
+      "example": "Sample Name"
     },
     "shortDescription": {
       "type": "string",
-      "description": "short description of the activity"
+      "description": "short description of the activity",
+      "example": "Sample description text."
     },
     "description": {
       "type": "string",
-      "description": "full description of the activity"
+      "description": "full description of the activity",
+      "example": "Sample description text."
     },
     "geoCode": {
-      "$ref": "#/definitions/GeoCode"
+      "type": "object",
+      "description": "geo position",
+      "properties": {
+        "latitude": {
+          "description": "latitude of the location",
+          "type": "number",
+          "format": "double",
+          "example": 43.580418
+        },
+        "longitude": {
+          "description": "longitude of the location",
+          "type": "number",
+          "format": "double",
+          "example": 7.125102
+        }
+      }
     },
     "rating": {
       "type": "string",
-      "description": "rating of the activity"
+      "description": "rating of the activity",
+      "example": "string-value"
     },
     "price": {
-      "$ref": "#/definitions/ElementaryPrice"
+      "description": "elementaryPrice",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string",
+          "description": "Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection.",
+          "example": "199.50"
+        },
+        "currencyCode": {
+          "type": "string",
+          "description": "Currency type of the fare.",
+          "example": "EUR"
+        }
+      }
     },
     "pictures": {
       "type": "array",
@@ -46,11 +106,13 @@
     },
     "bookingLink": {
       "type": "string",
-      "description": "url to book the activity"
+      "description": "url to book the activity",
+      "example": "string-value"
     },
     "minimumDuration": {
       "type": "string",
-      "description": "Minimum recommended duration for the activity"
+      "description": "Minimum recommended duration for the activity",
+      "example": "PT2H30M"
     }
   }
 }

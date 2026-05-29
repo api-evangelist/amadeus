@@ -1,0 +1,126 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "amadeus": "https://developers.amadeus.com/ns/",
+    "iata": "http://www.iata.org/ns/",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "identifier": "schema:identifier",
+    "url": { "@id": "schema:url", "@type": "@id" },
+
+    "Provider": {
+      "@id": "schema:Organization",
+      "@type": "@id"
+    },
+    "Airline": "schema:Airline",
+    "Airport": "schema:Airport",
+    "City": "schema:City",
+    "LodgingBusiness": "schema:LodgingBusiness",
+    "Hotel": "schema:Hotel",
+    "TouristAttraction": "schema:TouristAttraction",
+    "TouristTrip": "schema:TouristTrip",
+    "TripFlight": "schema:Flight",
+    "TripHotel": "schema:LodgingReservation",
+
+    "iataCode": "iata:code",
+    "icaoCode": "amadeus:icaoCode",
+    "carrierCode": "iata:carrierCode",
+    "marketingCarrier": "iata:marketingCarrier",
+    "operatingCarrier": "iata:operatingCarrier",
+    "flightNumber": "schema:flightNumber",
+    "departureAirport": { "@id": "schema:departureAirport", "@type": "@id" },
+    "arrivalAirport": { "@id": "schema:arrivalAirport", "@type": "@id" },
+    "departureTime": { "@id": "schema:departureTime", "@type": "xsd:dateTime" },
+    "arrivalTime": { "@id": "schema:arrivalTime", "@type": "xsd:dateTime" },
+    "duration": { "@id": "schema:duration", "@type": "xsd:duration" },
+
+    "originLocationCode": "amadeus:originLocationCode",
+    "destinationLocationCode": "amadeus:destinationLocationCode",
+    "departureDate": { "@id": "amadeus:departureDate", "@type": "xsd:date" },
+    "returnDate": { "@id": "amadeus:returnDate", "@type": "xsd:date" },
+    "travelClass": "amadeus:travelClass",
+    "cabinClass": "amadeus:cabinClass",
+    "adults": { "@id": "amadeus:adults", "@type": "xsd:integer" },
+    "children": { "@id": "amadeus:children", "@type": "xsd:integer" },
+    "infants": { "@id": "amadeus:infants", "@type": "xsd:integer" },
+
+    "price": {
+      "@id": "schema:price",
+      "@context": {
+        "currency": "schema:priceCurrency",
+        "total": "schema:price",
+        "base": "amadeus:basePrice",
+        "fees": "amadeus:fees",
+        "taxes": "amadeus:taxes",
+        "grandTotal": "amadeus:grandTotal"
+      }
+    },
+    "currency": "schema:priceCurrency",
+
+    "hotelId": "amadeus:hotelId",
+    "hotelName": { "@id": "schema:name" },
+    "checkInDate": { "@id": "amadeus:checkInDate", "@type": "xsd:date" },
+    "checkOutDate": { "@id": "amadeus:checkOutDate", "@type": "xsd:date" },
+    "guests": { "@id": "amadeus:guests", "@type": "xsd:integer" },
+    "roomType": "amadeus:roomType",
+    "boardType": "amadeus:boardType",
+    "rating": "schema:aggregateRating",
+
+    "geoCode": {
+      "@id": "schema:geo",
+      "@context": {
+        "latitude": { "@id": "schema:latitude", "@type": "xsd:decimal" },
+        "longitude": { "@id": "schema:longitude", "@type": "xsd:decimal" }
+      }
+    },
+    "address": "schema:address",
+    "country": "schema:addressCountry",
+
+    "order": "schema:Order",
+    "orderId": "schema:orderNumber",
+    "pnr": "amadeus:pnr",
+    "passenger": "schema:Person",
+    "traveler": "schema:Person",
+    "firstName": "schema:givenName",
+    "lastName": "schema:familyName",
+    "email": "schema:email",
+    "phone": "schema:telephone",
+    "dateOfBirth": { "@id": "schema:birthDate", "@type": "xsd:date" },
+
+    "tour": "schema:TouristAttraction",
+    "activity": "schema:Event",
+    "pointOfInterest": "schema:TouristAttraction",
+    "category": "schema:category",
+    "tags": "schema:keywords",
+
+    "transfer": "amadeus:Transfer",
+    "vehicleType": "schema:vehicleClass",
+    "pickup": "amadeus:pickup",
+    "dropoff": "amadeus:dropoff",
+
+    "prediction": {
+      "@id": "amadeus:Prediction",
+      "@context": {
+        "probability": { "@id": "amadeus:probability", "@type": "xsd:decimal" },
+        "result": "amadeus:result",
+        "confidence": "amadeus:confidence"
+      }
+    },
+    "tripPurpose": "amadeus:tripPurpose",
+    "priceMetric": "amadeus:priceMetric",
+    "delayProbability": "amadeus:delayProbability",
+    "onTimeScore": "amadeus:onTimeScore",
+    "safetyScore": "amadeus:safetyScore",
+    "locationScore": "amadeus:locationScore",
+
+    "Authorization": "amadeus:Authorization",
+    "accessToken": "amadeus:accessToken",
+    "tokenType": "amadeus:tokenType",
+    "expiresIn": { "@id": "amadeus:expiresIn", "@type": "xsd:integer" },
+    "scope": "amadeus:scope"
+  }
+}

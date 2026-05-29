@@ -1,0 +1,127 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Flight Cheapest Date Search — Flight Dates"
+  description: 'Flight Cheapest Date Search — Flight Dates. 1 operation(s). Lead operation: Amadeus Find the Cheapest Flight Dates from an Origin to a Destination.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Flight Dates
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: flight-cheapest-date-search-flight-dates
+      baseUri: https://test.api.amadeus.com/v1
+      description: Flight Cheapest Date Search — Flight Dates business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: shopping-flight-dates
+          path: /shopping/flight-dates
+          operations:
+            - name: getFlightDates
+              method: GET
+              description: Amadeus Find the Cheapest Flight Dates from an Origin to a Destination.
+              inputParameters:
+                - name: origin
+                  in: query
+                  type: string
+                  required: true
+                  description: "IATA code of the city from which the flight will depart\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MAD for Madrid\n"
+                - name: destination
+                  in: query
+                  type: string
+                  required: true
+                  description: "IATA code of the city to which the flight is going.\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MUC for Munich\n"
+                - name: departureDate
+                  in: query
+                  type: string
+                  required: false
+                  description: the date, or range of dates, on which the flight will depart from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25. Ranges a
+                - name: oneWay
+                  in: query
+                  type: boolean
+                  required: false
+                  description: if this parameter is set to true, only one-way flights are considered. If this parameter is not set or set to false, only round-trip flights are considered
+                - name: duration
+                  in: query
+                  type: string
+                  required: false
+                  description: exact duration or range of durations of the travel, in days. This parameter must not be set if oneWay is true. Ranges are specified with a comma and are inclusive, e.g. 2,8
+                - name: nonStop
+                  in: query
+                  type: boolean
+                  required: false
+                  description: if this parameter is set to true, only flights going from the origin to the destination with no stop in-between are considered
+                - name: maxPrice
+                  in: query
+                  type: integer
+                  required: false
+                  description: defines the price limit for each offer returned. The value should be a positive number, without decimals
+                - name: viewBy
+                  in: query
+                  type: string
+                  required: false
+                  description: view the flight dates by DATE, DURATION, or WEEK. View by DATE (default when oneWay is true) to get the cheapest flight dates for every departure date in the given range. View by DURATION (default whe
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: flight-cheapest-date-search-flight-dates-rest
+      port: 8080
+      description: REST adapter for Flight Cheapest Date Search — Flight Dates. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shopping/flight-dates
+          name: shopping-flight-dates
+          description: REST surface for shopping-flight-dates.
+          operations:
+            - method: GET
+              name: getFlightDates
+              description: Amadeus Find the Cheapest Flight Dates from an Origin to a Destination.
+              call: flight-cheapest-date-search-flight-dates.getFlightDates
+              with:
+                origin: rest.origin
+                destination: rest.destination
+                departureDate: rest.departureDate
+                oneWay: rest.oneWay
+                duration: rest.duration
+                nonStop: rest.nonStop
+                maxPrice: rest.maxPrice
+                viewBy: rest.viewBy
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: flight-cheapest-date-search-flight-dates-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Flight Cheapest Date Search — Flight Dates. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: find-cheapest-flight-dates-origin
+          description: Amadeus Find the Cheapest Flight Dates from an Origin to a Destination.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: flight-cheapest-date-search-flight-dates.getFlightDates
+          with:
+            origin: tools.origin
+            destination: tools.destination
+            departureDate: tools.departureDate
+            oneWay: tools.oneWay
+            duration: tools.duration
+            nonStop: tools.nonStop
+            maxPrice: tools.maxPrice
+            viewBy: tools.viewBy
+          outputParameters:
+            - type: object
+              mapping: $.

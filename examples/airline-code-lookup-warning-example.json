@@ -1,0 +1,10 @@
+{
+  "code": 1,
+  "title": "string-value",
+  "detail": "string-value",
+  "source": {
+    "pointer": "string-value",
+    "parameter": "string-value",
+    "example": "string-value"
+  }
+}

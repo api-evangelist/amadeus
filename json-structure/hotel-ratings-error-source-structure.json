@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-ratings-error-source-structure.json",
+  "title": "ErrorSource",
+  "description": "ErrorSource structure from Hotel Ratings",
+  "type": "object",
+  "properties": {
+    "parameter": {
+      "type": "string",
+      "description": "The key of the URI path or query parameter that caused the error"
+    },
+    "pointer": {
+      "type": "string",
+      "description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+    },
+    "example": {
+      "type": "string",
+      "description": "A sample input to guide the user when resolving this issue"
+    }
+  }
+}

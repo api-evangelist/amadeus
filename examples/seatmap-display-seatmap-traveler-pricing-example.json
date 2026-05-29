@@ -1,0 +1,20 @@
+{
+  "travelerId": "12345",
+  "seatAvailabilityStatus": "AVAILABLE",
+  "price": {
+    "currency": "USD",
+    "total": "932.70",
+    "base": "632.70",
+    "fees": [
+      {
+        "amount": "332.70"
+      }
+    ],
+    "taxes": [
+      {
+        "amount": "332.70",
+        "code": "MX"
+      }
+    ]
+  }
+}

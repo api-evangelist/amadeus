@@ -1,0 +1,24 @@
+{
+  "warnings": [
+    {
+      "code": 1,
+      "title": "string-value",
+      "detail": "string-value",
+      "source": {
+        "parameter": "string-value",
+        "pointer": "string-value",
+        "example": "string-value"
+      }
+    }
+  ],
+  "meta": {
+    "count": 1,
+    "links": {
+      "self": "https://example.com/resource"
+    }
+  },
+  "data": [],
+  "included": {
+    "airports": {}
+  }
+}

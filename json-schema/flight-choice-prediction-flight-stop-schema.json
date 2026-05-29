@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-choice-prediction-flight-stop-schema.json",
+  "title": "FlightStop",
+  "description": "details of stops for direct or change of gauge flights",
+  "allOf": [
+    {
+      "description": "details of stops for direct or change of gauge flights",
+      "type": "object",
+      "properties": {
+        "iataCode": {
+          "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)",
+          "type": "string",
+          "example": "JFK"
+        },
+        "duration": {
+          "type": "string",
+          "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+          "example": "PT2H10M"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "arrivalAt": {
+          "description": "arrival at the stop in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00",
+          "type": "string",
+          "format": "date-time",
+          "example": "2017-10-23T20:00:00"
+        },
+        "departureAt": {
+          "description": "departure from the stop in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00",
+          "type": "string",
+          "format": "date-time",
+          "example": "2017-10-23T20:00:00"
+        }
+      }
+    }
+  ]
+}

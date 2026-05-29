@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "name": {
+    "title": "MR",
+    "firstName": "BOB",
+    "lastName": "SMITH"
+  },
+  "contact": {
+    "phone": "+33679278416",
+    "email": "bob.smith@email.com"
+  }
+}

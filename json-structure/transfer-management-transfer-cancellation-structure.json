@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-management-transfer-cancellation-structure.json",
+  "title": "TransferCancellation",
+  "description": "information returned in cancelation response",
+  "type": "object",
+  "properties": {
+    "confirmNbr": {
+      "type": "string",
+      "description": "transfer identifier - confirmation number from service provider that identifies the ride"
+    },
+    "reservationStatus": {
+      "type": "string",
+      "description": "status of reservation"
+    }
+  }
+}

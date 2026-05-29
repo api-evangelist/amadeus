@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-create-orders-flight-end-point-schema.json",
+  "title": "FlightEndPoint",
+  "description": "departure or arrival information",
+  "allOf": [
+    {
+      "type": "object",
+      "description": "departure or arrival information",
+      "properties": {
+        "iataCode": {
+          "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)",
+          "type": "string",
+          "example": "JFK"
+        },
+        "terminal": {
+          "description": "terminal name / number",
+          "type": "string",
+          "example": "T2"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "at": {
+          "description": "local date and time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00",
+          "type": "string",
+          "format": "date-time",
+          "example": "2017-10-23T20:00:00"
+        }
+      }
+    }
+  ]
+}

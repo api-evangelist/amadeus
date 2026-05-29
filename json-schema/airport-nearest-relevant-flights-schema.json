@@ -1,12 +1,15 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/airport-nearest-relevant-flights-schema.json",
   "title": "Flights",
-  "type": "object",
+  "description": "Flights schema from Airport Nearest Relevant",
   "properties": {
     "score": {
       "type": "number",
       "format": "integer",
-      "description": "Approximate score for ranking purposes calculated based on number of flights from / to the airport or city"
+      "description": "Approximate score for ranking purposes calculated based on number of flights from / to the airport or city",
+      "example": 56
     }
-  }
+  },
+  "type": "object"
 }

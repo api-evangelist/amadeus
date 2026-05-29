@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-availabilities-search-dictionaries-structure.json",
+  "title": "Dictionaries",
+  "description": "Dictionaries structure from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "locations": {
+      "type": "string"
+    },
+    "aircraft": {
+      "type": "string"
+    },
+    "currencies": {
+      "type": "string"
+    },
+    "carriers": {
+      "type": "string"
+    }
+  }
+}

@@ -1,32 +1,70 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-seat-schema.json",
   "title": "Seat",
+  "description": "Seat schema from Seatmap Display",
   "type": "object",
   "properties": {
     "cabin": {
+      "description": "Cabin of the seat.",
       "type": "string",
-      "description": "Cabin of the seat."
+      "example": "ECO"
     },
     "number": {
+      "description": "Concatenation of the row id and the column id, for example 12B",
       "type": "string",
-      "description": "Concatenation of the row id and the column id, for example 12B"
+      "example": "12B"
     },
     "characteristicsCodes": {
-      "type": "array",
       "description": "List of seat characteristics (the characteristic's names can be retrieved in the seat characteristic dictionary) Possible values are part of:\n\n  IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825\n\n  Amadeus Code: defined as extension, example MV=row with movie screen\n\n  Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat",
+      "type": "array",
       "items": {
         "type": "string"
       }
     },
     "travelerPricing": {
-      "type": "array",
       "description": "Traveler's information and price",
+      "type": "array",
       "items": {
-        "$ref": "#/definitions/SeatmapTravelerPricing"
+        "type": "object",
+        "properties": {
+          "travelerId": {
+            "description": "Traveler id",
+            "type": "string",
+            "pattern": "[a-zA-Z0-9-]{1,20}",
+            "example": "12345"
+          },
+          "seatAvailabilityStatus": {
+            "description": "Seat availability for this specific traveler. Allows better seat choice per traveler",
+            "type": "string",
+            "enum": [
+              "AVAILABLE",
+              "BLOCKED",
+              "OCCUPIED"
+            ],
+            "example": "AVAILABLE"
+          },
+          "price": {
+            "description": "Price for a given seat",
+            "$ref": "#/definitions/Price"
+          }
+        }
       }
     },
     "coordinates": {
-      "$ref": "#/definitions/Coordinates"
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "integer",
+          "description": "coordinate for the Length",
+          "example": 1
+        },
+        "y": {
+          "type": "integer",
+          "description": "coordinate for the Width",
+          "example": 1
+        }
+      }
     }
   }
 }

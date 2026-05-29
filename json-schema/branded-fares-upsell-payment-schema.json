@@ -1,21 +1,44 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/branded-fares-upsell-payment-schema.json",
   "title": "Payment",
+  "description": "Payment schema from Branded Fares Upsell",
   "type": "object",
   "properties": {
     "brand": {
-      "$ref": "#/definitions/PaymentBrand"
+      "description": "credit card brand",
+      "type": "string",
+      "enum": [
+        "VISA",
+        "AMERICAN_EXPRESS",
+        "MASTERCARD",
+        "VISA_ELECTRON",
+        "VISA_DEBIT",
+        "MASTERCARD_DEBIT",
+        "MAESTRO",
+        "DINERS",
+        "MASTERCARD_IXARIS",
+        "VISA_IXARIS",
+        "MASTERCARD_AIRPLUS",
+        "UATP_AIRPLUS"
+      ],
+      "example": "VISA_IXARIS"
     },
     "binNumber": {
+      "description": "The first 6 digits of the credit card",
       "type": "integer",
-      "description": "The first 6 digits of the credit card"
+      "example": 123456,
+      "pattern": "[0-9]{6}"
     },
     "flightOfferIds": {
-      "type": "array",
       "description": "Id of the flightOffers to pay",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
       "items": {
         "type": "string"
-      }
+      },
+      "example": "1"
     }
   }
 }

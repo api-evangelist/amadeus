@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-booking-guest-structure.json",
+  "title": "Guest",
+  "description": "This modele represent a guest, his name, his loyalty programs, his age when it is a child...",
+  "type": "object",
+  "properties": {
+    "frequentTraveler": {
+      "type": "array",
+      "description": "Airline frequent flyer of the guest \n/!\\ In case of creation of a new hotel booking, only the first element of the array will be transmitted to the hotel provier. Please only provider one.\nIn case of retrieve of an hotel order, when a guest is having several frequent flyer numbers used in different hotel bookings, they will all be listed here."
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number of the guest\n\nIt is recommanded to use the standard E.123 (https://en.wikipedia.org/wiki/E.123)"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email Adress of the guest"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title/gender of the guest"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "First Name (and middle name) of the guest. It is mandatory at create order but not mandatory at booking creation.\n- Complex pattern '^[A-Za-z \\p{Han}\\p{Katakana}\\p{Hiragana}\\p{Hangul}-]*$' \n"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name of the guest - \nIt is mandatory at create order but not mandatory at booking creation.\nComplex pattern: '^[A-Za-z \\p{Han}\\p{Katakana}\\p{Hiragana}\\p{Hangul}-]*$' "
+    },
+    "childAge": {
+      "type": "integer",
+      "description": "if the guest is a child, it is mandatory to provide a child age. Else the system will consider him as an adult"
+    }
+  }
+}

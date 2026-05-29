@@ -1,0 +1,34 @@
+{
+  "departure": {
+    "iataCode": "JFK",
+    "terminal": "T2",
+    "at": "2017-10-23T20:00:00+02:00"
+  },
+  "arrival": {
+    "iataCode": "JFK",
+    "terminal": "T2",
+    "at": "2017-10-23T20:00:00+02:00"
+  },
+  "carrierCode": "DL",
+  "number": "212",
+  "aircraft": {
+    "code": "318"
+  },
+  "operating": {
+    "carrierCode": "DL",
+    "number": "212",
+    "suffix": "string-value"
+  },
+  "duration": "PT2H10M",
+  "stops": [
+    {
+      "iataCode": "JFK",
+      "newAircraft": {
+        "code": "318"
+      },
+      "duration": "PT2H10M",
+      "arrivalAt": "2017-10-23T20:00:00+02:00",
+      "departureAt": "2017-10-23T20:00:00+02:00"
+    }
+  ]
+}

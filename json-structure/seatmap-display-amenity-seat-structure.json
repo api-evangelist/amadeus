@@ -1,33 +1,27 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Amenity_Seat",
-  "type": "record",
-  "fields": [
-    {
-      "name": "legSpace",
-      "type": "int32",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-amenity-seat-structure.json",
+  "title": "Amenity_Seat",
+  "description": "Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space",
+  "type": "object",
+  "properties": {
+    "legSpace": {
+      "type": "integer",
       "description": "Space between 2 seats"
     },
-    {
-      "name": "spaceUnit",
+    "spaceUnit": {
       "type": "string"
     },
-    {
-      "name": "tilt",
+    "tilt": {
       "type": "string",
       "description": "Flatness of a seat"
     },
-    {
-      "name": "amenityType",
+    "amenityType": {
       "type": "string"
     },
-    {
-      "name": "medias",
+    "medias": {
       "type": "array",
-      "description": "list of media associated to the seat (rich content)",
-      "items": {
-        "type": "object"
-      }
+      "description": "list of media associated to the seat (rich content)"
     }
-  ]
+  }
 }

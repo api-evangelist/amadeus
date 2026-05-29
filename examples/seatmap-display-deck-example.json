@@ -1,6 +1,44 @@
 {
   "deckType": "UPPER",
-  "deckConfiguration": "example-deckConfiguration",
-  "facilities": [],
-  "seats": []
+  "deckConfiguration": {
+    "width": 1,
+    "length": 1,
+    "startSeatRow": 1,
+    "endSeatRow": 1,
+    "startWingsX": 1,
+    "endWingsX": 1,
+    "startWingsRow": 1,
+    "endWingsRow": 1,
+    "exitRowsX": [
+      1
+    ]
+  },
+  "facilities": [
+    {
+      "code": "string-value",
+      "column": "string-value",
+      "row": "string-value",
+      "position": "FRONT",
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ],
+  "seats": [
+    {
+      "cabin": "ECO",
+      "number": "12B",
+      "characteristicsCodes": [
+        "string-value"
+      ],
+      "travelerPricing": [
+        {}
+      ],
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      }
+    }
+  ]
 }

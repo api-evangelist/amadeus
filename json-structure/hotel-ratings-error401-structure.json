@@ -1,14 +1,15 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Error401",
-  "type": "record",
-  "fields": [
-    {
-      "name": "errors",
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-ratings-error401-structure.json",
+  "title": "Error401",
+  "description": "Error401 structure from Hotel Ratings",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array"
     }
+  },
+  "required": [
+    "errors"
   ]
 }

@@ -1,15 +1,15 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Tax",
-  "type": "record",
-  "fields": [
-    {
-      "name": "amount",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-search-tax-structure.json",
+  "title": "Tax",
+  "description": "a tax",
+  "type": "object",
+  "properties": {
+    "amount": {
       "type": "string"
     },
-    {
-      "name": "code",
+    "code": {
       "type": "string"
     }
-  ]
+  }
 }

@@ -1,6 +1,12 @@
 {
-  "boardPointIataCode": "example-boardPointIataCode",
-  "offPointIataCode": "example-offPointIataCode",
-  "scheduledSegmentDuration": "example-scheduledSegmentDuration",
-  "partnership": "example-partnership"
+  "boardPointIataCode": "LHR",
+  "offPointIataCode": "BKK",
+  "scheduledSegmentDuration": "PT14H50M",
+  "partnership": {
+    "operatingFlight": {
+      "carrierCode": "AF",
+      "flightNumber": 1,
+      "operationalSuffix": "string-value"
+    }
+  }
 }

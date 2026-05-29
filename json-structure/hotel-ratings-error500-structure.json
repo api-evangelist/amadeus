@@ -1,14 +1,15 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Error500",
-  "type": "record",
-  "fields": [
-    {
-      "name": "errors",
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-ratings-error500-structure.json",
+  "title": "Error500",
+  "description": "Error500 structure from Hotel Ratings",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array"
     }
+  },
+  "required": [
+    "errors"
   ]
 }

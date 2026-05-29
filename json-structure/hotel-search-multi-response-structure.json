@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-search-multi-response-structure.json",
+  "title": "MultiResponse",
+  "description": "MultiResponse structure from Hotel Search API",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object"
+    }
+  }
+}

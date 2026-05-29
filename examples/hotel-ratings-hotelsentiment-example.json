@@ -1,8 +1,0 @@
-{
-  "hotelId": "example-hotelId",
-  "type": "example-type",
-  "overallRating": "example-overallRating",
-  "numberOfRatings": 1,
-  "numberOfReviews": 1,
-  "sentiments": {}
-}

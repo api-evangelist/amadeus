@@ -1,11 +1,13 @@
 {
   "category": "BUSINESS",
-  "lines": [],
-  "postalCode": "example-postalCode",
-  "countryCode": "example-countryCode",
-  "cityName": "example-cityName",
-  "stateCode": "example-stateCode",
-  "stateName": "example-stateName",
-  "postalBox": "example-postalBox",
-  "text": "example-text"
+  "lines": [
+    "string-value"
+  ],
+  "postalCode": "string-value",
+  "countryCode": "FR",
+  "cityName": "Paris",
+  "stateCode": "string-value",
+  "stateName": "Sample Name",
+  "postalBox": "string-value",
+  "text": "string-value"
 }

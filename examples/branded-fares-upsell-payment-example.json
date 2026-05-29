@@ -1,5 +1,5 @@
 {
-  "brand": "example-brand",
-  "binNumber": 1,
-  "flightOfferIds": []
+  "brand": "VISA_IXARIS",
+  "binNumber": 123456,
+  "flightOfferIds": "1"
 }

@@ -1,0 +1,9 @@
+{
+  "excessRate": {
+    "amount": "199.50",
+    "currencyCode": "EUR"
+  },
+  "quantity": 1,
+  "weight": 20,
+  "weightUnit": "KG"
+}

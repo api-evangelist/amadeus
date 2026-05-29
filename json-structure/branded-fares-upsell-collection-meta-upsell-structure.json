@@ -1,18 +1,15 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Collection_Meta_Upsell",
-  "type": "record",
-  "fields": [
-    {
-      "name": "count",
-      "type": "int32"
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/branded-fares-upsell-collection-meta-upsell-structure.json",
+  "title": "Collection_Meta_Upsell",
+  "description": "Collection_Meta_Upsell structure from Branded Fares Upsell",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer"
     },
-    {
-      "name": "oneWayUpselledCombinations",
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+    "oneWayUpselledCombinations": {
+      "type": "array"
     }
-  ]
+  }
 }

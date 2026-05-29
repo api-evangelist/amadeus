@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-price-other-services-structure.json",
+  "title": "OtherServices",
+  "description": "OtherServices structure from Flight Offers Price",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "type of service"
+    },
+    "price": {
+      "type": "object",
+      "description": "elementaryPrice"
+    },
+    "bookableByTraveler": {
+      "type": "boolean",
+      "description": "Specify if the service is bookable by traveler or for all travelers"
+    },
+    "bookableByItinerary": {
+      "type": "boolean",
+      "description": "Specify if the service is bookable by itinerary or for all itineraries"
+    },
+    "segmentIds": {
+      "type": "array",
+      "description": "Id of the segment concerned by the service"
+    },
+    "travelerIds": {
+      "type": "array",
+      "description": "Id of the traveler concerned by the service"
+    }
+  }
+}

@@ -1,0 +1,205 @@
+id: amadeus-vocabulary
+name: Amadeus Vocabulary
+version: 0.1.0
+description: >-
+  Unified taxonomy mapping Amadeus for Developers operational dimensions (REST resources, HTTP
+  actions, schema entities) to capability dimensions (Naftiko workflows, MCP tools, personas).
+  Built from the 40 Self-Service OpenAPI/Swagger specifications.
+created: '2026-05-29'
+modified: '2026-05-29'
+
+operational:
+
+  # Real-world resources surfaced by the Amadeus Self-Service catalog
+  resources:
+    - id: flight-offer
+      label: Flight Offer
+      description: A priced, bookable flight itinerary returned by Flight Offers Search.
+      apis: [Flight Offers Search, Flight Offers Price, Flight Create Orders, Branded Fares Upsell]
+    - id: flight-order
+      label: Flight Order
+      description: A confirmed flight booking (PNR) created from a Flight Offer.
+      apis: [Flight Create Orders, Flight Order Management]
+    - id: flight-availability
+      label: Flight Availability
+      description: Real-time bookable flight segments and classes of service.
+      apis: [Flight Availabilities Search]
+    - id: seat-map
+      label: Seat Map
+      description: Cabin layout with seat availability and characteristics for a specific flight.
+      apis: [SeatMap Display]
+    - id: branded-fare
+      label: Branded Fare
+      description: Named fare bundle (Economy Light, Flex, Business, etc.) with included attributes.
+      apis: [Branded Fares Upsell]
+    - id: airport
+      label: Airport
+      description: Airport reference data, on-time performance, and route network.
+      apis: [Airport and City Search, Airport Nearest Relevant, Airport On-Time Performance, Airport Routes]
+    - id: city
+      label: City
+      description: City reference data used in search, autocomplete, and destination experiences.
+      apis: [Airport and City Search, City Search, Flight Most Booked Destinations, Flight Most Traveled Destinations]
+    - id: airline
+      label: Airline
+      description: Airline reference data and operated routes.
+      apis: [Airline Code Lookup, Airline Routes]
+    - id: hotel
+      label: Hotel
+      description: Hotel property metadata, list, search, ratings, and booking.
+      apis: [Hotel List, Hotel Search, Hotel Booking, Hotel Name Autocomplete, Hotel Ratings]
+    - id: hotel-offer
+      label: Hotel Offer
+      description: A priced room/rate offer for a hotel stay.
+      apis: [Hotel Search, Hotel Booking]
+    - id: hotel-rating
+      label: Hotel Rating
+      description: Sentiment-analyzed traveler review scores per hotel.
+      apis: [Hotel Ratings]
+    - id: point-of-interest
+      label: Point of Interest
+      description: Sights, restaurants, nightlife, shopping at a location.
+      apis: [Points of Interest]
+    - id: tour-activity
+      label: Tour or Activity
+      description: Bookable tour, activity, or experience.
+      apis: [Tours and Activities]
+    - id: location-score
+      label: Location Score
+      description: 0-100 score for a location across categories (sights, food, nightlife, etc.).
+      apis: [Location Score, Safe Place]
+    - id: transfer-offer
+      label: Transfer Offer
+      description: Ground transport offer (taxi, limo, shuttle) between two locations.
+      apis: [Transfer Search]
+    - id: transfer-order
+      label: Transfer Order
+      description: A confirmed transfer booking.
+      apis: [Transfer Book, Transfer Management]
+    - id: market-insight
+      label: Market Insight
+      description: Aggregated demand metric (most booked, most traveled, busiest period).
+      apis: [Flight Most Booked Destinations, Flight Most Traveled Destinations, Flight Busiest Traveling Period]
+    - id: prediction
+      label: Prediction
+      description: ML output for trip purpose, choice probability, delay probability, or price metric.
+      apis: [Trip Purpose Prediction, Flight Choice Prediction, Flight Delay Prediction, Flight Price Analysis]
+    - id: recommendation
+      label: Recommendation
+      description: Destination recommendation based on seed cities and traveler context.
+      apis: [Travel Recommendations]
+    - id: access-token
+      label: Access Token
+      description: OAuth2 bearer token used by every Self-Service API call.
+      apis: [Authorization]
+
+  # HTTP-style actions performed on resources
+  actions:
+    - id: search
+      label: Search
+      verb: GET/POST
+      description: Query a resource collection with filters.
+    - id: list
+      label: List
+      verb: GET
+      description: Return a collection of resources (with pagination).
+    - id: lookup
+      label: Lookup
+      verb: GET
+      description: Resolve a code or identifier to a canonical record.
+    - id: price
+      label: Price
+      verb: POST
+      description: Confirm a price for an offer prior to booking.
+    - id: create
+      label: Create
+      verb: POST
+      description: Create a new resource (order, booking, prediction request).
+    - id: retrieve
+      label: Retrieve
+      verb: GET
+      description: Fetch a single resource by ID.
+    - id: cancel
+      label: Cancel
+      verb: DELETE
+      description: Cancel a booking or order.
+    - id: predict
+      label: Predict
+      verb: POST/GET
+      description: Run an ML inference (trip purpose, delay, choice probability).
+    - id: authenticate
+      label: Authenticate
+      verb: POST
+      description: Exchange API key + secret for an OAuth2 bearer token.
+
+capability:
+
+  # Cross-API workflows expressible by composing Naftiko capabilities
+  workflows:
+    - id: end-to-end-flight-booking
+      label: End-to-End Flight Booking
+      description: Search → price → create order → cancel/manage.
+      apis: [Flight Offers Search, Flight Offers Price, Flight Create Orders, Flight Order Management]
+    - id: flight-shopping-with-upsell
+      label: Flight Shopping with Upsell and Seats
+      description: Search flights then merchandise branded fares and seats.
+      apis: [Flight Offers Search, Branded Fares Upsell, SeatMap Display]
+    - id: hotel-booking
+      label: Hotel Booking
+      description: List → search offers → book → cancel.
+      apis: [Hotel List, Hotel Search, Hotel Booking, Hotel Name Autocomplete]
+    - id: trip-inspiration
+      label: Trip Inspiration
+      description: Discover destinations by price or recommendation.
+      apis: [Flight Inspiration Search, Flight Cheapest Date Search, Travel Recommendations, Location Score]
+    - id: destination-marketing
+      label: Destination Marketing
+      description: Surface POIs, activities, safety, and location score for a destination.
+      apis: [Points of Interest, Tours and Activities, Safe Place, Location Score]
+    - id: flight-disruption
+      label: Flight Disruption Awareness
+      description: Surface status + delay probability + airport on-time performance.
+      apis: [On Demand Flight Status, Flight Delay Prediction, Airport On-Time Performance]
+    - id: ground-transport
+      label: Ground Transport
+      description: Search and book airport-to-hotel transfers.
+      apis: [Transfer Search, Transfer Book, Transfer Management]
+    - id: market-analytics
+      label: Market Analytics
+      description: Dashboards of most booked, most traveled, and busiest periods.
+      apis: [Flight Most Booked Destinations, Flight Most Traveled Destinations, Flight Busiest Traveling Period]
+    - id: ai-personalization
+      label: AI Personalization
+      description: Trip purpose, choice probability, and price analysis for ranked merchandising.
+      apis: [Trip Purpose Prediction, Flight Choice Prediction, Flight Price Analysis]
+    - id: traveler-check-in
+      label: Traveler Check-in Convenience
+      description: Resolve check-in URL by airline and surface flight status.
+      apis: [Flight Check-in Links, On Demand Flight Status]
+
+  # Personas served by composed capabilities
+  personas:
+    - id: ota-developer
+      label: OTA Developer
+      description: Builds an online travel agency combining flights, hotels, activities, and ground transport.
+      workflows: [end-to-end-flight-booking, hotel-booking, ground-transport, trip-inspiration]
+    - id: corporate-travel-engineer
+      label: Corporate Travel Engineer
+      description: Builds policy-aware corporate booking flows with trip-purpose detection.
+      workflows: [end-to-end-flight-booking, ai-personalization, hotel-booking]
+    - id: destination-marketing-manager
+      label: Destination Marketing Manager
+      description: Powers a destination marketing organization experience with POI and safety data.
+      workflows: [destination-marketing, trip-inspiration]
+    - id: travel-analyst
+      label: Travel Analyst
+      description: Builds BI dashboards from market insights and historical pricing analytics.
+      workflows: [market-analytics, ai-personalization]
+    - id: traveler-experience-pm
+      label: Traveler Experience PM
+      description: Owns disruption notifications, check-in, and status experiences.
+      workflows: [flight-disruption, traveler-check-in]
+    - id: ai-agent-builder
+      label: AI Agent Builder
+      description: Wraps Amadeus APIs as MCP tools for LLM agents to plan and book trips.
+      workflows: [end-to-end-flight-booking, hotel-booking, trip-inspiration, destination-marketing]

@@ -1,22 +1,21 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Seat",
-  "type": "record",
-  "fields": [
-    {
-      "name": "count",
-      "type": "int32",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-search-seat-structure.json",
+  "title": "Seat",
+  "description": "Seat structure from Transfer Search",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
       "description": "seat capacity"
     },
-    {
-      "name": "row",
+    "row": {
       "type": "string",
       "description": "seat row"
     },
-    {
-      "name": "size",
+    "size": {
       "type": "string",
       "description": "seat size"
     }
-  ]
+  }
 }

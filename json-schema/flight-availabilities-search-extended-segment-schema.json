@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-availabilities-search-extended-segment-schema.json",
+  "title": "Extended_Segment",
+  "description": "Extended_Segment schema from Flight Availibilities Search",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "closedStatus": {
+          "description": "Status of the segment when it is closed.",
+          "type": "string",
+          "enum": [
+            "CANCELLED",
+            "DEPARTED",
+            "NOT_AVAILABLE"
+          ],
+          "example": "CANCELLED"
+        },
+        "availabilityClasses": {
+          "title": "AvailabilityClasses",
+          "description": "List of booking classes for the segment",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 50,
+          "items": {
+            "type": "object",
+            "properties": {
+              "numberOfBookableSeats": {
+                "description": "Number of seats bookable in a single request. Can not be higher than 9.",
+                "type": "number",
+                "example": 9,
+                "minimum": 1,
+                "maximum": 9
+              },
+              "class": {
+                "description": "The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)",
+                "type": "string",
+                "example": "A",
+                "pattern": "[A-Z]{1}"
+              },
+              "closedStatus": {
+                "description": "Status of the booking class when it is closed.",
+                "type": "string",
+                "enum": [
+                  "WAITLIST_OPEN",
+                  "WAITLIST_CLOSED",
+                  "ON_REQUEST"
+                ],
+                "example": "WAITLIST_OPEN"
+              },
+              "tourAllotment": {
+                "description": "Detail of the allotment if available.",
+                "$ref": "#/definitions/TourAllotment"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "Id of the segment",
+              "type": "string",
+              "example": 1
+            },
+            "numberOfStops": {
+              "description": "Number of stops",
+              "type": "integer",
+              "example": 0
+            },
+            "blacklistedInEU": {
+              "description": "When the flight has a marketing or/and operating airline that is identified as blacklisted by the European Commission. \n\nTo improve travel safety, the European Commission regularly updates the list of the banned carriers from operating in Europe. It allows any Travel Agency located in the European Union to easily identify and hide any travel recommendation based on some unsafe airlines. \nThe [list of the banned airlines](https://ec.europa.eu/transport/sites/transport/files/air-safety-list_en.pdf) is published in the Official Journal of the European Union, where they are included as annexes A and B to the Commission Regulation. The blacklist of an airline can concern all its flights or some specific aircraft types pertaining to the airline   \n",
+              "type": "boolean",
+              "example": false
+            },
+            "co2Emissions": {
+              "description": "Co2 informations",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "title": "Co2Emission",
+                "$ref": "#/definitions/Co2Emission"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "description": "defining a flight segment; including both operating and marketing details when applicable",
+          "properties": {
+            "departure": {
+              "$ref": "#/definitions/FlightEndPoint"
+            },
+            "arrival": {
+              "$ref": "#/definitions/FlightEndPoint"
+            },
+            "carrierCode": {
+              "type": "string",
+              "description": "providing the airline / carrier code",
+              "minLength": 1,
+              "maxLength": 2,
+              "example": "DL"
+            },
+            "number": {
+              "type": "string",
+              "description": "the flight number as assigned by the carrier",
+              "minLength": 1,
+              "maxLength": 4,
+              "example": "212"
+            },
+            "aircraft": {
+              "$ref": "#/definitions/AircraftEquipment"
+            },
+            "operating": {
+              "$ref": "#/definitions/OperatingFlight"
+            },
+            "duration": {
+              "type": "string",
+              "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+              "example": "PT2H10M"
+            },
+            "stops": {
+              "type": "array",
+              "description": "information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge...",
+              "items": {
+                "$ref": "#/definitions/FlightStop"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

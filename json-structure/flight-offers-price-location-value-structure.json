@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-price-location-value-structure.json",
+  "title": "LocationValue",
+  "description": "LocationValue structure from Flight Offers Price",
+  "type": "object",
+  "properties": {
+    "cityCode": {
+      "type": "string",
+      "description": "City code associated to the airport"
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "Country code of the airport"
+    }
+  }
+}

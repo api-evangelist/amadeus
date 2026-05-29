@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-availabilities-search-collection-meta-avail-search-schema.json",
+  "title": "Collection_Meta_AvailSearch",
+  "description": "Collection_Meta_AvailSearch schema from Flight Availibilities Search",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "example": 1
+    }
+  },
+  "type": "object"
+}

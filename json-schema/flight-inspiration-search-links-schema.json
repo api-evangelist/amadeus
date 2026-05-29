@@ -1,11 +1,14 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-inspiration-search-links-schema.json",
   "title": "Links",
-  "type": "object",
+  "description": "Links schema from Flight Inspiration Search",
   "properties": {
     "self": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "example": "https://example.com/resource"
     }
-  }
+  },
+  "type": "object"
 }

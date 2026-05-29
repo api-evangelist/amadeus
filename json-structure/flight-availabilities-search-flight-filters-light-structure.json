@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-availabilities-search-flight-filters-light-structure.json",
+  "title": "FlightFiltersLight",
+  "description": "FlightFiltersLight structure from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "carrierRestrictions": {
+      "type": "object",
+      "description": "Restriction towards carriers."
+    },
+    "cabinRestrictions": {
+      "type": "array",
+      "description": "Restriction towards cabins."
+    },
+    "connectionRestriction": {
+      "type": "object",
+      "description": "Restriction towards number of connections."
+    }
+  }
+}

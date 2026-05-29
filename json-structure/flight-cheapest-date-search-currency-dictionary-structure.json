@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-cheapest-date-search-currency-dictionary-structure.json",
+  "title": "CurrencyDictionary",
+  "description": "CurrencyDictionary structure from Flight Cheapest Date Search",
+  "type": "object"
+}

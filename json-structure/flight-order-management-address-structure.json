@@ -1,40 +1,33 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Address",
-  "type": "record",
-  "fields": [
-    {
-      "name": "lines",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-order-management-address-structure.json",
+  "title": "Address",
+  "description": "address information",
+  "type": "object",
+  "properties": {
+    "lines": {
       "type": "array",
-      "description": "Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc",
-      "items": {
-        "type": "string"
-      }
+      "description": "Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc"
     },
-    {
-      "name": "postalCode",
+    "postalCode": {
       "type": "string",
       "description": "Example: 74130"
     },
-    {
-      "name": "countryCode",
+    "countryCode": {
       "type": "string",
       "description": "country code [ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)"
     },
-    {
-      "name": "cityName",
+    "cityName": {
       "type": "string",
       "description": "Full city name. Example: Dublin"
     },
-    {
-      "name": "stateName",
+    "stateName": {
       "type": "string",
       "description": "Full state name"
     },
-    {
-      "name": "postalBox",
+    "postalBox": {
       "type": "string",
       "description": "E.g. BP 220"
     }
-  ]
+  }
 }

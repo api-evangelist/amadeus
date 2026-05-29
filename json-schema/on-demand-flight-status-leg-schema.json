@@ -1,22 +1,35 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/on-demand-flight-status-leg-schema.json",
   "title": "Leg",
-  "type": "object",
+  "description": "Leg schema from On-Demand Flight Status",
   "properties": {
     "boardPointIataCode": {
+      "description": "3-letter IATA code of the departure airport. e.g. LHR",
+      "pattern": "[a-zA-Z]{3}",
       "type": "string",
-      "description": "3-letter IATA code of the departure airport. e.g. LHR"
+      "example": "LHR"
     },
     "offPointIataCode": {
+      "description": "3-letter IATA code of the arrival airport. e.g. BKK",
+      "pattern": "[a-zA-Z]{3}",
       "type": "string",
-      "description": "3-letter IATA code of the arrival airport. e.g. BKK"
+      "example": "BKK"
     },
     "aircraftEquipment": {
-      "$ref": "#/definitions/AircraftEquipment"
+      "properties": {
+        "aircraftType": {
+          "description": "the type of aircraft that will operate the leg",
+          "type": "string",
+          "example": 733
+        }
+      }
     },
     "scheduledLegDuration": {
       "type": "string",
-      "description": "duration of the leg following standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)"
+      "description": "duration of the leg following standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)",
+      "example": "PT14H50M"
     }
-  }
+  },
+  "type": "object"
 }

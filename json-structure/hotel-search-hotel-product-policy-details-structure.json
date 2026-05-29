@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-search-hotel-product-policy-details-structure.json",
+  "title": "HotelProduct_PolicyDetails",
+  "description": "Booking Rules",
+  "type": "object",
+  "properties": {
+    "paymentType": {
+      "type": "string",
+      "description": "payment type. Guarantee means Pay at Check Out. Check the `methods` in `guarantee` or `deposit` or `prepay`."
+    },
+    "guarantee": {
+      "type": "object",
+      "description": "the guarantee policy information applicable to the offer. It includes accepted payments"
+    },
+    "deposit": {
+      "type": "object",
+      "description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due"
+    },
+    "prepay": {
+      "type": "object",
+      "description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due"
+    },
+    "holdTime": {
+      "type": "object",
+      "description": "the hold policy"
+    },
+    "cancellations": {
+      "type": "array"
+    },
+    "checkInOut": {
+      "type": "object"
+    }
+  }
+}

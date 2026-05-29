@@ -1,6 +1,102 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-order-management-extended-price-schema.json",
   "title": "Extended_Price",
   "description": "price information",
-  "type": "object"
+  "type": "object",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "margin": {
+          "description": "BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated.",
+          "type": "string",
+          "example": "1.00"
+        },
+        "grandTotal": {
+          "description": "Total amount paid by the user (including fees and selected additional services).",
+          "type": "string",
+          "example": "987.00"
+        },
+        "billingCurrency": {
+          "description": "Currency of the payment. It may be different than the requested currency",
+          "type": "string",
+          "example": "EUR"
+        },
+        "additionalServices": {
+          "type": "array",
+          "title": "AdditionalServices",
+          "items": {
+            "title": "AdditionalService",
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "example": "332.70"
+              },
+              "type": {
+                "$ref": "#/definitions/AdditionalServiceType"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "currency": {
+          "type": "string",
+          "example": "USD"
+        },
+        "total": {
+          "description": "Total amount paid by the user",
+          "type": "string",
+          "example": "932.70"
+        },
+        "base": {
+          "description": "Amount without taxes",
+          "type": "string",
+          "example": "632.70"
+        },
+        "fees": {
+          "description": "List of applicable fees",
+          "type": "array",
+          "items": {
+            "description": "a fee",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "example": "332.70"
+              },
+              "type": {
+                "$ref": "#/definitions/FeeType"
+              }
+            }
+          }
+        },
+        "taxes": {
+          "type": "array",
+          "items": {
+            "description": "a tax",
+            "type": "object",
+            "properties": {
+              "amount": {
+                "type": "string",
+                "example": "332.70"
+              },
+              "code": {
+                "type": "string",
+                "example": "MX"
+              }
+            }
+          }
+        },
+        "refundableTaxes": {
+          "description": "The amount of taxes which are refundable",
+          "type": "string",
+          "example": "200.00"
+        }
+      }
+    }
+  ]
 }

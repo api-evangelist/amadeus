@@ -1,0 +1,85 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Transfer Booking — Booking"
+  description: 'Transfer Booking — Booking. 1 operation(s). Lead operation: Amadeus Performs a Transfer Reservation.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Booking
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: transfer-book-booking
+      baseUri: https://test.api.amadeus.com/v1
+      description: Transfer Booking — Booking business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: ordering-transfer-orders
+          path: /ordering/transfer-orders
+          operations:
+            - name: createTransferOrder
+              method: POST
+              description: Amadeus Performs a Transfer Reservation.
+              inputParameters:
+                - name: offerId
+                  in: query
+                  type: string
+                  required: true
+                  description: transfer offer id from shopping/transfer-offers response
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Amadeus Performs a Transfer Reservation.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: transfer-book-booking-rest
+      port: 8080
+      description: REST adapter for Transfer Booking — Booking. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/ordering/transfer-orders
+          name: ordering-transfer-orders
+          description: REST surface for ordering-transfer-orders.
+          operations:
+            - method: POST
+              name: createTransferOrder
+              description: Amadeus Performs a Transfer Reservation.
+              call: transfer-book-booking.createTransferOrder
+              with:
+                offerId: rest.offerId
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: transfer-book-booking-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Transfer Booking — Booking. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: performs-transfer-reservation
+          description: Amadeus Performs a Transfer Reservation.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: transfer-book-booking.createTransferOrder
+          with:
+            offerId: tools.offerId
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

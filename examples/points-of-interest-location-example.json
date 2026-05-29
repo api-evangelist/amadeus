@@ -1,11 +1,22 @@
 {
-  "id": "example-id",
-  "self": "example-self",
-  "type": "example-type",
+  "id": "12345",
+  "self": {
+    "href": "string"
+  },
+  "type": "location",
   "subType": "AIRPORT",
-  "name": "example-name",
-  "geoCode": "example-geoCode",
-  "category": "SIGHTS",
-  "tags": [],
-  "rank": "example-rank"
+  "name": "Paris CDG",
+  "geoCode": {
+    "latitude": 43.580418,
+    "longitude": 7.125102
+  },
+  "category": "HISTORICAL",
+  "tags": [
+    [
+      "grocery",
+      "japanese",
+      "cafe"
+    ]
+  ],
+  "rank": 1
 }

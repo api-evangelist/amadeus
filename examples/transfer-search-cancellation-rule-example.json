@@ -1,0 +1,9 @@
+{
+  "ruleDescription": "Sample description text.",
+  "feeType": "PERCENTAGE",
+  "feeValue": "string-value",
+  "currencyCode": "EUR",
+  "metricType": "MINUTES",
+  "metricMin": "string-value",
+  "metricMax": "string-value"
+}

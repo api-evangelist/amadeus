@@ -1,0 +1,101 @@
+{
+  "type": "flight-order",
+  "id": "MlpZVkFMfFdBVFNPTnwyMDE1LTExLTAy",
+  "queuingOfficeId": "NCE1A0955",
+  "ownerOfficeId": "NCE1A0955",
+  "associatedRecords": [],
+  "flightOffers": [
+    {
+      "type": "flight-offer",
+      "id": "1",
+      "source": "GDS",
+      "instantTicketingRequired": false,
+      "disablePricing": false,
+      "nonHomogeneous": false,
+      "oneWay": false,
+      "paymentCardRequired": false,
+      "lastTicketingDate": "2018-06-19",
+      "lastTicketingDateTime": "2018-06-19T15:00:00",
+      "numberOfBookableSeats": 9,
+      "itineraries": [
+        {
+          "duration": "PT2H10M",
+          "segments": []
+        }
+      ],
+      "price": {},
+      "pricingOptions": {
+        "fareType": [
+          "PUBLISHED"
+        ],
+        "includedCheckedBagsOnly": true,
+        "refundableFare": true,
+        "noRestrictionFare": true,
+        "noPenaltyFare": true
+      },
+      "validatingAirlineCodes": [
+        "AF"
+      ],
+      "travelerPricings": [
+        {
+          "travelerId": "1",
+          "associatedAdultId": "12345",
+          "fareDetailsBySegment": []
+        }
+      ]
+    }
+  ],
+  "travelers": [],
+  "remarks": {
+    "general": [
+      {
+        "category": "Z",
+        "text": "PASSENGER NEED ASSISTANCE",
+        "travelerIds": "1",
+        "flightOfferIds": "1"
+      }
+    ],
+    "airline": [
+      {
+        "keyword": "PARK",
+        "airlineCode": "AF",
+        "text": "CAR PARK",
+        "travelerIds": "1",
+        "flightOfferIds": "1"
+      }
+    ]
+  },
+  "formOfPayments": [
+    {
+      "b2bWallet": {
+        "cardId": "1245365895336",
+        "cardUsageName": "Sample Name",
+        "cardFriendlyName": "CB1",
+        "reportingData": [],
+        "flightOfferIds": "1"
+      },
+      "creditCard": {},
+      "other": {
+        "flightOfferIds": "1"
+      }
+    }
+  ],
+  "ticketingAgreement": {
+    "option": "DELAY_TO_QUEUE",
+    "delay": "string-value",
+    "dateTime": "2017-10-23",
+    "segmentIds": "1"
+  },
+  "automatedProcess": [],
+  "contacts": [],
+  "tickets": [],
+  "formOfIdentifications": [
+    {
+      "identificationType": "PASSPORT",
+      "carrierCode": "DL",
+      "number": "XN0019390",
+      "travelerIds": "1",
+      "flightOfferIds": "1"
+    }
+  ]
+}

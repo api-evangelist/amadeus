@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-price-detailed-fare-rules-structure.json",
+  "title": "DetailedFareRules",
+  "description": "DetailedFareRules structure from Flight Offers Price",
+  "type": "object",
+  "properties": {
+    "fareBasis": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "fareNotes": {
+      "type": "string"
+    },
+    "segmentId": {
+      "type": "string",
+      "description": "Id of the segment concerned by the fare rule"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-search-hotel-product-room-details-structure.json",
+  "title": "HotelProduct_RoomDetails",
+  "description": "HotelProduct_RoomDetails structure from Hotel Search API",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Room type code, 3 character identifier of the room.\nThe first character identifies the room type category. \nThe second numeric character identifies the number of beds. \nThe third character identifies the bed type. \nThere is a special case where ROH is returned, this value stands for Run Of House."
+    },
+    "typeEstimated": {
+      "type": "object",
+      "description": "estimated room category, bed type and number of beds in the room. This information has been parsed from the room description, and is thus only provided for informational purposes"
+    },
+    "description": {
+      "type": "object",
+      "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language"
+    }
+  }
+}

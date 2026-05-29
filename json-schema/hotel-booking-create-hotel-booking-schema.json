@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-booking-create-hotel-booking-schema.json",
+  "title": "CreateHotelBooking",
+  "description": "This model allows the creation of an hotel order.",
+  "type": "object",
+  "properties": {
+    "arrivalInformation": {
+      "type": "object",
+      "description": "Optional information on the way the guest is arriving to the hotel. Today the application only supports Flight details.",
+      "properties": {
+        "arrivalFlightDetails": {
+          "title": "FlightTransfer_FlightSegment",
+          "type": "object",
+          "properties": {
+            "carrierCode": {
+              "type": "string",
+              "description": "Carrier code",
+              "example": "LH"
+            },
+            "number": {
+              "type": "string",
+              "description": "Flight segment number",
+              "example": "1050"
+            },
+            "departure": {
+              "type": "object",
+              "description": "Departure or arrival information",
+              "title": "FlightSegment_Departure",
+              "required": [
+                "iataCode"
+              ],
+              "properties": {
+                "iataCode": {
+                  "description": "IATA Airport code",
+                  "type": "string",
+                  "example": "JFK"
+                }
+              }
+            },
+            "arrival": {
+              "type": "object",
+              "description": "Departure or arrival information",
+              "title": "FlightSegment_Arrival",
+              "properties": {
+                "iataCode": {
+                  "description": "IATA Airport code",
+                  "type": "string",
+                  "example": "JFK"
+                },
+                "terminal": {
+                  "description": "Terminal name / number",
+                  "type": "string",
+                  "example": "T2"
+                },
+                "at": {
+                  "description": "Local date and time at the arrival of the flight with the following format \"YYYY-MM-DD'T'HH:mm:ss\" (for example 2017-02-10T20:40:00 if the flight arrive 20h40 local time)",
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2017-10-23T20:00:00+02:00"
+                }
+              },
+              "required": [
+                "iataCode",
+                "terminal",
+                "at"
+              ]
+            }
+          },
+          "required": [
+            "carrierCode",
+            "number",
+            "departure"
+          ]
+        }
+      }
+    },
+    "payment": {
+      "title": "Payment Information in input message",
+      "type": "object",
+      "description": "Model with the hotel payment information",
+      "properties": {
+        "iataTravelAgency": {
+          "type": "object",
+          "description": "Agency IATA/ARC Number used to Guarantee the booking.\nIf not provided it is taken form the Amadeus Office profile.",
+          "properties": {
+            "iataNumber": {
+              "type": "string",
+              "example": "CDG"
+            }
+          }
+        },
+        "method": {
+          "type": "string",
+          "description": "Indicates the method of payment. \n- CREDIT_CARD : It allows payment through a credit card. It is expected to provide the credit card information in the paymentCard section.",
+          "enum": [
+            "CREDIT_CARD"
+          ],
+          "example": "CREDIT_CARD"
+        },
+        "paymentCard": {
+          "type": "object",
+          "description": "Credit card information.\nThe full details of a credit card are expected :\n  . credit card holder name (mandatory, maximum 64 chars) \n  . credit card vendor code (mandatory)\n  . credit card number (mandatory)\n  . credit card expiry date (mandatory)\n  . credit card security code (optional, it is anyway strongly recommended to always provide it for Aggregators)",
+          "properties": {
+            "paymentCardInfo": {
+              "type": "object",
+              "description": "Credit or Debits cards.",
+              "title": "PaymentCard",
+              "properties": {
+                "vendorCode": {
+                  "type": "string",
+                  "example": "VI",
+                  "description": "Two-letter code card type or vendor code. E.g. VI for VISA, MA for MasterCard.",
+                  "maxLength": 30,
+                  "minLength": 0
+                },
+                "holderName": {
+                  "type": "string",
+                  "description": "Name of credit card holder.",
+                  "maxLength": 99,
+                  "minLength": 1,
+                  "example": "Sample Name"
+                },
+                "cardNumber": {
+                  "type": "string",
+                  "description": "Card number",
+                  "example": 1
+                },
+                "securityCode": {
+                  "type": "string",
+                  "description": "Card security code",
+                  "example": "193",
+                  "minLength": 3,
+                  "maxLength": 4
+                },
+                "expiryDate": {
+                  "type": "string",
+                  "description": "Date of the expiration of the card in the format MMYY",
+                  "example": "2026-08-15"
+                }
+              },
+              "required": [
+                "vendorCode",
+                "holderName",
+                "cardNumber",
+                "expiryDate"
+              ]
+            },
+            "address": {
+              "$ref": "#/definitions/Address"
+            }
+          },
+          "required": [
+            "paymentCardInfo"
+          ]
+        }
+      },
+      "required": [
+        "method"
+      ]
+    },
+    "roomAssociations": {
+      "type": "array",
+      "description": "Is to correlate a room to a guest and an offer.",
+      "maxItems": 9,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "description": "Room Association represents a room booked in an hotel, the guests sleeping in this room, the hotel loyalty program if any, plus special request if any. ",
+        "minProperties": 1,
+        "maxProperties": 1,
+        "title": "roomAssociation",
+        "properties": {
+          "guestReferences": {
+            "type": "array",
+            "description": "Array of guest references listing all the guests occupying the room.\nFor each guest, the reference provided is the id also provided in guest section, except at booking creation time (in this only case, it will be a temporary id provided by the client called tid).\nThe order of this list is important. The first one is the main guest, the one holding the reservation (and the form of payment).\nThe following references are the ones of the accompagnants, if any.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "guestReference": {
+                  "type": "string",
+                  "example": "string-value"
+                },
+                "hotelLoyaltyId": {
+                  "type": "string",
+                  "description": "Hotel Chain Rewards Program Membership ID of the guest.\nTo receive your Rewards Points, access online check in, fast check out. An error is returned by the Chain if the number is invalid.\nExample Rewards Programs:\n* Marriott Bonvoy\n* Hilton Honors\n* Hyatt Rewards\n* IHG Rewards\n* Wyndham Rewards\n* Accor Live Limitless ALL\n* Best Western Rewards\n* Choice Privileges\n* Radisson Rewards\n",
+                  "pattern": "^[A-Z0-9-]{1,21}$",
+                  "minLength": 1,
+                  "maxLength": 21,
+                  "example": "3081031320523260"
+                }
+              },
+              "required": [
+                "guestReference"
+              ]
+            }
+          },
+          "specialRequest": {
+            "type": "string",
+            "minLength": 2,
+            "description": "special request to send to the reception (optional)",
+            "example": "TEST I will arrive at midnight",
+            "maxLength": 120
+          },
+          "hotelOfferId": {
+            "type": "string",
+            "description": "Hotel offerID received in availability response, identifying the product to book.",
+            "example": "63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3",
+            "maxLength": 100,
+            "minLength": 2,
+            "pattern": "^[A-Z0-9]*$"
+          }
+        },
+        "required": [
+          "guestReferences",
+          "hotelOfferId"
+        ]
+      }
+    },
+    "travelAgent": {
+      "type": "object",
+      "description": "Travel Agent details",
+      "required": [
+        "contact"
+      ],
+      "properties": {
+        "contact": {
+          "type": "object",
+          "required": [
+            "email"
+          ],
+          "properties": {
+            "email": {
+              "type": "string",
+              "example": "travelAgent@agency.com",
+              "minLength": 3,
+              "maxLength": 90,
+              "pattern": "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$",
+              "description": "travel agency email"
+            },
+            "fax": {
+              "type": "string",
+              "example": "+33985632145",
+              "minLength": 2,
+              "maxLength": 90,
+              "pattern": "^[+][1-9][0-9]{4,18}$",
+              "description": "Even if this field is not mandatory it is recommended to fill it. This information is passed to the hotel provider. (When it is not provided in input, it is taken from the Office Profile of the Travel Agency)."
+            },
+            "phone": {
+              "type": "string",
+              "example": "+33679278416",
+              "minLength": 2,
+              "maxLength": 199,
+              "description": "Even if this field is not mandatory it is recommended to fill it. This information is always passed to the hotel provider. (When it is not provided in input, it is taken from the Office Profile of the Travel Agency)."
+            }
+          }
+        },
+        "travelAgentId": {
+          "type": "string",
+          "description": "Travel Agent ID also called Booking source or IATA number.\nWhen received in request, it indicates that the travel agent wants to override the booking source receiving the commission.\nIf not provided, it is by default set to the IATA Number of the office profile the agent is connected to and who makes the booking. (the commission is given to that office) ",
+          "example": "12345"
+        }
+      }
+    }
+  },
+  "required": [
+    "travelAgent"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-search-points-and-cash-structure.json",
+  "title": "PointsAndCash",
+  "description": "PointsAndCash structure from Transfer Search",
+  "type": "object",
+  "properties": {
+    "monetaryAmount": {
+      "type": "string"
+    }
+  }
+}

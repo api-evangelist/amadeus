@@ -1,0 +1,772 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-booking-hotel-booking-schema.json",
+  "title": "HotelBooking",
+  "description": "An hotel booking represent one or several rooms booked in the same physical hotel.\nThere is always a reference to this booking, provided by the hotel provider, stored in associated records section.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Type of data - set to \"hotel-booking\".",
+      "example": "string-value"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique ID of the hotel booking ID.\nIt is computed by Amadeus System based on technical data.",
+      "minLength": 1,
+      "pattern": "[A-Za-z0-9+/=]",
+      "example": "456123"
+    },
+    "bookingStatus": {
+      "type": "string",
+      "description": "Status of the booking - Possible values \n- \"CONFIRMED\"\n- \"PENDING\" for on-request \n- \"CANCELLED\" (It will be returned only in the retrieve byHistory as it repreents a DELETED resource.)\n- \"On HOLD\" for deferred payment (HO)\n- \"UNCONFIRMED\" (UC) when confirmation finaly refused by Hotel Provider\n- \"DENIED\" (NO) when an on-request booking is denied by the hotelier\n- \"GHOST\" (GK) for ghost booking\n- \"PAST\" for a confirmed booking with the check-out date in the past\n",
+      "enum": [
+        "CONFIRMED",
+        "PENDING",
+        "CANCELLED",
+        "ON_HOLD",
+        "PAST",
+        "UNCONFIRMED",
+        "DENIED",
+        "GHOST",
+        "DELETED"
+      ],
+      "example": "CONFIRMED"
+    },
+    "roomAssociations": {
+      "type": "array",
+      "description": "Array of room associations. Each room association correlates one single room to guest(s), a payment and an hotel offer.\n\nIf multiple identical rooms are requested, one roomAssociation is created per hotelBooking (one hotelBooking is created per room).",
+      "items": {
+        "type": "object",
+        "description": "Room Association represents a room booked in an hotel, the guests sleeping in this room, the hotel loyalty program if any, plus special request if any. ",
+        "minProperties": 1,
+        "maxProperties": 1,
+        "title": "roomAssociation",
+        "properties": {
+          "guestReferences": {
+            "type": "array",
+            "description": "Array of guest references listing all the guests occupying the room.\nFor each guest, the reference provided is the id also provided in guest section, except at booking creation time (in this only case, it will be a temporary id provided by the client called tid).\nThe order of this list is important. The first one is the main guest, the one holding the reservation (and the form of payment).\nThe following references are the ones of the accompagnants, if any.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "guestReference": {
+                  "type": "string",
+                  "example": "string-value"
+                },
+                "hotelLoyaltyId": {
+                  "type": "string",
+                  "description": "Hotel Chain Rewards Program Membership ID of the guest.\nTo receive your Rewards Points, access online check in, fast check out. An error is returned by the Chain if the number is invalid.\nExample Rewards Programs:\n* Marriott Bonvoy\n* Hilton Honors\n* Hyatt Rewards\n* IHG Rewards\n* Wyndham Rewards\n* Accor Live Limitless ALL\n* Best Western Rewards\n* Choice Privileges\n* Radisson Rewards\n",
+                  "pattern": "^[A-Z0-9-]{1,21}$",
+                  "minLength": 1,
+                  "maxLength": 21,
+                  "example": "3081031320523260"
+                }
+              },
+              "required": [
+                "guestReference"
+              ]
+            }
+          },
+          "specialRequest": {
+            "type": "string",
+            "minLength": 2,
+            "description": "special request to send to the reception (optional)",
+            "example": "TEST I will arrive at midnight",
+            "maxLength": 120
+          },
+          "hotelOfferId": {
+            "type": "string",
+            "description": "Hotel offerID received in availability response, identifying the product to book.",
+            "example": "63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3",
+            "maxLength": 100,
+            "minLength": 2,
+            "pattern": "^[A-Z0-9]*$"
+          }
+        },
+        "required": [
+          "guestReferences",
+          "hotelOfferId"
+        ]
+      }
+    },
+    "hotelOffer": {
+      "description": "Hotel Offer",
+      "title": "HotelOffer",
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "data type set to hotel-offer",
+              "type": "string",
+              "example": "hotel-offer",
+              "default": "hotel-offer",
+              "enum": [
+                "hotel-offer"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Z0-9]*$",
+              "minLength": 2,
+              "maxLength": 100,
+              "example": "63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3",
+              "description": "Unique identifier of this offer. Might be valid for a temporary period only."
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        {
+          "description": "Hotel Offer\n",
+          "type": "object",
+          "title": "HotelProduct",
+          "properties": {
+            "checkInDate": {
+              "type": "string",
+              "format": "date",
+              "example": "2020-12-30",
+              "description": "check-in date of the stay (hotel local date). Format YYYY-MM-DD\nThe lowest accepted value is today date (no dates in the past).  "
+            },
+            "checkOutDate": {
+              "type": "string",
+              "format": "date",
+              "example": "2020-12-31",
+              "description": "check-out date of the stay (hotel local date). Format YYYY-MM-DD\nThe lowest accepted value is `checkInDate`+1. "
+            },
+            "roomQuantity": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9,
+              "example": 1,
+              "description": "number of rooms (1-9)"
+            },
+            "rateCode": {
+              "type": "string",
+              "description": "Special Rate - Provider Response Code (3 chars)\nExamples\n\n  * RAC - Rack\n\n  * BAR - Best Available Rate\n\n  * PRO - Promotional\n\n  * COR - Corporate\n\n  * GOV - Government (qualified)\n\n  * AAA - AAA (qualified)\n\n  * BNB - Bed and Breakfast\n\n  * PKG - Package\n\n  * TVL - Travel Industry\n\n  * SPC - Special Promo Rate\n\n  * WKD - Weekend\n\n  * CON - Convention\n\n  * SNR - Senior (Europe) (qualified)\n\n  * ARP - AARP - American Association of Retired People (50+) (qualified)\n\n  * SRS - Senior (qualified)\n\n  * ROR - Room Only Rate (no breakfast)\n\n  * FAM - Family\n\n  * DAY - Day rate\n",
+              "pattern": "^[A-Z0-9*]{3}$",
+              "minLength": 3,
+              "maxLength": 3,
+              "example": "RAC"
+            },
+            "category": {
+              "type": "string",
+              "description": "Special Rate Category\nExamples:\n  ASSOCIATION\n  FAMILY_PLAN\n",
+              "example": "FAMILY_PLAN"
+            },
+            "commission": {
+              "title": "HotelProduct_Commission",
+              "type": "object",
+              "properties": {
+                "percentage": {
+                  "type": "string",
+                  "description": "Percentage of the commission paid to the travel seller. Value is between 0 and 100",
+                  "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+                  "example": 50
+                },
+                "amount": {
+                  "type": "string",
+                  "description": "Amount of the commission paid to the travel seller. The amount is always linked to the currency code of the offer",
+                  "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+                  "example": "199.50"
+                },
+                "description": {
+                  "$ref": "#/definitions/QualifiedFreeText"
+                }
+              }
+            },
+            "room": {
+              "title": "HotelProduct_RoomDetails",
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "Room type code, 3 character identifier of the room.\nThe first character identifies the room type category. \nThe second numeric character identifies the number of beds. \nThe third character identifies the bed type. \nThere is a special case where ROH is returned, this value stands for Run Of House.",
+                  "type": "string",
+                  "pattern": "^[A-Z0-9*]{3}$",
+                  "example": "string-value"
+                },
+                "description": {
+                  "$ref": "#/definitions/QualifiedFreeText"
+                }
+              }
+            },
+            "guests": {
+              "$ref": "#/definitions/guests"
+            },
+            "price": {
+              "title": "HotelProduct_HotelPrice",
+              "description": "price information",
+              "allOf": [
+                {
+                  "$ref": "#/definitions/Price"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "taxes": {
+                      "type": "array",
+                      "items": {
+                        "title": "HotelProduct_HotelTax",
+                        "type": "object",
+                        "properties": {
+                          "currency": {
+                            "type": "string",
+                            "description": "Currency code of the tax"
+                          },
+                          "amount": {
+                            "type": "string",
+                            "description": "Amount of the tax"
+                          },
+                          "code": {
+                            "description": "The tax code which identifies the tax.\n  Examples:\n  1=BED_TAX\n  2=CITY_TAX",
+                            "type": "string"
+                          },
+                          "percentage": {
+                            "type": "string",
+                            "description": "percentage of the tax. Use together with pricingFrequency and pricingMode"
+                          },
+                          "included": {
+                            "type": "boolean",
+                            "description": "Is the tax included in the base amount"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "Textual description of the tax"
+                          },
+                          "pricingFrequency": {
+                            "description": "Specifies if the tax applies per stay or per night\n  - PER_STAY\n  - PER_NIGHT",
+                            "type": "string"
+                          },
+                          "pricingMode": {
+                            "description": "Specifies if the tax applies per occupant or per room\n  - PER_OCCUPANT\n  - PER_PRODUCT",
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "variations": {
+                      "title": "HotelProduct_PriceVariations",
+                      "type": "object",
+                      "description": "Daily price variations and the average daily price (when available) is shown here",
+                      "properties": {
+                        "changes": {
+                          "description": "The collection of price periods.\nEven if the daily price is not changeing during the stay, this section is filled",
+                          "type": "array",
+                          "items": {
+                            "title": "HotelProduct_PriceVariation",
+                            "description": "Some prices may vary during a stay, thus here you can see the daily price per period of the stay",
+                            "allOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "startDate": {
+                                    "description": "Begin date of the period\nFormat: YYYY-MM-DD",
+                                    "type": "string",
+                                    "format": "date"
+                                  },
+                                  "endDate": {
+                                    "description": "End date of the period\nFormat: YYYY-MM-DD",
+                                    "type": "string",
+                                    "format": "date"
+                                  }
+                                },
+                                "required": [
+                                  "startDate",
+                                  "endDate"
+                                ]
+                              },
+                              {
+                                "$ref": "#/definitions/Price"
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "example": "199.50"
+            },
+            "policies": {
+              "title": "HotelProduct_PolicyDetails",
+              "type": "object",
+              "description": "Booking Rules",
+              "properties": {
+                "paymentType": {
+                  "type": "string",
+                  "description": "payment type. Guarantee means Pay at Check Out. Check the `methods` in `guarantee` or `deposit` or `prepay`.",
+                  "example": "DEPOSIT",
+                  "enum": [
+                    "GUARANTEE",
+                    "DEPOSIT",
+                    "PREPAY",
+                    "HOLDTIME"
+                  ]
+                },
+                "guarantee": {
+                  "title": "HotelProduct_GuaranteePolicy",
+                  "type": "object",
+                  "description": "the guarantee policy information applicable to the offer. It includes accepted payments",
+                  "properties": {
+                    "description": {
+                      "$ref": "#/definitions/QualifiedFreeText"
+                    },
+                    "acceptedPayments": {
+                      "$ref": "#/definitions/HotelProduct_PaymentPolicy"
+                    }
+                  }
+                },
+                "deposit": {
+                  "$ref": "#/definitions/HotelProduct_DepositPolicy"
+                },
+                "prepay": {
+                  "$ref": "#/definitions/HotelProduct_DepositPolicy"
+                },
+                "holdTime": {
+                  "title": "HotelProduct_HoldPolicy",
+                  "type": "object",
+                  "description": "the hold policy",
+                  "properties": {
+                    "deadline": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. \n Example: 2010-08-14T13:00:00\n Please note that this value is expressed in the hotels local time zone\n",
+                      "example": "2026-08-15T10:30:00Z"
+                    }
+                  },
+                  "required": [
+                    "deadline"
+                  ]
+                },
+                "checkInOut": {
+                  "title": "HotelProduct_CheckInOutPolicy",
+                  "type": "object",
+                  "properties": {
+                    "checkIn": {
+                      "type": "string",
+                      "example": "13:00:00",
+                      "description": "Check-in From time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]"
+                    },
+                    "checkInDescription": {
+                      "$ref": "#/definitions/QualifiedFreeText"
+                    },
+                    "checkOut": {
+                      "type": "string",
+                      "example": "11:00:00",
+                      "description": "Check-out Until time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]"
+                    },
+                    "checkOutDescription": {
+                      "$ref": "#/definitions/QualifiedFreeText"
+                    }
+                  }
+                },
+                "cancellations": {
+                  "type": "array",
+                  "items": {
+                    "title": "HotelProduct_CancellationPolicy",
+                    "type": "object",
+                    "description": "Cancellation policies are optional in response (whether they apply or not according to the provider response returned at pricing or sell.   ",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "FULL_STAY"
+                        ],
+                        "description": "* FULL_STAY: the Penalty amount equals the `total` price.",
+                        "example": "FULL_STAY"
+                      },
+                      "amount": {
+                        "type": "string",
+                        "description": "Amount of the cancellation fee.",
+                        "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+                        "example": "199.50"
+                      },
+                      "numberOfNights": {
+                        "type": "integer",
+                        "format": "int32",
+                        "minimum": 0,
+                        "description": "Number of nights due as fee in case of cancellation.",
+                        "example": 1
+                      },
+                      "percentage": {
+                        "type": "string",
+                        "description": "Percentage of the total stay amount to be paid in case of cancellation. Value is between 0 and 100.",
+                        "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+                        "example": 50
+                      },
+                      "deadline": {
+                        "type": "string",
+                        "format": "date-time",
+                        "description": "Represents the deadline after which the penalty applies. DateTime is in ISO 8601 [https://www.w3.org/TR/NOTE-datetime].\nExample: 2010-08-14T12:00:00+01:00\nExample: 2010-08-14T12:00:00Z\nExample: 2010-08-14T12:00:00-01:00\nThe value is expressed in the hotel local time zone, with the added time zone difference. So you can compute the deadline in UTC(GMT) if desired.",
+                        "example": "2026-08-15T10:30:00Z"
+                      },
+                      "description": {
+                        "$ref": "#/definitions/QualifiedFreeText"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "rateFamilyEstimated": {
+              "title": "HotelProduct_RateFamily",
+              "type": "object",
+              "description": "The estimated rate code family of the offer. Grouping various rate plan codes that belongs to the same family and indicates the type of the rate",
+              "properties": {
+                "code": {
+                  "description": "The estimated rate family (PRO,FAM,GOV)",
+                  "type": "string",
+                  "pattern": "[A-Z0-9]{3}",
+                  "example": "string-value"
+                },
+                "type": {
+                  "description": "The type of the rate (public=P, negotiated=N, conditional=C)",
+                  "type": "string",
+                  "pattern": "[PNC]",
+                  "example": "string-value"
+                }
+              }
+            }
+          },
+          "required": [
+            "rateCode",
+            "room",
+            "price"
+          ]
+        }
+      ]
+    },
+    "hotel": {
+      "type": "object",
+      "description": "Hotel Content",
+      "title": "Hotel",
+      "properties": {
+        "hotelId": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{8}$",
+          "example": "ADPAR001",
+          "description": "Amadeus Property Code (8 chars)\n"
+        },
+        "chainCode": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "example": "AD",
+          "description": "Brand (RT...) or Merchant (AD...) (Amadeus 2 chars Code)\n"
+        },
+        "name": {
+          "type": "string",
+          "example": "Hotel de Paris",
+          "description": "Hotel Name"
+        },
+        "self": {
+          "type": "string",
+          "description": "link to retrieve the hotel details",
+          "example": "string-value"
+        }
+      },
+      "required": [
+        "hotelId",
+        "chainCode",
+        "name"
+      ]
+    },
+    "hotelProviderInformation": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "description": "References and origin of the hotel bookings records",
+      "items": {
+        "type": "object",
+        "properties": {
+          "hotelProviderCode": {
+            "type": "string",
+            "description": "2 letters - Hotel provider code  e.g.RT  (for Accor)",
+            "example": "RT",
+            "minLength": 2,
+            "maxLength": 2
+          },
+          "confirmationNumber": {
+            "type": "string",
+            "description": "Provider confirmation number. \nNever empty, in case of on-request it can be .......\nIf you call the Provider, this Reference may be asked",
+            "example": "818319951754",
+            "minLength": 2,
+            "maxLength": 16,
+            "pattern": "^[A-Z0-9]*$"
+          },
+          "cancellationNumber": {
+            "type": "string",
+            "description": "Provider cancellation number\nFor cancelled booking it will ablways be filled.\nIf it was not returned by the hotel provider, it will be filled with \"NONE\".",
+            "example": "C818319951754",
+            "minLength": 2,
+            "maxLength": 16,
+            "pattern": "^[A-Z0-9]*$"
+          },
+          "onRequestNumber": {
+            "type": "string",
+            "description": "Used to describe the on-request identifier",
+            "example": "818319951754",
+            "minLength": 2,
+            "maxLength": 16,
+            "pattern": "^[A-Z0-9]*$"
+          }
+        },
+        "required": [
+          "hotelProviderCode",
+          "confirmationNumber"
+        ]
+      }
+    },
+    "payment": {
+      "title": "Payment Information in output message",
+      "type": "object",
+      "description": "Model with the hotel payment information",
+      "properties": {
+        "iataTravelAgency": {
+          "type": "object",
+          "description": "Agency IATA/ARC Number used to Guarantee the booking",
+          "properties": {
+            "iataNumber": {
+              "type": "string",
+              "example": "CDG"
+            }
+          },
+          "required": [
+            "iataNumber"
+          ]
+        },
+        "billBack": {
+          "type": "object",
+          "description": "To be used when the booking is paid with to a virtual credit card generated through an external provider like Conferma.\n\nThe Billback account number is mandatory.\nThe rest of the information is not mandatory. CAI (Travel Agwency ID) and CBI (Booker ID) can either be provided in input or can be taken from the Amadeus Office Profile.\n\nOffline activation of Hotel Billback: As soon as Conferma creates the client account and provides Amadeus with specific credentials (CAI/CBI) to identify the agency, Amadeus is able to activate Billback by updating those CAI/CBI credentials into the agency profile (PVA field).",
+          "properties": {
+            "travelAgencyId": {
+              "type": "string",
+              "description": "Travel Agency Conferma account (CAI)",
+              "example": "12345"
+            },
+            "bookerId": {
+              "type": "string",
+              "description": "Travel Agent conferma ID (CBI)",
+              "example": "12345"
+            },
+            "paymentInstructions": {
+              "type": "string",
+              "description": "optional free text.\nIt gives the user the ability to specify the payment instructions to be sent to the hotelier",
+              "example": "string-value"
+            },
+            "billbackProviderDeploymentId": {
+              "type": "string",
+              "description": "The Deployment Id is returned by Amadeus Payment server and is used as the payment reference.",
+              "example": "12345"
+            },
+            "billbackProviderCode": {
+              "type": "string",
+              "description": "For conferma provider, it will be CN.",
+              "example": "string-value"
+            },
+            "billbackProviderAccountNumber": {
+              "type": "string",
+              "description": "Billback Provider account number (Conferma account number)",
+              "example": 1
+            },
+            "hotelSupplierInformation": {
+              "$ref": "#/definitions/Hotel_Contact"
+            }
+          },
+          "required": [
+            "billbackProviderDeploymentId",
+            "billbackProviderCode",
+            "billbackProviderAccountNumber"
+          ]
+        },
+        "method": {
+          "type": "string",
+          "description": "Indicates the method of payment. \n- CREDIT_CARD : It allows payment through a credit card. It is expected to provide the credit card information in the creditCard section.\n- AGENCY_ACCOUNT (CREDIT LINE) : It allows payment through the credit line of the agency. Nothing more is expected\n- VCC_BILLBACK : It allows direct payment between the hotel and a corporation or travel agency, via the billback provider.\nIt is expected to provide the billback information in the billback section.\nTo benefit from the solution, a contract has to be signed with the travel agency and\nAmadeus or Conferma. A contract with a banking partner is also required to open a bank account and issue the Virtual Credit Card.\n- VCC_B2B_WALLET : This payment method is only available for Amadeus Value Hotels where it allows payment between travel agency and Amadeus Merchant using a virtual credit card.\nTo avail this functionality a Travel Agent has to sign a contract with Amadeus PaymentPlatform, which helps to generate a virtual credit card on behalf of the travel agent.\n- TRAVEL_AGENT_ID (IATA BS) : It allows payment to the provider with to the IATA booking source. Either this information is passed in the TravelAgentId section, either it is taken from the Amadeus Office Profile.\n- CREDIT_CARD_AGENCY : This form of payment is exclusively used for Amadeus Value Hotel when the booking is paid with the Travel Agency credit card.\nIt is also possible in this case to use the method CREDIT_CARD but it is then mandatory to specify that the cardOwnerType is TravelAgency\n- CREDIT_CARD_TRAVELLER : This form of payment is exclusively used for Amadeus Value Hotel when the booking is paid with the guest credit card.\nIt is also possible in this case to use the method CREDIT_CARD but it is then mandatory to specify that the cardOwnerType is Guest\n",
+          "enum": [
+            "CREDIT_CARD",
+            "CREDIT_CARD_AGENCY",
+            "CREDIT_CARD_TRAVELER",
+            "AGENCY_ACCOUNT",
+            "VCC_BILLBACK",
+            "VCC_B2B_WALLET",
+            "TRAVEL_AGENT_ID"
+          ],
+          "example": "CREDIT_CARD"
+        },
+        "b2bWallet": {
+          "type": "object",
+          "description": "To perform a booking with B2B wallet, no extra information is needed in input. \nInformation on the virtal credit card generated, is provided in this section in reply.",
+          "properties": {
+            "virtualCreditCardId": {
+              "type": "string",
+              "description": "Amadeus Payment Reference for the generated VCC.",
+              "example": "12345"
+            },
+            "paymentProvider": {
+              "type": "string",
+              "description": "Payment provider, for example IXARIS.",
+              "example": "string-value"
+            }
+          },
+          "required": [
+            "virtualCreditCardId",
+            "paymentProvider"
+          ]
+        },
+        "paymentCard": {
+          "type": "object",
+          "description": "Credit card information.",
+          "properties": {
+            "paymentCardInfo": {
+              "type": "object",
+              "description": "Credit or Debits cards.",
+              "title": "PaymentCard",
+              "properties": {
+                "vendorCode": {
+                  "type": "string",
+                  "example": "VI",
+                  "description": "Two-letter code card type or vendor code. E.g. VI for VISA, MA for MasterCard.",
+                  "maxLength": 30,
+                  "minLength": 0
+                },
+                "holderName": {
+                  "type": "string",
+                  "description": "Name of credit card holder.",
+                  "maxLength": 99,
+                  "minLength": 1,
+                  "example": "Sample Name"
+                },
+                "cardNumber": {
+                  "type": "string",
+                  "description": "Card number",
+                  "example": 1
+                },
+                "expiryDate": {
+                  "type": "string",
+                  "description": "Date of the expiration of the card in the format MMYY",
+                  "example": "2026-08-15"
+                }
+              },
+              "required": [
+                "vendorCode",
+                "holderName",
+                "cardNumber",
+                "expiryDate"
+              ]
+            },
+            "cardOwnerType": {
+              "type": "string",
+              "description": "Indicates who is the owner of the credit card, it can be either the travel agency \"TravelAgency\", the corporation \"Corporation\" or the traveller \"Guest\".\nThis field is mamdatory for Amadeus Value Hotel when the method of payment is CREDIT_CARD.\nThis field is optional in informational in all other cases.",
+              "enum": [
+                "TravelAgency",
+                "Guest",
+                "Corporation"
+              ],
+              "example": "TravelAgency"
+            },
+            "VCC": {
+              "type": "boolean",
+              "description": "If the provided card is a virtual credit card generated by an external provider, this boolean should be true.\n(It is different from  Billback and B2B wallet VCC. These ones are generated during Amadeus booking process and have a dedicated payment section.)",
+              "example": true
+            },
+            "address": {
+              "$ref": "#/definitions/Address"
+            }
+          },
+          "required": [
+            "paymentCardInfo"
+          ]
+        }
+      },
+      "required": [
+        "method"
+      ]
+    },
+    "travelAgentId": {
+      "type": "string",
+      "description": "Travel Agent ID also called Booking source or IATA number.\n- When received in booking request, it indicates that the travel agent wants to override the booking source receiving the commission. \n- If not provided in booking request, it is set to the IATA Number of the office profile of the agent making the booking. (the commission is given to that office) ",
+      "example": "12345"
+    },
+    "arrivalInformation": {
+      "type": "object",
+      "description": "Optional information on the way the guest is arriving to the hotel. Today the application only supports Flight details.\nIf this information is provided at booking creation time, it is displayed in the response and in the retrieve.",
+      "properties": {
+        "arrivalFlightDetails": {
+          "title": "FlightTransfer_FlightSegment",
+          "type": "object",
+          "properties": {
+            "carrierCode": {
+              "type": "string",
+              "description": "Carrier code",
+              "example": "LH"
+            },
+            "number": {
+              "type": "string",
+              "description": "Flight segment number",
+              "example": "1050"
+            },
+            "departure": {
+              "type": "object",
+              "description": "Departure or arrival information",
+              "title": "FlightSegment_Departure",
+              "required": [
+                "iataCode"
+              ],
+              "properties": {
+                "iataCode": {
+                  "description": "IATA Airport code",
+                  "type": "string",
+                  "example": "JFK"
+                }
+              }
+            },
+            "arrival": {
+              "type": "object",
+              "description": "Departure or arrival information",
+              "title": "FlightSegment_Arrival",
+              "properties": {
+                "iataCode": {
+                  "description": "IATA Airport code",
+                  "type": "string",
+                  "example": "JFK"
+                },
+                "terminal": {
+                  "description": "Terminal name / number",
+                  "type": "string",
+                  "example": "T2"
+                },
+                "at": {
+                  "description": "Local date and time at the arrival of the flight with the following format \"YYYY-MM-DD'T'HH:mm:ss\" (for example 2017-02-10T20:40:00 if the flight arrive 20h40 local time)",
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2017-10-23T20:00:00+02:00"
+                }
+              },
+              "required": [
+                "iataCode",
+                "terminal",
+                "at"
+              ]
+            }
+          },
+          "required": [
+            "carrierCode",
+            "number",
+            "departure"
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "roomAssociations",
+    "hotelOffer",
+    "hotel",
+    "hotelProviderInformation",
+    "travelAgentId"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-choice-prediction-carrier-entry-structure.json",
+  "title": "CarrierEntry",
+  "description": "CarrierEntry structure from Flight Choice Prediction",
+  "type": "object"
+}

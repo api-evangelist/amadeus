@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-availabilities-search-availability-class-schema.json",
+  "title": "AvailabilityClass",
+  "description": "AvailabilityClass schema from Flight Availibilities Search",
+  "type": "object",
+  "properties": {
+    "numberOfBookableSeats": {
+      "description": "Number of seats bookable in a single request. Can not be higher than 9.",
+      "type": "number",
+      "example": 9,
+      "minimum": 1,
+      "maximum": 9
+    },
+    "class": {
+      "description": "The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)",
+      "type": "string",
+      "example": "A",
+      "pattern": "[A-Z]{1}"
+    },
+    "closedStatus": {
+      "description": "Status of the booking class when it is closed.",
+      "type": "string",
+      "enum": [
+        "WAITLIST_OPEN",
+        "WAITLIST_CLOSED",
+        "ON_REQUEST"
+      ],
+      "example": "WAITLIST_OPEN"
+    },
+    "tourAllotment": {
+      "title": "TourAllotment",
+      "allOf": [
+        {
+          "title": "AllotmentDetails",
+          "type": "object",
+          "properties": {
+            "tourName": {
+              "description": "The tour name agreed for this specific allotment.",
+              "type": "string",
+              "example": "Sample Name"
+            },
+            "tourReference": {
+              "description": "The tour reference agreed for this specific allotment.",
+              "type": "string",
+              "example": "string-value"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "description": "How the allotment can be booked by the Travel Agency.",
+              "type": "string",
+              "enum": [
+                "FREE",
+                "FORCED"
+              ],
+              "example": "FREE"
+            },
+            "remainingSeats": {
+              "description": "Number of remaining seats in the allotment.",
+              "type": "number",
+              "example": 9
+            }
+          }
+        }
+      ]
+    }
+  }
+}

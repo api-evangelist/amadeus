@@ -1,26 +1,49 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-create-orders-discount-schema.json",
   "title": "Discount",
   "description": "traveler discount",
   "type": "object",
   "properties": {
     "subType": {
-      "$ref": "#/definitions/DiscountType"
+      "description": "type of discount applied",
+      "type": "string",
+      "enum": [
+        "SPANISH_RESIDENT",
+        "AIR_FRANCE_DOMESTIC",
+        "AIR_FRANCE_COMBINED",
+        "AIR_FRANCE_METROPOLITAN"
+      ],
+      "example": "SPANISH_RESIDENT"
     },
     "cityName": {
       "type": "string",
-      "description": "city of residence"
+      "description": "city of residence",
+      "example": "MADRID"
     },
     "travelerType": {
-      "$ref": "#/definitions/DiscountTravelerType"
+      "description": "type of discount applied",
+      "type": "string",
+      "enum": [
+        "SPANISH_CITIZEN",
+        "EUROPEAN_CITIZEN",
+        "GOVERNMENT_WORKER",
+        "MILITARY",
+        "MINOR_WITHOUT_ID"
+      ],
+      "example": "SPANISH_CITIZEN"
     },
     "cardNumber": {
       "type": "string",
-      "description": "resident card number"
+      "description": "resident card number",
+      "example": "12568215Z",
+      "pattern": "[0-9A-Z][0-9]{0,12}[A-Z]"
     },
     "certificateNumber": {
       "type": "string",
-      "description": "resident certificate number"
+      "description": "resident certificate number",
+      "example": "12568215Z",
+      "pattern": "[0-9A-Z][0-9]{0,12}[A-Z]"
     }
   }
 }

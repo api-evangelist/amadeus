@@ -1,0 +1,27 @@
+{
+  "excludeAllotments": false,
+  "flightFilters": {
+    "carrierRestrictions": {
+      "blacklistedInEUAllowed": true,
+      "excludedCarrierCodes": [
+        "string-value"
+      ],
+      "includedCarrierCodes": [
+        "string-value"
+      ]
+    },
+    "cabinRestrictions": [
+      {
+        "originDestinationIds": [
+          1,
+          2
+        ]
+      }
+    ],
+    "connectionRestriction": {
+      "maxNumberOfConnections": 2,
+      "airportChangeAllowed": false,
+      "technicalStopsAllowed": true
+    }
+  }
+}

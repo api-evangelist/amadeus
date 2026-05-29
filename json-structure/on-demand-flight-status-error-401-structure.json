@@ -1,14 +1,15 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Error_401",
-  "type": "record",
-  "fields": [
-    {
-      "name": "errors",
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/on-demand-flight-status-error-401-structure.json",
+  "title": "Error_401",
+  "description": "Error_401 structure from On-Demand Flight Status",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array"
     }
+  },
+  "required": [
+    "errors"
   ]
 }

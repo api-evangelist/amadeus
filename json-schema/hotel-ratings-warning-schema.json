@@ -1,31 +1,53 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-ratings-warning-schema.json",
   "title": "Warning",
-  "type": "object",
+  "description": "Warning schema from Hotel Ratings",
   "properties": {
     "code": {
       "type": "integer",
-      "description": "A machine-readable error code from the Canned Messages table, that will enable the API Consumers code to handle this type of error"
+      "description": "A machine-readable error code from the Canned Messages table, that will enable the API Consumers code to handle this type of error",
+      "example": 1
     },
     "title": {
       "type": "string",
-      "description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized"
+      "description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized",
+      "example": "string-value"
     },
     "detail": {
       "type": "string",
-      "description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field\u2019s value can be localized."
+      "description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field\u2019s value can be localized.",
+      "example": "string-value"
     },
     "source": {
-      "$ref": "#/definitions/ErrorSource"
+      "properties": {
+        "parameter": {
+          "type": "string",
+          "description": "The key of the URI path or query parameter that caused the error",
+          "example": "string-value"
+        },
+        "pointer": {
+          "type": "string",
+          "description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error",
+          "example": "string-value"
+        },
+        "example": {
+          "type": "string",
+          "description": "A sample input to guide the user when resolving this issue",
+          "example": "string-value"
+        }
+      }
     },
     "documentation": {
       "type": "string",
       "format": "url",
-      "description": "A link to a web page or file with further documentation to help the API consumer resolve this error"
+      "description": "A link to a web page or file with further documentation to help the API consumer resolve this error",
+      "example": "https://example.com/resource"
     }
   },
   "required": [
     "code",
     "title"
-  ]
+  ],
+  "type": "object"
 }

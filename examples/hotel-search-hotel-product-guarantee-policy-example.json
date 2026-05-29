@@ -1,0 +1,14 @@
+{
+  "description": {
+    "text": "A description",
+    "lang": "fr-FR"
+  },
+  "acceptedPayments": {
+    "creditCards": [
+      "string-value"
+    ],
+    "methods": [
+      "CREDIT_CARD"
+    ]
+  }
+}

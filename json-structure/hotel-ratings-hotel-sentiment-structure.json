@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-ratings-hotel-sentiment-structure.json",
+  "title": "HotelSentiment",
+  "description": "HotelSentiment structure from Hotel Ratings",
+  "type": "object",
+  "properties": {
+    "hotelId": {
+      "type": "string",
+      "description": "Amadeus Hotel Ids are found in the Hotel Search response (parameter name is 'hotelId')"
+    },
+    "type": {
+      "type": "string"
+    },
+    "overallRating": {
+      "type": "integer",
+      "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel."
+    },
+    "numberOfRatings": {
+      "type": "integer"
+    },
+    "numberOfReviews": {
+      "type": "integer"
+    },
+    "sentiments": {
+      "type": "object",
+      "description": "Dictionary containing scores for all the available categories.  If a property does not have any category this object will not be present in the response."
+    }
+  },
+  "required": [
+    "hotelId",
+    "overallRating",
+    "avgHotelAvailabilityResponseTime",
+    "numberOfRatings",
+    "numberOfReviews"
+  ]
+}

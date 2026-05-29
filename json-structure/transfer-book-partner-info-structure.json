@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-book-partner-info-structure.json",
+  "title": "PartnerInfo",
+  "description": "Information about partner/subprovider. Below settings configuration is not applicable for sub-provider. Fields 'code', 'name' and 'logoUrl' are not mandatory for sub-provider.",
+  "type": "object",
+  "properties": {
+    "serviceProvider": {
+      "type": "object",
+      "description": "information about provider"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-book-baggage-structure.json",
+  "title": "Baggage",
+  "description": "Baggage structure from Transfer Booking",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "description": "baggage capacity"
+    },
+    "size": {
+      "type": "string",
+      "description": "baggage size\n\ncode   | name                                 \n------ | ---------------------------- \nS \t   | Small\nM \t   | Medium\nL \t   | Large\n"
+    }
+  }
+}

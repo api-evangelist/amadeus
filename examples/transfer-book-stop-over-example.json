@@ -1,0 +1,20 @@
+{
+  "duration": "PT2H30M",
+  "sequenceNumber": 1,
+  "location": {
+    "dateTime": "2019-11-10T10:30:00",
+    "locationCode": "CDG",
+    "address": {
+      "line": "string-value",
+      "zip": "string-value",
+      "countryCode": "FR",
+      "cityName": "Paris",
+      "stateCode": "string-value",
+      "latitude": 43.580418,
+      "longitude": 7.125102
+    },
+    "name": "Sample Name",
+    "googlePlaceId": "ChIJrTLr-GyuEmsRBfy61i59si0",
+    "uicCode": "string-value"
+  }
+}

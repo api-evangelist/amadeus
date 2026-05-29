@@ -1,0 +1,43 @@
+{
+  "currency": "EUR",
+  "sellingTotal": "199.50",
+  "total": "199.50",
+  "base": "string-value",
+  "taxes": [
+    {
+      "amount": "199.50",
+      "currency": "EUR",
+      "code": "string-value",
+      "percentage": 50,
+      "included": true,
+      "description": "Sample description text.",
+      "pricingFrequency": "string-value",
+      "pricingMode": "string-value"
+    }
+  ],
+  "markups": [
+    {
+      "amount": "10"
+    }
+  ],
+  "variations": {
+    "average": {
+      "currency": "EUR",
+      "sellingTotal": "199.50",
+      "total": "199.50",
+      "base": "string-value",
+      "markups": []
+    },
+    "changes": [
+      {
+        "startDate": "2026-08-15",
+        "endDate": "2026-08-15",
+        "currency": "EUR",
+        "sellingTotal": "199.50",
+        "total": "199.50",
+        "base": "string-value",
+        "markups": []
+      }
+    ]
+  }
+}

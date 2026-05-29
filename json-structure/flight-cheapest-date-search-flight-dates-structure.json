@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-cheapest-date-search-flight-dates-structure.json",
+  "title": "FlightDates",
+  "description": "FlightDates structure from Flight Cheapest Date Search",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array"
+    },
+    "dictionaries": {
+      "type": "object"
+    },
+    "meta": {
+      "type": "object"
+    },
+    "warnings": {
+      "type": "array"
+    }
+  }
+}

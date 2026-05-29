@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/airline-code-lookup-meta-structure.json",
+  "title": "Meta",
+  "description": "Meta structure from Airline Code Lookup API",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "links": {
+      "type": "object"
+    }
+  }
+}

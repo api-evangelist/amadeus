@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-ratings-warning-not-found-structure.json",
+  "title": "WarningNotFound",
+  "description": "WarningNotFound structure from Hotel Ratings",
+  "type": "object"
+}

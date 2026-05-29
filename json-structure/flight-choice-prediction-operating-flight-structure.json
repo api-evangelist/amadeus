@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-choice-prediction-operating-flight-structure.json",
+  "title": "OperatingFlight",
+  "description": "information about the operating flight",
+  "type": "object",
+  "properties": {
+    "carrierCode": {
+      "type": "string",
+      "description": "providing the airline / carrier code"
+    },
+    "number": {
+      "type": "string",
+      "description": "the flight number as assigned by the carrier"
+    },
+    "suffix": {
+      "type": "string",
+      "description": "the flight number suffix as assigned by the carrier"
+    }
+  }
+}

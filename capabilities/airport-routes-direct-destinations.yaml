@@ -1,0 +1,92 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Airport Routes — Direct Destinations"
+  description: 'Airport Routes — Direct Destinations. 1 operation(s). Lead operation: Amadeus Get Airport Direct Routes. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Direct Destinations
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: airport-routes-direct-destinations
+      baseUri: https://test.api.amadeus.com/v1
+      description: Airport Routes — Direct Destinations business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: airport-direct-destinations
+          path: /airport/direct-destinations
+          operations:
+            - name: airport/direct-destinations
+              method: GET
+              description: Amadeus Get Airport Direct Routes
+              inputParameters:
+                - name: departureAirportCode
+                  in: query
+                  type: string
+                  required: true
+                  description: Departure Airport code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)
+                - name: max
+                  in: query
+                  type: integer
+                  required: false
+                  description: Maximum number of destination in the response.
+                - name: arrivalCountryCode
+                  in: query
+                  type: string
+                  required: false
+                  description: Arrival country code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to filter the list of destinations
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: airport-routes-direct-destinations-rest
+      port: 8080
+      description: REST adapter for Airport Routes — Direct Destinations. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/airport/direct-destinations
+          name: airport-direct-destinations
+          description: REST surface for airport-direct-destinations.
+          operations:
+            - method: GET
+              name: airport/direct-destinations
+              description: Amadeus Get Airport Direct Routes
+              call: airport-routes-direct-destinations.airport/direct-destinations
+              with:
+                departureAirportCode: rest.departureAirportCode
+                max: rest.max
+                arrivalCountryCode: rest.arrivalCountryCode
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: airport-routes-direct-destinations-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Airport Routes — Direct Destinations. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-airport-direct-routes
+          description: Amadeus Get Airport Direct Routes
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: airport-routes-direct-destinations.airport/direct-destinations
+          with:
+            departureAirportCode: tools.departureAirportCode
+            max: tools.max
+            arrivalCountryCode: tools.arrivalCountryCode
+          outputParameters:
+            - type: object
+              mapping: $.

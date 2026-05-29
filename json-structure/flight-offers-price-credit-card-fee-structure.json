@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-price-credit-card-fee-structure.json",
+  "title": "CreditCardFee",
+  "description": "CreditCardFee structure from Flight Offers Price",
+  "type": "object",
+  "properties": {
+    "brand": {
+      "type": "string",
+      "description": "credit card brand"
+    },
+    "amount": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "flightOfferId": {
+      "type": "string",
+      "description": "Id of the flightOffer concerned by the credit card fee"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-create-orders-form-of-payment-structure.json",
+  "title": "FormOfPayment",
+  "description": "form of payment used",
+  "type": "object",
+  "properties": {
+    "b2bWallet": {
+      "type": "object",
+      "description": "b2b wallet"
+    },
+    "creditCard": {
+      "type": "object",
+      "description": "credit card"
+    },
+    "other": {
+      "type": "object",
+      "description": "other payment method"
+    }
+  }
+}

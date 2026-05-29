@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-booking-hotel-offer-structure.json",
+  "title": "HotelOffer",
+  "description": "Hotel Offer",
+  "type": "object"
+}

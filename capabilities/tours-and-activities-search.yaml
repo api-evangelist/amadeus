@@ -1,0 +1,155 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Tours and Activities — Search"
+  description: 'Tours and Activities — Search. 2 operation(s). Lead operation: Amadeus Returns Activities Around a Given Location. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Search
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: tours-and-activities-search
+      baseUri: https://test.api.amadeus.com/v1
+      description: Tours and Activities — Search business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: shopping-activities
+          path: /shopping/activities
+          operations:
+            - name: ListActivities
+              method: GET
+              description: Amadeus Returns Activities Around a Given Location
+              inputParameters:
+                - name: latitude
+                  in: query
+                  type: number
+                  required: true
+                  description: Latitude (decimal coordinates)
+                - name: longitude
+                  in: query
+                  type: number
+                  required: true
+                  description: Longitude (decimal coordinates)
+                - name: radius
+                  in: query
+                  type: integer
+                  required: false
+                  description: radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: shopping-activities-by-square
+          path: /shopping/activities/by-square
+          operations:
+            - name: ListActivitiesBySquare
+              method: GET
+              description: Amadeus Returns Activities Around a Given Location
+              inputParameters:
+                - name: north
+                  in: query
+                  type: number
+                  required: true
+                  description: Latitude north of bounding box (decimal coordinates)
+                - name: west
+                  in: query
+                  type: number
+                  required: true
+                  description: Longitude west of bounding box (decimal coordinates)
+                - name: south
+                  in: query
+                  type: number
+                  required: true
+                  description: Latitude south of bounding box (decimal coordinates)
+                - name: east
+                  in: query
+                  type: number
+                  required: true
+                  description: Longitude east of bounding box (decimal coordinates)
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: tours-and-activities-search-rest
+      port: 8080
+      description: REST adapter for Tours and Activities — Search. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shopping/activities
+          name: shopping-activities
+          description: REST surface for shopping-activities.
+          operations:
+            - method: GET
+              name: ListActivities
+              description: Amadeus Returns Activities Around a Given Location
+              call: tours-and-activities-search.ListActivities
+              with:
+                latitude: rest.latitude
+                longitude: rest.longitude
+                radius: rest.radius
+              outputParameters:
+                - type: object
+                  mapping: $.
+        - path: /v1/shopping/activities/by-square
+          name: shopping-activities-by-square
+          description: REST surface for shopping-activities-by-square.
+          operations:
+            - method: GET
+              name: ListActivitiesBySquare
+              description: Amadeus Returns Activities Around a Given Location
+              call: tours-and-activities-search.ListActivitiesBySquare
+              with:
+                north: rest.north
+                west: rest.west
+                south: rest.south
+                east: rest.east
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: tours-and-activities-search-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Tours and Activities — Search. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: returns-activities-around-given-location
+          description: Amadeus Returns Activities Around a Given Location
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: tours-and-activities-search.ListActivities
+          with:
+            latitude: tools.latitude
+            longitude: tools.longitude
+            radius: tools.radius
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: returns-activities-around-given-location-2
+          description: Amadeus Returns Activities Around a Given Location
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: tours-and-activities-search.ListActivitiesBySquare
+          with:
+            north: tools.north
+            west: tools.west
+            south: tools.south
+            east: tools.east
+          outputParameters:
+            - type: object
+              mapping: $.

@@ -1,0 +1,47 @@
+{
+  "hotelBookings": [
+    {
+      "type": "string-value",
+      "id": "456123",
+      "bookingStatus": "CONFIRMED",
+      "roomAssociations": [
+        {}
+      ],
+      "hotel": {
+        "hotelId": "ADPAR001",
+        "chainCode": "AD",
+        "name": "Hotel de Paris",
+        "self": "string-value"
+      },
+      "hotelProviderInformation": [
+        {
+          "hotelProviderCode": "RT",
+          "confirmationNumber": "818319951754",
+          "cancellationNumber": "C818319951754",
+          "onRequestNumber": "818319951754"
+        }
+      ],
+      "payment": {
+        "iataTravelAgency": {},
+        "billBack": {},
+        "method": "CREDIT_CARD",
+        "b2bWallet": {},
+        "paymentCard": {}
+      },
+      "travelAgentId": "12345",
+      "arrivalInformation": {
+        "arrivalFlightDetails": {}
+      }
+    }
+  ],
+  "associatedRecords": [
+    {
+      "reference": "ABCDEF",
+      "originSystemCode": "GDS"
+    }
+  ],
+  "self": "string-value",
+  "type": "string-value",
+  "guests": [],
+  "id": "12312"
+}

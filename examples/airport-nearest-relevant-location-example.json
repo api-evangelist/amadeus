@@ -1,13 +1,33 @@
 {
-  "type": "example-type",
+  "type": "location",
   "subType": "AIRPORT",
-  "name": "example-name",
-  "detailedName": "example-detailedName",
-  "timeZoneOffset": "example-timeZoneOffset",
-  "iataCode": "example-iataCode",
-  "geoCode": "example-geoCode",
-  "address": "example-address",
-  "distance": "example-distance",
-  "analytics": "example-analytics",
-  "relevance": 1.0
+  "name": "Paris CDG",
+  "detailedName": "Paris/FR: Charles de Gaulle",
+  "timeZoneOffset": "+01:00",
+  "iataCode": "CDG",
+  "geoCode": {
+    "latitude": 43.580418,
+    "longitude": 7.125102
+  },
+  "address": {
+    "cityName": "Paris",
+    "cityCode": "PAR",
+    "countryName": "France",
+    "countryCode": "FR",
+    "stateCode": "TO",
+    "regionCode": "EUROP"
+  },
+  "distance": {
+    "value": 152,
+    "unit": "KM"
+  },
+  "analytics": {
+    "flights": {
+      "score": 56
+    },
+    "travelers": {
+      "score": 68
+    }
+  },
+  "relevance": 9.6584
 }

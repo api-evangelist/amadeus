@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-search-hotel-offers-structure.json",
+  "title": "HotelOffers",
+  "description": "HotelOffers structure from Hotel Search API",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the type of the object (hotel-offers)"
+    },
+    "available": {
+      "type": "boolean"
+    },
+    "self": {
+      "type": "string"
+    },
+    "offers": {
+      "type": "array"
+    },
+    "hotel": {
+      "type": "object",
+      "description": "Hotel Content"
+    }
+  }
+}

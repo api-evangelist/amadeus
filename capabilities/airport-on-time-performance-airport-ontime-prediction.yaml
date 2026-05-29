@@ -1,0 +1,85 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Airport On-Time Performance — Airport Ontime Prediction"
+  description: 'Airport On-Time Performance — Airport Ontime Prediction. 1 operation(s). Lead operation: Amadeus Returns a Percentage of On-time Flight Departures from a Given Airport.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Airport Ontime Prediction
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: airport-on-time-performance-airport-ontime-prediction
+      baseUri: https://test.api.amadeus.com/v1
+      description: Airport On-Time Performance — Airport Ontime Prediction business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: airport-predictions-on-time
+          path: /airport/predictions/on-time
+          operations:
+            - name: getAirportOnTimePrediction
+              method: GET
+              description: Amadeus Returns a Percentage of On-time Flight Departures from a Given Airport.
+              inputParameters:
+                - name: airportCode
+                  in: query
+                  type: string
+                  required: true
+                  description: airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx), e.g. BOS for Boston
+                - name: date
+                  in: query
+                  type: string
+                  required: true
+                  description: the date on which the traveler will depart from the give airport. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: airport-on-time-performance-airport-ontime-prediction-rest
+      port: 8080
+      description: REST adapter for Airport On-Time Performance — Airport Ontime Prediction. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/airport/predictions/on-time
+          name: airport-predictions-on-time
+          description: REST surface for airport-predictions-on-time.
+          operations:
+            - method: GET
+              name: getAirportOnTimePrediction
+              description: Amadeus Returns a Percentage of On-time Flight Departures from a Given Airport.
+              call: airport-on-time-performance-airport-ontime-prediction.getAirportOnTimePrediction
+              with:
+                airportCode: rest.airportCode
+                date: rest.date
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: airport-on-time-performance-airport-ontime-prediction-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Airport On-Time Performance — Airport Ontime Prediction. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: returns-percentage-time-flight-departures
+          description: Amadeus Returns a Percentage of On-time Flight Departures from a Given Airport.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: airport-on-time-performance-airport-ontime-prediction.getAirportOnTimePrediction
+          with:
+            airportCode: tools.airportCode
+            date: tools.date
+          outputParameters:
+            - type: object
+              mapping: $.

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-hotel-product-cancellation-policy-schema.json",
+  "title": "HotelProduct_CancellationPolicy",
+  "description": "HotelProduct_CancellationPolicy schema from Hotel Search API",
+  "type": "object",
+  "properties": {
+    "type": {
+      "title": "CancellationType",
+      "description": "* FULL_STAY: the Penalty amount equals the `total` price.",
+      "type": "string",
+      "enum": [
+        "FULL_STAY"
+      ]
+    },
+    "amount": {
+      "description": "Amount of the cancellation fee.",
+      "type": "string",
+      "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+      "example": "199.50"
+    },
+    "numberOfNights": {
+      "description": "Number of nights due as fee in case of cancellation.",
+      "type": "integer",
+      "minimum": 0,
+      "format": "int32",
+      "example": 1
+    },
+    "percentage": {
+      "description": "Percentage of the total stay amount to be paid in case of cancellation. Value is between 0 and 100.",
+      "type": "string",
+      "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+      "example": 50
+    },
+    "deadline": {
+      "description": "Represents the deadline after which the penalty applies. DateTime is in ISO 8601 [https://www.w3.org/TR/NOTE-datetime].\nExample: 2010-08-14T12:00:00+01:00\nExample: 2010-08-14T12:00:00Z\nExample: 2010-08-14T12:00:00-01:00\nThe value is expressed in the hotel local time zone, with the added time zone difference. So you can compute the deadline in UTC(GMT) if desired.",
+      "type": "string",
+      "format": "date-time",
+      "example": "2026-08-15T10:30:00Z"
+    },
+    "description": {
+      "title": "QualifiedFreeText",
+      "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "Free Text",
+          "example": "A description",
+          "type": "string"
+        },
+        "lang": {
+          "description": "see RFC 5646",
+          "example": "fr-FR",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

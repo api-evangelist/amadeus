@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-checkin-links-parameter-structure.json",
+  "title": "Parameter",
+  "description": "Parameter structure from Flight Check-in Links",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "parameter descriptive information"
+    },
+    "type": {
+      "type": "string",
+      "description": "type of the parameter"
+    },
+    "format": {
+      "type": "string",
+      "description": "format of the parameter"
+    }
+  },
+  "required": [
+    "type"
+  ]
+}

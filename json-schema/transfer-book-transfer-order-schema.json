@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-book-transfer-order-schema.json",
+  "title": "TransferOrder",
+  "description": "TransferOrder schema from Transfer Booking",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "the resource name",
+      "type": "string",
+      "example": "string-value"
+    },
+    "id": {
+      "type": "string",
+      "description": "transfer order identifier",
+      "example": "12345"
+    },
+    "reference": {
+      "type": "string",
+      "description": "reference of the Trip e.g. YNK4JQ",
+      "example": "string-value"
+    },
+    "transfers": {
+      "type": "array",
+      "description": "transfer reservations, included in the order",
+      "items": {
+        "description": "transfer reservation",
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "confirmNbr": {
+                "type": "string",
+                "description": "transfer identifier - confirmation number, received from transfer supplier"
+              },
+              "status": {
+                "type": "string",
+                "description": "status of transfer reservation",
+                "enum": [
+                  "CONFIRMED",
+                  "CANCELLED"
+                ]
+              },
+              "note": {
+                "type": "string",
+                "description": "Note to transfer provider"
+              },
+              "methodOfPayment": {
+                "type": "string",
+                "description": "Method of payment required when PaymentType equal BT (applicable only for reservation action).",
+                "enum": [
+                  "CREDIT_CARD",
+                  "INVOICE",
+                  "TRAVEL_ACCOUNT",
+                  "PAYMENT_SERVICE_PROVIDER"
+                ]
+              },
+              "paymentServiceProvider": {
+                "type": "string",
+                "description": "payment service provider details will be passed to provider in case \"PAYMENT_SERVICE_PROVIDER\" method of payment.",
+                "enum": [
+                  "STRIPE_CONNECT"
+                ]
+              },
+              "offerId": {
+                "type": "string",
+                "description": "offer identifier"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [
+              "transferType",
+              "start",
+              "serviceProvider",
+              "vehicle",
+              "quotation",
+              "methodsOfPaymentAccepted"
+            ],
+            "properties": {
+              "transferType": {
+                "type": "string",
+                "enum": [
+                  "PRIVATE",
+                  "SHARED",
+                  "TAXI",
+                  "HOURLY",
+                  "AIRPORT_EXPRESS",
+                  "AIRPORT_BUS"
+                ],
+                "description": "amadeus transfer service type\n\nvalue           | description                                 \n--------------  | ------------------------\nPRIVATE         | Private transfer from point to point\nSHARED          | Shared transfer from point to point\nTAXI            | Taxi reservation from point to point, price is estimated\nHOURLY          | Chauffeured driven transfer per hour\nAIRPORT_EXPRESS | Express Train from/to Airport\nAIRPORT_BUS     | Express Bus from/to Airport\n",
+                "example": "PRIVATE"
+              },
+              "start": {
+                "$ref": "#/definitions/Location"
+              },
+              "end": {
+                "$ref": "#/definitions/Location"
+              },
+              "stopOvers": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/StopOver"
+                }
+              },
+              "passenegerCharacteristics": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/PassengerCharacteristics"
+                }
+              },
+              "duration": {
+                "description": "transfer duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+                "type": "string",
+                "example": "PT2H30M"
+              },
+              "vehicle": {
+                "$ref": "#/definitions/Vehicle"
+              },
+              "serviceProvider": {
+                "$ref": "#/definitions/ServiceProvider"
+              },
+              "partnerInfo": {
+                "$ref": "#/definitions/PartnerInfo"
+              },
+              "quotation": {
+                "$ref": "#/definitions/Quotation"
+              },
+              "converted": {
+                "$ref": "#/definitions/Quotation"
+              },
+              "extraServices": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ExtraService"
+                }
+              },
+              "equipment": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Equipment"
+                }
+              },
+              "cancellationRules": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/CancellationRule"
+                }
+              },
+              "methodsOfPaymentAccepted": {
+                "type": "array",
+                "description": "list of payment methods, allowed by provider",
+                "items": {
+                  "type": "string",
+                  "description": "Method of payment required when PaymentType equal BT (applicable only for reservation action).",
+                  "enum": [
+                    "CREDIT_CARD",
+                    "INVOICE",
+                    "TRAVEL_ACCOUNT",
+                    "PAYMENT_SERVICE_PROVIDER"
+                  ]
+                }
+              },
+              "discountCodes": {
+                "type": "array",
+                "description": "list of discount codes",
+                "items": {
+                  "$ref": "#/definitions/DiscountCode"
+                }
+              },
+              "distance": {
+                "$ref": "#/definitions/Distance"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "passengers": {
+      "type": "array",
+      "description": "passengers, related to the Transfer Order",
+      "items": {
+        "description": "passenger data",
+        "allOf": [
+          {
+            "type": "object",
+            "description": "description of the name of a physical person",
+            "properties": {
+              "type": {
+                "description": "The type of the Name",
+                "type": "string",
+                "example": "string-value"
+              },
+              "firstName": {
+                "description": "First name.",
+                "type": "string",
+                "example": "Marie"
+              },
+              "lastName": {
+                "description": "Last name.",
+                "type": "string",
+                "example": "Dupont"
+              },
+              "title": {
+                "description": "Contains all the suffixes and prefixes that can be appended to a name - Mr, Miss, Pr. - E.g. \" Mr\".",
+                "type": "string",
+                "example": "string-value"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "contacts": {
+                "$ref": "#/definitions/Contact"
+              },
+              "billingAddress": {
+                "$ref": "#/definitions/AddressCommon"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "agency": {
+      "type": "object",
+      "description": "Agency email information.",
+      "properties": {
+        "contacts": {
+          "type": "array",
+          "description": "List of contact information",
+          "items": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "type": "object",
+                "description": "Email information.",
+                "title": "Email",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "Email address (e.g. john@smith.com)",
+                    "example": "traveler@example.com"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "transfers"
+  ]
+}

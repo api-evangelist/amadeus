@@ -1,12 +1,13 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Price",
-  "type": "record",
-  "fields": [
-    {
-      "name": "total",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-inspiration-search-price-structure.json",
+  "title": "Price",
+  "description": "Price structure from Flight Inspiration Search",
+  "type": "object",
+  "properties": {
+    "total": {
       "type": "string",
       "description": "Total amount paid by the user"
     }
-  ]
+  }
 }

@@ -1,0 +1,18 @@
+{
+  "carrierCode": "DL",
+  "number": "212",
+  "suffix": "string-value",
+  "aircraft": {
+    "code": "318",
+    "configurationVersion": "2C1"
+  },
+  "class": "string-value",
+  "cabin": "string-value",
+  "operating": {
+    "carrierCode": "DL",
+    "number": "212",
+    "suffix": "string-value"
+  },
+  "duration": "PT2H10M",
+  "stops": []
+}

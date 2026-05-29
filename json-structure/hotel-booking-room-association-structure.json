@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-booking-room-association-structure.json",
+  "title": "roomAssociation",
+  "description": "Room Association represents a room booked in an hotel, the guests sleeping in this room, the hotel loyalty program if any, plus special request if any. ",
+  "type": "object",
+  "properties": {
+    "guestReferences": {
+      "type": "array",
+      "description": "Array of guest references listing all the guests occupying the room.\nFor each guest, the reference provided is the id also provided in guest section, except at booking creation time (in this only case, it will be a temporary id provided by the client called tid).\nThe order of this list is important. The first one is the main guest, the one holding the reservation (and the form of payment).\nThe following references are the ones of the accompagnants, if any."
+    },
+    "specialRequest": {
+      "type": "string",
+      "description": "special request to send to the reception (optional)"
+    },
+    "hotelOfferId": {
+      "type": "string",
+      "description": "Hotel offerID received in availability response, identifying the product to book."
+    }
+  },
+  "required": [
+    "guestReferences",
+    "hotelOfferId"
+  ]
+}

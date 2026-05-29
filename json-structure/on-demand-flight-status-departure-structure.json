@@ -1,25 +1,19 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Departure",
-  "type": "record",
-  "fields": [
-    {
-      "name": "terminal",
-      "type": "string",
-      "description": "the departure terminal of the airport"
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/on-demand-flight-status-departure-structure.json",
+  "title": "Departure",
+  "description": "Departure structure from On-Demand Flight Status",
+  "type": "object",
+  "properties": {
+    "terminal": {
+      "type": "string"
     },
-    {
-      "name": "gate",
-      "type": "string",
-      "description": "the departure gate of the airport"
+    "gate": {
+      "type": "string"
     },
-    {
-      "name": "timings",
+    "timings": {
       "type": "array",
-      "description": "the list of timings",
-      "items": {
-        "type": "object"
-      }
+      "description": "the list of timings"
     }
-  ]
+  }
 }

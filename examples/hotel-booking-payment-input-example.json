@@ -1,0 +1,24 @@
+{
+  "iataTravelAgency": {
+    "iataNumber": "CDG"
+  },
+  "method": "CREDIT_CARD",
+  "paymentCard": {
+    "paymentCardInfo": {
+      "vendorCode": "VI",
+      "holderName": "Sample Name",
+      "cardNumber": 1,
+      "securityCode": "193",
+      "expiryDate": "2026-08-15"
+    },
+    "address": {
+      "lines": [
+        "string-value"
+      ],
+      "postalCode": "string-value",
+      "countryCode": "FR",
+      "cityName": "Paris",
+      "stateCode": "string-value"
+    }
+  }
+}

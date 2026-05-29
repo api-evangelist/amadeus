@@ -1,17 +1,32 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-busiest-traveling-period-air-traffic-schema.json",
   "title": "Air_Traffic",
-  "type": "object",
+  "description": "Air_Traffic schema from Flight Busiest Traveling Period",
   "properties": {
     "type": {
-      "type": "string"
+      "type": "string",
+      "example": "air-traffic"
     },
     "period": {
+      "description": "Time period following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard",
       "type": "string",
-      "description": "Time period following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard"
+      "example": "2017-01"
     },
     "analytics": {
-      "$ref": "#/definitions/Analytics"
+      "properties": {
+        "travelers": {
+          "properties": {
+            "score": {
+              "type": "number",
+              "format": "integer",
+              "description": "Approximate score for ranking purposes calculated based on number of travelers in the location.",
+              "example": 68
+            }
+          }
+        }
+      }
     }
-  }
+  },
+  "type": "object"
 }

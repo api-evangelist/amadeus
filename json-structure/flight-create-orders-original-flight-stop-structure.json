@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-create-orders-original-flight-stop-structure.json",
+  "title": "OriginalFlightStop",
+  "description": "details of stops for direct or change of gauge flights",
+  "type": "object",
+  "properties": {
+    "iataCode": {
+      "type": "string",
+      "description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)"
+    },
+    "duration": {
+      "type": "string",
+      "description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M"
+    }
+  }
+}

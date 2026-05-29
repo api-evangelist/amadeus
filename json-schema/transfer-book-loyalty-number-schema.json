@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-book-loyalty-number-schema.json",
+  "title": "LoyaltyNumber",
+  "description": "LoyaltyNumber schema from Transfer Booking",
+  "type": "object",
+  "properties": {
+    "program": {
+      "type": "string",
+      "description": "loyalty program name",
+      "example": "string-value"
+    },
+    "value": {
+      "type": "string",
+      "description": "loyalty number value",
+      "example": "string-value"
+    }
+  }
+}

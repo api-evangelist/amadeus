@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-checkin-links-checkin-link-structure.json",
+  "title": "CheckinLink",
+  "description": "CheckinLink structure from Flight Check-in Links",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "id": {
+      "type": "string",
+      "description": "identifier of the resource"
+    },
+    "href": {
+      "type": "string",
+      "format": "uri",
+      "description": "direct URL to the relevant page"
+    },
+    "channel": {
+      "type": "string",
+      "description": "indicates the type of channel supported by the URL"
+    },
+    "parameters": {
+      "type": "string",
+      "description": "list of URL parameters with descriptive information such as description and/or type and/or format"
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "href",
+    "channel"
+  ]
+}

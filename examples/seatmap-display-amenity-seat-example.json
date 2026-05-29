@@ -1,7 +1,17 @@
 {
-  "legSpace": 1,
+  "legSpace": 33,
   "spaceUnit": "INCHES",
   "tilt": "FULL_FLAT",
   "amenityType": "SEAT",
-  "medias": []
+  "medias": [
+    {
+      "title": "My image title",
+      "href": "http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6",
+      "description": {
+        "text": "Do you need and example ?",
+        "lang": "fr-FR"
+      },
+      "mediaType": "image"
+    }
+  ]
 }

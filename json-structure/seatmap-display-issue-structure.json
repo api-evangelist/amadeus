@@ -1,32 +1,30 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Issue",
-  "type": "record",
-  "fields": [
-    {
-      "name": "status",
-      "type": "int32",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-issue-structure.json",
+  "title": "Issue",
+  "description": "Issue structure from Seatmap Display",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "integer",
       "description": "the HTTP status code applicable to this error"
     },
-    {
-      "name": "code",
-      "type": "int64",
+    "code": {
+      "type": "integer",
+      "format": "int64",
       "description": "an application-specific error code"
     },
-    {
-      "name": "title",
+    "title": {
       "type": "string",
       "description": "a short summary of the error"
     },
-    {
-      "name": "detail",
+    "detail": {
       "type": "string",
       "description": "explanation of the error"
     },
-    {
-      "name": "source",
+    "source": {
       "type": "object",
       "description": "an object containing references to the source of the error"
     }
-  ]
+  }
 }

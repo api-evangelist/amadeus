@@ -1,31 +1,140 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/seatmap-display-deck-schema.json",
   "title": "Deck",
   "description": "deck information",
   "type": "object",
   "properties": {
     "deckType": {
-      "type": "string",
       "description": "A deck is a level on an aircraft. The deck location of the cabin (current possible values are upper or main) The main deck, where passengers are seated on a passenger flight. Upper deck is above the main deck where more passengers are seated.",
+      "type": "string",
       "enum": [
         "UPPER",
         "MAIN",
         "LOWER"
-      ]
+      ],
+      "example": "UPPER"
     },
     "deckConfiguration": {
-      "$ref": "#/definitions/DeckConfiguration"
+      "type": "object",
+      "description": "deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)",
+      "properties": {
+        "width": {
+          "description": "Width (y-axis) of the deck.",
+          "type": "integer",
+          "example": 1
+        },
+        "length": {
+          "description": "Length (x-axis) of the deck.",
+          "type": "integer",
+          "example": 1
+        },
+        "startSeatRow": {
+          "description": "seat row where the deck is starting",
+          "type": "integer",
+          "example": 1
+        },
+        "endSeatRow": {
+          "description": "seat row where the deck is ending",
+          "type": "integer",
+          "example": 1
+        },
+        "startWingsX": {
+          "description": "Start x coordinate of the wings.The wings display starts relatively to the length.",
+          "type": "integer",
+          "example": 1
+        },
+        "endWingsX": {
+          "description": "End x coordinate of the wings.The wings display ends relatively to the length.",
+          "type": "integer",
+          "example": 1
+        },
+        "startWingsRow": {
+          "description": "seat row where the wing is starting",
+          "type": "integer",
+          "example": 1
+        },
+        "endWingsRow": {
+          "description": "seat row where the wing is ending",
+          "type": "integer",
+          "example": 1
+        },
+        "exitRowsX": {
+          "description": "X coordinate of the exit rows.The exit rows are displayed relatively to the length.",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        }
+      }
     },
     "facilities": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Facility"
+        "type": "object",
+        "properties": {
+          "code": {
+            "description": "Facility code, as described in the facility dictionary",
+            "type": "string",
+            "example": "string-value"
+          },
+          "column": {
+            "type": "string",
+            "example": "string-value"
+          },
+          "row": {
+            "type": "string",
+            "example": "string-value"
+          },
+          "position": {
+            "type": "string",
+            "description": "Position is either front, rear or seat (in case the facility takes the place of a seat)",
+            "enum": [
+              "FRONT",
+              "REAR",
+              "SEAT"
+            ],
+            "example": "FRONT"
+          },
+          "coordinates": {
+            "$ref": "#/definitions/Coordinates"
+          }
+        }
       }
     },
     "seats": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Seat"
+        "type": "object",
+        "properties": {
+          "cabin": {
+            "description": "Cabin of the seat.",
+            "type": "string",
+            "example": "ECO"
+          },
+          "number": {
+            "description": "Concatenation of the row id and the column id, for example 12B",
+            "type": "string",
+            "example": "12B"
+          },
+          "characteristicsCodes": {
+            "description": "List of seat characteristics (the characteristic's names can be retrieved in the seat characteristic dictionary) Possible values are part of:\n\n  IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825\n\n  Amadeus Code: defined as extension, example MV=row with movie screen\n\n  Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "travelerPricing": {
+            "description": "Traveler's information and price",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/SeatmapTravelerPricing"
+            }
+          },
+          "coordinates": {
+            "$ref": "#/definitions/Coordinates"
+          }
+        }
       }
     }
   }

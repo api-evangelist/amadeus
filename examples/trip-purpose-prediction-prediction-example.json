@@ -1,4 +1,17 @@
 {
-  "data": "example-data",
-  "meta": "example-meta"
+  "data": {
+    "id": "NYCMAD20231201",
+    "probability": "0.9995216",
+    "result": "LEISURE",
+    "subType": "trip-purpose",
+    "type": "prediction"
+  },
+  "meta": {
+    "defaults": {
+      "searchDate": "2023-01-12"
+    },
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/travel/predictions/trip-purpose?originLocationCode=NYC&destinationLocationCode=MAD&departureDate=2023-12-01&returnDate=2023-12-12&searchDate=2023-01-12"
+    }
+  }
 }

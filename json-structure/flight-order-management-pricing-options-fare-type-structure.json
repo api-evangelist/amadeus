@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-order-management-pricing-options-fare-type-structure.json",
+  "title": "PricingOptionsFareType",
+  "description": "type of fare of the flight-offer",
+  "type": "array"
+}

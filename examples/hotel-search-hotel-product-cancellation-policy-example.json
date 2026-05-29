@@ -1,0 +1,11 @@
+{
+  "type": "FULL_STAY",
+  "amount": "199.50",
+  "numberOfNights": 1,
+  "percentage": 50,
+  "deadline": "2026-08-15T10:30:00Z",
+  "description": {
+    "text": "A description",
+    "lang": "fr-FR"
+  }
+}

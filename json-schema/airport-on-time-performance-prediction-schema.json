@@ -1,13 +1,75 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/airport-on-time-performance-prediction-schema.json",
   "title": "Prediction",
+  "description": "Prediction schema from Airport On-Time Performance",
   "type": "object",
   "properties": {
     "data": {
-      "$ref": "#/definitions/OnTimePrediction"
+      "properties": {
+        "type": {
+          "description": "the resource name (`prediction`)",
+          "type": "string",
+          "example": "string-value"
+        },
+        "subType": {
+          "type": "string",
+          "example": "trip-purpose"
+        },
+        "id": {
+          "description": "item identifier",
+          "type": "string",
+          "readOnly": true,
+          "example": "12345"
+        },
+        "result": {
+          "description": "forecast description",
+          "type": "string",
+          "example": 0.8
+        },
+        "probability": {
+          "description": "probability of the forecast (between 0 and 1)",
+          "type": "string",
+          "example": "string-value"
+        }
+      }
     },
     "meta": {
-      "$ref": "#/definitions/Meta"
+      "type": "object",
+      "properties": {
+        "links": {
+          "properties": {
+            "self": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://example.com/resource"
+            },
+            "related": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://example.com/resource"
+            },
+            "type": {
+              "type": "string",
+              "example": "string-value"
+            }
+          }
+        }
+      }
+    }
+  },
+  "example": {
+    "data": {
+      "id": "JFK20231112",
+      "probability": "0.928",
+      "result": "0.84062016",
+      "subType": "on-time",
+      "type": "prediction"
+    },
+    "meta": {
+      "links": {
+        "self": "https://test.api.amadeus.com/v1/airport/predictions/on-time?airportCode=JFK&date=2023-11-12"
+      }
     }
   }
 }

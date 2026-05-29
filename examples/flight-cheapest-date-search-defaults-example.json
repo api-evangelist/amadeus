@@ -1,7 +1,7 @@
 {
-  "departureDate": "example-departureDate",
+  "departureDate": "2011-09-10,2011-09-15",
   "oneWay": true,
-  "duration": "example-duration",
+  "duration": "2,5",
   "nonStop": true,
   "viewBy": "DATE"
 }

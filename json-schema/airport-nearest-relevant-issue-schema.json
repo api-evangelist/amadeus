@@ -1,42 +1,53 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/airport-nearest-relevant-issue-schema.json",
   "title": "Issue",
-  "type": "object",
+  "description": "Issue schema from Airport Nearest Relevant",
   "properties": {
     "status": {
+      "description": "the HTTP status code applicable to this error",
       "type": "integer",
-      "description": "the HTTP status code applicable to this error"
+      "example": 1
     },
     "code": {
+      "description": "an application-specific error code",
       "type": "integer",
       "format": "int64",
-      "description": "an application-specific error code"
+      "example": 1
     },
     "title": {
+      "description": "a short summary of the error",
       "type": "string",
-      "description": "a short summary of the error"
+      "example": "string-value"
     },
     "detail": {
+      "description": "explanation of the error",
       "type": "string",
-      "description": "explanation of the error"
+      "example": "string-value"
     },
     "source": {
       "type": "object",
+      "title": "Issue_Source",
       "description": "an object containing references to the source of the error",
+      "maxProperties": 1,
       "properties": {
         "pointer": {
+          "description": "a JSON Pointer [RFC6901] to the associated entity in the request document",
           "type": "string",
-          "description": "a JSON Pointer [RFC6901] to the associated entity in the request document"
+          "example": "string-value"
         },
         "parameter": {
+          "description": "a string indicating which URI query parameter caused the issue",
           "type": "string",
-          "description": "a string indicating which URI query parameter caused the issue"
+          "example": "string-value"
         },
         "example": {
+          "description": "a string indicating an example of the right value",
           "type": "string",
-          "description": "a string indicating an example of the right value"
+          "example": "string-value"
         }
       }
     }
-  }
+  },
+  "type": "object"
 }

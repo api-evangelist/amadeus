@@ -1,0 +1,17 @@
+{
+  "currency": "EUR",
+  "rules": [
+    {
+      "category": "EXCHANGE",
+      "circumstances": "string-value",
+      "notApplicable": true,
+      "maxPenaltyAmount": "199.50",
+      "descriptions": [
+        {
+          "descriptionType": "Sample description text.",
+          "text": "string-value"
+        }
+      ]
+    }
+  ]
+}

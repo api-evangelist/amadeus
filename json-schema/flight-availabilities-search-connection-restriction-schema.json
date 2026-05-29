@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-availabilities-search-connection-restriction-schema.json",
+  "title": "ConnectionRestriction",
+  "description": "Restriction towards number of connections.",
+  "type": "object",
+  "properties": {
+    "maxNumberOfConnections": {
+      "description": "The maximal number of connections for each itinerary. Value can be 0, 1 or 2.",
+      "type": "number",
+      "example": 2
+    },
+    "airportChangeAllowed": {
+      "description": "Allow to change airport during connection",
+      "type": "boolean",
+      "example": false
+    },
+    "technicalStopsAllowed": {
+      "description": "This option allows the single segment to have one or more intermediate stops (technical stops).",
+      "type": "boolean",
+      "example": true
+    }
+  }
+}

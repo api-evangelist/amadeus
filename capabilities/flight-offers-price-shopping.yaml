@@ -1,0 +1,92 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Flight Offers Price — Shopping"
+  description: 'Flight Offers Price — Shopping. 1 operation(s). Lead operation: Amadeus Confirm Pricing of Given FlightOffers.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Shopping
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: flight-offers-price-shopping
+      baseUri: https://test.api.amadeus.com/v1
+      description: Flight Offers Price — Shopping business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: shopping-flight-offers-pricing
+          path: /shopping/flight-offers/pricing
+          operations:
+            - name: quoteAirOffers
+              method: POST
+              description: Amadeus Confirm Pricing of Given FlightOffers.
+              inputParameters:
+                - name: priceFlightOffersBody
+                  in: body
+                  type: object
+                  required: true
+                  description: list of criteria to confirm the price of a dedicated flight-offers
+                - name: include
+                  in: query
+                  type: array
+                  required: false
+                  description: "Sub-resources to be included:\n * **credit-card-fees** to get the credit card fee applied on the booking\n * **bags** to get extra bag options\n * **other-services** to get services options\n * **detailed"
+                - name: forceClass
+                  in: query
+                  type: boolean
+                  required: false
+                  description: "parameter to force the usage of booking class for pricing\n- **true**, to for pricing with the specified booking class\n- **false**, to get the best available price\n"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: flight-offers-price-shopping-rest
+      port: 8080
+      description: REST adapter for Flight Offers Price — Shopping. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shopping/flight-offers/pricing
+          name: shopping-flight-offers-pricing
+          description: REST surface for shopping-flight-offers-pricing.
+          operations:
+            - method: POST
+              name: quoteAirOffers
+              description: Amadeus Confirm Pricing of Given FlightOffers.
+              call: flight-offers-price-shopping.quoteAirOffers
+              with:
+                priceFlightOffersBody: rest.priceFlightOffersBody
+                include: rest.include
+                forceClass: rest.forceClass
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: flight-offers-price-shopping-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Flight Offers Price — Shopping. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: confirm-pricing-given-flightoffers
+          description: Amadeus Confirm Pricing of Given FlightOffers.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: flight-offers-price-shopping.quoteAirOffers
+          with:
+            priceFlightOffersBody: tools.priceFlightOffersBody
+            include: tools.include
+            forceClass: tools.forceClass
+          outputParameters:
+            - type: object
+              mapping: $.

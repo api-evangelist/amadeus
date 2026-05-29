@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-search-origin-destination-structure.json",
+  "title": "OriginDestination",
+  "description": "OriginDestination structure from Flight Offers Search",
+  "type": "object"
+}

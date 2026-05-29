@@ -1,35 +1,61 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/branded-fares-upsell-price-schema.json",
   "title": "Price",
-  "type": "object",
+  "description": "Price schema from Branded Fares Upsell",
   "properties": {
     "currency": {
-      "type": "string"
+      "type": "string",
+      "example": "USD"
     },
     "total": {
+      "description": "Total amount paid by the user",
       "type": "string",
-      "description": "Total amount paid by the user"
+      "example": "932.70"
     },
     "base": {
+      "description": "Amount without taxes",
       "type": "string",
-      "description": "Amount without taxes"
+      "example": "632.70"
     },
     "fees": {
-      "type": "array",
       "description": "List of applicable fees",
+      "type": "array",
       "items": {
-        "$ref": "#/definitions/Fee"
+        "description": "a fee",
+        "properties": {
+          "amount": {
+            "type": "string",
+            "example": "332.70"
+          },
+          "type": {
+            "$ref": "#/definitions/FeeType"
+          }
+        }
       }
     },
     "taxes": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Tax"
+        "description": "a tax",
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "string",
+            "example": "332.70"
+          },
+          "code": {
+            "type": "string",
+            "example": "MX"
+          }
+        }
       }
     },
     "refundableTaxes": {
+      "description": "The amount of taxes which are refundable",
       "type": "string",
-      "description": "The amount of taxes which are refundable"
+      "example": "200.00"
     }
-  }
+  },
+  "type": "object"
 }

@@ -1,6 +1,110 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/city-search-location-schema.json",
   "title": "Location",
-  "description": "",
-  "type": "object"
+  "description": "Location schema from City Search",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Resource Type "
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "description": "Relationship allows to cross reference 2 entities via Link and/or id .",
+            "title": "Relationship",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "id of the related resource"
+              },
+              "type": {
+                "type": "string",
+                "description": "Type of the related resource",
+                "example": "processed-dcs-passenger"
+              },
+              "href": {
+                "type": "string",
+                "format": "url",
+                "description": "URL value"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "description": "Description of a particular point or place in physical space",
+      "title": "Location",
+      "properties": {
+        "subtype": {
+          "type": "string",
+          "description": "Location sub-type (e.g. airport, port, rail-station, restaurant, atm...)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Label associated to the location (e.g. Eiffel Tower, Madison Square)",
+          "example": "Eiffel Tower"
+        },
+        "iataCode": {
+          "type": "string",
+          "description": "IATA location code",
+          "example": "PAR"
+        },
+        "address": {
+          "type": "object",
+          "description": "Address information",
+          "title": "Address",
+          "properties": {
+            "postalCode": {
+              "type": "string",
+              "description": "Example: 74130"
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "ISO 3166-1 country code",
+              "pattern": "[a-zA-Z]{2}"
+            },
+            "stateCode": {
+              "type": "string",
+              "description": "State code (two character standard IATA state code)",
+              "pattern": "[a-zA-Z0-9]{1,2}"
+            }
+          }
+        },
+        "geoCode": {
+          "type": "object",
+          "description": "Geographic coordinates describing the position of any location on the surface of Earth",
+          "title": "GeoCode",
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "format": "float",
+              "description": "Latitude of the position expressed in decimal degrees (WSG 84), e.g. 6.244203. A positive value denotes northern hemisphere or the equator, and a negative value denotes southern hemisphere. The number of digits to represent the precision of the coordinate.",
+              "minimum": -90,
+              "exclusiveMinimum": false,
+              "maximum": 90,
+              "exclusiveMaximum": false,
+              "example": 48.85837
+            },
+            "longitude": {
+              "type": "number",
+              "format": "float",
+              "description": "Longitude of the position expressed in decimal degrees (WSG 84), e.g. -75.581211. A positive value denotes east longitude or the prime meridian, and a negative value denotes west longitude.  The number of digits to represent the precision of the coordinate.",
+              "minimum": -180,
+              "exclusiveMinimum": false,
+              "maximum": 180,
+              "exclusiveMaximum": false,
+              "example": 2.294481
+            }
+          }
+        }
+      }
+    }
+  ]
 }

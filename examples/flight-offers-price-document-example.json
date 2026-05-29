@@ -1,9 +1,9 @@
 {
-  "number": "example-number",
-  "issuanceDate": "2024-01-15",
-  "expiryDate": "2024-01-15",
-  "issuanceCountry": "example-issuanceCountry",
-  "issuanceLocation": "example-issuanceLocation",
-  "nationality": "example-nationality",
-  "birthPlace": "example-birthPlace"
+  "number": 1,
+  "issuanceDate": "2026-08-15",
+  "expiryDate": "2026-08-15",
+  "issuanceCountry": 1,
+  "issuanceLocation": "string-value",
+  "nationality": "string-value",
+  "birthPlace": "string-value"
 }

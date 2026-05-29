@@ -1,24 +1,21 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Payment",
-  "type": "record",
-  "fields": [
-    {
-      "name": "brand",
-      "type": "string"
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/branded-fares-upsell-payment-structure.json",
+  "title": "Payment",
+  "description": "Payment structure from Branded Fares Upsell",
+  "type": "object",
+  "properties": {
+    "brand": {
+      "type": "string",
+      "description": "credit card brand"
     },
-    {
-      "name": "binNumber",
-      "type": "int32",
+    "binNumber": {
+      "type": "integer",
       "description": "The first 6 digits of the credit card"
     },
-    {
-      "name": "flightOfferIds",
+    "flightOfferIds": {
       "type": "array",
-      "description": "Id of the flightOffers to pay",
-      "items": {
-        "type": "string"
-      }
+      "description": "Id of the flightOffers to pay"
     }
-  ]
+  }
 }

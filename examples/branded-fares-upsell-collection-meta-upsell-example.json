@@ -1,4 +1,11 @@
 {
   "count": 1,
-  "oneWayUpselledCombinations": []
+  "oneWayUpselledCombinations": [
+    {
+      "flightOfferId": "12345",
+      "upselledFlightOfferIds": [
+        "string-value"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/airport-city-search-geo-code-schema.json",
+  "title": "GeoCode",
+  "description": "GeoCode schema from Airport & City Search",
+  "properties": {
+    "latitude": {
+      "description": "latitude of the location",
+      "type": "number",
+      "format": "double",
+      "example": 43.580418
+    },
+    "longitude": {
+      "description": "longitude of the location",
+      "type": "number",
+      "format": "double",
+      "example": 7.125102
+    }
+  },
+  "type": "object"
+}

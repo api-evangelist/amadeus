@@ -1,4 +1,21 @@
 {
-  "general": [],
-  "airline": []
+  "general": [
+    {
+      "subType": "GENERAL_MISCELLANEOUS",
+      "category": "Z",
+      "text": "PASSENGER NEED ASSISTANCE",
+      "travelerIds": "1",
+      "flightOfferIds": "1"
+    }
+  ],
+  "airline": [
+    {
+      "subType": "KEYWORD",
+      "keyword": "PARK",
+      "airlineCode": "AF",
+      "text": "CAR PARK",
+      "travelerIds": "1",
+      "flightOfferIds": "1"
+    }
+  ]
 }

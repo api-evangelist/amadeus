@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/on-demand-flight-status-dated-flight-schema.json",
+  "title": "DatedFlight",
+  "description": "DatedFlight schema from On-Demand Flight Status",
+  "properties": {
+    "type": {
+      "description": "the resource name",
+      "type": "string",
+      "readOnly": true,
+      "example": "string-value"
+    },
+    "scheduledDepartureDate": {
+      "description": "the scheduled departure date",
+      "type": "string",
+      "format": "date",
+      "example": "2018-11-06"
+    },
+    "flightDesignator": {
+      "properties": {
+        "carrierCode": {
+          "description": "2 to 3-character IATA code of the carrier. e.g. 6X",
+          "type": "string",
+          "example": "AF"
+        },
+        "flightNumber": {
+          "description": "1 to 4-digit number of the flight e.g. 4537",
+          "type": "integer",
+          "format": "int64",
+          "example": 1
+        },
+        "operationalSuffix": {
+          "description": "1-letter operational suffix of the flight e.g. A",
+          "type": "string",
+          "example": "string-value"
+        }
+      }
+    },
+    "flightPoints": {
+      "description": "the flight points of the flight.\nAt least one departure, one arrival\n",
+      "type": "array",
+      "items": {
+        "properties": {
+          "iataCode": {
+            "description": "3-letter IATA code of the airport. e.g. CDG",
+            "type": "string",
+            "example": "CDG"
+          },
+          "departure": {
+            "description": "the departure information if the flightPoint is a departure for the flight",
+            "$ref": "#/definitions/Departure"
+          },
+          "arrival": {
+            "description": "the arrival information if the flightPoint is an arrival for the flight",
+            "$ref": "#/definitions/Arrival"
+          }
+        }
+      }
+    },
+    "segments": {
+      "description": "the list of segments of the datedFlight\n- definition of segment: the commercial unit corresponding to the passenger journey traveling between two points with the same flight (same flight designator)\n",
+      "type": "array",
+      "items": {
+        "properties": {
+          "boardPointIataCode": {
+            "description": "3-letter IATA code of the departure airport. e.g. CDG",
+            "pattern": "[a-zA-Z]{3}",
+            "type": "string",
+            "example": "LHR"
+          },
+          "offPointIataCode": {
+            "description": "3-letter IATA code of the arrival airport. e.g. AMS",
+            "pattern": "[a-zA-Z]{3}",
+            "type": "string",
+            "example": "BKK"
+          },
+          "scheduledSegmentDuration": {
+            "type": "string",
+            "description": "duration of the segment following standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)",
+            "example": "PT14H50M"
+          },
+          "partnership": {
+            "$ref": "#/definitions/Partnership"
+          }
+        }
+      }
+    },
+    "legs": {
+      "description": "the list of legs of the datedFlight.\n- definition of leg: operation of the aircraft between a departure station and the next arrival station (between take off and landing)\n",
+      "type": "array",
+      "items": {
+        "properties": {
+          "boardPointIataCode": {
+            "description": "3-letter IATA code of the departure airport. e.g. LHR",
+            "pattern": "[a-zA-Z]{3}",
+            "type": "string",
+            "example": "LHR"
+          },
+          "offPointIataCode": {
+            "description": "3-letter IATA code of the arrival airport. e.g. BKK",
+            "pattern": "[a-zA-Z]{3}",
+            "type": "string",
+            "example": "BKK"
+          },
+          "aircraftEquipment": {
+            "$ref": "#/definitions/AircraftEquipment"
+          },
+          "scheduledLegDuration": {
+            "type": "string",
+            "description": "duration of the leg following standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)",
+            "example": "PT14H50M"
+          }
+        }
+      }
+    }
+  },
+  "type": "object"
+}

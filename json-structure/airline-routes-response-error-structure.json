@@ -1,14 +1,12 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "response_error",
-  "type": "record",
-  "fields": [
-    {
-      "name": "errors",
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/airline-routes-response-error-structure.json",
+  "title": "response_error",
+  "description": "response_error structure from Airline Routes",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array"
     }
-  ]
+  }
 }

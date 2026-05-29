@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-ratings-hotel-sentiment-schema.json",
+  "title": "HotelSentiment",
+  "description": "HotelSentiment schema from Hotel Ratings",
+  "type": "object",
+  "properties": {
+    "hotelId": {
+      "type": "string",
+      "example": "BBLONBTL",
+      "description": "Amadeus Hotel Ids are found in the Hotel Search response (parameter name is 'hotelId')"
+    },
+    "type": {
+      "type": "string",
+      "example": "hotelSentiment"
+    },
+    "overallRating": {
+      "type": "integer",
+      "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+      "example": 82
+    },
+    "numberOfRatings": {
+      "type": "integer",
+      "example": 350
+    },
+    "numberOfReviews": {
+      "type": "integer",
+      "example": 200
+    },
+    "sentiments": {
+      "type": "object",
+      "description": "Dictionary containing scores for all the available categories.  If a property does not have any category this object will not be present in the response.",
+      "properties": {
+        "sleepQuality": {
+          "type": "integer",
+          "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+          "example": 82
+        },
+        "service": {
+          "type": "integer",
+          "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+          "example": 82
+        },
+        "facilities": {
+          "type": "integer",
+          "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+          "example": 82
+        },
+        "roomComforts": {
+          "type": "integer",
+          "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+          "example": 82
+        },
+        "valueForMoney": {
+          "type": "integer",
+          "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+          "example": 82
+        },
+        "catering": {
+          "type": "integer",
+          "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+          "example": 82
+        },
+        "swimmingPool": {
+          "type": "integer",
+          "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+          "example": 82
+        },
+        "location": {
+          "type": "integer",
+          "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+          "example": 82
+        },
+        "internet": {
+          "type": "integer",
+          "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+          "example": 82
+        },
+        "pointsOfInterest": {
+          "type": "integer",
+          "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+          "example": 82
+        },
+        "staff": {
+          "type": "integer",
+          "description": "Integer between 0 and 100. It represents the score for a specific category or the overall rating for a given Hotel.",
+          "example": 82
+        }
+      }
+    }
+  },
+  "required": [
+    "hotelId",
+    "overallRating",
+    "avgHotelAvailabilityResponseTime",
+    "numberOfRatings",
+    "numberOfReviews"
+  ]
+}

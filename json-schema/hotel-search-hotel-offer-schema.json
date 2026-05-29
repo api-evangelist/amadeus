@@ -1,0 +1,420 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-hotel-offer-schema.json",
+  "title": "HotelOffer",
+  "description": "Hotel Offer",
+  "type": "object",
+  "properties": {
+    "type": {
+      "title": "Type",
+      "description": "data type",
+      "type": "string",
+      "enum": [
+        "hotel-offer"
+      ]
+    },
+    "id": {
+      "description": "Unique identifier of this offer. Might be valid for a temporary period only.",
+      "example": "TSXOJ6LFQ2",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 100,
+      "pattern": "^[A-Z0-9]*$"
+    },
+    "checkInDate": {
+      "description": "check-in date of the stay (hotel local date). Format YYYY-MM-DD\nThe lowest accepted value is today date (no dates in the past).",
+      "example": "2020-12-30",
+      "type": "string",
+      "format": "date"
+    },
+    "checkOutDate": {
+      "description": "check-out date of the stay (hotel local date). Format YYYY-MM-DD\nThe lowest accepted value is `checkInDate`+1.",
+      "example": "2020-12-31",
+      "type": "string",
+      "format": "date"
+    },
+    "roomQuantity": {
+      "description": "number of rooms (1-9)",
+      "example": "1",
+      "type": "string"
+    },
+    "rateCode": {
+      "description": "Special Rate - Provider Response Code (3 chars)\nExamples\n\n  * RAC - Rack\n\n  * BAR - Best Available Rate\n\n  * PRO - Promotional\n\n  * COR - Corporate\n\n  * GOV - Government (qualified)\n\n  * AAA - AAA (qualified)\n\n  * BNB - Bed and Breakfast\n\n  * PKG - Package\n\n  * TVL - Travel Industry\n\n  * SPC - Special Promo Rate\n\n  * WKD - Weekend\n\n  * CON - Convention\n\n  * SNR - Senior (Europe) (qualified)\n\n  * ARP - AARP - American Association of Retired People (50+) (qualified)\n\n  * SRS - Senior (qualified)\n\n  * ROR - Room Only Rate (no breakfast)\n\n  * FAM - Family\n\n  * DAY - Day rate",
+      "example": "RAC",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3,
+      "pattern": "^[A-Z0-9*]{3}$"
+    },
+    "rateFamilyEstimated": {
+      "title": "HotelProduct_RateFamily",
+      "description": "The estimated rate code family of the offer. Grouping various rate plan codes that belongs to the same family and indicates the type of the rate",
+      "type": "object",
+      "properties": {
+        "code": {
+          "description": "The estimated rate family (PRO,FAM,GOV)",
+          "type": "string",
+          "pattern": "[A-Z0-9]{3}",
+          "example": "string-value"
+        },
+        "type": {
+          "description": "The type of the rate (public=P, negotiated=N, conditional=C)",
+          "type": "string",
+          "pattern": "[PNC]",
+          "example": "string-value"
+        }
+      }
+    },
+    "category": {
+      "description": "Special Rate Category\nExamples:\n  ASSOCIATION\n  FAMILY_PLAN",
+      "example": "FAMILY_PLAN",
+      "type": "string"
+    },
+    "description": {
+      "title": "QualifiedFreeText",
+      "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+      "type": "object",
+      "properties": {
+        "text": {
+          "description": "Free Text",
+          "example": "A description",
+          "type": "string"
+        },
+        "lang": {
+          "description": "see RFC 5646",
+          "example": "fr-FR",
+          "type": "string"
+        }
+      }
+    },
+    "commission": {
+      "title": "HotelProduct_Commission",
+      "type": "object",
+      "properties": {
+        "percentage": {
+          "description": "Percentage of the commission paid to the travel seller. Value is between 0 and 100",
+          "type": "string",
+          "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+          "example": 50
+        },
+        "amount": {
+          "description": "Amount of the commission paid to the travel seller. The amount is always linked to the currency code of the offer",
+          "type": "string",
+          "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+          "example": "199.50"
+        },
+        "description": {
+          "title": "QualifiedFreeText",
+          "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "Free Text",
+              "example": "A description",
+              "type": "string"
+            },
+            "lang": {
+              "description": "see RFC 5646",
+              "example": "fr-FR",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "boardType": {
+      "title": "BoardType",
+      "description": "The included Breakfast/Meals",
+      "type": "string",
+      "enum": [
+        "ROOM_ONLY",
+        "BREAKFAST",
+        "HALF_BOARD",
+        "FULL_BOARD",
+        "ALL_INCLUSIVE",
+        "BUFFET_BREAKFAST",
+        "CARIBBEAN_BREAKFAST",
+        "CONTINENTAL_BREAKFAST",
+        "ENGLISH_BREAKFAST",
+        "FULL_BREAKFAST",
+        "DINNER_BED_AND_BREAKFAST",
+        "LUNCH",
+        "DINNER",
+        "FAMILY_PLAN",
+        "AS_BROCHURED",
+        "SELF_CATERING",
+        "BERMUDA",
+        "AMERICAN",
+        "FAMILY_AMERICAN",
+        "MODIFIED"
+      ]
+    },
+    "room": {
+      "title": "HotelProduct_RoomDetails",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "Room type code, 3 character identifier of the room.\nThe first character identifies the room type category. \nThe second numeric character identifies the number of beds. \nThe third character identifies the bed type. \nThere is a special case where ROH is returned, this value stands for Run Of House.",
+          "type": "string",
+          "pattern": "^[A-Z0-9*]{3}$",
+          "example": "string-value"
+        },
+        "typeEstimated": {
+          "title": "HotelProduct_EstimatedRoomType",
+          "description": "estimated room category, bed type and number of beds in the room. This information has been parsed from the room description, and is thus only provided for informational purposes",
+          "type": "object",
+          "properties": {
+            "category": {
+              "description": "Category code",
+              "type": "string",
+              "example": "string-value"
+            },
+            "beds": {
+              "description": "Number of beds in the room (1-9)",
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            },
+            "bedType": {
+              "description": "Type of the bed",
+              "type": "string",
+              "example": "string-value"
+            }
+          }
+        },
+        "description": {
+          "title": "QualifiedFreeText",
+          "description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+          "type": "object",
+          "properties": {
+            "text": {
+              "description": "Free Text",
+              "example": "A description",
+              "type": "string"
+            },
+            "lang": {
+              "description": "see RFC 5646",
+              "example": "fr-FR",
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "guests": {
+      "title": "HotelProduct_Guests",
+      "type": "object",
+      "properties": {
+        "adults": {
+          "description": "number of adult guests (1-9) per room",
+          "example": 2,
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9,
+          "format": "int32"
+        },
+        "childAges": {
+          "description": "Comma separated list of ages of each child at the time of check-out from the hotel. If several children have the same age, the ages will be repeated.",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 20,
+            "format": "int32"
+          }
+        }
+      }
+    },
+    "price": {
+      "title": "HotelProduct_HotelPrice",
+      "description": "price information",
+      "type": "object",
+      "properties": {
+        "currency": {
+          "description": "currency Code apply to all elements of the price",
+          "type": "string",
+          "example": "EUR"
+        },
+        "sellingTotal": {
+          "description": "sellingTotal = Total + margins + markup + totalFees - discounts",
+          "type": "string",
+          "example": "199.50"
+        },
+        "total": {
+          "description": "total = base + totalTaxes",
+          "type": "string",
+          "example": "199.50"
+        },
+        "base": {
+          "type": "string",
+          "example": "string-value"
+        },
+        "taxes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tax"
+          }
+        },
+        "markups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Markup"
+          }
+        },
+        "variations": {
+          "title": "HotelProduct_PriceVariations",
+          "description": "Daily price variations and the average daily price (when available) is shown here",
+          "type": "object",
+          "properties": {
+            "average": {
+              "$ref": "#/definitions/Price"
+            },
+            "changes": {
+              "description": "A collection of price periods if the daily price changes during the stay",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/HotelProduct_PriceVariation"
+              }
+            }
+          }
+        }
+      }
+    },
+    "policies": {
+      "title": "HotelProduct_PolicyDetails",
+      "description": "Booking Rules",
+      "type": "object",
+      "properties": {
+        "paymentType": {
+          "title": "PaymentType",
+          "description": "payment type. Guarantee means Pay at Check Out. Check the `methods` in `guarantee` or `deposit` or `prepay`.",
+          "type": "string",
+          "enum": [
+            "GUARANTEE",
+            "DEPOSIT",
+            "PREPAY",
+            "HOLDTIME"
+          ]
+        },
+        "guarantee": {
+          "title": "HotelProduct_GuaranteePolicy",
+          "description": "the guarantee policy information applicable to the offer. It includes accepted payments",
+          "type": "object",
+          "properties": {
+            "description": {
+              "$ref": "#/definitions/QualifiedFreeText"
+            },
+            "acceptedPayments": {
+              "$ref": "#/definitions/HotelProduct_PaymentPolicy"
+            }
+          }
+        },
+        "deposit": {
+          "title": "HotelProduct_DepositPolicy",
+          "description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due",
+          "type": "object",
+          "properties": {
+            "amount": {
+              "description": "Deposit-Prepay amount",
+              "type": "string",
+              "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+              "example": "199.50"
+            },
+            "deadline": {
+              "description": "The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. \n Example: 2010-08-14T13:00:00\n Please note that this value is expressed in the hotels local time zone",
+              "type": "string",
+              "format": "date-time",
+              "example": "2026-08-15T10:30:00Z"
+            },
+            "description": {
+              "$ref": "#/definitions/QualifiedFreeText"
+            },
+            "acceptedPayments": {
+              "$ref": "#/definitions/HotelProduct_PaymentPolicy"
+            }
+          }
+        },
+        "prepay": {
+          "title": "HotelProduct_DepositPolicy",
+          "description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due",
+          "type": "object",
+          "properties": {
+            "amount": {
+              "description": "Deposit-Prepay amount",
+              "type": "string",
+              "pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+              "example": "199.50"
+            },
+            "deadline": {
+              "description": "The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. \n Example: 2010-08-14T13:00:00\n Please note that this value is expressed in the hotels local time zone",
+              "type": "string",
+              "format": "date-time",
+              "example": "2026-08-15T10:30:00Z"
+            },
+            "description": {
+              "$ref": "#/definitions/QualifiedFreeText"
+            },
+            "acceptedPayments": {
+              "$ref": "#/definitions/HotelProduct_PaymentPolicy"
+            }
+          }
+        },
+        "holdTime": {
+          "title": "HotelProduct_HoldPolicy",
+          "description": "the hold policy",
+          "type": "object",
+          "properties": {
+            "deadline": {
+              "description": "The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. \n Example: 2010-08-14T13:00:00\n Please note that this value is expressed in the hotels local time zone",
+              "type": "string",
+              "format": "date-time",
+              "example": "2026-08-15T10:30:00Z"
+            }
+          },
+          "required": [
+            "deadline"
+          ]
+        },
+        "cancellations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/HotelProduct_CancellationPolicy"
+          }
+        },
+        "checkInOut": {
+          "title": "HotelProduct_CheckInOutPolicy",
+          "type": "object",
+          "properties": {
+            "checkIn": {
+              "description": "Check-in From time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+              "example": "13:00:00",
+              "type": "string"
+            },
+            "checkInDescription": {
+              "$ref": "#/definitions/QualifiedFreeText"
+            },
+            "checkOut": {
+              "description": "Check-out Until time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+              "example": "11:00:00",
+              "type": "string"
+            },
+            "checkOutDescription": {
+              "$ref": "#/definitions/QualifiedFreeText"
+            }
+          }
+        }
+      }
+    },
+    "self": {
+      "description": "A self link to the object. Use this to refresh the Offer price",
+      "example": "https://test.travel.api.amadeus.com/v2/shopping/hotel-offers/63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "rateCode",
+    "room",
+    "price"
+  ]
+}

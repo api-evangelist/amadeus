@@ -1,0 +1,11 @@
+{
+  "type": "amadeusOAuth2Token",
+  "username": "myuser@mydomain.com",
+  "application_name": "My Application",
+  "client_id": "Hs0sNkpTXeu0t2Hw2rLITofK8QELGdfsf",
+  "token_type": "Bearer",
+  "access_token": "f8XgboI1oKyNw7w23bnnAbFANidfgC",
+  "expires_in": 1799,
+  "state": "approved",
+  "scope": ""
+}

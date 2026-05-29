@@ -1,0 +1,14 @@
+{
+  "type": "flight-date",
+  "origin": "PAR",
+  "destination": "DXB",
+  "departureDate": "2017-08-19",
+  "returnDate": "2017-08-22",
+  "price": {
+    "total": "932.70"
+  },
+  "links": {
+    "flightDestinations": "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=PAR&nonStop=true",
+    "flightOffers": "https://test.api.amadeus.com/v1/shopping/flight-offers?origin=PAR&destination=MAD&departureDate=2017-08-26&returnDate=2017-08-30&adults=1"
+  }
+}

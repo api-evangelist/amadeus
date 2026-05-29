@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-search-co2-emission-structure.json",
+  "title": "Co2Emission",
+  "description": "Co2Emission structure from Flight Offers Search",
+  "type": "object",
+  "properties": {
+    "weight": {
+      "type": "integer",
+      "description": "Weight of Co2 emitted for the concerned segment"
+    },
+    "weightUnit": {
+      "type": "string",
+      "description": "Code to qualify unit as pounds or kilos"
+    },
+    "cabin": {
+      "type": "string",
+      "description": "quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "flight-availability",
+  "id": "1",
+  "originDestinationId": "1",
+  "source": "GDS",
+  "instantTicketingRequired": false,
+  "paymentCardRequired": false,
+  "duration": "PT2H10M",
+  "segments": []
+}

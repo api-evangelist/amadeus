@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-seat-map-structure.json",
+  "title": "SeatMap",
+  "description": "seat map information",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Ressource name"
+    },
+    "id": {
+      "type": "string",
+      "description": "item identifier"
+    },
+    "self": {
+      "type": "object"
+    },
+    "departure": {
+      "type": "object",
+      "description": "departure or arrival information"
+    },
+    "arrival": {
+      "type": "object",
+      "description": "departure or arrival information"
+    },
+    "carrierCode": {
+      "type": "string",
+      "description": "providing the marketing airline carrier code"
+    },
+    "number": {
+      "type": "string",
+      "description": "the flight number as assigned by the marketing carrier"
+    },
+    "operating": {
+      "type": "object",
+      "description": "information about the operating flight"
+    },
+    "aircraft": {
+      "type": "string",
+      "description": "information related to the aircraft"
+    },
+    "class": {
+      "type": "string",
+      "description": "reservation booking designator (RBD) of the carrier"
+    },
+    "flightOfferId": {
+      "type": "string",
+      "description": "Id of the impacted flight offer"
+    },
+    "segmentId": {
+      "type": "string",
+      "description": "Id of the impacted segment"
+    },
+    "decks": {
+      "type": "array",
+      "description": "decks information"
+    },
+    "aircraftCabinAmenities": {
+      "type": "object",
+      "description": "Type of available amenities for a given flight"
+    },
+    "availableSeatsCounters": {
+      "type": "array",
+      "description": "number of seats available for each passenger"
+    }
+  }
+}

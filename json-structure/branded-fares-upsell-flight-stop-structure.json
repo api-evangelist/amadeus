@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/branded-fares-upsell-flight-stop-structure.json",
+  "title": "FlightStop",
+  "description": "details of stops for direct or change of gauge flights",
+  "type": "object"
+}

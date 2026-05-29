@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-search-extra-service-structure.json",
+  "title": "ExtraService",
+  "description": "ExtraService structure from Transfer Search",
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "extra service code, which can take following values\n\ncode   | name                                 \n------ | ---------------------------- \nDSL    | Driver language specified\nEWT    | Extra waiting time\nMAG    | Meet & Greet\nFLM    | Flight monitoring\nNWS    | Newspaper\nCAI    | Cancellation insurance\nWNR    | Wait and Return. Driver waits at destination and brings back the customer to pick-up point\n"
+    },
+    "itemId": {
+      "type": "string",
+      "description": "extra service identifier"
+    },
+    "description": {
+      "type": "string",
+      "description": "extra service description"
+    },
+    "metricType": {
+      "type": "string",
+      "description": "extra service time metric type"
+    },
+    "metricValue": {
+      "type": "string",
+      "description": "extra service metric value"
+    },
+    "quotation": {
+      "type": "string",
+      "description": "quotation representing a price valuation and its components. The monetaryAmount at the root are the sum of base and all the taxes/fees/discounts"
+    },
+    "converted": {
+      "type": "string",
+      "description": "quotation representing a price valuation and its components. The monetaryAmount at the root are the sum of base and all the taxes/fees/discounts"
+    },
+    "isBookable": {
+      "type": "boolean",
+      "description": "true if extra service is available for booking"
+    },
+    "taxIncluded": {
+      "type": "boolean",
+      "description": "true if tax included in extra service price"
+    },
+    "includedInTotal": {
+      "type": "boolean",
+      "description": "true if extra service price is included in total transfer amount"
+    }
+  },
+  "required": [
+    "code"
+  ]
+}

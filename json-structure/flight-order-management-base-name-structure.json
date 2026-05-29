@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-order-management-base-name-structure.json",
+  "title": "BaseName",
+  "description": "description of the name of a physical person",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "First name."
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name."
+    },
+    "middleName": {
+      "type": "string",
+      "description": "Middle name(s), for example \"Lee\" in \"John Lee Smith\"."
+    }
+  }
+}

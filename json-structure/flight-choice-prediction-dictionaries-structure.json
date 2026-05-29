@@ -1,23 +1,21 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Dictionaries",
-  "type": "record",
-  "fields": [
-    {
-      "name": "locations",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-choice-prediction-dictionaries-structure.json",
+  "title": "Dictionaries",
+  "description": "Dictionaries structure from Flight Choice Prediction",
+  "type": "object",
+  "properties": {
+    "locations": {
       "type": "string"
     },
-    {
-      "name": "aircraft",
+    "aircraft": {
       "type": "string"
     },
-    {
-      "name": "currencies",
+    "currencies": {
       "type": "string"
     },
-    {
-      "name": "carriers",
+    "carriers": {
       "type": "string"
     }
-  ]
+  }
 }

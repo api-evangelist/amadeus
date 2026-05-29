@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-price-term-and-condition-structure.json",
+  "title": "TermAndCondition",
+  "description": "TermAndCondition structure from Flight Offers Price",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string",
+      "description": "This defines what type of modification is concerned in this rule."
+    },
+    "circumstances": {
+      "type": "string"
+    },
+    "notApplicable": {
+      "type": "boolean"
+    },
+    "maxPenaltyAmount": {
+      "type": "string"
+    },
+    "descriptions": {
+      "type": "array"
+    }
+  }
+}

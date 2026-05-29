@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/trip-purpose-prediction-prediction-result-type-schema.json",
+  "title": "PredictionResultType",
+  "description": "forecast description",
+  "type": "string",
+  "enum": [
+    "BUSINESS",
+    "LEISURE"
+  ],
+  "example": "BUSINESS"
+}

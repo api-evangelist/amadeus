@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/on-demand-flight-status-flight-point-schema.json",
+  "title": "FlightPoint",
+  "description": "FlightPoint schema from On-Demand Flight Status",
+  "properties": {
+    "iataCode": {
+      "description": "3-letter IATA code of the airport. e.g. CDG",
+      "type": "string",
+      "example": "CDG"
+    },
+    "departure": {
+      "properties": {
+        "terminal": {
+          "properties": {
+            "code": {
+              "description": "the code of the terminal",
+              "type": "string",
+              "example": 1
+            }
+          }
+        },
+        "gate": {
+          "properties": {
+            "mainGate": {
+              "description": "the main gate number",
+              "type": "string",
+              "example": "10A"
+            }
+          }
+        },
+        "timings": {
+          "description": "the list of timings",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Timing"
+          }
+        }
+      }
+    },
+    "arrival": {
+      "properties": {
+        "terminal": {
+          "properties": {
+            "code": {
+              "description": "the code of the terminal",
+              "type": "string",
+              "example": 1
+            }
+          }
+        },
+        "gate": {
+          "properties": {
+            "mainGate": {
+              "description": "the main gate number",
+              "type": "string",
+              "example": "10A"
+            }
+          }
+        },
+        "timings": {
+          "description": "the list of timings",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Timing"
+          }
+        }
+      }
+    }
+  },
+  "type": "object"
+}

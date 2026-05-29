@@ -1,4 +1,14 @@
 {
-  "data": "example-data",
-  "meta": "example-meta"
+  "data": {
+    "id": "JFK20231112",
+    "probability": "0.928",
+    "result": "0.84062016",
+    "subType": "on-time",
+    "type": "prediction"
+  },
+  "meta": {
+    "links": {
+      "self": "https://test.api.amadeus.com/v1/airport/predictions/on-time?airportCode=JFK&date=2023-11-12"
+    }
+  }
 }

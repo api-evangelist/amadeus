@@ -1,5 +1,29 @@
 {
   "code": 1,
-  "title": "example-title",
-  "detail": "example-detail"
+  "title": "string-value",
+  "detail": "string-value",
+  "source": {
+    "parameter": "string-value",
+    "pointer": "string-value",
+    "example": "string-value"
+  },
+  "documentation": "https://example.com/resource",
+  "sources": [],
+  "relationships": {
+    "collection": [
+      {
+        "id": "12345",
+        "type": "processed-dcs-passenger",
+        "ref": "string-value",
+        "targetSchema": "string-value",
+        "targetMediaType": "string-value",
+        "hrefSchema": "string-value",
+        "href": "https://example.com/resource",
+        "methods": [
+          "GET"
+        ],
+        "rel": "string-value"
+      }
+    ]
+  }
 }

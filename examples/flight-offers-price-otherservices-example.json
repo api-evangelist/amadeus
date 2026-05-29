@@ -1,8 +1,0 @@
-{
-  "name": "example-name",
-  "price": "example-price",
-  "bookableByTraveler": true,
-  "bookableByItinerary": true,
-  "segmentIds": [],
-  "travelerIds": []
-}

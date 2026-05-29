@@ -1,11 +1,11 @@
 {
   "category": "BUSINESS",
-  "addresseeName": "example-addresseeName",
-  "deviceType": "example-deviceType",
-  "countryCode": "example-countryCode",
-  "countryCallingCode": "example-countryCallingCode",
-  "areaCode": "example-areaCode",
-  "number": "example-number",
-  "extension": "example-extension",
-  "text": "example-text"
+  "addresseeName": "Sample Name",
+  "deviceType": "MOBILE",
+  "countryCode": "FR",
+  "countryCallingCode": 1,
+  "areaCode": "string-value",
+  "number": 1,
+  "extension": "string-value",
+  "text": "string-value"
 }

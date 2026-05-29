@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-seatmap-traveler-pricing-structure.json",
+  "title": "SeatmapTravelerPricing",
+  "description": "SeatmapTravelerPricing structure from Seatmap Display",
+  "type": "object",
+  "properties": {
+    "travelerId": {
+      "type": "string",
+      "description": "Traveler id"
+    },
+    "seatAvailabilityStatus": {
+      "type": "string",
+      "description": "Seat availability for this specific traveler. Allows better seat choice per traveler"
+    },
+    "price": {
+      "type": "string"
+    }
+  }
+}

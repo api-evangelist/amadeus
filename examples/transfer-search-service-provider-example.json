@@ -1,0 +1,11 @@
+{
+  "code": "string-value",
+  "name": "Sample Name",
+  "logoUrl": "https://example.com/resource",
+  "termsUrl": "https://example.com/resource",
+  "isPreferred": true,
+  "settings": [
+    "BILLING_ADDRESS_REQUIRED"
+  ],
+  "businessIdentification": "string-value"
+}

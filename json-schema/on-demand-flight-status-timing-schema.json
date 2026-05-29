@@ -1,22 +1,32 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/on-demand-flight-status-timing-schema.json",
   "title": "Timing",
-  "type": "object",
+  "description": "Timing schema from On-Demand Flight Status",
   "properties": {
     "qualifier": {
+      "description": "the qualifier of the timing. e.g. STD (stands for Schedule Time Departure)",
       "type": "string",
-      "description": "the qualifier of the timing. e.g. STD (stands for Schedule Time Departure)"
+      "example": "STD"
     },
     "value": {
       "type": "string",
-      "format": "date-time"
+      "format": "date-time",
+      "example": "06:00:00"
     },
     "delays": {
-      "type": "array",
       "description": "delays that might be recorded on a timing",
+      "type": "array",
       "items": {
-        "$ref": "#/definitions/Delay"
+        "properties": {
+          "duration": {
+            "description": "the delay recorded for the timing following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)",
+            "type": "string",
+            "example": "PT25M"
+          }
+        }
       }
     }
-  }
+  },
+  "type": "object"
 }

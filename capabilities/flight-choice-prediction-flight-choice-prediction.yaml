@@ -1,0 +1,78 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Flight Choice Prediction — Flight Choice Prediction"
+  description: 'Flight Choice Prediction — Flight Choice Prediction. 1 operation(s). Lead operation: Amadeus Predict the Choice of Flight Offers.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Flight Choice Prediction
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: flight-choice-prediction-flight-choice-prediction
+      baseUri: https://test.api.amadeus.com/v2
+      description: Flight Choice Prediction — Flight Choice Prediction business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: shopping-flight-offers-prediction
+          path: /shopping/flight-offers/prediction
+          operations:
+            - name: getFlightChoicePredict
+              method: POST
+              description: Amadeus Predict the Choice of Flight Offers.
+              inputParameters:
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+                  description: Amadeus Predict the Choice of Flight Offers.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: flight-choice-prediction-flight-choice-prediction-rest
+      port: 8080
+      description: REST adapter for Flight Choice Prediction — Flight Choice Prediction. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shopping/flight-offers/prediction
+          name: shopping-flight-offers-prediction
+          description: REST surface for shopping-flight-offers-prediction.
+          operations:
+            - method: POST
+              name: getFlightChoicePredict
+              description: Amadeus Predict the Choice of Flight Offers.
+              call: flight-choice-prediction-flight-choice-prediction.getFlightChoicePredict
+              with:
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: flight-choice-prediction-flight-choice-prediction-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Flight Choice Prediction — Flight Choice Prediction. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: predict-choice-flight-offers
+          description: Amadeus Predict the Choice of Flight Offers.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: flight-choice-prediction-flight-choice-prediction.getFlightChoicePredict
+          with:
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

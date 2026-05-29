@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-create-orders-general-remark-structure.json",
+  "title": "GeneralRemark",
+  "description": "GeneralRemark structure from Flight Create Orders",
+  "type": "object",
+  "properties": {
+    "subType": {
+      "type": "string",
+      "description": "general remark type"
+    },
+    "category": {
+      "type": "string",
+      "description": "remark category"
+    },
+    "text": {
+      "type": "string",
+      "description": "remark free text"
+    },
+    "travelerIds": {
+      "type": "array",
+      "description": "Id of the concerned traveler"
+    },
+    "flightOfferIds": {
+      "type": "array",
+      "description": "Id of the concern flightOffers"
+    }
+  },
+  "required": [
+    "subType",
+    "text"
+  ]
+}

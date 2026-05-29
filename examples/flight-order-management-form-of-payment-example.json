@@ -1,0 +1,19 @@
+{
+  "b2bWallet": {
+    "cardId": "1245365895336",
+    "cardUsageName": "Sample Name",
+    "cardFriendlyName": "CB1",
+    "reportingData": [
+      {
+        "name": "reconcil1",
+        "value": "data1"
+      }
+    ],
+    "flightOfferIds": "1"
+  },
+  "creditCard": {},
+  "other": {
+    "method": "CASH",
+    "flightOfferIds": "1"
+  }
+}

@@ -1,8 +1,18 @@
 {
-  "currency": "example-currency",
-  "total": "example-total",
-  "base": "example-base",
-  "fees": [],
-  "taxes": [],
-  "refundableTaxes": "example-refundableTaxes"
+  "currency": "USD",
+  "total": "932.70",
+  "base": "632.70",
+  "fees": [
+    {
+      "amount": "332.70",
+      "type": "TICKETING"
+    }
+  ],
+  "taxes": [
+    {
+      "amount": "332.70",
+      "code": "MX"
+    }
+  ],
+  "refundableTaxes": "200.00"
 }

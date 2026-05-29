@@ -1,0 +1,25 @@
+{
+  "carrierRestrictions": {
+    "blacklistedInEUAllowed": true,
+    "excludedCarrierCodes": [
+      "string-value"
+    ],
+    "includedCarrierCodes": [
+      "string-value"
+    ]
+  },
+  "cabinRestrictions": [
+    {
+      "cabin": "PREMIUM_ECONOMY",
+      "originDestinationIds": [
+        1,
+        2
+      ]
+    }
+  ],
+  "connectionRestriction": {
+    "maxNumberOfConnections": 2,
+    "airportChangeAllowed": false,
+    "technicalStopsAllowed": true
+  }
+}

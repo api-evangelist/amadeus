@@ -1,14 +1,12 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Error_404",
-  "type": "record",
-  "fields": [
-    {
-      "name": "errors",
-      "type": "array",
-      "items": {
-        "type": "object"
-      }
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-list-error-404-structure.json",
+  "title": "Error_404",
+  "description": "A set of errors",
+  "type": "object",
+  "properties": {
+    "errors": {
+      "type": "array"
     }
-  ]
+  }
 }

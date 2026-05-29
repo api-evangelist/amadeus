@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-book-stop-over-structure.json",
+  "title": "StopOver",
+  "description": "Location of the stop over or the several stop over points. It can be defined either using IATA code or Address (address line, zip, country, city, state, latitude, longitude). Vehicle change via stop overs is not supported.",
+  "type": "object",
+  "properties": {
+    "duration": {
+      "type": "string",
+      "description": "transfer stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M."
+    },
+    "sequenceNumber": {
+      "type": "number",
+      "description": "sequence number of the stop e.g. 3"
+    },
+    "location": {
+      "type": "object",
+      "description": "location information"
+    }
+  }
+}

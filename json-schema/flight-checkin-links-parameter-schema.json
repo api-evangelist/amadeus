@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-checkin-links-parameter-schema.json",
+  "title": "Parameter",
+  "description": "Parameter schema from Flight Check-in Links",
+  "properties": {
+    "description": {
+      "description": "parameter descriptive information",
+      "type": "string",
+      "example": "Passenger last name"
+    },
+    "type": {
+      "description": "type of the parameter",
+      "type": "string",
+      "example": "string"
+    },
+    "format": {
+      "description": "format of the parameter",
+      "type": "string",
+      "example": "([a-zA-Z]|[0-9]){6}"
+    }
+  },
+  "required": [
+    "type"
+  ],
+  "type": "object"
+}

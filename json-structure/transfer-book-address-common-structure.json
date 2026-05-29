@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-book-address-common-structure.json",
+  "title": "AddressCommon",
+  "description": "address of the departure location",
+  "type": "object",
+  "properties": {
+    "line": {
+      "type": "string",
+      "description": "Address line with street, number, bulding, etc..."
+    },
+    "zip": {
+      "type": "string",
+      "description": "Post office code number"
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "Country code (two character standard IATA country code)"
+    },
+    "cityName": {
+      "type": "string",
+      "description": "City, town or postal station"
+    },
+    "stateCode": {
+      "type": "string",
+      "description": "State code (two character standard IATA state code)"
+    }
+  }
+}

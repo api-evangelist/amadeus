@@ -1,0 +1,20 @@
+{
+  "address": {
+    "line": "string-value",
+    "zip": "string-value",
+    "countryCode": "FR",
+    "cityName": "Paris",
+    "stateCode": "string-value"
+  },
+  "info": {
+    "AU": "Accounting Unit",
+    "ON": "Order Number",
+    "DC": "Department Code",
+    "CC": "Company Code",
+    "CN": "Company Name",
+    "IA": "Internal Account",
+    "CE": "Cost Centre",
+    "EN": "Employee Number",
+    "PN": "Project Number"
+  }
+}

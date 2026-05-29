@@ -1,3 +1,9 @@
 {
-  "errors": []
+  "errors": [
+    {
+      "status": 500,
+      "code": 141,
+      "title": "SYSTEM ERROR HAS OCCURRED"
+    }
+  ]
 }

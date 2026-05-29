@@ -1,0 +1,444 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-choice-prediction-flight-offer-schema.json",
+  "title": "FlightOffer",
+  "description": "FlightOffer schema from Flight Choice Prediction",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name",
+      "example": "flight-offer"
+    },
+    "id": {
+      "description": "Id of the flight offer",
+      "type": "string",
+      "example": "1"
+    },
+    "choiceProbability": {
+      "type": "string",
+      "description": "the choice probability of this Flight Offer. The value is between 1 (100% chance the FlightOffer will be selected) and 0 (no change the FlightOffer will be selected)",
+      "example": "0.42"
+    },
+    "source": {
+      "description": "source of the flight offer",
+      "type": "string",
+      "enum": [
+        "GDS",
+        "PYTON"
+      ],
+      "example": "GDS"
+    },
+    "instantTicketingRequired": {
+      "description": "If true, inform that a ticketing will be required at booking step.",
+      "type": "boolean",
+      "example": false
+    },
+    "disablePricing": {
+      "description": "BOOK step ONLY - If true, allows to book a PNR without pricing. Only for the source \"GDS\"",
+      "type": "boolean",
+      "example": false
+    },
+    "nonHomogeneous": {
+      "description": "If true, upon completion of the booking, this pricing solution is expected to yield multiple records (a record contains booking information confirmed and stored, typically a Passenger Name Record (PNR), in the provider GDS or system)",
+      "type": "boolean",
+      "example": false
+    },
+    "oneWay": {
+      "description": "If true, the flight offer fulfills only one originDestination and has to be combined with other oneWays to complete the whole journey.",
+      "type": "boolean",
+      "example": false
+    },
+    "paymentCardRequired": {
+      "description": "If true, a payment card is mandatory to book this flight offer",
+      "type": "boolean",
+      "example": false
+    },
+    "lastTicketingDate": {
+      "description": "If booked on the same day as the search (with respect to timezone), this flight offer is guaranteed to be thereafter valid for ticketing until this date (included). Unspecified when it does not make sense for this flight offer (e.g. no control over ticketing once booked). YYYY-MM-DD format, e.g. 2019-06-07",
+      "type": "string",
+      "example": "2018-06-19T00:00:00.000Z"
+    },
+    "numberOfBookableSeats": {
+      "description": "Number of seats bookable in a single request. Can not be higher than 9.",
+      "type": "number",
+      "example": 9,
+      "minimum": 1,
+      "maximum": 9
+    },
+    "itineraries": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 250,
+      "items": {
+        "title": "Itineraries",
+        "type": "object",
+        "properties": {
+          "duration": {
+            "description": "duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m",
+            "type": "string",
+            "example": "PT2H10M"
+          },
+          "segments": {
+            "title": "Segments",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 9,
+            "items": {
+              "$ref": "#/definitions/Segment"
+            }
+          }
+        },
+        "required": [
+          "segments"
+        ]
+      }
+    },
+    "price": {
+      "type": "object",
+      "title": "Price",
+      "description": "price information",
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "margin": {
+              "description": "BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated.",
+              "type": "string",
+              "example": "1.00"
+            },
+            "grandTotal": {
+              "description": "Total amount paid by the user (including fees and selected additional services).",
+              "type": "string",
+              "example": "987.00"
+            },
+            "billingCurrency": {
+              "description": "Currency of the payment. It may be different than the requested currency",
+              "type": "string",
+              "example": "EUR"
+            },
+            "additionalServices": {
+              "type": "array",
+              "title": "AdditionalServices",
+              "items": {
+                "title": "AdditionalService",
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "string",
+                    "example": "332.70"
+                  },
+                  "type": {
+                    "$ref": "#/definitions/AdditionalServiceType"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "currency": {
+              "type": "string",
+              "example": "USD"
+            },
+            "total": {
+              "description": "Total amount paid by the user",
+              "type": "string",
+              "example": "932.70"
+            },
+            "base": {
+              "description": "Amount without taxes",
+              "type": "string",
+              "example": "632.70"
+            },
+            "fees": {
+              "description": "List of applicable fees",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Fee"
+              }
+            },
+            "taxes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tax"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "pricingOptions": {
+      "title": "PricingOptions",
+      "type": "object",
+      "properties": {
+        "fareType": {
+          "type": "array",
+          "description": "type of fare of the flight-offer",
+          "items": {
+            "type": "string",
+            "enum": [
+              "PUBLISHED",
+              "NEGOTIATED",
+              "CORPORATE"
+            ]
+          },
+          "example": [
+            "PUBLISHED"
+          ]
+        },
+        "corporateCodes": {
+          "type": "array",
+          "description": "Allow Corporate negotiated fares using one or more corporate number (corporate code).",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "123456"
+          ]
+        },
+        "includedCheckedBagsOnly": {
+          "type": "boolean",
+          "description": "If true, returns the flight-offers with included checked bags only",
+          "example": true
+        },
+        "refundableFare": {
+          "type": "boolean",
+          "description": "If true, returns the flight-offers with refundable fares only",
+          "example": true
+        },
+        "noRestrictionFare": {
+          "type": "boolean",
+          "description": "If true, returns the flight-offers with no restriction fares only",
+          "example": true
+        },
+        "noPenaltyFare": {
+          "type": "boolean",
+          "description": "If true, returns the flight-offers with no penalty fares only",
+          "example": true
+        }
+      }
+    },
+    "validatingAirlineCodes": {
+      "description": "This option ensures that the system will only consider these airlines.",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 9,
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "AF"
+      ]
+    },
+    "travelerPricings": {
+      "title": "TravelerPricings",
+      "description": "Fare information for each traveler/segment",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 18,
+      "items": {
+        "title": "TravelerPricing",
+        "required": [
+          "travelerId",
+          "fareOption",
+          "travelerType",
+          "fareDetailsBySegment"
+        ],
+        "properties": {
+          "travelerId": {
+            "type": "string",
+            "example": "1",
+            "description": "Id of the traveler"
+          },
+          "fareOption": {
+            "description": "option specifying a group of fares, which may be valid under certain conditons\nCan be used to specify special fare discount for a passenger\n",
+            "type": "string",
+            "enum": [
+              "STANDARD",
+              "INCLUSIVE_TOUR",
+              "SPANISH_MELILLA_RESIDENT",
+              "SPANISH_CEUTA_RESIDENT",
+              "SPANISH_CANARY_RESIDENT",
+              "SPANISH_BALEARIC_RESIDENT",
+              "AIR_FRANCE_METROPOLITAN_DISCOUNT_PASS",
+              "AIR_FRANCE_DOM_DISCOUNT_PASS",
+              "AIR_FRANCE_COMBINED_DISCOUNT_PASS",
+              "AIR_FRANCE_FAMILY",
+              "ADULT_WITH_COMPANION",
+              "COMPANION"
+            ],
+            "example": "STANDARD"
+          },
+          "travelerType": {
+            "type": "string",
+            "description": "traveler type\nage restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y\n",
+            "enum": [
+              "ADULT",
+              "CHILD",
+              "SENIOR",
+              "YOUNG",
+              "HELD_INFANT",
+              "SEATED_INFANT",
+              "STUDENT"
+            ],
+            "example": "ADULT"
+          },
+          "associatedAdultId": {
+            "type": "string",
+            "description": "if type=\"HELD_INFANT\", corresponds to the adult traveler's id who will share the seat",
+            "example": "12345"
+          },
+          "price": {
+            "properties": {
+              "currency": {
+                "type": "string",
+                "example": "USD"
+              },
+              "total": {
+                "description": "Total amount paid by the user",
+                "type": "string",
+                "example": "932.70"
+              },
+              "base": {
+                "description": "Amount without taxes",
+                "type": "string",
+                "example": "632.70"
+              },
+              "fees": {
+                "description": "List of applicable fees",
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Fee"
+                }
+              },
+              "taxes": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Tax"
+                }
+              }
+            }
+          },
+          "fareDetailsBySegment": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 18,
+            "items": {
+              "title": "FareDetailsBySegment",
+              "description": "Fare details of the segment",
+              "required": [
+                "segmentId"
+              ],
+              "properties": {
+                "segmentId": {
+                  "type": "string",
+                  "example": "1",
+                  "description": "Id of the segment"
+                },
+                "cabin": {
+                  "$ref": "#/definitions/TravelClass"
+                },
+                "fareBasis": {
+                  "description": "Fare basis specifying the rules of a fare. Usually, though not always, is composed of the booking class code followed by a set of letters and digits representing other characteristics of the ticket, such as refundability, minimum stay requirements, discounts or special promotional elements.",
+                  "type": "string",
+                  "example": "ANNNNF4K",
+                  "pattern": "[[A-Z0-9]{1,18}"
+                },
+                "brandedFare": {
+                  "description": "The name of the Fare Family corresponding to the fares. Only for the GDS provider and if the airline has fare families filled",
+                  "type": "string",
+                  "example": "LIGHTONE"
+                },
+                "class": {
+                  "description": "The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)",
+                  "type": "string",
+                  "example": "A",
+                  "pattern": "[A-Z]{1}"
+                },
+                "isAllotment": {
+                  "description": "True if the corresponding booking class is in an allotment",
+                  "type": "boolean",
+                  "example": true
+                },
+                "allotmentDetails": {
+                  "title": "AllotmentDetails",
+                  "type": "object",
+                  "properties": {
+                    "tourName": {
+                      "type": "string",
+                      "example": "Sample Name"
+                    },
+                    "tourReference": {
+                      "type": "string",
+                      "example": "string-value"
+                    }
+                  }
+                },
+                "sliceDiceIndicator": {
+                  "$ref": "#/definitions/SliceDiceIndicator"
+                },
+                "includedCheckedBags": {
+                  "title": "includedCheckedBags",
+                  "$ref": "#/definitions/BaggageAllowance",
+                  "description": "Details of the included checked bags"
+                },
+                "additionalServices": {
+                  "type": "object",
+                  "title": "AdditionalServicesRequest",
+                  "properties": {
+                    "chargeableCheckedBags": {
+                      "title": "chargeableCheckedBags",
+                      "$ref": "#/definitions/BaggageAllowance",
+                      "description": "Details of chargeable checked bags"
+                    },
+                    "chargeableSeatNumber": {
+                      "type": "string",
+                      "description": "seat number",
+                      "example": "33D",
+                      "pattern": "[1-9][0-9]{0,2}[A-Z]?"
+                    },
+                    "otherServices": {
+                      "type": "array",
+                      "description": "Other services to add",
+                      "items": {
+                        "$ref": "#/definitions/ServiceName"
+                      },
+                      "example": [
+                        "PRIORITY_BOARDING"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "fareRules": {
+      "type": "object",
+      "title": "FareRules",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "description": "The currency of the penalties",
+          "example": "EUR"
+        },
+        "rules": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/TermAndCondition"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "source"
+  ]
+}

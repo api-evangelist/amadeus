@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-search-extended-pricing-options-structure.json",
+  "title": "ExtendedPricingOptions",
+  "description": "fare filter options",
+  "type": "object",
+  "properties": {
+    "includedCheckedBagsOnly": {
+      "type": "boolean",
+      "description": "If true, returns the flight-offers with included checked bags only"
+    },
+    "refundableFare": {
+      "type": "boolean",
+      "description": "If true, returns the flight-offers with refundable fares only"
+    },
+    "noRestrictionFare": {
+      "type": "boolean",
+      "description": "If true, returns the flight-offers with no restriction fares only"
+    },
+    "noPenaltyFare": {
+      "type": "boolean",
+      "description": "If true, returns the flight-offers with no penalty fares only"
+    }
+  }
+}

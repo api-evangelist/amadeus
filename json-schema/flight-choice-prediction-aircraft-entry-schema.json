@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-choice-prediction-aircraft-entry-schema.json",
+  "title": "AircraftEntry",
+  "description": "AircraftEntry schema from Flight Choice Prediction",
+  "additionalProperties": {
+    "description": "the manufacturer/model of aircraft",
+    "type": "string"
+  }
+}

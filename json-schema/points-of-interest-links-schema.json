@@ -1,11 +1,13 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/points-of-interest-links-schema.json",
   "title": "Links",
-  "type": "object",
+  "description": "Links schema from Points of Interest",
   "properties": {
     "href": {
       "type": "string",
-      "format": "uri"
+      "format": "uri",
+      "example": "https://example.com/resource"
     },
     "methods": {
       "type": "array",
@@ -20,5 +22,9 @@
         ]
       }
     }
-  }
+  },
+  "example": {
+    "href": "string"
+  },
+  "type": "object"
 }

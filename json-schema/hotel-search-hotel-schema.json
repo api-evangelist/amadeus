@@ -1,32 +1,43 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-hotel-schema.json",
   "title": "Hotel",
   "description": "Hotel Content",
   "type": "object",
   "properties": {
     "hotelId": {
+      "description": "Amadeus Property Code (8 chars)",
+      "example": "ADPAR001",
       "type": "string",
-      "description": "Amadeus Property Code (8 chars)"
+      "pattern": "^[A-Z0-9]{8}$"
     },
     "chainCode": {
+      "description": "Brand (RT...) or Merchant (AD...) (Amadeus 2 chars Code)",
+      "example": "AD",
       "type": "string",
-      "description": "Brand (RT...) or Merchant (AD...) (Amadeus 2 chars Code)"
+      "pattern": "^[A-Z]{2}$"
     },
     "brandCode": {
+      "description": "Brand (RT...) (Amadeus 2 chars Code). Small Properties distributed by Merchants may not have a Brand.\nExample - AD (Value Hotels) is the Provider/Merchant, and RT (Accor) is the Brand of the Property",
+      "example": "RT",
       "type": "string",
-      "description": "Brand (RT...) (Amadeus 2 chars Code). Small Properties distributed by Merchants may not have a Brand.\nExample - AD (Value Hotels) is the Provider/Merchant, and RT (Accor) is the Brand of the Property"
+      "pattern": "^[A-Z]{2}$"
     },
     "dupeId": {
-      "type": "string",
-      "description": "Unique Property identifier of the physical hotel.\nOne physical hotel can be represented by different Providers, each one having its own `hotelID`.\nThis attribute allows a client application to group together hotels that are actually the same."
+      "description": "Unique Property identifier of the physical hotel.\nOne physical hotel can be represented by different Providers, each one having its own `hotelID`.\nThis attribute allows a client application to group together hotels that are actually the same.",
+      "example": "501132260",
+      "type": "string"
     },
     "name": {
-      "type": "string",
-      "description": "Hotel Name"
+      "description": "Hotel Name",
+      "example": "Hotel de Paris",
+      "type": "string"
     },
     "cityCode": {
+      "description": "Warning: The IATA city code associated to the hotel (not necessary the real Hotel City)",
+      "example": "PAR",
       "type": "string",
-      "description": "Warning: The IATA city code associated to the hotel (not necessary the real Hotel City)"
+      "pattern": "^[A-Z]{3}$"
     }
   }
 }

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-ratings-collection-links-schema.json",
+  "title": "CollectionLinks",
+  "description": "CollectionLinks schema from Hotel Ratings",
+  "properties": {
+    "self": {
+      "type": "string",
+      "format": "uri",
+      "example": "https://test.api.amadeus.com/v1/area/resources?..."
+    },
+    "next": {
+      "type": "string",
+      "format": "uri",
+      "example": "https://test.api.amadeus.com/v1/area/resources?..."
+    },
+    "previous": {
+      "type": "string",
+      "format": "uri",
+      "example": "https://test.api.amadeus.com/v1/area/resources?..."
+    },
+    "last": {
+      "type": "string",
+      "format": "uri",
+      "example": "https://test.api.amadeus.com/v1/area/resources?..."
+    },
+    "first": {
+      "type": "string",
+      "format": "uri",
+      "example": "https://test.api.amadeus.com/v1/area/resources?..."
+    },
+    "up": {
+      "type": "string",
+      "format": "uri",
+      "example": "https://test.api.amadeus.com/v1/area/resources?..."
+    }
+  },
+  "example": {
+    "self": "https://test.api.amadeus.com/v1/area/resources?param=value"
+  },
+  "type": "object"
+}

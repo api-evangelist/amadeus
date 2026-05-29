@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-availabilities-search-tour-allotment-schema.json",
+  "title": "TourAllotment",
+  "description": "TourAllotment schema from Flight Availibilities Search",
+  "allOf": [
+    {
+      "title": "AllotmentDetails",
+      "type": "object",
+      "properties": {
+        "tourName": {
+          "description": "The tour name agreed for this specific allotment.",
+          "type": "string",
+          "example": "Sample Name"
+        },
+        "tourReference": {
+          "description": "The tour reference agreed for this specific allotment.",
+          "type": "string",
+          "example": "string-value"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "description": "How the allotment can be booked by the Travel Agency.",
+          "type": "string",
+          "enum": [
+            "FREE",
+            "FORCED"
+          ],
+          "example": "FREE"
+        },
+        "remainingSeats": {
+          "description": "Number of remaining seats in the allotment.",
+          "type": "number",
+          "example": 9
+        }
+      }
+    }
+  ]
+}

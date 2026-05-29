@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-booking-v1-hotel-booking-light-schema.json",
+  "title": "HotelBookingLight",
+  "description": "Booking Details",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Response Type",
+      "example": "hotel-booking"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9_]*$",
+      "minLength": 5,
+      "maxLength": 19,
+      "description": "Booking Id",
+      "example": "XD_8138319951754"
+    },
+    "providerConfirmationId": {
+      "type": "string",
+      "pattern": "^[A-Z0-9_]*$",
+      "minLength": 2,
+      "maxLength": 16,
+      "description": "GDS Confirmation Number. If you call the Provider, this Reference may be asked",
+      "example": "8138319951754"
+    },
+    "associatedRecords": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "type": "object",
+        "description": "Associated Record (Flight Booking Record)",
+        "required": [
+          "reference",
+          "originSystemCode"
+        ],
+        "properties": {
+          "reference": {
+            "type": "string",
+            "pattern": "^[A-Z0-9]{6}$",
+            "description": "Amadeus GDS Record",
+            "minLength": 6,
+            "maxLength": 6,
+            "example": "QVH2BX"
+          },
+          "originSystemCode": {
+            "type": "string",
+            "example": "GDS",
+            "enum": [
+              "GDS"
+            ],
+            "description": "* GDS: Associated Amadeus GDS Flight Booking PNR Record"
+          }
+        }
+      }
+    },
+    "self": {
+      "type": "string",
+      "format": "uri",
+      "description": "Retrieve Booking Details",
+      "example": "https://test.api.amadeus.com/v1/booking/hotel-bookings/XD_8138319951754"
+    }
+  },
+  "required": [
+    "type",
+    "id",
+    "providerConfirmationId"
+  ]
+}

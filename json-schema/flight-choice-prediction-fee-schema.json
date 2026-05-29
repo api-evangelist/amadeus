@@ -1,14 +1,23 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-choice-prediction-fee-schema.json",
   "title": "Fee",
   "description": "a fee",
-  "type": "object",
   "properties": {
     "amount": {
-      "type": "string"
+      "type": "string",
+      "example": "332.70"
     },
     "type": {
-      "$ref": "#/definitions/FeeType"
+      "type": "string",
+      "description": "type of fee",
+      "enum": [
+        "TICKETING",
+        "FORM_OF_PAYMENT",
+        "SUPPLIER"
+      ],
+      "example": "TICKETING"
     }
-  }
+  },
+  "type": "object"
 }

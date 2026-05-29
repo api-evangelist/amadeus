@@ -1,11 +1,12 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-search-vehicle-schema.json",
   "title": "Vehicle",
+  "description": "Vehicle schema from Transfer Search",
   "type": "object",
   "properties": {
     "code": {
       "type": "string",
-      "description": "vehicle type, which can take following values\n\nvalue           | description\n--  | \nCAR             | Car\nSED             | Sedan\nWGN             | Wagon\nELC             | Electric car\nVAN             | Van or minivan\nSUV             | Sport utility vehicle\nLMS             | Limousine\nMBR             | Motorbike\nTRN             | Train\nBUS             | Bus\nHLC             | Helicopter (accessible only for private jet transfer)\nJET             | Jet (accessible only for private jet transfer)\n",
       "enum": [
         "CAR",
         "SED",
@@ -16,39 +17,76 @@
         "LMS",
         "MBR",
         "TRN",
-        "BUS",
-        "HLC",
-        "JET"
-      ]
+        "BUS"
+      ],
+      "description": "vehicle type, which can take following values\n\nvalue           | description\n--------------  | ------------------------\nCAR             | Car\nSED             | Sedan\nWGN             | Wagon\nELC             | Electric car\nVAN             | Van or minivan\nSUV             | Sport utility vehicle\nLMS             | Limousine\nMBR             | Motorbike\nTRN             | Train\nBUS             | Bus\n",
+      "example": "CAR"
     },
     "category": {
       "type": "string",
-      "description": "category of the vehicle, which can take following values\n\nvalue           | description\n--  | \nST              | Standard\nBU              | Business\nFC              | First class\n",
       "enum": [
         "ST",
         "BU",
         "FC"
-      ]
+      ],
+      "description": "category of the vehicle, which can take following values\n\nvalue           | description\n--------------  | ------------------------\nST              | Standard\nBU              | Business\nFC              | First class\n",
+      "example": "ST"
     },
     "description": {
       "type": "string",
-      "description": "description of the vehicle. Can describe a list of potential vehicles, e.g. VW Polo or similar"
+      "description": "description of the vehicle. Can describe a list of potential vehicles, e.g. VW Polo or similar",
+      "example": "Sample description text."
     },
     "seats": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Seat"
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "seat capacity",
+            "example": 3
+          },
+          "row": {
+            "type": "string",
+            "description": "seat row",
+            "example": "front"
+          },
+          "size": {
+            "type": "string",
+            "description": "seat size",
+            "example": "XL"
+          }
+        }
       }
     },
     "baggages": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/Baggage"
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "baggage capacity",
+            "example": 3
+          },
+          "size": {
+            "type": "string",
+            "description": "baggage size\n\ncode   | name                                 \n------ | ---------------------------- \nS \t   | Small\nM \t   | Medium\nL \t   | Large\n",
+            "enum": [
+              "S",
+              "M",
+              "L"
+            ],
+            "example": "S"
+          }
+        }
       }
     },
     "imageURL": {
       "type": "string",
-      "description": "URL to vehicle image"
+      "description": "URL to vehicle image",
+      "example": "https://example.com/resource"
     }
   },
   "required": [

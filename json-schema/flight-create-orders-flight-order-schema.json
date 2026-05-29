@@ -1,0 +1,737 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-create-orders-flight-order-schema.json",
+  "title": "FlightOrder",
+  "description": "input parameter to create a flight order",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "the resource name",
+      "type": "string",
+      "example": "flight-order"
+    },
+    "id": {
+      "description": "unique identifier of the flight order",
+      "type": "string",
+      "example": "MlpZVkFMfFdBVFNPTnwyMDE1LTExLTAy",
+      "readOnly": true
+    },
+    "queuingOfficeId": {
+      "description": "office Id where to queue the order",
+      "type": "string",
+      "example": "NCE1A0955"
+    },
+    "ownerOfficeId": {
+      "description": "office Id where will be transfered the ownership of the order",
+      "type": "string",
+      "example": "NCE1A0955"
+    },
+    "associatedRecords": {
+      "description": "list of associated record",
+      "type": "array",
+      "readOnly": true,
+      "items": {
+        "title": "associated record",
+        "description": "record associated to the order",
+        "allOf": [
+          {
+            "type": "object",
+            "description": "describes the relation between the current reservation and another one",
+            "properties": {
+              "reference": {
+                "type": "string",
+                "description": "Record locator [Amadeus or OA] with which the current reservation is related. In case of a codeshare relation, it enables to identify the operating PNR.",
+                "example": "string-value"
+              },
+              "creationDate": {
+                "type": "string",
+                "description": "Creation date of the referenced reservation. Date and time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss.sss format, e.g. 2019-07-09T12:30:00.000",
+                "example": "2019-07-09T12:30:00.000"
+              },
+              "originSystemCode": {
+                "type": "string",
+                "description": "Designates the system which has originated the referenced reservation.",
+                "minLength": 2,
+                "maxLength": 3,
+                "example": "string-value"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "flightOfferId": {
+                "type": "string",
+                "description": "id of the impacted flight offer",
+                "example": "1"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "flightOffers": {
+      "description": "list of flight offer",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "items": {
+        "title": "Flight-offer",
+        "type": "object",
+        "required": [
+          "type",
+          "id"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "the resource name",
+            "example": "flight-offer"
+          },
+          "id": {
+            "description": "Id of the flight offer",
+            "type": "string",
+            "example": "1"
+          },
+          "source": {
+            "$ref": "#/definitions/FlightOfferSource"
+          },
+          "instantTicketingRequired": {
+            "description": "If true, inform that a ticketing will be required at booking step.",
+            "type": "boolean",
+            "example": false
+          },
+          "disablePricing": {
+            "description": "BOOK step ONLY - If true, allows to book a PNR without pricing. Only for the source \"GDS\"",
+            "type": "boolean",
+            "example": false
+          },
+          "nonHomogeneous": {
+            "description": "If true, upon completion of the booking, this pricing solution is expected to yield multiple records (a record contains booking information confirmed and stored, typically a Passenger Name Record (PNR), in the provider GDS or system)",
+            "type": "boolean",
+            "example": false
+          },
+          "oneWay": {
+            "description": "If true, the flight offer can be combined with other oneWays flight-offers to complete the whole journey (one-Way combinable feature).",
+            "type": "boolean",
+            "example": false
+          },
+          "paymentCardRequired": {
+            "description": "If true, a payment card is mandatory to book this flight offer",
+            "type": "boolean",
+            "example": false
+          },
+          "lastTicketingDate": {
+            "description": "If booked on the same day as the search (with respect to timezone), this flight offer is guaranteed to be thereafter valid for ticketing until this date (included). Unspecified when it does not make sense for this flight offer (e.g. no control over ticketing once booked). YYYY-MM-DD format, e.g. 2019-06-07",
+            "type": "string",
+            "example": "2018-06-19"
+          },
+          "lastTicketingDateTime": {
+            "description": "If booked on the same day as the search (with respect to timezone), this flight offer is guaranteed to be thereafter valid for ticketing until this date/time (included). Unspecified when it does not make sense for this flight offer (e.g. no control over ticketing once booked). Information only this attribute is not used in input of pricing request. Local date and time in YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00",
+            "type": "string",
+            "format": "date-time",
+            "example": "2018-06-19T15:00:00"
+          },
+          "numberOfBookableSeats": {
+            "description": "Number of seats bookable in a single request. Can not be higher than 9.",
+            "type": "number",
+            "example": 9,
+            "minimum": 1,
+            "maximum": 9
+          },
+          "itineraries": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 250,
+            "items": {
+              "title": "Itineraries",
+              "type": "object",
+              "properties": {
+                "duration": {
+                  "description": "duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m",
+                  "type": "string",
+                  "example": "PT2H10M"
+                },
+                "segments": {
+                  "title": "Segments",
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 9,
+                  "items": {
+                    "$ref": "#/definitions/Segment"
+                  }
+                }
+              },
+              "required": [
+                "segments"
+              ]
+            }
+          },
+          "price": {
+            "$ref": "#/definitions/Extended_Price"
+          },
+          "pricingOptions": {
+            "title": "PricingOptions",
+            "type": "object",
+            "properties": {
+              "fareType": {
+                "description": "type of fare of the flight-offer",
+                "$ref": "#/definitions/PricingOptionsFareType"
+              },
+              "includedCheckedBagsOnly": {
+                "type": "boolean",
+                "description": "If true, returns the flight-offers with included checked bags only",
+                "example": true
+              },
+              "refundableFare": {
+                "type": "boolean",
+                "description": "If true, returns the flight-offers with refundable fares only",
+                "example": true
+              },
+              "noRestrictionFare": {
+                "type": "boolean",
+                "description": "If true, returns the flight-offers with no restriction fares only",
+                "example": true
+              },
+              "noPenaltyFare": {
+                "type": "boolean",
+                "description": "If true, returns the flight-offers with no penalty fares only",
+                "example": true
+              }
+            }
+          },
+          "validatingAirlineCodes": {
+            "description": "This option ensures that the system will only consider offers with these airlines as validating carrier.",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 9,
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "AF"
+            ]
+          },
+          "travelerPricings": {
+            "title": "TravelerPricings",
+            "description": "Fare information for each traveler/segment",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 18,
+            "items": {
+              "title": "TravelerPricing",
+              "required": [
+                "travelerId",
+                "fareOption",
+                "travelerType",
+                "fareDetailsBySegment"
+              ],
+              "properties": {
+                "travelerId": {
+                  "type": "string",
+                  "example": "1",
+                  "description": "Id of the traveler"
+                },
+                "fareOption": {
+                  "$ref": "#/definitions/TravelerPricingFareOption"
+                },
+                "travelerType": {
+                  "$ref": "#/definitions/TravelerType"
+                },
+                "associatedAdultId": {
+                  "type": "string",
+                  "description": "if type=\"HELD_INFANT\", corresponds to the adult traveler's id who will share the seat",
+                  "example": "12345"
+                },
+                "price": {
+                  "description": "price detail of the traveler",
+                  "$ref": "#/definitions/Price"
+                },
+                "fareDetailsBySegment": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 18,
+                  "items": {
+                    "title": "FareDetailsBySegment",
+                    "description": "Fare details of the segment",
+                    "required": [
+                      "segmentId"
+                    ],
+                    "properties": {
+                      "segmentId": {
+                        "type": "string",
+                        "example": "1",
+                        "description": "Id of the segment"
+                      },
+                      "cabin": {
+                        "$ref": "#/definitions/TravelClass"
+                      },
+                      "fareBasis": {
+                        "description": "Fare basis specifying the rules of a fare. Usually, though not always, is composed of the booking class code followed by a set of letters and digits representing other characteristics of the ticket, such as refundability, minimum stay requirements, discounts or special promotional elements.",
+                        "type": "string",
+                        "example": "ANNNNF4K",
+                        "pattern": "[[A-Z0-9]{1,18}"
+                      },
+                      "brandedFare": {
+                        "description": "The name of the Fare Family corresponding to the fares. Only for the GDS provider and if the airline has fare families filled",
+                        "type": "string",
+                        "example": "LIGHTONE"
+                      },
+                      "class": {
+                        "description": "The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)",
+                        "type": "string",
+                        "example": "A",
+                        "pattern": "[A-Z]{1}"
+                      },
+                      "isAllotment": {
+                        "description": "True if the corresponding booking class is in an allotment",
+                        "type": "boolean",
+                        "example": true
+                      },
+                      "allotmentDetails": {
+                        "$ref": "#/definitions/AllotmentDetails"
+                      },
+                      "sliceDiceIndicator": {
+                        "$ref": "#/definitions/SliceDiceIndicator"
+                      },
+                      "includedCheckedBags": {
+                        "title": "includedCheckedBags",
+                        "$ref": "#/definitions/BaggageAllowance",
+                        "description": "Details of the included checked bags"
+                      },
+                      "additionalServices": {
+                        "type": "object",
+                        "title": "AdditionalServicesRequest",
+                        "properties": {
+                          "chargeableCheckedBags": {
+                            "title": "chargeableCheckedBags",
+                            "description": "Details of chargeable checked bags",
+                            "$ref": "#/definitions/ChargeableCheckdBags"
+                          },
+                          "chargeableSeat": {
+                            "title": "chargeableSeat",
+                            "description": "Details of chargeable seat",
+                            "$ref": "#/definitions/ChargeableSeat"
+                          },
+                          "chargeableSeatNumber": {
+                            "type": "string",
+                            "description": "DEPRECATED - use the chargeableSeat attribute -  seat number",
+                            "example": "33D",
+                            "pattern": "[1-9][0-9]{0,2}[A-Z]?"
+                          },
+                          "otherServices": {
+                            "type": "array",
+                            "description": "Other services to add",
+                            "items": {
+                              "$ref": "#/definitions/ServiceName"
+                            },
+                            "example": [
+                              "PRIORITY_BOARDING"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "travelers": {
+      "description": "list of travelers",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 18,
+      "items": {
+        "title": "traveler element",
+        "description": "the traveler of the trip",
+        "allOf": [
+          {
+            "type": "object",
+            "description": "stakeholder definition",
+            "properties": {
+              "id": {
+                "description": "item identifier",
+                "type": "string",
+                "example": "12345"
+              },
+              "dateOfBirth": {
+                "type": "string",
+                "format": "date",
+                "description": "The date of birth in ISO 8601 format (yyyy-mm-dd)",
+                "example": "2026-08-15"
+              },
+              "gender": {
+                "$ref": "#/definitions/StakeholderGender"
+              },
+              "name": {
+                "$ref": "#/definitions/Name"
+              },
+              "documents": {
+                "type": "array",
+                "description": "Advanced Passenger Information - regulatory identity documents - SSR DOCS & DOCO elements",
+                "items": {
+                  "$ref": "#/definitions/IdentityDocument"
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "emergencyContact": {
+                "description": "emergency contact",
+                "$ref": "#/definitions/EmergencyContact"
+              },
+              "loyaltyPrograms": {
+                "description": "list of loyalty program followed by the traveler",
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 10,
+                "items": {
+                  "$ref": "#/definitions/LoyaltyProgram"
+                }
+              },
+              "discountEligibility": {
+                "description": "list of element that allow a discount.",
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 10,
+                "items": {
+                  "$ref": "#/definitions/Discount"
+                }
+              },
+              "contact": {
+                "$ref": "#/definitions/Contact"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "remarks": {
+      "title": "Remarks",
+      "description": "remarks",
+      "type": "object",
+      "properties": {
+        "general": {
+          "description": "list of general remarks",
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 200,
+          "items": {
+            "$ref": "#/definitions/GeneralRemark"
+          }
+        },
+        "airline": {
+          "description": "list of airline remarks",
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 200,
+          "items": {
+            "$ref": "#/definitions/AirlineRemark"
+          }
+        }
+      }
+    },
+    "formOfPayments": {
+      "description": "list of form of payments",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "readOnly": true,
+      "items": {
+        "title": "Form Of Payment",
+        "description": "form of payment used",
+        "type": "object",
+        "properties": {
+          "b2bWallet": {
+            "description": "payment with the solution B2B Wallet",
+            "$ref": "#/definitions/B2bWallet"
+          },
+          "creditCard": {
+            "description": "payment with a credit card",
+            "$ref": "#/definitions/CreditCard"
+          },
+          "other": {
+            "description": "payment with an other method",
+            "$ref": "#/definitions/OtherMethod"
+          }
+        }
+      }
+    },
+    "ticketingAgreement": {
+      "title": "Ticketing Agreement",
+      "description": "ticketing agreement",
+      "type": "object",
+      "properties": {
+        "option": {
+          "description": "Ticketing agreement option\n* **CONFIRM**, when the payment is done\n* **DELAY_TO_QUEUE**, queue the reservation at a wished date if the payment is not done\n* **DELAY_TO_CANCEL**, cancel the reservation at a wished date if the payment is not done\n\nQueueing and cancellation occurs at local date and time. When no time is specified, reservation is queued or cancelled at 00:00.\n",
+          "type": "string",
+          "enum": [
+            "CONFIRM",
+            "DELAY_TO_QUEUE",
+            "DELAY_TO_CANCEL"
+          ],
+          "example": "DELAY_TO_QUEUE"
+        },
+        "delay": {
+          "description": "Delay before applying automatic process if no issuance in days",
+          "type": "string",
+          "example": "string-value"
+        },
+        "dateTime": {
+          "description": "Exact date to apply automatic process if no issuance. YYYY-MM-DD format, e.g. 2019-06-07",
+          "type": "string",
+          "readOnly": true,
+          "example": "2017-10-23"
+        },
+        "segmentIds": {
+          "description": "Ids of the impacted segments",
+          "type": "array",
+          "readOnly": true,
+          "items": {
+            "type": "string"
+          },
+          "example": "1"
+        }
+      }
+    },
+    "automatedProcess": {
+      "description": "list of automatic queuing",
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 31,
+      "items": {
+        "title": "Automated Process",
+        "description": "automatic process applied to the Order",
+        "allOf": [
+          {
+            "type": "object",
+            "description": "Provides information on ticketing arrangements and Amadeus Time Limits",
+            "properties": {
+              "code": {
+                "$ref": "#/definitions/AutomatedProcessCode"
+              },
+              "queue": {
+                "title": "Queue",
+                "type": "object",
+                "description": "Identifies the queue onto which PNR must be automatically placed upon process execution.",
+                "properties": {
+                  "number": {
+                    "type": "string",
+                    "example": 1
+                  },
+                  "category": {
+                    "type": "string",
+                    "example": "string-value"
+                  }
+                }
+              },
+              "text": {
+                "type": "string",
+                "description": "Free text",
+                "example": "string-value"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "delay": {
+                "description": "Delay before applying process in days",
+                "type": "string"
+              },
+              "officeId": {
+                "description": "Office into which the process must be triggered.",
+                "type": "string",
+                "example": "NCE1A0955"
+              },
+              "dateTime": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Datetime limit at which the process takes action in case issuance is not done."
+              }
+            }
+          }
+        ]
+      }
+    },
+    "contacts": {
+      "description": "list of general contact information",
+      "type": "array",
+      "items": {
+        "description": "contact information",
+        "allOf": [
+          {
+            "description": "represents a contact",
+            "type": "object",
+            "properties": {
+              "addresseeName": {
+                "description": "the name of the person addressed by these contact details",
+                "$ref": "#/definitions/Name"
+              },
+              "address": {
+                "$ref": "#/definitions/Address"
+              },
+              "language": {
+                "description": "the preferred language of communication with this Contact",
+                "type": "string",
+                "example": "EN"
+              },
+              "purpose": {
+                "$ref": "#/definitions/ContactPurpose"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "phones": {
+                "description": "Phone numbers",
+                "type": "array",
+                "maxItems": 3,
+                "items": {
+                  "$ref": "#/definitions/Phone"
+                }
+              },
+              "companyName": {
+                "description": "Name of the company",
+                "type": "string",
+                "example": "AMADEUS"
+              },
+              "emailAddress": {
+                "type": "string",
+                "description": "Email address (e.g. john@smith.com)",
+                "example": "support@mail.com"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "tickets": {
+      "description": "list of tickets",
+      "readOnly": true,
+      "type": "array",
+      "items": {
+        "title": "AirTravelDocument",
+        "description": "ticket information",
+        "allOf": [
+          {
+            "type": "object",
+            "properties": {
+              "documentType": {
+                "type": "string",
+                "description": "Type of the travel document",
+                "enum": [
+                  "ETICKET",
+                  "PTICKET",
+                  "EMD",
+                  "MCO"
+                ],
+                "example": "ETICKET"
+              },
+              "documentNumber": {
+                "type": "string",
+                "description": "Identifier of the travel document prefixed by its owner code [NALC - 3 digits]. Can either be a primary or a conjunctive document number. Necessary for TicketingReference definition.",
+                "example": 1
+              },
+              "documentStatus": {
+                "type": "string",
+                "description": "Status of the travel document contained in the fare element",
+                "enum": [
+                  "ISSUED",
+                  "REFUNDED",
+                  "VOID",
+                  "ORIGINAL",
+                  "EXCHANGED"
+                ],
+                "example": "ISSUED"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "travelerId": {
+                "type": "string",
+                "description": "id of the impacted traveler",
+                "example": "1"
+              },
+              "segmentIds": {
+                "description": "Ids of the impacted segments",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": "1"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "formOfIdentifications": {
+      "description": "list of forms of identifications applicable to travelers by airline",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "alternative means of identifying stakeholders for eTicket.",
+        "properties": {
+          "identificationType": {
+            "type": "string",
+            "description": "Type of identification",
+            "enum": [
+              "DRIVERS_LICENSE",
+              "PASSPORT",
+              "NATIONAL_IDENTITY_CARD",
+              "BOOKING_CONFIRMATION",
+              "TICKET",
+              "OTHER_ID"
+            ],
+            "example": "PASSPORT"
+          },
+          "carrierCode": {
+            "type": "string",
+            "description": "providing the airline / carrier code",
+            "minLength": 1,
+            "maxLength": 2,
+            "example": "DL"
+          },
+          "number": {
+            "type": "string",
+            "description": "identification number relative to the type of identification either ticket number, booking number, passport number, identity card number, drivers licence number, other ID",
+            "example": "XN0019390"
+          },
+          "travelerIds": {
+            "description": "Ids of the concerned travelers",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": "1"
+          },
+          "flightOfferIds": {
+            "description": "Id of the concerned flightOffers",
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 6,
+            "items": {
+              "type": "string"
+            },
+            "example": "1"
+          }
+        },
+        "title": "FormOfIdentification"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "flightOffers"
+  ]
+}

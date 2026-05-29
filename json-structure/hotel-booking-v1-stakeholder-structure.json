@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-booking-v1-stakeholder-structure.json",
+  "title": "Stakeholder",
+  "description": "Guest Details",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "item identifier"
+    },
+    "name": {
+      "type": "object",
+      "description": "Guest Name"
+    },
+    "contact": {
+      "type": "object",
+      "description": "Contact Details"
+    },
+    "hotelRewardsMember": {
+      "type": "string",
+      "description": "Hotel Chain Rewards Member Number. To receive your Rewards Points, access online check in, fast check out. An error is returned by the Chain if the number is invalid.\nExample Rewards Programs:\n* Marriott Bonvoy\n* Hilton Honors\n* Hyatt Rewards\n* IHG Rewards\n* Wyndham Rewards\n* Accor Live Limitless ALL\n* Best Western Rewards\n* Choice Privileges\n* Radisson Rewards\n"
+    }
+  },
+  "required": [
+    "name",
+    "contact"
+  ]
+}

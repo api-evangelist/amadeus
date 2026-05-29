@@ -1,0 +1,78 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Hotel Ratings — Hotel Ratings"
+  description: 'Hotel Ratings — Hotel Ratings. 1 operation(s). Lead operation: Amadeus Get Sentiments by Amadeus Hotel Ids. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Hotel Ratings
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: hotel-ratings-hotel-ratings
+      baseUri: https://test.api.amadeus.com/v2
+      description: Hotel Ratings — Hotel Ratings business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: e-reputation-hotel-sentiments
+          path: /e-reputation/hotel-sentiments
+          operations:
+            - name: getSentimentsByHotelIds
+              method: GET
+              description: Amadeus Get Sentiments by Amadeus Hotel Ids
+              inputParameters:
+                - name: hotelIds
+                  in: query
+                  type: array
+                  required: true
+                  description: Comma-separated list of Amadeus Hotel Ids (max. 3) . Amadeus Hotel Ids are found in the Hotel Search response (parameter name is 'hotelId').
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: hotel-ratings-hotel-ratings-rest
+      port: 8080
+      description: REST adapter for Hotel Ratings — Hotel Ratings. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/e-reputation/hotel-sentiments
+          name: e-reputation-hotel-sentiments
+          description: REST surface for e-reputation-hotel-sentiments.
+          operations:
+            - method: GET
+              name: getSentimentsByHotelIds
+              description: Amadeus Get Sentiments by Amadeus Hotel Ids
+              call: hotel-ratings-hotel-ratings.getSentimentsByHotelIds
+              with:
+                hotelIds: rest.hotelIds
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: hotel-ratings-hotel-ratings-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Hotel Ratings — Hotel Ratings. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: get-sentiments-amadeus-hotel-ids
+          description: Amadeus Get Sentiments by Amadeus Hotel Ids
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: hotel-ratings-hotel-ratings.getSentimentsByHotelIds
+          with:
+            hotelIds: tools.hotelIds
+          outputParameters:
+            - type: object
+              mapping: $.

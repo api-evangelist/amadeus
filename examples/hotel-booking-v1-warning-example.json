@@ -1,0 +1,5 @@
+{
+  "code": 1,
+  "title": "Resource not found",
+  "detail": "The targeted resource doesn't exist"
+}

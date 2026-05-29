@@ -1,24 +1,21 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Timing",
-  "type": "record",
-  "fields": [
-    {
-      "name": "qualifier",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/on-demand-flight-status-timing-structure.json",
+  "title": "Timing",
+  "description": "Timing structure from On-Demand Flight Status",
+  "type": "object",
+  "properties": {
+    "qualifier": {
       "type": "string",
       "description": "the qualifier of the timing. e.g. STD (stands for Schedule Time Departure)"
     },
-    {
-      "name": "value",
-      "type": "datetime"
+    "value": {
+      "type": "string",
+      "format": "date-time"
     },
-    {
-      "name": "delays",
+    "delays": {
       "type": "array",
-      "description": "delays that might be recorded on a timing",
-      "items": {
-        "type": "object"
-      }
+      "description": "delays that might be recorded on a timing"
     }
-  ]
+  }
 }

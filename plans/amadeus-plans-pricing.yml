@@ -1,0 +1,161 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Amadeus
+providerId: amadeus
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Travel
+  - Flights
+  - Hotels
+  - Cars and Transfers
+  - Destination Content
+  - Artificial Intelligence
+description: >-
+  Amadeus for Developers Self-Service uses a two-environment, pay-as-you-go model with a free monthly
+  transaction quota that follows the application from Test into Production. Test transactions are
+  free against a cached subset of production data. Production transactions consume the free monthly
+  quota first and then are billed per-transaction at API-specific rates. Enterprise customers buy
+  through a separate Amadeus Enterprise contract with negotiated SLAs and access to the full
+  distribution (NDC, margins/discounts, ticketing). NOTE: Amadeus has announced the Self-Service
+  developer portal will be decommissioned on 17 July 2026; new registrations are paused and
+  existing keys will be disabled on that date. Enterprise APIs are unaffected.
+sources:
+  - https://developers.amadeus.com/pricing
+  - https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/pricing/
+  - https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/api-rate-limits/
+  - https://www.phocuswire.com/amadeus-shut-down-self-service-apis-portal-developers
+plans:
+  - id: amadeus-self-service-test
+    name: Self-Service Test
+    type: freemium
+    description: >-
+      Default environment for every new application. Free transactions against a static, cached
+      subset of production data. Designed for development, prototyping, and hackathons. Capped TPS
+      and limited data coverage.
+    entries:
+      - label: Test Transactions
+        name: test_transactions
+        type: quota
+        metric: transaction
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'free (capped TPS, cached data)'
+        userMultiplied: false
+      - label: Throughput (Standard APIs)
+        name: test_tps_standard
+        type: flat
+        metric: transaction
+        limit: 10
+        timeFrame: second
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+      - label: Throughput (AI and Partner APIs)
+        name: test_tps_ai
+        type: flat
+        metric: transaction
+        limit: 20
+        timeFrame: second
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+    elements:
+      - name: All 40+ Self-Service APIs available
+      - name: OAuth2 client_credentials authentication
+      - name: Static cached test data subset
+      - name: 10 TPS for standard APIs, 20 TPS for AI/Partner APIs
+      - name: Free per documented usage caps
+      - name: No SLA, best-effort support via Discord and StackOverflow
+
+  - id: amadeus-self-service-production
+    name: Self-Service Production
+    type: pay-as-you-go
+    description: >-
+      Production environment with live data and higher TPS. Each application carries forward its
+      free monthly transaction quota from Test; usage above the free tier is billed per-transaction
+      at per-API rates. Requires explicit promotion of an app to Production via the developer
+      console. Decommissioning 17 July 2026.
+    entries:
+      - label: Production Transactions (Free Tier Carry-Over)
+        name: prod_free_tier
+        type: quota
+        metric: transaction
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'free up to monthly quota per API; see pricing page'
+        userMultiplied: false
+      - label: Production Transactions (Paid Tier)
+        name: prod_paid_transactions
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'per-API per-transaction rate; see developers.amadeus.com/pricing'
+        userMultiplied: false
+      - label: Throughput (Standard APIs)
+        name: prod_tps_standard
+        type: flat
+        metric: transaction
+        limit: 40
+        timeFrame: second
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+      - label: Throughput (AI and Partner APIs)
+        name: prod_tps_ai
+        type: flat
+        metric: transaction
+        limit: 20
+        timeFrame: second
+        geo: global
+        unit: 1
+        price: 'included'
+        userMultiplied: false
+    elements:
+      - name: Live production data
+      - name: 40 TPS for standard APIs, 20 TPS for AI/Partner APIs
+      - name: Monthly free quota carried from Test environment
+      - name: Pay-as-you-go billing above free tier
+      - name: Per-API pricing (rates vary by API)
+      - name: Production support via support portal
+      - name: DECOMMISSIONING 17 July 2026
+
+  - id: amadeus-enterprise
+    name: Amadeus Enterprise
+    type: enterprise
+    description: >-
+      Negotiated enterprise contract via Amadeus IT Group sales. Includes SLA-backed access to the
+      full Amadeus distribution platform: Self-Service equivalents plus NDC content, LTC/EAC fare
+      sources, Margins and Discounts, ticketing, and other enterprise-only capabilities. Unaffected
+      by Self-Service portal decommissioning.
+    entries:
+      - label: Enterprise Contract
+        name: enterprise_contract
+        type: subscription
+        metric: varies
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: 'contact sales'
+        userMultiplied: false
+    elements:
+      - name: Full Amadeus distribution and ticketing platform
+      - name: NDC (New Distribution Capability) content
+      - name: LTC and EAC fare sources
+      - name: Margins and Discounts (Margin Manager)
+      - name: SLA-backed support
+      - name: Dedicated account management
+      - name: Custom commercial terms

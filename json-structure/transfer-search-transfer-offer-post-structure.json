@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-search-transfer-offer-post-structure.json",
+  "title": "TransferOfferPost",
+  "description": "transfer offer",
+  "type": "object"
+}

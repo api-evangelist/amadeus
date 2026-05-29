@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-price-fee-type-structure.json",
+  "title": "FeeType",
+  "description": "type of fee",
+  "type": "string"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-order-management-credit-card-common-schema.json",
+  "title": "CreditCardCommon",
+  "description": "credit card common attribute",
+  "type": "object",
+  "properties": {
+    "brand": {
+      "description": "credit card brand",
+      "type": "string",
+      "enum": [
+        "VISA",
+        "AMERICAN_EXPRESS",
+        "MASTERCARD",
+        "VISA_ELECTRON",
+        "VISA_DEBIT",
+        "MASTERCARD_DEBIT",
+        "MAESTRO",
+        "DINERS",
+        "EASYPAY"
+      ],
+      "example": "VISA"
+    },
+    "holder": {
+      "description": "card holder as on the card",
+      "type": "string",
+      "example": "MR DUPON DAMIEN"
+    },
+    "number": {
+      "description": "card number",
+      "type": "string",
+      "example": "4012999999999999",
+      "pattern": "[a-zA-Z0-9]{1,35}"
+    },
+    "expiryDate": {
+      "description": "credit card expiration date following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) (YYYY-MM format, e.g. 2012-08)",
+      "type": "string",
+      "example": "2021-08"
+    }
+  }
+}

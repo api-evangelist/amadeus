@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/transfer-search-contact-with-address-schema.json",
+  "title": "ContactWithAddress",
+  "description": "Contact and Adress details",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "phoneNumber": {
+          "type": "string",
+          "pattern": "([+]?)[0-9]{1,20}",
+          "description": "Contact phone number",
+          "example": "+33123456789"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Contact email",
+          "example": "traveler@example.com"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "address": {
+          "description": "address of the departure location",
+          "properties": {
+            "line": {
+              "description": "Address line with street, number, bulding, etc...",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 70,
+              "example": "string-value"
+            },
+            "zip": {
+              "description": "Post office code number",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120,
+              "example": "string-value"
+            },
+            "countryCode": {
+              "description": "Country code (two character standard IATA country code)",
+              "type": "string",
+              "pattern": "[a-zA-Z]{2}",
+              "example": "FR"
+            },
+            "cityName": {
+              "description": "City, town or postal station",
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 35,
+              "example": "Paris"
+            },
+            "stateCode": {
+              "description": "State code (two character standard IATA state code)",
+              "type": "string",
+              "pattern": "[a-zA-Z0-9]{1-2}",
+              "example": "string-value"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

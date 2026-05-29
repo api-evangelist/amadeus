@@ -1,12 +1,13 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Terminal",
-  "type": "record",
-  "fields": [
-    {
-      "name": "code",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/on-demand-flight-status-terminal-structure.json",
+  "title": "Terminal",
+  "description": "Terminal structure from On-Demand Flight Status",
+  "type": "object",
+  "properties": {
+    "code": {
       "type": "string",
       "description": "the code of the terminal"
     }
-  ]
+  }
 }

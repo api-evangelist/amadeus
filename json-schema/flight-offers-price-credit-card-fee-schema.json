@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-offers-price-credit-card-fee-schema.json",
+  "title": "CreditCardFee",
+  "description": "CreditCardFee schema from Flight Offers Price",
+  "type": "object",
+  "properties": {
+    "brand": {
+      "description": "credit card brand",
+      "type": "string",
+      "enum": [
+        "VISA",
+        "AMERICAN_EXPRESS",
+        "MASTERCARD",
+        "VISA_ELECTRON",
+        "VISA_DEBIT",
+        "MASTERCARD_DEBIT",
+        "MAESTRO",
+        "DINERS",
+        "MASTERCARD_IXARIS",
+        "VISA_IXARIS",
+        "MASTERCARD_AIRPLUS",
+        "UATP_AIRPLUS"
+      ],
+      "example": "VISA_IXARIS"
+    },
+    "amount": {
+      "type": "string",
+      "example": "1"
+    },
+    "currency": {
+      "type": "string",
+      "example": "USD"
+    },
+    "flightOfferId": {
+      "description": "Id of the flightOffer concerned by the credit card fee",
+      "type": "string",
+      "example": "1"
+    }
+  }
+}

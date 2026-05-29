@@ -1,6 +1,127 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-offers-price-contact-schema.json",
   "title": "Contact",
   "description": "contact information",
-  "type": "object"
+  "allOf": [
+    {
+      "description": "represents a contact",
+      "type": "object",
+      "properties": {
+        "addresseeName": {
+          "title": "name",
+          "description": "name",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BaseName"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "secondLastName": {
+                  "description": "second last name",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "address": {
+          "type": "object",
+          "description": "address information",
+          "properties": {
+            "lines": {
+              "type": "array",
+              "description": "Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc",
+              "items": {
+                "type": "string"
+              }
+            },
+            "postalCode": {
+              "type": "string",
+              "description": "Example: 74130",
+              "example": "string-value"
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "country code [ISO 3166-1 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)",
+              "pattern": "[a-zA-Z]{2}",
+              "example": "FR"
+            },
+            "cityName": {
+              "type": "string",
+              "description": "Full city name. Example: Dublin",
+              "pattern": "[a-zA-Z -]{1,35}",
+              "example": "Paris"
+            },
+            "stateName": {
+              "type": "string",
+              "description": "Full state name",
+              "example": "Sample Name"
+            },
+            "postalBox": {
+              "type": "string",
+              "description": "E.g. BP 220",
+              "example": "string-value"
+            }
+          }
+        },
+        "language": {
+          "description": "the preferred language of communication with this Contact",
+          "type": "string",
+          "example": "EN"
+        },
+        "purpose": {
+          "description": "the purpose for which this contact is to be used",
+          "type": "string",
+          "enum": [
+            "STANDARD",
+            "INVOICE",
+            "STANDARD_WITHOUT_TRANSMISSION"
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "phones": {
+          "description": "Phone numbers",
+          "type": "array",
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "description": "phone information",
+            "properties": {
+              "deviceType": {
+                "$ref": "#/definitions/PhoneDeviceType"
+              },
+              "countryCallingCode": {
+                "type": "string",
+                "description": "Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia.",
+                "pattern": "[0-9+]{2,5}",
+                "example": 1
+              },
+              "number": {
+                "type": "string",
+                "description": "Phone number. Composed of digits only. The number of digits depends on the country.",
+                "pattern": "[0-9]{1,15}",
+                "example": 1
+              }
+            }
+          }
+        },
+        "companyName": {
+          "description": "Name of the company",
+          "type": "string",
+          "example": "AMADEUS"
+        },
+        "emailAddress": {
+          "type": "string",
+          "description": "Email address (e.g. john@smith.com)",
+          "example": "support@mail.com"
+        }
+      }
+    }
+  ]
 }

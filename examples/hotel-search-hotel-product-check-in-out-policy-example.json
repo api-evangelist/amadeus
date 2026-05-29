@@ -1,0 +1,12 @@
+{
+  "checkIn": "13:00:00",
+  "checkInDescription": {
+    "text": "A description",
+    "lang": "fr-FR"
+  },
+  "checkOut": "11:00:00",
+  "checkOutDescription": {
+    "text": "A description",
+    "lang": "fr-FR"
+  }
+}

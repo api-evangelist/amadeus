@@ -1,11 +1,12 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Meta",
-  "type": "record",
-  "fields": [
-    {
-      "name": "links",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/airport-on-time-performance-meta-structure.json",
+  "title": "Meta",
+  "description": "Meta structure from Airport On-Time Performance",
+  "type": "object",
+  "properties": {
+    "links": {
       "type": "string"
     }
-  ]
+  }
 }

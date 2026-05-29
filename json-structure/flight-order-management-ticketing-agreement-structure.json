@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-order-management-ticketing-agreement-structure.json",
+  "title": "TicketingAgreement",
+  "description": "ticketing agreement",
+  "type": "object",
+  "properties": {
+    "option": {
+      "type": "string",
+      "description": "Ticketing agreement option\n* **CONFIRM**, when the payment is done\n* **DELAY_TO_QUEUE**, queue the reservation at a wished date if the payment is not done\n* **DELAY_TO_CANCEL**, cancel the reservation at a wished date if the payment is not done\n\nQueueing and cancellation occurs at local date and time. When no time is specified, reservation is queued or cancelled at 00:00.\n"
+    },
+    "delay": {
+      "type": "string",
+      "description": "Delay before applying automatic process if no issuance in days"
+    },
+    "dateTime": {
+      "type": "string",
+      "description": "Exact date to apply automatic process if no issuance. YYYY-MM-DD format, e.g. 2019-06-07"
+    },
+    "segmentIds": {
+      "type": "array",
+      "description": "Ids of the impacted segments"
+    }
+  }
+}

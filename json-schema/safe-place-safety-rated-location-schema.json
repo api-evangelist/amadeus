@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/safe-place-safety-rated-location-schema.json",
+  "title": "SafetyRatedLocation",
+  "description": "SafetyRatedLocation schema from Safe Place",
+  "type": "object",
+  "allOf": [
+    {
+      "type": "object",
+      "properties": {
+        "safetyScore": {
+          "properties": {
+            "women": {
+              "description": "Likelihood of inappropriate behavior against females. Score go from 1 (not likely) to 100 (very likely).",
+              "type": "integer",
+              "example": 1
+            },
+            "physicalHarm": {
+              "description": "Likelihood of injury due to harmful intent. Score go from 1 (not likely) to 100 (very likely).",
+              "type": "integer",
+              "example": 1
+            },
+            "theft": {
+              "description": "Likelihood of theft. Score go from 1 (not likely) to 100 (very likely).",
+              "type": "integer",
+              "example": 1
+            },
+            "politicalFreedom": {
+              "description": "Potential for infringement of political rights or political unrest. Score go from 1 (not likely) to 100 (very likely).",
+              "type": "integer",
+              "example": 1
+            },
+            "lgbtq": {
+              "description": "Likelihood of harm or discrimination against LGBTQ persons or groups and level of caution required at location. Score go from 1 (not likely) to 100 (very likely).",
+              "type": "integer",
+              "example": 1
+            },
+            "medical": {
+              "description": "Likelihood of illness or disease, assessment of water and air quality, and access to reliable medical care. Score go from 1 (not likely) to 100 (very likely).",
+              "type": "integer",
+              "example": 1
+            },
+            "overall": {
+              "description": "An average of the 6 \u201csub\u201d-categories. Score go from 1 (very safe) to 100 (very dangerous).",
+              "type": "integer",
+              "example": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "properties": {
+        "id": {
+          "description": "id of the ressource",
+          "type": "string",
+          "example": "12345"
+        },
+        "self": {
+          "required": [
+            "href"
+          ],
+          "properties": {
+            "href": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://example.com/resource"
+            },
+            "methods": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "GET",
+                  "PUT",
+                  "DELETE",
+                  "POST",
+                  "PATCH"
+                ]
+              }
+            },
+            "count": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          "example": {
+            "href": "string"
+          }
+        },
+        "type": {
+          "description": "the resource name",
+          "type": "string",
+          "example": "location"
+        },
+        "subType": {
+          "description": "location sub type",
+          "type": "string",
+          "enum": [
+            "AIRPORT",
+            "CITY",
+            "POINT_OF_INTEREST",
+            "DISTRICT"
+          ],
+          "example": "AIRPORT"
+        },
+        "name": {
+          "description": "short name of the location",
+          "type": "string",
+          "example": "Paris CDG"
+        },
+        "geoCode": {
+          "properties": {
+            "latitude": {
+              "description": "latitude of the location",
+              "type": "number",
+              "format": "double",
+              "example": 43.580418
+            },
+            "longitude": {
+              "description": "longitude of the location",
+              "type": "number",
+              "format": "double",
+              "example": 7.125102
+            }
+          }
+        }
+      }
+    }
+  ]
+}

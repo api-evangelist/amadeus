@@ -1,0 +1,68 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Safe Place — Retrieve"
+  description: 'Safe Place — Retrieve. 1 operation(s). Lead operation: Amadeus Retieve Safety Information of a Location by its ID.. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Retrieve
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: safe-place-retrieve
+      baseUri: https://test.api.amadeus.com/v1
+      description: Safe Place — Retrieve business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: safety-safety-rated-locations
+          path: /safety/safety-rated-locations/{safety-rated-locationId}
+          operations:
+            - name: getLocationSafetyRanking
+              method: GET
+              description: Amadeus Retieve Safety Information of a Location by its ID.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: safe-place-retrieve-rest
+      port: 8080
+      description: REST adapter for Safe Place — Retrieve. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/safety/safety-rated-locations/{safety-rated-location-id}
+          name: safety-safety-rated-locations
+          description: REST surface for safety-safety-rated-locations.
+          operations:
+            - method: GET
+              name: getLocationSafetyRanking
+              description: Amadeus Retieve Safety Information of a Location by its ID.
+              call: safe-place-retrieve.getLocationSafetyRanking
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: safe-place-retrieve-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Safe Place — Retrieve. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: retieve-safety-information-location-its
+          description: Amadeus Retieve Safety Information of a Location by its ID.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: safe-place-retrieve.getLocationSafetyRanking
+          outputParameters:
+            - type: object
+              mapping: $.

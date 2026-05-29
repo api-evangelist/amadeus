@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-inspiration-search-flight-destination-structure.json",
+  "title": "FlightDestination",
+  "description": "FlightDestination structure from Flight Inspiration Search",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "origin": {
+      "type": "string"
+    },
+    "destination": {
+      "type": "string"
+    },
+    "departureDate": {
+      "type": "string"
+    },
+    "returnDate": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "links": {
+      "type": "object"
+    }
+  }
+}

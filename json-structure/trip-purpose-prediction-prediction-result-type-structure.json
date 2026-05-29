@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/trip-purpose-prediction-prediction-result-type-structure.json",
+  "title": "PredictionResultType",
+  "description": "forecast description",
+  "type": "string"
+}

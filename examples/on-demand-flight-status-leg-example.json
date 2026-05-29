@@ -1,6 +1,8 @@
 {
-  "boardPointIataCode": "example-boardPointIataCode",
-  "offPointIataCode": "example-offPointIataCode",
-  "aircraftEquipment": "example-aircraftEquipment",
-  "scheduledLegDuration": "example-scheduledLegDuration"
+  "boardPointIataCode": "LHR",
+  "offPointIataCode": "BKK",
+  "aircraftEquipment": {
+    "aircraftType": 733
+  },
+  "scheduledLegDuration": "PT14H50M"
 }

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-hotel-product-hold-policy-schema.json",
+  "title": "HotelProduct_HoldPolicy",
+  "description": "the hold policy",
+  "type": "object",
+  "properties": {
+    "deadline": {
+      "description": "The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. \n Example: 2010-08-14T13:00:00\n Please note that this value is expressed in the hotels local time zone",
+      "type": "string",
+      "format": "date-time",
+      "example": "2026-08-15T10:30:00Z"
+    }
+  },
+  "required": [
+    "deadline"
+  ]
+}

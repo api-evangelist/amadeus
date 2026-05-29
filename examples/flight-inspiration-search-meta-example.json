@@ -1,5 +1,13 @@
 {
-  "currency": "example-currency",
-  "links": "example-links",
-  "defaults": "example-defaults"
+  "currency": "EUR",
+  "links": {
+    "self": "https://example.com/resource"
+  },
+  "defaults": {
+    "departureDate": "2011-09-10,2011-09-15",
+    "oneWay": true,
+    "duration": "2,5",
+    "nonStop": true,
+    "viewBy": "COUNTRY"
+  }
 }

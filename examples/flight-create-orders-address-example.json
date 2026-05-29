@@ -1,8 +1,10 @@
 {
-  "lines": [],
-  "postalCode": "example-postalCode",
-  "countryCode": "example-countryCode",
-  "cityName": "example-cityName",
-  "stateName": "example-stateName",
-  "postalBox": "example-postalBox"
+  "lines": [
+    "string-value"
+  ],
+  "postalCode": "string-value",
+  "countryCode": "FR",
+  "cityName": "Paris",
+  "stateName": "Sample Name",
+  "postalBox": "string-value"
 }

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-offers-price-flight-offer-pricing-out-structure.json",
+  "title": "FlightOfferPricingOut",
+  "description": "priced flight Offers and conditions",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "the resource name"
+    },
+    "flightOffers": {
+      "type": "array",
+      "description": "list of flight offer to price"
+    },
+    "bookingRequirements": {
+      "type": "object",
+      "description": "pricing condition at booking level"
+    }
+  },
+  "required": [
+    "type",
+    "flightOffers"
+  ]
+}

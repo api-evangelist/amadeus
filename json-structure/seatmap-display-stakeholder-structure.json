@@ -1,33 +1,30 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Stakeholder",
-  "type": "record",
-  "fields": [
-    {
-      "name": "id",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/seatmap-display-stakeholder-structure.json",
+  "title": "Stakeholder",
+  "description": "stakeholder definition",
+  "type": "object",
+  "properties": {
+    "id": {
       "type": "string",
       "description": "item identifier"
     },
-    {
-      "name": "dateOfBirth",
-      "type": "date",
+    "dateOfBirth": {
+      "type": "string",
+      "format": "date",
       "description": "The date of birth in ISO 8601 format (yyyy-mm-dd)"
     },
-    {
-      "name": "gender",
-      "type": "string"
+    "gender": {
+      "type": "string",
+      "description": "The gender"
     },
-    {
-      "name": "name",
-      "type": "string"
+    "name": {
+      "type": "string",
+      "description": "name"
     },
-    {
-      "name": "documents",
+    "documents": {
       "type": "array",
-      "description": "Advanced Passenger Information - regulatory identity documents - SSR DOCS & DOCO elements",
-      "items": {
-        "type": "object"
-      }
+      "description": "Advanced Passenger Information - regulatory identity documents - SSR DOCS & DOCO elements"
     }
-  ]
+  }
 }

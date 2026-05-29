@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/flight-order-management-chargeable-seat-structure.json",
+  "title": "ChargeableSeat",
+  "description": "Details of chargeable seat",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Id of the chargeable seat"
+    },
+    "number": {
+      "type": "string",
+      "description": "seat number"
+    }
+  }
+}

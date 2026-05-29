@@ -1,6 +1,232 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-offers-price-traveler-schema.json",
   "title": "Traveler",
   "description": "the traveler of the trip",
-  "type": "object"
+  "allOf": [
+    {
+      "type": "object",
+      "description": "stakeholder definition",
+      "properties": {
+        "id": {
+          "description": "item identifier",
+          "type": "string",
+          "example": "12345"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date",
+          "description": "The date of birth in ISO 8601 format (yyyy-mm-dd)",
+          "example": "2026-08-15"
+        },
+        "gender": {
+          "type": "string",
+          "description": "The gender",
+          "enum": [
+            "MALE",
+            "FEMALE"
+          ],
+          "example": "FEMALE"
+        },
+        "name": {
+          "title": "name",
+          "description": "name",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BaseName"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "secondLastName": {
+                  "description": "second last name",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "documents": {
+          "type": "array",
+          "description": "Advanced Passenger Information - regulatory identity documents - SSR DOCS & DOCO elements",
+          "items": {
+            "title": "traveler documents",
+            "description": "documents of the traveler",
+            "allOf": [
+              {
+                "$ref": "#/definitions/Document"
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "documentType": {
+                    "$ref": "#/definitions/DocumentType"
+                  },
+                  "validityCountry": {
+                    "type": "string",
+                    "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the country where the document is valid",
+                    "example": "IN",
+                    "pattern": "[a-zA-Z]{2}"
+                  },
+                  "birthCountry": {
+                    "type": "string",
+                    "description": "[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the country of birth",
+                    "example": "FR",
+                    "pattern": "[a-zA-Z]{2}"
+                  },
+                  "holder": {
+                    "type": "boolean",
+                    "description": "boolean to specify if the traveler is the holder of the document",
+                    "example": true
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "properties": {
+        "emergencyContact": {
+          "type": "object",
+          "description": "emergency contact number",
+          "properties": {
+            "addresseeName": {
+              "type": "string",
+              "description": "Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted).",
+              "pattern": "[a-zA-Z -]",
+              "example": "Sample Name"
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "Country code of the country (ISO3166-1). E.g. \"US\" for the United States",
+              "pattern": "[A-Z]{2}",
+              "example": "FR"
+            },
+            "number": {
+              "type": "string",
+              "description": "Phone number. Composed of digits only. The number of digits depends on the country.",
+              "pattern": "[0-9]{1,15}",
+              "example": 1
+            },
+            "text": {
+              "type": "string",
+              "description": "additional details",
+              "example": "string-value"
+            }
+          }
+        },
+        "loyaltyPrograms": {
+          "description": "list of loyalty program followed by the traveler",
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 10,
+          "items": {
+            "title": "LoyaltyProgram",
+            "description": "loyalty program information",
+            "type": "object",
+            "properties": {
+              "programOwner": {
+                "type": "string",
+                "description": "loyalty program airline code",
+                "example": "AF"
+              },
+              "id": {
+                "type": "string",
+                "description": "loyalty program number",
+                "example": "12357466574"
+              }
+            }
+          }
+        },
+        "discountEligibility": {
+          "description": "list of element that allow a discount.",
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 10,
+          "items": {
+            "title": "Discount",
+            "description": "traveler discount",
+            "type": "object",
+            "properties": {
+              "subType": {
+                "$ref": "#/definitions/DiscountType"
+              },
+              "cityName": {
+                "type": "string",
+                "description": "city of residence",
+                "example": "MADRID"
+              },
+              "travelerType": {
+                "$ref": "#/definitions/DiscountTravelerType"
+              },
+              "cardNumber": {
+                "type": "string",
+                "description": "resident card number",
+                "example": "12568215Z",
+                "pattern": "[0-9A-Z][0-9]{0,12}[A-Z]"
+              },
+              "certificateNumber": {
+                "type": "string",
+                "description": "resident certificate number",
+                "example": "12568215Z",
+                "pattern": "[0-9A-Z][0-9]{0,12}[A-Z]"
+              }
+            }
+          }
+        },
+        "contact": {
+          "description": "contact information",
+          "allOf": [
+            {
+              "description": "represents a contact",
+              "type": "object",
+              "properties": {
+                "addresseeName": {
+                  "description": "the name of the person addressed by these contact details",
+                  "$ref": "#/definitions/Name"
+                },
+                "address": {
+                  "$ref": "#/definitions/Address"
+                },
+                "language": {
+                  "description": "the preferred language of communication with this Contact",
+                  "type": "string",
+                  "example": "EN"
+                },
+                "purpose": {
+                  "$ref": "#/definitions/ContactPurpose"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "phones": {
+                  "description": "Phone numbers",
+                  "type": "array",
+                  "maxItems": 3,
+                  "items": {
+                    "$ref": "#/definitions/Phone"
+                  }
+                },
+                "companyName": {
+                  "description": "Name of the company",
+                  "type": "string",
+                  "example": "AMADEUS"
+                },
+                "emailAddress": {
+                  "type": "string",
+                  "description": "Email address (e.g. john@smith.com)",
+                  "example": "support@mail.com"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
 }

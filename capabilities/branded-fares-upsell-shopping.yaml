@@ -1,0 +1,78 @@
+naftiko: "1.0.0-alpha2"
+info:
+  label: "Branded Fares Upsell — Shopping"
+  description: 'Branded Fares Upsell — Shopping. 1 operation(s). Lead operation: Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers. Self-contained Naftiko capability covering one Amadeus business surface.'
+  tags:
+    - Amadeus
+    - Travel
+    - Shopping
+  created: "2026-05-29"
+  modified: "2026-05-29"
+binds:
+  - namespace: env
+    keys:
+      AMADEUS_TOKEN: AMADEUS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: branded-fares-upsell-shopping
+      baseUri: https://test.api.amadeus.com/v1
+      description: Branded Fares Upsell — Shopping business capability. Self-contained, no shared references.
+      authentication:
+        type: bearer
+        token: '{{env.AMADEUS_TOKEN}}'
+      resources:
+        - name: shopping-flight-offers-upselling
+          path: /shopping/flight-offers/upselling
+          operations:
+            - name: upsellAirOffers
+              method: POST
+              description: Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers
+              inputParameters:
+                - name: upsellFlightOffersBody
+                  in: body
+                  type: object
+                  required: true
+                  description: list of criteria to upsell a dedicated flight-offers
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+  exposes:
+    - type: rest
+      namespace: branded-fares-upsell-shopping-rest
+      port: 8080
+      description: REST adapter for Branded Fares Upsell — Shopping. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+      resources:
+        - path: /v1/shopping/flight-offers/upselling
+          name: shopping-flight-offers-upselling
+          description: REST surface for shopping-flight-offers-upselling.
+          operations:
+            - method: POST
+              name: upsellAirOffers
+              description: Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers
+              call: branded-fares-upsell-shopping.upsellAirOffers
+              with:
+                upsellFlightOffersBody: rest.upsellFlightOffersBody
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: branded-fares-upsell-shopping-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Branded Fares Upsell — Shopping. One tool per consumed operation, routed inline through this capability's consumes block.
+      tools:
+        - name: return-list-upsell-flight-offers
+          description: Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: false
+          call: branded-fares-upsell-shopping.upsellAirOffers
+          with:
+            upsellFlightOffersBody: tools.upsellFlightOffersBody
+          outputParameters:
+            - type: object
+              mapping: $.

@@ -1,0 +1,16 @@
+{
+  "data": [],
+  "meta": {
+    "count": 1,
+    "sort": [
+      "string-value"
+    ],
+    "links": {
+      "self": "https://example.com/resource",
+      "first": "https://example.com/resource",
+      "prev": "https://example.com/resource",
+      "next": "https://example.com/resource",
+      "last": "https://example.com/resource"
+    }
+  }
+}

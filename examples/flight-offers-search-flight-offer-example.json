@@ -1,0 +1,67 @@
+{
+  "type": "flight-offer",
+  "id": "1",
+  "source": "GDS",
+  "instantTicketingRequired": false,
+  "disablePricing": false,
+  "nonHomogeneous": false,
+  "oneWay": false,
+  "paymentCardRequired": false,
+  "lastTicketingDate": "2018-06-19",
+  "lastTicketingDateTime": "2018-06-19T15:00:00",
+  "numberOfBookableSeats": 9,
+  "itineraries": [
+    {
+      "duration": "PT2H10M",
+      "segments": []
+    }
+  ],
+  "price": {},
+  "pricingOptions": {
+    "fareType": [
+      "PUBLISHED"
+    ],
+    "includedCheckedBagsOnly": true,
+    "refundableFare": true,
+    "noRestrictionFare": true,
+    "noPenaltyFare": true
+  },
+  "validatingAirlineCodes": [
+    "AF"
+  ],
+  "travelerPricings": [
+    {
+      "travelerId": "1",
+      "fareOption": "STANDARD",
+      "travelerType": "ADULT",
+      "associatedAdultId": "12345",
+      "price": {
+        "currency": "USD",
+        "total": "932.70",
+        "base": "632.70",
+        "fees": [],
+        "taxes": [],
+        "refundableTaxes": "200.00"
+      },
+      "fareDetailsBySegment": [
+        {
+          "segmentId": "1",
+          "cabin": "PREMIUM_ECONOMY",
+          "fareBasis": "ANNNNF4K",
+          "brandedFare": "LIGHTONE",
+          "class": "A",
+          "isAllotment": true,
+          "allotmentDetails": {},
+          "sliceDiceIndicator": "LOCAL_AVAILABILITY",
+          "includedCheckedBags": {},
+          "additionalServices": {
+            "chargeableSeatNumber": "33D",
+            "otherServices": [
+              "PRIORITY_BOARDING"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

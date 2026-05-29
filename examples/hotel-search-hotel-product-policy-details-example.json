@@ -1,0 +1,71 @@
+{
+  "paymentType": "GUARANTEE",
+  "guarantee": {
+    "description": {
+      "text": "A description",
+      "lang": "fr-FR"
+    },
+    "acceptedPayments": {
+      "creditCards": [
+        "string-value"
+      ],
+      "methods": []
+    }
+  },
+  "deposit": {
+    "amount": "199.50",
+    "deadline": "2026-08-15T10:30:00Z",
+    "description": {
+      "text": "A description",
+      "lang": "fr-FR"
+    },
+    "acceptedPayments": {
+      "creditCards": [
+        "string-value"
+      ],
+      "methods": []
+    }
+  },
+  "prepay": {
+    "amount": "199.50",
+    "deadline": "2026-08-15T10:30:00Z",
+    "description": {
+      "text": "A description",
+      "lang": "fr-FR"
+    },
+    "acceptedPayments": {
+      "creditCards": [
+        "string-value"
+      ],
+      "methods": []
+    }
+  },
+  "holdTime": {
+    "deadline": "2026-08-15T10:30:00Z"
+  },
+  "cancellations": [
+    {
+      "type": "FULL_STAY",
+      "amount": "199.50",
+      "numberOfNights": 1,
+      "percentage": 50,
+      "deadline": "2026-08-15T10:30:00Z",
+      "description": {
+        "text": "A description",
+        "lang": "fr-FR"
+      }
+    }
+  ],
+  "checkInOut": {
+    "checkIn": "13:00:00",
+    "checkInDescription": {
+      "text": "A description",
+      "lang": "fr-FR"
+    },
+    "checkOut": "11:00:00",
+    "checkOutDescription": {
+      "text": "A description",
+      "lang": "fr-FR"
+    }
+  }
+}

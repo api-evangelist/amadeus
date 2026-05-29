@@ -1,17 +1,18 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Contact",
-  "type": "record",
-  "fields": [
-    {
-      "name": "phoneNumber",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-search-contact-structure.json",
+  "title": "Contact",
+  "description": "Contact structure from Transfer Search",
+  "type": "object",
+  "properties": {
+    "phoneNumber": {
       "type": "string",
       "description": "Contact phone number"
     },
-    {
-      "name": "email",
+    "email": {
       "type": "string",
+      "format": "email",
       "description": "Contact email"
     }
-  ]
+  }
 }

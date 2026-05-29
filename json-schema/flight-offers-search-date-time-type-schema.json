@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/flight-offers-search-date-time-type-schema.json",
+  "title": "DateTimeType",
+  "description": "DateTimeType schema from Flight Offers Search",
+  "type": "object",
+  "properties": {
+    "date": {
+      "description": "Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-12-25",
+      "type": "string",
+      "format": "date",
+      "example": "2018-09-22"
+    },
+    "time": {
+      "description": "Local time. hh:mm:ss format, e.g 10:30:00",
+      "type": "string",
+      "example": "10:30:00"
+    }
+  },
+  "required": [
+    "date"
+  ]
+}

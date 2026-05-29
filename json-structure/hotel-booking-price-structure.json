@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-booking-price-structure.json",
+  "title": "Price",
+  "description": "Price valuation information",
+  "type": "object",
+  "properties": {
+    "currency": {
+      "type": "string",
+      "description": "currency Code apply to all elements of the price"
+    },
+    "sellingTotal": {
+      "type": "string",
+      "description": "sellingTotal = Total + margins + markup + totalFees - discounts"
+    },
+    "total": {
+      "type": "string",
+      "description": "total = base + totalTaxes"
+    },
+    "base": {
+      "type": "string"
+    },
+    "markups": {
+      "type": "array"
+    }
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "OtherPaymentMethod",
-  "type": "record",
-  "fields": []
-}

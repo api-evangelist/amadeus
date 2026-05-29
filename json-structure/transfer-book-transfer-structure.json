@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/transfer-book-transfer-structure.json",
+  "title": "Transfer",
+  "description": "Transfer structure from Transfer Booking",
+  "type": "object",
+  "properties": {
+    "transferType": {
+      "type": "string",
+      "description": "amadeus transfer service type\n\nvalue           | description                                 \n--------------  | ------------------------\nPRIVATE         | Private transfer from point to point\nSHARED          | Shared transfer from point to point\nTAXI            | Taxi reservation from point to point, price is estimated\nHOURLY          | Chauffeured driven transfer per hour\nAIRPORT_EXPRESS | Express Train from/to Airport\nAIRPORT_BUS     | Express Bus from/to Airport\n"
+    },
+    "start": {
+      "type": "object",
+      "description": "location information"
+    },
+    "end": {
+      "type": "object",
+      "description": "location information"
+    },
+    "stopOvers": {
+      "type": "array"
+    },
+    "passenegerCharacteristics": {
+      "type": "array"
+    },
+    "duration": {
+      "type": "string",
+      "description": "transfer duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M"
+    },
+    "vehicle": {
+      "type": "object"
+    },
+    "serviceProvider": {
+      "type": "object",
+      "description": "information about provider"
+    },
+    "partnerInfo": {
+      "type": "object",
+      "description": "Information about partner/subprovider. Below settings configuration is not applicable for sub-provider. Fields 'code', 'name' and 'logoUrl' are not mandatory for sub-provider."
+    },
+    "quotation": {
+      "type": "string",
+      "description": "quotation representing a price valuation and its components. The monetaryAmount at the root are the sum of base and all the taxes/fees/discounts"
+    },
+    "converted": {
+      "type": "string",
+      "description": "quotation representing a price valuation and its components. The monetaryAmount at the root are the sum of base and all the taxes/fees/discounts"
+    },
+    "extraServices": {
+      "type": "array"
+    },
+    "equipment": {
+      "type": "array"
+    },
+    "cancellationRules": {
+      "type": "array"
+    },
+    "methodsOfPaymentAccepted": {
+      "type": "array",
+      "description": "list of payment methods, allowed by provider"
+    },
+    "discountCodes": {
+      "type": "array",
+      "description": "list of discount codes"
+    },
+    "distance": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "transferType",
+    "start",
+    "serviceProvider",
+    "vehicle",
+    "quotation",
+    "methodsOfPaymentAccepted"
+  ]
+}

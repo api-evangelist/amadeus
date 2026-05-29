@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/hotel-search-hotel-product-price-variations-structure.json",
+  "title": "HotelProduct_PriceVariations",
+  "description": "Daily price variations and the average daily price (when available) is shown here",
+  "type": "object",
+  "properties": {
+    "average": {
+      "type": "object",
+      "description": "Price valuation information"
+    },
+    "changes": {
+      "type": "array",
+      "description": "A collection of price periods if the daily price changes during the stay"
+    }
+  }
+}

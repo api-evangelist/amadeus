@@ -1,8 +1,8 @@
 {
-  "hotelId": "example-hotelId",
-  "chainCode": "example-chainCode",
-  "brandCode": "example-brandCode",
-  "dupeId": "example-dupeId",
-  "name": "example-name",
-  "cityCode": "example-cityCode"
+  "hotelId": "ADPAR001",
+  "chainCode": "AD",
+  "brandCode": "RT",
+  "dupeId": "501132260",
+  "name": "Hotel de Paris",
+  "cityCode": "PAR"
 }

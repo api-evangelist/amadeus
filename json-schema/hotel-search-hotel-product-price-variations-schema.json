@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-schema/hotel-search-hotel-product-price-variations-schema.json",
+  "title": "HotelProduct_PriceVariations",
+  "description": "Daily price variations and the average daily price (when available) is shown here",
+  "type": "object",
+  "properties": {
+    "average": {
+      "title": "Price",
+      "description": "Price valuation information",
+      "type": "object",
+      "properties": {
+        "currency": {
+          "description": "currency Code apply to all elements of the price",
+          "type": "string",
+          "example": "EUR"
+        },
+        "sellingTotal": {
+          "description": "sellingTotal = Total + margins + markup + totalFees - discounts",
+          "type": "string",
+          "example": "199.50"
+        },
+        "total": {
+          "description": "total = base + totalTaxes",
+          "type": "string",
+          "example": "199.50"
+        },
+        "base": {
+          "type": "string",
+          "example": "string-value"
+        },
+        "markups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Markup"
+          }
+        }
+      }
+    },
+    "changes": {
+      "description": "A collection of price periods if the daily price changes during the stay",
+      "type": "array",
+      "items": {
+        "title": "HotelProduct_PriceVariation",
+        "description": "Some prices may vary during a stay, thus here you can see the daily price per period of the stay",
+        "type": "object",
+        "properties": {
+          "startDate": {
+            "description": "Begin date of the period\nFormat: YYYY-MM-DD",
+            "type": "string",
+            "format": "date",
+            "example": "2026-08-15"
+          },
+          "endDate": {
+            "description": "End date of the period\nFormat: YYYY-MM-DD",
+            "type": "string",
+            "format": "date",
+            "example": "2026-08-15"
+          },
+          "currency": {
+            "description": "currency Code apply to all elements of the price",
+            "type": "string",
+            "example": "EUR"
+          },
+          "sellingTotal": {
+            "description": "sellingTotal = Total + margins + markup + totalFees - discounts",
+            "type": "string",
+            "example": "199.50"
+          },
+          "total": {
+            "description": "total = base + totalTaxes",
+            "type": "string",
+            "example": "199.50"
+          },
+          "base": {
+            "type": "string",
+            "example": "string-value"
+          },
+          "markups": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Markup"
+            }
+          }
+        },
+        "required": [
+          "startDate",
+          "endDate"
+        ]
+      }
+    }
+  }
+}

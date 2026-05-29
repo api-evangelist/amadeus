@@ -1,32 +1,29 @@
 {
-  "$schema": "https://json-structure.org/meta/extended/v0/#",
-  "name": "Airline",
-  "type": "record",
-  "fields": [
-    {
-      "name": "type",
+  "$schema": "https://json-structure.org/draft/v0/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus/refs/heads/main/json-structure/airline-code-lookup-airline-structure.json",
+  "title": "Airline",
+  "description": "Airline structure from Airline Code Lookup API",
+  "type": "object",
+  "properties": {
+    "type": {
       "type": "string",
-      "description": "Resource type identifier."
+      "description": "the resource name"
     },
-    {
-      "name": "iataCode",
+    "iataCode": {
       "type": "string",
-      "description": "Two-letter IATA airline designator code."
+      "description": "IATA airline code. see [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)"
     },
-    {
-      "name": "icaoCode",
+    "icaoCode": {
       "type": "string",
-      "description": "Three-letter ICAO airline designator code."
+      "description": "IATA airline code. see [ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)"
     },
-    {
-      "name": "businessName",
+    "businessName": {
       "type": "string",
-      "description": "The official business name of the airline."
+      "description": "airline business name"
     },
-    {
-      "name": "commonName",
+    "commonName": {
       "type": "string",
-      "description": "The commonly used abbreviated name of the airline."
+      "description": "airline common name"
     }
-  ]
+  }
 }
