@@ -20,7 +20,7 @@ tags:
   - Market Insights
 description: 'Amadeus for Developers is the self-service developer program from Amadeus IT Group, the leading technology provider for the global travel and tourism industry. The Self-Service catalog offers 40+ travel REST APIs across flights, hotels, destination experiences, cars and transfers, market insights, itinerary management, and AI-powered prediction services. APIs use OAuth2 client credentials authentication and are organized into Test (free, capped) and Production (paid, higher TPS) environments. Note: Amadeus has announced the Self-Service developer portal will be decommissioned on 17 July 2026; Enterprise customers retain access to the equivalent Enterprise APIs.'
 created: '2026-05-05'
-modified: '2026-05-29'
+modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
   - name: Flight Offers Search

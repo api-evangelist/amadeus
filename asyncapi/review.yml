@@ -1,0 +1,109 @@
+aid: amadeus
+generated: '2026-05-30'
+target: AsyncAPI 2.6 spec for Amadeus for Developers webhook/streaming surface
+status: none
+summary: |
+  Amadeus for Developers (Self-Service) is a synchronous REST/JSON catalog.
+  After crawling the public developer portal — homepage, FAQ, developer
+  guides, Flight Order Management API reference, the Self-Service blog,
+  the amadeus4dev GitHub orgs, and the official Postman workspace —
+  no documented webhook, callback, server-sent-event, websocket,
+  AMQP, MQTT, or other push/streaming surface was found for any of the
+  40+ Self-Service APIs.
+
+  Per the hard rule "no fabrication", no AsyncAPI 2.6 spec is published.
+  This review.yml records what was checked, what was (and was not)
+  found, and the rationale for declining to author a fabricated spec.
+
+sources_consulted:
+- url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/faq/
+  status: fetched
+  notes: |
+    The FAQ does not mention webhooks, callbacks, server-sent events, or
+    any push-based / async event mechanism. All described request flows
+    are synchronous REST/JSON request-response.
+- url: https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/
+  status: fetched
+  notes: |
+    The developer guides index covers SDKs, pricing, rate limits,
+    pagination, mock server, Postman, and GraphQL examples. No
+    asynchronous communication patterns or push-based event delivery
+    mechanisms are referenced.
+- url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-order-management
+  status: referenced
+  notes: |
+    Flight Order Management exposes GET (retrieve order) and DELETE
+    (cancel order) HTTPS endpoints keyed by orderId. No subscription,
+    callback URL, or notification endpoint is documented for order
+    state changes, schedule changes, or ticketing events.
+- url: https://developers.amadeus.com/self-service/category/flights/api-doc/on-demand-flight-status
+  status: referenced
+  notes: |
+    Named "On Demand" Flight Status — confirms the documented flight
+    status surface is pull-only. No streaming or subscription is
+    advertised on the Self-Service tier.
+- url: https://developers.amadeus.com/blog/event-driven-microservices-flight-status-alerts-twilio-part1
+  status: fetched
+  notes: |
+    Amadeus's own event-driven microservices blog post builds an
+    event-driven pipeline by POLLING the Flight Status REST API on a
+    schedule and then fanning events out via Twilio SMS. The post
+    implicitly confirms there is no Amadeus-side push channel — the
+    "events" are synthesized client-side from polled REST responses.
+- url: https://github.com/amadeus4dev-examples
+  status: fetched
+  notes: |
+    The official Amadeus for Developers examples org contains one repo
+    named `webkook-api` (sic). On inspection it is a GENERIC webhook
+    receiver template (Node/Express and Python/Django) for developers
+    learning how to build webhook receivers — it does not consume any
+    Amadeus-emitted events and the README references no Amadeus
+    event types or subscription endpoints.
+- url: https://www.postman.com/amadeus4dev/amadeus-for-developers-s-public-workspace/documentation/kquqijj/amadeus-for-developers
+  status: referenced
+  notes: |
+    The official Amadeus Postman workspace mirrors the Self-Service
+    REST catalog. No webhook / subscription / event collection is
+    published alongside the REST collections.
+
+what_was_checked_and_not_found:
+- surface: Webhooks (registered callback URLs for booking / order / ticket events)
+  result: not documented
+- surface: Server-Sent Events / EventSource
+  result: not documented
+- surface: WebSockets (wss://)
+  result: not documented
+- surface: AMQP / MQTT / Kafka / pub-sub queues
+  result: not documented
+- surface: Long-polling or chunked streaming endpoints
+  result: not documented
+- surface: Schedule-change / IRROPS push notifications
+  result: not documented (Self-Service tier exposes pull-only on-demand status)
+- surface: Ticketing-event / PNR-change callbacks
+  result: not documented in Self-Service docs (may exist in Enterprise tier behind contract — out of scope)
+
+documentation_gaps:
+- gap: |
+    Amadeus offers a separate Enterprise developer portal and SLA-backed
+    APIs (NDC, ticketing, queue management) behind contract. Those
+    surfaces may include push notifications, but their docs are
+    gated and not part of the public Self-Service catalog modeled by
+    this apis.yml.
+  decision: |
+    Out of scope. The api-evangelist/amadeus catalog covers the public
+    Self-Service surface only; this review.yml does not speculate
+    about Enterprise async capabilities.
+- gap: |
+    Amadeus has announced the Self-Service developer portal will be
+    decommissioned on 17 July 2026. Any future webhook surface would
+    most likely appear in Enterprise rather than Self-Service.
+  decision: |
+    Noted in apis.yml description. No spec produced.
+
+what_was_produced:
+- file: asyncapi/review.yml
+  scope: |
+    This file. Documents the crawl, the absence of any documented
+    async/streaming/webhook surface on Amadeus Self-Service, and the
+    decision to not author an AsyncAPI 2.6 spec under the
+    "no fabrication" rule.
