@@ -1,0 +1,83 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus City Points of Interest
+  summary: Resolve a city to its coordinates, list nearby points of interest, then fetch one in detail.
+  description: >-
+    Powers a "things to do here" experience. The workflow resolves a city
+    keyword to its geographic coordinates via the locations reference data,
+    lists the points of interest around those coordinates, then retrieves the
+    first point of interest by its id for full detail. Each request is inlined
+    so the city-to-POI flow can be read and executed without opening the
+    underlying OpenAPI descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: airportCitySearch
+  url: ../openapi/amadeus-airport-city-search-openapi.yml
+  type: openapi
+- name: pointsOfInterest
+  url: ../openapi/amadeus-points-of-interest-openapi.yml
+  type: openapi
+workflows:
+- workflowId: city-points-of-interest
+  summary: Resolve a city's coordinates and discover points of interest there.
+  description: >-
+    Looks up a city's coordinates, lists nearby points of interest, and fetches
+    the first one in detail.
+  inputs:
+    type: object
+    required:
+    - cityKeyword
+    properties:
+      cityKeyword:
+        type: string
+        description: Free-text keyword for the city (e.g. Barcelona).
+  steps:
+  - stepId: resolveCity
+    description: >-
+      Resolve the city keyword to coordinates via the locations reference data,
+      matching on CITY subtype.
+    operationId: getAirportCitySearch
+    parameters:
+    - name: subType
+      in: query
+      value: CITY
+    - name: keyword
+      in: query
+      value: $inputs.cityKeyword
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      latitude: $response.body#/data/0/geoCode/latitude
+      longitude: $response.body#/data/0/geoCode/longitude
+  - stepId: listPois
+    description: >-
+      List the points of interest around the resolved city coordinates.
+    operationId: getPointsOfInterest
+    parameters:
+    - name: latitude
+      in: query
+      value: $steps.resolveCity.outputs.latitude
+    - name: longitude
+      in: query
+      value: $steps.resolveCity.outputs.longitude
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstPoiId: $response.body#/data/0/id
+      poiCount: $response.body#/meta/count
+  - stepId: getPoiDetail
+    description: >-
+      Retrieve the first point of interest by its id for full detail.
+    operationId: getPointOfInterest
+    parameters:
+    - name: poisId
+      in: path
+      value: $steps.listPois.outputs.firstPoiId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      poiName: $response.body#/data/name
+      poiCategory: $response.body#/data/category
+  outputs:
+    poiCount: $steps.listPois.outputs.poiCount
+    poiName: $steps.getPoiDetail.outputs.poiName

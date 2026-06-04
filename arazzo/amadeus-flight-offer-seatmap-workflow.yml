@@ -1,0 +1,85 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus Flight Offer Seatmap
+  summary: Search flight offers for a trip, then display the seat map for the first offer.
+  description: >-
+    Lets a traveller see the cabin before booking. The workflow searches flight
+    offers for a city pair and date, then requests the seat maps for the first
+    returned offer so available seats and cabin layout can be shown. Each
+    request is inlined so the search-to-seatmap flow can be read and executed
+    without opening the underlying OpenAPI descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: flightOffersSearch
+  url: ../openapi/amadeus-flight-offers-search-openapi.yml
+  type: openapi
+- name: seatmapDisplay
+  url: ../openapi/amadeus-seatmap-display-openapi.yml
+  type: openapi
+workflows:
+- workflowId: flight-offer-seatmap
+  summary: Search flight offers and display the seat map of the first offer.
+  description: >-
+    Searches flight offers for a trip, then requests the seat maps for the first
+    offer returned.
+  inputs:
+    type: object
+    required:
+    - originLocationCode
+    - destinationLocationCode
+    - departureDate
+    - adults
+    properties:
+      originLocationCode:
+        type: string
+        description: IATA city/airport code the traveller departs from.
+      destinationLocationCode:
+        type: string
+        description: IATA city/airport code the traveller is going to.
+      departureDate:
+        type: string
+        description: Departure date in ISO 8601 YYYY-MM-DD format.
+      adults:
+        type: integer
+        description: Number of adult travellers (1-9).
+  steps:
+  - stepId: searchOffers
+    description: >-
+      Run a flight offers search for the requested city pair, date and adult
+      count.
+    operationId: getFlightOffers
+    parameters:
+    - name: originLocationCode
+      in: query
+      value: $inputs.originLocationCode
+    - name: destinationLocationCode
+      in: query
+      value: $inputs.destinationLocationCode
+    - name: departureDate
+      in: query
+      value: $inputs.departureDate
+    - name: adults
+      in: query
+      value: $inputs.adults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstOffer: $response.body#/data/0
+  - stepId: getSeatmap
+    description: >-
+      Request the seat maps for the first offer so cabin layout and available
+      seats can be displayed.
+    operationId: getSeatmapFromFlightOffer
+    requestBody:
+      contentType: application/vnd.amadeus+json
+      payload:
+        data:
+        - $steps.searchOffers.outputs.firstOffer
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      seatmaps: $response.body#/data
+      seatmapCount: $response.body#/meta/count
+  outputs:
+    seatmaps: $steps.getSeatmap.outputs.seatmaps
+    seatmapCount: $steps.getSeatmap.outputs.seatmapCount

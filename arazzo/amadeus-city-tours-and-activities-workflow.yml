@@ -1,0 +1,86 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus City Tours and Activities
+  summary: Resolve a city to coordinates, list bookable tours and activities nearby, then fetch one in detail.
+  description: >-
+    Powers a destination activities experience. The workflow resolves a city
+    keyword to coordinates via the locations reference data, lists the bookable
+    tours and activities around those coordinates, then retrieves the first
+    activity by its id for full detail including price and booking link. Each
+    request is inlined so the city-to-activities flow can be read and executed
+    without opening the underlying OpenAPI descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: airportCitySearch
+  url: ../openapi/amadeus-airport-city-search-openapi.yml
+  type: openapi
+- name: toursAndActivities
+  url: ../openapi/amadeus-tours-and-activities-openapi.yml
+  type: openapi
+workflows:
+- workflowId: city-tours-and-activities
+  summary: Resolve a city's coordinates and discover bookable tours and activities.
+  description: >-
+    Looks up a city's coordinates, lists tours and activities nearby, and
+    fetches the first one in detail.
+  inputs:
+    type: object
+    required:
+    - cityKeyword
+    properties:
+      cityKeyword:
+        type: string
+        description: Free-text keyword for the city (e.g. Barcelona).
+  steps:
+  - stepId: resolveCity
+    description: >-
+      Resolve the city keyword to coordinates via the locations reference data,
+      matching on CITY subtype.
+    operationId: getAirportCitySearch
+    parameters:
+    - name: subType
+      in: query
+      value: CITY
+    - name: keyword
+      in: query
+      value: $inputs.cityKeyword
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      latitude: $response.body#/data/0/geoCode/latitude
+      longitude: $response.body#/data/0/geoCode/longitude
+  - stepId: listActivities
+    description: >-
+      List the bookable tours and activities around the resolved city
+      coordinates.
+    operationId: ListActivities
+    parameters:
+    - name: latitude
+      in: query
+      value: $steps.resolveCity.outputs.latitude
+    - name: longitude
+      in: query
+      value: $steps.resolveCity.outputs.longitude
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstActivityId: $response.body#/data/0/id
+      activityCount: $response.body#/meta/count
+  - stepId: getActivityDetail
+    description: >-
+      Retrieve the first activity by its id for full detail including price and
+      booking link.
+    operationId: GETActivity
+    parameters:
+    - name: activityId
+      in: path
+      value: $steps.listActivities.outputs.firstActivityId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      activityName: $response.body#/data/name
+      bookingLink: $response.body#/data/bookingLink
+  outputs:
+    activityCount: $steps.listActivities.outputs.activityCount
+    activityName: $steps.getActivityDetail.outputs.activityName
+    bookingLink: $steps.getActivityDetail.outputs.bookingLink

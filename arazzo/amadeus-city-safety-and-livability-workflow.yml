@@ -1,0 +1,90 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus City Safety and Livability
+  summary: Resolve a city to coordinates, score its safety ranking, then rate its area by category.
+  description: >-
+    Helps a traveller judge a destination before booking. The workflow resolves
+    a city keyword to coordinates via the locations reference data, retrieves the
+    Safe Place safety ranking around those coordinates, then fetches the
+    category-rated area scores (such as sightseeing, restaurants and shopping)
+    for the same point. Each request is inlined so the safety-and-livability
+    flow can be read and executed without opening the underlying OpenAPI
+    descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: airportCitySearch
+  url: ../openapi/amadeus-airport-city-search-openapi.yml
+  type: openapi
+- name: safePlace
+  url: ../openapi/amadeus-safe-place-openapi.yml
+  type: openapi
+- name: locationScore
+  url: ../openapi/amadeus-location-score-openapi.yml
+  type: openapi
+workflows:
+- workflowId: city-safety-and-livability
+  summary: Resolve a city's coordinates, score its safety, and rate its area.
+  description: >-
+    Looks up a city's coordinates, retrieves its safety ranking, and fetches its
+    category-rated area scores.
+  inputs:
+    type: object
+    required:
+    - cityKeyword
+    properties:
+      cityKeyword:
+        type: string
+        description: Free-text keyword for the city (e.g. Madrid).
+  steps:
+  - stepId: resolveCity
+    description: >-
+      Resolve the city keyword to coordinates via the locations reference data,
+      matching on CITY subtype.
+    operationId: getAirportCitySearch
+    parameters:
+    - name: subType
+      in: query
+      value: CITY
+    - name: keyword
+      in: query
+      value: $inputs.cityKeyword
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      latitude: $response.body#/data/0/geoCode/latitude
+      longitude: $response.body#/data/0/geoCode/longitude
+  - stepId: getSafetyRanking
+    description: >-
+      Retrieve the Safe Place safety ranking around the resolved city
+      coordinates.
+    operationId: getSafetyRanking
+    parameters:
+    - name: latitude
+      in: query
+      value: $steps.resolveCity.outputs.latitude
+    - name: longitude
+      in: query
+      value: $steps.resolveCity.outputs.longitude
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      safetyScores: $response.body#/data/0/safetyScores
+  - stepId: getAreaScore
+    description: >-
+      Fetch the category-rated area scores for the same coordinates to assess
+      livability themes.
+    operationId: get-category-rated-areas
+    parameters:
+    - name: latitude
+      in: query
+      value: $steps.resolveCity.outputs.latitude
+    - name: longitude
+      in: query
+      value: $steps.resolveCity.outputs.longitude
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      categoryScores: $response.body#/data/0/categoryScores
+  outputs:
+    safetyScores: $steps.getSafetyRanking.outputs.safetyScores
+    categoryScores: $steps.getAreaScore.outputs.categoryScores

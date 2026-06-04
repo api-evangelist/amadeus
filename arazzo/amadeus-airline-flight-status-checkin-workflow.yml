@@ -1,0 +1,95 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus Airline Flight Status and Check-in
+  summary: Validate an airline code, get on-demand flight status for a flight, then fetch its check-in links.
+  description: >-
+    Supports a day-of-travel companion experience. The workflow validates an
+    airline code against the airline code lookup reference data, retrieves the
+    on-demand flight status (schedule, timings and points) for the given flight
+    number and date, then fetches the airline's online check-in links so the
+    traveller can check in. Each request is inlined so the status-and-checkin
+    flow can be read and executed without opening the underlying OpenAPI
+    descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: airlineCodeLookup
+  url: ../openapi/amadeus-airline-code-lookup-openapi.yml
+  type: openapi
+- name: onDemandFlightStatus
+  url: ../openapi/amadeus-on-demand-flight-status-openapi.yml
+  type: openapi
+- name: flightCheckinLinks
+  url: ../openapi/amadeus-flight-checkin-links-openapi.yml
+  type: openapi
+workflows:
+- workflowId: airline-flight-status-checkin
+  summary: Validate an airline, get a flight's status, and fetch its check-in links.
+  description: >-
+    Confirms the airline code, retrieves on-demand flight status for the flight,
+    and returns the airline's online check-in links.
+  inputs:
+    type: object
+    required:
+    - carrierCode
+    - flightNumber
+    - scheduledDepartureDate
+    properties:
+      carrierCode:
+        type: string
+        description: 2-character IATA airline/carrier code (e.g. TP).
+      flightNumber:
+        type: string
+        description: Flight number without the carrier code (e.g. 487).
+      scheduledDepartureDate:
+        type: string
+        description: Scheduled departure date in YYYY-MM-DD format.
+  steps:
+  - stepId: validateAirline
+    description: >-
+      Validate the carrier code by looking it up in the airline code reference
+      data and capturing the carrier's business name.
+    operationId: getairlines
+    parameters:
+    - name: airlineCodes
+      in: query
+      value: $inputs.carrierCode
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      businessName: $response.body#/data/0/businessName
+  - stepId: getStatus
+    description: >-
+      Retrieve the on-demand flight status for the carrier, flight number and
+      scheduled departure date.
+    operationId: getFlightsStatus
+    parameters:
+    - name: carrierCode
+      in: query
+      value: $inputs.carrierCode
+    - name: flightNumber
+      in: query
+      value: $inputs.flightNumber
+    - name: scheduledDepartureDate
+      in: query
+      value: $inputs.scheduledDepartureDate
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      flightPoints: $response.body#/data/0/flightPoints
+  - stepId: getCheckinLinks
+    description: >-
+      Fetch the airline's online check-in links so the traveller can check in
+      for the flight.
+    operationId: getCheckinURLs
+    parameters:
+    - name: airlineCode
+      in: query
+      value: $inputs.carrierCode
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      checkinLinks: $response.body#/data
+  outputs:
+    businessName: $steps.validateAirline.outputs.businessName
+    flightPoints: $steps.getStatus.outputs.flightPoints
+    checkinLinks: $steps.getCheckinLinks.outputs.checkinLinks

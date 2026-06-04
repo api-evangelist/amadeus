@@ -1,0 +1,105 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus Flight Branded Fares Upsell
+  summary: Search flight offers, retrieve branded fare upsell options, then price the chosen upsell.
+  description: >-
+    Helps surface richer fare families during shopping. The workflow searches
+    flight offers for a city pair, feeds the cheapest offer into the branded
+    fares upsell endpoint to expose upgraded fare brands (more baggage, refund
+    or change flexibility), and then confirms the live price of the upsold
+    offer. Each request is inlined so the upsell flow can be executed without
+    opening the underlying OpenAPI descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: flightOffersSearch
+  url: ../openapi/amadeus-flight-offers-search-openapi.yml
+  type: openapi
+- name: brandedFaresUpsell
+  url: ../openapi/amadeus-branded-fares-upsell-openapi.yml
+  type: openapi
+- name: flightOffersPrice
+  url: ../openapi/amadeus-flight-offers-price-openapi.yml
+  type: openapi
+workflows:
+- workflowId: upsell-branded-fare
+  summary: Search, expose branded fare upsell options, and price the upsold offer.
+  description: >-
+    Searches flight offers, requests branded fare upsells for the first offer,
+    then prices the first upsell returned.
+  inputs:
+    type: object
+    required:
+    - originLocationCode
+    - destinationLocationCode
+    - departureDate
+    - adults
+    properties:
+      originLocationCode:
+        type: string
+        description: IATA city/airport code the traveller departs from.
+      destinationLocationCode:
+        type: string
+        description: IATA city/airport code the traveller is going to.
+      departureDate:
+        type: string
+        description: Departure date in ISO 8601 YYYY-MM-DD format.
+      adults:
+        type: integer
+        description: Number of adult travellers (1-9).
+  steps:
+  - stepId: searchOffers
+    description: >-
+      Run a flight offers search for the requested city pair and date.
+    operationId: getFlightOffers
+    parameters:
+    - name: originLocationCode
+      in: query
+      value: $inputs.originLocationCode
+    - name: destinationLocationCode
+      in: query
+      value: $inputs.destinationLocationCode
+    - name: departureDate
+      in: query
+      value: $inputs.departureDate
+    - name: adults
+      in: query
+      value: $inputs.adults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstOffer: $response.body#/data/0
+  - stepId: upsellOffer
+    description: >-
+      Request branded fare upsell options for the first offer to expose upgraded
+      fare brands with additional services.
+    operationId: upsellAirOffers
+    requestBody:
+      contentType: application/vnd.amadeus+json
+      payload:
+        data:
+          type: flight-offers-upselling
+          flightOffers:
+          - $steps.searchOffers.outputs.firstOffer
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      upsoldOffer: $response.body#/data/0
+      upsellCount: $response.body#/meta/count
+  - stepId: priceUpsell
+    description: >-
+      Confirm the real-time price of the first upsold branded fare offer.
+    operationId: quoteAirOffers
+    requestBody:
+      contentType: application/vnd.amadeus+json
+      payload:
+        data:
+          type: flight-offers-pricing
+          flightOffers:
+          - $steps.upsellOffer.outputs.upsoldOffer
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      grandTotal: $response.body#/data/flightOffers/0/price/grandTotal
+  outputs:
+    upsellCount: $steps.upsellOffer.outputs.upsellCount
+    grandTotal: $steps.priceUpsell.outputs.grandTotal

@@ -1,0 +1,99 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus Flight Book and Retrieve Order
+  summary: Price a flight offer, create the order, then retrieve the persisted order to confirm it.
+  description: >-
+    Closes the loop on a flight booking. After confirming the live price of a
+    supplied shopping offer the workflow creates a flight order, then reads the
+    order back from order management using the returned id to verify it was
+    persisted with the expected travellers and ticketing details. Each request
+    is inlined so the post-booking verification flow can be read and executed
+    directly.
+  version: 1.0.0
+sourceDescriptions:
+- name: flightOffersPrice
+  url: ../openapi/amadeus-flight-offers-price-openapi.yml
+  type: openapi
+- name: flightCreateOrders
+  url: ../openapi/amadeus-flight-create-orders-openapi.yml
+  type: openapi
+- name: flightOrderManagement
+  url: ../openapi/amadeus-flight-order-management-openapi.yml
+  type: openapi
+workflows:
+- workflowId: book-and-retrieve-flight-order
+  summary: Price an offer, create its order, and read the order back to confirm.
+  description: >-
+    Confirms pricing for a shopping offer, creates a flight order, then
+    retrieves the stored order by id for verification.
+  inputs:
+    type: object
+    required:
+    - flightOffer
+    - travelers
+    - contacts
+    properties:
+      flightOffer:
+        type: object
+        description: A flight-offer object as returned by a flight offers search.
+      travelers:
+        type: array
+        description: Traveler objects for the flight order data.travelers array.
+        items:
+          type: object
+      contacts:
+        type: array
+        description: Contact objects for the flight order data.contacts array.
+        items:
+          type: object
+  steps:
+  - stepId: priceOffer
+    description: >-
+      Confirm the real-time price of the supplied shopping offer before booking.
+    operationId: quoteAirOffers
+    requestBody:
+      contentType: application/vnd.amadeus+json
+      payload:
+        data:
+          type: flight-offers-pricing
+          flightOffers:
+          - $inputs.flightOffer
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      pricedOffer: $response.body#/data/flightOffers/0
+  - stepId: createOrder
+    description: >-
+      Create a flight order from the priced offer and the supplied travellers
+      and contacts.
+    operationId: createFligtOrders
+    requestBody:
+      contentType: application/vnd.amadeus+json
+      payload:
+        data:
+          type: flight-order
+          flightOffers:
+          - $steps.priceOffer.outputs.pricedOffer
+          travelers: $inputs.travelers
+          contacts: $inputs.contacts
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      flightOrderId: $response.body#/data/id
+  - stepId: retrieveOrder
+    description: >-
+      Read the newly created flight order back from order management to confirm
+      it was persisted with the expected content.
+    operationId: getFlightOrder
+    parameters:
+    - name: flight-orderId
+      in: path
+      value: $steps.createOrder.outputs.flightOrderId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      retrievedId: $response.body#/data/id
+      travelers: $response.body#/data/travelers
+  outputs:
+    flightOrderId: $steps.createOrder.outputs.flightOrderId
+    retrievedId: $steps.retrieveOrder.outputs.retrievedId

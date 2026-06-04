@@ -1,0 +1,109 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus Geocode Hotels and Offers
+  summary: Resolve a city to coordinates, find hotels by geocode, then fetch live offers for the nearest one.
+  description: >-
+    Supports a map-centred hotel search. The workflow resolves a city keyword to
+    coordinates via the locations reference data, lists hotels around that
+    geocode ordered by distance, then fetches live priced offers for the nearest
+    hotel for the requested stay. Each request is inlined so the
+    geocode-to-offers flow can be read and executed without opening the
+    underlying OpenAPI descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: airportCitySearch
+  url: ../openapi/amadeus-airport-city-search-openapi.yml
+  type: openapi
+- name: hotelList
+  url: ../openapi/amadeus-hotel-list-openapi.yml
+  type: openapi
+- name: hotelSearch
+  url: ../openapi/amadeus-hotel-search-openapi.yml
+  type: openapi
+workflows:
+- workflowId: geocode-hotels-and-offers
+  summary: Resolve city coordinates, find nearby hotels, and get offers for the nearest.
+  description: >-
+    Looks up a city's coordinates, searches hotels by geocode, and fetches live
+    offers for the nearest hotel.
+  inputs:
+    type: object
+    required:
+    - cityKeyword
+    - checkInDate
+    - checkOutDate
+    - adults
+    properties:
+      cityKeyword:
+        type: string
+        description: Free-text keyword for the city (e.g. Nice).
+      checkInDate:
+        type: string
+        description: Check-in date in YYYY-MM-DD format.
+      checkOutDate:
+        type: string
+        description: Check-out date in YYYY-MM-DD format.
+      adults:
+        type: integer
+        description: Number of adult guests per room (1-9).
+  steps:
+  - stepId: resolveCity
+    description: >-
+      Resolve the city keyword to coordinates via the locations reference data,
+      matching on CITY subtype.
+    operationId: getAirportCitySearch
+    parameters:
+    - name: subType
+      in: query
+      value: CITY
+    - name: keyword
+      in: query
+      value: $inputs.cityKeyword
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      latitude: $response.body#/data/0/geoCode/latitude
+      longitude: $response.body#/data/0/geoCode/longitude
+  - stepId: hotelsByGeocode
+    description: >-
+      List hotels around the resolved coordinates, ordered by distance, to get
+      property codes.
+    operationId: get-shopping-hotels-geocodes
+    parameters:
+    - name: latitude
+      in: query
+      value: $steps.resolveCity.outputs.latitude
+    - name: longitude
+      in: query
+      value: $steps.resolveCity.outputs.longitude
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      nearestHotelId: $response.body#/data/0/hotelId
+      hotelCount: $response.body#/meta/count
+  - stepId: getOffers
+    description: >-
+      Fetch live priced offers for the nearest hotel for the requested stay
+      dates and occupancy.
+    operationId: getMultiHotelOffers
+    parameters:
+    - name: hotelIds
+      in: query
+      value: $steps.hotelsByGeocode.outputs.nearestHotelId
+    - name: checkInDate
+      in: query
+      value: $inputs.checkInDate
+    - name: checkOutDate
+      in: query
+      value: $inputs.checkOutDate
+    - name: adults
+      in: query
+      value: $inputs.adults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      offerId: $response.body#/data/0/offers/0/id
+  outputs:
+    hotelCount: $steps.hotelsByGeocode.outputs.hotelCount
+    nearestHotelId: $steps.hotelsByGeocode.outputs.nearestHotelId
+    offerId: $steps.getOffers.outputs.offerId

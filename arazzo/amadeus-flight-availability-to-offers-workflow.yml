@@ -1,0 +1,95 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus Flight Availability to Offers
+  summary: Check seat availability for a city pair and date, then search priced flight offers for the same trip.
+  description: >-
+    Validates that seats exist before shopping for fares. The workflow runs a
+    flight availabilities search for an origin/destination and date to confirm
+    bookable inventory, then runs a flight offers search for the same trip to
+    surface priced, bookable offers. Each request is inlined so the
+    availability-to-offers flow can be read and executed without opening the
+    underlying OpenAPI descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: flightAvailabilitiesSearch
+  url: ../openapi/amadeus-flight-availabilities-search-openapi.yml
+  type: openapi
+- name: flightOffersSearch
+  url: ../openapi/amadeus-flight-offers-search-openapi.yml
+  type: openapi
+workflows:
+- workflowId: availability-to-offers
+  summary: Confirm seat availability then search priced offers for the same trip.
+  description: >-
+    Posts a flight availabilities search to confirm inventory, then searches
+    flight offers for the same city pair and date.
+  inputs:
+    type: object
+    required:
+    - originLocationCode
+    - destinationLocationCode
+    - departureDate
+    - adults
+    properties:
+      originLocationCode:
+        type: string
+        description: IATA city/airport code the traveller departs from.
+      destinationLocationCode:
+        type: string
+        description: IATA city/airport code the traveller is going to.
+      departureDate:
+        type: string
+        description: Departure date in ISO 8601 YYYY-MM-DD format.
+      adults:
+        type: integer
+        description: Number of adult travellers (1-9).
+  steps:
+  - stepId: checkAvailability
+    description: >-
+      Post a flight availabilities search to confirm bookable inventory exists
+      for the requested origin, destination and date.
+    operationId: searchFlightAvailabilities
+    requestBody:
+      contentType: application/vnd.amadeus+json
+      payload:
+        originDestinations:
+        - id: '1'
+          originLocationCode: $inputs.originLocationCode
+          destinationLocationCode: $inputs.destinationLocationCode
+          departureDateTime:
+            date: $inputs.departureDate
+        travelers:
+        - id: '1'
+          travelerType: ADULT
+        sources:
+        - GDS
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      availabilityCount: $response.body#/meta/count
+      firstAvailability: $response.body#/data/0
+  - stepId: searchOffers
+    description: >-
+      Run a flight offers search for the same trip to surface priced, bookable
+      offers.
+    operationId: getFlightOffers
+    parameters:
+    - name: originLocationCode
+      in: query
+      value: $inputs.originLocationCode
+    - name: destinationLocationCode
+      in: query
+      value: $inputs.destinationLocationCode
+    - name: departureDate
+      in: query
+      value: $inputs.departureDate
+    - name: adults
+      in: query
+      value: $inputs.adults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      offerCount: $response.body#/meta/count
+  outputs:
+    availabilityCount: $steps.checkAvailability.outputs.availabilityCount
+    offerCount: $steps.searchOffers.outputs.offerCount

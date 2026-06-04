@@ -1,0 +1,105 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus Resolve Locations and Search Flights
+  summary: Resolve origin and destination IATA codes from keywords, then search flight offers between them.
+  description: >-
+    Bridges free-text place input to flight shopping. The workflow resolves an
+    origin keyword and a destination keyword to their IATA codes via the airport
+    and city search reference data, then runs a flight offers search using the
+    resolved codes. This lets a user type "London" and "New York" and still get
+    real flight offers. Each request is inlined so the resolve-then-search flow
+    can be read and executed directly.
+  version: 1.0.0
+sourceDescriptions:
+- name: airportCitySearch
+  url: ../openapi/amadeus-airport-city-search-openapi.yml
+  type: openapi
+- name: flightOffersSearch
+  url: ../openapi/amadeus-flight-offers-search-openapi.yml
+  type: openapi
+workflows:
+- workflowId: resolve-locations-and-search-flights
+  summary: Resolve two place keywords to IATA codes and search flights between them.
+  description: >-
+    Looks up the origin and destination keywords in the locations reference
+    data, extracts their IATA codes, and runs a flight offers search.
+  inputs:
+    type: object
+    required:
+    - originKeyword
+    - destinationKeyword
+    - departureDate
+    - adults
+    properties:
+      originKeyword:
+        type: string
+        description: Free-text keyword for the origin (e.g. London).
+      destinationKeyword:
+        type: string
+        description: Free-text keyword for the destination (e.g. New York).
+      departureDate:
+        type: string
+        description: Departure date in ISO 8601 YYYY-MM-DD format.
+      adults:
+        type: integer
+        description: Number of adult travellers (1-9).
+  steps:
+  - stepId: resolveOrigin
+    description: >-
+      Resolve the origin keyword to a city IATA code via the locations
+      reference data, matching on CITY subtype.
+    operationId: getAirportCitySearch
+    parameters:
+    - name: subType
+      in: query
+      value: CITY
+    - name: keyword
+      in: query
+      value: $inputs.originKeyword
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      originCode: $response.body#/data/0/iataCode
+  - stepId: resolveDestination
+    description: >-
+      Resolve the destination keyword to a city IATA code via the locations
+      reference data, matching on CITY subtype.
+    operationId: getAirportCitySearch
+    parameters:
+    - name: subType
+      in: query
+      value: CITY
+    - name: keyword
+      in: query
+      value: $inputs.destinationKeyword
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      destinationCode: $response.body#/data/0/iataCode
+  - stepId: searchOffers
+    description: >-
+      Run a flight offers search between the two resolved IATA codes for the
+      requested date and adult count.
+    operationId: getFlightOffers
+    parameters:
+    - name: originLocationCode
+      in: query
+      value: $steps.resolveOrigin.outputs.originCode
+    - name: destinationLocationCode
+      in: query
+      value: $steps.resolveDestination.outputs.destinationCode
+    - name: departureDate
+      in: query
+      value: $inputs.departureDate
+    - name: adults
+      in: query
+      value: $inputs.adults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      offerCount: $response.body#/meta/count
+      firstOffer: $response.body#/data/0
+  outputs:
+    originCode: $steps.resolveOrigin.outputs.originCode
+    destinationCode: $steps.resolveDestination.outputs.destinationCode
+    offerCount: $steps.searchOffers.outputs.offerCount

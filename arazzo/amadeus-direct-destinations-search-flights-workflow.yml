@@ -1,0 +1,81 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus Direct Destinations Then Search Flights
+  summary: List direct destinations from an airport, then search flight offers to the first destination.
+  description: >-
+    Supports inspiration-style discovery grounded in real routes. The workflow
+    lists the airports a departure airport flies to non-stop, then runs a flight
+    offers search to the first direct destination for the requested date. This
+    keeps results to genuinely bookable non-stop routes. Each request is inlined
+    so the discover-then-search flow can be read and executed without opening
+    the underlying OpenAPI descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: airportRoutes
+  url: ../openapi/amadeus-airport-routes-openapi.yml
+  type: openapi
+- name: flightOffersSearch
+  url: ../openapi/amadeus-flight-offers-search-openapi.yml
+  type: openapi
+workflows:
+- workflowId: direct-destinations-search-flights
+  summary: Discover non-stop destinations from an airport and price a flight to one.
+  description: >-
+    Lists direct destinations from a departure airport, then searches flight
+    offers to the first destination returned.
+  inputs:
+    type: object
+    required:
+    - departureAirportCode
+    - departureDate
+    - adults
+    properties:
+      departureAirportCode:
+        type: string
+        description: IATA code of the departure airport (e.g. MAD).
+      departureDate:
+        type: string
+        description: Departure date in ISO 8601 YYYY-MM-DD format.
+      adults:
+        type: integer
+        description: Number of adult travellers (1-9).
+  steps:
+  - stepId: listDirectDestinations
+    description: >-
+      List the destinations served non-stop from the departure airport.
+    operationId: airport/direct-destinations
+    parameters:
+    - name: departureAirportCode
+      in: query
+      value: $inputs.departureAirportCode
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstDestination: $response.body#/data/0/iataCode
+      destinationCount: $response.body#/meta/count
+  - stepId: searchOffers
+    description: >-
+      Run a flight offers search from the departure airport to the first direct
+      destination for the requested date and adult count.
+    operationId: getFlightOffers
+    parameters:
+    - name: originLocationCode
+      in: query
+      value: $inputs.departureAirportCode
+    - name: destinationLocationCode
+      in: query
+      value: $steps.listDirectDestinations.outputs.firstDestination
+    - name: departureDate
+      in: query
+      value: $inputs.departureDate
+    - name: adults
+      in: query
+      value: $inputs.adults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      offerCount: $response.body#/meta/count
+  outputs:
+    firstDestination: $steps.listDirectDestinations.outputs.firstDestination
+    destinationCount: $steps.listDirectDestinations.outputs.destinationCount
+    offerCount: $steps.searchOffers.outputs.offerCount

@@ -4951,6 +4951,63 @@ apis:
       - type: Example
         url: examples/authorization-amadeus-oauth2-token-example.json
 common:
+  - type: ArazzoWorkflows
+    url: arazzo/
+    workflows:
+    - url: arazzo/amadeus-airline-flight-status-checkin-workflow.yml
+      name: Amadeus Airline Flight Status and Check-in
+      summary: Validate an airline code, get on-demand flight status for a flight, then fetch its check-in links.
+    - url: arazzo/amadeus-city-hotels-with-ratings-workflow.yml
+      name: Amadeus City Hotels with Ratings
+      summary: List hotels in a city, then fetch aggregated guest sentiment ratings for them.
+    - url: arazzo/amadeus-city-points-of-interest-workflow.yml
+      name: Amadeus City Points of Interest
+      summary: Resolve a city to its coordinates, list nearby points of interest, then fetch one in detail.
+    - url: arazzo/amadeus-city-safety-and-livability-workflow.yml
+      name: Amadeus City Safety and Livability
+      summary: Resolve a city to coordinates, score its safety ranking, then rate its area by category.
+    - url: arazzo/amadeus-city-tours-and-activities-workflow.yml
+      name: Amadeus City Tours and Activities
+      summary: Resolve a city to coordinates, list bookable tours and activities nearby, then fetch one in detail.
+    - url: arazzo/amadeus-direct-destinations-search-flights-workflow.yml
+      name: Amadeus Direct Destinations Then Search Flights
+      summary: List direct destinations from an airport, then search flight offers to the first destination.
+    - url: arazzo/amadeus-flight-availability-to-offers-workflow.yml
+      name: Amadeus Flight Availability to Offers
+      summary: Check seat availability for a city pair and date, then search priced flight offers for the same trip.
+    - url: arazzo/amadeus-flight-book-and-retrieve-order-workflow.yml
+      name: Amadeus Flight Book and Retrieve Order
+      summary: Price a flight offer, create the order, then retrieve the persisted order to confirm it.
+    - url: arazzo/amadeus-flight-branded-fares-upsell-workflow.yml
+      name: Amadeus Flight Branded Fares Upsell
+      summary: Search flight offers, retrieve branded fare upsell options, then price the chosen upsell.
+    - url: arazzo/amadeus-flight-inspiration-to-offers-workflow.yml
+      name: Amadeus Flight Inspiration to Offers
+      summary: Find inspirational destinations from an origin, get the cheapest dates to one, then search bookable offers.
+    - url: arazzo/amadeus-flight-offer-seatmap-workflow.yml
+      name: Amadeus Flight Offer Seatmap
+      summary: Search flight offers for a trip, then display the seat map for the first offer.
+    - url: arazzo/amadeus-flight-order-cancel-lifecycle-workflow.yml
+      name: Amadeus Flight Order Cancel Lifecycle
+      summary: Create a flight order from a priced offer, retrieve it, then cancel it to release the booking.
+    - url: arazzo/amadeus-flight-search-price-book-workflow.yml
+      name: Amadeus Flight Search, Price, and Book
+      summary: Search flight offers, confirm the live price of a chosen offer, then create a booked flight order.
+    - url: arazzo/amadeus-geocode-hotels-and-offers-workflow.yml
+      name: Amadeus Geocode Hotels and Offers
+      summary: Resolve a city to coordinates, find hotels by geocode, then fetch live offers for the nearest one.
+    - url: arazzo/amadeus-hotel-autocomplete-ratings-offers-workflow.yml
+      name: Amadeus Hotel Autocomplete, Ratings, and Offers
+      summary: Autocomplete a hotel by name, fetch its guest-sentiment rating, then pull its live offers.
+    - url: arazzo/amadeus-hotel-search-and-book-workflow.yml
+      name: Amadeus Hotel Search and Book
+      summary: List hotels in a city, fetch live offers for them, price the chosen offer, then create a hotel order.
+    - url: arazzo/amadeus-nearest-airport-flights-workflow.yml
+      name: Amadeus Nearest Airport Flights
+      summary: Find the nearest relevant airport to a coordinate, then search flight offers departing from it.
+    - url: arazzo/amadeus-resolve-locations-and-search-flights-workflow.yml
+      name: Amadeus Resolve Locations and Search Flights
+      summary: Resolve origin and destination IATA codes from keywords, then search flight offers between them.
   - type: Website
     url: https://amadeus.com
   - type: DeveloperPortal

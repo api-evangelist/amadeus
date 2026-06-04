@@ -1,0 +1,92 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus Nearest Airport Flights
+  summary: Find the nearest relevant airport to a coordinate, then search flight offers departing from it.
+  description: >-
+    Turns a geographic coordinate into a flight search. The workflow finds the
+    nearest relevant airport to a supplied latitude/longitude using the airport
+    nearest relevant reference data, then searches flight offers departing from
+    that airport to the requested destination. Useful for "flights from where I
+    am now" experiences. Each request is inlined so the geo-to-flights flow can
+    be read and executed directly.
+  version: 1.0.0
+sourceDescriptions:
+- name: airportNearestRelevant
+  url: ../openapi/amadeus-airport-nearest-relevant-openapi.yml
+  type: openapi
+- name: flightOffersSearch
+  url: ../openapi/amadeus-flight-offers-search-openapi.yml
+  type: openapi
+workflows:
+- workflowId: nearest-airport-flights
+  summary: Resolve nearest airport to a coordinate and search departing flights.
+  description: >-
+    Looks up the nearest relevant airport to a coordinate then searches flight
+    offers from that airport to the destination.
+  inputs:
+    type: object
+    required:
+    - latitude
+    - longitude
+    - destinationLocationCode
+    - departureDate
+    - adults
+    properties:
+      latitude:
+        type: number
+        description: Latitude of the reference point.
+      longitude:
+        type: number
+        description: Longitude of the reference point.
+      destinationLocationCode:
+        type: string
+        description: IATA city/airport code the traveller is going to.
+      departureDate:
+        type: string
+        description: Departure date in ISO 8601 YYYY-MM-DD format.
+      adults:
+        type: integer
+        description: Number of adult travellers (1-9).
+  steps:
+  - stepId: findNearestAirport
+    description: >-
+      Find the nearest relevant airport to the supplied coordinate, ordered by
+      relevance and distance.
+    operationId: getNearestRelevantAirports
+    parameters:
+    - name: latitude
+      in: query
+      value: $inputs.latitude
+    - name: longitude
+      in: query
+      value: $inputs.longitude
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      nearestCode: $response.body#/data/0/iataCode
+      airportCount: $response.body#/meta/count
+  - stepId: searchOffers
+    description: >-
+      Run a flight offers search from the nearest airport to the requested
+      destination for the supplied date and adult count.
+    operationId: getFlightOffers
+    parameters:
+    - name: originLocationCode
+      in: query
+      value: $steps.findNearestAirport.outputs.nearestCode
+    - name: destinationLocationCode
+      in: query
+      value: $inputs.destinationLocationCode
+    - name: departureDate
+      in: query
+      value: $inputs.departureDate
+    - name: adults
+      in: query
+      value: $inputs.adults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      offerCount: $response.body#/meta/count
+  outputs:
+    nearestCode: $steps.findNearestAirport.outputs.nearestCode
+    offerCount: $steps.searchOffers.outputs.offerCount

@@ -1,0 +1,119 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus Flight Order Cancel Lifecycle
+  summary: Create a flight order from a priced offer, retrieve it, then cancel it to release the booking.
+  description: >-
+    Exercises the full create/retrieve/cancel lifecycle of a flight order,
+    useful for test bookings and abandon flows. The workflow prices a supplied
+    offer, creates the order, retrieves it to confirm it persisted, and only
+    then cancels it to release the booking. The retrieve step branches: it
+    proceeds to cancellation when the order is found. Each request is inlined so
+    the lifecycle flow can be read and executed without opening the underlying
+    OpenAPI descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: flightOffersPrice
+  url: ../openapi/amadeus-flight-offers-price-openapi.yml
+  type: openapi
+- name: flightCreateOrders
+  url: ../openapi/amadeus-flight-create-orders-openapi.yml
+  type: openapi
+- name: flightOrderManagement
+  url: ../openapi/amadeus-flight-order-management-openapi.yml
+  type: openapi
+workflows:
+- workflowId: flight-order-cancel-lifecycle
+  summary: Price, create, retrieve, and cancel a flight order end to end.
+  description: >-
+    Prices a supplied offer, creates a flight order, confirms it by retrieval,
+    then cancels it to release the booking.
+  inputs:
+    type: object
+    required:
+    - flightOffer
+    - travelers
+    - contacts
+    properties:
+      flightOffer:
+        type: object
+        description: A flight-offer object as returned by a flight offers search.
+      travelers:
+        type: array
+        description: Traveler objects for the flight order data.travelers array.
+        items:
+          type: object
+      contacts:
+        type: array
+        description: Contact objects for the flight order data.contacts array.
+        items:
+          type: object
+  steps:
+  - stepId: priceOffer
+    description: >-
+      Confirm the real-time price of the supplied offer before booking.
+    operationId: quoteAirOffers
+    requestBody:
+      contentType: application/vnd.amadeus+json
+      payload:
+        data:
+          type: flight-offers-pricing
+          flightOffers:
+          - $inputs.flightOffer
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      pricedOffer: $response.body#/data/flightOffers/0
+  - stepId: createOrder
+    description: >-
+      Create a flight order from the priced offer and supplied travellers.
+    operationId: createFligtOrders
+    requestBody:
+      contentType: application/vnd.amadeus+json
+      payload:
+        data:
+          type: flight-order
+          flightOffers:
+          - $steps.priceOffer.outputs.pricedOffer
+          travelers: $inputs.travelers
+          contacts: $inputs.contacts
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      flightOrderId: $response.body#/data/id
+  - stepId: retrieveOrder
+    description: >-
+      Retrieve the created order to confirm it persisted before cancelling. If
+      the order is found, proceed to cancel it.
+    operationId: getFlightOrder
+    parameters:
+    - name: flight-orderId
+      in: path
+      value: $steps.createOrder.outputs.flightOrderId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      retrievedId: $response.body#/data/id
+    onSuccess:
+    - name: orderConfirmed
+      type: goto
+      stepId: cancelOrder
+      criteria:
+      - context: $response.body
+        condition: $.data.id != null
+        type: jsonpath
+  - stepId: cancelOrder
+    description: >-
+      Cancel the flight order to release the booking, expecting a no-content
+      response on success.
+    operationId: cancelFlightOrder
+    parameters:
+    - name: flight-orderId
+      in: path
+      value: $steps.createOrder.outputs.flightOrderId
+    successCriteria:
+    - condition: $statusCode == 204
+    outputs:
+      cancelStatus: $statusCode
+  outputs:
+    flightOrderId: $steps.createOrder.outputs.flightOrderId
+    cancelStatus: $steps.cancelOrder.outputs.cancelStatus

@@ -1,0 +1,133 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus Hotel Search and Book
+  summary: List hotels in a city, fetch live offers for them, price the chosen offer, then create a hotel order.
+  description: >-
+    The full Amadeus hotel retailing funnel. The workflow lists hotels in a
+    destination city to get property codes, requests live priced offers for
+    those hotels for the requested stay, re-prices the chosen offer to confirm
+    availability and price, then creates a hotel order with guest and payment
+    details. Each request is inlined so the search-to-book flow can be read and
+    executed without opening the underlying OpenAPI descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: hotelList
+  url: ../openapi/amadeus-hotel-list-openapi.yml
+  type: openapi
+- name: hotelSearch
+  url: ../openapi/amadeus-hotel-search-openapi.yml
+  type: openapi
+- name: hotelBooking
+  url: ../openapi/amadeus-hotel-booking-openapi.yml
+  type: openapi
+workflows:
+- workflowId: hotel-search-and-book
+  summary: List city hotels, get offers, price an offer, and create a hotel order.
+  description: >-
+    Resolves hotels in a city to property codes, fetches live offers, prices the
+    selected offer, and books it with guest and payment data.
+  inputs:
+    type: object
+    required:
+    - cityCode
+    - checkInDate
+    - checkOutDate
+    - adults
+    - guests
+    - payment
+    properties:
+      cityCode:
+        type: string
+        description: Destination city or airport IATA code (3 chars, e.g. PAR).
+      checkInDate:
+        type: string
+        description: Check-in date in YYYY-MM-DD format.
+      checkOutDate:
+        type: string
+        description: Check-out date in YYYY-MM-DD format.
+      adults:
+        type: integer
+        description: Number of adult guests per room (1-9).
+      guests:
+        type: array
+        description: Guest objects (with tid) for the hotel order data.guests array.
+        items:
+          type: object
+      payment:
+        type: object
+        description: Payment object for the hotel order data.payment field.
+  steps:
+  - stepId: listHotels
+    description: >-
+      List hotels in the destination city to obtain Amadeus property codes to
+      shop for offers.
+    operationId: get-shopping-hotels-by-city
+    parameters:
+    - name: cityCode
+      in: query
+      value: $inputs.cityCode
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstHotelId: $response.body#/data/0/hotelId
+      hotelCount: $response.body#/meta/count
+  - stepId: getOffers
+    description: >-
+      Request live priced offers for the first hotel for the requested stay
+      dates and occupancy.
+    operationId: getMultiHotelOffers
+    parameters:
+    - name: hotelIds
+      in: query
+      value: $steps.listHotels.outputs.firstHotelId
+    - name: checkInDate
+      in: query
+      value: $inputs.checkInDate
+    - name: checkOutDate
+      in: query
+      value: $inputs.checkOutDate
+    - name: adults
+      in: query
+      value: $inputs.adults
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      offerId: $response.body#/data/0/offers/0/id
+  - stepId: priceOffer
+    description: >-
+      Re-price the selected hotel offer to confirm it is still available and at
+      what price before booking.
+    operationId: getOfferPricing
+    parameters:
+    - name: offerId
+      in: path
+      value: $steps.getOffers.outputs.offerId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      confirmedOfferId: $response.body#/data/offers/0/id
+  - stepId: bookHotel
+    description: >-
+      Create a hotel order for the confirmed offer with the supplied guests and
+      payment, associating the offer to the guest references.
+    operationId: createHotelOrder
+    requestBody:
+      contentType: application/vnd.amadeus+json
+      payload:
+        data:
+          type: hotel-order
+          guests: $inputs.guests
+          roomAssociations:
+          - guestReferences:
+            - guestReference: '1'
+            hotelOfferId: $steps.priceOffer.outputs.confirmedOfferId
+          payment: $inputs.payment
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      hotelOrderId: $response.body#/data/id
+      bookingStatus: $response.body#/data/hotelBookings/0/bookingStatus
+  outputs:
+    hotelCount: $steps.listHotels.outputs.hotelCount
+    hotelOrderId: $steps.bookHotel.outputs.hotelOrderId
+    bookingStatus: $steps.bookHotel.outputs.bookingStatus

@@ -1,0 +1,64 @@
+arazzo: 1.0.1
+info:
+  title: Amadeus City Hotels with Ratings
+  summary: List hotels in a city, then fetch aggregated guest sentiment ratings for them.
+  description: >-
+    Enriches a city hotel list with reputation data. The workflow lists hotels
+    in a destination city to collect property codes, then retrieves the
+    aggregated guest sentiment ratings for the first matched property so results
+    can be sorted or filtered by reputation. Each request is inlined so the
+    list-then-rate flow can be read and executed without opening the underlying
+    OpenAPI descriptions.
+  version: 1.0.0
+sourceDescriptions:
+- name: hotelList
+  url: ../openapi/amadeus-hotel-list-openapi.yml
+  type: openapi
+- name: hotelRatings
+  url: ../openapi/amadeus-hotel-ratings-openapi.yml
+  type: openapi
+workflows:
+- workflowId: city-hotels-with-ratings
+  summary: List a city's hotels and fetch their guest sentiment ratings.
+  description: >-
+    Resolves hotels in a city to property codes, then fetches the sentiment
+    rating for the first property.
+  inputs:
+    type: object
+    required:
+    - cityCode
+    properties:
+      cityCode:
+        type: string
+        description: Destination city or airport IATA code (3 chars, e.g. NCE).
+  steps:
+  - stepId: listHotels
+    description: >-
+      List hotels in the destination city to obtain Amadeus property codes.
+    operationId: get-shopping-hotels-by-city
+    parameters:
+    - name: cityCode
+      in: query
+      value: $inputs.cityCode
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      firstHotelId: $response.body#/data/0/hotelId
+      hotelCount: $response.body#/meta/count
+  - stepId: getRating
+    description: >-
+      Retrieve the aggregated guest sentiment rating for the first matched
+      property.
+    operationId: getSentimentsByHotelIds
+    parameters:
+    - name: hotelIds
+      in: query
+      value: $steps.listHotels.outputs.firstHotelId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      overallRating: $response.body#/data/0/overallRating
+      sentiments: $response.body#/data/0/sentiments
+  outputs:
+    hotelCount: $steps.listHotels.outputs.hotelCount
+    overallRating: $steps.getRating.outputs.overallRating
