@@ -18,13 +18,22 @@ tags:
   - Trip Planning
   - Artificial Intelligence
   - Market Insights
-description: 'Amadeus for Developers is the self-service developer program from Amadeus IT Group, the leading technology provider for the global travel and tourism industry. The Self-Service catalog offers 40+ travel REST APIs across flights, hotels, destination experiences, cars and transfers, market insights, itinerary management, and AI-powered prediction services. APIs use OAuth2 client credentials authentication and are organized into Test (free, capped) and Production (paid, higher TPS) environments. Note: Amadeus has announced the Self-Service developer portal will be decommissioned on 17 July 2026; Enterprise customers retain access to the equivalent Enterprise APIs.'
+description: >-
+  Amadeus for Developers is the self-service developer program from Amadeus IT Group, the leading technology provider
+  for the global travel and tourism industry. The Self-Service catalog offers 40+ travel REST APIs across flights,
+  hotels, destination experiences, cars and transfers, market insights, itinerary management, and AI-powered prediction
+  services. APIs use OAuth2 client credentials authentication and are organized into Test (free, capped) and Production
+  (paid, higher TPS) environments. Note: Amadeus has announced the Self-Service developer portal will be decommissioned
+  on 17 July 2026; Enterprise customers retain access to the equivalent Enterprise APIs.
 created: '2026-05-05'
 modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
   - name: Flight Offers Search
-    description: Searches over 500 airlines to find the cheapest flight offers for a given itinerary. Supports one-way, round-trip, and multi-city searches with rich filtering (cabin class, max price, included/excluded airlines, non-stop preferred).
+    description: >-
+      Searches over 500 airlines to find the cheapest flight offers for a given itinerary. Supports one-way, round-trip,
+      and multi-city searches with rich filtering (cabin class, max price, included/excluded airlines, non-stop
+      preferred).
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
     baseURL: https://test.api.amadeus.com/v2
     tags:
@@ -39,8 +48,6 @@ apis:
         url: openapi/amadeus-flight-offers-search-openapi.yml
       - type: APIReference
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search/api-reference
-      - type: NaftikoCapability
-        url: capabilities/flight-offers-search-shopping.yaml
       - type: JSONSchema
         url: json-schema/flight-offers-search-additional-service-type-schema.json
       - type: JSONSchema
@@ -316,7 +323,9 @@ apis:
       - type: Example
         url: examples/flight-offers-search-traveler-info-example.json
   - name: Flight Offers Price
-    description: Confirms the final price and availability of a flight offer returned by Flight Offers Search, including taxes, fees, and fare rules, before booking.
+    description: >-
+      Confirms the final price and availability of a flight offer returned by Flight Offers Search, including taxes,
+      fees, and fare rules, before booking.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -328,8 +337,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
       - type: OpenAPI
         url: openapi/amadeus-flight-offers-price-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-offers-price-shopping.yaml
       - type: JSONSchema
         url: json-schema/flight-offers-price-additional-service-type-schema.json
       - type: JSONSchema
@@ -663,7 +670,9 @@ apis:
       - type: Example
         url: examples/flight-offers-price-term-and-condition-example.json
   - name: Flight Create Orders
-    description: Books a flight offer by creating a flight order (PNR) with traveler details, contact info, and payment, returning the order ID and ticketing reference.
+    description: >-
+      Books a flight offer by creating a flight order (PNR) with traveler details, contact info, and payment, returning
+      the order ID and ticketing reference.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-create-orders
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -675,8 +684,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-create-orders
       - type: OpenAPI
         url: openapi/amadeus-flight-create-orders-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-create-orders-booking.yaml
       - type: JSONSchema
         url: json-schema/flight-create-orders-additional-service-type-schema.json
       - type: JSONSchema
@@ -1090,7 +1097,9 @@ apis:
       - type: Example
         url: examples/flight-create-orders-ticketing-agreement-example.json
   - name: Flight Order Management
-    description: Retrieves and cancels existing flight orders. Use after Flight Create Orders to view PNR details or cancel a booking.
+    description: >-
+      Retrieves and cancels existing flight orders. Use after Flight Create Orders to view PNR details or cancel a
+      booking.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-order-management
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -1102,8 +1111,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-order-management
       - type: OpenAPI
         url: openapi/amadeus-flight-order-management-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-order-management-booking.yaml
       - type: JSONSchema
         url: json-schema/flight-order-management-additional-service-type-schema.json
       - type: JSONSchema
@@ -1523,7 +1530,9 @@ apis:
       - type: Example
         url: examples/flight-order-management-ticketing-agreement-example.json
   - name: Flight Availabilities Search
-    description: Searches real-time flight availability and inventory between origin and destination for a given date, returning bookable flight segments with classes of service.
+    description: >-
+      Searches real-time flight availability and inventory between origin and destination for a given date, returning
+      bookable flight segments with classes of service.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-availabilities-search
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -1535,8 +1544,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-availabilities-search
       - type: OpenAPI
         url: openapi/amadeus-flight-availabilities-search-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-availabilities-search-availibility.yaml
       - type: JSONSchema
         url: json-schema/flight-availabilities-search-aircraft-entry-schema.json
       - type: JSONSchema
@@ -1738,7 +1745,9 @@ apis:
       - type: Example
         url: examples/flight-availabilities-search-traveler-info-example.json
   - name: SeatMap Display
-    description: Returns the seat map for a specific flight, including available, occupied, and reserved seats with characteristics (window, aisle, exit row, extra legroom).
+    description: >-
+      Returns the seat map for a specific flight, including available, occupied, and reserved seats with characteristics
+      (window, aisle, exit row, extra legroom).
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/seatmap-display
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -1750,8 +1759,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/seatmap-display
       - type: OpenAPI
         url: openapi/amadeus-seatmap-display-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/seatmap-display-display-seatmaps.yaml
       - type: JSONSchema
         url: json-schema/seatmap-display-additional-service-type-schema.json
       - type: JSONSchema
@@ -2133,7 +2140,9 @@ apis:
       - type: Example
         url: examples/seatmap-display-term-and-condition-example.json
   - name: Branded Fares Upsell
-    description: Returns branded fares (e.g. Economy Light, Economy Flex, Business Lite) and their attributes for a given flight offer to surface upsell options to travelers.
+    description: >-
+      Returns branded fares (e.g. Economy Light, Economy Flex, Business Lite) and their attributes for a given flight
+      offer to surface upsell options to travelers.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/branded-fares-upsell
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -2145,8 +2154,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/branded-fares-upsell
       - type: OpenAPI
         url: openapi/amadeus-branded-fares-upsell-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/branded-fares-upsell-shopping.yaml
       - type: JSONSchema
         url: json-schema/branded-fares-upsell-additional-service-type-schema.json
       - type: JSONSchema
@@ -2352,7 +2359,9 @@ apis:
       - type: Example
         url: examples/branded-fares-upsell-tax-example.json
   - name: Flight Check-in Links
-    description: Returns direct check-in URLs for a given airline (IATA code) and language, deep-linking travelers into the carrier's check-in flow.
+    description: >-
+      Returns direct check-in URLs for a given airline (IATA code) and language, deep-linking travelers into the
+      carrier's check-in flow.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-checkin-links
     baseURL: https://test.api.amadeus.com/v2
     tags:
@@ -2364,8 +2373,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-checkin-links
       - type: OpenAPI
         url: openapi/amadeus-flight-checkin-links-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-checkin-links-checkin-links.yaml
       - type: JSONSchema
         url: json-schema/flight-checkin-links-checkin-link-schema.json
       - type: JSONSchema
@@ -2403,7 +2410,9 @@ apis:
       - type: Example
         url: examples/flight-checkin-links-parameter-example.json
   - name: On Demand Flight Status
-    description: Returns the real-time status (scheduled, delayed, departed, landed) and detailed itinerary of a specific flight on a specific date.
+    description: >-
+      Returns the real-time status (scheduled, delayed, departed, landed) and detailed itinerary of a specific flight on
+      a specific date.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/on-demand-flight-status
     baseURL: https://test.api.amadeus.com/v2
     tags:
@@ -2415,8 +2424,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/on-demand-flight-status
       - type: OpenAPI
         url: openapi/amadeus-on-demand-flight-status-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/on-demand-flight-status-flights.yaml
       - type: JSONSchema
         url: json-schema/on-demand-flight-status-aircraft-equipment-schema.json
       - type: JSONSchema
@@ -2526,7 +2533,9 @@ apis:
       - type: Example
         url: examples/on-demand-flight-status-timing-example.json
   - name: Flight Inspiration Search
-    description: Suggests cheap destinations from a given origin within a budget and date range, ideal for "where can I go for X dollars?" experiences.
+    description: >-
+      Suggests cheap destinations from a given origin within a budget and date range, ideal for "where can I go for X
+      dollars?" experiences.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-inspiration-search
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -2538,8 +2547,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-inspiration-search
       - type: OpenAPI
         url: openapi/amadeus-flight-inspiration-search-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-inspiration-search-flight-destinations.yaml
       - type: JSONSchema
         url: json-schema/flight-inspiration-search-currency-dictionary-schema.json
       - type: JSONSchema
@@ -2621,7 +2628,9 @@ apis:
       - type: Example
         url: examples/flight-inspiration-search-price-example.json
   - name: Flight Cheapest Date Search
-    description: Returns the cheapest dates to fly between two cities over a given date range to help travelers find the best fare windows.
+    description: >-
+      Returns the cheapest dates to fly between two cities over a given date range to help travelers find the best fare
+      windows.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-cheapest-date-search
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -2633,8 +2642,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-cheapest-date-search
       - type: OpenAPI
         url: openapi/amadeus-flight-cheapest-date-search-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-cheapest-date-search-flight-dates.yaml
       - type: JSONSchema
         url: json-schema/flight-cheapest-date-search-currency-dictionary-schema.json
       - type: JSONSchema
@@ -2716,7 +2723,9 @@ apis:
       - type: Example
         url: examples/flight-cheapest-date-search-price-example.json
   - name: Flight Price Analysis
-    description: Compares a current flight price to historical prices for the same route and returns a quartile-ranked "price metric" (FIRST, SECOND, THIRD, FOURTH) signalling whether the offer is a good deal.
+    description: >-
+      Compares a current flight price to historical prices for the same route and returns a quartile-ranked "price
+      metric" (FIRST, SECOND, THIRD, FOURTH) signalling whether the offer is a good deal.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-price-analysis
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -2729,8 +2738,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-price-analysis
       - type: OpenAPI
         url: openapi/amadeus-flight-price-analysis-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-price-analysis-price-metrics.yaml
       - type: JSONSchema
         url: json-schema/flight-price-analysis-error-400-schema.json
       - type: JSONSchema
@@ -2756,7 +2763,9 @@ apis:
       - type: Example
         url: examples/flight-price-analysis-warning-example.json
   - name: Flight Choice Prediction
-    description: Predicts the probability that a given flight offer will be chosen by a traveler, helping merchandising and ranking decisions.
+    description: >-
+      Predicts the probability that a given flight offer will be chosen by a traveler, helping merchandising and ranking
+      decisions.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-choice-prediction
     baseURL: https://test.api.amadeus.com/v2
     tags:
@@ -2769,8 +2778,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-choice-prediction
       - type: OpenAPI
         url: openapi/amadeus-flight-choice-prediction-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-choice-prediction-flight-choice-prediction.yaml
       - type: JSONSchema
         url: json-schema/flight-choice-prediction-additional-service-type-schema.json
       - type: JSONSchema
@@ -2968,7 +2975,9 @@ apis:
       - type: Example
         url: examples/flight-choice-prediction-term-and-condition-example.json
   - name: Flight Delay Prediction
-    description: Predicts the probability that a flight will be delayed by 30 minutes, 60 minutes, 120 minutes, or more, based on historical operational data.
+    description: >-
+      Predicts the probability that a flight will be delayed by 30 minutes, 60 minutes, 120 minutes, or more, based on
+      historical operational data.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-delay-prediction
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -2981,8 +2990,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-delay-prediction
       - type: OpenAPI
         url: openapi/amadeus-flight-delay-prediction-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-delay-prediction-flight-delay-prediction.yaml
       - type: JSONSchema
         url: json-schema/flight-delay-prediction-collection-meta-link-schema.json
       - type: JSONSchema
@@ -3024,7 +3031,9 @@ apis:
       - type: Example
         url: examples/flight-delay-prediction-prediction-example.json
   - name: Airport On-Time Performance
-    description: Returns the on-time performance score for an airport on a specific date, useful for operational and route planning analytics.
+    description: >-
+      Returns the on-time performance score for an airport on a specific date, useful for operational and route planning
+      analytics.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-on-time-performance
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -3037,8 +3046,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-on-time-performance
       - type: OpenAPI
         url: openapi/amadeus-airport-on-time-performance-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/airport-on-time-performance-airport-ontime-prediction.yaml
       - type: JSONSchema
         url: json-schema/airport-on-time-performance-error-400-schema.json
       - type: JSONSchema
@@ -3099,8 +3106,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-routes
       - type: OpenAPI
         url: openapi/amadeus-airport-routes-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/airport-routes-direct-destinations.yaml
       - type: JSONSchema
         url: json-schema/airport-routes-locations-schema.json
       - type: JSONSchema
@@ -3145,8 +3150,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-routes
       - type: OpenAPI
         url: openapi/amadeus-airline-routes-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/airline-routes-destinations.yaml
       - type: JSONSchema
         url: json-schema/airline-routes-locations-schema.json
       - type: JSONSchema
@@ -3190,8 +3193,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-nearest-relevant
       - type: OpenAPI
         url: openapi/amadeus-airport-nearest-relevant-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/airport-nearest-relevant-location.yaml
       - type: JSONSchema
         url: json-schema/airport-nearest-relevant-address-schema.json
       - type: JSONSchema
@@ -3259,7 +3260,9 @@ apis:
       - type: Example
         url: examples/airport-nearest-relevant-travelers-example.json
   - name: Airport and City Search
-    description: Searches airports and cities by keyword and returns IATA codes, names, geocoordinates, and country information. Backbone of any travel search UI autocomplete.
+    description: >-
+      Searches airports and cities by keyword and returns IATA codes, names, geocoordinates, and country information.
+      Backbone of any travel search UI autocomplete.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-and-city-search
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -3272,8 +3275,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/airport-and-city-search
       - type: OpenAPI
         url: openapi/amadeus-airport-city-search-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/airport-city-search-location.yaml
       - type: JSONSchema
         url: json-schema/airport-city-search-address-schema.json
       - type: JSONSchema
@@ -3347,7 +3348,9 @@ apis:
       - type: Example
         url: examples/airport-city-search-travelers-example.json
   - name: City Search
-    description: Searches cities matching a keyword, returning city codes, country, geocoordinates, and timezone. Useful for destination and itinerary planning.
+    description: >-
+      Searches cities matching a keyword, returning city codes, country, geocoordinates, and timezone. Useful for
+      destination and itinerary planning.
     humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/city-search
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -3359,8 +3362,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/city-search
       - type: OpenAPI
         url: openapi/amadeus-city-search-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/city-search-city.yaml
       - type: JSONSchema
         url: json-schema/city-search-location-schema.json
       - type: JSONSchema
@@ -3390,7 +3391,9 @@ apis:
       - type: Example
         url: examples/city-search-warning-example.json
   - name: Airline Code Lookup
-    description: Returns the airline name and details for a given IATA or ICAO airline code, used for translating codes into traveler-facing names.
+    description: >-
+      Returns the airline name and details for a given IATA or ICAO airline code, used for translating codes into
+      traveler-facing names.
     humanURL: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-code-lookup
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -3402,8 +3405,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/flights/api-doc/airline-code-lookup
       - type: OpenAPI
         url: openapi/amadeus-airline-code-lookup-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/airline-code-lookup-airlines.yaml
       - type: JSONSchema
         url: json-schema/airline-code-lookup-airline-schema.json
       - type: JSONSchema
@@ -3423,7 +3424,9 @@ apis:
       - type: Example
         url: examples/airline-code-lookup-warning-example.json
   - name: Flight Most Booked Destinations
-    description: Returns the most booked destinations from a given origin city for a given period, surfacing demand patterns for marketing and merchandising.
+    description: >-
+      Returns the most booked destinations from a given origin city for a given period, surfacing demand patterns for
+      marketing and merchandising.
     humanURL: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-booked-destinations
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -3435,8 +3438,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-booked-destinations
       - type: OpenAPI
         url: openapi/amadeus-flight-most-booked-destinations-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-most-booked-destinations-air-traffic.yaml
       - type: JSONSchema
         url: json-schema/flight-most-booked-destinations-air-traffic-schema.json
       - type: JSONSchema
@@ -3486,7 +3487,9 @@ apis:
       - type: Example
         url: examples/flight-most-booked-destinations-travelers-example.json
   - name: Flight Most Traveled Destinations
-    description: Returns the most traveled-to destinations from a given origin city for a given period, useful for trend analysis and inspiration UIs.
+    description: >-
+      Returns the most traveled-to destinations from a given origin city for a given period, useful for trend analysis
+      and inspiration UIs.
     humanURL: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-traveled-destinations
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -3498,8 +3501,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-most-traveled-destinations
       - type: OpenAPI
         url: openapi/amadeus-flight-most-traveled-destinations-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-most-traveled-destinations-air-traffic.yaml
       - type: JSONSchema
         url: json-schema/flight-most-traveled-destinations-air-traffic-schema.json
       - type: JSONSchema
@@ -3561,8 +3562,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/market-insights/api-doc/flight-busiest-traveling-period
       - type: OpenAPI
         url: openapi/amadeus-flight-busiest-traveling-period-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/flight-busiest-traveling-period-air-traffic.yaml
       - type: JSONSchema
         url: json-schema/flight-busiest-traveling-period-air-traffic-schema.json
       - type: JSONSchema
@@ -3606,7 +3605,9 @@ apis:
       - type: Example
         url: examples/flight-busiest-traveling-period-travelers-example.json
   - name: Hotel List
-    description: Returns the list of hotels in a given city, geographic area, or by hotel IDs, with property metadata. The foundation lookup for downstream hotel offers and ratings calls.
+    description: >-
+      Returns the list of hotels in a given city, geographic area, or by hotel IDs, with property metadata. The
+      foundation lookup for downstream hotel offers and ratings calls.
     humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -3618,8 +3619,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list
       - type: OpenAPI
         url: openapi/amadeus-hotel-list-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/hotel-list-hotels.yaml
       - type: JSONSchema
         url: json-schema/hotel-list-error-400-schema.json
       - type: JSONSchema
@@ -3655,7 +3654,9 @@ apis:
       - type: Example
         url: examples/hotel-list-meta-example.json
   - name: Hotel Search
-    description: Returns available hotel offers (rates, room types, board, cancellation policies) for a list of hotel IDs and a stay date range.
+    description: >-
+      Returns available hotel offers (rates, room types, board, cancellation policies) for a list of hotel IDs and a
+      stay date range.
     humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-search
     baseURL: https://test.api.amadeus.com/v3
     tags:
@@ -3668,8 +3669,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-search
       - type: OpenAPI
         url: openapi/amadeus-hotel-search-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/hotel-search-shopping.yaml
       - type: JSONSchema
         url: json-schema/hotel-search-board-type-schema.json
       - type: JSONSchema
@@ -3841,7 +3840,9 @@ apis:
       - type: Example
         url: examples/hotel-search-tax-example.json
   - name: Hotel Booking
-    description: Creates a hotel booking (reservation) from a confirmed offer, including guest information, payment, and contact details.
+    description: >-
+      Creates a hotel booking (reservation) from a confirmed offer, including guest information, payment, and contact
+      details.
     humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-booking
     baseURL: https://test.api.amadeus.com/v2
     tags:
@@ -3856,10 +3857,6 @@ apis:
       - type: OpenAPI
         url: openapi/amadeus-hotel-booking-v1-openapi.yml
         title: Hotel Booking v1 (Legacy)
-      - type: NaftikoCapability
-        url: capabilities/hotel-booking-booking.yaml
-      - type: NaftikoCapability
-        url: capabilities/hotel-booking-v1-booking.yaml
       - type: JSONSchema
         url: json-schema/hotel-booking-address-schema.json
       - type: JSONSchema
@@ -4009,7 +4006,9 @@ apis:
       - type: Example
         url: examples/hotel-booking-warning-example.json
   - name: Hotel Name Autocomplete
-    description: Returns up to 20 hotels whose names match a search keyword, with full address, geocode, property type, IATA hotel code, and Amadeus hotel ID — ideal for search-as-you-type hotel pickers.
+    description: >-
+      Returns up to 20 hotels whose names match a search keyword, with full address, geocode, property type, IATA hotel
+      code, and Amadeus hotel ID — ideal for search-as-you-type hotel pickers.
     humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-name-autocomplete
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -4021,10 +4020,10 @@ apis:
         url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-name-autocomplete
       - type: OpenAPI
         url: openapi/amadeus-hotel-name-autocomplete-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/hotel-name-autocomplete-search.yaml
   - name: Hotel Ratings
-    description: Returns sentiment-analyzed ratings for hotels across categories like service, room, location, and food, derived from millions of online reviews.
+    description: >-
+      Returns sentiment-analyzed ratings for hotels across categories like service, room, location, and food, derived
+      from millions of online reviews.
     humanURL: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-ratings
     baseURL: https://test.api.amadeus.com/v2
     tags:
@@ -4037,8 +4036,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-ratings
       - type: OpenAPI
         url: openapi/amadeus-hotel-ratings-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/hotel-ratings-hotel-ratings.yaml
       - type: JSONSchema
         url: json-schema/hotel-ratings-collection-links-schema.json
       - type: JSONSchema
@@ -4096,7 +4093,9 @@ apis:
       - type: Example
         url: examples/hotel-ratings-warning-example.json
   - name: Points of Interest
-    description: Returns points of interest (sights, restaurants, nightlife, shopping) for a given location with categories and rankings.
+    description: >-
+      Returns points of interest (sights, restaurants, nightlife, shopping) for a given location with categories and
+      rankings.
     humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/points-of-interest
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -4108,10 +4107,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/points-of-interest
       - type: OpenAPI
         url: openapi/amadeus-points-of-interest-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/points-of-interest-retrieve.yaml
-      - type: NaftikoCapability
-        url: capabilities/points-of-interest-search.yaml
       - type: JSONSchema
         url: json-schema/points-of-interest-collection-meta-schema.json
       - type: JSONSchema
@@ -4161,7 +4156,9 @@ apis:
       - type: Example
         url: examples/points-of-interest-location-example.json
   - name: Tours and Activities
-    description: Returns bookable tours, activities, and experiences for a given location with prices, photos, and provider details.
+    description: >-
+      Returns bookable tours, activities, and experiences for a given location with prices, photos, and provider
+      details.
     humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -4173,10 +4170,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/tours-and-activities
       - type: OpenAPI
         url: openapi/amadeus-tours-and-activities-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/tours-and-activities-retrieve.yaml
-      - type: NaftikoCapability
-        url: capabilities/tours-and-activities-search.yaml
       - type: JSONSchema
         url: json-schema/tours-and-activities-activity-schema.json
       - type: JSONSchema
@@ -4232,7 +4225,9 @@ apis:
       - type: Example
         url: examples/tours-and-activities-link-example.json
   - name: Safe Place
-    description: Returns a safety score for a location across categories like LGBTQ+, women, physical harm, and theft, helping travelers make informed destination decisions.
+    description: >-
+      Returns a safety score for a location across categories like LGBTQ+, women, physical harm, and theft, helping
+      travelers make informed destination decisions.
     humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/safe-place
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -4244,10 +4239,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/safe-place
       - type: OpenAPI
         url: openapi/amadeus-safe-place-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/safe-place-retrieve.yaml
-      - type: NaftikoCapability
-        url: capabilities/safe-place-search.yaml
       - type: JSONSchema
         url: json-schema/safe-place-collection-meta-schema.json
       - type: JSONSchema
@@ -4309,7 +4300,9 @@ apis:
       - type: Example
         url: examples/safe-place-safety-score-example.json
   - name: Location Score
-    description: Returns a 0-100 score for a location across categories (sights, restaurants, shopping, nightlife, historical, beach/park), powering destination ranking experiences.
+    description: >-
+      Returns a 0-100 score for a location across categories (sights, restaurants, shopping, nightlife, historical,
+      beach/park), powering destination ranking experiences.
     humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/location-score
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -4321,8 +4314,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/location-score
       - type: OpenAPI
         url: openapi/amadeus-location-score-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/location-score-category-rated-areas.yaml
       - type: JSONSchema
         url: json-schema/location-score-category-rated-areas-schema.json
       - type: JSONSchema
@@ -4352,7 +4343,9 @@ apis:
       - type: Example
         url: examples/location-score-warning-example.json
   - name: Travel Recommendations
-    description: Returns destination recommendations based on a list of seed cities and traveler country, powering "if you liked X you'll like Y" discovery experiences.
+    description: >-
+      Returns destination recommendations based on a list of seed cities and traveler country, powering "if you liked X
+      you'll like Y" discovery experiences.
     humanURL: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/travel-recommendations
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -4364,8 +4357,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/destination-experiences/api-doc/travel-recommendations
       - type: OpenAPI
         url: openapi/amadeus-travel-recommendations-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/travel-recommendations-recommended-locations.yaml
       - type: JSONSchema
         url: json-schema/travel-recommendations-meta-schema.json
       - type: JSONSchema
@@ -4395,7 +4386,9 @@ apis:
       - type: Example
         url: examples/travel-recommendations-warning-example.json
   - name: Trip Purpose Prediction
-    description: Predicts whether a trip is for business or leisure based on the itinerary's origin, destination, dates, and search timing, helping route trip-specific merchandising.
+    description: >-
+      Predicts whether a trip is for business or leisure based on the itinerary's origin, destination, dates, and search
+      timing, helping route trip-specific merchandising.
     humanURL: https://developers.amadeus.com/self-service/category/itinerary-management/api-doc/trip-purpose-prediction
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -4408,8 +4401,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/itinerary-management/api-doc/trip-purpose-prediction
       - type: OpenAPI
         url: openapi/amadeus-trip-purpose-prediction-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/trip-purpose-prediction-trip-purpose-prediction.yaml
       - type: JSONSchema
         url: json-schema/trip-purpose-prediction-defaults-schema.json
       - type: JSONSchema
@@ -4463,7 +4454,9 @@ apis:
       - type: Example
         url: examples/trip-purpose-prediction-purpose-prediction-example.json
   - name: Transfer Search
-    description: Searches private and shared transfer options (taxi, limo, shuttle) between two locations with prices, vehicle types, and cancellation policies.
+    description: >-
+      Searches private and shared transfer options (taxi, limo, shuttle) between two locations with prices, vehicle
+      types, and cancellation policies.
     humanURL: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-search
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -4475,8 +4468,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-search
       - type: OpenAPI
         url: openapi/amadeus-transfer-search-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/transfer-search-shopping.yaml
       - type: JSONSchema
         url: json-schema/transfer-search-address-common-schema.json
       - type: JSONSchema
@@ -4662,8 +4653,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-book
       - type: OpenAPI
         url: openapi/amadeus-transfer-book-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/transfer-book-booking.yaml
       - type: JSONSchema
         url: json-schema/transfer-book-address-common-schema.json
       - type: JSONSchema
@@ -4891,8 +4880,6 @@ apis:
         url: https://developers.amadeus.com/self-service/category/cars-and-transfers/api-doc/transfer-management
       - type: OpenAPI
         url: openapi/amadeus-transfer-management-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/transfer-management-booking.yaml
       - type: JSONSchema
         url: json-schema/transfer-management-error-400-schema.json
       - type: JSONSchema
@@ -4930,7 +4917,9 @@ apis:
       - type: Example
         url: examples/transfer-management-transfer-cancellation-example.json
   - name: Authorization
-    description: OAuth2 client credentials token endpoint used by every Self-Service API. Exchanges API key + secret for a short-lived bearer access token (~30 minute TTL).
+    description: >-
+      OAuth2 client credentials token endpoint used by every Self-Service API. Exchanges API key + secret for a
+      short-lived bearer access token (~30 minute TTL).
     humanURL: https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262
     baseURL: https://test.api.amadeus.com/v1
     tags:
@@ -4942,8 +4931,6 @@ apis:
         url: https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262
       - type: OpenAPI
         url: openapi/amadeus-authorization-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/authorization-oauth2-access-token.yaml
       - type: JSONSchema
         url: json-schema/authorization-amadeus-oauth2-token-schema.json
       - type: JSONStructure
@@ -4951,63 +4938,65 @@ apis:
       - type: Example
         url: examples/authorization-amadeus-oauth2-token-example.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amadeus/overview
   - type: ArazzoWorkflows
     url: arazzo/
     workflows:
-    - url: arazzo/amadeus-airline-flight-status-checkin-workflow.yml
-      name: Amadeus Airline Flight Status and Check-in
-      summary: Validate an airline code, get on-demand flight status for a flight, then fetch its check-in links.
-    - url: arazzo/amadeus-city-hotels-with-ratings-workflow.yml
-      name: Amadeus City Hotels with Ratings
-      summary: List hotels in a city, then fetch aggregated guest sentiment ratings for them.
-    - url: arazzo/amadeus-city-points-of-interest-workflow.yml
-      name: Amadeus City Points of Interest
-      summary: Resolve a city to its coordinates, list nearby points of interest, then fetch one in detail.
-    - url: arazzo/amadeus-city-safety-and-livability-workflow.yml
-      name: Amadeus City Safety and Livability
-      summary: Resolve a city to coordinates, score its safety ranking, then rate its area by category.
-    - url: arazzo/amadeus-city-tours-and-activities-workflow.yml
-      name: Amadeus City Tours and Activities
-      summary: Resolve a city to coordinates, list bookable tours and activities nearby, then fetch one in detail.
-    - url: arazzo/amadeus-direct-destinations-search-flights-workflow.yml
-      name: Amadeus Direct Destinations Then Search Flights
-      summary: List direct destinations from an airport, then search flight offers to the first destination.
-    - url: arazzo/amadeus-flight-availability-to-offers-workflow.yml
-      name: Amadeus Flight Availability to Offers
-      summary: Check seat availability for a city pair and date, then search priced flight offers for the same trip.
-    - url: arazzo/amadeus-flight-book-and-retrieve-order-workflow.yml
-      name: Amadeus Flight Book and Retrieve Order
-      summary: Price a flight offer, create the order, then retrieve the persisted order to confirm it.
-    - url: arazzo/amadeus-flight-branded-fares-upsell-workflow.yml
-      name: Amadeus Flight Branded Fares Upsell
-      summary: Search flight offers, retrieve branded fare upsell options, then price the chosen upsell.
-    - url: arazzo/amadeus-flight-inspiration-to-offers-workflow.yml
-      name: Amadeus Flight Inspiration to Offers
-      summary: Find inspirational destinations from an origin, get the cheapest dates to one, then search bookable offers.
-    - url: arazzo/amadeus-flight-offer-seatmap-workflow.yml
-      name: Amadeus Flight Offer Seatmap
-      summary: Search flight offers for a trip, then display the seat map for the first offer.
-    - url: arazzo/amadeus-flight-order-cancel-lifecycle-workflow.yml
-      name: Amadeus Flight Order Cancel Lifecycle
-      summary: Create a flight order from a priced offer, retrieve it, then cancel it to release the booking.
-    - url: arazzo/amadeus-flight-search-price-book-workflow.yml
-      name: Amadeus Flight Search, Price, and Book
-      summary: Search flight offers, confirm the live price of a chosen offer, then create a booked flight order.
-    - url: arazzo/amadeus-geocode-hotels-and-offers-workflow.yml
-      name: Amadeus Geocode Hotels and Offers
-      summary: Resolve a city to coordinates, find hotels by geocode, then fetch live offers for the nearest one.
-    - url: arazzo/amadeus-hotel-autocomplete-ratings-offers-workflow.yml
-      name: Amadeus Hotel Autocomplete, Ratings, and Offers
-      summary: Autocomplete a hotel by name, fetch its guest-sentiment rating, then pull its live offers.
-    - url: arazzo/amadeus-hotel-search-and-book-workflow.yml
-      name: Amadeus Hotel Search and Book
-      summary: List hotels in a city, fetch live offers for them, price the chosen offer, then create a hotel order.
-    - url: arazzo/amadeus-nearest-airport-flights-workflow.yml
-      name: Amadeus Nearest Airport Flights
-      summary: Find the nearest relevant airport to a coordinate, then search flight offers departing from it.
-    - url: arazzo/amadeus-resolve-locations-and-search-flights-workflow.yml
-      name: Amadeus Resolve Locations and Search Flights
-      summary: Resolve origin and destination IATA codes from keywords, then search flight offers between them.
+      - url: arazzo/amadeus-airline-flight-status-checkin-workflow.yml
+        name: Amadeus Airline Flight Status and Check-in
+        summary: Validate an airline code, get on-demand flight status for a flight, then fetch its check-in links.
+      - url: arazzo/amadeus-city-hotels-with-ratings-workflow.yml
+        name: Amadeus City Hotels with Ratings
+        summary: List hotels in a city, then fetch aggregated guest sentiment ratings for them.
+      - url: arazzo/amadeus-city-points-of-interest-workflow.yml
+        name: Amadeus City Points of Interest
+        summary: Resolve a city to its coordinates, list nearby points of interest, then fetch one in detail.
+      - url: arazzo/amadeus-city-safety-and-livability-workflow.yml
+        name: Amadeus City Safety and Livability
+        summary: Resolve a city to coordinates, score its safety ranking, then rate its area by category.
+      - url: arazzo/amadeus-city-tours-and-activities-workflow.yml
+        name: Amadeus City Tours and Activities
+        summary: Resolve a city to coordinates, list bookable tours and activities nearby, then fetch one in detail.
+      - url: arazzo/amadeus-direct-destinations-search-flights-workflow.yml
+        name: Amadeus Direct Destinations Then Search Flights
+        summary: List direct destinations from an airport, then search flight offers to the first destination.
+      - url: arazzo/amadeus-flight-availability-to-offers-workflow.yml
+        name: Amadeus Flight Availability to Offers
+        summary: Check seat availability for a city pair and date, then search priced flight offers for the same trip.
+      - url: arazzo/amadeus-flight-book-and-retrieve-order-workflow.yml
+        name: Amadeus Flight Book and Retrieve Order
+        summary: Price a flight offer, create the order, then retrieve the persisted order to confirm it.
+      - url: arazzo/amadeus-flight-branded-fares-upsell-workflow.yml
+        name: Amadeus Flight Branded Fares Upsell
+        summary: Search flight offers, retrieve branded fare upsell options, then price the chosen upsell.
+      - url: arazzo/amadeus-flight-inspiration-to-offers-workflow.yml
+        name: Amadeus Flight Inspiration to Offers
+        summary: Find inspirational destinations from an origin, get the cheapest dates to one, then search bookable offers.
+      - url: arazzo/amadeus-flight-offer-seatmap-workflow.yml
+        name: Amadeus Flight Offer Seatmap
+        summary: Search flight offers for a trip, then display the seat map for the first offer.
+      - url: arazzo/amadeus-flight-order-cancel-lifecycle-workflow.yml
+        name: Amadeus Flight Order Cancel Lifecycle
+        summary: Create a flight order from a priced offer, retrieve it, then cancel it to release the booking.
+      - url: arazzo/amadeus-flight-search-price-book-workflow.yml
+        name: Amadeus Flight Search, Price, and Book
+        summary: Search flight offers, confirm the live price of a chosen offer, then create a booked flight order.
+      - url: arazzo/amadeus-geocode-hotels-and-offers-workflow.yml
+        name: Amadeus Geocode Hotels and Offers
+        summary: Resolve a city to coordinates, find hotels by geocode, then fetch live offers for the nearest one.
+      - url: arazzo/amadeus-hotel-autocomplete-ratings-offers-workflow.yml
+        name: Amadeus Hotel Autocomplete, Ratings, and Offers
+        summary: Autocomplete a hotel by name, fetch its guest-sentiment rating, then pull its live offers.
+      - url: arazzo/amadeus-hotel-search-and-book-workflow.yml
+        name: Amadeus Hotel Search and Book
+        summary: List hotels in a city, fetch live offers for them, price the chosen offer, then create a hotel order.
+      - url: arazzo/amadeus-nearest-airport-flights-workflow.yml
+        name: Amadeus Nearest Airport Flights
+        summary: Find the nearest relevant airport to a coordinate, then search flight offers departing from it.
+      - url: arazzo/amadeus-resolve-locations-and-search-flights-workflow.yml
+        name: Amadeus Resolve Locations and Search Flights
+        summary: Resolve origin and destination IATA codes from keywords, then search flight offers between them.
   - type: Website
     url: https://amadeus.com
   - type: DeveloperPortal
@@ -5110,21 +5099,31 @@ common:
   - type: Features
     data:
       - name: 40+ Travel REST APIs
-        description: Comprehensive catalog spanning flights, hotels, destination experiences, cars and transfers, market insights, itinerary management, and AI-powered prediction.
+        description: >-
+          Comprehensive catalog spanning flights, hotels, destination experiences, cars and transfers, market insights,
+          itinerary management, and AI-powered prediction.
       - name: OAuth 2.0 Client Credentials
-        description: Server-to-server authentication with short-lived bearer tokens (~30 min TTL) on a single token endpoint shared by all APIs.
+        description: >-
+          Server-to-server authentication with short-lived bearer tokens (~30 min TTL) on a single token endpoint shared
+          by all APIs.
       - name: Test and Production Environments
-        description: Free, cached test environment for development; production environment for live data with pay-as-you-go billing above monthly free tiers.
+        description: >-
+          Free, cached test environment for development; production environment for live data with pay-as-you-go billing
+          above monthly free tiers.
       - name: Multi-Language SDKs
         description: Official SDKs for Node.js, Python, Java, and Ruby with built-in token management, retries, and pagination.
       - name: AI-Powered Predictions
-        description: Trip Purpose, Flight Choice, Flight Delay, Price Analysis, Travel Recommendations, and Location Score APIs powered by machine learning over Amadeus travel data.
+        description: >-
+          Trip Purpose, Flight Choice, Flight Delay, Price Analysis, Travel Recommendations, and Location Score APIs
+          powered by machine learning over Amadeus travel data.
       - name: Sentiment-Analyzed Hotel Ratings
         description: Hotel ratings derived from millions of online reviews, broken down by service, room, location, and food.
       - name: Branded Fares and Ancillaries
         description: Branded Fares Upsell and SeatMap Display surface merchandising opportunities at search and booking time.
       - name: Market Insights APIs
-        description: Most booked destinations, most traveled destinations, and busiest travel periods power demand and trend analytics.
+        description: >-
+          Most booked destinations, most traveled destinations, and busiest travel periods power demand and trend
+          analytics.
       - name: Postman Public Workspace
         description: Curated Postman collection with examples for every Self-Service API, maintained by the amadeus4dev team.
       - name: Open OpenAPI Specifications Repository
@@ -5132,25 +5131,41 @@ common:
   - type: UseCases
     data:
       - name: Online Travel Agency (OTA)
-        description: Build a full flight + hotel + activities OTA using Flight Offers Search, Hotel Search, Tours and Activities, Transfer Search, and the corresponding booking APIs.
+        description: >-
+          Build a full flight + hotel + activities OTA using Flight Offers Search, Hotel Search, Tours and Activities,
+          Transfer Search, and the corresponding booking APIs.
       - name: Corporate Travel Tool
-        description: Combine Flight Offers Search, Trip Purpose Prediction, and Hotel Search to deliver policy-aware corporate booking flows.
+        description: >-
+          Combine Flight Offers Search, Trip Purpose Prediction, and Hotel Search to deliver policy-aware corporate
+          booking flows.
       - name: Travel Inspiration App
-        description: Use Flight Inspiration Search, Flight Cheapest Date Search, Travel Recommendations, and Location Score to inspire destination choices.
+        description: >-
+          Use Flight Inspiration Search, Flight Cheapest Date Search, Travel Recommendations, and Location Score to
+          inspire destination choices.
       - name: Flight Tracking and Status Apps
-        description: Use On-Demand Flight Status, Airport On-Time Performance, and Flight Delay Prediction to build proactive disruption-aware traveler experiences.
+        description: >-
+          Use On-Demand Flight Status, Airport On-Time Performance, and Flight Delay Prediction to build proactive
+          disruption-aware traveler experiences.
       - name: Hotel Marketing and Merchandising
-        description: Combine Hotel Search, Hotel Ratings, and Points of Interest to merchandise hotels with location context and review sentiment.
+        description: >-
+          Combine Hotel Search, Hotel Ratings, and Points of Interest to merchandise hotels with location context and
+          review sentiment.
       - name: Destination Marketing
-        description: Use Tours and Activities, Points of Interest, Safe Place, and Location Score to power destination marketing organization (DMO) experiences.
+        description: >-
+          Use Tours and Activities, Points of Interest, Safe Place, and Location Score to power destination marketing
+          organization (DMO) experiences.
       - name: Travel Analytics and BI
         description: Use the Market Insights APIs (Most Booked, Most Traveled, Busiest Period) for demand and trend dashboards.
       - name: Ground Transportation Booking
-        description: Use Transfer Search, Transfer Book, and Transfer Management to add airport-to-hotel ground transport to an itinerary.
+        description: >-
+          Use Transfer Search, Transfer Book, and Transfer Management to add airport-to-hotel ground transport to an
+          itinerary.
       - name: Hackathon and MVP Travel Apps
         description: Use the free Test environment, official SDKs, and amadeus4dev sample apps to ship a travel MVP in days.
       - name: AI Travel Agents
-        description: Wrap Self-Service APIs in MCP servers (community implementations exist) to give LLM agents flight, hotel, and activity search and booking capabilities.
+        description: >-
+          Wrap Self-Service APIs in MCP servers (community implementations exist) to give LLM agents flight, hotel, and
+          activity search and booking capabilities.
   - type: Integrations
     data:
       - name: Postman
@@ -5172,11 +5187,17 @@ common:
   - type: Solutions
     data:
       - name: Amadeus for Developers Self-Service
-        description: 'Self-service catalog of 40+ REST APIs with free Test environment and pay-as-you-go Production environment. NOTE: scheduled for decommissioning 17 July 2026.'
+        description: >-
+          Self-service catalog of 40+ REST APIs with free Test environment and pay-as-you-go Production environment.
+          NOTE: scheduled for decommissioning 17 July 2026.
       - name: Amadeus Enterprise
-        description: Enterprise developer portal and SLA-backed access to the full Amadeus distribution, ticketing, and operations APIs, including NDC content and Margins/Discounts not available in Self-Service.
+        description: >-
+          Enterprise developer portal and SLA-backed access to the full Amadeus distribution, ticketing, and operations
+          APIs, including NDC content and Margins/Discounts not available in Self-Service.
       - name: Amadeus Travel Platform
-        description: The underlying global distribution and travel technology platform powering airlines, hotels, ground transport, and travel agencies worldwide.
+        description: >-
+          The underlying global distribution and travel technology platform powering airlines, hotels, ground transport,
+          and travel agencies worldwide.
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
