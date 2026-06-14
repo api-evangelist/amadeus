@@ -1,0 +1,920 @@
+"""
+Amadeus Travel Technology GraphQL Schema
+Conceptual schema covering the Amadeus Self-Service API catalog:
+flights, hotels, destination experiences, cars/transfers, market insights,
+itinerary management, and AI-powered prediction services.
+Source: https://developers.amadeus.com/
+"""
+
+# ---------------------------------------------------------------------------
+# Scalars
+# ---------------------------------------------------------------------------
+
+scalar DateTime
+scalar Date
+scalar Time
+scalar JSON
+
+# ---------------------------------------------------------------------------
+# Enums
+# ---------------------------------------------------------------------------
+
+enum CabinClass {
+  ECONOMY
+  PREMIUM_ECONOMY
+  BUSINESS
+  FIRST
+}
+
+enum TravelerType {
+  ADULT
+  CHILD
+  HELD_INFANT
+  SEATED_INFANT
+  SENIOR
+}
+
+enum DocumentType {
+  PASSPORT
+  ID_CARD
+  VISA
+  TRAVEL_PERMIT
+  OTHER
+}
+
+enum ContactPurpose {
+  STANDARD
+  INVOICE
+  STANDARD_WITHOUT_TRANSMISSION
+}
+
+enum POIType {
+  SIGHTS
+  BEACH_PARK
+  HISTORICAL
+  NIGHTLIFE
+  RESTAURANT
+  SHOPPING
+}
+
+enum RoomType {
+  ROOM
+  SUITE
+  APARTMENT
+  STUDIO
+}
+
+enum RoomCategory {
+  STANDARD
+  SUPERIOR
+  DELUXE
+  PREMIUM
+  EXECUTIVE
+}
+
+enum FlightStatus {
+  SCHEDULED
+  ACTIVE
+  LANDED
+  CANCELLED
+  INCIDENT
+  DIVERTED
+}
+
+enum TripPurposeType {
+  LEISURE
+  BUSINESS
+}
+
+enum AircraftType {
+  NARROW_BODY
+  WIDE_BODY
+  REGIONAL
+  TURBOPROP
+}
+
+# ---------------------------------------------------------------------------
+# Auth Types
+# ---------------------------------------------------------------------------
+
+"""OAuth2 authentication token returned by Amadeus token endpoint."""
+type AuthToken {
+  accessToken: String!
+  tokenType: String!
+  expiresIn: Int!
+  scope: String
+  state: String
+}
+
+"""API key credential for Amadeus Self-Service."""
+type APIKey {
+  clientId: String!
+  environment: String!
+  createdAt: DateTime
+}
+
+"""Generic token wrapper."""
+type Token {
+  value: String!
+  type: String!
+  expiresAt: DateTime
+}
+
+# ---------------------------------------------------------------------------
+# Pagination
+# ---------------------------------------------------------------------------
+
+"""Cursor-based pagination info."""
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+  totalCount: Int
+  offset: Int
+  limit: Int
+}
+
+# ---------------------------------------------------------------------------
+# Location and Geo Types
+# ---------------------------------------------------------------------------
+
+"""Geographic coordinates."""
+type Geo {
+  latitude: Float!
+  longitude: Float!
+}
+
+"""Generic location with geo coordinates and descriptive metadata."""
+type Location {
+  id: ID
+  name: String
+  iataCode: String
+  subType: String
+  geoCode: Geo
+  address: ContactDetails
+  timeZoneOffset: String
+  analytics: JSON
+}
+
+"""IATA airport code string."""
+type AirportCode {
+  code: String!
+  name: String
+}
+
+"""Airport terminal identifier."""
+type Terminal {
+  code: String!
+  name: String
+}
+
+"""Airport gate identifier."""
+type Gate {
+  number: String!
+  terminal: Terminal
+}
+
+"""Detailed airport information."""
+type AirportDetails {
+  iataCode: String!
+  name: String!
+  cityCode: String
+  cityName: String
+  countryCode: String
+  countryName: String
+  regionCode: String
+  timeZone: String
+  geoCode: Geo
+  terminals: [Terminal]
+}
+
+"""Airport summary (used in flight endpoints)."""
+type Airport {
+  iataCode: String!
+  name: String
+  details: AirportDetails
+}
+
+# ---------------------------------------------------------------------------
+# Airline Types
+# ---------------------------------------------------------------------------
+
+"""IATA airline code."""
+type AirlineCode {
+  code: String!
+}
+
+"""Full airline profile."""
+type AirlineDetails {
+  iataCode: String!
+  icaoCode: String
+  businessName: String
+  commonName: String
+  country: String
+  phoneNumber: String
+  website: String
+}
+
+"""Airline summary used in flight responses."""
+type Airline {
+  iataCode: String!
+  name: String
+  details: AirlineDetails
+}
+
+# ---------------------------------------------------------------------------
+# Aircraft Types
+# ---------------------------------------------------------------------------
+
+"""Aircraft equipment code and details."""
+type AircraftType {
+  code: String!
+  name: String
+}
+
+"""Aircraft used on a flight segment."""
+type Aircraft {
+  code: String!
+  type: AircraftType
+  manufacturer: String
+  model: String
+}
+
+# ---------------------------------------------------------------------------
+# Duration and Time
+# ---------------------------------------------------------------------------
+
+"""ISO 8601 duration."""
+type Duration {
+  value: String!
+  hours: Int
+  minutes: Int
+}
+
+# ---------------------------------------------------------------------------
+# Departure / Arrival / Stop
+# ---------------------------------------------------------------------------
+
+"""Departure endpoint of a flight segment."""
+type Departure {
+  iataCode: String!
+  terminal: String
+  at: DateTime!
+  airport: Airport
+}
+
+"""Arrival endpoint of a flight segment."""
+type Arrival {
+  iataCode: String!
+  terminal: String
+  at: DateTime!
+  airport: Airport
+}
+
+"""Technical stop information."""
+type Stop {
+  iataCode: String!
+  duration: Duration
+  arrivalAt: DateTime
+  departureAt: DateTime
+  airport: Airport
+}
+
+# ---------------------------------------------------------------------------
+# Segment / Itinerary / Flight
+# ---------------------------------------------------------------------------
+
+"""Detailed segment-level data (operating carrier, equipment, etc.)."""
+type SegmentDetails {
+  carrierCode: String
+  flightNumber: String
+  aircraft: Aircraft
+  operating: Airline
+  stops: [Stop]
+  numberOfStops: Int
+  blacklistedInEU: Boolean
+  co2Emissions: [JSON]
+}
+
+"""A single flight segment (one leg of a journey)."""
+type Segment {
+  id: ID!
+  departure: Departure!
+  arrival: Arrival!
+  carrierCode: String!
+  number: String!
+  duration: Duration
+  details: SegmentDetails
+}
+
+"""An itinerary composed of one or more segments."""
+type Itinerary {
+  duration: Duration
+  segments: [Segment!]!
+}
+
+"""Full flight itinerary (may include outbound and return legs)."""
+type FlightItinerary {
+  id: ID
+  itineraries: [Itinerary!]!
+  lastTicketingDate: Date
+  numberOfBookableSeats: Int
+  oneWay: Boolean
+}
+
+# ---------------------------------------------------------------------------
+# Pricing Types
+# ---------------------------------------------------------------------------
+
+"""Tax line item on a price."""
+type TaxDetails {
+  amount: String!
+  code: String!
+}
+
+"""Fare breakdown per traveler type."""
+type FareBreakdown {
+  travelerId: String
+  fareOption: String
+  travelerType: TravelerType
+  price: Price
+  fareDetailsBySegment: [JSON]
+}
+
+"""Price options controlling fare inclusion rules."""
+type PriceOptions {
+  includedCheckedBagsOnly: Boolean
+  refundableFare: Boolean
+  noRestrictionFare: Boolean
+  noPenaltyFare: Boolean
+}
+
+"""Monetary amount with currency."""
+type Price {
+  currency: String!
+  total: String!
+  base: String
+  fees: [JSON]
+  taxes: [TaxDetails]
+  grandTotal: String
+}
+
+"""Detailed price with additional computed fields."""
+type PriceDetails {
+  currency: String!
+  total: String!
+  base: String
+  fees: [JSON]
+  taxes: [TaxDetails]
+  grandTotal: String
+  billingCurrency: String
+  additionalServices: [JSON]
+}
+
+# ---------------------------------------------------------------------------
+# Fare
+# ---------------------------------------------------------------------------
+
+"""Fare rule summary."""
+type FareDetails {
+  segmentId: String
+  cabin: CabinClass
+  fareBasis: String
+  brandedFare: String
+  class: String
+  includedCheckedBags: JSON
+  amenities: [JSON]
+}
+
+"""Fare combining details and breakdown."""
+type Fare {
+  id: ID
+  details: FareDetails
+  breakdown: FareBreakdown
+  priceOptions: PriceOptions
+}
+
+# ---------------------------------------------------------------------------
+# Seat / Cabin
+# ---------------------------------------------------------------------------
+
+"""Seat definition within a seatmap."""
+type Seat {
+  number: String!
+  row: String
+  column: String
+  characteristicsCodes: [String]
+  travelerPricing: [JSON]
+  coordinates: JSON
+}
+
+"""Cabin section with seat rows."""
+type Cabin {
+  cabinClass: CabinClass!
+  seats: [Seat]
+}
+
+"""Seat map for a single aircraft deck/cabin."""
+type SeatMapDetails {
+  type: String
+  flightOfferSegmentId: String
+  segmentId: String
+  carrierCode: String
+  number: String
+  aircraft: Aircraft
+  departure: Departure
+  arrival: Arrival
+  cabins: [Cabin]
+}
+
+"""Seat map response for a flight offer."""
+type SeatMap {
+  id: ID
+  decks: [SeatMapDetails]
+}
+
+# ---------------------------------------------------------------------------
+# Flight Offer and Price
+# ---------------------------------------------------------------------------
+
+"""A priced flight offer returned by Flight Offers Search."""
+type FlightOffer {
+  id: ID!
+  source: String
+  instantTicketingRequired: Boolean
+  nonHomogeneous: Boolean
+  oneWay: Boolean
+  lastTicketingDate: Date
+  lastTicketingDateTime: DateTime
+  numberOfBookableSeats: Int
+  itineraries: [Itinerary!]!
+  price: Price!
+  pricingOptions: PriceOptions
+  validatingAirlineCodes: [String]
+  travelerPricings: [FareBreakdown]
+}
+
+"""Confirmed flight price with updated fare rules."""
+type FlightPrice {
+  flightOffers: [FlightOffer!]!
+  bookingRequirements: JSON
+  creditCardFees: [JSON]
+}
+
+"""High-level flight record (used in search/status contexts)."""
+type FlightDetails {
+  flightDesignator: String
+  scheduledDepartureDate: Date
+  origin: Airport
+  destination: Airport
+  duration: Duration
+  aircraft: Aircraft
+  airline: Airline
+  status: FlightStatus
+}
+
+"""Root flight type combining offer, itinerary, and details."""
+type Flight {
+  id: ID!
+  offer: FlightOffer
+  itinerary: FlightItinerary
+  details: FlightDetails
+  price: FlightPrice
+  seatMap: SeatMap
+}
+
+# ---------------------------------------------------------------------------
+# Flight Status and Delay Prediction
+# ---------------------------------------------------------------------------
+
+"""Expected delay range."""
+type DelayTime {
+  from: Int
+  to: Int
+  unit: String
+}
+
+"""AI prediction of flight delay probability."""
+type DelayPrediction {
+  id: ID
+  probability: Float
+  result: String
+  subType: String
+  delay: DelayTime
+}
+
+"""Real-time flight status."""
+type FlightStatus {
+  flightDesignator: String!
+  scheduledDepartureDate: Date
+  status: String
+  departure: Departure
+  arrival: Arrival
+  aircraft: Aircraft
+  airline: Airline
+  delays: [DelayPrediction]
+}
+
+"""Aggregated flight delay analytics."""
+type FlightDelay {
+  origin: String
+  destination: String
+  date: Date
+  predictions: [DelayPrediction]
+}
+
+# ---------------------------------------------------------------------------
+# Trip Purpose Prediction
+# ---------------------------------------------------------------------------
+
+"""AI-predicted purpose of a trip."""
+type TripPurpose {
+  id: ID
+  origin: String
+  destination: String
+  departureDate: Date
+  returnDate: Date
+  probability: Float
+  result: TripPurposeType
+  subType: String
+}
+
+# ---------------------------------------------------------------------------
+# Traveler / Passenger / Document
+# ---------------------------------------------------------------------------
+
+"""Identity or travel document."""
+type Document {
+  documentType: DocumentType!
+  number: String
+  expiryDate: Date
+  issuanceCountry: String
+  nationality: String
+  holder: Boolean
+}
+
+"""Contact address and communication details."""
+type ContactDetails {
+  addresseeName: JSON
+  companyName: String
+  purpose: ContactPurpose
+  phones: [JSON]
+  emailAddress: String
+  address: JSON
+}
+
+"""Contact record linked to a traveler."""
+type Contact {
+  id: ID
+  purpose: ContactPurpose
+  details: ContactDetails
+}
+
+"""Detailed traveler profile."""
+type TravelerDetails {
+  dateOfBirth: Date
+  name: JSON
+  gender: String
+  contact: Contact
+  documents: [Document]
+  loyaltyPrograms: [JSON]
+  discountCodes: [JSON]
+}
+
+"""Traveler (used in flight orders)."""
+type Traveler {
+  id: ID!
+  travelerType: TravelerType!
+  details: TravelerDetails
+}
+
+"""Passenger summary (used in hotel / transfer contexts)."""
+type PassengerDetails {
+  count: Int
+  type: TravelerType
+}
+
+"""Passenger group for a booking."""
+type Passenger {
+  id: ID
+  details: [PassengerDetails]
+}
+
+# ---------------------------------------------------------------------------
+# Hotel Types
+# ---------------------------------------------------------------------------
+
+"""Geographic search area for hotel lookup."""
+type HotelSearchArea {
+  geoCode: Geo
+  radius: Float
+  radiusUnit: String
+  hotelSource: String
+}
+
+"""Check-in policy information."""
+type Checkin {
+  minAge: Int
+  time: Time
+  specialInstruction: String
+  policies: [JSON]
+}
+
+"""Check-out policy information."""
+type Checkout {
+  time: Time
+  policies: [JSON]
+}
+
+"""Rate plan for a hotel offer."""
+type RatePlan {
+  type: String
+  name: String
+}
+
+"""Rate code applied to a hotel room."""
+type RateCode {
+  code: String!
+  description: String
+}
+
+"""Room type metadata."""
+type RoomType {
+  code: String!
+  category: RoomCategory
+  beds: Int
+  bedType: String
+}
+
+"""Detailed room information."""
+type RoomDetails {
+  type: RoomType
+  typeEstimated: JSON
+  description: JSON
+}
+
+"""A single hotel offer (rate + room combination)."""
+type HotelOffer {
+  id: ID!
+  checkInDate: Date
+  checkOutDate: Date
+  rateCode: RateCode
+  rateFamilyEstimated: JSON
+  room: RoomDetails
+  guests: PassengerDetails
+  price: Price
+  policies: JSON
+  commission: JSON
+  boardType: String
+  ratePlan: RatePlan
+}
+
+"""Full hotel profile."""
+type HotelDetails {
+  hotelId: String!
+  chainCode: String
+  brandCode: String
+  dupeId: String
+  name: String!
+  rating: String
+  cityCode: String
+  latitude: Float
+  longitude: Float
+  hotelDistance: JSON
+  address: ContactDetails
+  contact: Contact
+  description: JSON
+  amenities: [String]
+  media: [JSON]
+}
+
+"""Hotel with available offers."""
+type Hotel {
+  id: ID!
+  details: HotelDetails
+  available: Boolean
+  offers: [HotelOffer]
+  self: String
+}
+
+# ---------------------------------------------------------------------------
+# Transfer Types
+# ---------------------------------------------------------------------------
+
+"""Detailed transfer booking information."""
+type TransferDetails {
+  transferType: String
+  start: JSON
+  end: JSON
+  stopOvers: [JSON]
+  passengers: Int
+  vehicle: JSON
+  serviceProvider: JSON
+  addedServices: [JSON]
+  price: Price
+  language: String
+  methodsOfPaymentAccepted: [String]
+}
+
+"""Ground transfer offer."""
+type Transfer {
+  id: ID!
+  details: TransferDetails
+}
+
+# ---------------------------------------------------------------------------
+# Activity / POI Types
+# ---------------------------------------------------------------------------
+
+"""Point of interest type classification."""
+type POIType {
+  id: ID!
+  code: String!
+  name: String
+}
+
+"""Point of interest."""
+type POI {
+  id: ID!
+  type: POIType
+  subType: String
+  name: String!
+  iataCode: String
+  geoCode: Geo
+  distance: JSON
+  tags: [String]
+  rank: Int
+  self: String
+}
+
+"""Detailed activity booking information."""
+type ActivityDetails {
+  id: String
+  productCode: String
+  name: String
+  shortDescription: String
+  description: String
+  geoCode: Geo
+  rating: String
+  pictures: [String]
+  bookingLink: String
+  minimumDuration: String
+  maximumDuration: String
+  price: Price
+}
+
+"""Bookable activity or experience."""
+type Activity {
+  id: ID!
+  details: ActivityDetails
+  type: String
+}
+
+# ---------------------------------------------------------------------------
+# Root Query and Mutation
+# ---------------------------------------------------------------------------
+
+type Query {
+  """Search for available flight offers."""
+  flightOffersSearch(
+    originLocationCode: String!
+    destinationLocationCode: String!
+    departureDate: Date!
+    returnDate: Date
+    adults: Int!
+    children: Int
+    infants: Int
+    travelClass: CabinClass
+    nonStop: Boolean
+    currencyCode: String
+    maxPrice: Int
+    max: Int
+  ): [FlightOffer]
+
+  """Confirm price and availability of a flight offer."""
+  flightOfferPrice(flightOfferId: ID!): FlightPrice
+
+  """Retrieve a flight order by ID."""
+  flightOrder(orderId: ID!): Flight
+
+  """Retrieve seat map for a flight offer."""
+  seatMap(flightOfferId: ID!): SeatMap
+
+  """Search for hotels by geocode or city."""
+  hotelSearch(
+    cityCode: String
+    latitude: Float
+    longitude: Float
+    radius: Float
+    radiusUnit: String
+    checkInDate: Date!
+    checkOutDate: Date!
+    adults: Int!
+    roomQuantity: Int
+    priceRange: String
+    currencyCode: String
+    ratings: [Int]
+    amenities: [String]
+  ): [Hotel]
+
+  """Get hotel offers for a specific hotel."""
+  hotelOffers(hotelId: ID!): [HotelOffer]
+
+  """Search for ground transfers."""
+  transferSearch(
+    startLocationCode: String!
+    endLocationCode: String
+    endGeoCode: String
+    endAddressLine: String
+    startDateTime: DateTime!
+    passengers: Int!
+    transferType: String
+  ): [Transfer]
+
+  """Search for activities and experiences near a location."""
+  activities(
+    latitude: Float!
+    longitude: Float!
+    radius: Float
+  ): [Activity]
+
+  """Get points of interest near a location."""
+  pointsOfInterest(
+    latitude: Float!
+    longitude: Float!
+    radius: Float
+    categories: [String]
+  ): [POI]
+
+  """Predict the purpose of a trip."""
+  tripPurpose(
+    originLocationCode: String!
+    destinationLocationCode: String!
+    departureDate: Date!
+    returnDate: Date!
+  ): TripPurpose
+
+  """Predict flight delay probability."""
+  flightDelayPrediction(
+    originLocationCode: String!
+    destinationLocationCode: String!
+    departureDate: Date!
+    departureTime: Time!
+    arrivalDate: Date!
+    arrivalTime: Time!
+    aircraftCode: String!
+    carrierCode: String!
+    flightNumber: String!
+    duration: String!
+  ): [DelayPrediction]
+
+  """Get real-time flight status."""
+  flightStatus(
+    carrierCode: String!
+    flightNumber: String!
+    scheduledDepartureDate: Date!
+  ): FlightStatus
+
+  """Look up airport details by IATA code."""
+  airport(iataCode: String!): Airport
+
+  """Search airports by keyword."""
+  airportSearch(keyword: String!, subType: String): [Airport]
+
+  """Look up airline details by IATA code."""
+  airline(airlineCode: String!): Airline
+
+  """Request an OAuth2 access token."""
+  authToken(clientId: String!, clientSecret: String!): AuthToken
+
+  """Retrieve paginated results."""
+  pageInfo(offset: Int, limit: Int): PageInfo
+}
+
+type Mutation {
+  """Create a flight order (book a flight offer)."""
+  createFlightOrder(
+    flightOfferId: ID!
+    travelers: [ID!]!
+    remarks: String
+    ticketingAgreement: JSON
+  ): Flight
+
+  """Cancel an existing flight order."""
+  cancelFlightOrder(orderId: ID!): Boolean
+
+  """Book a hotel offer."""
+  createHotelOrder(
+    offerId: ID!
+    guests: [JSON!]!
+    payment: JSON!
+  ): Hotel
+
+  """Book a ground transfer."""
+  createTransferOrder(
+    transferId: ID!
+    passengers: [JSON!]!
+    payment: JSON!
+  ): Transfer
+}
