@@ -1,0 +1,220 @@
+{
+  "item": [
+    {
+      "id": "34c1f32c-2a97-4060-a003-72923bcdee0e",
+      "name": "airport-ontime-prediction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "549c360e-48e2-4025-94cf-ad29a615eb47",
+          "name": "Amadeus Returns a Percentage of On-time Flight Departures from a Given Airport.",
+          "request": {
+            "name": "Amadeus Returns a Percentage of On-time Flight Departures from a Given Airport.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "airport",
+                "predictions",
+                "on-time"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "airportCode",
+                  "value": "<string>",
+                  "description": "(Required) airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx), e.g. BOS for Boston"
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "(Required) the date on which the traveler will depart from the give airport. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "528d915a-232a-4ada-bf09-95530f3a24df",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airport",
+                    "predictions",
+                    "on-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airportCode",
+                      "value": "JFK"
+                    },
+                    {
+                      "key": "date",
+                      "value": "2023-11-12"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"probability\": \"0.928\",\n    \"result\": \"0.84062016\",\n    \"subType\": \"on-time\",\n    \"type\": \"prediction\"\n  },\n  \"meta\": {\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/airport/predictions/on-time?airportCode=JFK&date=2023-11-12\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "170b4d05-86bc-4bdf-96a8-17de64405da4",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airport",
+                    "predictions",
+                    "on-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airportCode",
+                      "value": "JFK"
+                    },
+                    {
+                      "key": "date",
+                      "value": "2023-11-12"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d65b3b50-036a-4f32-a3d0-e4179d43a799",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airport",
+                    "predictions",
+                    "on-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airportCode",
+                      "value": "JFK"
+                    },
+                    {
+                      "key": "date",
+                      "value": "2023-11-12"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5fca4531-1759-43d9-9d2f-2b4ed6a5f581",
+    "name": "Airport On-Time Performance",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token.",
+      "type": "text/plain"
+    }
+  }
+}

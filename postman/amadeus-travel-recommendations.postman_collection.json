@@ -1,0 +1,251 @@
+{
+  "info": {
+    "_postman_id": "3c3f6d91-6b49-480d-9820-fc7adc48ae10",
+    "name": "Travel Recommendations API",
+    "description": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:13:21.000Z",
+    "updatedAt": "2026-06-05T13:13:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3c3f6d91-6b49-480d-9820-fc7adc48ae10"
+  },
+  "item": [
+    {
+      "name": "reference-data",
+      "item": [
+        {
+          "name": "recommended-locations",
+          "item": [
+            {
+              "name": "Amadeus GET Recommended Destinations",
+              "id": "9e5de254-4282-4548-bb3c-fe443582c46c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/reference-data/recommended-locations?cityCodes=<string>&travelerCountryCode=FR&destinationCountryCodes=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "reference-data",
+                    "recommended-locations"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) City used by the algorythm to recommend new destination. Several cities can be specified using comma.\n\nCity codes follow [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)",
+                      "key": "cityCodes",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Origin country of the traveler following [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)",
+                      "key": "travelerCountryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "description": "List of country the traveler want to visit, separated with comma.\n\nCountry codes follow [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)",
+                      "key": "destinationCountryCodes",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0b4aee16-c22c-41db-a1f7-6a6aa61ced42",
+                  "name": "Successful reply",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/recommended-locations?cityCodes=<string>&travelerCountryCode=FR&destinationCountryCodes=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "recommended-locations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) City used by the algorythm to recommend new destination. Several cities can be specified using comma.\n\nCity codes follow [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)",
+                          "key": "cityCodes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Origin country of the traveler following [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)",
+                          "key": "travelerCountryCode",
+                          "value": "FR"
+                        },
+                        {
+                          "description": "List of country the traveler want to visit, separated with comma.\n\nCountry codes follow [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)",
+                          "key": "destinationCountryCodes",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"warnings\": [\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ],\n  \"data\": [\n    {\n      \"subtype\": \"<string>\",\n      \"name\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<float>\",\n        \"longitude\": \"<float>\"\n      },\n      \"type\": \"<string>\",\n      \"relevance\": \"<number>\"\n    },\n    {\n      \"subtype\": \"<string>\",\n      \"name\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<float>\",\n        \"longitude\": \"<float>\"\n      },\n      \"type\": \"<string>\",\n      \"relevance\": \"<number>\"\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<long>\",\n    \"links\": {\n      \"self\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-06-05T13:13:22.000Z",
+                  "updatedAt": "2026-06-05T13:13:22.000Z",
+                  "uid": "35240-0b4aee16-c22c-41db-a1f7-6a6aa61ced42"
+                },
+                {
+                  "id": "e1e5dc31-8a04-41ff-b989-77d90675e012",
+                  "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION                            \n32171   | MANDATORY DATA MISSING ",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/recommended-locations?cityCodes=<string>&travelerCountryCode=FR&destinationCountryCodes=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "recommended-locations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) City used by the algorythm to recommend new destination. Several cities can be specified using comma.\n\nCity codes follow [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)",
+                          "key": "cityCodes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Origin country of the traveler following [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)",
+                          "key": "travelerCountryCode",
+                          "value": "FR"
+                        },
+                        {
+                          "description": "List of country the traveler want to visit, separated with comma.\n\nCountry codes follow [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)",
+                          "key": "destinationCountryCodes",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:22.000Z",
+                  "updatedAt": "2026-06-05T13:13:22.000Z",
+                  "uid": "35240-e1e5dc31-8a04-41ff-b989-77d90675e012"
+                },
+                {
+                  "id": "630f0f6e-9f8d-4110-9148-b8406840bc3f",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/recommended-locations?cityCodes=<string>&travelerCountryCode=FR&destinationCountryCodes=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "recommended-locations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) City used by the algorythm to recommend new destination. Several cities can be specified using comma.\n\nCity codes follow [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)",
+                          "key": "cityCodes",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Origin country of the traveler following [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)",
+                          "key": "travelerCountryCode",
+                          "value": "FR"
+                        },
+                        {
+                          "description": "List of country the traveler want to visit, separated with comma.\n\nCountry codes follow [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)",
+                          "key": "destinationCountryCodes",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:22.000Z",
+                  "updatedAt": "2026-06-05T13:13:22.000Z",
+                  "uid": "35240-630f0f6e-9f8d-4110-9148-b8406840bc3f"
+                }
+              ],
+              "createdAt": "2026-06-05T13:13:22.000Z",
+              "updatedAt": "2026-06-05T13:13:22.000Z",
+              "uid": "35240-9e5de254-4282-4548-bb3c-fe443582c46c"
+            }
+          ],
+          "id": "923fb8b4-ea8c-4422-b3ad-3e6576e8d3be",
+          "createdAt": "2026-06-05T13:13:22.000Z",
+          "updatedAt": "2026-06-05T13:13:22.000Z",
+          "uid": "35240-923fb8b4-ea8c-4422-b3ad-3e6576e8d3be"
+        }
+      ],
+      "id": "0cb68ab9-6192-4c73-961c-4940281df016",
+      "createdAt": "2026-06-05T13:13:22.000Z",
+      "updatedAt": "2026-06-05T13:13:22.000Z",
+      "uid": "35240-0cb68ab9-6192-4c73-961c-4940281df016"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

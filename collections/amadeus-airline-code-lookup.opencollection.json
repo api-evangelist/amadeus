@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airline Code Lookup API",
+    "version": "1.2.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "airlines",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Return Airlines Information.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/reference-data/airlines",
+            "params": [
+              {
+                "name": "airlineCodes",
+                "value": "",
+                "type": "query",
+                "description": "Code of the airline following IATA standard([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)) or ICAO standard ([ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes))\n\nSeveral airlines can be selected at once by sending a list separated by a coma (i.e. AF, SWA)\n"
+              }
+            ]
+          },
+          "docs": "Amadeus Return Airlines Information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

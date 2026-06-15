@@ -1,0 +1,256 @@
+{
+  "info": {
+    "_postman_id": "8e285d34-1f37-42ba-a675-0cbf72371527",
+    "name": "Hotel Ratings",
+    "description": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production, this API in test only offers 24 hotels; 10 in London and 14 in New-York. You can find the list in our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:13:04.000Z",
+    "updatedAt": "2026-06-05T13:13:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8e285d34-1f37-42ba-a675-0cbf72371527"
+  },
+  "item": [
+    {
+      "name": "e-reputation",
+      "item": [
+        {
+          "name": "hotel-sentiments",
+          "item": [
+            {
+              "name": "Amadeus Get Sentiments by Amadeus Hotel Ids",
+              "id": "f5d13e67-8b7a-4dac-a087-f118dc9c6a45",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/e-reputation/hotel-sentiments?hotelIds=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "e-reputation",
+                    "hotel-sentiments"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Comma-separated list of Amadeus Hotel Ids (max. 3) . Amadeus Hotel Ids are found in the Hotel Search response (parameter name is 'hotelId').",
+                      "key": "hotelIds",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "0a1d7e16-6ad6-428e-90ff-7b33b243a1bc",
+                  "name": "Successful operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/e-reputation/hotel-sentiments?hotelIds=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "e-reputation",
+                        "hotel-sentiments"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Comma-separated list of Amadeus Hotel Ids (max. 3) . Amadeus Hotel Ids are found in the Hotel Search response (parameter name is 'hotelId').",
+                          "key": "hotelIds",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"hotelId\": \"<string>\",\n      \"overallRating\": \"<integer>\",\n      \"numberOfRatings\": \"<integer>\",\n      \"numberOfReviews\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"sentiments\": {\n        \"sleepQuality\": \"<integer>\",\n        \"service\": \"<integer>\",\n        \"facilities\": \"<integer>\",\n        \"roomComforts\": \"<integer>\",\n        \"valueForMoney\": \"<integer>\",\n        \"catering\": \"<integer>\",\n        \"swimmingPool\": \"<integer>\",\n        \"location\": \"<integer>\",\n        \"internet\": \"<integer>\",\n        \"pointsOfInterest\": \"<integer>\",\n        \"staff\": \"<integer>\"\n      }\n    },\n    {\n      \"hotelId\": \"<string>\",\n      \"overallRating\": \"<integer>\",\n      \"numberOfRatings\": \"<integer>\",\n      \"numberOfReviews\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"sentiments\": {\n        \"sleepQuality\": \"<integer>\",\n        \"service\": \"<integer>\",\n        \"facilities\": \"<integer>\",\n        \"roomComforts\": \"<integer>\",\n        \"valueForMoney\": \"<integer>\",\n        \"catering\": \"<integer>\",\n        \"swimmingPool\": \"<integer>\",\n        \"location\": \"<integer>\",\n        \"internet\": \"<integer>\",\n        \"pointsOfInterest\": \"<integer>\",\n        \"staff\": \"<integer>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  },\n  \"warnings\": [\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    },\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:05.000Z",
+                  "updatedAt": "2026-06-05T13:13:05.000Z",
+                  "uid": "35240-0a1d7e16-6ad6-428e-90ff-7b33b243a1bc"
+                },
+                {
+                  "id": "2425b217-b61d-4dd8-9ed4-099a070ec89b",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/e-reputation/hotel-sentiments?hotelIds=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "e-reputation",
+                        "hotel-sentiments"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Comma-separated list of Amadeus Hotel Ids (max. 3) . Amadeus Hotel Ids are found in the Hotel Search response (parameter name is 'hotelId').",
+                          "key": "hotelIds",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:05.000Z",
+                  "updatedAt": "2026-06-05T13:13:05.000Z",
+                  "uid": "35240-2425b217-b61d-4dd8-9ed4-099a070ec89b"
+                },
+                {
+                  "id": "477cd683-a390-4c56-a650-3eb2416a0ff9",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/e-reputation/hotel-sentiments?hotelIds=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "e-reputation",
+                        "hotel-sentiments"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Comma-separated list of Amadeus Hotel Ids (max. 3) . Amadeus Hotel Ids are found in the Hotel Search response (parameter name is 'hotelId').",
+                          "key": "hotelIds",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:05.000Z",
+                  "updatedAt": "2026-06-05T13:13:05.000Z",
+                  "uid": "35240-477cd683-a390-4c56-a650-3eb2416a0ff9"
+                },
+                {
+                  "id": "ba19018a-62fe-4bb3-9c43-90c974f6f367",
+                  "name": "Unexpected Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/e-reputation/hotel-sentiments?hotelIds=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "e-reputation",
+                        "hotel-sentiments"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Comma-separated list of Amadeus Hotel Ids (max. 3) . Amadeus Hotel Ids are found in the Hotel Search response (parameter name is 'hotelId').",
+                          "key": "hotelIds",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:05.000Z",
+                  "updatedAt": "2026-06-05T13:13:05.000Z",
+                  "uid": "35240-ba19018a-62fe-4bb3-9c43-90c974f6f367"
+                }
+              ],
+              "createdAt": "2026-06-05T13:13:05.000Z",
+              "updatedAt": "2026-06-05T13:13:05.000Z",
+              "uid": "35240-f5d13e67-8b7a-4dac-a087-f118dc9c6a45"
+            }
+          ],
+          "id": "ff1d8a59-82e2-4a1a-9b40-af755ba33781",
+          "createdAt": "2026-06-05T13:13:05.000Z",
+          "updatedAt": "2026-06-05T13:13:05.000Z",
+          "uid": "35240-ff1d8a59-82e2-4a1a-9b40-af755ba33781"
+        }
+      ],
+      "id": "8a94d78e-aa7b-48c6-b023-a60f6ca51450",
+      "createdAt": "2026-06-05T13:13:05.000Z",
+      "updatedAt": "2026-06-05T13:13:05.000Z",
+      "uid": "35240-8a94d78e-aa7b-48c6-b023-a60f6ca51450"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v2"
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "item": [
+    {
+      "id": "ebde1faa-22dd-4c48-9c5d-5ff087d67c66",
+      "name": "air-traffic",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5774bfd7-ecd0-486e-960a-71ca75968c7b",
+          "name": "Amadeus Returns a List of Air Traffic Reports.",
+          "request": {
+            "name": "Amadeus Returns a List of Air Traffic Reports.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "travel",
+                "analytics",
+                "air-traffic",
+                "busiest-period"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cityCode",
+                  "value": "<string>",
+                  "description": "(Required) Code for the city following IATA standard. [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. BOS for Boston"
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>",
+                  "description": "(Required) time period (year) of the statistics.\n\nYear for which the statistic are requested following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "ARRIVING",
+                  "description": "Use ARRIVING to have statistics on travelers coming to the city or DEPARTING for statistics on travelers leaving the city.\n\nBy default, statistics are given on travelers ARRIVING the city.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3579ea80-d360-4bde-9dc2-951296985a3d",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "busiest-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cityCode",
+                      "value": "MAD"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "ARRIVING"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"air-traffic\",\n      \"period\": \"2017-01\",\n      \"analytics\": {\n        \"travelers\": {\n          \"score\": 68\n        }\n      }\n    },\n    {\n      \"type\": \"air-traffic\",\n      \"period\": \"2017-01\",\n      \"analytics\": {\n        \"travelers\": {\n          \"score\": 68\n        }\n      }\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": 1,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4154c71f-4e1f-425b-85db-b60da5638d34",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "busiest-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cityCode",
+                      "value": "MAD"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "ARRIVING"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26c88e78-f4b4-491e-abfa-eb761b6903cb",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "busiest-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cityCode",
+                      "value": "MAD"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "ARRIVING"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f0a35da8-e911-4ae7-b71b-95b5f91cf8f2",
+    "name": "Flight Busiest Traveling Period",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production, to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.",
+      "type": "text/plain"
+    }
+  }
+}

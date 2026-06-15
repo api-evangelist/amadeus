@@ -1,0 +1,815 @@
+{
+  "item": [
+    {
+      "id": "b00f1894-d97c-4522-8da2-b1ebb2b0da53",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c92d92a9-866b-41c6-9829-1a5d226ef8d3",
+          "name": "Amadeus Returns Points of Interest for a Given Location and Radius.",
+          "request": {
+            "name": "Amadeus Returns Points of Interest for a Given Location and Radius.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations",
+                "pois"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<double>",
+                  "description": "(Required) Latitude (decimal coordinates)"
+                },
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<double>",
+                  "description": "(Required) Longitude (decimal coordinates)"
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "1",
+                  "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "10",
+                  "description": "maximum items in one page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "0",
+                  "description": "start index of the requested page"
+                },
+                {
+                  "disabled": false,
+                  "key": "categories",
+                  "value": "<string>,<string>",
+                  "description": "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d8f8eb5-862d-4d09-b373-0ecb91c421cb",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "41.397158"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "2.160873"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"12345\",\n      \"self\": {\n        \"href\": \"https://example.com/resource\",\n        \"methods\": [\n          \"POST\",\n          \"PUT\"\n        ]\n      },\n      \"type\": \"location\",\n      \"subType\": \"AIRPORT\",\n      \"name\": \"Paris CDG\",\n      \"geoCode\": {\n        \"latitude\": 43.580418,\n        \"longitude\": 7.125102\n      },\n      \"category\": \"HISTORICAL\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rank\": \"string\"\n    },\n    {\n      \"id\": \"12345\",\n      \"self\": {\n        \"href\": \"https://example.com/resource\",\n        \"methods\": [\n          \"POST\",\n          \"DELETE\"\n        ]\n      },\n      \"type\": \"location\",\n      \"subType\": \"AIRPORT\",\n      \"name\": \"Paris CDG\",\n      \"geoCode\": {\n        \"latitude\": 43.580418,\n        \"longitude\": 7.125102\n      },\n      \"category\": \"HISTORICAL\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rank\": \"string\"\n    }\n  ],\n  \"meta\": {\n    \"count\": 1,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "909db41e-54fb-437c-9af6-bf068af61129",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "41.397158"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "2.160873"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9fdba2c-804c-479e-833c-98203815dbab",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "41.397158"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "2.160873"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "827c2e6c-188d-4691-bd1e-38764f2cd1ff",
+          "name": "Amadeus Returns Points of Interest for a Given Area",
+          "request": {
+            "name": "Amadeus Returns Points of Interest for a Given Area",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations",
+                "pois",
+                "by-square"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "north",
+                  "value": "<double>",
+                  "description": "(Required) Latitude north of bounding box (decimal coordinates)"
+                },
+                {
+                  "disabled": false,
+                  "key": "west",
+                  "value": "<double>",
+                  "description": "(Required) Longitude west of bounding box (decimal coordinates)"
+                },
+                {
+                  "disabled": false,
+                  "key": "south",
+                  "value": "<double>",
+                  "description": "(Required) Latitude south of bounding box (decimal coordinates)"
+                },
+                {
+                  "disabled": false,
+                  "key": "east",
+                  "value": "<double>",
+                  "description": "(Required) Longitude east of bounding box (decimal coordinates)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "10",
+                  "description": "maximum items in one page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "0",
+                  "description": "start index of the requested page"
+                },
+                {
+                  "disabled": false,
+                  "key": "categories",
+                  "value": "<string>,<string>",
+                  "description": "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75f00d7d-5695-4c19-b692-3291ddfc0c92",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": "41.397158"
+                    },
+                    {
+                      "key": "west",
+                      "value": "2.160873"
+                    },
+                    {
+                      "key": "south",
+                      "value": "41.394582"
+                    },
+                    {
+                      "key": "east",
+                      "value": "2.177181"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"12345\",\n      \"self\": {\n        \"href\": \"https://example.com/resource\",\n        \"methods\": [\n          \"POST\",\n          \"DELETE\"\n        ]\n      },\n      \"type\": \"location\",\n      \"subType\": \"AIRPORT\",\n      \"name\": \"Paris CDG\",\n      \"geoCode\": {\n        \"latitude\": 43.580418,\n        \"longitude\": 7.125102\n      },\n      \"category\": \"HISTORICAL\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rank\": \"string\"\n    },\n    {\n      \"id\": \"12345\",\n      \"self\": {\n        \"href\": \"https://example.com/resource\",\n        \"methods\": [\n          \"PATCH\",\n          \"DELETE\"\n        ]\n      },\n      \"type\": \"location\",\n      \"subType\": \"AIRPORT\",\n      \"name\": \"Paris CDG\",\n      \"geoCode\": {\n        \"latitude\": 43.580418,\n        \"longitude\": 7.125102\n      },\n      \"category\": \"HISTORICAL\",\n      \"tags\": [\n        \"string\",\n        \"string\"\n      ],\n      \"rank\": \"string\"\n    }\n  ],\n  \"meta\": {\n    \"count\": 1,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff01658f-3d5f-4ca4-a75d-c30d49f0473e",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": "41.397158"
+                    },
+                    {
+                      "key": "west",
+                      "value": "2.160873"
+                    },
+                    {
+                      "key": "south",
+                      "value": "41.394582"
+                    },
+                    {
+                      "key": "east",
+                      "value": "2.177181"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "baddfaf4-af45-46cf-bb77-269dac5e2a1d",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": "41.397158"
+                    },
+                    {
+                      "key": "west",
+                      "value": "2.160873"
+                    },
+                    {
+                      "key": "south",
+                      "value": "41.394582"
+                    },
+                    {
+                      "key": "east",
+                      "value": "2.177181"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<string>,<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "53d74f3c-a67c-4cea-82de-5250fc16cf3d",
+      "name": "Retrieve",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "508b6dbb-86a3-403d-b46c-709ba2b5f5b3",
+          "name": "Amadeus Retieve One Point of Interest by its ID.",
+          "request": {
+            "name": "Amadeus Retieve One Point of Interest by its ID.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations",
+                "pois",
+                ":poisId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "poisId",
+                  "description": "(Required) identifier of the pois"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a91ab438-aae8-4af3-97ce-2b0a42d6d995",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois",
+                    ":poisId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "poisId",
+                      "description": "(Required) identifier of the pois"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"12345\",\n    \"self\": {\n      \"href\": \"https://example.com/resource\",\n      \"methods\": [\n        \"GET\",\n        \"DELETE\"\n      ]\n    },\n    \"type\": \"location\",\n    \"subType\": \"AIRPORT\",\n    \"name\": \"Paris CDG\",\n    \"geoCode\": {\n      \"latitude\": 43.580418,\n      \"longitude\": 7.125102\n    },\n    \"category\": \"HISTORICAL\",\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"rank\": \"string\"\n  },\n  \"meta\": {\n    \"count\": 1,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90e4800f-2234-4a83-a0a2-2f8dba9db5c5",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois",
+                    ":poisId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "poisId",
+                      "description": "(Required) identifier of the pois"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "415770d7-0da0-407c-a943-63cfdcf53285",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois",
+                    ":poisId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "poisId",
+                      "description": "(Required) identifier of the pois"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 404,\n      \"code\": 1797,\n      \"title\": \"NOT FOUND\",\n      \"detail\": \"no response found for this query parameter\",\n      \"source\": {\n        \"parameter\": \"airport\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26a1f840-4e4c-4abb-8cdd-86b2a032ec57",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois",
+                    ":poisId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "poisId",
+                      "description": "(Required) identifier of the pois"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "17650705-9069-4ce1-b4ae-211e851d19a1",
+    "name": "Points of Interest",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production, this API in test only returns a few selected cities. You can find the list in our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "item": [
+    {
+      "id": "bab10a64-4d38-47f4-be83-1b908fc76337",
+      "name": "Booking",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3043ca8-9502-44c8-b879-340280aa54fe",
+          "name": "Amadeus Performs a Transfer Reservation.",
+          "request": {
+            "name": "Amadeus Performs a Transfer Reservation.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ordering",
+                "transfer-orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offerId",
+                  "value": "<string>",
+                  "description": "(Required) transfer offer id from shopping/transfer-offers response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"passengers\": [\n      {\n        \"type\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"title\": \"<string>\",\n        \"contacts\": {\n          \"phoneNumber\": \"<string>\",\n          \"email\": \"<email>\"\n        },\n        \"billingAddress\": {\n          \"line\": \"<string>\",\n          \"zip\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"cityName\": \"<string>\",\n          \"stateCode\": \"<string>\"\n        }\n      },\n      {\n        \"type\": \"<string>\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"title\": \"<string>\",\n        \"contacts\": {\n          \"phoneNumber\": \"<string>\",\n          \"email\": \"<email>\"\n        },\n        \"billingAddress\": {\n          \"line\": \"<string>\",\n          \"zip\": \"<string>\",\n          \"countryCode\": \"<string>\",\n          \"cityName\": \"<string>\",\n          \"stateCode\": \"<string>\"\n        }\n      }\n    ],\n    \"payment\": {\n      \"methodOfPayment\": \"<string>\",\n      \"paymentReference\": \"<string>\",\n      \"paymentServiceProvider\": \"<string>\",\n      \"creditCard\": {\n        \"number\": \"<string>\",\n        \"holderName\": \"<string>\",\n        \"vendorCode\": \"<string>\",\n        \"expiryDate\": \"<string>\",\n        \"cvv\": \"<string>\"\n      }\n    },\n    \"note\": \"<string>\",\n    \"flightNumber\": \"<string>\",\n    \"agency\": {\n      \"contacts\": [\n        {\n          \"email\": {\n            \"address\": \"<email>\"\n          }\n        },\n        {\n          \"email\": {\n            \"address\": \"<email>\"\n          }\n        }\n      ]\n    },\n    \"equipment\": [\n      {\n        \"code\": \"<string>\",\n        \"itemId\": \"<string>\",\n        \"description\": \"<string>\",\n        \"quotation\": {\n          \"monetaryAmount\": \"<string>\",\n          \"currencyCode\": \"<string>\",\n          \"isEstimated\": \"<boolean>\",\n          \"base\": {\n            \"description\": \"base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"discount\": {\n            \"description\": \"discount amount of base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"fees\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"totalTaxes\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"totalFees\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"converted\": {\n          \"monetaryAmount\": \"<string>\",\n          \"currencyCode\": \"<string>\",\n          \"isEstimated\": \"<boolean>\",\n          \"base\": {\n            \"description\": \"base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"discount\": {\n            \"description\": \"discount amount of base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"fees\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"totalTaxes\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"totalFees\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"isBookable\": \"<boolean>\",\n        \"taxIncluded\": \"<boolean>\",\n        \"includedInTotal\": \"<boolean>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"itemId\": \"<string>\",\n        \"description\": \"<string>\",\n        \"quotation\": {\n          \"monetaryAmount\": \"<string>\",\n          \"currencyCode\": \"<string>\",\n          \"isEstimated\": \"<boolean>\",\n          \"base\": {\n            \"description\": \"base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"discount\": {\n            \"description\": \"discount amount of base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"fees\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"totalTaxes\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"totalFees\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"converted\": {\n          \"monetaryAmount\": \"<string>\",\n          \"currencyCode\": \"<string>\",\n          \"isEstimated\": \"<boolean>\",\n          \"base\": {\n            \"description\": \"base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"discount\": {\n            \"description\": \"discount amount of base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"fees\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"totalTaxes\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"totalFees\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"isBookable\": \"<boolean>\",\n        \"taxIncluded\": \"<boolean>\",\n        \"includedInTotal\": \"<boolean>\"\n      }\n    ],\n    \"extraServices\": [\n      {\n        \"code\": \"<string>\",\n        \"itemId\": \"<string>\",\n        \"description\": \"<string>\",\n        \"metricType\": \"<string>\",\n        \"metricValue\": \"<string>\",\n        \"quotation\": {\n          \"monetaryAmount\": \"<string>\",\n          \"currencyCode\": \"<string>\",\n          \"isEstimated\": \"<boolean>\",\n          \"base\": {\n            \"description\": \"base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"discount\": {\n            \"description\": \"discount amount of base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"fees\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"totalTaxes\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"totalFees\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"converted\": {\n          \"monetaryAmount\": \"<string>\",\n          \"currencyCode\": \"<string>\",\n          \"isEstimated\": \"<boolean>\",\n          \"base\": {\n            \"description\": \"base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"discount\": {\n            \"description\": \"discount amount of base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"fees\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"totalTaxes\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"totalFees\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"isBookable\": \"<boolean>\",\n        \"taxIncluded\": \"<boolean>\",\n        \"includedInTotal\": \"<boolean>\"\n      },\n      {\n        \"code\": \"<string>\",\n        \"itemId\": \"<string>\",\n        \"description\": \"<string>\",\n        \"metricType\": \"<string>\",\n        \"metricValue\": \"<string>\",\n        \"quotation\": {\n          \"monetaryAmount\": \"<string>\",\n          \"currencyCode\": \"<string>\",\n          \"isEstimated\": \"<boolean>\",\n          \"base\": {\n            \"description\": \"base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"discount\": {\n            \"description\": \"discount amount of base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"fees\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"totalTaxes\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"totalFees\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"converted\": {\n          \"monetaryAmount\": \"<string>\",\n          \"currencyCode\": \"<string>\",\n          \"isEstimated\": \"<boolean>\",\n          \"base\": {\n            \"description\": \"base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"discount\": {\n            \"description\": \"discount amount of base price\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"fees\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"totalTaxes\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"totalFees\": {\n            \"monetaryAmount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"isBookable\": \"<boolean>\",\n        \"taxIncluded\": \"<boolean>\",\n        \"includedInTotal\": \"<boolean>\"\n      }\n    ],\n    \"loyaltyNumber\": {\n      \"program\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"corporation\": {\n      \"address\": {\n        \"line\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"cityName\": \"<string>\",\n        \"stateCode\": \"<string>\"\n      },\n      \"info\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"startConnectedSegment\": {\n      \"transportationType\": \"<string>\",\n      \"transportationNumber\": \"<string>\",\n      \"departure\": {\n        \"uicCode\": \"<string>\",\n        \"iataCode\": \"<string>\",\n        \"localDateTime\": \"<dateTime>\"\n      },\n      \"arrival\": {\n        \"uicCode\": \"<string>\",\n        \"iataCode\": \"<string>\",\n        \"localDateTime\": \"<dateTime>\"\n      }\n    },\n    \"endConnectedSegment\": {\n      \"transportationType\": \"<string>\",\n      \"transportationNumber\": \"<string>\",\n      \"departure\": {\n        \"uicCode\": \"<string>\",\n        \"iataCode\": \"<string>\",\n        \"localDateTime\": \"<dateTime>\"\n      },\n      \"arrival\": {\n        \"uicCode\": \"<string>\",\n        \"iataCode\": \"<string>\",\n        \"localDateTime\": \"<dateTime>\"\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "52a9b208-3d9b-4e4c-8c59-f75321300f0a",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ordering",
+                    "transfer-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offerId",
+                      "value": "12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"note\": \"Note to driver\",\n    \"passengers\": [\n      {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"title\": \"MR\",\n        \"contacts\": {\n          \"phoneNumber\": \"+33123456789\",\n          \"email\": \"user@email.com\"\n        },\n        \"billingAddress\": {\n          \"line\": \"Avenue de la Bourdonnais, 19\",\n          \"zip\": \"75007\",\n          \"countryCode\": \"FR\",\n          \"cityName\": \"Paris\"\n        }\n      }\n    ],\n    \"agency\": {\n      \"contacts\": [\n        {\n          \"email\": {\n            \"address\": \"abc@test.com\"\n          }\n        }\n      ]\n    },\n    \"payment\": {\n      \"methodOfPayment\": \"CREDIT_CARD\",\n      \"creditCard\": {\n        \"number\": \"4111111111111111\",\n        \"holderName\": \"JOHN DOE\",\n        \"vendorCode\": \"VI\",\n        \"expiryDate\": \"1018\",\n        \"cvv\": \"111\"\n      }\n    },\n    \"extraServices\": [\n      {\n        \"code\": \"EWT\",\n        \"itemId\": \"EWT0291\"\n      }\n    ],\n    \"equipment\": [\n      {\n        \"code\": \"BBS\"\n      }\n    ],\n    \"corporation\": {\n      \"address\": {\n        \"line\": \"5 Avenue Anatole France\",\n        \"zip\": \"75007\",\n        \"countryCode\": \"FR\",\n        \"cityName\": \"Paris\"\n      },\n      \"info\": {\n        \"AU\": \"FHOWMD024\",\n        \"CE\": \"280421GH\"\n      }\n    },\n    \"startConnectedSegment\": {\n      \"transportationType\": \"FLIGHT\",\n      \"transportationNumber\": \"AF380\",\n      \"departure\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      },\n      \"arrival\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      }\n    },\n    \"endConnectedSegment\": {\n      \"transportationType\": \"FLIGHT\",\n      \"transportationNumber\": \"AF380\",\n      \"departure\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      },\n      \"arrival\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"type\": \"transfer-order\",\n    \"reference\": \"YNK4JQ\",\n    \"agency\": {\n      \"contacts\": [\n        {\n          \"email\": {\n            \"address\": \"abc@test.com\"\n          }\n        }\n      ]\n    },\n    \"transfers\": [\n      {\n        \"status\": \"CONFIRMED\",\n        \"confirmNbr\": \"2904892\",\n        \"note\": \"Note to driver\",\n        \"methodOfPayment\": \"CREDIT_CARD\",\n        \"offerId\": \"0cb11574-4a02-11e8-842f-0ed5f89f718b\",\n        \"transferType\": \"PRIVATE\",\n        \"start\": {\n          \"dateTime\": \"2019-11-10T10:30:00\",\n          \"locationCode\": \"CDG\"\n        },\n        \"end\": {\n          \"address\": {\n            \"line\": \"Avenue de la Bourdonnais, 19\",\n            \"zip\": \"75007\",\n            \"countryCode\": \"FR\",\n            \"cityName\": \"Paris\",\n            \"latitude\": 48.859466,\n            \"longitude\": 2.2976965,\n            \"uicCode\": \"7400001\"\n          },\n          \"googlePlaceId\": \"ChIJL-DOWeBv5kcRfTbh97PimNc\",\n          \"name\": \"Souvenirs De La Tour\"\n        },\n        \"stopOvers\": [\n          {\n            \"duration\": \"PT2H30M\",\n            \"sequenceNumber\": 1,\n            \"location\": {\n              \"locationCode\": \"CDG\",\n              \"address\": {\n                \"line\": \"Avenue de la Bourdonnais, 19\",\n                \"zip\": \"75007\",\n                \"countryCode\": \"FR\",\n                \"cityName\": \"Paris\",\n                \"latitude\": 48.859477,\n                \"longitude\": 2.2976975\n              },\n              \"googlePlaceId\": \"DOWeBv5kcRfTbh97PimN\",\n              \"name\": \"De La Tours\"\n            }\n          }\n        ],\n        \"vehicle\": {\n          \"code\": \"VAN\",\n          \"category\": \"BU\",\n          \"description\": \"Mercedes-Benz V-Class, Chevrolet Suburban, Cadillac Escalade or similar\",\n          \"seats\": [\n            {\n              \"count\": 3\n            }\n          ],\n          \"baggages\": [\n            {\n              \"count\": 3,\n              \"size\": \"M\"\n            }\n          ],\n          \"imageURL\": \"https://provider.com/images/BU_VAN.png\"\n        },\n        \"serviceProvider\": {\n          \"code\": \"ABC\",\n          \"name\": \"Provider name\",\n          \"logoUrl\": \"https://provider.com/images/logo.png\",\n          \"termsUrl\": \"https://provider.com/terms_and_conditions.html\",\n          \"contacts\": {\n            \"phoneNumber\": \"+33123456789\",\n            \"email\": \"support@provider.com\",\n            \"address\": {\n              \"line\": \"Avenue de la Bourdonnais, 19\",\n              \"zip\": \"75007\",\n              \"countryCode\": \"FR\",\n              \"cityName\": \"Paris\",\n              \"stateCode\": \"CDG\"\n            }\n          },\n          \"settings\": [\n            \"BILLING_ADDRESS_REQUIRED\",\n            \"FLIGHT_NUMBER_REQUIRED\",\n            \"CVV_NUMBER_REQUIRED\"\n          ],\n          \"businessIdentification\": {\n            \"vatRegistrationNumber\": \"GB999 9999 22\"\n          }\n        },\n        \"partnerInfo\": {\n          \"serviceProvider\": {\n            \"code\": \"XYZ\",\n            \"name\": \"SubProvider name\",\n            \"logoUrl\": \"https://provider.com/images/logo.png\",\n            \"termsUrl\": \"https://provider.com/terms_and_conditions.html\",\n            \"isPreferred\": true,\n            \"contacts\": {\n              \"phoneNumber\": \"+33123456789\",\n              \"email\": \"support@provider.com\",\n              \"address\": {\n                \"line\": \"Avenue de la Bourdonnais, 19\",\n                \"zip\": \"75007\",\n                \"countryCode\": \"FR\",\n                \"cityName\": \"Paris\",\n                \"stateCode\": \"CDG\"\n              }\n            },\n            \"businessIdentification\": {\n              \"vatRegistrationNumber\": \"GB999 9999 22\"\n            }\n          }\n        },\n        \"quotation\": {\n          \"monetaryAmount\": \"63.70\",\n          \"currencyCode\": \"USD\",\n          \"isEstimated\": false,\n          \"base\": {\n            \"monetaryAmount\": \"103.70\"\n          },\n          \"discount\": {\n            \"monetaryAmount\": \"50.00\"\n          },\n          \"fees\": [\n            {\n              \"indicator\": \"AIRPORT\",\n              \"monetaryAmount\": \"10.00\"\n            }\n          ],\n          \"totalTaxes\": {\n            \"monetaryAmount\": \"12.74\"\n          },\n          \"totalFees\": {\n            \"monetaryAmount\": \"10.00\"\n          }\n        },\n        \"converted\": {\n          \"monetaryAmount\": \"63.70\",\n          \"currencyCode\": \"EUR\",\n          \"isEstimated\": false,\n          \"base\": {\n            \"monetaryAmount\": \"103.70\"\n          },\n          \"discount\": {\n            \"monetaryAmount\": \"50.00\"\n          },\n          \"fees\": [\n            {\n              \"indicator\": \"AIRPORT\",\n              \"monetaryAmount\": \"10.00\"\n            }\n          ],\n          \"totalTaxes\": {\n            \"monetaryAmount\": \"12.74\"\n          },\n          \"totalFees\": {\n            \"monetaryAmount\": \"10.00\"\n          }\n        },\n        \"extraServices\": [\n          {\n            \"code\": \"EWT\",\n            \"itemId\": \"EWT0291\",\n            \"description\": \"Extra 15 min. wait\",\n            \"quotation\": {\n              \"monetaryAmount\": \"39.20\",\n              \"currencyCode\": \"USD\",\n              \"base\": {\n                \"monetaryAmount\": \"36.00\"\n              },\n              \"totalTaxes\": {\n                \"monetaryAmount\": \"3.20\"\n              }\n            },\n            \"converted\": {\n              \"monetaryAmount\": \"32.70\",\n              \"currencyCode\": \"EUR\",\n              \"base\": {\n                \"monetaryAmount\": \"30.00\"\n              },\n              \"totalTaxes\": {\n                \"monetaryAmount\": \"2.7\"\n              }\n            },\n            \"isBookable\": true,\n            \"taxIncluded\": true,\n            \"includedInTotal\": true\n          }\n        ],\n        \"cancellationRules\": [\n          {\n            \"feeType\": \"PERCENTAGE\",\n            \"feeValue\": \"100\",\n            \"metricType\": \"DAYS\",\n            \"metricMin\": \"0\",\n            \"metricMax\": \"1\"\n          },\n          {\n            \"feeType\": \"PERCENTAGE\",\n            \"feeValue\": \"0\",\n            \"metricType\": \"DAYS\",\n            \"metricMin\": \"1\",\n            \"metricMax\": \"100\"\n          }\n        ],\n        \"distance\": {\n          \"value\": 152,\n          \"unit\": \"KM\"\n        }\n      }\n    ],\n    \"passengerCharacteristics\": [\n      {\n        \"passengerTypeCode\": \"ADT\",\n        \"age\": 20\n      }\n    ],\n    \"passengers\": [\n      {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"title\": \"MR\",\n        \"contacts\": {\n          \"phoneNumber\": \"+33123456789\",\n          \"email\": \"user@email.com\"\n        },\n        \"billingAddress\": {\n          \"line\": \"Avenue de la Bourdonnais, 19\",\n          \"zip\": \"75007\",\n          \"countryCode\": \"FR\",\n          \"cityName\": \"Paris\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91c492ff-151b-44b8-bb54-d703491cfecf",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n11      | UNABLE TO PROCESS\n391     | NEED TELEPHONE NUMBER\n477     | INVALID FORMAT\n693     | INVALID CITY/AIRPORT CODE\n830     | MISSING/INVALID COUNTRY CODE\n1143    | INVALID CREDIT CARD NUMBER\n1149    | CREDIT CARD EXPIRED\n1426    | EXPIRATION DATE MISSING OR INVALID\n1535    | INVALID VENDOR CODE\n4926    | INVALID DATA RECEIVED \n11041   | NEED PASSENGER NAME\n11257   | NEED CITY NAME\n12237   | ZIP CODE IS MANDATORY IN ADDRESS\n23883   | EMAIL ADDRESS REQUIRED\n25862   | CREDIT CARD HOLDER NAME REQUIRED\n27599   | INVALID PASSENGER NAME\n28926   | MISSING CARD VERIFICATION VALUE CVV\n32171   | MANDATORY DATA MISSING \n32804   | INVALID PHONE NUMBER\n34120   | INVALID EMAIL ADDRESS\n34497   | THE LINE IS MANDATORY IN ADDRESS\n34502   | PAYMENT METHOD IS REQUIRED\n37576   | INVALID PAYMENT METHOD\n38597   | CREDIT CARD NUMBER IS REQUIRED\n45514   | INVALID BILLING ADDRESS\n34649   | INVALID FLIGHT INFORMATION\n15566   | INVALID RAIL INFORMATION\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ordering",
+                    "transfer-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offerId",
+                      "value": "12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"note\": \"Note to driver\",\n    \"passengers\": [\n      {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"title\": \"MR\",\n        \"contacts\": {\n          \"phoneNumber\": \"+33123456789\",\n          \"email\": \"user@email.com\"\n        },\n        \"billingAddress\": {\n          \"line\": \"Avenue de la Bourdonnais, 19\",\n          \"zip\": \"75007\",\n          \"countryCode\": \"FR\",\n          \"cityName\": \"Paris\"\n        }\n      }\n    ],\n    \"agency\": {\n      \"contacts\": [\n        {\n          \"email\": {\n            \"address\": \"abc@test.com\"\n          }\n        }\n      ]\n    },\n    \"payment\": {\n      \"methodOfPayment\": \"CREDIT_CARD\",\n      \"creditCard\": {\n        \"number\": \"4111111111111111\",\n        \"holderName\": \"JOHN DOE\",\n        \"vendorCode\": \"VI\",\n        \"expiryDate\": \"1018\",\n        \"cvv\": \"111\"\n      }\n    },\n    \"extraServices\": [\n      {\n        \"code\": \"EWT\",\n        \"itemId\": \"EWT0291\"\n      }\n    ],\n    \"equipment\": [\n      {\n        \"code\": \"BBS\"\n      }\n    ],\n    \"corporation\": {\n      \"address\": {\n        \"line\": \"5 Avenue Anatole France\",\n        \"zip\": \"75007\",\n        \"countryCode\": \"FR\",\n        \"cityName\": \"Paris\"\n      },\n      \"info\": {\n        \"AU\": \"FHOWMD024\",\n        \"CE\": \"280421GH\"\n      }\n    },\n    \"startConnectedSegment\": {\n      \"transportationType\": \"FLIGHT\",\n      \"transportationNumber\": \"AF380\",\n      \"departure\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      },\n      \"arrival\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      }\n    },\n    \"endConnectedSegment\": {\n      \"transportationType\": \"FLIGHT\",\n      \"transportationNumber\": \"AF380\",\n      \"departure\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      },\n      \"arrival\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 400,\n      \"code\": 4926,\n      \"title\": \"INVALID DATA RECEIVED\",\n      \"detail\": \"Transfer type is not valid\",\n      \"source\": {\n        \"parameter\": \"transferType\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f83f340-5889-4f59-8f6c-71a56c866e81",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ordering",
+                    "transfer-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offerId",
+                      "value": "12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"note\": \"Note to driver\",\n    \"passengers\": [\n      {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"title\": \"MR\",\n        \"contacts\": {\n          \"phoneNumber\": \"+33123456789\",\n          \"email\": \"user@email.com\"\n        },\n        \"billingAddress\": {\n          \"line\": \"Avenue de la Bourdonnais, 19\",\n          \"zip\": \"75007\",\n          \"countryCode\": \"FR\",\n          \"cityName\": \"Paris\"\n        }\n      }\n    ],\n    \"agency\": {\n      \"contacts\": [\n        {\n          \"email\": {\n            \"address\": \"abc@test.com\"\n          }\n        }\n      ]\n    },\n    \"payment\": {\n      \"methodOfPayment\": \"CREDIT_CARD\",\n      \"creditCard\": {\n        \"number\": \"4111111111111111\",\n        \"holderName\": \"JOHN DOE\",\n        \"vendorCode\": \"VI\",\n        \"expiryDate\": \"1018\",\n        \"cvv\": \"111\"\n      }\n    },\n    \"extraServices\": [\n      {\n        \"code\": \"EWT\",\n        \"itemId\": \"EWT0291\"\n      }\n    ],\n    \"equipment\": [\n      {\n        \"code\": \"BBS\"\n      }\n    ],\n    \"corporation\": {\n      \"address\": {\n        \"line\": \"5 Avenue Anatole France\",\n        \"zip\": \"75007\",\n        \"countryCode\": \"FR\",\n        \"cityName\": \"Paris\"\n      },\n      \"info\": {\n        \"AU\": \"FHOWMD024\",\n        \"CE\": \"280421GH\"\n      }\n    },\n    \"startConnectedSegment\": {\n      \"transportationType\": \"FLIGHT\",\n      \"transportationNumber\": \"AF380\",\n      \"departure\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      },\n      \"arrival\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      }\n    },\n    \"endConnectedSegment\": {\n      \"transportationType\": \"FLIGHT\",\n      \"transportationNumber\": \"AF380\",\n      \"departure\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      },\n      \"arrival\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 401,\n      \"code\": 20,\n      \"title\": \"RESTRICTED\",\n      \"detail\": \"Query unauthorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62404839-3253-414c-8444-5ab3fe3171db",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ordering",
+                    "transfer-orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offerId",
+                      "value": "12345"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"note\": \"Note to driver\",\n    \"passengers\": [\n      {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"title\": \"MR\",\n        \"contacts\": {\n          \"phoneNumber\": \"+33123456789\",\n          \"email\": \"user@email.com\"\n        },\n        \"billingAddress\": {\n          \"line\": \"Avenue de la Bourdonnais, 19\",\n          \"zip\": \"75007\",\n          \"countryCode\": \"FR\",\n          \"cityName\": \"Paris\"\n        }\n      }\n    ],\n    \"agency\": {\n      \"contacts\": [\n        {\n          \"email\": {\n            \"address\": \"abc@test.com\"\n          }\n        }\n      ]\n    },\n    \"payment\": {\n      \"methodOfPayment\": \"CREDIT_CARD\",\n      \"creditCard\": {\n        \"number\": \"4111111111111111\",\n        \"holderName\": \"JOHN DOE\",\n        \"vendorCode\": \"VI\",\n        \"expiryDate\": \"1018\",\n        \"cvv\": \"111\"\n      }\n    },\n    \"extraServices\": [\n      {\n        \"code\": \"EWT\",\n        \"itemId\": \"EWT0291\"\n      }\n    ],\n    \"equipment\": [\n      {\n        \"code\": \"BBS\"\n      }\n    ],\n    \"corporation\": {\n      \"address\": {\n        \"line\": \"5 Avenue Anatole France\",\n        \"zip\": \"75007\",\n        \"countryCode\": \"FR\",\n        \"cityName\": \"Paris\"\n      },\n      \"info\": {\n        \"AU\": \"FHOWMD024\",\n        \"CE\": \"280421GH\"\n      }\n    },\n    \"startConnectedSegment\": {\n      \"transportationType\": \"FLIGHT\",\n      \"transportationNumber\": \"AF380\",\n      \"departure\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      },\n      \"arrival\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      }\n    },\n    \"endConnectedSegment\": {\n      \"transportationType\": \"FLIGHT\",\n      \"transportationNumber\": \"AF380\",\n      \"departure\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      },\n      \"arrival\": {\n        \"uicCode\": \"7400001\",\n        \"iataCode\": \"CDG\",\n        \"localDateTime\": \"2021-03-27T20:03:00\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "90b8b2cc-04e7-4bbc-94cd-6ef400f5f783",
+    "name": "Transfer Booking",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production for this API it may change dynamically. For your tests, use big cities like LON (London) or NYC (New-York).",
+      "type": "text/plain"
+    }
+  }
+}

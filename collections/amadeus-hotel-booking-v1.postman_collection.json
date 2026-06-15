@@ -1,0 +1,261 @@
+{
+  "item": [
+    {
+      "id": "f7bd5685-8321-44e7-9e76-47e9f9450329",
+      "name": "Booking",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f6be8871-43e4-49ad-9dc5-c3f20297a6cd",
+          "name": "Amadeus Create Orders Associated to the Hotel Offers",
+          "request": {
+            "name": "Amadeus Create Orders Associated to the Hotel Offers",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "booking",
+                "hotel-bookings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Client Reference to track Request/Response",
+                "key": "Ama-Client-Ref",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "description": "Compress the Response",
+                "key": "Accept-Encoding",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.amadeus+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"offerId\": \"<string>\",\n    \"guests\": [\n      {\n        \"name\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"title\": \"<string>\"\n        },\n        \"contact\": {\n          \"phone\": \"<string>\",\n          \"email\": \"<email>\"\n        },\n        \"id\": \"<integer>\",\n        \"hotelRewardsMember\": \"<string>\"\n      }\n    ],\n    \"payments\": [\n      {\n        \"method\": \"<string>\",\n        \"id\": \"<integer>\",\n        \"card\": {\n          \"vendorCode\": \"<string>\",\n          \"cardNumber\": \"<string>\",\n          \"expiryDate\": \"<string>\"\n        }\n      }\n    ],\n    \"rooms\": [\n      {\n        \"guestIds\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"paymentId\": \"<integer>\",\n        \"specialRequest\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "33eeded1-e8fa-4e52-ad17-31b1d9c5da7c",
+              "name": "Booked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "hotel-bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Client Reference to track Request/Response",
+                    "key": "Ama-Client-Ref",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Compress the Response",
+                    "key": "Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"offerId\": \"NRPQNQBOJM\",\n    \"guests\": [\n      {\n        \"name\": {\n          \"title\": \"MR\",\n          \"firstName\": \"BOB\",\n          \"lastName\": \"SMITH\"\n        },\n        \"contact\": {\n          \"phone\": \"+33679278416\",\n          \"email\": \"bob.smith@email.com\"\n        }\n      }\n    ],\n    \"payments\": [\n      {\n        \"method\": \"creditCard\",\n        \"card\": {\n          \"vendorCode\": \"VI\",\n          \"cardNumber\": \"0000000000000000\",\n          \"expiryDate\": \"2026-01\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"warnings\": [\n    {\n      \"code\": 1,\n      \"title\": \"Resource not found\",\n      \"detail\": \"The targeted resource doesn't exist\"\n    },\n    {\n      \"code\": 1,\n      \"title\": \"Resource not found\",\n      \"detail\": \"The targeted resource doesn't exist\"\n    }\n  ],\n  \"data\": [\n    {\n      \"type\": \"hotel-booking\",\n      \"id\": \"XD_8138319951754\",\n      \"providerConfirmationId\": \"8138319951754\",\n      \"associatedRecords\": [\n        {\n          \"reference\": \"QVH2BX\",\n          \"originSystemCode\": \"GDS\"\n        }\n      ],\n      \"self\": \"https://test.api.amadeus.com/v1/booking/hotel-bookings/XD_8138319951754\"\n    },\n    {\n      \"type\": \"hotel-booking\",\n      \"id\": \"XD_8138319951754\",\n      \"providerConfirmationId\": \"8138319951754\",\n      \"associatedRecords\": [\n        {\n          \"reference\": \"QVH2BX\",\n          \"originSystemCode\": \"GDS\"\n        }\n      ],\n      \"self\": \"https://test.api.amadeus.com/v1/booking/hotel-bookings/XD_8138319951754\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8413bd28-27e2-490c-a11d-de2746bd51e4",
+              "name": "Bad Request\n\ncode    | title                                                          | owner    | pointer\n------- | -------------------------------------------------------------- | -------- | -------\n  477   | INVALID FORMAT                                                 | Amadeus  | \n 4725   | INVALID PASSENGER ASSOCIATION                                  | Amadeus  | data/rooms/guestIds\n33555   | NUMBER OF ROOMS MISMATCH BETWEEN SHOPPING AND BOOKING          | Amadeus  | data/rooms\n33554   | PRICE HAS CHANGED. PLEASE GET A NEW OFFERID AND TRY AGAIN      | Amadeus  | data/offerId\n36803   | OFFERID HAS EXPIRED. PLEASE GET A NEW OFFERID AND TRY AGAIN    | Amadeus  | data/offerId\n 1205   | INVALID CREDIT CARD TYPE                                       | Amadeus  | data/payments/card/vendorCode\n 8517   | INVALID CREDIT CARD NUMBER                                     | Provider | data/payments/card/cardNumber\n 1427   | GUARANTEE REQUIRED                                             | Provider | data/payments/card\n 1146   | DEPOSIT REQUIRED                                               | Provider | data/payments/card\n 3659   | CREDIT CARD DEPOSIT REQUIRED                                   | Provider | data/payments/card\n 3682   | CREDIT CARD NOT ACCEPTED AT HOTEL PROPERTY                     | Provider | data/payments/card/vendorCode\n 3871   | CREDIT CARD EXPIRATION DATE INVALID FOR CHECK IN DATE          | Provider | data/payments/card/expiryDate\n \n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "hotel-bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Client Reference to track Request/Response",
+                    "key": "Ama-Client-Ref",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Compress the Response",
+                    "key": "Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"offerId\": \"NRPQNQBOJM\",\n    \"guests\": [\n      {\n        \"name\": {\n          \"title\": \"MR\",\n          \"firstName\": \"BOB\",\n          \"lastName\": \"SMITH\"\n        },\n        \"contact\": {\n          \"phone\": \"+33679278416\",\n          \"email\": \"bob.smith@email.com\"\n        }\n      }\n    ],\n    \"payments\": [\n      {\n        \"method\": \"creditCard\",\n        \"card\": {\n          \"vendorCode\": \"VI\",\n          \"cardNumber\": \"0000000000000000\",\n          \"expiryDate\": \"2026-01\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 1,\n      \"title\": \"Resource not found\",\n      \"status\": 400,\n      \"detail\": \"The targeted resource doesn't exist\"\n    },\n    {\n      \"code\": 1,\n      \"title\": \"Resource not found\",\n      \"status\": 400,\n      \"detail\": \"The targeted resource doesn't exist\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db7ceab4-9e62-41e9-a1a7-08a77a84615c",
+              "name": "Internal Server Error\n\ncode    | title                                                          | owner                                \n------- | -------------------------------------------------------------- | -------\n00011   | UNABLE TO PROCESS                                              | Provider\n04070   | UNABLE TO PROCESS - CONTACT HELP DESK                          | Amadeus\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "hotel-bookings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Client Reference to track Request/Response",
+                    "key": "Ama-Client-Ref",
+                    "value": "<string>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Compress the Response",
+                    "key": "Accept-Encoding",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"offerId\": \"NRPQNQBOJM\",\n    \"guests\": [\n      {\n        \"name\": {\n          \"title\": \"MR\",\n          \"firstName\": \"BOB\",\n          \"lastName\": \"SMITH\"\n        },\n        \"contact\": {\n          \"phone\": \"+33679278416\",\n          \"email\": \"bob.smith@email.com\"\n        }\n      }\n    ],\n    \"payments\": [\n      {\n        \"method\": \"creditCard\",\n        \"card\": {\n          \"vendorCode\": \"VI\",\n          \"cardNumber\": \"0000000000000000\",\n          \"expiryDate\": \"2026-01\"\n        }\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 1,\n      \"title\": \"Resource not found\",\n      \"status\": 400,\n      \"detail\": \"The targeted resource doesn't exist\"\n    },\n    {\n      \"code\": 1,\n      \"title\": \"Resource not found\",\n      \"status\": 400,\n      \"detail\": \"The targeted resource doesn't exist\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0586386e-96f7-44be-88ba-5b83b5dfeb20",
+    "name": "Hotel Booking",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production for this API it may change dynamically. For your tests, use big cities like LON (London) or NYC (New-York).\n\n\n**Warning: Do not perform test booking in production**. All requests are sent and processed by hotel providers. An excessive amount of fake/canceled reservation will make you blacklisted by hotel providers.\n",
+      "type": "text/plain"
+    }
+  }
+}

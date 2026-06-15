@@ -1,0 +1,304 @@
+{
+  "info": {
+    "_postman_id": "814f0a00-63ad-4257-b3a5-9adbc9d58563",
+    "name": "Trip Purpose Prediction",
+    "description": "\nBefore using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:13:22.000Z",
+    "updatedAt": "2026-06-05T13:13:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-814f0a00-63ad-4257-b3a5-9adbc9d58563"
+  },
+  "item": [
+    {
+      "name": "travel",
+      "item": [
+        {
+          "name": "predictions",
+          "item": [
+            {
+              "name": "trip-purpose",
+              "item": [
+                {
+                  "name": "Amadeus Returns the Forecast Purpose of a Trip",
+                  "id": "d0821ed6-1a8d-48e9-9e8f-9ce7e6bcc609",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/travel/predictions/trip-purpose?originLocationCode=YWB&destinationLocationCode=YWB&departureDate=<string>&returnDate=<string>&searchDate=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "travel",
+                        "predictions",
+                        "trip-purpose"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+                          "key": "originLocationCode",
+                          "value": "YWB"
+                        },
+                        {
+                          "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                          "key": "destinationLocationCode",
+                          "value": "YWB"
+                        },
+                        {
+                          "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+                          "key": "departureDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) the date on which the traveler will depart from the destination to return to the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                          "key": "returnDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "the date on which the traveler is performing the search. If this parameter is not specified, current date will be used. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                          "key": "searchDate",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d97e6fc0-1f88-43b0-a641-24452ab6117a",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/travel/predictions/trip-purpose?originLocationCode=YWB&destinationLocationCode=YWB&departureDate=<string>&returnDate=<string>&searchDate=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "travel",
+                            "predictions",
+                            "trip-purpose"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+                              "key": "originLocationCode",
+                              "value": "YWB"
+                            },
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                              "key": "destinationLocationCode",
+                              "value": "YWB"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+                              "key": "departureDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the destination to return to the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                              "key": "returnDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "the date on which the traveler is performing the search. If this parameter is not specified, current date will be used. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                              "key": "searchDate",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"subType\": \"<string>\",\n    \"id\": \"<string>\",\n    \"result\": \"LEISURE\",\n    \"probability\": \"<string>\"\n  },\n  \"meta\": {\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"related\": \"<uri>\",\n      \"type\": \"<string>\"\n    },\n    \"defaults\": {\n      \"searchDate\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:13:23.000Z",
+                      "updatedAt": "2026-06-05T13:13:23.000Z",
+                      "uid": "35240-d97e6fc0-1f88-43b0-a641-24452ab6117a"
+                    },
+                    {
+                      "id": "edbb554a-529d-4353-83f9-1e80b8588d66",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/travel/predictions/trip-purpose?originLocationCode=YWB&destinationLocationCode=YWB&departureDate=<string>&returnDate=<string>&searchDate=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "travel",
+                            "predictions",
+                            "trip-purpose"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+                              "key": "originLocationCode",
+                              "value": "YWB"
+                            },
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                              "key": "destinationLocationCode",
+                              "value": "YWB"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+                              "key": "departureDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the destination to return to the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                              "key": "returnDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "the date on which the traveler is performing the search. If this parameter is not specified, current date will be used. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                              "key": "searchDate",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:23.000Z",
+                      "updatedAt": "2026-06-05T13:13:23.000Z",
+                      "uid": "35240-edbb554a-529d-4353-83f9-1e80b8588d66"
+                    },
+                    {
+                      "id": "55a6baa3-d6f6-44c9-92a9-3478fc0c2e73",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/travel/predictions/trip-purpose?originLocationCode=YWB&destinationLocationCode=YWB&departureDate=<string>&returnDate=<string>&searchDate=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "travel",
+                            "predictions",
+                            "trip-purpose"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+                              "key": "originLocationCode",
+                              "value": "YWB"
+                            },
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                              "key": "destinationLocationCode",
+                              "value": "YWB"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+                              "key": "departureDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the destination to return to the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                              "key": "returnDate",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "the date on which the traveler is performing the search. If this parameter is not specified, current date will be used. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                              "key": "searchDate",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:23.000Z",
+                      "updatedAt": "2026-06-05T13:13:23.000Z",
+                      "uid": "35240-55a6baa3-d6f6-44c9-92a9-3478fc0c2e73"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:13:23.000Z",
+                  "updatedAt": "2026-06-05T13:13:23.000Z",
+                  "uid": "35240-d0821ed6-1a8d-48e9-9e8f-9ce7e6bcc609"
+                }
+              ],
+              "id": "b4772bc2-8fa7-4acb-934d-cafcb2878c6e",
+              "createdAt": "2026-06-05T13:13:23.000Z",
+              "updatedAt": "2026-06-05T13:13:23.000Z",
+              "uid": "35240-b4772bc2-8fa7-4acb-934d-cafcb2878c6e"
+            }
+          ],
+          "id": "fec25144-042f-4a1e-ab41-b7b83812d774",
+          "createdAt": "2026-06-05T13:13:23.000Z",
+          "updatedAt": "2026-06-05T13:13:23.000Z",
+          "uid": "35240-fec25144-042f-4a1e-ab41-b7b83812d774"
+        }
+      ],
+      "id": "bbe19f7b-f3cd-4084-98e8-4636efd0200d",
+      "createdAt": "2026-06-05T13:13:23.000Z",
+      "updatedAt": "2026-06-05T13:13:23.000Z",
+      "uid": "35240-bbe19f7b-f3cd-4084-98e8-4636efd0200d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

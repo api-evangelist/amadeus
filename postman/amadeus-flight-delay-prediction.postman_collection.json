@@ -1,0 +1,404 @@
+{
+  "info": {
+    "_postman_id": "1ab65369-903c-4362-91f4-5eb6fa2a514d",
+    "name": "Flight Delay Prediction",
+    "description": "\nBefore using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:44.000Z",
+    "updatedAt": "2026-06-05T13:12:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1ab65369-903c-4362-91f4-5eb6fa2a514d"
+  },
+  "item": [
+    {
+      "name": "travel",
+      "item": [
+        {
+          "name": "predictions",
+          "item": [
+            {
+              "name": "flight-delay",
+              "item": [
+                {
+                  "name": "Amadeus Return the Delay Segment Where the Flight is Likely to Lay.",
+                  "id": "b58c12e6-f72e-4fde-bf30-3b70c34f011e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/travel/predictions/flight-delay?originLocationCode=PLA&destinationLocationCode=PLA&departureDate=<date>&departureTime=<time>&arrivalDate=<date>&arrivalTime=<time>&aircraftCode=czy&carrierCode=<string>&flightNumber=<string>&duration=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "travel",
+                        "predictions",
+                        "flight-delay"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler is departing, e.g. PAR for Paris",
+                          "key": "originLocationCode",
+                          "value": "PLA"
+                        },
+                        {
+                          "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                          "key": "destinationLocationCode",
+                          "value": "PLA"
+                        },
+                        {
+                          "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                          "key": "departureDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "(Required) local time relative to originLocationCode on which the traveler will depart from the origin. Time respects ISO 8601 standard. e.g. 13:22:00",
+                          "key": "departureTime",
+                          "value": "<time>"
+                        },
+                        {
+                          "description": "(Required) the date on which the traveler will arrive to the destination from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                          "key": "arrivalDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "(Required) local time relative to destinationLocationCode on which the traveler will arrive to destination. Time respects ISO 8601 standard. e.g. 13:22:00",
+                          "key": "arrivalTime",
+                          "value": "<time>"
+                        },
+                        {
+                          "description": "(Required) IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)",
+                          "key": "aircraftCode",
+                          "value": "czy"
+                        },
+                        {
+                          "description": "(Required) airline / carrier code",
+                          "key": "carrierCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) flight number as assigned by the carrier",
+                          "key": "flightNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) flight duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+                          "key": "duration",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0d3a7fc1-a299-46a1-adb1-189c8c7929e2",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/travel/predictions/flight-delay?originLocationCode=PLA&destinationLocationCode=PLA&departureDate=<date>&departureTime=<time>&arrivalDate=<date>&arrivalTime=<time>&aircraftCode=czy&carrierCode=<string>&flightNumber=<string>&duration=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "travel",
+                            "predictions",
+                            "flight-delay"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler is departing, e.g. PAR for Paris",
+                              "key": "originLocationCode",
+                              "value": "PLA"
+                            },
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                              "key": "destinationLocationCode",
+                              "value": "PLA"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                              "key": "departureDate",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "(Required) local time relative to originLocationCode on which the traveler will depart from the origin. Time respects ISO 8601 standard. e.g. 13:22:00",
+                              "key": "departureTime",
+                              "value": "<time>"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will arrive to the destination from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                              "key": "arrivalDate",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "(Required) local time relative to destinationLocationCode on which the traveler will arrive to destination. Time respects ISO 8601 standard. e.g. 13:22:00",
+                              "key": "arrivalTime",
+                              "value": "<time>"
+                            },
+                            {
+                              "description": "(Required) IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)",
+                              "key": "aircraftCode",
+                              "value": "czy"
+                            },
+                            {
+                              "description": "(Required) airline / carrier code",
+                              "key": "carrierCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) flight number as assigned by the carrier",
+                              "key": "flightNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) flight duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+                              "key": "duration",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"subType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"result\": \"LESS_THAN_30_MINUTES\",\n      \"probability\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"subType\": \"<string>\",\n      \"id\": \"<string>\",\n      \"result\": \"OVER_120_MINUTES_OR_CANCELLED\",\n      \"probability\": \"<string>\"\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:12:45.000Z",
+                      "updatedAt": "2026-06-05T13:12:45.000Z",
+                      "uid": "35240-0d3a7fc1-a299-46a1-adb1-189c8c7929e2"
+                    },
+                    {
+                      "id": "95a90f81-fde9-4f55-890d-ff5c762a86c1",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/travel/predictions/flight-delay?originLocationCode=PLA&destinationLocationCode=PLA&departureDate=<date>&departureTime=<time>&arrivalDate=<date>&arrivalTime=<time>&aircraftCode=czy&carrierCode=<string>&flightNumber=<string>&duration=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "travel",
+                            "predictions",
+                            "flight-delay"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler is departing, e.g. PAR for Paris",
+                              "key": "originLocationCode",
+                              "value": "PLA"
+                            },
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                              "key": "destinationLocationCode",
+                              "value": "PLA"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                              "key": "departureDate",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "(Required) local time relative to originLocationCode on which the traveler will depart from the origin. Time respects ISO 8601 standard. e.g. 13:22:00",
+                              "key": "departureTime",
+                              "value": "<time>"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will arrive to the destination from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                              "key": "arrivalDate",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "(Required) local time relative to destinationLocationCode on which the traveler will arrive to destination. Time respects ISO 8601 standard. e.g. 13:22:00",
+                              "key": "arrivalTime",
+                              "value": "<time>"
+                            },
+                            {
+                              "description": "(Required) IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)",
+                              "key": "aircraftCode",
+                              "value": "czy"
+                            },
+                            {
+                              "description": "(Required) airline / carrier code",
+                              "key": "carrierCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) flight number as assigned by the carrier",
+                              "key": "flightNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) flight duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+                              "key": "duration",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:45.000Z",
+                      "updatedAt": "2026-06-05T13:12:45.000Z",
+                      "uid": "35240-95a90f81-fde9-4f55-890d-ff5c762a86c1"
+                    },
+                    {
+                      "id": "7e2f77e6-5117-442f-9693-980efbef7b8d",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/travel/predictions/flight-delay?originLocationCode=PLA&destinationLocationCode=PLA&departureDate=<date>&departureTime=<time>&arrivalDate=<date>&arrivalTime=<time>&aircraftCode=czy&carrierCode=<string>&flightNumber=<string>&duration=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "travel",
+                            "predictions",
+                            "flight-delay"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler is departing, e.g. PAR for Paris",
+                              "key": "originLocationCode",
+                              "value": "PLA"
+                            },
+                            {
+                              "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                              "key": "destinationLocationCode",
+                              "value": "PLA"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                              "key": "departureDate",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "(Required) local time relative to originLocationCode on which the traveler will depart from the origin. Time respects ISO 8601 standard. e.g. 13:22:00",
+                              "key": "departureTime",
+                              "value": "<time>"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will arrive to the destination from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                              "key": "arrivalDate",
+                              "value": "<date>"
+                            },
+                            {
+                              "description": "(Required) local time relative to destinationLocationCode on which the traveler will arrive to destination. Time respects ISO 8601 standard. e.g. 13:22:00",
+                              "key": "arrivalTime",
+                              "value": "<time>"
+                            },
+                            {
+                              "description": "(Required) IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)",
+                              "key": "aircraftCode",
+                              "value": "czy"
+                            },
+                            {
+                              "description": "(Required) airline / carrier code",
+                              "key": "carrierCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) flight number as assigned by the carrier",
+                              "key": "flightNumber",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) flight duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+                              "key": "duration",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:45.000Z",
+                      "updatedAt": "2026-06-05T13:12:45.000Z",
+                      "uid": "35240-7e2f77e6-5117-442f-9693-980efbef7b8d"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:12:45.000Z",
+                  "updatedAt": "2026-06-05T13:12:45.000Z",
+                  "uid": "35240-b58c12e6-f72e-4fde-bf30-3b70c34f011e"
+                }
+              ],
+              "id": "f5470ea9-771b-468f-aefb-df0e79e1e822",
+              "createdAt": "2026-06-05T13:12:45.000Z",
+              "updatedAt": "2026-06-05T13:12:45.000Z",
+              "uid": "35240-f5470ea9-771b-468f-aefb-df0e79e1e822"
+            }
+          ],
+          "id": "d2d38614-9c8b-40a0-bf5e-4fa1c37f70a3",
+          "createdAt": "2026-06-05T13:12:45.000Z",
+          "updatedAt": "2026-06-05T13:12:45.000Z",
+          "uid": "35240-d2d38614-9c8b-40a0-bf5e-4fa1c37f70a3"
+        }
+      ],
+      "id": "183ebe57-018d-4add-a4e2-538b4afd3dc4",
+      "createdAt": "2026-06-05T13:12:45.000Z",
+      "updatedAt": "2026-06-05T13:12:45.000Z",
+      "uid": "35240-183ebe57-018d-4add-a4e2-538b4afd3dc4"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

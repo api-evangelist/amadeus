@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hotel Name Autocomplete",
+    "version": "1.0.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Returns a List of Hotels Matching a Given Keyword.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reference-data/locations/hotel",
+            "params": [
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query",
+                "description": "Location query keyword"
+              },
+              {
+                "name": "subType",
+                "value": "",
+                "type": "query",
+                "description": "Category of search - To enter several values, repeat the query parameter \nUse HOTEL_LEISURE to target aggregators or HOTEL_GDS to target directly the chains"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query",
+                "description": "The country in which you search the subType. Country Code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format"
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "The language in which you want the results in following [ISO 639-1](https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1). \n\nIf the language entered is not available then the results will be shown in the default language, English."
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "The number of results requested from 1 to 20"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns a List of Hotels Matching a Given Keyword."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

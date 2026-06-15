@@ -1,0 +1,469 @@
+{
+  "info": {
+    "_postman_id": "96a53fa1-db01-4bdb-b4ac-2ad7e267129b",
+    "name": "Flight Order Management",
+    "description": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production, if you are not returning any results try with big cities/airports like LON (London) or NYC (New-York).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:20.000Z",
+    "updatedAt": "2026-06-05T13:12:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-96a53fa1-db01-4bdb-b4ac-2ad7e267129b"
+  },
+  "item": [
+    {
+      "name": "booking",
+      "item": [
+        {
+          "name": "flight-orders",
+          "item": [
+            {
+              "name": "{flight-orderId}",
+              "item": [
+                {
+                  "name": "Amadeus Retrieve a Given Flight Order",
+                  "id": "50af6f0f-5285-4a14-91c4-622b90a4067c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "booking",
+                        "flight-orders",
+                        ":flight-orderId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7e1155a3-faad-48a4-9a92-9b17e5ae7e66",
+                          "key": "flight-orderId",
+                          "value": "<string>",
+                          "description": "(Required) identifier of the flight order"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "9be14842-417e-4033-ae05-7934fd0f1ae3",
+                      "name": "Successful Operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "booking",
+                            "flight-orders",
+                            ":flight-orderId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "flight-orderId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"flightOffers\": [\n      {\n        \"type\": \"<string>\",\n        \"id\": \"<string>\",\n        \"source\": \"GDS\",\n        \"instantTicketingRequired\": \"<boolean>\",\n        \"disablePricing\": \"<boolean>\",\n        \"nonHomogeneous\": \"<boolean>\",\n        \"oneWay\": \"<boolean>\",\n        \"paymentCardRequired\": \"<boolean>\",\n        \"lastTicketingDate\": \"<string>\",\n        \"lastTicketingDateTime\": \"<dateTime>\",\n        \"numberOfBookableSeats\": \"<number>\",\n        \"itineraries\": [\n          {\n            \"segments\": [\n              {\n                \"id\": \"<string>\",\n                \"numberOfStops\": \"<integer>\",\n                \"blacklistedInEU\": \"<boolean>\",\n                \"co2Emissions\": [\n                  {\n                    \"weight\": \"<integer>\",\n                    \"weightUnit\": \"<string>\",\n                    \"cabin\": \"BUSINESS\"\n                  }\n                ],\n                \"departure\": {\n                  \"iataCode\": \"<string>\",\n                  \"terminal\": \"<string>\",\n                  \"at\": \"<dateTime>\"\n                },\n                \"arrival\": {\n                  \"iataCode\": \"<string>\",\n                  \"terminal\": \"<string>\",\n                  \"at\": \"<dateTime>\"\n                },\n                \"carrierCode\": \"<string>\",\n                \"number\": \"<string>\",\n                \"aircraft\": {\n                  \"code\": \"l0S\"\n                },\n                \"operating\": {\n                  \"carrierCode\": \"<string>\"\n                },\n                \"duration\": \"<string>\",\n                \"stops\": [\n                  {\n                    \"iataCode\": \"<string>\",\n                    \"duration\": \"<string>\",\n                    \"arrivalAt\": \"<dateTime>\",\n                    \"departureAt\": \"<dateTime>\"\n                  }\n                ],\n                \"bookingStatus\": \"DENIED\",\n                \"segmentType\": \"GHOST\",\n                \"isFlown\": \"<boolean>\"\n              }\n            ],\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"price\": {\n          \"margin\": \"<string>\",\n          \"grandTotal\": \"<string>\",\n          \"billingCurrency\": \"<string>\",\n          \"additionalServices\": [\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"CHECKED_BAGS\"\n            }\n          ],\n          \"currency\": \"<string>\",\n          \"total\": \"<string>\",\n          \"base\": \"<string>\",\n          \"fees\": [\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SUPPLIER\"\n            }\n          ],\n          \"taxes\": [\n            {\n              \"amount\": \"<string>\",\n              \"code\": \"<string>\"\n            }\n          ],\n          \"refundableTaxes\": \"<string>\"\n        },\n        \"pricingOptions\": {\n          \"fareType\": [\n            \"PUBLISHED\"\n          ],\n          \"includedCheckedBagsOnly\": \"<boolean>\",\n          \"refundableFare\": \"<boolean>\",\n          \"noRestrictionFare\": \"<boolean>\",\n          \"noPenaltyFare\": \"<boolean>\"\n        },\n        \"validatingAirlineCodes\": [\n          \"<string>\"\n        ],\n        \"travelerPricings\": [\n          {\n            \"travelerId\": \"<string>\",\n            \"fareOption\": \"INCLUSIVE_TOUR\",\n            \"travelerType\": \"CHILD\",\n            \"fareDetailsBySegment\": [\n              {\n                \"segmentId\": \"<string>\",\n                \"cabin\": \"ECONOMY\",\n                \"fareBasis\": \"V3VIO[UCTFRCN\",\n                \"brandedFare\": \"<string>\",\n                \"class\": \"I\",\n                \"isAllotment\": \"<boolean>\",\n                \"allotmentDetails\": {\n                  \"tourName\": \"<string>\",\n                  \"tourReference\": \"<string>\"\n                },\n                \"sliceDiceIndicator\": \"LOCAL_AVAILABILITY\",\n                \"includedCheckedBags\": {\n                  \"quantity\": \"<integer>\",\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\"\n                },\n                \"additionalServices\": {\n                  \"chargeableCheckedBags\": {\n                    \"quantity\": \"<integer>\",\n                    \"weight\": \"<integer>\",\n                    \"weightUnit\": \"<string>\",\n                    \"id\": \"<string>\"\n                  },\n                  \"chargeableSeat\": {\n                    \"id\": \"<string>\",\n                    \"number\": \"4X\"\n                  },\n                  \"chargeableSeatNumber\": \"7Z\",\n                  \"otherServices\": [\n                    \"AIRPORT_CHECKIN\"\n                  ]\n                }\n              }\n            ],\n            \"associatedAdultId\": \"<string>\",\n            \"price\": {\n              \"currency\": \"<string>\",\n              \"total\": \"<string>\",\n              \"base\": \"<string>\",\n              \"fees\": [\n                {\n                  \"amount\": \"<string>\",\n                  \"type\": \"FORM_OF_PAYMENT\"\n                }\n              ],\n              \"taxes\": [\n                {\n                  \"amount\": \"<string>\",\n                  \"code\": \"<string>\"\n                }\n              ],\n              \"refundableTaxes\": \"<string>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"id\": \"<string>\",\n    \"queuingOfficeId\": \"<string>\",\n    \"ownerOfficeId\": \"<string>\",\n    \"associatedRecords\": [\n      {\n        \"reference\": \"<string>\",\n        \"creationDate\": \"<string>\",\n        \"originSystemCode\": \"<string>\",\n        \"flightOfferId\": \"<string>\"\n      }\n    ],\n    \"travelers\": [\n      {\n        \"id\": \"<string>\",\n        \"dateOfBirth\": \"<date>\",\n        \"gender\": \"FEMALE\",\n        \"name\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"middleName\": \"<string>\",\n          \"secondLastName\": \"<string>\"\n        },\n        \"documents\": [\n          {\n            \"number\": \"<string>\",\n            \"issuanceDate\": \"<date>\",\n            \"expiryDate\": \"<date>\",\n            \"issuanceCountry\": \"Qt\",\n            \"issuanceLocation\": \"<string>\",\n            \"nationality\": \"nN\",\n            \"birthPlace\": \"<string>\",\n            \"documentType\": \"KNOWN_TRAVELER\",\n            \"validityCountry\": \"UG\",\n            \"birthCountry\": \"Rv\",\n            \"holder\": \"<boolean>\"\n          }\n        ],\n        \"emergencyContact\": {\n          \"addresseeName\": \"-\",\n          \"countryCode\": \"RV\",\n          \"number\": \"50224165451\",\n          \"text\": \"<string>\"\n        },\n        \"loyaltyPrograms\": [\n          {\n            \"programOwner\": \"<string>\",\n            \"id\": \"<string>\"\n          },\n          {\n            \"programOwner\": \"<string>\",\n            \"id\": \"<string>\"\n          },\n          {\n            \"programOwner\": \"<string>\",\n            \"id\": \"<string>\"\n          },\n          {\n            \"programOwner\": \"<string>\",\n            \"id\": \"<string>\"\n          },\n          {\n            \"programOwner\": \"<string>\",\n            \"id\": \"<string>\"\n          },\n          {\n            \"programOwner\": \"<string>\",\n            \"id\": \"<string>\"\n          },\n          {\n            \"programOwner\": \"<string>\",\n            \"id\": \"<string>\"\n          },\n          {\n            \"programOwner\": \"<string>\",\n            \"id\": \"<string>\"\n          },\n          {\n            \"programOwner\": \"<string>\",\n            \"id\": \"<string>\"\n          },\n          {\n            \"programOwner\": \"<string>\",\n            \"id\": \"<string>\"\n          }\n        ],\n        \"discountEligibility\": [\n          {\n            \"subType\": \"SPANISH_RESIDENT\",\n            \"cityName\": \"<string>\",\n            \"travelerType\": \"SPANISH_CITIZEN\",\n            \"cardNumber\": \"8714281I\",\n            \"certificateNumber\": \"C83E\"\n          },\n          {\n            \"subType\": \"AIR_FRANCE_DOMESTIC\",\n            \"cityName\": \"<string>\",\n            \"travelerType\": \"GOVERNMENT_WORKER\",\n            \"cardNumber\": \"5409E\",\n            \"certificateNumber\": \"83700794X\"\n          },\n          {\n            \"subType\": \"AIR_FRANCE_COMBINED\",\n            \"cityName\": \"<string>\",\n            \"travelerType\": \"SPANISH_CITIZEN\",\n            \"cardNumber\": \"S53477D\",\n            \"certificateNumber\": \"K071648750144T\"\n          },\n          {\n            \"subType\": \"SPANISH_RESIDENT\",\n            \"cityName\": \"<string>\",\n            \"travelerType\": \"EUROPEAN_CITIZEN\",\n            \"cardNumber\": \"J750195H\",\n            \"certificateNumber\": \"S20170040688D\"\n          },\n          {\n            \"subType\": \"SPANISH_RESIDENT\",\n            \"cityName\": \"<string>\",\n            \"travelerType\": \"EUROPEAN_CITIZEN\",\n            \"cardNumber\": \"Y04B\",\n            \"certificateNumber\": \"B66944H\"\n          },\n          {\n            \"subType\": \"AIR_FRANCE_METROPOLITAN\",\n            \"cityName\": \"<string>\",\n            \"travelerType\": \"SPANISH_CITIZEN\",\n            \"cardNumber\": \"H02M\",\n            \"certificateNumber\": \"L722278194O\"\n          },\n          {\n            \"subType\": \"AIR_FRANCE_COMBINED\",\n            \"cityName\": \"<string>\",\n            \"travelerType\": \"MINOR_WITHOUT_ID\",\n            \"cardNumber\": \"T73D\",\n            \"certificateNumber\": \"G891262846190A\"\n          },\n          {\n            \"subType\": \"SPANISH_RESIDENT\",\n            \"cityName\": \"<string>\",\n            \"travelerType\": \"SPANISH_CITIZEN\",\n            \"cardNumber\": \"848161767S\",\n            \"certificateNumber\": \"A98O\"\n          },\n          {\n            \"subType\": \"SPANISH_RESIDENT\",\n            \"cityName\": \"<string>\",\n            \"travelerType\": \"SPANISH_CITIZEN\",\n            \"cardNumber\": \"949408S\",\n            \"certificateNumber\": \"Y888017268R\"\n          },\n          {\n            \"subType\": \"AIR_FRANCE_METROPOLITAN\",\n            \"cityName\": \"<string>\",\n            \"travelerType\": \"EUROPEAN_CITIZEN\",\n            \"cardNumber\": \"195950S\",\n            \"certificateNumber\": \"58342X\"\n          }\n        ],\n        \"contact\": {\n          \"addresseeName\": {\n            \"firstName\": \"<string>\",\n            \"lastName\": \"<string>\",\n            \"middleName\": \"<string>\",\n            \"secondLastName\": \"<string>\"\n          },\n          \"address\": {\n            \"lines\": [\n              \"<string>\"\n            ],\n            \"postalCode\": \"<string>\",\n            \"countryCode\": \"wS\",\n            \"cityName\": \"kfPDFxzYLhYXuKArGNuIHRtNfupmryCMsji\",\n            \"stateName\": \"<string>\",\n            \"postalBox\": \"<string>\"\n          },\n          \"language\": \"<string>\",\n          \"purpose\": \"INVOICE\",\n          \"phones\": [\n            {\n              \"deviceType\": \"FAX\",\n              \"countryCallingCode\": \"+20\",\n              \"number\": \"924\"\n            }\n          ],\n          \"companyName\": \"<string>\",\n          \"emailAddress\": \"<string>\"\n        }\n      }\n    ],\n    \"remarks\": {\n      \"general\": [\n        {\n          \"subType\": \"CONFIDENTIAL\",\n          \"text\": \"<string>\",\n          \"category\": \"B\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"INVOICE\",\n          \"text\": \"<string>\",\n          \"category\": \"M\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"TOUR_CODE\",\n          \"text\": \"<string>\",\n          \"category\": \"N\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"ITINERARY\",\n          \"text\": \"<string>\",\n          \"category\": \"G\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"TOUR_CODE\",\n          \"text\": \"<string>\",\n          \"category\": \"W\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"CONFIDENTIAL\",\n          \"text\": \"<string>\",\n          \"category\": \"E\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"CONFIDENTIAL\",\n          \"text\": \"<string>\",\n          \"category\": \"F\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"QUALITY_CONTROL\",\n          \"text\": \"<string>\",\n          \"category\": \"F\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"CONFIDENTIAL\",\n          \"text\": \"<string>\",\n          \"category\": \"S\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"TOUR_CODE\",\n          \"text\": \"<string>\",\n          \"category\": \"R\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"INVOICE\",\n          \"text\": \"<string>\",\n          \"category\": \"L\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"<string>\",\n          \"category\": \"J\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"ITINERARY\",\n          \"text\": \"<string>\",\n          \"category\": \"W\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"TICKETING_MISCELLANEOUS\",\n          \"text\": \"<string>\",\n          \"category\": \"J\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"TOUR_CODE\",\n          \"text\": \"<string>\",\n          \"category\": \"U\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"ITINERARY\",\n          \"text\": \"<string>\",\n          \"category\": \"Y\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"ITINERARY\",\n          \"text\": \"<string>\",\n          \"category\": \"H\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"FULFILLMENT\",\n          \"text\": \"<string>\",\n          \"category\": \"V\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"BACKOFFICE\",\n          \"text\": \"<string>\",\n          \"category\": \"L\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"<string>\",\n          \"category\": \"W\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        }\n      ],\n      \"airline\": [\n        {\n          \"subType\": \"ADVANCED_TICKET_TIME_LIMIT\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE_INFORMATION\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE_INFORMATION\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"ADVANCED_TICKET_TIME_LIMIT\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"ADVANCED_TICKET_TIME_LIMIT\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"CLIENT_ID\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE_INFORMATION\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE_INFORMATION\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"ADVANCED_TICKET_TIME_LIMIT\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"ADVANCED_TICKET_TIME_LIMIT\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE_INFORMATION\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"OTHER_SERVICE\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"<string>\",\n          \"text\": \"<string>\",\n          \"keyword\": \"<string>\",\n          \"travelerIds\": [\n            \"<string>\"\n          ],\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        }\n      ]\n    },\n    \"formOfPayments\": [\n      {\n        \"b2bWallet\": {\n          \"cardId\": \"<string>\",\n          \"cardUsageName\": \"<string>\",\n          \"cardFriendlyName\": \"Cgn\",\n          \"reportingData\": [\n            {\n              \"name\": \"<string>\",\n              \"value\": \"<string>\"\n            }\n          ],\n          \"virtualCreditCardDetails\": {\n            \"brand\": \"MASTERCARD\",\n            \"holder\": \"<string>\",\n            \"number\": \"0nRsZhFh1v7JVdNax5l82NPM5\",\n            \"expiryDate\": \"<string>\",\n            \"amount\": \"<string>\",\n            \"currencyCode\": \"<string>\"\n          },\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        \"creditCard\": {\n          \"brand\": \"AMERICAN_EXPRESS\",\n          \"holder\": \"<string>\",\n          \"number\": \"5NwPFwjpSeXDlPVg1Iuz\",\n          \"expiryDate\": \"<string>\",\n          \"securityCode\": \"<string>\",\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        },\n        \"other\": {\n          \"method\": \"ACCOUNT\",\n          \"flightOfferIds\": [\n            \"<string>\"\n          ]\n        }\n      }\n    ],\n    \"ticketingAgreement\": {\n      \"option\": \"DELAY_TO_CANCEL\",\n      \"delay\": \"<string>\",\n      \"dateTime\": \"<string>\",\n      \"segmentIds\": [\n        \"<string>\"\n      ]\n    },\n    \"automatedProcess\": [\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"DELAYED\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"ERROR\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"DELAYED\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"ERROR\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"ERROR\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"DELAYED\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"ERROR\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"ERROR\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"DELAYED\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"DELAYED\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"ERROR\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"ERROR\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"<string>\",\n          \"category\": \"<string>\"\n        },\n        \"text\": \"<string>\",\n        \"delay\": \"<string>\",\n        \"officeId\": \"<string>\",\n        \"dateTime\": \"<dateTime>\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"addresseeName\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"middleName\": \"<string>\",\n          \"secondLastName\": \"<string>\"\n        },\n        \"address\": {\n          \"lines\": [\n            \"<string>\"\n          ],\n          \"postalCode\": \"<string>\",\n          \"countryCode\": \"Gm\",\n          \"cityName\": \"dVuRoAsSQWSETGdYilmYc\",\n          \"stateName\": \"<string>\",\n          \"postalBox\": \"<string>\"\n        },\n        \"language\": \"<string>\",\n        \"purpose\": \"STANDARD_WITHOUT_TRANSMISSION\",\n        \"phones\": [\n          {\n            \"deviceType\": \"FAX\",\n            \"countryCallingCode\": \"+711\",\n            \"number\": \"989896\"\n          }\n        ],\n        \"companyName\": \"<string>\",\n        \"emailAddress\": \"<string>\"\n      }\n    ],\n    \"tickets\": [\n      {\n        \"documentType\": \"PTICKET\",\n        \"documentNumber\": \"<string>\",\n        \"documentStatus\": \"EXCHANGED\",\n        \"travelerId\": \"<string>\",\n        \"segmentIds\": [\n          \"<string>\"\n        ]\n      }\n    ],\n    \"formOfIdentifications\": [\n      {\n        \"identificationType\": \"NATIONAL_IDENTITY_CARD\",\n        \"carrierCode\": \"<string>\",\n        \"number\": \"<string>\",\n        \"travelerIds\": [\n          \"<string>\"\n        ],\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  },\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ],\n  \"dictionaries\": {\n    \"locations\": {\n      \"Lorem8\": {\n        \"cityCode\": \"<string>\",\n        \"countryCode\": \"<string>\"\n      },\n      \"pariatur2\": {\n        \"cityCode\": \"<string>\",\n        \"countryCode\": \"<string>\"\n      }\n    },\n    \"aircraft\": {\n      \"adipisicing_37\": \"<string>\",\n      \"nulla_1\": \"<string>\"\n    },\n    \"currencies\": {\n      \"nisi_a9e\": \"<string>\",\n      \"sunt_6e4\": \"<string>\"\n    },\n    \"carriers\": {\n      \"fugiat_8\": \"<string>\",\n      \"ea_12f\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:12:20.000Z",
+                      "updatedAt": "2026-06-05T13:12:20.000Z",
+                      "uid": "35240-9be14842-417e-4033-ae05-7934fd0f1ae3"
+                    },
+                    {
+                      "id": "c7c07a3b-997c-4015-bc54-82c18c08bc62",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "booking",
+                            "flight-orders",
+                            ":flight-orderId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "flight-orderId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:20.000Z",
+                      "updatedAt": "2026-06-05T13:12:20.000Z",
+                      "uid": "35240-c7c07a3b-997c-4015-bc54-82c18c08bc62"
+                    },
+                    {
+                      "id": "67402a7d-4581-4c05-b7fc-20cb0ed06d69",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "booking",
+                            "flight-orders",
+                            ":flight-orderId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "flight-orderId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:20.000Z",
+                      "updatedAt": "2026-06-05T13:12:20.000Z",
+                      "uid": "35240-67402a7d-4581-4c05-b7fc-20cb0ed06d69"
+                    },
+                    {
+                      "id": "015e4698-fa3c-4733-bc26-28d280d82781",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "booking",
+                            "flight-orders",
+                            ":flight-orderId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "flight-orderId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:20.000Z",
+                      "updatedAt": "2026-06-05T13:12:20.000Z",
+                      "uid": "35240-015e4698-fa3c-4733-bc26-28d280d82781"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:12:20.000Z",
+                  "updatedAt": "2026-06-05T13:12:20.000Z",
+                  "uid": "35240-50af6f0f-5285-4a14-91c4-622b90a4067c"
+                },
+                {
+                  "name": "Amadeus Cancel a Given Flight Order",
+                  "id": "b2c72c69-0aa2-4eca-b14d-6bc523c50ed2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "booking",
+                        "flight-orders",
+                        ":flight-orderId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8664337b-737c-4dd6-a681-b44daf6577b3",
+                          "key": "flight-orderId",
+                          "value": "<string>",
+                          "description": "(Required) identifier of the flight order"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c5994db7-3f67-485c-8254-61fd7fe1b2c9",
+                      "name": "Successfully Deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "booking",
+                            "flight-orders",
+                            ":flight-orderId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "flight-orderId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T13:12:20.000Z",
+                      "updatedAt": "2026-06-05T13:12:20.000Z",
+                      "uid": "35240-c5994db7-3f67-485c-8254-61fd7fe1b2c9"
+                    },
+                    {
+                      "id": "9cc6e5cd-53b5-45fb-b3a3-204ad425bc3d",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "booking",
+                            "flight-orders",
+                            ":flight-orderId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "flight-orderId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:20.000Z",
+                      "updatedAt": "2026-06-05T13:12:20.000Z",
+                      "uid": "35240-9cc6e5cd-53b5-45fb-b3a3-204ad425bc3d"
+                    },
+                    {
+                      "id": "2c9dae44-6819-478c-85d0-86c03c81397a",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "booking",
+                            "flight-orders",
+                            ":flight-orderId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "flight-orderId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:20.000Z",
+                      "updatedAt": "2026-06-05T13:12:20.000Z",
+                      "uid": "35240-2c9dae44-6819-478c-85d0-86c03c81397a"
+                    },
+                    {
+                      "id": "70e47e3f-6915-40d9-a54f-0aa82292d6dd",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "booking",
+                            "flight-orders",
+                            ":flight-orderId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "flight-orderId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:20.000Z",
+                      "updatedAt": "2026-06-05T13:12:20.000Z",
+                      "uid": "35240-70e47e3f-6915-40d9-a54f-0aa82292d6dd"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:12:20.000Z",
+                  "updatedAt": "2026-06-05T13:12:20.000Z",
+                  "uid": "35240-b2c72c69-0aa2-4eca-b14d-6bc523c50ed2"
+                }
+              ],
+              "id": "6b7cc972-c0e5-482b-a675-a5214f046a9a",
+              "createdAt": "2026-06-05T13:12:20.000Z",
+              "updatedAt": "2026-06-05T13:12:20.000Z",
+              "uid": "35240-6b7cc972-c0e5-482b-a675-a5214f046a9a"
+            }
+          ],
+          "id": "a8ea6a68-4d8d-4aa5-a2ce-74117d630c32",
+          "createdAt": "2026-06-05T13:12:20.000Z",
+          "updatedAt": "2026-06-05T13:12:20.000Z",
+          "uid": "35240-a8ea6a68-4d8d-4aa5-a2ce-74117d630c32"
+        }
+      ],
+      "id": "f36f2f8d-dfe8-420e-82c5-57faaa84aaa8",
+      "createdAt": "2026-06-05T13:12:20.000Z",
+      "updatedAt": "2026-06-05T13:12:20.000Z",
+      "uid": "35240-f36f2f8d-dfe8-420e-82c5-57faaa84aaa8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

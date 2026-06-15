@@ -1,0 +1,431 @@
+{
+  "info": {
+    "_postman_id": "f564cee4-d19a-4976-8f75-9b69ec8b0c19",
+    "name": "Flight Cheapest Date Search",
+    "description": "\nBefore using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production, to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:39.000Z",
+    "updatedAt": "2026-06-05T13:12:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f564cee4-d19a-4976-8f75-9b69ec8b0c19"
+  },
+  "item": [
+    {
+      "name": "shopping",
+      "item": [
+        {
+          "name": "flight-dates",
+          "item": [
+            {
+              "name": "Amadeus Find the Cheapest Flight Dates from an Origin to a Destination.",
+              "id": "a16d47a1-8a7d-46f9-83dc-fdd239f1cf16",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/shopping/flight-dates?origin=ZIC&destination=ZIC&departureDate=<string>&oneWay=false&duration=<string>&nonStop=false&maxPrice=<long>&viewBy=WEEK",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shopping",
+                    "flight-dates"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) IATA code of the city from which the flight will depart\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MAD for Madrid\n",
+                      "key": "origin",
+                      "value": "ZIC"
+                    },
+                    {
+                      "description": "(Required) IATA code of the city to which the flight is going.\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MUC for Munich\n",
+                      "key": "destination",
+                      "value": "ZIC"
+                    },
+                    {
+                      "description": "the date, or range of dates, on which the flight will depart from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25. Ranges are specified with a comma and are inclusive",
+                      "key": "departureDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "if this parameter is set to true, only one-way flights are considered. If this parameter is not set or set to false, only round-trip flights are considered",
+                      "key": "oneWay",
+                      "value": "false"
+                    },
+                    {
+                      "description": "exact duration or range of durations of the travel, in days. This parameter must not be set if oneWay is true. Ranges are specified with a comma and are inclusive, e.g. 2,8",
+                      "key": "duration",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "if this parameter is set to true, only flights going from the origin to the destination with no stop in-between are considered",
+                      "key": "nonStop",
+                      "value": "false"
+                    },
+                    {
+                      "description": "defines the price limit for each offer returned. The value should be a positive number, without decimals",
+                      "key": "maxPrice",
+                      "value": "<long>"
+                    },
+                    {
+                      "description": "view the flight dates by DATE, DURATION, or WEEK. View by DATE (default when oneWay is true) to get the cheapest flight dates for every departure date in the given range. View by DURATION (default when oneWay is false) to get the cheapest flight dates for every departure date and for every duration in the given ranges. View by WEEK to get the cheapest flight destination for every week in the given range of departure dates. Note that specifying a detailed view but large ranges may result in a huge number of flight dates being returned. For some very large numbers of flight dates, the API may refuse to provide a response",
+                      "key": "viewBy",
+                      "value": "WEEK"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "8ce4ce1b-ba82-4736-8338-2f0f51b6cd9c",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/flight-dates?origin=ZIC&destination=ZIC&departureDate=<string>&oneWay=false&duration=<string>&nonStop=false&maxPrice=<long>&viewBy=WEEK",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "flight-dates"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) IATA code of the city from which the flight will depart\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MAD for Madrid\n",
+                          "key": "origin",
+                          "value": "ZIC"
+                        },
+                        {
+                          "description": "(Required) IATA code of the city to which the flight is going.\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MUC for Munich\n",
+                          "key": "destination",
+                          "value": "ZIC"
+                        },
+                        {
+                          "description": "the date, or range of dates, on which the flight will depart from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25. Ranges are specified with a comma and are inclusive",
+                          "key": "departureDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if this parameter is set to true, only one-way flights are considered. If this parameter is not set or set to false, only round-trip flights are considered",
+                          "key": "oneWay",
+                          "value": "false"
+                        },
+                        {
+                          "description": "exact duration or range of durations of the travel, in days. This parameter must not be set if oneWay is true. Ranges are specified with a comma and are inclusive, e.g. 2,8",
+                          "key": "duration",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if this parameter is set to true, only flights going from the origin to the destination with no stop in-between are considered",
+                          "key": "nonStop",
+                          "value": "false"
+                        },
+                        {
+                          "description": "defines the price limit for each offer returned. The value should be a positive number, without decimals",
+                          "key": "maxPrice",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "view the flight dates by DATE, DURATION, or WEEK. View by DATE (default when oneWay is true) to get the cheapest flight dates for every departure date in the given range. View by DURATION (default when oneWay is false) to get the cheapest flight dates for every departure date and for every duration in the given ranges. View by WEEK to get the cheapest flight destination for every week in the given range of departure dates. Note that specifying a detailed view but large ranges may result in a huge number of flight dates being returned. For some very large numbers of flight dates, the API may refuse to provide a response",
+                          "key": "viewBy",
+                          "value": "WEEK"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"origin\": \"<string>\",\n      \"destination\": \"<string>\",\n      \"departureDate\": \"<string>\",\n      \"returnDate\": \"<string>\",\n      \"price\": {\n        \"total\": \"<string>\"\n      },\n      \"links\": {\n        \"flightDestinations\": \"<string>\",\n        \"flightOffers\": \"<string>\"\n      }\n    }\n  ],\n  \"dictionaries\": {\n    \"currencies\": {\n      \"tempor_\": \"<string>\",\n      \"ut_ad5\": \"<string>\"\n    },\n    \"locations\": {\n      \"proident_1c\": {\n        \"subType\": \"CITY\",\n        \"detailedName\": \"<string>\"\n      }\n    }\n  },\n  \"meta\": {\n    \"currency\": \"COX\",\n    \"links\": {\n      \"self\": \"<uri>\"\n    },\n    \"defaults\": {\n      \"departureDate\": \"<string>\",\n      \"oneWay\": \"<boolean>\",\n      \"duration\": \"<string>\",\n      \"nonStop\": \"<boolean>\",\n      \"viewBy\": \"DURATION\"\n    }\n  },\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:40.000Z",
+                  "updatedAt": "2026-06-05T13:12:40.000Z",
+                  "uid": "35240-8ce4ce1b-ba82-4736-8338-2f0f51b6cd9c"
+                },
+                {
+                  "id": "a1bfebcd-6f6d-4f10-88ce-ce4fbdc5fad8",
+                  "name": "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA M",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/flight-dates?origin=ZIC&destination=ZIC&departureDate=<string>&oneWay=false&duration=<string>&nonStop=false&maxPrice=<long>&viewBy=WEEK",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "flight-dates"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) IATA code of the city from which the flight will depart\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MAD for Madrid\n",
+                          "key": "origin",
+                          "value": "ZIC"
+                        },
+                        {
+                          "description": "(Required) IATA code of the city to which the flight is going.\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MUC for Munich\n",
+                          "key": "destination",
+                          "value": "ZIC"
+                        },
+                        {
+                          "description": "the date, or range of dates, on which the flight will depart from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25. Ranges are specified with a comma and are inclusive",
+                          "key": "departureDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if this parameter is set to true, only one-way flights are considered. If this parameter is not set or set to false, only round-trip flights are considered",
+                          "key": "oneWay",
+                          "value": "false"
+                        },
+                        {
+                          "description": "exact duration or range of durations of the travel, in days. This parameter must not be set if oneWay is true. Ranges are specified with a comma and are inclusive, e.g. 2,8",
+                          "key": "duration",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if this parameter is set to true, only flights going from the origin to the destination with no stop in-between are considered",
+                          "key": "nonStop",
+                          "value": "false"
+                        },
+                        {
+                          "description": "defines the price limit for each offer returned. The value should be a positive number, without decimals",
+                          "key": "maxPrice",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "view the flight dates by DATE, DURATION, or WEEK. View by DATE (default when oneWay is true) to get the cheapest flight dates for every departure date in the given range. View by DURATION (default when oneWay is false) to get the cheapest flight dates for every departure date and for every duration in the given ranges. View by WEEK to get the cheapest flight destination for every week in the given range of departure dates. Note that specifying a detailed view but large ranges may result in a huge number of flight dates being returned. For some very large numbers of flight dates, the API may refuse to provide a response",
+                          "key": "viewBy",
+                          "value": "WEEK"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:40.000Z",
+                  "updatedAt": "2026-06-05T13:12:40.000Z",
+                  "uid": "35240-a1bfebcd-6f6d-4f10-88ce-ce4fbdc5fad8"
+                },
+                {
+                  "id": "79336454-b096-4bc0-9dd0-90cbf081dfbc",
+                  "name": "code    | title                                 \n------- | ------------------------------------- \n6003    | ITEM/DATA NOT FOUND OR DATA NOT EXISTING\n",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/flight-dates?origin=ZIC&destination=ZIC&departureDate=<string>&oneWay=false&duration=<string>&nonStop=false&maxPrice=<long>&viewBy=WEEK",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "flight-dates"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) IATA code of the city from which the flight will depart\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MAD for Madrid\n",
+                          "key": "origin",
+                          "value": "ZIC"
+                        },
+                        {
+                          "description": "(Required) IATA code of the city to which the flight is going.\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MUC for Munich\n",
+                          "key": "destination",
+                          "value": "ZIC"
+                        },
+                        {
+                          "description": "the date, or range of dates, on which the flight will depart from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25. Ranges are specified with a comma and are inclusive",
+                          "key": "departureDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if this parameter is set to true, only one-way flights are considered. If this parameter is not set or set to false, only round-trip flights are considered",
+                          "key": "oneWay",
+                          "value": "false"
+                        },
+                        {
+                          "description": "exact duration or range of durations of the travel, in days. This parameter must not be set if oneWay is true. Ranges are specified with a comma and are inclusive, e.g. 2,8",
+                          "key": "duration",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if this parameter is set to true, only flights going from the origin to the destination with no stop in-between are considered",
+                          "key": "nonStop",
+                          "value": "false"
+                        },
+                        {
+                          "description": "defines the price limit for each offer returned. The value should be a positive number, without decimals",
+                          "key": "maxPrice",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "view the flight dates by DATE, DURATION, or WEEK. View by DATE (default when oneWay is true) to get the cheapest flight dates for every departure date in the given range. View by DURATION (default when oneWay is false) to get the cheapest flight dates for every departure date and for every duration in the given ranges. View by WEEK to get the cheapest flight destination for every week in the given range of departure dates. Note that specifying a detailed view but large ranges may result in a huge number of flight dates being returned. For some very large numbers of flight dates, the API may refuse to provide a response",
+                          "key": "viewBy",
+                          "value": "WEEK"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:40.000Z",
+                  "updatedAt": "2026-06-05T13:12:40.000Z",
+                  "uid": "35240-79336454-b096-4bc0-9dd0-90cbf081dfbc"
+                },
+                {
+                  "id": "9aeee3ce-42af-482c-9df0-93ab98f2d957",
+                  "name": "Unexpected error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/flight-dates?origin=ZIC&destination=ZIC&departureDate=<string>&oneWay=false&duration=<string>&nonStop=false&maxPrice=<long>&viewBy=WEEK",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "flight-dates"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) IATA code of the city from which the flight will depart\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MAD for Madrid\n",
+                          "key": "origin",
+                          "value": "ZIC"
+                        },
+                        {
+                          "description": "(Required) IATA code of the city to which the flight is going.\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MUC for Munich\n",
+                          "key": "destination",
+                          "value": "ZIC"
+                        },
+                        {
+                          "description": "the date, or range of dates, on which the flight will depart from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25. Ranges are specified with a comma and are inclusive",
+                          "key": "departureDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if this parameter is set to true, only one-way flights are considered. If this parameter is not set or set to false, only round-trip flights are considered",
+                          "key": "oneWay",
+                          "value": "false"
+                        },
+                        {
+                          "description": "exact duration or range of durations of the travel, in days. This parameter must not be set if oneWay is true. Ranges are specified with a comma and are inclusive, e.g. 2,8",
+                          "key": "duration",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "if this parameter is set to true, only flights going from the origin to the destination with no stop in-between are considered",
+                          "key": "nonStop",
+                          "value": "false"
+                        },
+                        {
+                          "description": "defines the price limit for each offer returned. The value should be a positive number, without decimals",
+                          "key": "maxPrice",
+                          "value": "<long>"
+                        },
+                        {
+                          "description": "view the flight dates by DATE, DURATION, or WEEK. View by DATE (default when oneWay is true) to get the cheapest flight dates for every departure date in the given range. View by DURATION (default when oneWay is false) to get the cheapest flight dates for every departure date and for every duration in the given ranges. View by WEEK to get the cheapest flight destination for every week in the given range of departure dates. Note that specifying a detailed view but large ranges may result in a huge number of flight dates being returned. For some very large numbers of flight dates, the API may refuse to provide a response",
+                          "key": "viewBy",
+                          "value": "WEEK"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:40.000Z",
+                  "updatedAt": "2026-06-05T13:12:40.000Z",
+                  "uid": "35240-9aeee3ce-42af-482c-9df0-93ab98f2d957"
+                }
+              ],
+              "createdAt": "2026-06-05T13:12:40.000Z",
+              "updatedAt": "2026-06-05T13:12:40.000Z",
+              "uid": "35240-a16d47a1-8a7d-46f9-83dc-fdd239f1cf16"
+            }
+          ],
+          "id": "0d053deb-6ac2-4819-affc-75eb8a760261",
+          "createdAt": "2026-06-05T13:12:40.000Z",
+          "updatedAt": "2026-06-05T13:12:40.000Z",
+          "uid": "35240-0d053deb-6ac2-4819-affc-75eb8a760261"
+        }
+      ],
+      "id": "9278d969-9992-4599-a8e7-47f1e3a86ca1",
+      "createdAt": "2026-06-05T13:12:40.000Z",
+      "updatedAt": "2026-06-05T13:12:40.000Z",
+      "uid": "35240-9278d969-9992-4599-a8e7-47f1e3a86ca1"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

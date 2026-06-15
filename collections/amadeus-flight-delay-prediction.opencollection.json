@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flight Delay Prediction",
+    "version": "1.0.6"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "flight-delay-prediction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Return the Delay Segment Where the Flight is Likely to Lay.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/travel/predictions/flight-delay",
+            "params": [
+              {
+                "name": "originLocationCode",
+                "value": "",
+                "type": "query",
+                "description": "city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler is departing, e.g. PAR for Paris"
+              },
+              {
+                "name": "destinationLocationCode",
+                "value": "",
+                "type": "query",
+                "description": "city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris"
+              },
+              {
+                "name": "departureDate",
+                "value": "",
+                "type": "query",
+                "description": "the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25"
+              },
+              {
+                "name": "departureTime",
+                "value": "",
+                "type": "query",
+                "description": "local time relative to originLocationCode on which the traveler will depart from the origin. Time respects ISO 8601 standard. e.g. 13:22:00"
+              },
+              {
+                "name": "arrivalDate",
+                "value": "",
+                "type": "query",
+                "description": "the date on which the traveler will arrive to the destination from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25"
+              },
+              {
+                "name": "arrivalTime",
+                "value": "",
+                "type": "query",
+                "description": "local time relative to destinationLocationCode on which the traveler will arrive to destination. Time respects ISO 8601 standard. e.g. 13:22:00"
+              },
+              {
+                "name": "aircraftCode",
+                "value": "",
+                "type": "query",
+                "description": "IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)"
+              },
+              {
+                "name": "carrierCode",
+                "value": "",
+                "type": "query",
+                "description": "airline / carrier code"
+              },
+              {
+                "name": "flightNumber",
+                "value": "",
+                "type": "query",
+                "description": "flight number as assigned by the carrier"
+              },
+              {
+                "name": "duration",
+                "value": "",
+                "type": "query",
+                "description": "flight duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M"
+              }
+            ]
+          },
+          "docs": "Amadeus Return the Delay Segment Where the Flight is Likely to Lay."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

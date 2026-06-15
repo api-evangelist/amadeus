@@ -1,0 +1,434 @@
+{
+  "info": {
+    "_postman_id": "587e6809-f85e-4524-aa48-b6d1337c3860",
+    "name": "Amadeus OAuth2 Login",
+    "description": "Amadeus for Developers uses OAuth2 to authenticate access requests. OAuth2 generates an access token which grants the client permission to access a protected resource. The method to acquire a token is called grant. There are different types of OAuth2 grants. Amadeus for Developers uses the Client Credentials Grant.\n  https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:13:30.000Z",
+    "updatedAt": "2026-06-05T13:13:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-587e6809-f85e-4524-aa48-b6d1337c3860"
+  },
+  "item": [
+    {
+      "name": "security",
+      "item": [
+        {
+          "name": "oauth2",
+          "item": [
+            {
+              "name": "token",
+              "item": [
+                {
+                  "name": "{access_token}",
+                  "item": [
+                    {
+                      "name": "Amadeus The OAuth 2.0 Token Info Endpoint",
+                      "id": "1c74a6b0-b3b8-4c1e-8968-fc0a7e7c56cb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/security/oauth2/token/:access_token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "security",
+                            "oauth2",
+                            "token",
+                            ":access_token"
+                          ],
+                          "variable": [
+                            {
+                              "id": "bb5d7723-07b2-48f9-8e94-937d92e0931f",
+                              "key": "access_token",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Get token information"
+                      },
+                      "response": [
+                        {
+                          "id": "1e0fb3a9-2de5-4ce2-8b4e-918e0ebabc7d",
+                          "name": "oauth2TokenResponse",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/security/oauth2/token/:access_token",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "security",
+                                "oauth2",
+                                "token",
+                                ":access_token"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "access_token"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"type\": \"<string>\",\n  \"username\": \"<string>\",\n  \"application_name\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"token_type\": \"<string>\",\n  \"access_token\": \"<string>\",\n  \"expires_in\": \"<long>\",\n  \"state\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T13:13:30.000Z",
+                          "updatedAt": "2026-06-05T13:13:30.000Z",
+                          "uid": "35240-1e0fb3a9-2de5-4ce2-8b4e-918e0ebabc7d"
+                        },
+                        {
+                          "id": "e459b7e0-692f-4b9a-a903-cd84645ce97e",
+                          "name": "genericError",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/security/oauth2/token/:access_token",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "security",
+                                "oauth2",
+                                "token",
+                                ":access_token"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "access_token"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"code\": \"<long>\",\n  \"title\": \"<string>\"\n}",
+                          "createdAt": "2026-06-05T13:13:30.000Z",
+                          "updatedAt": "2026-06-05T13:13:30.000Z",
+                          "uid": "35240-e459b7e0-692f-4b9a-a903-cd84645ce97e"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:13:30.000Z",
+                      "updatedAt": "2026-06-05T13:13:30.000Z",
+                      "uid": "35240-1c74a6b0-b3b8-4c1e-8968-fc0a7e7c56cb"
+                    }
+                  ],
+                  "id": "492b9d26-71df-459f-bd06-eec8abe064f5",
+                  "createdAt": "2026-06-05T13:13:30.000Z",
+                  "updatedAt": "2026-06-05T13:13:30.000Z",
+                  "uid": "35240-492b9d26-71df-459f-bd06-eec8abe064f5"
+                },
+                {
+                  "name": "Amadeus The OAuth 2.0 Token Endpoint",
+                  "id": "60717280-8fbe-4975-9f9b-296b5257ef69",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "grant_type",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/security/oauth2/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "security",
+                        "oauth2",
+                        "token"
+                      ]
+                    },
+                    "description": "The token endpoint is used by the client to obtain an access token by presenting its authorization grant.\nTo learn more about this endpoint please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.2"
+                  },
+                  "response": [
+                    {
+                      "id": "0c3b6223-f59f-4716-b0b9-b1d69de4706c",
+                      "name": "oauth2TokenResponse",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) ",
+                              "key": "grant_type",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "client_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "client_secret",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/security/oauth2/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "security",
+                            "oauth2",
+                            "token"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"type\": \"<string>\",\n  \"username\": \"<string>\",\n  \"application_name\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"token_type\": \"<string>\",\n  \"access_token\": \"<string>\",\n  \"expires_in\": \"<long>\",\n  \"state\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T13:13:30.000Z",
+                      "updatedAt": "2026-06-05T13:13:30.000Z",
+                      "uid": "35240-0c3b6223-f59f-4716-b0b9-b1d69de4706c"
+                    },
+                    {
+                      "id": "67cc5669-1ba8-4ef7-abd6-de78deee4d09",
+                      "name": "genericError",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) ",
+                              "key": "grant_type",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "client_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "client_secret",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/security/oauth2/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "security",
+                            "oauth2",
+                            "token"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"code\": \"<long>\",\n  \"title\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T13:13:30.000Z",
+                      "updatedAt": "2026-06-05T13:13:30.000Z",
+                      "uid": "35240-67cc5669-1ba8-4ef7-abd6-de78deee4d09"
+                    },
+                    {
+                      "id": "94da5e3b-b968-4739-8cf6-1354d6ed29ed",
+                      "name": "genericError",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/x-www-form-urlencoded"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "urlencoded",
+                          "urlencoded": [
+                            {
+                              "description": "(Required) ",
+                              "key": "grant_type",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "client_id",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "client_secret",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/security/oauth2/token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "security",
+                            "oauth2",
+                            "token"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\",\n  \"error_description\": \"<string>\",\n  \"code\": \"<long>\",\n  \"title\": \"<string>\"\n}",
+                      "createdAt": "2026-06-05T13:13:30.000Z",
+                      "updatedAt": "2026-06-05T13:13:30.000Z",
+                      "uid": "35240-94da5e3b-b968-4739-8cf6-1354d6ed29ed"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:13:30.000Z",
+                  "updatedAt": "2026-06-05T13:13:30.000Z",
+                  "uid": "35240-60717280-8fbe-4975-9f9b-296b5257ef69"
+                }
+              ],
+              "id": "f53189d8-afd4-4631-81b5-b9e9ef618820",
+              "createdAt": "2026-06-05T13:13:30.000Z",
+              "updatedAt": "2026-06-05T13:13:30.000Z",
+              "uid": "35240-f53189d8-afd4-4631-81b5-b9e9ef618820"
+            }
+          ],
+          "id": "9317f34b-a563-4364-b952-f508b55f1da5",
+          "createdAt": "2026-06-05T13:13:30.000Z",
+          "updatedAt": "2026-06-05T13:13:30.000Z",
+          "uid": "35240-9317f34b-a563-4364-b952-f508b55f1da5"
+        }
+      ],
+      "id": "5b5ac1d4-6ad5-41d6-9763-d77e69b9563e",
+      "createdAt": "2026-06-05T13:13:30.000Z",
+      "updatedAt": "2026-06-05T13:13:30.000Z",
+      "uid": "35240-5b5ac1d4-6ad5-41d6-9763-d77e69b9563e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

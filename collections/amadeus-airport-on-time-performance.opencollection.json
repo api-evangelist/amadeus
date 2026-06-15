@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airport On-Time Performance",
+    "version": "1.0.4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "airport-ontime-prediction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Returns a Percentage of On-time Flight Departures from a Given Airport.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/airport/predictions/on-time",
+            "params": [
+              {
+                "name": "airportCode",
+                "value": "",
+                "type": "query",
+                "description": "airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx), e.g. BOS for Boston"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "the date on which the traveler will depart from the give airport. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns a Percentage of On-time Flight Departures from a Given Airport."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

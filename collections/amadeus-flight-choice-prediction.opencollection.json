@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flight Choice Prediction",
+    "version": "2.0.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "flight-choice-prediction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Predict the Choice of Flight Offers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/shopping/flight-offers/prediction",
+            "headers": [
+              {
+                "name": "X-HTTP-Method-Override",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Amadeus Predict the Choice of Flight Offers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

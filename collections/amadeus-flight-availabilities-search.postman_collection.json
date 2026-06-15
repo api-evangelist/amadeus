@@ -1,0 +1,238 @@
+{
+  "item": [
+    {
+      "id": "c5cc1e42-adb6-477e-b747-e79a8ad55ab6",
+      "name": "Availibility",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7d81d445-a6ba-4815-bd63-3f2de8023ae8",
+          "name": "Amadeus Return List of Flight Availabilities Based on Posted Searching Criteria.",
+          "request": {
+            "name": "Amadeus Return List of Flight Availabilities Based on Posted Searching Criteria.",
+            "description": {},
+            "url": {
+              "path": [
+                "shopping",
+                "availability",
+                "flight-availabilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) the HTTP method to apply",
+                "key": "X-HTTP-Method-Override",
+                "value": "GET"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.amadeus+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"<string>\",\n      \"destinationLocationCode\": \"<string>\",\n      \"includedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"departureDateTime\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\"\n      },\n      \"arrivalDateTime\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"<string>\",\n      \"associatedAdultId\": \"<string>\"\n    }\n  ],\n  \"sources\": [\n    \"<string>\"\n  ],\n  \"searchCriteria\": {\n    \"excludeAllotments\": \"<boolean>\",\n    \"flightFilters\": {\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": \"<boolean>\",\n        \"excludedCarrierCodes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"includedCarrierCodes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"originDestinationIds\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": \"<number>\",\n        \"airportChangeAllowed\": \"<boolean>\",\n        \"technicalStopsAllowed\": \"<boolean>\"\n      }\n    },\n    \"includeClosedContent\": \"<boolean>\",\n    \"class\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a2245dc-4262-4627-945f-ba1763893c99",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "availability",
+                    "flight-availabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) the HTTP method to apply",
+                    "key": "X-HTTP-Method-Override",
+                    "value": "GET"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"PAR\",\n      \"destinationLocationCode\": \"NYC\",\n      \"includedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"departureDateTime\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\"\n      },\n      \"arrivalDateTime\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"ADULT\",\n      \"associatedAdultId\": \"12345\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"searchCriteria\": {\n    \"excludeAllotments\": false,\n    \"flightFilters\": {\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": true,\n        \"excludedCarrierCodes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"includedCarrierCodes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"originDestinationIds\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": 2,\n        \"airportChangeAllowed\": false,\n        \"technicalStopsAllowed\": true\n      }\n    },\n    \"includeClosedContent\": false,\n    \"class\": \"A\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"flight-availability\",\n      \"id\": \"1\",\n      \"source\": \"GDS\",\n      \"segments\": [\n        {\n          \"closedStatus\": \"CANCELLED\",\n          \"availabilityClasses\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"numberOfStops\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"blacklistedInEU\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"co2Emissions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"originDestinationId\": \"1\",\n      \"instantTicketingRequired\": false,\n      \"paymentCardRequired\": false,\n      \"duration\": \"PT2H10M\"\n    },\n    {\n      \"type\": \"flight-availability\",\n      \"id\": \"1\",\n      \"source\": \"GDS\",\n      \"segments\": [\n        {\n          \"closedStatus\": \"CANCELLED\",\n          \"availabilityClasses\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"numberOfStops\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"blacklistedInEU\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"co2Emissions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"originDestinationId\": \"1\",\n      \"instantTicketingRequired\": false,\n      \"paymentCardRequired\": false,\n      \"duration\": \"PT2H10M\"\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": 1\n  },\n  \"dictionaries\": {\n    \"locations\": {\n      \"key_0\": {\n        \"cityCode\": \"PAR\",\n        \"countryCode\": \"FR\"\n      },\n      \"key_1\": {\n        \"cityCode\": \"PAR\",\n        \"countryCode\": \"FR\"\n      },\n      \"key_2\": {\n        \"cityCode\": \"PAR\",\n        \"countryCode\": \"FR\"\n      }\n    },\n    \"aircraft\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"currencies\": {\n      \"key_0\": \"EUR\",\n      \"key_1\": \"EUR\",\n      \"key_2\": \"EUR\"\n    },\n    \"carriers\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9de2ec5d-6d0c-4b21-8af6-186dfe6effad",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n572     | INVALID OPTION\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED\n9880    | SELECTED DATE IS TOO FAR IN THE FUTURE\n10661   | MAXIMUM NUMBER OF OCCURRENCES EXCEEDED \n32171   | MANDATORY DATA MISSING\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "availability",
+                    "flight-availabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) the HTTP method to apply",
+                    "key": "X-HTTP-Method-Override",
+                    "value": "GET"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"PAR\",\n      \"destinationLocationCode\": \"NYC\",\n      \"includedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"departureDateTime\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\"\n      },\n      \"arrivalDateTime\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"ADULT\",\n      \"associatedAdultId\": \"12345\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"searchCriteria\": {\n    \"excludeAllotments\": false,\n    \"flightFilters\": {\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": true,\n        \"excludedCarrierCodes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"includedCarrierCodes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"originDestinationIds\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": 2,\n        \"airportChangeAllowed\": false,\n        \"technicalStopsAllowed\": true\n      }\n    },\n    \"includeClosedContent\": false,\n    \"class\": \"A\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6cc7437e-52cd-4378-9e69-159f22932fec",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "availability",
+                    "flight-availabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) the HTTP method to apply",
+                    "key": "X-HTTP-Method-Override",
+                    "value": "GET"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"PAR\",\n      \"destinationLocationCode\": \"NYC\",\n      \"includedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"departureDateTime\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\"\n      },\n      \"arrivalDateTime\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"ADULT\",\n      \"associatedAdultId\": \"12345\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"searchCriteria\": {\n    \"excludeAllotments\": false,\n    \"flightFilters\": {\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": true,\n        \"excludedCarrierCodes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"includedCarrierCodes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"originDestinationIds\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": 2,\n        \"airportChangeAllowed\": false,\n        \"technicalStopsAllowed\": true\n      }\n    },\n    \"includeClosedContent\": false,\n    \"class\": \"A\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5dc9d0e8-3c41-4e73-a5f2-6bb1aa3b4ae8",
+    "name": "Flight Availibilities Search",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production, if you are not returning any results try with big cities/airports like LON (London) or NYC (New-York).",
+      "type": "text/plain"
+    }
+  }
+}

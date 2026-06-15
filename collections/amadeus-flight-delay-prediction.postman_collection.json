@@ -1,0 +1,364 @@
+{
+  "item": [
+    {
+      "id": "b6c6d6db-6dcd-468d-9702-31bf1fc4cc23",
+      "name": "flight-delay-prediction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ef983386-8178-49c5-8a41-19888e875414",
+          "name": "Amadeus Return the Delay Segment Where the Flight is Likely to Lay.",
+          "request": {
+            "name": "Amadeus Return the Delay Segment Where the Flight is Likely to Lay.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "travel",
+                "predictions",
+                "flight-delay"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "originLocationCode",
+                  "value": "<string>",
+                  "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler is departing, e.g. PAR for Paris"
+                },
+                {
+                  "disabled": false,
+                  "key": "destinationLocationCode",
+                  "value": "<string>",
+                  "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris"
+                },
+                {
+                  "disabled": false,
+                  "key": "departureDate",
+                  "value": "<date>",
+                  "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25"
+                },
+                {
+                  "disabled": false,
+                  "key": "departureTime",
+                  "value": "<time>",
+                  "description": "(Required) local time relative to originLocationCode on which the traveler will depart from the origin. Time respects ISO 8601 standard. e.g. 13:22:00"
+                },
+                {
+                  "disabled": false,
+                  "key": "arrivalDate",
+                  "value": "<date>",
+                  "description": "(Required) the date on which the traveler will arrive to the destination from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25"
+                },
+                {
+                  "disabled": false,
+                  "key": "arrivalTime",
+                  "value": "<time>",
+                  "description": "(Required) local time relative to destinationLocationCode on which the traveler will arrive to destination. Time respects ISO 8601 standard. e.g. 13:22:00"
+                },
+                {
+                  "disabled": false,
+                  "key": "aircraftCode",
+                  "value": "<string>",
+                  "description": "(Required) IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)"
+                },
+                {
+                  "disabled": false,
+                  "key": "carrierCode",
+                  "value": "<string>",
+                  "description": "(Required) airline / carrier code"
+                },
+                {
+                  "disabled": false,
+                  "key": "flightNumber",
+                  "value": "<string>",
+                  "description": "(Required) flight number as assigned by the carrier"
+                },
+                {
+                  "disabled": false,
+                  "key": "duration",
+                  "value": "<string>",
+                  "description": "(Required) flight duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8211032-6bca-4431-bf03-2b5e951d9bd2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "predictions",
+                    "flight-delay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": "NCE"
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": "IST"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2020-08-01"
+                    },
+                    {
+                      "key": "departureTime",
+                      "value": "18:20:00"
+                    },
+                    {
+                      "key": "arrivalDate",
+                      "value": "2020-08-01"
+                    },
+                    {
+                      "key": "arrivalTime",
+                      "value": "22:15:00"
+                    },
+                    {
+                      "key": "aircraftCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "carrierCode",
+                      "value": "TK"
+                    },
+                    {
+                      "key": "flightNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "duration",
+                      "value": "PT31H10M"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"string-value\",\n      \"subType\": \"trip-purpose\",\n      \"id\": \"12345\",\n      \"result\": \"LESS_THAN_30_MINUTES\",\n      \"probability\": \"string-value\"\n    },\n    {\n      \"type\": \"string-value\",\n      \"subType\": \"trip-purpose\",\n      \"id\": \"12345\",\n      \"result\": \"LESS_THAN_30_MINUTES\",\n      \"probability\": \"string-value\"\n    }\n  ],\n  \"meta\": {\n    \"count\": 1,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d460bee-c5f9-4298-8527-ee9c84bfbc8c",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "predictions",
+                    "flight-delay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": "NCE"
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": "IST"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2020-08-01"
+                    },
+                    {
+                      "key": "departureTime",
+                      "value": "18:20:00"
+                    },
+                    {
+                      "key": "arrivalDate",
+                      "value": "2020-08-01"
+                    },
+                    {
+                      "key": "arrivalTime",
+                      "value": "22:15:00"
+                    },
+                    {
+                      "key": "aircraftCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "carrierCode",
+                      "value": "TK"
+                    },
+                    {
+                      "key": "flightNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "duration",
+                      "value": "PT31H10M"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1d18a75-5532-4f16-9c75-2121ff723dfd",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "predictions",
+                    "flight-delay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": "NCE"
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": "IST"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2020-08-01"
+                    },
+                    {
+                      "key": "departureTime",
+                      "value": "18:20:00"
+                    },
+                    {
+                      "key": "arrivalDate",
+                      "value": "2020-08-01"
+                    },
+                    {
+                      "key": "arrivalTime",
+                      "value": "22:15:00"
+                    },
+                    {
+                      "key": "aircraftCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "carrierCode",
+                      "value": "TK"
+                    },
+                    {
+                      "key": "flightNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "duration",
+                      "value": "PT31H10M"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a3292618-0325-4f10-b5ca-99dce0c14cce",
+    "name": "Flight Delay Prediction",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token.",
+      "type": "text/plain"
+    }
+  }
+}

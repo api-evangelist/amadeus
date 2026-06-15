@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Tours and Activities",
+    "version": "1.0.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Returns Activities Around a Given Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/shopping/activities",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude (decimal coordinates)"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude (decimal coordinates)"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km."
+              }
+            ]
+          },
+          "docs": "Amadeus Returns Activities Around a Given Location"
+        },
+        {
+          "info": {
+            "name": "Amadeus Returns Activities Around a Given Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/shopping/activities/by-square",
+            "params": [
+              {
+                "name": "north",
+                "value": "",
+                "type": "query",
+                "description": "Latitude north of bounding box (decimal coordinates)"
+              },
+              {
+                "name": "west",
+                "value": "",
+                "type": "query",
+                "description": "Longitude west of bounding box (decimal coordinates)"
+              },
+              {
+                "name": "south",
+                "value": "",
+                "type": "query",
+                "description": "Latitude south of bounding box (decimal coordinates)"
+              },
+              {
+                "name": "east",
+                "value": "",
+                "type": "query",
+                "description": "Longitude east of bounding box (decimal coordinates)"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns Activities Around a Given Location"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Retrieve",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Retrieve One Activity by its ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/shopping/activities/:activityId",
+            "params": [
+              {
+                "name": "activityId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Amadeus Retrieve One Activity by its ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airport Nearest Relevant",
+    "version": "1.1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "location",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Returns a List of Relevant Airports Near to a Given Point.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reference-data/locations/airports",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "latitude location to be at the center of the search circle"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "longitude location to be at the center of the search circle"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "radius of the search in Kilometer. Can be from 0 to 500, default value is 500 Km."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "maximum items in one page"
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "start index of the requested page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "defines on which attribute the sorting will be done from the best option to the worst one:\n* **relevance** - Score value calculated based on distance and traffic analytics\n* **distance** - Distance from the location to the geo-code given in API request parameters\n* **analytics.flights.score** - Approximate score for ranking purposes calculated based on estimated number of flights from/to airport in one reference year (last year)\n* **analytics.travelers.score** - Approximate score for ranking purposes calculated based on estimated number of travelers in the airport for one reference year (last year)\n"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns a List of Relevant Airports Near to a Given Point."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,637 @@
+{
+  "item": [
+    {
+      "id": "03b82a31-64af-4fb7-bfce-71200e339ac2",
+      "name": "Shopping",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "471d4ca0-833e-4778-8205-7db61484b3ea",
+          "name": "Amadeus Return List of Flight Offers Based on Posted Searching Criteria.",
+          "request": {
+            "name": "Amadeus Return List of Flight Offers Based on Posted Searching Criteria.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "flight-offers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) the HTTP method to apply",
+                "key": "X-HTTP-Method-Override",
+                "value": "GET"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.amadeus+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"<string>\",\n      \"destinationLocationCode\": \"<string>\",\n      \"includedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"originRadius\": \"<number>\",\n      \"alternativeOriginsCodes\": [\n        \"<string>\"\n      ],\n      \"destinationRadius\": \"<number>\",\n      \"alternativeDestinationsCodes\": [\n        \"<string>\"\n      ],\n      \"departureDateTimeRange\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\",\n        \"dateWindow\": \"<string>\",\n        \"timeWindow\": \"<string>\"\n      },\n      \"arrivalDateTimeRange\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\",\n        \"dateWindow\": \"<string>\",\n        \"timeWindow\": \"<string>\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"<string>\",\n      \"associatedAdultId\": \"<string>\"\n    }\n  ],\n  \"sources\": [\n    \"<string>\"\n  ],\n  \"currencyCode\": \"<string>\",\n  \"searchCriteria\": {\n    \"excludeAllotments\": \"<boolean>\",\n    \"addOneWayOffers\": \"<boolean>\",\n    \"maxFlightOffers\": 250,\n    \"maxPrice\": \"<integer>\",\n    \"allowAlternativeFareOptions\": \"<boolean>\",\n    \"oneFlightOfferPerDay\": \"<boolean>\",\n    \"additionalInformation\": {\n      \"chargeableCheckedBags\": \"<boolean>\",\n      \"brandedFares\": \"<boolean>\"\n    },\n    \"pricingOptions\": {\n      \"includedCheckedBagsOnly\": \"<boolean>\",\n      \"refundableFare\": \"<boolean>\",\n      \"noRestrictionFare\": \"<boolean>\",\n      \"noPenaltyFare\": \"<boolean>\"\n    },\n    \"flightFilters\": {\n      \"crossBorderAllowed\": \"<boolean>\",\n      \"moreOvernightsAllowed\": \"<boolean>\",\n      \"returnToDepartureAirport\": \"<boolean>\",\n      \"railSegmentAllowed\": \"<boolean>\",\n      \"busSegmentAllowed\": \"<boolean>\",\n      \"maxFlightTime\": \"<number>\",\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": false,\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"originDestinationIds\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"coverage\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": \"<number>\",\n        \"nonStopPreferred\": \"<boolean>\",\n        \"airportChangeAllowed\": \"<boolean>\",\n        \"technicalStopsAllowed\": \"<boolean>\"\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f2b9c897-ca56-49f2-9dbf-4bbcd60fdab1",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) the HTTP method to apply",
+                    "key": "X-HTTP-Method-Override",
+                    "value": "GET"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"PAR\",\n      \"destinationLocationCode\": \"NYC\",\n      \"includedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"originRadius\": 200,\n      \"alternativeOriginsCodes\": [\n        \"LON\",\n        \"MUC\"\n      ],\n      \"destinationRadius\": 200,\n      \"alternativeDestinationsCodes\": [\n        \"<string>\"\n      ],\n      \"departureDateTimeRange\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\",\n        \"dateWindow\": \"I3D\",\n        \"timeWindow\": \"2H\"\n      },\n      \"arrivalDateTimeRange\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\",\n        \"dateWindow\": \"I3D\",\n        \"timeWindow\": \"2H\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"ADULT\",\n      \"associatedAdultId\": \"12345\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"currencyCode\": \"EUR\",\n  \"searchCriteria\": {\n    \"excludeAllotments\": false,\n    \"addOneWayOffers\": true,\n    \"maxFlightOffers\": 250,\n    \"maxPrice\": 100,\n    \"allowAlternativeFareOptions\": true,\n    \"oneFlightOfferPerDay\": true,\n    \"additionalInformation\": {\n      \"chargeableCheckedBags\": true,\n      \"brandedFares\": true\n    },\n    \"pricingOptions\": {\n      \"includedCheckedBagsOnly\": true,\n      \"refundableFare\": true,\n      \"noRestrictionFare\": true,\n      \"noPenaltyFare\": true\n    },\n    \"flightFilters\": {\n      \"crossBorderAllowed\": false,\n      \"moreOvernightsAllowed\": false,\n      \"returnToDepartureAirport\": false,\n      \"railSegmentAllowed\": true,\n      \"busSegmentAllowed\": true,\n      \"maxFlightTime\": 200,\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": true,\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"originDestinationIds\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"coverage\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": 2,\n        \"nonStopPreferred\": false,\n        \"airportChangeAllowed\": false,\n        \"technicalStopsAllowed\": true\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"flight-offer\",\n      \"id\": \"1\",\n      \"source\": \"GDS\",\n      \"instantTicketingRequired\": false,\n      \"disablePricing\": false,\n      \"nonHomogeneous\": false,\n      \"oneWay\": false,\n      \"paymentCardRequired\": false,\n      \"lastTicketingDate\": \"2018-06-19\",\n      \"lastTicketingDateTime\": \"2018-06-19T15:00:00\",\n      \"numberOfBookableSeats\": 9,\n      \"itineraries\": [\n        {\n          \"segments\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"numberOfStops\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"blacklistedInEU\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"co2Emissions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"duration\": \"PT2H10M\"\n        }\n      ],\n      \"price\": {\n        \"margin\": \"1.00\",\n        \"grandTotal\": \"987.00\",\n        \"billingCurrency\": \"EUR\",\n        \"additionalServices\": [\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"currency\": \"USD\",\n        \"total\": \"932.70\",\n        \"base\": \"632.70\",\n        \"fees\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"taxes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"refundableTaxes\": \"200.00\"\n      },\n      \"pricingOptions\": {\n        \"fareType\": [\n          \"PUBLISHED\"\n        ],\n        \"includedCheckedBagsOnly\": true,\n        \"refundableFare\": true,\n        \"noRestrictionFare\": true,\n        \"noPenaltyFare\": true\n      },\n      \"validatingAirlineCodes\": [\n        \"AF\"\n      ],\n      \"travelerPricings\": [\n        {\n          \"travelerId\": \"1\",\n          \"fareOption\": \"STANDARD\",\n          \"travelerType\": \"ADULT\",\n          \"fareDetailsBySegment\": [\n            {\n              \"segmentId\": \"1\",\n              \"cabin\": \"PREMIUM_ECONOMY\",\n              \"fareBasis\": \"ANNNNF4K\",\n              \"brandedFare\": \"LIGHTONE\",\n              \"class\": \"A\",\n              \"isAllotment\": true,\n              \"allotmentDetails\": {\n                \"tourName\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"tourReference\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"sliceDiceIndicator\": \"SUB_OD_AVAILABILITY_1\",\n              \"includedCheckedBags\": {\n                \"quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weight\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weightUnit\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"additionalServices\": {\n                \"chargeableCheckedBags\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeat\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeatNumber\": \"33D\",\n                \"otherServices\": [\n                  \"PRIORITY_BOARDING\"\n                ]\n              }\n            }\n          ],\n          \"associatedAdultId\": \"12345\",\n          \"price\": {\n            \"currency\": \"USD\",\n            \"total\": \"932.70\",\n            \"base\": \"632.70\",\n            \"fees\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"refundableTaxes\": \"200.00\"\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"flight-offer\",\n      \"id\": \"1\",\n      \"source\": \"GDS\",\n      \"instantTicketingRequired\": false,\n      \"disablePricing\": false,\n      \"nonHomogeneous\": false,\n      \"oneWay\": false,\n      \"paymentCardRequired\": false,\n      \"lastTicketingDate\": \"2018-06-19\",\n      \"lastTicketingDateTime\": \"2018-06-19T15:00:00\",\n      \"numberOfBookableSeats\": 9,\n      \"itineraries\": [\n        {\n          \"segments\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"numberOfStops\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"blacklistedInEU\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"co2Emissions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"duration\": \"PT2H10M\"\n        }\n      ],\n      \"price\": {\n        \"margin\": \"1.00\",\n        \"grandTotal\": \"987.00\",\n        \"billingCurrency\": \"EUR\",\n        \"additionalServices\": [\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"currency\": \"USD\",\n        \"total\": \"932.70\",\n        \"base\": \"632.70\",\n        \"fees\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"taxes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"refundableTaxes\": \"200.00\"\n      },\n      \"pricingOptions\": {\n        \"fareType\": [\n          \"PUBLISHED\"\n        ],\n        \"includedCheckedBagsOnly\": true,\n        \"refundableFare\": true,\n        \"noRestrictionFare\": true,\n        \"noPenaltyFare\": true\n      },\n      \"validatingAirlineCodes\": [\n        \"AF\"\n      ],\n      \"travelerPricings\": [\n        {\n          \"travelerId\": \"1\",\n          \"fareOption\": \"STANDARD\",\n          \"travelerType\": \"ADULT\",\n          \"fareDetailsBySegment\": [\n            {\n              \"segmentId\": \"1\",\n              \"cabin\": \"PREMIUM_ECONOMY\",\n              \"fareBasis\": \"ANNNNF4K\",\n              \"brandedFare\": \"LIGHTONE\",\n              \"class\": \"A\",\n              \"isAllotment\": true,\n              \"allotmentDetails\": {\n                \"tourName\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"tourReference\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"sliceDiceIndicator\": \"SUB_OD_AVAILABILITY_1\",\n              \"includedCheckedBags\": {\n                \"quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weight\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weightUnit\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"additionalServices\": {\n                \"chargeableCheckedBags\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeat\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeatNumber\": \"33D\",\n                \"otherServices\": [\n                  \"PRIORITY_BOARDING\"\n                ]\n              }\n            }\n          ],\n          \"associatedAdultId\": \"12345\",\n          \"price\": {\n            \"currency\": \"USD\",\n            \"total\": \"932.70\",\n            \"base\": \"632.70\",\n            \"fees\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"refundableTaxes\": \"200.00\"\n          }\n        }\n      ]\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": 1,\n    \"oneWayCombinations\": [\n      {\n        \"originDestinationId\": \"12345\",\n        \"flightOfferIds\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"originDestinationId\": \"12345\",\n        \"flightOfferIds\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"dictionaries\": {\n    \"locations\": {\n      \"key_0\": {\n        \"cityCode\": \"PAR\",\n        \"countryCode\": \"FR\"\n      },\n      \"key_1\": {\n        \"cityCode\": \"PAR\",\n        \"countryCode\": \"FR\"\n      }\n    },\n    \"aircraft\": {\n      \"key_0\": \"string\"\n    },\n    \"currencies\": {\n      \"key_0\": \"EUR\",\n      \"key_1\": \"EUR\"\n    },\n    \"carriers\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a99b1cd-4dc0-4327-a49e-3361ac231ef7",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n4926    | INVALID DATA RECEIVED\n10661   | MAXIMUM NUMBER OF OCCURRENCES EXCEEDED \n32171   | MANDATORY DATA MISSING\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) the HTTP method to apply",
+                    "key": "X-HTTP-Method-Override",
+                    "value": "GET"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"PAR\",\n      \"destinationLocationCode\": \"NYC\",\n      \"includedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"originRadius\": 200,\n      \"alternativeOriginsCodes\": [\n        \"LON\",\n        \"MUC\"\n      ],\n      \"destinationRadius\": 200,\n      \"alternativeDestinationsCodes\": [\n        \"<string>\"\n      ],\n      \"departureDateTimeRange\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\",\n        \"dateWindow\": \"I3D\",\n        \"timeWindow\": \"2H\"\n      },\n      \"arrivalDateTimeRange\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\",\n        \"dateWindow\": \"I3D\",\n        \"timeWindow\": \"2H\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"ADULT\",\n      \"associatedAdultId\": \"12345\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"currencyCode\": \"EUR\",\n  \"searchCriteria\": {\n    \"excludeAllotments\": false,\n    \"addOneWayOffers\": true,\n    \"maxFlightOffers\": 250,\n    \"maxPrice\": 100,\n    \"allowAlternativeFareOptions\": true,\n    \"oneFlightOfferPerDay\": true,\n    \"additionalInformation\": {\n      \"chargeableCheckedBags\": true,\n      \"brandedFares\": true\n    },\n    \"pricingOptions\": {\n      \"includedCheckedBagsOnly\": true,\n      \"refundableFare\": true,\n      \"noRestrictionFare\": true,\n      \"noPenaltyFare\": true\n    },\n    \"flightFilters\": {\n      \"crossBorderAllowed\": false,\n      \"moreOvernightsAllowed\": false,\n      \"returnToDepartureAirport\": false,\n      \"railSegmentAllowed\": true,\n      \"busSegmentAllowed\": true,\n      \"maxFlightTime\": 200,\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": true,\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"originDestinationIds\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"coverage\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": 2,\n        \"nonStopPreferred\": false,\n        \"airportChangeAllowed\": false,\n        \"technicalStopsAllowed\": true\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa7445b9-0841-4fc6-8086-573d686164fb",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) the HTTP method to apply",
+                    "key": "X-HTTP-Method-Override",
+                    "value": "GET"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"PAR\",\n      \"destinationLocationCode\": \"NYC\",\n      \"includedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"MRS\"\n      ],\n      \"originRadius\": 200,\n      \"alternativeOriginsCodes\": [\n        \"LON\",\n        \"MUC\"\n      ],\n      \"destinationRadius\": 200,\n      \"alternativeDestinationsCodes\": [\n        \"<string>\"\n      ],\n      \"departureDateTimeRange\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\",\n        \"dateWindow\": \"I3D\",\n        \"timeWindow\": \"2H\"\n      },\n      \"arrivalDateTimeRange\": {\n        \"date\": \"2018-09-22\",\n        \"time\": \"10:30:00\",\n        \"dateWindow\": \"I3D\",\n        \"timeWindow\": \"2H\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"ADULT\",\n      \"associatedAdultId\": \"12345\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"currencyCode\": \"EUR\",\n  \"searchCriteria\": {\n    \"excludeAllotments\": false,\n    \"addOneWayOffers\": true,\n    \"maxFlightOffers\": 250,\n    \"maxPrice\": 100,\n    \"allowAlternativeFareOptions\": true,\n    \"oneFlightOfferPerDay\": true,\n    \"additionalInformation\": {\n      \"chargeableCheckedBags\": true,\n      \"brandedFares\": true\n    },\n    \"pricingOptions\": {\n      \"includedCheckedBagsOnly\": true,\n      \"refundableFare\": true,\n      \"noRestrictionFare\": true,\n      \"noPenaltyFare\": true\n    },\n    \"flightFilters\": {\n      \"crossBorderAllowed\": false,\n      \"moreOvernightsAllowed\": false,\n      \"returnToDepartureAirport\": false,\n      \"railSegmentAllowed\": true,\n      \"busSegmentAllowed\": true,\n      \"maxFlightTime\": 200,\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": true,\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"originDestinationIds\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"coverage\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": 2,\n        \"nonStopPreferred\": false,\n        \"airportChangeAllowed\": false,\n        \"technicalStopsAllowed\": true\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0557f507-02fb-48e8-823b-5967baa98b43",
+          "name": "Amadeus Return List of Flight Offers Based on Searching Criteria.",
+          "request": {
+            "name": "Amadeus Return List of Flight Offers Based on Searching Criteria.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "flight-offers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "originLocationCode",
+                  "value": "<string>",
+                  "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston"
+                },
+                {
+                  "disabled": false,
+                  "key": "destinationLocationCode",
+                  "value": "<string>",
+                  "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris"
+                },
+                {
+                  "disabled": false,
+                  "key": "departureDate",
+                  "value": "<date>",
+                  "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25"
+                },
+                {
+                  "disabled": false,
+                  "key": "returnDate",
+                  "value": "<date>",
+                  "description": "the date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, only one-way itineraries are found. If this parameter is specified, only round-trip itineraries are found. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28"
+                },
+                {
+                  "disabled": false,
+                  "key": "adults",
+                  "value": "1",
+                  "description": "(Required) the number of adult travelers (age 12 or older on date of departure).\n\nThe total number of seated travelers (adult and children) can not exceed 9."
+                },
+                {
+                  "disabled": false,
+                  "key": "children",
+                  "value": "<integer>",
+                  "description": "the number of child travelers (older than age 2 and younger than age 12 on date of departure) who will each have their own separate seat. If specified, this number should be greater than or equal to 0\n\nThe total number of seated travelers (adult and children) can not exceed 9."
+                },
+                {
+                  "disabled": false,
+                  "key": "infants",
+                  "value": "<integer>",
+                  "description": "the number of infant travelers (whose age is less or equal to 2 on date of departure). Infants travel on the lap of an adult traveler, and thus the number of infants must not exceed the number of adults. If specified, this number should be greater than or equal to 0"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelClass",
+                  "value": "<string>",
+                  "description": "most of the flight time should be spent in a cabin of this quality or higher. The accepted travel class is economy, premium economy, business or first class. If no travel class is specified, the search considers any travel class"
+                },
+                {
+                  "disabled": false,
+                  "key": "includedAirlineCodes",
+                  "value": "<string>",
+                  "description": "This option ensures that the system will only consider these airlines. This can not be cumulated with parameter excludedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "excludedAirlineCodes",
+                  "value": "<string>",
+                  "description": "This option ensures that the system will ignore these airlines. This can not be cumulated with parameter includedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "nonStop",
+                  "value": "false",
+                  "description": "if set to true, the search will find only flights going from the origin to the destination with no stop in between"
+                },
+                {
+                  "disabled": false,
+                  "key": "currencyCode",
+                  "value": "<string>",
+                  "description": "the preferred currency for the flight offers. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrice",
+                  "value": "<integer>",
+                  "description": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "250",
+                  "description": "maximum number of flight offers to return. If specified, the value should be greater than or equal to 1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa42b49b-2ee5-41da-9c6e-c8abc57b1775",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": "SYD"
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": "BKK"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2023-05-02"
+                    },
+                    {
+                      "key": "returnDate",
+                      "value": "2026-08-15"
+                    },
+                    {
+                      "key": "adults",
+                      "value": "1"
+                    },
+                    {
+                      "key": "children",
+                      "value": "0"
+                    },
+                    {
+                      "key": "infants",
+                      "value": "0"
+                    },
+                    {
+                      "key": "travelClass",
+                      "value": "ECONOMY"
+                    },
+                    {
+                      "key": "includedAirlineCodes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludedAirlineCodes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nonStop",
+                      "value": "true"
+                    },
+                    {
+                      "key": "currencyCode",
+                      "value": "EUR"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"flight-offer\",\n      \"id\": \"1\",\n      \"source\": \"GDS\",\n      \"instantTicketingRequired\": false,\n      \"disablePricing\": false,\n      \"nonHomogeneous\": false,\n      \"oneWay\": false,\n      \"paymentCardRequired\": false,\n      \"lastTicketingDate\": \"2018-06-19\",\n      \"lastTicketingDateTime\": \"2018-06-19T15:00:00\",\n      \"numberOfBookableSeats\": 9,\n      \"itineraries\": [\n        {\n          \"segments\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"numberOfStops\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"blacklistedInEU\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"co2Emissions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"duration\": \"PT2H10M\"\n        }\n      ],\n      \"price\": {\n        \"margin\": \"1.00\",\n        \"grandTotal\": \"987.00\",\n        \"billingCurrency\": \"EUR\",\n        \"additionalServices\": [\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"currency\": \"USD\",\n        \"total\": \"932.70\",\n        \"base\": \"632.70\",\n        \"fees\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"taxes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"refundableTaxes\": \"200.00\"\n      },\n      \"pricingOptions\": {\n        \"fareType\": [\n          \"PUBLISHED\"\n        ],\n        \"includedCheckedBagsOnly\": true,\n        \"refundableFare\": true,\n        \"noRestrictionFare\": true,\n        \"noPenaltyFare\": true\n      },\n      \"validatingAirlineCodes\": [\n        \"AF\"\n      ],\n      \"travelerPricings\": [\n        {\n          \"travelerId\": \"1\",\n          \"fareOption\": \"STANDARD\",\n          \"travelerType\": \"ADULT\",\n          \"fareDetailsBySegment\": [\n            {\n              \"segmentId\": \"1\",\n              \"cabin\": \"PREMIUM_ECONOMY\",\n              \"fareBasis\": \"ANNNNF4K\",\n              \"brandedFare\": \"LIGHTONE\",\n              \"class\": \"A\",\n              \"isAllotment\": true,\n              \"allotmentDetails\": {\n                \"tourName\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"tourReference\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"sliceDiceIndicator\": \"SUB_OD_AVAILABILITY_2\",\n              \"includedCheckedBags\": {\n                \"quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weight\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weightUnit\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"additionalServices\": {\n                \"chargeableCheckedBags\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeat\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeatNumber\": \"33D\",\n                \"otherServices\": [\n                  \"PRIORITY_BOARDING\"\n                ]\n              }\n            }\n          ],\n          \"associatedAdultId\": \"12345\",\n          \"price\": {\n            \"currency\": \"USD\",\n            \"total\": \"932.70\",\n            \"base\": \"632.70\",\n            \"fees\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"refundableTaxes\": \"200.00\"\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"flight-offer\",\n      \"id\": \"1\",\n      \"source\": \"GDS\",\n      \"instantTicketingRequired\": false,\n      \"disablePricing\": false,\n      \"nonHomogeneous\": false,\n      \"oneWay\": false,\n      \"paymentCardRequired\": false,\n      \"lastTicketingDate\": \"2018-06-19\",\n      \"lastTicketingDateTime\": \"2018-06-19T15:00:00\",\n      \"numberOfBookableSeats\": 9,\n      \"itineraries\": [\n        {\n          \"segments\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"numberOfStops\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"blacklistedInEU\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"co2Emissions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"duration\": \"PT2H10M\"\n        }\n      ],\n      \"price\": {\n        \"margin\": \"1.00\",\n        \"grandTotal\": \"987.00\",\n        \"billingCurrency\": \"EUR\",\n        \"additionalServices\": [\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"currency\": \"USD\",\n        \"total\": \"932.70\",\n        \"base\": \"632.70\",\n        \"fees\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"taxes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"refundableTaxes\": \"200.00\"\n      },\n      \"pricingOptions\": {\n        \"fareType\": [\n          \"PUBLISHED\"\n        ],\n        \"includedCheckedBagsOnly\": true,\n        \"refundableFare\": true,\n        \"noRestrictionFare\": true,\n        \"noPenaltyFare\": true\n      },\n      \"validatingAirlineCodes\": [\n        \"AF\"\n      ],\n      \"travelerPricings\": [\n        {\n          \"travelerId\": \"1\",\n          \"fareOption\": \"STANDARD\",\n          \"travelerType\": \"ADULT\",\n          \"fareDetailsBySegment\": [\n            {\n              \"segmentId\": \"1\",\n              \"cabin\": \"PREMIUM_ECONOMY\",\n              \"fareBasis\": \"ANNNNF4K\",\n              \"brandedFare\": \"LIGHTONE\",\n              \"class\": \"A\",\n              \"isAllotment\": true,\n              \"allotmentDetails\": {\n                \"tourName\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"tourReference\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"sliceDiceIndicator\": \"LOCAL_AVAILABILITY\",\n              \"includedCheckedBags\": {\n                \"quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weight\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weightUnit\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"additionalServices\": {\n                \"chargeableCheckedBags\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeat\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeatNumber\": \"33D\",\n                \"otherServices\": [\n                  \"PRIORITY_BOARDING\"\n                ]\n              }\n            }\n          ],\n          \"associatedAdultId\": \"12345\",\n          \"price\": {\n            \"currency\": \"USD\",\n            \"total\": \"932.70\",\n            \"base\": \"632.70\",\n            \"fees\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"refundableTaxes\": \"200.00\"\n          }\n        }\n      ]\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": 1,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\"\n    }\n  },\n  \"dictionaries\": {\n    \"locations\": {\n      \"key_0\": {\n        \"cityCode\": \"PAR\",\n        \"countryCode\": \"FR\"\n      },\n      \"key_1\": {\n        \"cityCode\": \"PAR\",\n        \"countryCode\": \"FR\"\n      },\n      \"key_2\": {\n        \"cityCode\": \"PAR\",\n        \"countryCode\": \"FR\"\n      }\n    },\n    \"aircraft\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"currencies\": {\n      \"key_0\": \"EUR\",\n      \"key_1\": \"EUR\"\n    },\n    \"carriers\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9cda5087-ad56-495a-9c6f-03272a94d1d1",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n4926    | INVALID DATA RECEIVED\n10661   | MAXIMUM NUMBER OF OCCURRENCES EXCEEDED \n32171   | MANDATORY DATA MISSING\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": "SYD"
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": "BKK"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2023-05-02"
+                    },
+                    {
+                      "key": "returnDate",
+                      "value": "2026-08-15"
+                    },
+                    {
+                      "key": "adults",
+                      "value": "1"
+                    },
+                    {
+                      "key": "children",
+                      "value": "0"
+                    },
+                    {
+                      "key": "infants",
+                      "value": "0"
+                    },
+                    {
+                      "key": "travelClass",
+                      "value": "ECONOMY"
+                    },
+                    {
+                      "key": "includedAirlineCodes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludedAirlineCodes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nonStop",
+                      "value": "true"
+                    },
+                    {
+                      "key": "currencyCode",
+                      "value": "EUR"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7692ad4-f28d-4004-85d6-ceee1a7bb4f9",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": "SYD"
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": "BKK"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2023-05-02"
+                    },
+                    {
+                      "key": "returnDate",
+                      "value": "2026-08-15"
+                    },
+                    {
+                      "key": "adults",
+                      "value": "1"
+                    },
+                    {
+                      "key": "children",
+                      "value": "0"
+                    },
+                    {
+                      "key": "infants",
+                      "value": "0"
+                    },
+                    {
+                      "key": "travelClass",
+                      "value": "ECONOMY"
+                    },
+                    {
+                      "key": "includedAirlineCodes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludedAirlineCodes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nonStop",
+                      "value": "true"
+                    },
+                    {
+                      "key": "currencyCode",
+                      "value": "EUR"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b98874e4-e12e-49f5-a597-6134159e3cf5",
+    "name": "Flight Offers Search",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production, if you are not returning any results try with big cities/airports like LON (London) or NYC (New-York).",
+      "type": "text/plain"
+    }
+  }
+}

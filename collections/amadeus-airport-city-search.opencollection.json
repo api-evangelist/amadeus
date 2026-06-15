@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airport & City Search",
+    "version": "1.2.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "location",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Returns a List of Airports and Cities Matching a Given Keyword.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reference-data/locations",
+            "params": [
+              {
+                "name": "subType",
+                "value": "",
+                "type": "query",
+                "description": "sub type of the location (AIRPORT and/or CITY)"
+              },
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query",
+                "description": "keyword that should represent the start of a word in a city or airport name or code. \nSupported charaters are: A-Za-z0-9./:-'()\""
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query",
+                "description": "Country code of the location using [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "maximum items in one page"
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "start index of the requested page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "defines on which attribute the sorting will be done:\n* analytics.travelers.score - sort by the number of travelers by airport or city, the airports and cities with the highest traffic are on top of the results\n"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "select the level of information of the reply:\n* LIGHT - Gives only the IATACode, name, detailedName, cityName and countryName\n* FULL - Adds on top of the LIGHT information the timeZoneOffset, geocode, detailed address and travelers.score\ndefault option is FULL\n"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns a List of Airports and Cities Matching a Given Keyword."
+        },
+        {
+          "info": {
+            "name": "Amadeus Returns a Specific Airports or Cities Based on its ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reference-data/locations/:locationId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "identifier of the location"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns a Specific Airports or Cities Based on its ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

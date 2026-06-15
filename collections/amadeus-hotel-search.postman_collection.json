@@ -1,0 +1,666 @@
+{
+  "item": [
+    {
+      "id": "33906c23-74be-4088-90bd-0dee67984c71",
+      "name": "shopping",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d69346c9-3115-4138-b094-177583d5310c",
+          "name": "Amadeus GetMultiHotelOffers",
+          "request": {
+            "name": "Amadeus GetMultiHotelOffers",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "hotel-offers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hotelIds",
+                  "value": "<string>",
+                  "description": "(Required) Amadeus property codes on 8 chars. Mandatory parameter for a search by predefined list of hotels."
+                },
+                {
+                  "disabled": false,
+                  "key": "adults",
+                  "value": "1",
+                  "description": "Number of adult guests (1-9) per room."
+                },
+                {
+                  "disabled": false,
+                  "key": "checkInDate",
+                  "value": "<date>",
+                  "description": "Check-in date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is the present date (no dates in the past). If not present, the default value will be today's date in the GMT time zone."
+                },
+                {
+                  "disabled": false,
+                  "key": "checkOutDate",
+                  "value": "<date>",
+                  "description": "Check-out date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is checkInDate+1. If not present, it will default to checkInDate +1."
+                },
+                {
+                  "disabled": false,
+                  "key": "countryOfResidence",
+                  "value": "<string>",
+                  "description": "Code of the country of residence of the traveler expressed using ISO 3166-1 format."
+                },
+                {
+                  "disabled": false,
+                  "key": "roomQuantity",
+                  "value": "1",
+                  "description": "Number of rooms requested (1-9)."
+                },
+                {
+                  "disabled": false,
+                  "key": "priceRange",
+                  "value": "<string>",
+                  "description": "Filter hotel offers by price per night interval (ex: 200-300 or -300 or 100).\nIt is mandatory to include a currency when this field is set."
+                },
+                {
+                  "disabled": false,
+                  "key": "currency",
+                  "value": "<string>",
+                  "description": "Use this parameter to request a specific currency. ISO currency code (http://www.iso.org/iso/home/standards/currency_codes.htm).\nIf a hotel does not support the requested currency, the prices for the hotel will be returned in the local currency of the hotel."
+                },
+                {
+                  "disabled": false,
+                  "key": "paymentPolicy",
+                  "value": "NONE",
+                  "description": "Filter the response based on a specific payment type. NONE means all types (default)."
+                },
+                {
+                  "disabled": false,
+                  "key": "boardType",
+                  "value": "<string>",
+                  "description": "Filter response based on available meals:\n        * ROOM_ONLY = Room Only\n        * BREAKFAST = Breakfast\n        * HALF_BOARD = Diner & Breakfast (only for Aggregators)\n        * FULL_BOARD = Full Board (only for Aggregators)\n        * ALL_INCLUSIVE = All Inclusive (only for Aggregators)"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeClosed",
+                  "value": "<boolean>",
+                  "description": "Show all properties (include sold out) or available only. For sold out properties, please check availability on other dates."
+                },
+                {
+                  "disabled": false,
+                  "key": "bestRateOnly",
+                  "value": "true",
+                  "description": "Used to return only the cheapest offer per hotel or all available offers."
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c561a1d6-f847-48f6-9987-cf5c04182231",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hotelIds",
+                      "value": "MCLONGHM"
+                    },
+                    {
+                      "key": "adults",
+                      "value": "1"
+                    },
+                    {
+                      "key": "checkInDate",
+                      "value": "2023-11-22"
+                    },
+                    {
+                      "key": "checkOutDate",
+                      "value": "2026-08-15"
+                    },
+                    {
+                      "key": "countryOfResidence",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roomQuantity",
+                      "value": "1"
+                    },
+                    {
+                      "key": "priceRange",
+                      "value": "199.50"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "EUR"
+                    },
+                    {
+                      "key": "paymentPolicy",
+                      "value": "GUARANTEE"
+                    },
+                    {
+                      "key": "boardType",
+                      "value": "ROOM_ONLY"
+                    },
+                    {
+                      "key": "includeClosed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "bestRateOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "EN"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"type\": \"string-value\",\n    \"available\": true,\n    \"self\": \"string-value\",\n    \"offers\": [\n      {\n        \"id\": \"TSXOJ6LFQ2\",\n        \"rateCode\": \"RAC\",\n        \"room\": {\n          \"type\": \"9LU\",\n          \"typeEstimated\": {\n            \"category\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"beds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bedType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"description\": {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lang\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"price\": {\n          \"currency\": \"EUR\",\n          \"sellingTotal\": \"199.50\",\n          \"total\": \"199.50\",\n          \"base\": \"string-value\",\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"markups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"variations\": {\n            \"average\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"changes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"type\": \"hotel-offer\",\n        \"checkInDate\": \"2020-12-30\",\n        \"checkOutDate\": \"2020-12-31\",\n        \"roomQuantity\": \"1\",\n        \"rateFamilyEstimated\": {\n          \"code\": \"INJ\",\n          \"type\": \"N\"\n        },\n        \"category\": \"FAMILY_PLAN\",\n        \"description\": {\n          \"text\": \"A description\",\n          \"lang\": \"fr-FR\"\n        },\n        \"commission\": {\n          \"percentage\": \"\\\\dd\\\\H\\\\ddddddd\",\n          \"amount\": \"\\\\ddd\",\n          \"description\": {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lang\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"boardType\": \"DINNER_BED_AND_BREAKFAST\",\n        \"guests\": {\n          \"adults\": 2,\n          \"childAges\": [\n            3,\n            16\n          ]\n        },\n        \"policies\": {\n          \"paymentType\": \"DEPOSIT\",\n          \"guarantee\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"deposit\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"prepay\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"holdTime\": {\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"cancellations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"checkInOut\": {\n            \"checkIn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkInDescription\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkOut\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkOutDescription\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"self\": \"https://test.travel.api.amadeus.com/v2/shopping/hotel-offers/63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3\"\n      },\n      {\n        \"id\": \"TSXOJ6LFQ2\",\n        \"rateCode\": \"RAC\",\n        \"room\": {\n          \"type\": \"1LY\",\n          \"typeEstimated\": {\n            \"category\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"beds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bedType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"description\": {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lang\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"price\": {\n          \"currency\": \"EUR\",\n          \"sellingTotal\": \"199.50\",\n          \"total\": \"199.50\",\n          \"base\": \"string-value\",\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"markups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"variations\": {\n            \"average\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"changes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"type\": \"hotel-offer\",\n        \"checkInDate\": \"2020-12-30\",\n        \"checkOutDate\": \"2020-12-31\",\n        \"roomQuantity\": \"1\",\n        \"rateFamilyEstimated\": {\n          \"code\": \"QNS\",\n          \"type\": \"N\"\n        },\n        \"category\": \"FAMILY_PLAN\",\n        \"description\": {\n          \"text\": \"A description\",\n          \"lang\": \"fr-FR\"\n        },\n        \"commission\": {\n          \"percentage\": \"\\\\dddddd\",\n          \"amount\": \"\\\\ddddd\",\n          \"description\": {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lang\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"boardType\": \"FAMILY_PLAN\",\n        \"guests\": {\n          \"adults\": 2,\n          \"childAges\": [\n            14,\n            11\n          ]\n        },\n        \"policies\": {\n          \"paymentType\": \"DEPOSIT\",\n          \"guarantee\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"deposit\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"prepay\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"holdTime\": {\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"cancellations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"checkInOut\": {\n            \"checkIn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkInDescription\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkOut\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkOutDescription\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"self\": \"https://test.travel.api.amadeus.com/v2/shopping/hotel-offers/63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3\"\n      }\n    ],\n    \"hotel\": {\n      \"hotelId\": \"ADPAR001\",\n      \"chainCode\": \"AD\",\n      \"brandCode\": \"RT\",\n      \"dupeId\": \"501132260\",\n      \"name\": \"Hotel de Paris\",\n      \"cityCode\": \"PAR\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6483bca-3f28-4516-9d39-9e610ffe25d9",
+              "name": "Bad request:\n\n| Code | Title  |\n|-----|-----|\n| 23   | PASSENGER TYPE NOT SUPPORTED   |\n| 61 | INVALID CURRENCY CODE|\n| 137 | INVALID ADULTS OCCUPANCY REQUESTED|\n| 145 | DURATION PERIOD OR DATES INCORRECT|\n| 195 | SERVICE RESTRICTION|\n| 249 | INVALID RATE CODE|\n| 377 | MAX STAY DURATION IS EXCEEDED|\n| 381 | INVALID CHECK-IN DATE|\n| 382 | INVALID CHECK-OUT DATE|\n| 383 | INVALID CITY CODE|\n| 392 | INVALID HOTEL CODE|\n| 397 | INVALID NUMBER OF ADULTS|\n| 400 | INVALID PROPERTY CODE|\n| 404 | CHECK_OUT DATE MUST BE FURTHER IN THE FUTURE THAN CHECK-IN DATE|\n| 424 | NO HOTELS FOUND WHICH MATCH THIS INPUT|\n| 431 | CHECK-OUT DATE IS TOO FAR IN THE FUTURE THAN CHECK-IN DATE|\n| 424 | NO HOTELS FOUND WHICH MATCH THIS INPUT|\n| 431 | CHECK-OUT DATE IS TOO FAR IN THE FUTURE|\n| 450 | INVALID PROVIDER RESPONSE|\n| 451 | INVALID CREDENTIALS|\n| 562 | RESTRICTED ACCESS FOR THE REQUESTED RATES AND CHAINS|\n| 784 | PROVIDER TIME OUT|\n| 790 | RATE SECURITY NOT LOADED| ",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hotelIds",
+                      "value": "MCLONGHM"
+                    },
+                    {
+                      "key": "adults",
+                      "value": "1"
+                    },
+                    {
+                      "key": "checkInDate",
+                      "value": "2023-11-22"
+                    },
+                    {
+                      "key": "checkOutDate",
+                      "value": "2026-08-15"
+                    },
+                    {
+                      "key": "countryOfResidence",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roomQuantity",
+                      "value": "1"
+                    },
+                    {
+                      "key": "priceRange",
+                      "value": "199.50"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "EUR"
+                    },
+                    {
+                      "key": "paymentPolicy",
+                      "value": "GUARANTEE"
+                    },
+                    {
+                      "key": "boardType",
+                      "value": "ROOM_ONLY"
+                    },
+                    {
+                      "key": "includeClosed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "bestRateOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "EN"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"description\": \"A sample input to guide the user when resolving this issue\",\n        \"type\": \"string\",\n        \"example\": \"string-value\"\n      },\n      \"documentation\": \"string-value\"\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"description\": \"A sample input to guide the user when resolving this issue\",\n        \"type\": \"string\",\n        \"example\": \"string-value\"\n      },\n      \"documentation\": \"string-value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92056d6d-2920-47d3-8229-361fef32119b",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hotelIds",
+                      "value": "MCLONGHM"
+                    },
+                    {
+                      "key": "adults",
+                      "value": "1"
+                    },
+                    {
+                      "key": "checkInDate",
+                      "value": "2023-11-22"
+                    },
+                    {
+                      "key": "checkOutDate",
+                      "value": "2026-08-15"
+                    },
+                    {
+                      "key": "countryOfResidence",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roomQuantity",
+                      "value": "1"
+                    },
+                    {
+                      "key": "priceRange",
+                      "value": "199.50"
+                    },
+                    {
+                      "key": "currency",
+                      "value": "EUR"
+                    },
+                    {
+                      "key": "paymentPolicy",
+                      "value": "GUARANTEE"
+                    },
+                    {
+                      "key": "boardType",
+                      "value": "ROOM_ONLY"
+                    },
+                    {
+                      "key": "includeClosed",
+                      "value": "true"
+                    },
+                    {
+                      "key": "bestRateOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "EN"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"description\": \"A sample input to guide the user when resolving this issue\",\n        \"type\": \"string\",\n        \"example\": \"string-value\"\n      },\n      \"documentation\": \"string-value\"\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"description\": \"A sample input to guide the user when resolving this issue\",\n        \"type\": \"string\",\n        \"example\": \"string-value\"\n      },\n      \"documentation\": \"string-value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a2a7cb6-655f-45aa-99be-6a60ecd06d87",
+          "name": "Amadeus GetOfferPricing",
+          "request": {
+            "name": "Amadeus GetOfferPricing",
+            "description": {
+              "content": " ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "hotel-offers",
+                ":offerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "offerId",
+                  "description": "(Required) Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc3a5f75-c12a-4875-98a1-44eb05cea2ee",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers",
+                    ":offerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": "EN"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "offerId",
+                      "description": "(Required) Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"type\": \"string-value\",\n    \"available\": true,\n    \"self\": \"string-value\",\n    \"offers\": [\n      {\n        \"id\": \"TSXOJ6LFQ2\",\n        \"rateCode\": \"RAC\",\n        \"room\": {\n          \"type\": \"V5F\",\n          \"typeEstimated\": {\n            \"category\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"beds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bedType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"description\": {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lang\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"price\": {\n          \"currency\": \"EUR\",\n          \"sellingTotal\": \"199.50\",\n          \"total\": \"199.50\",\n          \"base\": \"string-value\",\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"markups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"variations\": {\n            \"average\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"changes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"type\": \"hotel-offer\",\n        \"checkInDate\": \"2020-12-30\",\n        \"checkOutDate\": \"2020-12-31\",\n        \"roomQuantity\": \"1\",\n        \"rateFamilyEstimated\": {\n          \"code\": \"D2Y\",\n          \"type\": \"C\"\n        },\n        \"category\": \"FAMILY_PLAN\",\n        \"description\": {\n          \"text\": \"A description\",\n          \"lang\": \"fr-FR\"\n        },\n        \"commission\": {\n          \"percentage\": \"\\\\dddd\",\n          \"amount\": \"\\\\dddddddddd\",\n          \"description\": {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lang\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"boardType\": \"CONTINENTAL_BREAKFAST\",\n        \"guests\": {\n          \"adults\": 2,\n          \"childAges\": [\n            10,\n            7\n          ]\n        },\n        \"policies\": {\n          \"paymentType\": \"DEPOSIT\",\n          \"guarantee\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"deposit\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"prepay\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"holdTime\": {\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"cancellations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"checkInOut\": {\n            \"checkIn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkInDescription\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkOut\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkOutDescription\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"self\": \"https://test.travel.api.amadeus.com/v2/shopping/hotel-offers/63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3\"\n      },\n      {\n        \"id\": \"TSXOJ6LFQ2\",\n        \"rateCode\": \"RAC\",\n        \"room\": {\n          \"type\": \"FH0\",\n          \"typeEstimated\": {\n            \"category\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"beds\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bedType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"description\": {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lang\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"price\": {\n          \"currency\": \"EUR\",\n          \"sellingTotal\": \"199.50\",\n          \"total\": \"199.50\",\n          \"base\": \"string-value\",\n          \"taxes\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"markups\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"variations\": {\n            \"average\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"changes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"type\": \"hotel-offer\",\n        \"checkInDate\": \"2020-12-30\",\n        \"checkOutDate\": \"2020-12-31\",\n        \"roomQuantity\": \"1\",\n        \"rateFamilyEstimated\": {\n          \"code\": \"I9G\",\n          \"type\": \"N\"\n        },\n        \"category\": \"FAMILY_PLAN\",\n        \"description\": {\n          \"text\": \"A description\",\n          \"lang\": \"fr-FR\"\n        },\n        \"commission\": {\n          \"percentage\": \"\\\\dddddd\",\n          \"amount\": \"\\\\dddddddd\",\n          \"description\": {\n            \"text\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lang\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"boardType\": \"LUNCH\",\n        \"guests\": {\n          \"adults\": 2,\n          \"childAges\": [\n            7,\n            6\n          ]\n        },\n        \"policies\": {\n          \"paymentType\": \"HOLDTIME\",\n          \"guarantee\": {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"deposit\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"prepay\": {\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"acceptedPayments\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"holdTime\": {\n            \"deadline\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"cancellations\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"checkInOut\": {\n            \"checkIn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkInDescription\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkOut\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"checkOutDescription\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"self\": \"https://test.travel.api.amadeus.com/v2/shopping/hotel-offers/63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3\"\n      }\n    ],\n    \"hotel\": {\n      \"hotelId\": \"ADPAR001\",\n      \"chainCode\": \"AD\",\n      \"brandCode\": \"RT\",\n      \"dupeId\": \"501132260\",\n      \"name\": \"Hotel de Paris\",\n      \"cityCode\": \"PAR\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b59b720d-981f-4819-86b6-5988c1d45986",
+              "name": "Bad Request:\ncode| title\n------- | -------------------------------------\n23 | PASSENGER TYPE NOT SUPPORTED\n61 |INVALID CURRENCY CODE\n137 | INVALID ADULTS OCCUPANCY REQUESTED\n145 | DURATION PERIOD OR DATES INCORRECT\n195 | SERVICE RESTRICTION\n249 | INVALID RATE CODE\n377 | MAX STAY DURATION IS EXCEEDED\n381 | INVALID CHECK-IN DATE\n382 | INVALID CHECK-OUT DATE\n383 | INVALID CITY CODE\n392 | INVALID HOTEL CODE\n397 | INVALID NUMBER OF ADULTS\n400 | INVALID PROPERTY CODE\n402 | INVALID ROOM TYPE\n404 | CHECK_OUT DATE MUST BE FURTHER IN THE FUTURE THAN CHECK-IN DATE\n424 | NO HOTELS FOUND WHICH MATCH THIS INPUT\n431 | CHECK-OUT DATE IS TOO FAR IN THE FUTURE\n450 | INVALID PROVIDER RESPONSE\n451 | INVALID CREDENTIAL\n562 | RESTRICTED ACCESS FOR THE REQUESTED RATES AND CHAINS\n784 | PROVIDER TIME OUT\n790 | NO PROPERTIES FOUND WITHIN THIS RADIUS\n795 | NO SIMILAR NAME FOUND, PLEASE ENLARGE YOUR SEARCH CRITERIA\n842 | RATE SECURITY NOT LOADED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers",
+                    ":offerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": "EN"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "offerId",
+                      "description": "(Required) Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"description\": \"A sample input to guide the user when resolving this issue\",\n        \"type\": \"string\",\n        \"example\": \"string-value\"\n      },\n      \"documentation\": \"string-value\"\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"description\": \"A sample input to guide the user when resolving this issue\",\n        \"type\": \"string\",\n        \"example\": \"string-value\"\n      },\n      \"documentation\": \"string-value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3f9a3d8-1886-4f19-b129-a050b0a8d7ac",
+              "name": "Hotel or offer not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers",
+                    ":offerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": "EN"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "offerId",
+                      "description": "(Required) Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"description\": \"A sample input to guide the user when resolving this issue\",\n        \"type\": \"string\",\n        \"example\": \"string-value\"\n      },\n      \"documentation\": \"string-value\"\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"description\": \"A sample input to guide the user when resolving this issue\",\n        \"type\": \"string\",\n        \"example\": \"string-value\"\n      },\n      \"documentation\": \"string-value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68191648-2375-4e09-88ea-76df880236ca",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers",
+                    ":offerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": "EN"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "offerId",
+                      "description": "(Required) Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"description\": \"A sample input to guide the user when resolving this issue\",\n        \"type\": \"string\",\n        \"example\": \"string-value\"\n      },\n      \"documentation\": \"string-value\"\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"description\": \"A sample input to guide the user when resolving this issue\",\n        \"type\": \"string\",\n        \"example\": \"string-value\"\n      },\n      \"documentation\": \"string-value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "97a3c6d9-a2e4-4f40-9b35-9df61cf82cbe",
+    "name": "Hotel Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production for this API it may change dynamically. For your tests, use big cities like LON (London) or NYC (New-York).",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "info": {
+    "_postman_id": "6d295d54-8020-4389-93be-3c8268c51d9c",
+    "name": "Flight Price Analysis API",
+    "description": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:41.000Z",
+    "updatedAt": "2026-06-05T13:12:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6d295d54-8020-4389-93be-3c8268c51d9c"
+  },
+  "item": [
+    {
+      "name": "analytics",
+      "item": [
+        {
+          "name": "itinerary-price-metrics",
+          "item": [
+            {
+              "name": "Amadeus GET Itinerary Price Metric",
+              "id": "77ad118c-a094-4d25-9be9-d9230b9bf057",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/analytics/itinerary-price-metrics?originIataCode=Lbt&destinationIataCode=Lbt&departureDate=<string>&currencyCode=EUR&oneWay=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "analytics",
+                    "itinerary-price-metrics"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) airport code, following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), from which the traveler will depart\n",
+                      "key": "originIataCode",
+                      "value": "Lbt"
+                    },
+                    {
+                      "description": "(Required) airport code, following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to which the traveler is going.",
+                      "key": "destinationIataCode",
+                      "value": "Lbt"
+                    },
+                    {
+                      "description": "(Required) The date on which the traveler will depart from the origin to go to the destination. \n\nDates are specified in the[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format.",
+                      "key": "departureDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "the preferred currency for display. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro",
+                      "key": "currencyCode",
+                      "value": "EUR"
+                    },
+                    {
+                      "description": "true to get price metrics for a one way trip,\nfalse to get price metrics for a round trip",
+                      "key": "oneWay",
+                      "value": "false"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6bf4d9f6-6097-47f2-9e8b-6f5da1ecdea7",
+                  "name": "Successful reply",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/analytics/itinerary-price-metrics?originIataCode=Lbt&destinationIataCode=Lbt&departureDate=<string>&currencyCode=EUR&oneWay=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "analytics",
+                        "itinerary-price-metrics"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) airport code, following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), from which the traveler will depart\n",
+                          "key": "originIataCode",
+                          "value": "Lbt"
+                        },
+                        {
+                          "description": "(Required) airport code, following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to which the traveler is going.",
+                          "key": "destinationIataCode",
+                          "value": "Lbt"
+                        },
+                        {
+                          "description": "(Required) The date on which the traveler will depart from the origin to go to the destination. \n\nDates are specified in the[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format.",
+                          "key": "departureDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "the preferred currency for display. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro",
+                          "key": "currencyCode",
+                          "value": "EUR"
+                        },
+                        {
+                          "description": "true to get price metrics for a one way trip,\nfalse to get price metrics for a round trip",
+                          "key": "oneWay",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"warnings\": [\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ],\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"origin\": {\n        \"iataCode\": \"<string>\"\n      },\n      \"destination\": {\n        \"iataCode\": \"<string>\"\n      },\n      \"departureDate\": \"<string>\",\n      \"transportType\": \"FLIGHT\",\n      \"currencyCode\": \"<string>\",\n      \"oneWay\": \"<boolean>\",\n      \"priceMetrics\": [\n        {\n          \"amount\": \"<string>\",\n          \"quartileRanking\": \"MEDIUM\"\n        },\n        {\n          \"amount\": \"<string>\",\n          \"quartileRanking\": \"MAXIMUM\"\n        }\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"origin\": {\n        \"iataCode\": \"<string>\"\n      },\n      \"destination\": {\n        \"iataCode\": \"<string>\"\n      },\n      \"departureDate\": \"<string>\",\n      \"transportType\": \"FLIGHT\",\n      \"currencyCode\": \"<string>\",\n      \"oneWay\": \"<boolean>\",\n      \"priceMetrics\": [\n        {\n          \"amount\": \"<string>\",\n          \"quartileRanking\": \"THIRD\"\n        },\n        {\n          \"amount\": \"<string>\",\n          \"quartileRanking\": \"MAXIMUM\"\n        }\n      ]\n    }\n  ],\n  \"meta\": {\n    \"href\": \"<string>\",\n    \"methods\": [\n      \"POST\",\n      \"PUT\"\n    ]\n  }\n}",
+                  "createdAt": "2026-06-05T13:12:41.000Z",
+                  "updatedAt": "2026-06-05T13:12:41.000Z",
+                  "uid": "35240-6bf4d9f6-6097-47f2-9e8b-6f5da1ecdea7"
+                },
+                {
+                  "id": "57e88fb7-7b00-4897-8093-0a99bc8db7d2",
+                  "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION                            \n32171   | MANDATORY DATA MISSING ",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/analytics/itinerary-price-metrics?originIataCode=Lbt&destinationIataCode=Lbt&departureDate=<string>&currencyCode=EUR&oneWay=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "analytics",
+                        "itinerary-price-metrics"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) airport code, following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), from which the traveler will depart\n",
+                          "key": "originIataCode",
+                          "value": "Lbt"
+                        },
+                        {
+                          "description": "(Required) airport code, following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to which the traveler is going.",
+                          "key": "destinationIataCode",
+                          "value": "Lbt"
+                        },
+                        {
+                          "description": "(Required) The date on which the traveler will depart from the origin to go to the destination. \n\nDates are specified in the[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format.",
+                          "key": "departureDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "the preferred currency for display. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro",
+                          "key": "currencyCode",
+                          "value": "EUR"
+                        },
+                        {
+                          "description": "true to get price metrics for a one way trip,\nfalse to get price metrics for a round trip",
+                          "key": "oneWay",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:41.000Z",
+                  "updatedAt": "2026-06-05T13:12:41.000Z",
+                  "uid": "35240-57e88fb7-7b00-4897-8093-0a99bc8db7d2"
+                },
+                {
+                  "id": "230dca7b-e3ac-4403-ae1f-77b9829a340e",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/analytics/itinerary-price-metrics?originIataCode=Lbt&destinationIataCode=Lbt&departureDate=<string>&currencyCode=EUR&oneWay=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "analytics",
+                        "itinerary-price-metrics"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) airport code, following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), from which the traveler will depart\n",
+                          "key": "originIataCode",
+                          "value": "Lbt"
+                        },
+                        {
+                          "description": "(Required) airport code, following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to which the traveler is going.",
+                          "key": "destinationIataCode",
+                          "value": "Lbt"
+                        },
+                        {
+                          "description": "(Required) The date on which the traveler will depart from the origin to go to the destination. \n\nDates are specified in the[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format.",
+                          "key": "departureDate",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "the preferred currency for display. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro",
+                          "key": "currencyCode",
+                          "value": "EUR"
+                        },
+                        {
+                          "description": "true to get price metrics for a one way trip,\nfalse to get price metrics for a round trip",
+                          "key": "oneWay",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:41.000Z",
+                  "updatedAt": "2026-06-05T13:12:41.000Z",
+                  "uid": "35240-230dca7b-e3ac-4403-ae1f-77b9829a340e"
+                }
+              ],
+              "createdAt": "2026-06-05T13:12:41.000Z",
+              "updatedAt": "2026-06-05T13:12:41.000Z",
+              "uid": "35240-77ad118c-a094-4d25-9be9-d9230b9bf057"
+            }
+          ],
+          "id": "13a2533d-c418-46df-9bbb-b210040e9bc7",
+          "createdAt": "2026-06-05T13:12:41.000Z",
+          "updatedAt": "2026-06-05T13:12:41.000Z",
+          "uid": "35240-13a2533d-c418-46df-9bbb-b210040e9bc7"
+        }
+      ],
+      "id": "85700140-bb6e-45b9-a365-b45a38a310bd",
+      "createdAt": "2026-06-05T13:12:41.000Z",
+      "updatedAt": "2026-06-05T13:12:41.000Z",
+      "uid": "35240-85700140-bb6e-45b9-a365-b45a38a310bd"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

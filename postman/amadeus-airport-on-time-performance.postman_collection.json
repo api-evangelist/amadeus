@@ -1,0 +1,244 @@
+{
+  "info": {
+    "_postman_id": "770b8509-1aed-45d5-bb29-7f538a27c855",
+    "name": "Airport On-Time Performance",
+    "description": "Before using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:45.000Z",
+    "updatedAt": "2026-06-05T13:12:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-770b8509-1aed-45d5-bb29-7f538a27c855"
+  },
+  "item": [
+    {
+      "name": "airport",
+      "item": [
+        {
+          "name": "predictions",
+          "item": [
+            {
+              "name": "on-time",
+              "item": [
+                {
+                  "name": "Amadeus Returns a Percentage of On-time Flight Departures from a Given Airport.",
+                  "id": "bab657f7-302d-4546-a0f5-bfb57ec9e6b3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/airport/predictions/on-time?airportCode=ZWO&date=<date>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "airport",
+                        "predictions",
+                        "on-time"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx), e.g. BOS for Boston",
+                          "key": "airportCode",
+                          "value": "ZWO"
+                        },
+                        {
+                          "description": "(Required) the date on which the traveler will depart from the give airport. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                          "key": "date",
+                          "value": "<date>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "367788f8-e794-4e94-b6d5-efd198165821",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/airport/predictions/on-time?airportCode=ZWO&date=<date>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "airport",
+                            "predictions",
+                            "on-time"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx), e.g. BOS for Boston",
+                              "key": "airportCode",
+                              "value": "ZWO"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the give airport. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                              "key": "date",
+                              "value": "<date>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"subType\": \"<string>\",\n    \"id\": \"<string>\",\n    \"result\": \"<string>\",\n    \"probability\": \"<string>\"\n  },\n  \"meta\": {\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"related\": \"<uri>\",\n      \"type\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:12:46.000Z",
+                      "updatedAt": "2026-06-05T13:12:46.000Z",
+                      "uid": "35240-367788f8-e794-4e94-b6d5-efd198165821"
+                    },
+                    {
+                      "id": "f077d397-56b5-48e9-8b67-6e80bb0796ef",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/airport/predictions/on-time?airportCode=ZWO&date=<date>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "airport",
+                            "predictions",
+                            "on-time"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx), e.g. BOS for Boston",
+                              "key": "airportCode",
+                              "value": "ZWO"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the give airport. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                              "key": "date",
+                              "value": "<date>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:46.000Z",
+                      "updatedAt": "2026-06-05T13:12:46.000Z",
+                      "uid": "35240-f077d397-56b5-48e9-8b67-6e80bb0796ef"
+                    },
+                    {
+                      "id": "f12b29d5-ee8f-4d0c-9eef-f7737e301805",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/airport/predictions/on-time?airportCode=ZWO&date=<date>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "airport",
+                            "predictions",
+                            "on-time"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx), e.g. BOS for Boston",
+                              "key": "airportCode",
+                              "value": "ZWO"
+                            },
+                            {
+                              "description": "(Required) the date on which the traveler will depart from the give airport. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                              "key": "date",
+                              "value": "<date>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:46.000Z",
+                      "updatedAt": "2026-06-05T13:12:46.000Z",
+                      "uid": "35240-f12b29d5-ee8f-4d0c-9eef-f7737e301805"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:12:46.000Z",
+                  "updatedAt": "2026-06-05T13:12:46.000Z",
+                  "uid": "35240-bab657f7-302d-4546-a0f5-bfb57ec9e6b3"
+                }
+              ],
+              "id": "356e0bb6-4414-42bf-b5ed-4e1abbf9d608",
+              "createdAt": "2026-06-05T13:12:46.000Z",
+              "updatedAt": "2026-06-05T13:12:46.000Z",
+              "uid": "35240-356e0bb6-4414-42bf-b5ed-4e1abbf9d608"
+            }
+          ],
+          "id": "d5d80101-cb3b-42cb-843a-fa57b7e8b9d6",
+          "createdAt": "2026-06-05T13:12:46.000Z",
+          "updatedAt": "2026-06-05T13:12:46.000Z",
+          "uid": "35240-d5d80101-cb3b-42cb-843a-fa57b7e8b9d6"
+        }
+      ],
+      "id": "63476b0a-6670-4956-b213-f821c22fd23d",
+      "createdAt": "2026-06-05T13:12:46.000Z",
+      "updatedAt": "2026-06-05T13:12:46.000Z",
+      "uid": "35240-63476b0a-6670-4956-b213-f821c22fd23d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

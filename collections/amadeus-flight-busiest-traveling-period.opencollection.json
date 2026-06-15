@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flight Busiest Traveling Period",
+    "version": "1.0.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "air-traffic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Returns a List of Air Traffic Reports.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/travel/analytics/air-traffic/busiest-period",
+            "params": [
+              {
+                "name": "cityCode",
+                "value": "",
+                "type": "query",
+                "description": "Code for the city following IATA standard. [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. BOS for Boston"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "time period (year) of the statistics.\n\nYear for which the statistic are requested following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)\n"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Use ARRIVING to have statistics on travelers coming to the city or DEPARTING for statistics on travelers leaving the city.\n\nBy default, statistics are given on travelers ARRIVING the city.\n"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns a List of Air Traffic Reports."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

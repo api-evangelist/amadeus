@@ -1,0 +1,270 @@
+{
+  "item": [
+    {
+      "id": "aee4e07b-bd66-4646-93b5-0920a040e3ff",
+      "name": "price-metrics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d27557a2-e275-4e1a-8f3d-712efbdb0d10",
+          "name": "Amadeus GET Itinerary Price Metric",
+          "request": {
+            "name": "Amadeus GET Itinerary Price Metric",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "analytics",
+                "itinerary-price-metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "originIataCode",
+                  "value": "<string>",
+                  "description": "(Required) airport code, following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), from which the traveler will depart\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "destinationIataCode",
+                  "value": "<string>",
+                  "description": "(Required) airport code, following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to which the traveler is going."
+                },
+                {
+                  "disabled": false,
+                  "key": "departureDate",
+                  "value": "<string>",
+                  "description": "(Required) The date on which the traveler will depart from the origin to go to the destination. \n\nDates are specified in the[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format."
+                },
+                {
+                  "disabled": false,
+                  "key": "currencyCode",
+                  "value": "EUR",
+                  "description": "the preferred currency for display. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro"
+                },
+                {
+                  "disabled": false,
+                  "key": "oneWay",
+                  "value": "false",
+                  "description": "true to get price metrics for a one way trip,\nfalse to get price metrics for a round trip"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d881cee6-cb62-495f-971e-c03de73f38b0",
+              "name": "Successful reply",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics",
+                    "itinerary-price-metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originIataCode",
+                      "value": "MAD"
+                    },
+                    {
+                      "key": "destinationIataCode",
+                      "value": "CDG"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2021-03-21"
+                    },
+                    {
+                      "key": "currencyCode",
+                      "value": "EUR"
+                    },
+                    {
+                      "key": "oneWay",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"count\": 1,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/analytics/itinerary-price-metrics?originIataCode=MAD&destinationIataCode=CDG&departureDate=2021-03-21&currencyCode=EUR&oneWay=false\"\n    }\n  },\n  \"data\": [\n    {\n      \"type\": \"itinerary-price-metric\",\n      \"origin\": {\n        \"iataCode\": \"MAD\"\n      },\n      \"destination\": {\n        \"iataCode\": \"CDG\"\n      },\n      \"departureDate\": \"2021-03-21\",\n      \"transportType\": \"FLIGHT\",\n      \"currencyCode\": \"EUR\",\n      \"oneWay\": false,\n      \"priceMetrics\": [\n        {\n          \"amount\": \"43.27\",\n          \"quartileRanking\": \"MINIMUM\"\n        },\n        {\n          \"amount\": \"228.65\",\n          \"quartileRanking\": \"FIRST\"\n        },\n        {\n          \"amount\": \"231.03\",\n          \"quartileRanking\": \"MEDIUM\"\n        },\n        {\n          \"amount\": \"234.48\",\n          \"quartileRanking\": \"THIRD\"\n        },\n        {\n          \"amount\": \"442.62\",\n          \"quartileRanking\": \"MAXIMUM\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "88a21d69-8d82-4ac8-99ea-f7baaf5e1469",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION                            \n32171   | MANDATORY DATA MISSING ",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics",
+                    "itinerary-price-metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originIataCode",
+                      "value": "MAD"
+                    },
+                    {
+                      "key": "destinationIataCode",
+                      "value": "CDG"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2021-03-21"
+                    },
+                    {
+                      "key": "currencyCode",
+                      "value": "EUR"
+                    },
+                    {
+                      "key": "oneWay",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 400,\n      \"code\": 32171,\n      \"title\": \"MANDATORY DATA MISSING\",\n      \"detail\": \"Missing mandatory query parameter\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21a33734-3a19-49fd-8fea-4c68e58af469",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "analytics",
+                    "itinerary-price-metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originIataCode",
+                      "value": "MAD"
+                    },
+                    {
+                      "key": "destinationIataCode",
+                      "value": "CDG"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2021-03-21"
+                    },
+                    {
+                      "key": "currencyCode",
+                      "value": "EUR"
+                    },
+                    {
+                      "key": "oneWay",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ede37da3-6b91-414d-8258-4e6c173c40cc",
+    "name": "Flight Price Analysis API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token.",
+      "type": "text/plain"
+    }
+  }
+}

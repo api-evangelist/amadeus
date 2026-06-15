@@ -1,0 +1,251 @@
+{
+  "info": {
+    "_postman_id": "d97cdda8-b83e-4867-a245-79e29ed813b9",
+    "name": "Airport Routes",
+    "description": "Before using the API you will need to get an access token. Please read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization)** for more information on how to get your token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:46.000Z",
+    "updatedAt": "2026-06-05T13:12:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d97cdda8-b83e-4867-a245-79e29ed813b9"
+  },
+  "item": [
+    {
+      "name": "airport",
+      "item": [
+        {
+          "name": "direct-destinations",
+          "item": [
+            {
+              "name": "Amadeus Get Airport Direct Routes",
+              "id": "92421eb8-b69d-426a-b341-babe8e6299f0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/airport/direct-destinations?departureAirportCode=<string>&max=<integer>&arrivalCountryCode=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "airport",
+                    "direct-destinations"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Departure Airport code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)",
+                      "key": "departureAirportCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of destination in the response.",
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Arrival country code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to filter the list of destinations",
+                      "key": "arrivalCountryCode",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "66d285eb-85ae-4b18-b656-1881e9e9a6af",
+                  "name": "Success Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/airport/direct-destinations?departureAirportCode=<string>&max=<integer>&arrivalCountryCode=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "airport",
+                        "direct-destinations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Departure Airport code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)",
+                          "key": "departureAirportCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of destination in the response.",
+                          "key": "max",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Arrival country code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to filter the list of destinations",
+                          "key": "arrivalCountryCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"warnings\": [\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ],\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"subtype\": \"<string>\",\n      \"name\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"address\": {\n        \"countryName\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"stateCode\": \"<string>\",\n        \"regionCode\": \"<string>\"\n      },\n      \"timeZone\": {\n        \"offSet\": \"<string>\",\n        \"referenceLocalDateTime\": \"<string>\"\n      },\n      \"metrics\": {\n        \"relevance\": \"<integer>\"\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"subtype\": \"<string>\",\n      \"name\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"address\": {\n        \"countryName\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"stateCode\": \"<string>\",\n        \"regionCode\": \"<string>\"\n      },\n      \"timeZone\": {\n        \"offSet\": \"<string>\",\n        \"referenceLocalDateTime\": \"<string>\"\n      },\n      \"metrics\": {\n        \"relevance\": \"<integer>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<long>\",\n    \"links\": {\n      \"self\": \"<uri>\"\n    }\n  }\n}",
+                  "createdAt": "2026-06-05T13:12:47.000Z",
+                  "updatedAt": "2026-06-05T13:12:47.000Z",
+                  "uid": "35240-66d285eb-85ae-4b18-b656-1881e9e9a6af"
+                },
+                {
+                  "id": "1f68a8d7-9702-4614-8fcd-6709b72c17fa",
+                  "name": "Bad Request\n\ncode    | title                                 \n------- | ------------------------------------- \n572     | INVALID OPTION                         \n32171   | MANDATORY DATA MISSING \n477     | INVALID FORMAT                        ",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/airport/direct-destinations?departureAirportCode=<string>&max=<integer>&arrivalCountryCode=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "airport",
+                        "direct-destinations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Departure Airport code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)",
+                          "key": "departureAirportCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of destination in the response.",
+                          "key": "max",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Arrival country code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to filter the list of destinations",
+                          "key": "arrivalCountryCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:47.000Z",
+                  "updatedAt": "2026-06-05T13:12:47.000Z",
+                  "uid": "35240-1f68a8d7-9702-4614-8fcd-6709b72c17fa"
+                },
+                {
+                  "id": "6415069b-04aa-4621-bda6-40dd20debd05",
+                  "name": "Internal Server Error\n\ncode    | title                                 \n------- | ------------------------------------- \n141     | SYSTEM ERROR HAS OCCURRED",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/airport/direct-destinations?departureAirportCode=<string>&max=<integer>&arrivalCountryCode=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "airport",
+                        "direct-destinations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Departure Airport code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)",
+                          "key": "departureAirportCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Maximum number of destination in the response.",
+                          "key": "max",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Arrival country code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to filter the list of destinations",
+                          "key": "arrivalCountryCode",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:47.000Z",
+                  "updatedAt": "2026-06-05T13:12:47.000Z",
+                  "uid": "35240-6415069b-04aa-4621-bda6-40dd20debd05"
+                }
+              ],
+              "createdAt": "2026-06-05T13:12:47.000Z",
+              "updatedAt": "2026-06-05T13:12:47.000Z",
+              "uid": "35240-92421eb8-b69d-426a-b341-babe8e6299f0"
+            }
+          ],
+          "id": "fa4ac458-3557-43af-b470-ba63222b9b53",
+          "createdAt": "2026-06-05T13:12:47.000Z",
+          "updatedAt": "2026-06-05T13:12:47.000Z",
+          "uid": "35240-fa4ac458-3557-43af-b470-ba63222b9b53"
+        }
+      ],
+      "id": "dde18818-8480-4c96-96f6-f3e57661d3fe",
+      "createdAt": "2026-06-05T13:12:47.000Z",
+      "updatedAt": "2026-06-05T13:12:47.000Z",
+      "uid": "35240-dde18818-8480-4c96-96f6-f3e57661d3fe"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

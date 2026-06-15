@@ -1,0 +1,309 @@
+{
+  "info": {
+    "_postman_id": "6a8bb80d-0d64-4731-9075-560c2ca6654e",
+    "name": "Hotel Name Autocomplete",
+    "description": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production for this API it may change dynamically. For your tests, use big cities like LON (London) or NYC (New-York).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:13:03.000Z",
+    "updatedAt": "2026-06-05T13:13:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6a8bb80d-0d64-4731-9075-560c2ca6654e"
+  },
+  "item": [
+    {
+      "name": "reference-data",
+      "item": [
+        {
+          "name": "locations",
+          "item": [
+            {
+              "name": "hotel",
+              "item": [
+                {
+                  "name": "Amadeus Returns a List of Hotels Matching a Given Keyword.",
+                  "id": "31f11a09-2783-483e-83d1-96d9b77d1e51",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/locations/hotel?keyword=GLel6Gc0-0PK7w4nSn9GvxSN*5L4cz'ES&subType=HOTEL_GDS&subType=HOTEL_GDS&countryCode=OK&lang=EN&max=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "locations",
+                        "hotel"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Location query keyword",
+                          "key": "keyword",
+                          "value": "GLel6Gc0-0PK7w4nSn9GvxSN*5L4cz'ES"
+                        },
+                        {
+                          "description": "(Required) Category of search - To enter several values, repeat the query parameter \nUse HOTEL_LEISURE to target aggregators or HOTEL_GDS to target directly the chains",
+                          "key": "subType",
+                          "value": "HOTEL_GDS"
+                        },
+                        {
+                          "description": "(Required) Category of search - To enter several values, repeat the query parameter \nUse HOTEL_LEISURE to target aggregators or HOTEL_GDS to target directly the chains",
+                          "key": "subType",
+                          "value": "HOTEL_GDS"
+                        },
+                        {
+                          "description": "The country in which you search the subType. Country Code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format",
+                          "key": "countryCode",
+                          "value": "OK"
+                        },
+                        {
+                          "description": "The language in which you want the results in following [ISO 639-1](https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1). \n\nIf the language entered is not available then the results will be shown in the default language, English.",
+                          "key": "lang",
+                          "value": "EN"
+                        },
+                        {
+                          "description": "The number of results requested from 1 to 20",
+                          "key": "max",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "40d7fab9-5506-4cf5-b665-54e3c1fbd7a9",
+                      "name": "Successful Search Operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/hotel?keyword=GLel6Gc0-0PK7w4nSn9GvxSN*5L4cz'ES&subType=HOTEL_GDS&countryCode=OK&lang=EN&max=20",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "hotel"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Location query keyword",
+                              "key": "keyword",
+                              "value": "GLel6Gc0-0PK7w4nSn9GvxSN*5L4cz'ES"
+                            },
+                            {
+                              "description": "(Required) Category of search - To enter several values, repeat the query parameter \nUse HOTEL_LEISURE to target aggregators or HOTEL_GDS to target directly the chains",
+                              "key": "subType",
+                              "value": "HOTEL_GDS"
+                            },
+                            {
+                              "description": "The country in which you search the subType. Country Code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format",
+                              "key": "countryCode",
+                              "value": "OK"
+                            },
+                            {
+                              "description": "The language in which you want the results in following [ISO 639-1](https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1). \n\nIf the language entered is not available then the results will be shown in the default language, English.",
+                              "key": "lang",
+                              "value": "EN"
+                            },
+                            {
+                              "description": "The number of results requested from 1 to 20",
+                              "key": "max",
+                              "value": "20"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<number>\",\n      \"type\": \"<string>\",\n      \"name\": \"F Dp0bmePM\",\n      \"iataCode\": \"QBQ\",\n      \"hotelIds\": [\n        \"<string>\"\n      ],\n      \"subType\": \"HOTEL_GDS\",\n      \"address\": {\n        \"cityName\": \"1WSLWibs3\",\n        \"countryCode\": \"OK\",\n        \"stateCode\": \"VL\"\n      },\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"relevance\": \"<integer>\"\n    },\n    {\n      \"id\": \"<number>\",\n      \"type\": \"<string>\",\n      \"name\": \"WNmXI\",\n      \"iataCode\": \"DUW\",\n      \"hotelIds\": [\n        \"<string>\"\n      ],\n      \"subType\": \"HOTEL_GDS\",\n      \"address\": {\n        \"cityName\": \"5LfhOx4XT\",\n        \"countryCode\": \"ON\",\n        \"stateCode\": \"UW\"\n      },\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"relevance\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:04.000Z",
+                      "updatedAt": "2026-06-05T13:13:04.000Z",
+                      "uid": "35240-40d7fab9-5506-4cf5-b665-54e3c1fbd7a9"
+                    },
+                    {
+                      "id": "37e151fe-dad7-4c01-8a11-bc1bfcaac75b",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | NOT FOUND \n1797    | INVALID FORMAT\n572     | INVALID LENGTH\n32171   | MANDATORY DATA MISSING \t     \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/hotel?keyword=GLel6Gc0-0PK7w4nSn9GvxSN*5L4cz'ES&subType=HOTEL_GDS&countryCode=OK&lang=EN&max=20",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "hotel"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Location query keyword",
+                              "key": "keyword",
+                              "value": "GLel6Gc0-0PK7w4nSn9GvxSN*5L4cz'ES"
+                            },
+                            {
+                              "description": "(Required) Category of search - To enter several values, repeat the query parameter \nUse HOTEL_LEISURE to target aggregators or HOTEL_GDS to target directly the chains",
+                              "key": "subType",
+                              "value": "HOTEL_GDS"
+                            },
+                            {
+                              "description": "The country in which you search the subType. Country Code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format",
+                              "key": "countryCode",
+                              "value": "OK"
+                            },
+                            {
+                              "description": "The language in which you want the results in following [ISO 639-1](https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1). \n\nIf the language entered is not available then the results will be shown in the default language, English.",
+                              "key": "lang",
+                              "value": "EN"
+                            },
+                            {
+                              "description": "The number of results requested from 1 to 20",
+                              "key": "max",
+                              "value": "20"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\",\n        \"parameter\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\",\n        \"parameter\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:04.000Z",
+                      "updatedAt": "2026-06-05T13:13:04.000Z",
+                      "uid": "35240-37e151fe-dad7-4c01-8a11-bc1bfcaac75b"
+                    },
+                    {
+                      "id": "704692c8-4b61-467b-b096-89f197248fd4",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/hotel?keyword=GLel6Gc0-0PK7w4nSn9GvxSN*5L4cz'ES&subType=HOTEL_GDS&countryCode=OK&lang=EN&max=20",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "hotel"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Location query keyword",
+                              "key": "keyword",
+                              "value": "GLel6Gc0-0PK7w4nSn9GvxSN*5L4cz'ES"
+                            },
+                            {
+                              "description": "(Required) Category of search - To enter several values, repeat the query parameter \nUse HOTEL_LEISURE to target aggregators or HOTEL_GDS to target directly the chains",
+                              "key": "subType",
+                              "value": "HOTEL_GDS"
+                            },
+                            {
+                              "description": "The country in which you search the subType. Country Code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format",
+                              "key": "countryCode",
+                              "value": "OK"
+                            },
+                            {
+                              "description": "The language in which you want the results in following [ISO 639-1](https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1). \n\nIf the language entered is not available then the results will be shown in the default language, English.",
+                              "key": "lang",
+                              "value": "EN"
+                            },
+                            {
+                              "description": "The number of results requested from 1 to 20",
+                              "key": "max",
+                              "value": "20"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\",\n        \"parameter\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\",\n        \"parameter\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:04.000Z",
+                      "updatedAt": "2026-06-05T13:13:04.000Z",
+                      "uid": "35240-704692c8-4b61-467b-b096-89f197248fd4"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:13:04.000Z",
+                  "updatedAt": "2026-06-05T13:13:04.000Z",
+                  "uid": "35240-31f11a09-2783-483e-83d1-96d9b77d1e51"
+                }
+              ],
+              "id": "170dd656-0236-4c30-8b6b-48f23960f8d3",
+              "createdAt": "2026-06-05T13:13:04.000Z",
+              "updatedAt": "2026-06-05T13:13:04.000Z",
+              "uid": "35240-170dd656-0236-4c30-8b6b-48f23960f8d3"
+            }
+          ],
+          "id": "595a470b-1a16-469b-a987-693272348844",
+          "createdAt": "2026-06-05T13:13:04.000Z",
+          "updatedAt": "2026-06-05T13:13:04.000Z",
+          "uid": "35240-595a470b-1a16-469b-a987-693272348844"
+        }
+      ],
+      "id": "46d7d547-b882-4ca7-9bef-ed09766a1924",
+      "createdAt": "2026-06-05T13:13:04.000Z",
+      "updatedAt": "2026-06-05T13:13:04.000Z",
+      "uid": "35240-46d7d547-b882-4ca7-9bef-ed09766a1924"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

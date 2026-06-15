@@ -1,0 +1,134 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hotel Search API",
+    "version": "3.0.9"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "shopping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus GetMultiHotelOffers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/shopping/hotel-offers",
+            "params": [
+              {
+                "name": "hotelIds",
+                "value": "",
+                "type": "query",
+                "description": "Amadeus property codes on 8 chars. Mandatory parameter for a search by predefined list of hotels."
+              },
+              {
+                "name": "adults",
+                "value": "",
+                "type": "query",
+                "description": "Number of adult guests (1-9) per room."
+              },
+              {
+                "name": "checkInDate",
+                "value": "",
+                "type": "query",
+                "description": "Check-in date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is the present date (no dates in the past). If not present, the default value will be today's date in the GMT time zone."
+              },
+              {
+                "name": "checkOutDate",
+                "value": "",
+                "type": "query",
+                "description": "Check-out date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is checkInDate+1. If not present, it will default to checkInDate +1."
+              },
+              {
+                "name": "countryOfResidence",
+                "value": "",
+                "type": "query",
+                "description": "Code of the country of residence of the traveler expressed using ISO 3166-1 format."
+              },
+              {
+                "name": "roomQuantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of rooms requested (1-9)."
+              },
+              {
+                "name": "priceRange",
+                "value": "",
+                "type": "query",
+                "description": "Filter hotel offers by price per night interval (ex: 200-300 or -300 or 100).\nIt is mandatory to include a currency when this field is set."
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to request a specific currency. ISO currency code (http://www.iso.org/iso/home/standards/currency_codes.htm).\nIf a hotel does not support the requested currency, the prices for the hotel will be returned in the local currency of the hotel."
+              },
+              {
+                "name": "paymentPolicy",
+                "value": "",
+                "type": "query",
+                "description": "Filter the response based on a specific payment type. NONE means all types (default)."
+              },
+              {
+                "name": "boardType",
+                "value": "",
+                "type": "query",
+                "description": "Filter response based on available meals:\n        * ROOM_ONLY = Room Only\n        * BREAKFAST = Breakfast\n        * HALF_BOARD = Diner & Breakfast (only for Aggregators)\n        * FULL_BOARD = Full Board (only for Aggregators)\n        * ALL_INCLUSIVE = All Inclusive (only for Aggregators)"
+              },
+              {
+                "name": "includeClosed",
+                "value": "",
+                "type": "query",
+                "description": "Show all properties (include sold out) or available only. For sold out properties, please check availability on other dates."
+              },
+              {
+                "name": "bestRateOnly",
+                "value": "",
+                "type": "query",
+                "description": "Used to return only the cheapest offer per hotel or all available offers."
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html)."
+              }
+            ]
+          },
+          "docs": "Amadeus GetMultiHotelOffers"
+        },
+        {
+          "info": {
+            "name": "Amadeus GetOfferPricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/shopping/hotel-offers/:offerId",
+            "params": [
+              {
+                "name": "offerId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html)."
+              }
+            ]
+          },
+          "docs": " "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

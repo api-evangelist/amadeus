@@ -1,0 +1,284 @@
+{
+  "info": {
+    "_postman_id": "bd493f06-b20a-4750-928f-b34ff2b8ea2b",
+    "name": "City Search",
+    "description": "Before using the API you will need to get an access token. Please read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to get your token.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:51.000Z",
+    "updatedAt": "2026-06-05T13:12:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bd493f06-b20a-4750-928f-b34ff2b8ea2b"
+  },
+  "item": [
+    {
+      "name": "reference-data",
+      "item": [
+        {
+          "name": "locations",
+          "item": [
+            {
+              "name": "cities",
+              "item": [
+                {
+                  "name": "Amadeus GET Cities by Keyword",
+                  "id": "a33c494c-81ec-4f23-8b6a-23b7e7dd3dbe",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/locations/cities?countryCode=<string>&keyword=<string>&max=<integer>&include=AIRPORTS,AIRPORTS",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "locations",
+                        "cities"
+                      ],
+                      "query": [
+                        {
+                          "description": "ISO 3166 Alpha-2 code. e.g. \"US\" United States of America.",
+                          "key": "countryCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) keyword that should represent the start of a word in a city name.",
+                          "key": "keyword",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of results user want to see in response.",
+                          "key": "max",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Resources to be included example : Airports",
+                          "key": "include",
+                          "value": "AIRPORTS,AIRPORTS"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "a5f25ce0-ed89-4d74-860c-a22f0dc8374f",
+                      "name": "Successful Reply",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/cities?countryCode=<string>&keyword=<string>&max=<integer>&include=AIRPORTS,AIRPORTS",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "cities"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 3166 Alpha-2 code. e.g. \"US\" United States of America.",
+                              "key": "countryCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) keyword that should represent the start of a word in a city name.",
+                              "key": "keyword",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Number of results user want to see in response.",
+                              "key": "max",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Resources to be included example : Airports",
+                              "key": "include",
+                              "value": "AIRPORTS,AIRPORTS"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"warnings\": [\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<long>\",\n    \"links\": {\n      \"self\": \"<string>\"\n    }\n  },\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"relationships\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"href\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"href\": \"<string>\"\n        }\n      ],\n      \"subtype\": \"<string>\",\n      \"name\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"address\": {\n        \"postalCode\": \"<string>\",\n        \"countryCode\": \"Bm\",\n        \"stateCode\": \"w\"\n      },\n      \"geoCode\": {\n        \"latitude\": \"<float>\",\n        \"longitude\": \"<float>\"\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"relationships\": [\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"href\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"type\": \"<string>\",\n          \"href\": \"<string>\"\n        }\n      ],\n      \"subtype\": \"<string>\",\n      \"name\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"address\": {\n        \"postalCode\": \"<string>\",\n        \"countryCode\": \"hy\",\n        \"stateCode\": \"R\"\n      },\n      \"geoCode\": {\n        \"latitude\": \"<float>\",\n        \"longitude\": \"<float>\"\n      }\n    }\n  ],\n  \"included\": {\n    \"airports\": {\n      \"ut_98\": {\n        \"type\": \"<string>\",\n        \"relationships\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"href\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"href\": \"<string>\"\n          }\n        ],\n        \"subtype\": \"<string>\",\n        \"name\": \"<string>\",\n        \"iataCode\": \"<string>\",\n        \"address\": {\n          \"postalCode\": \"<string>\",\n          \"countryCode\": \"Gx\",\n          \"stateCode\": \"C\"\n        },\n        \"geoCode\": {\n          \"latitude\": \"<float>\",\n          \"longitude\": \"<float>\"\n        }\n      }\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:12:52.000Z",
+                      "updatedAt": "2026-06-05T13:12:52.000Z",
+                      "uid": "35240-a5f25ce0-ed89-4d74-860c-a22f0dc8374f"
+                    },
+                    {
+                      "id": "1a2d3d31-3c01-48c8-9e46-70d5472b31c3",
+                      "name": "Bad Request\n\ncode    | title                                 \n------- | -------------------------------------                        \n32171   | MANDATORY DATA MISSING \n572     | INVALID OPTION\n2781    | INVALID LENGTH\n477     | INVALID FORMAT\n4926    | IN",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/cities?countryCode=<string>&keyword=<string>&max=<integer>&include=AIRPORTS,AIRPORTS",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "cities"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 3166 Alpha-2 code. e.g. \"US\" United States of America.",
+                              "key": "countryCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) keyword that should represent the start of a word in a city name.",
+                              "key": "keyword",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Number of results user want to see in response.",
+                              "key": "max",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Resources to be included example : Airports",
+                              "key": "include",
+                              "value": "AIRPORTS,AIRPORTS"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:52.000Z",
+                      "updatedAt": "2026-06-05T13:12:52.000Z",
+                      "uid": "35240-1a2d3d31-3c01-48c8-9e46-70d5472b31c3"
+                    },
+                    {
+                      "id": "44f2fc3c-665a-4e41-a027-ece905a496a7",
+                      "name": "Internal Server Error\n\ncode    | title                                 \n------- | ------------------------------------- \n141     | SYSTEM ERROR HAS OCCURRED",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/cities?countryCode=<string>&keyword=<string>&max=<integer>&include=AIRPORTS,AIRPORTS",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "cities"
+                          ],
+                          "query": [
+                            {
+                              "description": "ISO 3166 Alpha-2 code. e.g. \"US\" United States of America.",
+                              "key": "countryCode",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) keyword that should represent the start of a word in a city name.",
+                              "key": "keyword",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Number of results user want to see in response.",
+                              "key": "max",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Resources to be included example : Airports",
+                              "key": "include",
+                              "value": "AIRPORTS,AIRPORTS"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:52.000Z",
+                      "updatedAt": "2026-06-05T13:12:52.000Z",
+                      "uid": "35240-44f2fc3c-665a-4e41-a027-ece905a496a7"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:12:52.000Z",
+                  "updatedAt": "2026-06-05T13:12:52.000Z",
+                  "uid": "35240-a33c494c-81ec-4f23-8b6a-23b7e7dd3dbe"
+                }
+              ],
+              "id": "802d05e8-85be-47c3-a75e-9b6bfc458357",
+              "createdAt": "2026-06-05T13:12:52.000Z",
+              "updatedAt": "2026-06-05T13:12:52.000Z",
+              "uid": "35240-802d05e8-85be-47c3-a75e-9b6bfc458357"
+            }
+          ],
+          "id": "95c2e710-02c4-4177-b7b0-46451a8aaa2c",
+          "createdAt": "2026-06-05T13:12:52.000Z",
+          "updatedAt": "2026-06-05T13:12:52.000Z",
+          "uid": "35240-95c2e710-02c4-4177-b7b0-46451a8aaa2c"
+        }
+      ],
+      "id": "ef462a18-ad8c-4054-8dcb-0cd59fd71452",
+      "createdAt": "2026-06-05T13:12:52.000Z",
+      "updatedAt": "2026-06-05T13:12:52.000Z",
+      "uid": "35240-ef462a18-ad8c-4054-8dcb-0cd59fd71452"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

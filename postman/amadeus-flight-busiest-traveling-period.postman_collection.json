@@ -1,0 +1,277 @@
+{
+  "info": {
+    "_postman_id": "f6213315-a4ba-430d-9587-77fcfe0368ce",
+    "name": "Flight Busiest Traveling Period",
+    "description": "\nBefore using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production, to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:56.000Z",
+    "updatedAt": "2026-06-05T13:12:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f6213315-a4ba-430d-9587-77fcfe0368ce"
+  },
+  "item": [
+    {
+      "name": "travel",
+      "item": [
+        {
+          "name": "analytics",
+          "item": [
+            {
+              "name": "air-traffic",
+              "item": [
+                {
+                  "name": "busiest-period",
+                  "item": [
+                    {
+                      "name": "Amadeus Returns a List of Air Traffic Reports.",
+                      "id": "caa412cf-82be-40d5-8fb3-007336410ca2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/travel/analytics/air-traffic/busiest-period?cityCode=hsS&period=<string>&direction=ARRIVING",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "travel",
+                            "analytics",
+                            "air-traffic",
+                            "busiest-period"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Code for the city following IATA standard. [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. BOS for Boston",
+                              "key": "cityCode",
+                              "value": "hsS"
+                            },
+                            {
+                              "description": "(Required) time period (year) of the statistics.\n\nYear for which the statistic are requested following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)\n",
+                              "key": "period",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Use ARRIVING to have statistics on travelers coming to the city or DEPARTING for statistics on travelers leaving the city.\n\nBy default, statistics are given on travelers ARRIVING the city.\n",
+                              "key": "direction",
+                              "value": "ARRIVING"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9ec18169-8ef3-4fa1-8f07-bbcc8f8adce9",
+                          "name": "Successful Operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/travel/analytics/air-traffic/busiest-period?cityCode=hsS&period=<string>&direction=ARRIVING",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "travel",
+                                "analytics",
+                                "air-traffic",
+                                "busiest-period"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Code for the city following IATA standard. [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. BOS for Boston",
+                                  "key": "cityCode",
+                                  "value": "hsS"
+                                },
+                                {
+                                  "description": "(Required) time period (year) of the statistics.\n\nYear for which the statistic are requested following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)\n",
+                                  "key": "period",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Use ARRIVING to have statistics on travelers coming to the city or DEPARTING for statistics on travelers leaving the city.\n\nBy default, statistics are given on travelers ARRIVING the city.\n",
+                                  "key": "direction",
+                                  "value": "ARRIVING"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"period\": \"<string>\",\n      \"analytics\": {\n        \"travelers\": {\n          \"score\": \"<number>\"\n        }\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"period\": \"<string>\",\n      \"analytics\": {\n        \"travelers\": {\n          \"score\": \"<number>\"\n        }\n      }\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                          "createdAt": "2026-06-05T13:12:56.000Z",
+                          "updatedAt": "2026-06-05T13:12:56.000Z",
+                          "uid": "35240-9ec18169-8ef3-4fa1-8f07-bbcc8f8adce9"
+                        },
+                        {
+                          "id": "0e559cd9-8e19-4e3a-b6b6-85234b8ad72f",
+                          "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/travel/analytics/air-traffic/busiest-period?cityCode=hsS&period=<string>&direction=ARRIVING",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "travel",
+                                "analytics",
+                                "air-traffic",
+                                "busiest-period"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Code for the city following IATA standard. [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. BOS for Boston",
+                                  "key": "cityCode",
+                                  "value": "hsS"
+                                },
+                                {
+                                  "description": "(Required) time period (year) of the statistics.\n\nYear for which the statistic are requested following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)\n",
+                                  "key": "period",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Use ARRIVING to have statistics on travelers coming to the city or DEPARTING for statistics on travelers leaving the city.\n\nBy default, statistics are given on travelers ARRIVING the city.\n",
+                                  "key": "direction",
+                                  "value": "ARRIVING"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T13:12:56.000Z",
+                          "updatedAt": "2026-06-05T13:12:56.000Z",
+                          "uid": "35240-0e559cd9-8e19-4e3a-b6b6-85234b8ad72f"
+                        },
+                        {
+                          "id": "db0ecb77-0295-4b73-a631-13ead6be0db0",
+                          "name": "Unexpected Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/travel/analytics/air-traffic/busiest-period?cityCode=hsS&period=<string>&direction=ARRIVING",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "travel",
+                                "analytics",
+                                "air-traffic",
+                                "busiest-period"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Code for the city following IATA standard. [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. BOS for Boston",
+                                  "key": "cityCode",
+                                  "value": "hsS"
+                                },
+                                {
+                                  "description": "(Required) time period (year) of the statistics.\n\nYear for which the statistic are requested following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)\n",
+                                  "key": "period",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Use ARRIVING to have statistics on travelers coming to the city or DEPARTING for statistics on travelers leaving the city.\n\nBy default, statistics are given on travelers ARRIVING the city.\n",
+                                  "key": "direction",
+                                  "value": "ARRIVING"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T13:12:56.000Z",
+                          "updatedAt": "2026-06-05T13:12:56.000Z",
+                          "uid": "35240-db0ecb77-0295-4b73-a631-13ead6be0db0"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:12:56.000Z",
+                      "updatedAt": "2026-06-05T13:12:56.000Z",
+                      "uid": "35240-caa412cf-82be-40d5-8fb3-007336410ca2"
+                    }
+                  ],
+                  "id": "b6dfb52d-7aa4-4dad-9185-1e35b9b4df1b",
+                  "createdAt": "2026-06-05T13:12:56.000Z",
+                  "updatedAt": "2026-06-05T13:12:56.000Z",
+                  "uid": "35240-b6dfb52d-7aa4-4dad-9185-1e35b9b4df1b"
+                }
+              ],
+              "id": "e5e752d8-85bf-495b-a55f-36c309cd3abe",
+              "createdAt": "2026-06-05T13:12:56.000Z",
+              "updatedAt": "2026-06-05T13:12:56.000Z",
+              "uid": "35240-e5e752d8-85bf-495b-a55f-36c309cd3abe"
+            }
+          ],
+          "id": "eab28e58-d6ab-47d2-a099-7db87813d7b2",
+          "createdAt": "2026-06-05T13:12:56.000Z",
+          "updatedAt": "2026-06-05T13:12:56.000Z",
+          "uid": "35240-eab28e58-d6ab-47d2-a099-7db87813d7b2"
+        }
+      ],
+      "id": "21f1b733-1eb4-4bd5-8d0f-227a7f7625bb",
+      "createdAt": "2026-06-05T13:12:56.000Z",
+      "updatedAt": "2026-06-05T13:12:56.000Z",
+      "uid": "35240-21f1b733-1eb4-4bd5-8d0f-227a7f7625bb"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

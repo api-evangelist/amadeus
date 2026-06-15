@@ -1,0 +1,371 @@
+{
+  "item": [
+    {
+      "id": "5649af15-8642-413a-aefd-6bbc30b3923c",
+      "name": "flight-destinations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c514d683-a42a-46b6-a6a1-269280fa5acf",
+          "name": "Amadeus Find the Cheapest Destinations Where You Can Fly to.",
+          "request": {
+            "name": "Amadeus Find the Cheapest Destinations Where You Can Fly to.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "flight-destinations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "origin",
+                  "value": "<string>",
+                  "description": "(Required) IATA code of the city from which the flight will depart\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. MAD for Madrid\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "departureDate",
+                  "value": "<string>",
+                  "description": "The date, or range of dates, on which the flight will depart from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25. \n\nRanges are specified with a comma and are inclusive\n\nDeparture date can not be more than 180 days in the future.\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "oneWay",
+                  "value": "false",
+                  "description": "if this parameter is set to true, only one-way flights are considered. If this parameter is not set or set to false, only round-trip flights are considered"
+                },
+                {
+                  "disabled": false,
+                  "key": "duration",
+                  "value": "<string>",
+                  "description": "Exact duration or range of durations of the travel, in days.\n\nThis parameter must not be set if oneWay is true. \n\nRanges are specified with a comma and are inclusive, e.g. 2,8\n\nDuration can not be lower than 1 days or higher than 15 days\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "nonStop",
+                  "value": "false",
+                  "description": "if this parameter is set to true, only flights going from the origin to the destination with no stop in-between are considered"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxPrice",
+                  "value": "<long>",
+                  "description": "defines the price limit for each offer returned. The value should be a positive number, without decimals"
+                },
+                {
+                  "disabled": false,
+                  "key": "viewBy",
+                  "value": "<string>",
+                  "description": "view the flight destinations by DATE, DESTINATION, DURATION, WEEK, or COUNTRY. View by DATE (default when oneWay is true) to get the cheapest flight destination for every departure date in the given range. View by DURATION (default when oneWay is false) to get the cheapest flight destination for every departure date and for every duration in the given ranges. View by WEEK to get the cheapest flight destination for every week in the given range of departure dates. View by COUNTRY to get the cheapest flight destination by country. Note that specifying a detailed view but large ranges may result in a huge number of flight destinations being returned. For some very large numbers of flight destinations, the API may refuse to provide a response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96981cd6-dba0-4685-80a7-ca44e329008a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "origin",
+                      "value": "MAD"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2026-08-15"
+                    },
+                    {
+                      "key": "oneWay",
+                      "value": "true"
+                    },
+                    {
+                      "key": "duration",
+                      "value": "PT2H30M"
+                    },
+                    {
+                      "key": "nonStop",
+                      "value": "true"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "viewBy",
+                      "value": "COUNTRY"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"flight-destination\",\n      \"origin\": \"PAR\",\n      \"destination\": \"DXB\",\n      \"departureDate\": \"2017-08-19\",\n      \"returnDate\": \"2017-08-22\",\n      \"price\": {\n        \"total\": \"932.70\"\n      },\n      \"links\": {\n        \"flightDates\": \"https://test.api.amadeus.com/v1/shopping/flight-dates?origin=PAR\",\n        \"flightOffers\": \"https://test.api.amadeus.com/v1/shopping/flight-offers?origin=PAR&destination=MAD&departureDate=2017-08-26&returnDate=2017-08-30&adults=1\"\n      }\n    },\n    {\n      \"type\": \"flight-destination\",\n      \"origin\": \"PAR\",\n      \"destination\": \"DXB\",\n      \"departureDate\": \"2017-08-19\",\n      \"returnDate\": \"2017-08-22\",\n      \"price\": {\n        \"total\": \"932.70\"\n      },\n      \"links\": {\n        \"flightDates\": \"https://test.api.amadeus.com/v1/shopping/flight-dates?origin=PAR\",\n        \"flightOffers\": \"https://test.api.amadeus.com/v1/shopping/flight-offers?origin=PAR&destination=MAD&departureDate=2017-08-26&returnDate=2017-08-30&adults=1\"\n      }\n    }\n  ],\n  \"dictionaries\": {\n    \"currencies\": {\n      \"key_0\": \"EUR\",\n      \"key_1\": \"EUR\",\n      \"key_2\": \"EUR\"\n    },\n    \"locations\": {\n      \"key_0\": {\n        \"subType\": \"AIRPORT\",\n        \"detailedName\": \"Paris/FR: Charles de Gaulle\"\n      }\n    }\n  },\n  \"meta\": {\n    \"currency\": \"EUR\",\n    \"links\": {\n      \"self\": \"https://example.com/resource\"\n    },\n    \"defaults\": {\n      \"departureDate\": \"2011-09-10,2011-09-15\",\n      \"oneWay\": true,\n      \"duration\": \"2,5\",\n      \"nonStop\": true,\n      \"viewBy\": \"COUNTRY\"\n    }\n  },\n  \"warnings\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee770e34-8576-4a17-b085-6022bc164eab",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "origin",
+                      "value": "MAD"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2026-08-15"
+                    },
+                    {
+                      "key": "oneWay",
+                      "value": "true"
+                    },
+                    {
+                      "key": "duration",
+                      "value": "PT2H30M"
+                    },
+                    {
+                      "key": "nonStop",
+                      "value": "true"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "viewBy",
+                      "value": "COUNTRY"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "13e81006-87ea-49ce-8fd4-bf49468ff4f7",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n6003    | ITEM/DATA NOT FOUND OR DATA NOT EXISTING\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "origin",
+                      "value": "MAD"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2026-08-15"
+                    },
+                    {
+                      "key": "oneWay",
+                      "value": "true"
+                    },
+                    {
+                      "key": "duration",
+                      "value": "PT2H30M"
+                    },
+                    {
+                      "key": "nonStop",
+                      "value": "true"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "viewBy",
+                      "value": "COUNTRY"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 404,\n      \"code\": 1797,\n      \"title\": \"NOT FOUND\",\n      \"detail\": \"no response found for this query parameter\",\n      \"source\": {\n        \"parameter\": \"airport\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c14522c-6929-45c3-b814-867244680eeb",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "origin",
+                      "value": "MAD"
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": "2026-08-15"
+                    },
+                    {
+                      "key": "oneWay",
+                      "value": "true"
+                    },
+                    {
+                      "key": "duration",
+                      "value": "PT2H30M"
+                    },
+                    {
+                      "key": "nonStop",
+                      "value": "true"
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "viewBy",
+                      "value": "COUNTRY"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "90d52327-7113-41ef-b747-214cdb2497fb",
+    "name": "Flight Inspiration Search",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production, to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "item": [
+    {
+      "id": "4a05f263-6e43-40ba-ac36-723504b51ec8",
+      "name": "direct-destinations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9fccea0b-08e3-4868-8c74-d10157e845ed",
+          "name": "Amadeus Get Airport Direct Routes",
+          "request": {
+            "name": "Amadeus Get Airport Direct Routes",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "airport",
+                "direct-destinations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "departureAirportCode",
+                  "value": "<string>",
+                  "description": "(Required) Departure Airport code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum number of destination in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "arrivalCountryCode",
+                  "value": "<string>",
+                  "description": "Arrival country code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to filter the list of destinations"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a21ba605-52ce-4305-b260-bbb0d485adec",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airport",
+                    "direct-destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "departureAirportCode",
+                      "value": "BLR"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    },
+                    {
+                      "key": "arrivalCountryCode",
+                      "value": "FR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"count\": 3,\n    \"links\": {\n      \"self\": \"https://api.amadeus.com/v1/airport/direct-destinations?departureAirportCode=ORY&max=3&arrivalCountryCode=FR\"\n    }\n  },\n  \"data\": [\n    {\n      \"type\": \"location\",\n      \"subtype\": \"city\",\n      \"name\": \"TOULOUSE\",\n      \"iataCode\": \"TLS\",\n      \"geoCode\": {\n        \"latitude\": 43.62908,\n        \"longitude\": 1.36382\n      },\n      \"address\": {\n        \"cityName\": \"TOULOUSE\",\n        \"countryName\": \"FRANCE\",\n        \"stateCode\": \"FR-31\",\n        \"regionCode\": \"EUROP\"\n      },\n      \"timeZone\": {\n        \"offset\": \"+02:00\",\n        \"referenceLocalDateTime\": \"2022-10-25T10:17:00\"\n      },\n      \"metrics\": {\n        \"relevance\": 100\n      }\n    },\n    {\n      \"type\": \"location\",\n      \"subtype\": \"city\",\n      \"name\": \"NICE\",\n      \"iataCode\": \"NCE\",\n      \"geoCode\": {\n        \"latitude\": 43.66272,\n        \"longitude\": 7.20787\n      },\n      \"address\": {\n        \"cityName\": \"NICE\",\n        \"countryName\": \"FRANCE\",\n        \"stateCode\": \"FR-06\",\n        \"regionCode\": \"EUROP\"\n      },\n      \"timeZone\": {\n        \"offset\": \"+02:00\",\n        \"referenceLocalDateTime\": \"2022-10-25T10:17:00\"\n      },\n      \"metrics\": {\n        \"relevance\": 97\n      }\n    },\n    {\n      \"type\": \"location\",\n      \"subtype\": \"city\",\n      \"name\": \"MARSEILLE\",\n      \"iataCode\": \"MRS\",\n      \"geoCode\": {\n        \"latitude\": 43.43556,\n        \"longitude\": 5.21361\n      },\n      \"address\": {\n        \"cityName\": \"MARSEILLE\",\n        \"countryName\": \"FRANCE\",\n        \"stateCode\": \"FR-06\",\n        \"regionCode\": \"EUROP\"\n      },\n      \"timeZone\": {\n        \"offset\": \"+02:00\",\n        \"referenceLocalDateTime\": \"2022-10-25T10:17:00\"\n      },\n      \"metrics\": {\n        \"relevance\": 45\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d763138-99b9-4b69-aebf-e4e4b2e6b14c",
+              "name": "Bad Request\n\ncode    | title                                 \n------- | ------------------------------------- \n572     | INVALID OPTION                         \n32171   | MANDATORY DATA MISSING \n477     | INVALID FORMAT                        ",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airport",
+                    "direct-destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "departureAirportCode",
+                      "value": "BLR"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    },
+                    {
+                      "key": "arrivalCountryCode",
+                      "value": "FR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 400,\n      \"code\": 32171,\n      \"title\": \"MANDATORY DATA MISSING\",\n      \"detail\": \"Missing mandatory query parameter 'departureAirportCode\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "184a0d16-0978-4849-95be-62b5bef902cf",
+              "name": "Internal Server Error\n\ncode    | title                                 \n------- | ------------------------------------- \n141     | SYSTEM ERROR HAS OCCURRED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airport",
+                    "direct-destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "departureAirportCode",
+                      "value": "BLR"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    },
+                    {
+                      "key": "arrivalCountryCode",
+                      "value": "FR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5bc5760e-2703-4c49-b500-b826801ddfdb",
+    "name": "Airport Routes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using the API you will need to get an access token. Please read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization)** for more information on how to get your token.",
+      "type": "text/plain"
+    }
+  }
+}

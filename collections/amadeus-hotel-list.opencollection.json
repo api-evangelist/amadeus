@@ -1,0 +1,153 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hotel List",
+    "version": "1.0.4"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Hotels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Search Hotels Using its Unique ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-hotels",
+            "params": [
+              {
+                "name": "hotelIds",
+                "value": "ACPAR419",
+                "type": "query",
+                "description": "Amadeus Property Codes (8 chars)"
+              }
+            ]
+          },
+          "docs": "Amadeus Search Hotels Using its Unique ID"
+        },
+        {
+          "info": {
+            "name": "Amadeus Search Hotels in a City",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-city",
+            "params": [
+              {
+                "name": "cityCode",
+                "value": "PAR",
+                "type": "query",
+                "description": "Destination city code or airport code. In case of city  code , the search will be done around the city center. Available codes can be found in [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) (3 chars IATA Code)."
+              },
+              {
+                "name": "radius",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum distance from the geographical coordinates express in defined units. The default unit is metric kilometer."
+              },
+              {
+                "name": "radiusUnit",
+                "value": "KM",
+                "type": "query",
+                "description": "Unit of measurement used to express the radius. It can be either metric kilometer or imperial mile."
+              },
+              {
+                "name": "chainCodes",
+                "value": "",
+                "type": "query",
+                "description": "Array of hotel chain codes. Each code is a string consisted of 2 capital alphabetic characters."
+              },
+              {
+                "name": "amenities",
+                "value": "",
+                "type": "query",
+                "description": "List of amenities."
+              },
+              {
+                "name": "ratings",
+                "value": "",
+                "type": "query",
+                "description": "Hotel stars. Up to four values can be requested at the same time in a comma separated list."
+              },
+              {
+                "name": "hotelSource",
+                "value": "BEDBANK",
+                "type": "query",
+                "description": "Hotel source with values BEDBANK for aggregators, DIRECTCHAIN for GDS/Distribution and ALL for both."
+              }
+            ]
+          },
+          "docs": "Amadeus Search Hotels in a City"
+        },
+        {
+          "info": {
+            "name": "Amadeus Search Hotels Using Geocode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-geocode",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "41.397158",
+                "type": "query",
+                "description": "The latitude of the searched geographical point expressed in geometric degrees."
+              },
+              {
+                "name": "longitude",
+                "value": "2.160873",
+                "type": "query",
+                "description": "The longitude of the searched geographical point expressed in geometric degrees."
+              },
+              {
+                "name": "radius",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum distance from the geographical coordinates expressed in defined units. The default unit is metric kilometer."
+              },
+              {
+                "name": "radiusUnit",
+                "value": "KM",
+                "type": "query",
+                "description": "Unit of measurement used to express the radius. It can be either metric kilometer or imperial mile."
+              },
+              {
+                "name": "chainCodes",
+                "value": "",
+                "type": "query",
+                "description": "Array of hotel chain codes. Each code is a string consisted of 2 capital alphabetic characters."
+              },
+              {
+                "name": "amenities",
+                "value": "",
+                "type": "query",
+                "description": "List of amenities."
+              },
+              {
+                "name": "ratings",
+                "value": "",
+                "type": "query",
+                "description": "Hotel stars. Up to four values can be requested at the same time in a comma separated list."
+              },
+              {
+                "name": "hotelSource",
+                "value": "BEDBANK",
+                "type": "query",
+                "description": "Hotel source with values BEDBANK for aggregators, DIRECTCHAIN for GDS/Distribution and ALL for both."
+              }
+            ]
+          },
+          "docs": "Amadeus Search Hotels Using Geocode"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

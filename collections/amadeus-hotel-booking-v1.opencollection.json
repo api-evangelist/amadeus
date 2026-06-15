@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hotel Booking",
+    "version": "1.1.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Booking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Create Orders Associated to the Hotel Offers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/booking/hotel-bookings",
+            "headers": [
+              {
+                "name": "Ama-Client-Ref",
+                "value": ""
+              },
+              {
+                "name": "Accept-Encoding",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Amadeus Create Orders Associated to the Hotel Offers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

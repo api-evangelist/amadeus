@@ -1,0 +1,211 @@
+{
+  "info": {
+    "_postman_id": "c664ebcc-6ad4-485d-b46a-ecd89361a5ce",
+    "name": "Airline Code Lookup API",
+    "description": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:52.000Z",
+    "updatedAt": "2026-06-05T13:12:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c664ebcc-6ad4-485d-b46a-ecd89361a5ce"
+  },
+  "item": [
+    {
+      "name": "reference-data",
+      "item": [
+        {
+          "name": "airlines",
+          "item": [
+            {
+              "name": "Amadeus Return Airlines Information.",
+              "id": "6d95a056-da8f-4781-b491-183b1b94f631",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/reference-data/airlines?airlineCodes=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "reference-data",
+                    "airlines"
+                  ],
+                  "query": [
+                    {
+                      "description": "Code of the airline following IATA standard([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)) or ICAO standard ([ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes))\n\nSeveral airlines can be selected at once by sending a list separated by a coma (i.e. AF, SWA)\n",
+                      "key": "airlineCodes",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6cac2429-01b5-4f61-a8de-a34b76027695",
+                  "name": "Successful Operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/airlines?airlineCodes=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "airlines"
+                      ],
+                      "query": [
+                        {
+                          "description": "Code of the airline following IATA standard([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)) or ICAO standard ([ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes))\n\nSeveral airlines can be selected at once by sending a list separated by a coma (i.e. AF, SWA)\n",
+                          "key": "airlineCodes",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"icaoCode\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"commonName\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"icaoCode\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"commonName\": \"<string>\"\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  },\n  \"warnings\": [\n    {\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\",\n        \"parameter\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\",\n        \"parameter\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:53.000Z",
+                  "updatedAt": "2026-06-05T13:12:53.000Z",
+                  "uid": "35240-6cac2429-01b5-4f61-a8de-a34b76027695"
+                },
+                {
+                  "id": "94b68764-ef2b-49fc-a170-0d6a98ce2d81",
+                  "name": "| code | title          |\n| ---- | -------------- |\n| 572  | INVALID OPTION |\n",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/airlines?airlineCodes=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "airlines"
+                      ],
+                      "query": [
+                        {
+                          "description": "Code of the airline following IATA standard([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)) or ICAO standard ([ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes))\n\nSeveral airlines can be selected at once by sending a list separated by a coma (i.e. AF, SWA)\n",
+                          "key": "airlineCodes",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\",\n        \"parameter\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\",\n        \"parameter\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:53.000Z",
+                  "updatedAt": "2026-06-05T13:12:53.000Z",
+                  "uid": "35240-94b68764-ef2b-49fc-a170-0d6a98ce2d81"
+                },
+                {
+                  "id": "1884b88d-5b2d-46f9-aafc-e3f741064ffa",
+                  "name": "Unexpected Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/airlines?airlineCodes=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "airlines"
+                      ],
+                      "query": [
+                        {
+                          "description": "Code of the airline following IATA standard([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)) or ICAO standard ([ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes))\n\nSeveral airlines can be selected at once by sending a list separated by a coma (i.e. AF, SWA)\n",
+                          "key": "airlineCodes",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\",\n        \"parameter\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\",\n        \"parameter\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:53.000Z",
+                  "updatedAt": "2026-06-05T13:12:53.000Z",
+                  "uid": "35240-1884b88d-5b2d-46f9-aafc-e3f741064ffa"
+                }
+              ],
+              "createdAt": "2026-06-05T13:12:53.000Z",
+              "updatedAt": "2026-06-05T13:12:53.000Z",
+              "uid": "35240-6d95a056-da8f-4781-b491-183b1b94f631"
+            }
+          ],
+          "id": "5aac0f44-3ff2-4d81-bbe1-37f42a2d855e",
+          "createdAt": "2026-06-05T13:12:53.000Z",
+          "updatedAt": "2026-06-05T13:12:53.000Z",
+          "uid": "35240-5aac0f44-3ff2-4d81-bbe1-37f42a2d855e"
+        }
+      ],
+      "id": "bf4866cf-e18b-4ba5-bbdb-f8697f52ffea",
+      "createdAt": "2026-06-05T13:12:53.000Z",
+      "updatedAt": "2026-06-05T13:12:53.000Z",
+      "uid": "35240-bf4866cf-e18b-4ba5-bbdb-f8697f52ffea"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,239 @@
+{
+  "info": {
+    "_postman_id": "d3319950-89b7-43f2-a8ab-b3e90205d4c9",
+    "name": "Hotel Booking API",
+    "description": "Before using the API you will need to get an access token. Please read our [Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization) for more information on how to get your token.\n\nPlease also be aware that our test environment is based on a subset of the production for this API it may change dynamically. For your tests, use big cities like LON (London) or NYC (New-York).\n\n **Warning: Do not perform test booking in production.** All requests are sent and processed by hotel providers. An excessive amount of fake/canceled reservation will make you blacklisted by hotel providers.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:13:00.000Z",
+    "updatedAt": "2026-06-05T13:13:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d3319950-89b7-43f2-a8ab-b3e90205d4c9"
+  },
+  "item": [
+    {
+      "name": "booking",
+      "item": [
+        {
+          "name": "hotel-orders",
+          "item": [
+            {
+              "name": "Amadeus Create Hotel Order",
+              "id": "76485492-6f18-47b2-9378-1cec4f1cf6c7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.amadeus+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"guests\": [\n      {\n        \"tid\": \"<integer>\",\n        \"frequentTraveler\": [\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          },\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          }\n        ],\n        \"phone\": \"<string>\",\n        \"email\": \"l2@bhGSi.W2TIXS7sX\",\n        \"title\": \"tRUh\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"childAge\": \"<integer>\"\n      },\n      {\n        \"tid\": \"<integer>\",\n        \"frequentTraveler\": [\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          },\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          }\n        ],\n        \"phone\": \"<string>\",\n        \"email\": \"ZR@sRf8EJ3.OMM\",\n        \"title\": \"FvKfe\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"childAge\": \"<integer>\"\n      }\n    ],\n    \"travelAgent\": {\n      \"contact\": {\n        \"email\": \"SM5bhak@iZB0&-FDTr\",\n        \"fax\": \"+880905847566\",\n        \"phone\": \"<string>\"\n      },\n      \"travelAgentId\": \"<string>\"\n    },\n    \"type\": \"<string>\",\n    \"arrivalInformation\": {\n      \"arrivalFlightDetails\": {\n        \"carrierCode\": \"<string>\",\n        \"number\": \"<string>\",\n        \"departure\": {\n          \"iataCode\": \"<string>\"\n        },\n        \"arrival\": {\n          \"iataCode\": \"<string>\",\n          \"terminal\": \"<string>\",\n          \"at\": \"<dateTime>\"\n        }\n      }\n    },\n    \"payment\": {\n      \"method\": \"CREDIT_CARD\",\n      \"iataTravelAgency\": {\n        \"iataNumber\": \"<string>\"\n      },\n      \"paymentCard\": {\n        \"paymentCardInfo\": {\n          \"vendorCode\": \"<string>\",\n          \"holderName\": \"<string>\",\n          \"cardNumber\": \"<string>\",\n          \"expiryDate\": \"<string>\",\n          \"securityCode\": \"<string>\"\n        },\n        \"address\": {\n          \"postalCode\": \"<string>\",\n          \"countryCode\": \"Qt\",\n          \"cityName\": \"XtpGfH Xr\",\n          \"lines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"stateCode\": \"qG\"\n        }\n      }\n    },\n    \"roomAssociations\": [\n      {\n        \"guestReferences\": [\n          {\n            \"guestReference\": \"<string>\",\n            \"hotelLoyaltyId\": \"O3UYPXWLWKY1FMXR94ZQR\"\n          },\n          {\n            \"guestReference\": \"<string>\",\n            \"hotelLoyaltyId\": \"XUEE49O\"\n          }\n        ],\n        \"hotelOfferId\": -99611094.34327713\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/booking/hotel-orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "booking",
+                    "hotel-orders"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2683328b-3321-422e-abc5-a640ddf1b95e",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.amadeus+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"guests\": [\n      {\n        \"tid\": \"<integer>\",\n        \"frequentTraveler\": [\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          },\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          }\n        ],\n        \"phone\": \"<string>\",\n        \"email\": \"l2@bhGSi.W2TIXS7sX\",\n        \"title\": \"tRUh\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"childAge\": \"<integer>\"\n      },\n      {\n        \"tid\": \"<integer>\",\n        \"frequentTraveler\": [\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          },\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          }\n        ],\n        \"phone\": \"<string>\",\n        \"email\": \"ZR@sRf8EJ3.OMM\",\n        \"title\": \"FvKfe\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"childAge\": \"<integer>\"\n      }\n    ],\n    \"travelAgent\": {\n      \"contact\": {\n        \"email\": \"SM5bhak@iZB0&-FDTr\",\n        \"fax\": \"+880905847566\",\n        \"phone\": \"<string>\"\n      },\n      \"travelAgentId\": \"<string>\"\n    },\n    \"type\": \"<string>\",\n    \"arrivalInformation\": {\n      \"arrivalFlightDetails\": {\n        \"carrierCode\": \"<string>\",\n        \"number\": \"<string>\",\n        \"departure\": {\n          \"iataCode\": \"<string>\"\n        },\n        \"arrival\": {\n          \"iataCode\": \"<string>\",\n          \"terminal\": \"<string>\",\n          \"at\": \"<dateTime>\"\n        }\n      }\n    },\n    \"payment\": {\n      \"method\": \"CREDIT_CARD\",\n      \"iataTravelAgency\": {\n        \"iataNumber\": \"<string>\"\n      },\n      \"paymentCard\": {\n        \"paymentCardInfo\": {\n          \"vendorCode\": \"<string>\",\n          \"holderName\": \"<string>\",\n          \"cardNumber\": \"<string>\",\n          \"expiryDate\": \"<string>\",\n          \"securityCode\": \"<string>\"\n        },\n        \"address\": {\n          \"postalCode\": \"<string>\",\n          \"countryCode\": \"Qt\",\n          \"cityName\": \"XtpGfH Xr\",\n          \"lines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"stateCode\": \"qG\"\n        }\n      }\n    },\n    \"roomAssociations\": [\n      {\n        \"guestReferences\": [\n          {\n            \"guestReference\": \"<string>\",\n            \"hotelLoyaltyId\": \"O3UYPXWLWKY1FMXR94ZQR\"\n          },\n          {\n            \"guestReference\": \"<string>\",\n            \"hotelLoyaltyId\": \"XUEE49O\"\n          }\n        ],\n        \"hotelOfferId\": -99611094.34327713\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/booking/hotel-orders",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "booking",
+                        "hotel-orders"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"hotelBookings\": [\n      {\n        \"type\": \"<string>\",\n        \"id\": \"c\",\n        \"roomAssociations\": [\n          {\n            \"guestReferences\": [\n              {\n                \"guestReference\": \"<string>\",\n                \"hotelLoyaltyId\": \"SXRJABBPJFVUI\"\n              },\n              {\n                \"guestReference\": \"<string>\",\n                \"hotelLoyaltyId\": \"DFTJQFAJH2\"\n              }\n            ],\n            \"hotelOfferId\": 68174893\n          },\n          {\n            \"guestReferences\": [\n              {\n                \"guestReference\": \"<string>\",\n                \"hotelLoyaltyId\": \"39\"\n              },\n              {\n                \"guestReference\": \"<string>\",\n                \"hotelLoyaltyId\": \"0-I5K97K0J761YDAUC7\"\n              }\n            ],\n            \"hotelOfferId\": 13951989.474548966\n          }\n        ],\n        \"hotelOffer\": {\n          \"id\": \"8W\",\n          \"price\": {\n            \"currency\": \"<string>\",\n            \"sellingTotal\": \"<string>\",\n            \"total\": \"<string>\",\n            \"base\": \"<string>\",\n            \"markups\": [\n              {\n                \"amount\": \"<string>\"\n              },\n              {\n                \"amount\": \"<string>\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"currency\": \"<string>\",\n                \"amount\": \"<string>\",\n                \"code\": \"<string>\",\n                \"percentage\": \"<string>\",\n                \"included\": \"<boolean>\",\n                \"description\": \"<string>\",\n                \"pricingFrequency\": \"<string>\",\n                \"pricingMode\": \"<string>\"\n              },\n              {\n                \"currency\": \"<string>\",\n                \"amount\": \"<string>\",\n                \"code\": \"<string>\",\n                \"percentage\": \"<string>\",\n                \"included\": \"<boolean>\",\n                \"description\": \"<string>\",\n                \"pricingFrequency\": \"<string>\",\n                \"pricingMode\": \"<string>\"\n              }\n            ],\n            \"variations\": {\n              \"changes\": [\n                {\n                  \"startDate\": \"<date>\",\n                  \"endDate\": \"<date>\",\n                  \"currency\": \"<string>\",\n                  \"sellingTotal\": \"<string>\",\n                  \"total\": \"<string>\",\n                  \"base\": \"<string>\",\n                  \"markups\": [\n                    {\n                      \"amount\": \"<string>\"\n                    },\n                    {\n                      \"amount\": \"<string>\"\n                    }\n                  ]\n                },\n                {\n                  \"startDate\": \"<date>\",\n                  \"endDate\": \"<date>\",\n                  \"currency\": \"<string>\",\n                  \"sellingTotal\": \"<string>\",\n                  \"total\": \"<string>\",\n                  \"base\": \"<string>\",\n                  \"markups\": [\n                    {\n                      \"amount\": \"<string>\"\n                    },\n                    {\n                      \"amount\": \"<string>\"\n                    }\n                  ]\n                }\n              ]\n            }\n          },\n          \"rateCode\": \"ZTV\",\n          \"room\": {\n            \"type\": \"UWK\",\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            }\n          },\n          \"type\": \"hotel-offer\",\n          \"checkInDate\": \"<date>\",\n          \"checkOutDate\": \"<date>\",\n          \"roomQuantity\": \"<integer>\",\n          \"category\": \"<string>\",\n          \"commission\": {\n            \"percentage\": \"\\\\dddd\",\n            \"amount\": \"\\\\dddd\",\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            }\n          },\n          \"guests\": {\n            \"adults\": \"<integer>\",\n            \"childAges\": [\n              \"<integer>\",\n              \"<integer>\"\n            ]\n          },\n          \"policies\": {\n            \"paymentType\": \"HOLDTIME\",\n            \"guarantee\": {\n              \"description\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              },\n              \"acceptedPayments\": {\n                \"creditCards\": [\n                  \"JH\",\n                  \"UA\"\n                ],\n                \"methods\": [\n                  \"COMPANY_ADDRESS\",\n                  \"COMPANY_ADDRESS\"\n                ]\n              }\n            },\n            \"deposit\": {\n              \"amount\": \"\\\\dd\",\n              \"deadline\": \"<dateTime>\",\n              \"description\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              },\n              \"acceptedPayments\": {\n                \"creditCards\": [\n                  \"UB\",\n                  \"VO\"\n                ],\n                \"methods\": [\n                  \"CREDIT_CARD_AGENCY\",\n                  \"MISC_CHARGE_ORDER\"\n                ]\n              }\n            },\n            \"prepay\": {\n              \"amount\": \"\\\\ddd\",\n              \"deadline\": \"<dateTime>\",\n              \"description\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              },\n              \"acceptedPayments\": {\n                \"creditCards\": [\n                  \"XO\",\n                  \"QU\"\n                ],\n                \"methods\": [\n                  \"CREDIT_CARD\",\n                  \"ADVANCE_DEPOSIT\"\n                ]\n              }\n            },\n            \"holdTime\": {\n              \"deadline\": \"<dateTime>\"\n            },\n            \"checkInOut\": {\n              \"checkIn\": \"<string>\",\n              \"checkInDescription\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              },\n              \"checkOut\": \"<string>\",\n              \"checkOutDescription\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              }\n            },\n            \"cancellations\": [\n              {\n                \"type\": \"FULL_STAY\",\n                \"amount\": \"\\\\dddddddddd\\\\O\\\\ddddddddddd\",\n                \"numberOfNights\": \"<integer>\",\n                \"percentage\": \"\\\\d\",\n                \"deadline\": \"<dateTime>\",\n                \"description\": {\n                  \"text\": \"<string>\",\n                  \"lang\": \"<string>\"\n                }\n              },\n              {\n                \"type\": \"FULL_STAY\",\n                \"amount\": \"\\\\dddddd\\\\#\\\\d\",\n                \"numberOfNights\": \"<integer>\",\n                \"percentage\": \"\\\\ddddddd\\\\j\\\\dddddddddd\",\n                \"deadline\": \"<dateTime>\",\n                \"description\": {\n                  \"text\": \"<string>\",\n                  \"lang\": \"<string>\"\n                }\n              }\n            ]\n          },\n          \"rateFamilyEstimated\": {\n            \"code\": \"4QI\",\n            \"type\": \"C\"\n          }\n        },\n        \"hotel\": {\n          \"hotelId\": \"9AABRNTX\",\n          \"chainCode\": \"CM\",\n          \"name\": \"<string>\",\n          \"self\": \"<string>\"\n        },\n        \"hotelProviderInformation\": [\n          {\n            \"hotelProviderCode\": \"<string>\",\n            \"confirmationNumber\": \"FBCXE35JE\",\n            \"cancellationNumber\": \"MM\",\n            \"onRequestNumber\": \"0R\"\n          }\n        ],\n        \"travelAgentId\": \"<string>\",\n        \"bookingStatus\": \"DELETED\",\n        \"payment\": {\n          \"method\": \"VCC_B2B_WALLET\",\n          \"iataTravelAgency\": {\n            \"iataNumber\": \"<string>\"\n          },\n          \"billBack\": {\n            \"billbackProviderDeploymentId\": \"<string>\",\n            \"billbackProviderCode\": \"<string>\",\n            \"billbackProviderAccountNumber\": \"<string>\",\n            \"travelAgencyId\": \"<string>\",\n            \"bookerId\": \"<string>\",\n            \"paymentInstructions\": \"<string>\",\n            \"hotelSupplierInformation\": {\n              \"fax\": \"+1350639784903816\",\n              \"phone\": \"+7081344670651\",\n              \"email\": \"gFWkmpu_z4d@AFnKGG9rIL\"\n            }\n          },\n          \"b2bWallet\": {\n            \"virtualCreditCardId\": \"<string>\",\n            \"paymentProvider\": \"<string>\"\n          },\n          \"paymentCard\": {\n            \"paymentCardInfo\": {\n              \"vendorCode\": \"<string>\",\n              \"holderName\": \"<string>\",\n              \"cardNumber\": \"<string>\",\n              \"expiryDate\": \"<string>\"\n            },\n            \"cardOwnerType\": \"Guest\",\n            \"VCC\": \"<boolean>\",\n            \"address\": {\n              \"postalCode\": \"<string>\",\n              \"countryCode\": \"uM\",\n              \"cityName\": \"IGEf\",\n              \"lines\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"stateCode\": \"5\"\n            }\n          }\n        },\n        \"arrivalInformation\": {\n          \"arrivalFlightDetails\": {\n            \"carrierCode\": \"<string>\",\n            \"number\": \"<string>\",\n            \"departure\": {\n              \"iataCode\": \"<string>\"\n            },\n            \"arrival\": {\n              \"iataCode\": \"<string>\",\n              \"terminal\": \"<string>\",\n              \"at\": \"<dateTime>\"\n            }\n          }\n        }\n      }\n    ],\n    \"associatedRecords\": [\n      {\n        \"reference\": \"YRKL52\",\n        \"originSystemCode\": \"<string>\"\n      }\n    ],\n    \"self\": \"<string>\",\n    \"type\": \"<string>\",\n    \"guests\": [\n      {\n        \"id\": \"<integer>\",\n        \"tid\": \"<integer>\",\n        \"frequentTraveler\": [\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          },\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          }\n        ],\n        \"phone\": \"<string>\",\n        \"email\": \"VlTRL@5-0C8bQ.Vi0dFJ\",\n        \"title\": \"LfNEq\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"childAge\": \"<integer>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"tid\": \"<integer>\",\n        \"frequentTraveler\": [\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          },\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          }\n        ],\n        \"phone\": \"<string>\",\n        \"email\": \"RNsMX2@WI3SLyv1W.jpFlH-S\",\n        \"title\": \"sUwzw\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"childAge\": \"<integer>\"\n      }\n    ],\n    \"id\": \"7\"\n  },\n  \"warnings\": [\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\",\n      \"sources\": [\n        {\n          \"parameter\": \"<string>\",\n          \"pointer\": \"<string>\",\n          \"example\": \"<string>\"\n        },\n        {\n          \"parameter\": \"<string>\",\n          \"pointer\": \"<string>\",\n          \"example\": \"<string>\"\n        }\n      ],\n      \"relationships\": {\n        \"collection\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"ref\": \"<uri-reference>\",\n            \"targetSchema\": \"<string>\",\n            \"targetMediaType\": \"<string>\",\n            \"hrefSchema\": \"<string>\",\n            \"href\": \"<string>\",\n            \"methods\": [\n              \"DELETE\",\n              \"PATCH\"\n            ],\n            \"rel\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"ref\": \"<uri-reference>\",\n            \"targetSchema\": \"<string>\",\n            \"targetMediaType\": \"<string>\",\n            \"hrefSchema\": \"<string>\",\n            \"href\": \"<string>\",\n            \"methods\": [\n              \"PUT\",\n              \"OPTIONS\"\n            ],\n            \"rel\": \"<string>\"\n          }\n        ]\n      }\n    },\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\",\n      \"sources\": [\n        {\n          \"parameter\": \"<string>\",\n          \"pointer\": \"<string>\",\n          \"example\": \"<string>\"\n        },\n        {\n          \"parameter\": \"<string>\",\n          \"pointer\": \"<string>\",\n          \"example\": \"<string>\"\n        }\n      ],\n      \"relationships\": {\n        \"collection\": [\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"ref\": \"<uri-reference>\",\n            \"targetSchema\": \"<string>\",\n            \"targetMediaType\": \"<string>\",\n            \"hrefSchema\": \"<string>\",\n            \"href\": \"<string>\",\n            \"methods\": [\n              \"PATCH\",\n              \"PATCH\"\n            ],\n            \"rel\": \"<string>\"\n          },\n          {\n            \"id\": \"<string>\",\n            \"type\": \"<string>\",\n            \"ref\": \"<uri-reference>\",\n            \"targetSchema\": \"<string>\",\n            \"targetMediaType\": \"<string>\",\n            \"hrefSchema\": \"<string>\",\n            \"href\": \"<string>\",\n            \"methods\": [\n              \"GET\",\n              \"POST\"\n            ],\n            \"rel\": \"<string>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:00.000Z",
+                  "updatedAt": "2026-06-05T13:13:00.000Z",
+                  "uid": "35240-2683328b-3321-422e-abc5-a640ddf1b95e"
+                },
+                {
+                  "id": "edb0690b-53c4-4514-9ce7-50b4784ebf7d",
+                  "name": "Bad Request\n\ncode    | title                               | owner       | pointer               | description\n--------|-----------------------------------  |-----------  |------------------     |------------------------------------------\n477   |  INVALID",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.amadeus+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"guests\": [\n      {\n        \"tid\": \"<integer>\",\n        \"frequentTraveler\": [\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          },\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          }\n        ],\n        \"phone\": \"<string>\",\n        \"email\": \"l2@bhGSi.W2TIXS7sX\",\n        \"title\": \"tRUh\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"childAge\": \"<integer>\"\n      },\n      {\n        \"tid\": \"<integer>\",\n        \"frequentTraveler\": [\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          },\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          }\n        ],\n        \"phone\": \"<string>\",\n        \"email\": \"ZR@sRf8EJ3.OMM\",\n        \"title\": \"FvKfe\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"childAge\": \"<integer>\"\n      }\n    ],\n    \"travelAgent\": {\n      \"contact\": {\n        \"email\": \"SM5bhak@iZB0&-FDTr\",\n        \"fax\": \"+880905847566\",\n        \"phone\": \"<string>\"\n      },\n      \"travelAgentId\": \"<string>\"\n    },\n    \"type\": \"<string>\",\n    \"arrivalInformation\": {\n      \"arrivalFlightDetails\": {\n        \"carrierCode\": \"<string>\",\n        \"number\": \"<string>\",\n        \"departure\": {\n          \"iataCode\": \"<string>\"\n        },\n        \"arrival\": {\n          \"iataCode\": \"<string>\",\n          \"terminal\": \"<string>\",\n          \"at\": \"<dateTime>\"\n        }\n      }\n    },\n    \"payment\": {\n      \"method\": \"CREDIT_CARD\",\n      \"iataTravelAgency\": {\n        \"iataNumber\": \"<string>\"\n      },\n      \"paymentCard\": {\n        \"paymentCardInfo\": {\n          \"vendorCode\": \"<string>\",\n          \"holderName\": \"<string>\",\n          \"cardNumber\": \"<string>\",\n          \"expiryDate\": \"<string>\",\n          \"securityCode\": \"<string>\"\n        },\n        \"address\": {\n          \"postalCode\": \"<string>\",\n          \"countryCode\": \"Qt\",\n          \"cityName\": \"XtpGfH Xr\",\n          \"lines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"stateCode\": \"qG\"\n        }\n      }\n    },\n    \"roomAssociations\": [\n      {\n        \"guestReferences\": [\n          {\n            \"guestReference\": \"<string>\",\n            \"hotelLoyaltyId\": \"O3UYPXWLWKY1FMXR94ZQR\"\n          },\n          {\n            \"guestReference\": \"<string>\",\n            \"hotelLoyaltyId\": \"XUEE49O\"\n          }\n        ],\n        \"hotelOfferId\": -99611094.34327713\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/booking/hotel-orders",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "booking",
+                        "hotel-orders"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:00.000Z",
+                  "updatedAt": "2026-06-05T13:13:00.000Z",
+                  "uid": "35240-edb0690b-53c4-4514-9ce7-50b4784ebf7d"
+                },
+                {
+                  "id": "03c50ed7-d50a-4df0-850b-0bf806671829",
+                  "name": "Internal Server Error\n\ncode    | title                                                 | owner    \n------- | ----------------------------------------------------- | ---------------\n00011   | UNABLE TO PROCESS                                     | Hotel pr",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.amadeus+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"guests\": [\n      {\n        \"tid\": \"<integer>\",\n        \"frequentTraveler\": [\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          },\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          }\n        ],\n        \"phone\": \"<string>\",\n        \"email\": \"l2@bhGSi.W2TIXS7sX\",\n        \"title\": \"tRUh\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"childAge\": \"<integer>\"\n      },\n      {\n        \"tid\": \"<integer>\",\n        \"frequentTraveler\": [\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          },\n          {\n            \"airlineCode\": \"<string>\",\n            \"frequentTravelerId\": \"<string>\"\n          }\n        ],\n        \"phone\": \"<string>\",\n        \"email\": \"ZR@sRf8EJ3.OMM\",\n        \"title\": \"FvKfe\",\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"childAge\": \"<integer>\"\n      }\n    ],\n    \"travelAgent\": {\n      \"contact\": {\n        \"email\": \"SM5bhak@iZB0&-FDTr\",\n        \"fax\": \"+880905847566\",\n        \"phone\": \"<string>\"\n      },\n      \"travelAgentId\": \"<string>\"\n    },\n    \"type\": \"<string>\",\n    \"arrivalInformation\": {\n      \"arrivalFlightDetails\": {\n        \"carrierCode\": \"<string>\",\n        \"number\": \"<string>\",\n        \"departure\": {\n          \"iataCode\": \"<string>\"\n        },\n        \"arrival\": {\n          \"iataCode\": \"<string>\",\n          \"terminal\": \"<string>\",\n          \"at\": \"<dateTime>\"\n        }\n      }\n    },\n    \"payment\": {\n      \"method\": \"CREDIT_CARD\",\n      \"iataTravelAgency\": {\n        \"iataNumber\": \"<string>\"\n      },\n      \"paymentCard\": {\n        \"paymentCardInfo\": {\n          \"vendorCode\": \"<string>\",\n          \"holderName\": \"<string>\",\n          \"cardNumber\": \"<string>\",\n          \"expiryDate\": \"<string>\",\n          \"securityCode\": \"<string>\"\n        },\n        \"address\": {\n          \"postalCode\": \"<string>\",\n          \"countryCode\": \"Qt\",\n          \"cityName\": \"XtpGfH Xr\",\n          \"lines\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"stateCode\": \"qG\"\n        }\n      }\n    },\n    \"roomAssociations\": [\n      {\n        \"guestReferences\": [\n          {\n            \"guestReference\": \"<string>\",\n            \"hotelLoyaltyId\": \"O3UYPXWLWKY1FMXR94ZQR\"\n          },\n          {\n            \"guestReference\": \"<string>\",\n            \"hotelLoyaltyId\": \"XUEE49O\"\n          }\n        ],\n        \"hotelOfferId\": -99611094.34327713\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/booking/hotel-orders",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "booking",
+                        "hotel-orders"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:00.000Z",
+                  "updatedAt": "2026-06-05T13:13:00.000Z",
+                  "uid": "35240-03c50ed7-d50a-4df0-850b-0bf806671829"
+                }
+              ],
+              "createdAt": "2026-06-05T13:13:00.000Z",
+              "updatedAt": "2026-06-05T13:13:00.000Z",
+              "uid": "35240-76485492-6f18-47b2-9378-1cec4f1cf6c7"
+            }
+          ],
+          "id": "d2bd8517-f006-42de-aee6-9cc564914199",
+          "createdAt": "2026-06-05T13:13:00.000Z",
+          "updatedAt": "2026-06-05T13:13:00.000Z",
+          "uid": "35240-d2bd8517-f006-42de-aee6-9cc564914199"
+        }
+      ],
+      "id": "5d251c51-976b-44ca-bd12-1dbb7a1977e0",
+      "createdAt": "2026-06-05T13:13:00.000Z",
+      "updatedAt": "2026-06-05T13:13:00.000Z",
+      "uid": "35240-5d251c51-976b-44ca-bd12-1dbb7a1977e0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v2"
+    }
+  ]
+}

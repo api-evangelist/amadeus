@@ -1,0 +1,476 @@
+{
+  "item": [
+    {
+      "id": "7b24e922-1e2b-47df-8502-cdd345fd42a6",
+      "name": "Booking",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f68a7ca7-ca2f-47cd-b6e3-00b8670adc19",
+          "name": "Amadeus Retrieve a Given Flight Order",
+          "request": {
+            "name": "Amadeus Retrieve a Given Flight Order",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "booking",
+                "flight-orders",
+                ":flight-orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "flight-orderId",
+                  "description": "(Required) identifier of the flight order"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00db23eb-9746-4de4-9345-12703a91dfa2",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "flight-orders",
+                    ":flight-orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flight-orderId",
+                      "description": "(Required) identifier of the flight order"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"type\": \"flight-order\",\n    \"flightOffers\": [\n      {\n        \"type\": \"flight-offer\",\n        \"id\": \"1\",\n        \"source\": \"GDS\",\n        \"instantTicketingRequired\": false,\n        \"disablePricing\": false,\n        \"nonHomogeneous\": false,\n        \"oneWay\": false,\n        \"paymentCardRequired\": false,\n        \"lastTicketingDate\": \"2018-06-19\",\n        \"lastTicketingDateTime\": \"2018-06-19T15:00:00\",\n        \"numberOfBookableSeats\": 9,\n        \"itineraries\": [\n          {\n            \"segments\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"duration\": \"PT2H10M\"\n          }\n        ],\n        \"price\": {\n          \"margin\": \"1.00\",\n          \"grandTotal\": \"987.00\",\n          \"billingCurrency\": \"EUR\",\n          \"additionalServices\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"currency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"total\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"base\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fees\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"refundableTaxes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"pricingOptions\": {\n          \"fareType\": [\n            \"PUBLISHED\"\n          ],\n          \"includedCheckedBagsOnly\": true,\n          \"refundableFare\": true,\n          \"noRestrictionFare\": true,\n          \"noPenaltyFare\": true\n        },\n        \"validatingAirlineCodes\": [\n          \"AF\"\n        ],\n        \"travelerPricings\": [\n          {\n            \"travelerId\": \"1\",\n            \"fareOption\": \"STANDARD\",\n            \"travelerType\": \"ADULT\",\n            \"fareDetailsBySegment\": [\n              {\n                \"segmentId\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"cabin\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"fareBasis\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"brandedFare\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"class\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"isAllotment\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"allotmentDetails\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"sliceDiceIndicator\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"includedCheckedBags\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"additionalServices\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ],\n            \"associatedAdultId\": \"12345\",\n            \"price\": {\n              \"currency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"base\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fees\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"taxes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"refundableTaxes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      }\n    ],\n    \"id\": \"MlpZVkFMfFdBVFNPTnwyMDE1LTExLTAy\",\n    \"queuingOfficeId\": \"NCE1A0955\",\n    \"ownerOfficeId\": \"NCE1A0955\",\n    \"associatedRecords\": [\n      {\n        \"reference\": \"string-value\",\n        \"creationDate\": \"2019-07-09T12:30:00.000\",\n        \"originSystemCode\": \"str\",\n        \"flightOfferId\": \"1\"\n      },\n      {\n        \"reference\": \"string-value\",\n        \"creationDate\": \"2019-07-09T12:30:00.000\",\n        \"originSystemCode\": \"str\",\n        \"flightOfferId\": \"1\"\n      }\n    ],\n    \"travelers\": [\n      {\n        \"id\": \"12345\",\n        \"dateOfBirth\": \"2026-08-15\",\n        \"gender\": \"FEMALE\",\n        \"name\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"documents\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"emergencyContact\": {\n          \"addresseeName\": \"Sample Name\",\n          \"countryCode\": \"FR\",\n          \"number\": \"486803353292\",\n          \"text\": \"string-value\"\n        },\n        \"loyaltyPrograms\": [\n          {\n            \"programOwner\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"programOwner\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"programOwner\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"programOwner\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"programOwner\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"programOwner\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"programOwner\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"programOwner\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"programOwner\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"programOwner\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"discountEligibility\": [\n          {\n            \"subType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"travelerType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"certificateNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"travelerType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"certificateNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"travelerType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"certificateNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"travelerType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"certificateNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"travelerType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"certificateNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"travelerType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"certificateNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"travelerType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"certificateNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"travelerType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"certificateNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"travelerType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"certificateNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"subType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cityName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"travelerType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"cardNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"certificateNumber\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"contact\": {\n          \"phones\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"companyName\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"emailAddress\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    ],\n    \"remarks\": {\n      \"general\": [\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"GENERAL_MISCELLANEOUS\",\n          \"text\": \"PASSENGER NEED ASSISTANCE\",\n          \"category\": \"Z\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        }\n      ],\n      \"airline\": [\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        {\n          \"subType\": \"KEYWORD\",\n          \"airlineCode\": \"AF\",\n          \"text\": \"CAR PARK\",\n          \"keyword\": \"PARK\",\n          \"travelerIds\": [\n            \"string\",\n            \"string\"\n          ],\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"formOfPayments\": [\n      {\n        \"b2bWallet\": {\n          \"cardId\": \"1245365895336\",\n          \"cardUsageName\": \"Sample Name\",\n          \"cardFriendlyName\": \"CB1\",\n          \"reportingData\": [\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"value\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"virtualCreditCardDetails\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        },\n        \"creditCard\": {\n          \"brand\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"holder\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"number\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"expiryDate\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"securityCode\": \"123\",\n          \"flightOfferIds\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"other\": {\n          \"method\": \"CASH\",\n          \"flightOfferIds\": [\n            \"string\"\n          ]\n        }\n      }\n    ],\n    \"ticketingAgreement\": {\n      \"option\": \"DELAY_TO_QUEUE\",\n      \"delay\": \"string-value\",\n      \"dateTime\": \"2017-10-23\",\n      \"segmentIds\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"automatedProcess\": [\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1993-11-12T20:09:45.781Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1996-11-17T23:31:47.879Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1977-10-10T00:46:10.755Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1978-11-12T05:12:49.508Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1990-09-09T08:28:33.170Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"2013-08-05T20:14:58.590Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1994-06-25T10:33:09.496Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"2008-07-02T03:39:32.274Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1958-04-24T12:57:49.149Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1991-05-08T11:15:00.342Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"2001-10-09T16:56:55.081Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1976-10-08T12:18:22.164Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"2023-11-25T14:50:16.741Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1988-09-04T00:28:53.233Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1975-07-02T05:24:58.881Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1987-08-31T03:21:12.731Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"2012-04-19T20:31:43.363Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"1968-10-10T19:55:09.697Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"2023-07-09T22:04:05.624Z\"\n      },\n      {\n        \"code\": \"IMMEDIATE\",\n        \"queue\": {\n          \"number\": \"string\",\n          \"category\": \"string-value\"\n        },\n        \"text\": \"string-value\",\n        \"delay\": \"string\",\n        \"officeId\": \"NCE1A0955\",\n        \"dateTime\": \"2021-08-18T06:53:00.188Z\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"addresseeName\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"address\": {\n          \"lines\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"countryCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"cityName\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"stateName\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalBox\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"language\": \"EN\",\n        \"purpose\": \"INVOICE\",\n        \"phones\": [\n          {\n            \"deviceType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCallingCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"deviceType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCallingCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"companyName\": \"AMADEUS\",\n        \"emailAddress\": \"support@mail.com\"\n      },\n      {\n        \"addresseeName\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"address\": {\n          \"lines\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"countryCode\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"cityName\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"stateName\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"postalBox\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"language\": \"EN\",\n        \"purpose\": \"INVOICE\",\n        \"phones\": [\n          {\n            \"deviceType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCallingCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"deviceType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"countryCallingCode\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"number\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"companyName\": \"AMADEUS\",\n        \"emailAddress\": \"support@mail.com\"\n      }\n    ],\n    \"tickets\": [\n      {\n        \"documentType\": \"ETICKET\",\n        \"documentNumber\": \"string\",\n        \"documentStatus\": \"ISSUED\",\n        \"travelerId\": \"1\",\n        \"segmentIds\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"documentType\": \"ETICKET\",\n        \"documentNumber\": \"string\",\n        \"documentStatus\": \"ISSUED\",\n        \"travelerId\": \"1\",\n        \"segmentIds\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"formOfIdentifications\": [\n      {\n        \"identificationType\": \"PASSPORT\",\n        \"carrierCode\": \"DL\",\n        \"number\": \"XN0019390\",\n        \"travelerIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"flightOfferIds\": [\n          \"string\"\n        ]\n      },\n      {\n        \"identificationType\": \"PASSPORT\",\n        \"carrierCode\": \"DL\",\n        \"number\": \"XN0019390\",\n        \"travelerIds\": [\n          \"string\",\n          \"string\"\n        ],\n        \"flightOfferIds\": [\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"meta\": {\n    \"count\": 1,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\"\n    }\n  },\n  \"warnings\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ],\n  \"dictionaries\": {\n    \"locations\": {\n      \"key_0\": {\n        \"cityCode\": \"PAR\",\n        \"countryCode\": \"FR\"\n      }\n    },\n    \"aircraft\": {\n      \"key_0\": \"string\"\n    },\n    \"currencies\": {\n      \"key_0\": \"EUR\",\n      \"key_1\": \"EUR\",\n      \"key_2\": \"EUR\",\n      \"key_3\": \"EUR\",\n      \"key_4\": \"EUR\"\n    },\n    \"carriers\": {\n      \"key_0\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5187d6c-86c8-4749-98ca-5e8af7ca0672",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "flight-orders",
+                    ":flight-orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flight-orderId",
+                      "description": "(Required) identifier of the flight order"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a805a950-12c8-4710-9de9-95dcfe7d77d8",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "flight-orders",
+                    ":flight-orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flight-orderId",
+                      "description": "(Required) identifier of the flight order"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 404,\n      \"code\": 1797,\n      \"title\": \"NOT FOUND\",\n      \"detail\": \"no response found for this query parameter\",\n      \"source\": {\n        \"parameter\": \"airport\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a7eb96e-b78a-43d8-ace3-51b7f92746ea",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "flight-orders",
+                    ":flight-orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flight-orderId",
+                      "description": "(Required) identifier of the flight order"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79b6b2a8-09b9-4133-a946-a2f022e683af",
+          "name": "Amadeus Cancel a Given Flight Order",
+          "request": {
+            "name": "Amadeus Cancel a Given Flight Order",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "booking",
+                "flight-orders",
+                ":flight-orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "flight-orderId",
+                  "description": "(Required) identifier of the flight order"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "171c6c6d-51d5-4814-aefb-50bc541178d3",
+              "name": "Successfully Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "flight-orders",
+                    ":flight-orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flight-orderId",
+                      "description": "(Required) identifier of the flight order"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c4ca45e-5241-49ec-b945-f61cd4910cfc",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "flight-orders",
+                    ":flight-orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flight-orderId",
+                      "description": "(Required) identifier of the flight order"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5eef25cd-d2f0-497a-a28d-685c5ea6fb97",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "flight-orders",
+                    ":flight-orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flight-orderId",
+                      "description": "(Required) identifier of the flight order"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66dcfa50-667e-4112-b24e-ca4240964492",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "booking",
+                    "flight-orders",
+                    ":flight-orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "flight-orderId",
+                      "description": "(Required) identifier of the flight order"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d0d02970-0807-4391-89f8-c84fb88d02ea",
+    "name": "Flight Order Management",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production, if you are not returning any results try with big cities/airports like LON (London) or NYC (New-York).",
+      "type": "text/plain"
+    }
+  }
+}

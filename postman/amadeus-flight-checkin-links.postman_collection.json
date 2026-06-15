@@ -1,0 +1,244 @@
+{
+  "info": {
+    "_postman_id": "2028402a-4594-4dfa-bdac-232bc1012d24",
+    "name": "Flight Check-in Links",
+    "description": "\nBefore using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production, to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:31.000Z",
+    "updatedAt": "2026-06-05T13:12:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2028402a-4594-4dfa-bdac-232bc1012d24"
+  },
+  "item": [
+    {
+      "name": "reference-data",
+      "item": [
+        {
+          "name": "urls",
+          "item": [
+            {
+              "name": "checkin-links",
+              "item": [
+                {
+                  "name": "Amadeus Lists Check-in URLs.",
+                  "id": "6bdb33e4-9fdb-4d54-93ee-d676965227a6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/urls/checkin-links?airlineCode=6J&language=kj-ya",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "urls",
+                        "checkin-links"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Airline code following IATA or ICAO standard - e.g. 1X; AF or ESY\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)\n\n[ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)\n",
+                          "key": "airlineCode",
+                          "value": "6J"
+                        },
+                        {
+                          "description": "Check-in page language with one of the following patterns 'languageCode' (e.g. EN) or 'languageCode-IATAcountryCode' (e.g. en-GB). \n\nDefault value is **en-GB** (used when required language is not available or when no value is specified).\n",
+                          "key": "language",
+                          "value": "kj-ya"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "52ef564a-dba2-4c73-90f8-4a10a6469ba4",
+                      "name": "Successful Operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/urls/checkin-links?airlineCode=6J&language=kj-ya",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "urls",
+                            "checkin-links"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Airline code following IATA or ICAO standard - e.g. 1X; AF or ESY\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)\n\n[ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)\n",
+                              "key": "airlineCode",
+                              "value": "6J"
+                            },
+                            {
+                              "description": "Check-in page language with one of the following patterns 'languageCode' (e.g. EN) or 'languageCode-IATAcountryCode' (e.g. en-GB). \n\nDefault value is **en-GB** (used when required language is not available or when no value is specified).\n",
+                              "key": "language",
+                              "value": "kj-ya"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"href\": \"<uri>\",\n      \"channel\": \"All\",\n      \"parameters\": {\n        \"enim_d8\": {\n          \"type\": \"<string>\",\n          \"description\": \"<string>\",\n          \"format\": \"<string>\"\n        },\n        \"magna3\": {\n          \"type\": \"<string>\",\n          \"description\": \"<string>\",\n          \"format\": \"<string>\"\n        }\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"href\": \"<uri>\",\n      \"channel\": \"Web\",\n      \"parameters\": {\n        \"pariatur_1\": {\n          \"type\": \"<string>\",\n          \"description\": \"<string>\",\n          \"format\": \"<string>\"\n        },\n        \"ipsum_d4\": {\n          \"type\": \"<string>\",\n          \"description\": \"<string>\",\n          \"format\": \"<string>\"\n        },\n        \"et_4\": {\n          \"type\": \"<string>\",\n          \"description\": \"<string>\",\n          \"format\": \"<string>\"\n        }\n      }\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:12:32.000Z",
+                      "updatedAt": "2026-06-05T13:12:32.000Z",
+                      "uid": "35240-52ef564a-dba2-4c73-90f8-4a10a6469ba4"
+                    },
+                    {
+                      "id": "77772f51-41ee-4902-b3f8-64a516914538",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n32171     | MANDATORY DATA MISSING                      \t     \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/urls/checkin-links?airlineCode=6J&language=kj-ya",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "urls",
+                            "checkin-links"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Airline code following IATA or ICAO standard - e.g. 1X; AF or ESY\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)\n\n[ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)\n",
+                              "key": "airlineCode",
+                              "value": "6J"
+                            },
+                            {
+                              "description": "Check-in page language with one of the following patterns 'languageCode' (e.g. EN) or 'languageCode-IATAcountryCode' (e.g. en-GB). \n\nDefault value is **en-GB** (used when required language is not available or when no value is specified).\n",
+                              "key": "language",
+                              "value": "kj-ya"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:32.000Z",
+                      "updatedAt": "2026-06-05T13:12:32.000Z",
+                      "uid": "35240-77772f51-41ee-4902-b3f8-64a516914538"
+                    },
+                    {
+                      "id": "f5ae12c1-47d9-49cd-ba60-57657ef99e17",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/urls/checkin-links?airlineCode=6J&language=kj-ya",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "urls",
+                            "checkin-links"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Airline code following IATA or ICAO standard - e.g. 1X; AF or ESY\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)\n\n[ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)\n",
+                              "key": "airlineCode",
+                              "value": "6J"
+                            },
+                            {
+                              "description": "Check-in page language with one of the following patterns 'languageCode' (e.g. EN) or 'languageCode-IATAcountryCode' (e.g. en-GB). \n\nDefault value is **en-GB** (used when required language is not available or when no value is specified).\n",
+                              "key": "language",
+                              "value": "kj-ya"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:32.000Z",
+                      "updatedAt": "2026-06-05T13:12:32.000Z",
+                      "uid": "35240-f5ae12c1-47d9-49cd-ba60-57657ef99e17"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:12:32.000Z",
+                  "updatedAt": "2026-06-05T13:12:32.000Z",
+                  "uid": "35240-6bdb33e4-9fdb-4d54-93ee-d676965227a6"
+                }
+              ],
+              "id": "ff3e82bb-a98d-48ca-a67d-7ce6a007be75",
+              "createdAt": "2026-06-05T13:12:32.000Z",
+              "updatedAt": "2026-06-05T13:12:32.000Z",
+              "uid": "35240-ff3e82bb-a98d-48ca-a67d-7ce6a007be75"
+            }
+          ],
+          "id": "f7d1e2ae-ac6e-4715-92e3-e752da3dc285",
+          "createdAt": "2026-06-05T13:12:32.000Z",
+          "updatedAt": "2026-06-05T13:12:32.000Z",
+          "uid": "35240-f7d1e2ae-ac6e-4715-92e3-e752da3dc285"
+        }
+      ],
+      "id": "8ebdff6f-539a-493c-9488-4ccab2565bc9",
+      "createdAt": "2026-06-05T13:12:32.000Z",
+      "updatedAt": "2026-06-05T13:12:32.000Z",
+      "uid": "35240-8ebdff6f-539a-493c-9488-4ccab2565bc9"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v2"
+    }
+  ]
+}

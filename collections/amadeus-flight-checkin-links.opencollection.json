@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flight Check-in Links",
+    "version": "2.1.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "checkin-links",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Lists Check-in URLs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/reference-data/urls/checkin-links",
+            "params": [
+              {
+                "name": "airlineCode",
+                "value": "",
+                "type": "query",
+                "description": "Airline code following IATA or ICAO standard - e.g. 1X; AF or ESY\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)\n\n[ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)\n"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Check-in page language with one of the following patterns 'languageCode' (e.g. EN) or 'languageCode-IATAcountryCode' (e.g. en-GB). \n\nDefault value is **en-GB** (used when required language is not available or when no value is specified).\n"
+              }
+            ]
+          },
+          "docs": "Amadeus Lists Check-in URLs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

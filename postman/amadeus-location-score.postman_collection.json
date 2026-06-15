@@ -1,0 +1,244 @@
+{
+  "info": {
+    "_postman_id": "1a3f79d1-3927-499d-a71f-b53cc4efabd9",
+    "name": "Location Score",
+    "description": "Before using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token. \n  \nPlease also be aware that our test environment is based on a subset of the production, this API in test only returns a few selected cities. You can find the list in our **[data collection](https://github.com/amadeus4dev/data-collection)**.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:13:20.000Z",
+    "updatedAt": "2026-06-05T13:13:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1a3f79d1-3927-499d-a71f-b53cc4efabd9"
+  },
+  "item": [
+    {
+      "name": "location",
+      "item": [
+        {
+          "name": "analytics",
+          "item": [
+            {
+              "name": "category-rated-areas",
+              "item": [
+                {
+                  "name": "Amadeus GET Category Rated Areas",
+                  "id": "a743f5d0-9917-48c2-9a76-3b627ba00ae6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/location/analytics/category-rated-areas?latitude=<number>&longitude=<number>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "location",
+                        "analytics",
+                        "category-rated-areas"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude in decimal coordinates",
+                          "key": "latitude",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) Longitude in decimal coordinates",
+                          "key": "longitude",
+                          "value": "<number>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ebb255c3-838d-41a5-b929-bdfaea4f0eda",
+                      "name": "Successful Reply",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/location/analytics/category-rated-areas?latitude=<number>&longitude=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "location",
+                            "analytics",
+                            "category-rated-areas"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude in decimal coordinates",
+                              "key": "latitude",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Longitude in decimal coordinates",
+                              "key": "longitude",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"meta\": {\n    \"count\": \"<long>\",\n    \"links\": {\n      \"self\": \"<string>\"\n    }\n  },\n  \"data\": [\n    {\n      \"geoCode\": {\n        \"latitude\": \"<float>\",\n        \"longitude\": \"<float>\"\n      },\n      \"radius\": \"<integer>\",\n      \"categoryScores\": {\n        \"sight\": {\n          \"overall\": \"<integer>\",\n          \"historical\": \"<integer>\",\n          \"beachAndPark\": \"<integer>\"\n        },\n        \"restaurant\": {\n          \"overall\": \"<number>\",\n          \"vegetarian\": \"<number>\"\n        },\n        \"shopping\": {\n          \"overall\": \"<number>\",\n          \"luxury\": \"<number>\"\n        },\n        \"nightLife\": {\n          \"overall\": \"<number>\"\n        }\n      },\n      \"type\": \"<string>\"\n    },\n    {\n      \"geoCode\": {\n        \"latitude\": \"<float>\",\n        \"longitude\": \"<float>\"\n      },\n      \"radius\": \"<integer>\",\n      \"categoryScores\": {\n        \"sight\": {\n          \"overall\": \"<integer>\",\n          \"historical\": \"<integer>\",\n          \"beachAndPark\": \"<integer>\"\n        },\n        \"restaurant\": {\n          \"overall\": \"<number>\",\n          \"vegetarian\": \"<number>\"\n        },\n        \"shopping\": {\n          \"overall\": \"<number>\",\n          \"luxury\": \"<number>\"\n        },\n        \"nightLife\": {\n          \"overall\": \"<number>\"\n        }\n      },\n      \"type\": \"<string>\"\n    }\n  ],\n  \"warnings\": [\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:21.000Z",
+                      "updatedAt": "2026-06-05T13:13:21.000Z",
+                      "uid": "35240-ebb255c3-838d-41a5-b929-bdfaea4f0eda"
+                    },
+                    {
+                      "id": "279b5f9b-f1f6-4e74-8558-d98554d975d3",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION                            \n32171   | MANDATORY DATA MISSING ",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/location/analytics/category-rated-areas?latitude=<number>&longitude=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "location",
+                            "analytics",
+                            "category-rated-areas"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude in decimal coordinates",
+                              "key": "latitude",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Longitude in decimal coordinates",
+                              "key": "longitude",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:21.000Z",
+                      "updatedAt": "2026-06-05T13:13:21.000Z",
+                      "uid": "35240-279b5f9b-f1f6-4e74-8558-d98554d975d3"
+                    },
+                    {
+                      "id": "cfdeac87-d5c7-4c9d-85f4-fa108619f245",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/location/analytics/category-rated-areas?latitude=<number>&longitude=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "location",
+                            "analytics",
+                            "category-rated-areas"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude in decimal coordinates",
+                              "key": "latitude",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Longitude in decimal coordinates",
+                              "key": "longitude",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:21.000Z",
+                      "updatedAt": "2026-06-05T13:13:21.000Z",
+                      "uid": "35240-cfdeac87-d5c7-4c9d-85f4-fa108619f245"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:13:21.000Z",
+                  "updatedAt": "2026-06-05T13:13:21.000Z",
+                  "uid": "35240-a743f5d0-9917-48c2-9a76-3b627ba00ae6"
+                }
+              ],
+              "id": "8403592a-ccb8-48ff-a853-98420851daea",
+              "createdAt": "2026-06-05T13:13:21.000Z",
+              "updatedAt": "2026-06-05T13:13:21.000Z",
+              "uid": "35240-8403592a-ccb8-48ff-a853-98420851daea"
+            }
+          ],
+          "id": "0938e356-1e08-45c6-be50-66bc209272e8",
+          "createdAt": "2026-06-05T13:13:21.000Z",
+          "updatedAt": "2026-06-05T13:13:21.000Z",
+          "uid": "35240-0938e356-1e08-45c6-be50-66bc209272e8"
+        }
+      ],
+      "id": "4c36cad5-9be9-4229-9396-91273c6a9385",
+      "createdAt": "2026-06-05T13:13:21.000Z",
+      "updatedAt": "2026-06-05T13:13:21.000Z",
+      "uid": "35240-4c36cad5-9be9-4229-9396-91273c6a9385"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

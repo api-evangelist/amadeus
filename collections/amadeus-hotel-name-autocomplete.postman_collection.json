@@ -1,0 +1,268 @@
+{
+  "item": [
+    {
+      "id": "8f5919f0-526f-48bf-83ad-b015a75b81e8",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "38b98111-33d9-4113-a821-10eaf7eb5523",
+          "name": "Amadeus Returns a List of Hotels Matching a Given Keyword.",
+          "request": {
+            "name": "Amadeus Returns a List of Hotels Matching a Given Keyword.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations",
+                "hotel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "keyword",
+                  "value": "<string>",
+                  "description": "(Required) Location query keyword"
+                },
+                {
+                  "disabled": false,
+                  "key": "subType",
+                  "value": "<string>",
+                  "description": "(Required) Category of search - To enter several values, repeat the query parameter \nUse HOTEL_LEISURE to target aggregators or HOTEL_GDS to target directly the chains"
+                },
+                {
+                  "disabled": false,
+                  "key": "subType",
+                  "value": "<string>",
+                  "description": "(Required) Category of search - To enter several values, repeat the query parameter \nUse HOTEL_LEISURE to target aggregators or HOTEL_GDS to target directly the chains"
+                },
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>",
+                  "description": "The country in which you search the subType. Country Code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format"
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "EN",
+                  "description": "The language in which you want the results in following [ISO 639-1](https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1). \n\nIf the language entered is not available then the results will be shown in the default language, English."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "20",
+                  "description": "The number of results requested from 1 to 20"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72e6458d-80d9-41cc-8f8b-0d837f0acbd3",
+              "name": "Successful Search Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "hotel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "keyword",
+                      "value": "PARI"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "EN"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 4630140,\n      \"name\": \"DE PARIS SAINT GEORGES EX KYRIAD PARIS\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 74,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"CTPARB08\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.88081,\n        \"longitude\": 2.33541\n      }\n    },\n    {\n      \"id\": 4629897,\n      \"name\": \"DE PARIS OPERA EX DE PARIS MAUBEUGE\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 74,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"CTPARATH\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.87877,\n        \"longitude\": 2.34593\n      }\n    },\n    {\n      \"id\": 4629762,\n      \"name\": \"LE PARISIS PARIS TOUR EIFFEL EX RAMADA\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 74,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"CTPARAPQ\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.8496,\n        \"longitude\": 2.29553\n      }\n    },\n    {\n      \"id\": 4316057,\n      \"name\": \"COMFORT HOTEL PARIS LAFAYETTE PARIS\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 74,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"HVPARBHU\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.87646,\n        \"longitude\": 2.34884\n      }\n    },\n    {\n      \"id\": 4629509,\n      \"name\": \"CAMPANILE PARIS 15 EX CAMPANILE PARIS\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 74,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"CTPARAIP\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.85,\n        \"longitude\": 2.2884\n      }\n    },\n    {\n      \"id\": 4343671,\n      \"name\": \"THE ORIGINALS PARIS GARE DE L EST PARISI\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 74,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"TVPARAB7\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.8766,\n        \"longitude\": 2.35422\n      }\n    },\n    {\n      \"id\": 4315654,\n      \"name\": \"CITADINES OPERA PARIS PARIS\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 74,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"HVPARAPG\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.87146,\n        \"longitude\": 2.33834\n      }\n    },\n    {\n      \"id\": 4601316,\n      \"name\": \"THE ORIGINALS PARIS GARE DE L EST PARISI\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 74,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"SJPARALM\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.87661,\n        \"longitude\": 2.35417\n      }\n    },\n    {\n      \"id\": 4905890,\n      \"name\": \"LE PARISIS PARIS TOUR EIFFEL\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 74,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"ADPAR093\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.84972,\n        \"longitude\": 2.29565\n      }\n    },\n    {\n      \"id\": 4630373,\n      \"name\": \"HOTEL R DE PARIS EX DU CASINO PARIS\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 74,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"CTPARB6P\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.88004,\n        \"longitude\": 2.32894\n      }\n    },\n    {\n      \"id\": 4930258,\n      \"name\": \"LE PARISIS PARIS TOUR EIFFEL\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 74,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"XDPARAYA\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.84972,\n        \"longitude\": 2.29565\n      }\n    },\n    {\n      \"id\": 4930306,\n      \"name\": \"THE ORIGINALS CITY HOTEL PARISIANA PARIS\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 72,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"XDPARAZM\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.87663,\n        \"longitude\": 2.35418\n      }\n    },\n    {\n      \"id\": 2330480,\n      \"name\": \"HOTEL PARADIS PARIS\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 71,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"DGPARACN\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.8738,\n        \"longitude\": 2.34993\n      }\n    },\n    {\n      \"id\": 4630331,\n      \"name\": \"MIDNIGHT HOTEL PARIS EX ARIS NORD\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 71,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"CTPARB5J\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.8774,\n        \"longitude\": 2.35609\n      }\n    },\n    {\n      \"id\": 4309354,\n      \"name\": \"HOTEL DE PARIS\",\n      \"iataCode\": \"MOW\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 70,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"BKMOWB4L\"\n      ],\n      \"address\": {\n        \"cityName\": \"THE HAGUE\",\n        \"countryCode\": \"AU\"\n      },\n      \"geoCode\": {\n        \"latitude\": 55.76364,\n        \"longitude\": 37.60079\n      }\n    },\n    {\n      \"id\": 4313435,\n      \"name\": \"PULLMAN PARIS TOUR EIFFEL HOTEL\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 70,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"EYPARCQV\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.85598,\n        \"longitude\": 2.29321\n      }\n    },\n    {\n      \"id\": 4313453,\n      \"name\": \"MERCURE PARIS CHAMPS ELYSEES\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 70,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"EYPARCRN\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.86811,\n        \"longitude\": 2.29095\n      }\n    },\n    {\n      \"id\": 4448070,\n      \"name\": \"THE WESTIN PARIS VENDOME\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 70,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"ASPARADC\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.86561,\n        \"longitude\": 2.32785\n      }\n    },\n    {\n      \"id\": 2356646,\n      \"name\": \"B B HOTEL PARIS PORTE DE LA VILLETTE\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 70,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"GUPARBQV\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.901,\n        \"longitude\": 2.387\n      }\n    },\n    {\n      \"id\": 4313461,\n      \"name\": \"TIVOLI HOTEL PARIS\",\n      \"iataCode\": \"PAR\",\n      \"subType\": \"HOTEL_LEISURE\",\n      \"relevance\": 70,\n      \"type\": \"location\",\n      \"hotelIds\": [\n        \"EYPARCRV\"\n      ],\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": 48.87622,\n        \"longitude\": 2.29592\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7222a0cc-1c90-4d1a-b7f1-0e7e8d39885c",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | NOT FOUND \n1797    | INVALID FORMAT\n572     | INVALID LENGTH\n32171   | MANDATORY DATA MISSING \t     \n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "hotel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "keyword",
+                      "value": "PARI"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "EN"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 400,\n      \"code\": 572,\n      \"title\": \"INVALID FORMAT\",\n      \"detail\": \"invalid query parameter format\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90938b6c-eb02-48a4-96f4-8aa8243d30c0",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "hotel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "keyword",
+                      "value": "PARI"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "EN"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bcfd7267-6e1f-47e5-81f2-9f2c8b845938",
+    "name": "Hotel Name Autocomplete",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production for this API it may change dynamically. For your tests, use big cities like LON (London) or NYC (New-York).",
+      "type": "text/plain"
+    }
+  }
+}

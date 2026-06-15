@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flight Availibilities Search",
+    "version": "1.0.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Availibility",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Return List of Flight Availabilities Based on Posted Searching Criteria.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/shopping/availability/flight-availabilities",
+            "headers": [
+              {
+                "name": "X-HTTP-Method-Override",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Amadeus Return List of Flight Availabilities Based on Posted Searching Criteria."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

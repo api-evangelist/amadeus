@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Branded Fares Upsell",
+    "version": "1.2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shopping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/shopping/flight-offers/upselling",
+            "headers": [
+              {
+                "name": "X-HTTP-Method-Override",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

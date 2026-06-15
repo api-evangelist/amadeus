@@ -1,0 +1,864 @@
+{
+  "info": {
+    "_postman_id": "bb6013ef-3e28-43e0-8dbb-984b31713f18",
+    "name": "Points of Interest",
+    "description": "\nBefore using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production, this API in test only returns a few selected cities. You can find the list in our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:13:17.000Z",
+    "updatedAt": "2026-06-05T13:13:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bb6013ef-3e28-43e0-8dbb-984b31713f18"
+  },
+  "item": [
+    {
+      "name": "reference-data",
+      "item": [
+        {
+          "name": "locations",
+          "item": [
+            {
+              "name": "pois",
+              "item": [
+                {
+                  "name": "{poisId}",
+                  "item": [
+                    {
+                      "name": "Amadeus Retieve One Point of Interest by its ID.",
+                      "id": "07854af5-fc3d-40e2-808c-e9f52e52f326",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/pois/:poisId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "pois",
+                            ":poisId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9ed25ccf-3f70-45fe-ace3-c405ca1bd9b8",
+                              "key": "poisId",
+                              "value": "<string>",
+                              "description": "(Required) identifier of the pois"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "329d9aaa-2c1d-4aa3-997e-8b53778652d3",
+                          "name": "Successful Operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reference-data/locations/pois/:poisId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reference-data",
+                                "locations",
+                                "pois",
+                                ":poisId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "poisId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"methods\": [\n        \"PATCH\",\n        \"POST\"\n      ]\n    },\n    \"type\": \"<string>\",\n    \"subType\": \"CITY\",\n    \"name\": \"<string>\",\n    \"geoCode\": {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\"\n    },\n    \"category\": \"SHOPPING\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"rank\": \"<string>\"\n  },\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                          "createdAt": "2026-06-05T13:13:17.000Z",
+                          "updatedAt": "2026-06-05T13:13:17.000Z",
+                          "uid": "35240-329d9aaa-2c1d-4aa3-997e-8b53778652d3"
+                        },
+                        {
+                          "id": "46d6198a-f62e-4bfe-b3b2-23b800fd3715",
+                          "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reference-data/locations/pois/:poisId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reference-data",
+                                "locations",
+                                "pois",
+                                ":poisId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "poisId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T13:13:17.000Z",
+                          "updatedAt": "2026-06-05T13:13:17.000Z",
+                          "uid": "35240-46d6198a-f62e-4bfe-b3b2-23b800fd3715"
+                        },
+                        {
+                          "id": "3a9d1ba2-270c-4b58-af27-e705d30c1ece",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reference-data/locations/pois/:poisId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reference-data",
+                                "locations",
+                                "pois",
+                                ":poisId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "poisId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T13:13:17.000Z",
+                          "updatedAt": "2026-06-05T13:13:17.000Z",
+                          "uid": "35240-3a9d1ba2-270c-4b58-af27-e705d30c1ece"
+                        },
+                        {
+                          "id": "30bdef5c-f008-46a7-8dc2-7416100f28bb",
+                          "name": "Unexpected Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reference-data/locations/pois/:poisId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reference-data",
+                                "locations",
+                                "pois",
+                                ":poisId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "poisId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T13:13:17.000Z",
+                          "updatedAt": "2026-06-05T13:13:17.000Z",
+                          "uid": "35240-30bdef5c-f008-46a7-8dc2-7416100f28bb"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:13:17.000Z",
+                      "updatedAt": "2026-06-05T13:13:17.000Z",
+                      "uid": "35240-07854af5-fc3d-40e2-808c-e9f52e52f326"
+                    }
+                  ],
+                  "id": "4e11c01a-61ef-4ff4-b88d-0373f49a1bec",
+                  "createdAt": "2026-06-05T13:13:17.000Z",
+                  "updatedAt": "2026-06-05T13:13:17.000Z",
+                  "uid": "35240-4e11c01a-61ef-4ff4-b88d-0373f49a1bec"
+                },
+                {
+                  "name": "by-square",
+                  "item": [
+                    {
+                      "name": "Amadeus Returns Points of Interest for a Given Area",
+                      "id": "06aa1afa-2914-4d98-ae70-477df2963986",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/pois/by-square?north=<double>&west=<double>&south=<double>&east=<double>&page[limit]=10&page[offset]=0&categories=RESTAURANT,SIGHTS",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "pois",
+                            "by-square"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                              "key": "north",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                              "key": "west",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                              "key": "south",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                              "key": "east",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "maximum items in one page",
+                              "key": "page[limit]",
+                              "value": "10"
+                            },
+                            {
+                              "description": "start index of the requested page",
+                              "key": "page[offset]",
+                              "value": "0"
+                            },
+                            {
+                              "description": "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n",
+                              "key": "categories",
+                              "value": "RESTAURANT,SIGHTS"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "e96dabbb-d394-4f79-9c20-a3ee4c9b1b0c",
+                          "name": "Successful Operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reference-data/locations/pois/by-square?north=<double>&west=<double>&south=<double>&east=<double>&page[limit]=10&page[offset]=0&categories=RESTAURANT,SIGHTS",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reference-data",
+                                "locations",
+                                "pois",
+                                "by-square"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                                  "key": "north",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                                  "key": "west",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                                  "key": "south",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                                  "key": "east",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "maximum items in one page",
+                                  "key": "page[limit]",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "start index of the requested page",
+                                  "key": "page[offset]",
+                                  "value": "0"
+                                },
+                                {
+                                  "description": "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n",
+                                  "key": "categories",
+                                  "value": "RESTAURANT,SIGHTS"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"PUT\",\n          \"PATCH\"\n        ]\n      },\n      \"type\": \"<string>\",\n      \"subType\": \"POINT_OF_INTEREST\",\n      \"name\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"category\": \"NIGHTLIFE\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"rank\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"PATCH\",\n          \"PUT\"\n        ]\n      },\n      \"type\": \"<string>\",\n      \"subType\": \"POINT_OF_INTEREST\",\n      \"name\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"category\": \"BEACH_PARK\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"rank\": \"<string>\"\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                          "createdAt": "2026-06-05T13:13:17.000Z",
+                          "updatedAt": "2026-06-05T13:13:17.000Z",
+                          "uid": "35240-e96dabbb-d394-4f79-9c20-a3ee4c9b1b0c"
+                        },
+                        {
+                          "id": "6d4e3b27-9b68-4740-a5a1-1e8eabbf9a3e",
+                          "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reference-data/locations/pois/by-square?north=<double>&west=<double>&south=<double>&east=<double>&page[limit]=10&page[offset]=0&categories=RESTAURANT,SIGHTS",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reference-data",
+                                "locations",
+                                "pois",
+                                "by-square"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                                  "key": "north",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                                  "key": "west",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                                  "key": "south",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                                  "key": "east",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "maximum items in one page",
+                                  "key": "page[limit]",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "start index of the requested page",
+                                  "key": "page[offset]",
+                                  "value": "0"
+                                },
+                                {
+                                  "description": "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n",
+                                  "key": "categories",
+                                  "value": "RESTAURANT,SIGHTS"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T13:13:17.000Z",
+                          "updatedAt": "2026-06-05T13:13:17.000Z",
+                          "uid": "35240-6d4e3b27-9b68-4740-a5a1-1e8eabbf9a3e"
+                        },
+                        {
+                          "id": "0b458175-3cf9-48e5-9879-b725431c13c2",
+                          "name": "Unexpected Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/reference-data/locations/pois/by-square?north=<double>&west=<double>&south=<double>&east=<double>&page[limit]=10&page[offset]=0&categories=RESTAURANT,SIGHTS",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "reference-data",
+                                "locations",
+                                "pois",
+                                "by-square"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                                  "key": "north",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                                  "key": "west",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                                  "key": "south",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                                  "key": "east",
+                                  "value": "<double>"
+                                },
+                                {
+                                  "description": "maximum items in one page",
+                                  "key": "page[limit]",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "start index of the requested page",
+                                  "key": "page[offset]",
+                                  "value": "0"
+                                },
+                                {
+                                  "description": "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n",
+                                  "key": "categories",
+                                  "value": "RESTAURANT,SIGHTS"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T13:13:17.000Z",
+                          "updatedAt": "2026-06-05T13:13:17.000Z",
+                          "uid": "35240-0b458175-3cf9-48e5-9879-b725431c13c2"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:13:17.000Z",
+                      "updatedAt": "2026-06-05T13:13:17.000Z",
+                      "uid": "35240-06aa1afa-2914-4d98-ae70-477df2963986"
+                    }
+                  ],
+                  "id": "584776fd-f4f3-4da0-823e-6351fc56cda3",
+                  "createdAt": "2026-06-05T13:13:17.000Z",
+                  "updatedAt": "2026-06-05T13:13:17.000Z",
+                  "uid": "35240-584776fd-f4f3-4da0-823e-6351fc56cda3"
+                },
+                {
+                  "name": "Amadeus Returns Points of Interest for a Given Location and Radius.",
+                  "id": "6674a56a-6b56-416a-87f7-d3a3505e2616",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/locations/pois?latitude=<double>&longitude=<double>&radius=1&page[limit]=10&page[offset]=0&categories=RESTAURANT,SIGHTS",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "locations",
+                        "pois"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude (decimal coordinates)",
+                          "key": "latitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "(Required) Longitude (decimal coordinates)",
+                          "key": "longitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                          "key": "radius",
+                          "value": "1"
+                        },
+                        {
+                          "description": "maximum items in one page",
+                          "key": "page[limit]",
+                          "value": "10"
+                        },
+                        {
+                          "description": "start index of the requested page",
+                          "key": "page[offset]",
+                          "value": "0"
+                        },
+                        {
+                          "description": "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n",
+                          "key": "categories",
+                          "value": "RESTAURANT,SIGHTS"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "52c3686a-9ab1-4b10-a7d4-129837210455",
+                      "name": "Successful Operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/pois?latitude=<double>&longitude=<double>&radius=1&page[limit]=10&page[offset]=0&categories=RESTAURANT,SIGHTS",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "pois"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude (decimal coordinates)",
+                              "key": "latitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Longitude (decimal coordinates)",
+                              "key": "longitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                              "key": "radius",
+                              "value": "1"
+                            },
+                            {
+                              "description": "maximum items in one page",
+                              "key": "page[limit]",
+                              "value": "10"
+                            },
+                            {
+                              "description": "start index of the requested page",
+                              "key": "page[offset]",
+                              "value": "0"
+                            },
+                            {
+                              "description": "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n",
+                              "key": "categories",
+                              "value": "RESTAURANT,SIGHTS"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"PUT\",\n          \"PATCH\"\n        ]\n      },\n      \"type\": \"<string>\",\n      \"subType\": \"POINT_OF_INTEREST\",\n      \"name\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"category\": \"NIGHTLIFE\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"rank\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"PATCH\",\n          \"PUT\"\n        ]\n      },\n      \"type\": \"<string>\",\n      \"subType\": \"POINT_OF_INTEREST\",\n      \"name\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"category\": \"BEACH_PARK\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"rank\": \"<string>\"\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:13:17.000Z",
+                      "updatedAt": "2026-06-05T13:13:17.000Z",
+                      "uid": "35240-52c3686a-9ab1-4b10-a7d4-129837210455"
+                    },
+                    {
+                      "id": "eb857c42-2cfd-4bd3-b9be-45277f71d7e9",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/pois?latitude=<double>&longitude=<double>&radius=1&page[limit]=10&page[offset]=0&categories=RESTAURANT,SIGHTS",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "pois"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude (decimal coordinates)",
+                              "key": "latitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Longitude (decimal coordinates)",
+                              "key": "longitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                              "key": "radius",
+                              "value": "1"
+                            },
+                            {
+                              "description": "maximum items in one page",
+                              "key": "page[limit]",
+                              "value": "10"
+                            },
+                            {
+                              "description": "start index of the requested page",
+                              "key": "page[offset]",
+                              "value": "0"
+                            },
+                            {
+                              "description": "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n",
+                              "key": "categories",
+                              "value": "RESTAURANT,SIGHTS"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:17.000Z",
+                      "updatedAt": "2026-06-05T13:13:17.000Z",
+                      "uid": "35240-eb857c42-2cfd-4bd3-b9be-45277f71d7e9"
+                    },
+                    {
+                      "id": "7243d96a-b9d9-4a8e-81e7-e8b915a1c155",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/pois?latitude=<double>&longitude=<double>&radius=1&page[limit]=10&page[offset]=0&categories=RESTAURANT,SIGHTS",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "pois"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude (decimal coordinates)",
+                              "key": "latitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Longitude (decimal coordinates)",
+                              "key": "longitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                              "key": "radius",
+                              "value": "1"
+                            },
+                            {
+                              "description": "maximum items in one page",
+                              "key": "page[limit]",
+                              "value": "10"
+                            },
+                            {
+                              "description": "start index of the requested page",
+                              "key": "page[offset]",
+                              "value": "0"
+                            },
+                            {
+                              "description": "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n",
+                              "key": "categories",
+                              "value": "RESTAURANT,SIGHTS"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:17.000Z",
+                      "updatedAt": "2026-06-05T13:13:17.000Z",
+                      "uid": "35240-7243d96a-b9d9-4a8e-81e7-e8b915a1c155"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:13:17.000Z",
+                  "updatedAt": "2026-06-05T13:13:17.000Z",
+                  "uid": "35240-6674a56a-6b56-416a-87f7-d3a3505e2616"
+                }
+              ],
+              "id": "26525f5b-6c32-45e0-8068-1ae62231dac0",
+              "createdAt": "2026-06-05T13:13:17.000Z",
+              "updatedAt": "2026-06-05T13:13:17.000Z",
+              "uid": "35240-26525f5b-6c32-45e0-8068-1ae62231dac0"
+            }
+          ],
+          "id": "26e8530f-439b-4a44-8844-fc22b8daf6a8",
+          "createdAt": "2026-06-05T13:13:17.000Z",
+          "updatedAt": "2026-06-05T13:13:17.000Z",
+          "uid": "35240-26e8530f-439b-4a44-8844-fc22b8daf6a8"
+        }
+      ],
+      "id": "c0db4f12-b459-4dd8-b712-f3a6e5851eba",
+      "createdAt": "2026-06-05T13:13:17.000Z",
+      "updatedAt": "2026-06-05T13:13:17.000Z",
+      "uid": "35240-c0db4f12-b459-4dd8-b712-f3a6e5851eba"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

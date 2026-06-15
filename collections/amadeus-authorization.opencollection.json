@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amadeus OAuth2 Login",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OAuth2 Access Token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus The OAuth 2.0 Token Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://test.api.amadeus.com/v1/security/oauth2/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "The token endpoint is used by the client to obtain an access token by presenting its authorization grant.\nTo learn more about this endpoint please refer to the specification at https://tools.ietf.org/html/rfc6749#section-3.2"
+        },
+        {
+          "info": {
+            "name": "Amadeus The OAuth 2.0 Token Info Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/security/oauth2/token/:access_token",
+            "params": [
+              {
+                "name": "access_token",
+                "value": "string-value",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get token information"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

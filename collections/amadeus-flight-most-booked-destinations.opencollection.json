@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flight Most Booked Destinations",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "air-traffic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Returns a List of Air Traffic Reports.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/travel/analytics/air-traffic/booked",
+            "params": [
+              {
+                "name": "originCityCode",
+                "value": "",
+                "type": "query",
+                "description": "Code for the origin city following IATA standard ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)). - e.g. BOS for Boston"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "period when consumers are traveling.\n* It can be a month only. \n* ISO format must be used - e.g. 2015-05. \n* Period ranges are not supported. \n* Only periods from 2011-01 up to previous month are valid. \n* Future dates are not supported.\n"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "maximum number of destinations in the response. Default value is 10 and maximum value is 50."
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "list of attributes desired in the response or list of attributes to remove from the response (with \"-\" before fields) \n* The attributes names must contain the whole path (except resource name) e.g. travelers"
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "maximum items in one page"
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "start index of the requested page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "defines on which attribute the sorting will be done:\n* analytics.flights.score - sort destinations by flights score (decreasing)\n* analytics.travelers.score - sort destination by traveler's score (decreasing)\n"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns a List of Air Traffic Reports."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

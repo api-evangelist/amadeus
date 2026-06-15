@@ -1,0 +1,220 @@
+{
+  "item": [
+    {
+      "id": "225b60a3-0e8c-4442-9ac5-a6fa5be59da0",
+      "name": "checkin-links",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "157af8f8-ede6-43ce-99cc-82fe98271b31",
+          "name": "Amadeus Lists Check-in URLs.",
+          "request": {
+            "name": "Amadeus Lists Check-in URLs.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "urls",
+                "checkin-links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "airlineCode",
+                  "value": "<string>",
+                  "description": "(Required) Airline code following IATA or ICAO standard - e.g. 1X; AF or ESY\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)\n\n[ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Check-in page language with one of the following patterns 'languageCode' (e.g. EN) or 'languageCode-IATAcountryCode' (e.g. en-GB). \n\nDefault value is **en-GB** (used when required language is not available or when no value is specified).\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6d02e4a-2b7f-4c5f-aeab-547c1fdf697f",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "urls",
+                    "checkin-links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airlineCode",
+                      "value": "BA"
+                    },
+                    {
+                      "key": "language",
+                      "value": "EN"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"checkin-link\",\n      \"id\": \"1XEN-GBMobile\",\n      \"href\": \"https://example.com/resource\",\n      \"channel\": \"Mobile\",\n      \"parameters\": {\n        \"key_0\": {\n          \"type\": \"string\",\n          \"description\": \"Passenger last name\",\n          \"format\": \"([a-zA-Z]|[0-9]){6}\"\n        },\n        \"key_1\": {\n          \"type\": \"string\",\n          \"description\": \"Passenger last name\",\n          \"format\": \"([a-zA-Z]|[0-9]){6}\"\n        },\n        \"key_2\": {\n          \"type\": \"string\",\n          \"description\": \"Passenger last name\",\n          \"format\": \"([a-zA-Z]|[0-9]){6}\"\n        }\n      }\n    },\n    {\n      \"type\": \"checkin-link\",\n      \"id\": \"1XEN-GBMobile\",\n      \"href\": \"https://example.com/resource\",\n      \"channel\": \"Mobile\",\n      \"parameters\": {\n        \"key_0\": {\n          \"type\": \"string\",\n          \"description\": \"Passenger last name\",\n          \"format\": \"([a-zA-Z]|[0-9]){6}\"\n        },\n        \"key_1\": {\n          \"type\": \"string\",\n          \"description\": \"Passenger last name\",\n          \"format\": \"([a-zA-Z]|[0-9]){6}\"\n        },\n        \"key_2\": {\n          \"type\": \"string\",\n          \"description\": \"Passenger last name\",\n          \"format\": \"([a-zA-Z]|[0-9]){6}\"\n        },\n        \"key_3\": {\n          \"type\": \"string\",\n          \"description\": \"Passenger last name\",\n          \"format\": \"([a-zA-Z]|[0-9]){6}\"\n        }\n      }\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": 1,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "caa1cc4b-e5f3-4117-ad25-1b9bc06537f0",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n32171     | MANDATORY DATA MISSING                      \t     \n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "urls",
+                    "checkin-links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airlineCode",
+                      "value": "BA"
+                    },
+                    {
+                      "key": "language",
+                      "value": "EN"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d689c054-9302-43e8-89ad-42ad4396923f",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "urls",
+                    "checkin-links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airlineCode",
+                      "value": "BA"
+                    },
+                    {
+                      "key": "language",
+                      "value": "EN"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "acf8958d-5529-49dc-b5cf-432177d506e2",
+    "name": "Flight Check-in Links",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production, to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.",
+      "type": "text/plain"
+    }
+  }
+}

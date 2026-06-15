@@ -1,0 +1,272 @@
+{
+  "info": {
+    "_postman_id": "c4e4505e-7edf-4d36-9951-0c14cef2b94f",
+    "name": "Branded Fares Upsell",
+    "description": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production, if you are not returning any results try with big cities/airports like LON (London) or NYC (New-York).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:30.000Z",
+    "updatedAt": "2026-06-05T13:12:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c4e4505e-7edf-4d36-9951-0c14cef2b94f"
+  },
+  "item": [
+    {
+      "name": "shopping",
+      "item": [
+        {
+          "name": "flight-offers",
+          "item": [
+            {
+              "name": "upselling",
+              "item": [
+                {
+                  "name": "Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers",
+                  "id": "70d30127-4b76-46e9-b8b4-1943ffbc367b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) the HTTP method to apply",
+                        "key": "X-HTTP-Method-Override",
+                        "value": "GET"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.amadeus+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"flightOffers\": [\n      {\n        \"type\": \"<string>\",\n        \"id\": \"<string>\",\n        \"source\": \"GDS\",\n        \"instantTicketingRequired\": \"<boolean>\",\n        \"disablePricing\": \"<boolean>\",\n        \"nonHomogeneous\": \"<boolean>\",\n        \"oneWay\": \"<boolean>\",\n        \"paymentCardRequired\": \"<boolean>\",\n        \"lastTicketingDate\": \"<string>\",\n        \"lastTicketingDateTime\": \"<dateTime>\",\n        \"numberOfBookableSeats\": \"<number>\",\n        \"itineraries\": [\n          {\n            \"segments\": [\n              {\n                \"id\": \"<string>\",\n                \"numberOfStops\": \"<integer>\",\n                \"blacklistedInEU\": \"<boolean>\",\n                \"co2Emissions\": [\n                  {\n                    \"weight\": \"<integer>\",\n                    \"weightUnit\": \"<string>\",\n                    \"cabin\": \"BUSINESS\"\n                  }\n                ],\n                \"departure\": {\n                  \"iataCode\": \"<string>\",\n                  \"terminal\": \"<string>\",\n                  \"at\": \"<dateTime>\"\n                },\n                \"arrival\": {\n                  \"iataCode\": \"<string>\",\n                  \"terminal\": \"<string>\",\n                  \"at\": \"<dateTime>\"\n                },\n                \"carrierCode\": \"<string>\",\n                \"number\": \"<string>\",\n                \"aircraft\": {\n                  \"code\": \"C9N\"\n                },\n                \"operating\": {\n                  \"carrierCode\": \"<string>\"\n                },\n                \"duration\": \"<string>\",\n                \"stops\": [\n                  {\n                    \"iataCode\": \"<string>\",\n                    \"duration\": \"<string>\",\n                    \"arrivalAt\": \"<dateTime>\",\n                    \"departureAt\": \"<dateTime>\"\n                  },\n                  {\n                    \"iataCode\": \"<string>\",\n                    \"duration\": \"<string>\",\n                    \"arrivalAt\": \"<dateTime>\",\n                    \"departureAt\": \"<dateTime>\"\n                  }\n                ]\n              }\n            ],\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"price\": {\n          \"margin\": \"<string>\",\n          \"grandTotal\": \"<string>\",\n          \"billingCurrency\": \"<string>\",\n          \"additionalServices\": [\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SEATS\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SEATS\"\n            }\n          ],\n          \"currency\": \"<string>\",\n          \"total\": \"<string>\",\n          \"base\": \"<string>\",\n          \"fees\": [\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"FORM_OF_PAYMENT\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SUPPLIER\"\n            }\n          ],\n          \"taxes\": [\n            {\n              \"amount\": \"<string>\",\n              \"code\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"code\": \"<string>\"\n            }\n          ],\n          \"refundableTaxes\": \"<string>\"\n        },\n        \"pricingOptions\": {\n          \"fareType\": [\n            \"CORPORATE\",\n            \"PUBLISHED\"\n          ],\n          \"includedCheckedBagsOnly\": \"<boolean>\",\n          \"refundableFare\": \"<boolean>\",\n          \"noRestrictionFare\": \"<boolean>\",\n          \"noPenaltyFare\": \"<boolean>\"\n        },\n        \"validatingAirlineCodes\": [\n          \"<string>\"\n        ],\n        \"travelerPricings\": [\n          {\n            \"travelerId\": \"<string>\",\n            \"fareOption\": \"SPANISH_CANARY_RESIDENT\",\n            \"travelerType\": \"HELD_INFANT\",\n            \"fareDetailsBySegment\": [\n              {\n                \"segmentId\": \"<string>\",\n                \"cabin\": \"FIRST\",\n                \"fareBasis\": \"IF\",\n                \"brandedFare\": \"<string>\",\n                \"class\": \"U\",\n                \"isAllotment\": \"<boolean>\",\n                \"allotmentDetails\": {\n                  \"tourName\": \"<string>\",\n                  \"tourReference\": \"<string>\"\n                },\n                \"sliceDiceIndicator\": \"SUB_OD_AVAILABILITY_2\",\n                \"includedCheckedBags\": {\n                  \"quantity\": \"<integer>\",\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\"\n                },\n                \"additionalServices\": {\n                  \"chargeableCheckedBags\": {\n                    \"quantity\": \"<integer>\",\n                    \"weight\": \"<integer>\",\n                    \"weightUnit\": \"<string>\",\n                    \"id\": \"<string>\"\n                  },\n                  \"chargeableSeat\": {\n                    \"id\": \"<string>\",\n                    \"number\": \"88Q\"\n                  },\n                  \"chargeableSeatNumber\": \"52D\",\n                  \"otherServices\": [\n                    \"PRIORITY_BOARDING\",\n                    \"PRIORITY_BOARDING\"\n                  ]\n                }\n              }\n            ],\n            \"associatedAdultId\": \"<string>\",\n            \"price\": {\n              \"currency\": \"<string>\",\n              \"total\": \"<string>\",\n              \"base\": \"<string>\",\n              \"fees\": [\n                {\n                  \"amount\": \"<string>\",\n                  \"type\": \"FORM_OF_PAYMENT\"\n                },\n                {\n                  \"amount\": \"<string>\",\n                  \"type\": \"SUPPLIER\"\n                }\n              ],\n              \"taxes\": [\n                {\n                  \"amount\": \"<string>\",\n                  \"code\": \"<string>\"\n                },\n                {\n                  \"amount\": \"<string>\",\n                  \"code\": \"<string>\"\n                }\n              ],\n              \"refundableTaxes\": \"<string>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"payments\": [\n      {\n        \"brand\": \"AMERICAN_EXPRESS\",\n        \"binNumber\": 881661,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      },\n      {\n        \"brand\": \"VISA_IXARIS\",\n        \"binNumber\": 367777,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      }\n    ]\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/flight-offers/upselling",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "flight-offers",
+                        "upselling"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c4a46091-04f6-4100-b85a-812c5149a2d0",
+                      "name": "Successful Operation",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) the HTTP method to apply",
+                            "key": "X-HTTP-Method-Override",
+                            "value": "GET"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/vnd.amadeus+json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"flightOffers\": [\n      {\n        \"type\": \"<string>\",\n        \"id\": \"<string>\",\n        \"source\": \"GDS\",\n        \"instantTicketingRequired\": \"<boolean>\",\n        \"disablePricing\": \"<boolean>\",\n        \"nonHomogeneous\": \"<boolean>\",\n        \"oneWay\": \"<boolean>\",\n        \"paymentCardRequired\": \"<boolean>\",\n        \"lastTicketingDate\": \"<string>\",\n        \"lastTicketingDateTime\": \"<dateTime>\",\n        \"numberOfBookableSeats\": \"<number>\",\n        \"itineraries\": [\n          {\n            \"segments\": [\n              {\n                \"id\": \"<string>\",\n                \"numberOfStops\": \"<integer>\",\n                \"blacklistedInEU\": \"<boolean>\",\n                \"co2Emissions\": [\n                  {\n                    \"weight\": \"<integer>\",\n                    \"weightUnit\": \"<string>\",\n                    \"cabin\": \"BUSINESS\"\n                  }\n                ],\n                \"departure\": {\n                  \"iataCode\": \"<string>\",\n                  \"terminal\": \"<string>\",\n                  \"at\": \"<dateTime>\"\n                },\n                \"arrival\": {\n                  \"iataCode\": \"<string>\",\n                  \"terminal\": \"<string>\",\n                  \"at\": \"<dateTime>\"\n                },\n                \"carrierCode\": \"<string>\",\n                \"number\": \"<string>\",\n                \"aircraft\": {\n                  \"code\": \"C9N\"\n                },\n                \"operating\": {\n                  \"carrierCode\": \"<string>\"\n                },\n                \"duration\": \"<string>\",\n                \"stops\": [\n                  {\n                    \"iataCode\": \"<string>\",\n                    \"duration\": \"<string>\",\n                    \"arrivalAt\": \"<dateTime>\",\n                    \"departureAt\": \"<dateTime>\"\n                  },\n                  {\n                    \"iataCode\": \"<string>\",\n                    \"duration\": \"<string>\",\n                    \"arrivalAt\": \"<dateTime>\",\n                    \"departureAt\": \"<dateTime>\"\n                  }\n                ]\n              }\n            ],\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"price\": {\n          \"margin\": \"<string>\",\n          \"grandTotal\": \"<string>\",\n          \"billingCurrency\": \"<string>\",\n          \"additionalServices\": [\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SEATS\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SEATS\"\n            }\n          ],\n          \"currency\": \"<string>\",\n          \"total\": \"<string>\",\n          \"base\": \"<string>\",\n          \"fees\": [\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"FORM_OF_PAYMENT\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SUPPLIER\"\n            }\n          ],\n          \"taxes\": [\n            {\n              \"amount\": \"<string>\",\n              \"code\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"code\": \"<string>\"\n            }\n          ],\n          \"refundableTaxes\": \"<string>\"\n        },\n        \"pricingOptions\": {\n          \"fareType\": [\n            \"CORPORATE\",\n            \"PUBLISHED\"\n          ],\n          \"includedCheckedBagsOnly\": \"<boolean>\",\n          \"refundableFare\": \"<boolean>\",\n          \"noRestrictionFare\": \"<boolean>\",\n          \"noPenaltyFare\": \"<boolean>\"\n        },\n        \"validatingAirlineCodes\": [\n          \"<string>\"\n        ],\n        \"travelerPricings\": [\n          {\n            \"travelerId\": \"<string>\",\n            \"fareOption\": \"SPANISH_CANARY_RESIDENT\",\n            \"travelerType\": \"HELD_INFANT\",\n            \"fareDetailsBySegment\": [\n              {\n                \"segmentId\": \"<string>\",\n                \"cabin\": \"FIRST\",\n                \"fareBasis\": \"IF\",\n                \"brandedFare\": \"<string>\",\n                \"class\": \"U\",\n                \"isAllotment\": \"<boolean>\",\n                \"allotmentDetails\": {\n                  \"tourName\": \"<string>\",\n                  \"tourReference\": \"<string>\"\n                },\n                \"sliceDiceIndicator\": \"SUB_OD_AVAILABILITY_2\",\n                \"includedCheckedBags\": {\n                  \"quantity\": \"<integer>\",\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\"\n                },\n                \"additionalServices\": {\n                  \"chargeableCheckedBags\": {\n                    \"quantity\": \"<integer>\",\n                    \"weight\": \"<integer>\",\n                    \"weightUnit\": \"<string>\",\n                    \"id\": \"<string>\"\n                  },\n                  \"chargeableSeat\": {\n                    \"id\": \"<string>\",\n                    \"number\": \"88Q\"\n                  },\n                  \"chargeableSeatNumber\": \"52D\",\n                  \"otherServices\": [\n                    \"PRIORITY_BOARDING\",\n                    \"PRIORITY_BOARDING\"\n                  ]\n                }\n              }\n            ],\n            \"associatedAdultId\": \"<string>\",\n            \"price\": {\n              \"currency\": \"<string>\",\n              \"total\": \"<string>\",\n              \"base\": \"<string>\",\n              \"fees\": [\n                {\n                  \"amount\": \"<string>\",\n                  \"type\": \"FORM_OF_PAYMENT\"\n                },\n                {\n                  \"amount\": \"<string>\",\n                  \"type\": \"SUPPLIER\"\n                }\n              ],\n              \"taxes\": [\n                {\n                  \"amount\": \"<string>\",\n                  \"code\": \"<string>\"\n                },\n                {\n                  \"amount\": \"<string>\",\n                  \"code\": \"<string>\"\n                }\n              ],\n              \"refundableTaxes\": \"<string>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"payments\": [\n      {\n        \"brand\": \"AMERICAN_EXPRESS\",\n        \"binNumber\": 881661,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      },\n      {\n        \"brand\": \"VISA_IXARIS\",\n        \"binNumber\": 367777,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      }\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/flight-offers/upselling",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "flight-offers",
+                            "upselling"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"source\": \"GDS\",\n      \"instantTicketingRequired\": \"<boolean>\",\n      \"disablePricing\": \"<boolean>\",\n      \"nonHomogeneous\": \"<boolean>\",\n      \"oneWay\": \"<boolean>\",\n      \"paymentCardRequired\": \"<boolean>\",\n      \"lastTicketingDate\": \"<string>\",\n      \"lastTicketingDateTime\": \"<dateTime>\",\n      \"numberOfBookableSeats\": \"<number>\",\n      \"itineraries\": [\n        {\n          \"segments\": [\n            {\n              \"id\": \"<string>\",\n              \"numberOfStops\": \"<integer>\",\n              \"blacklistedInEU\": \"<boolean>\",\n              \"co2Emissions\": [\n                {\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\",\n                  \"cabin\": \"FIRST\"\n                }\n              ],\n              \"departure\": {\n                \"iataCode\": \"<string>\",\n                \"terminal\": \"<string>\",\n                \"at\": \"<dateTime>\"\n              },\n              \"arrival\": {\n                \"iataCode\": \"<string>\",\n                \"terminal\": \"<string>\",\n                \"at\": \"<dateTime>\"\n              },\n              \"carrierCode\": \"<string>\",\n              \"number\": \"<string>\",\n              \"aircraft\": {\n                \"code\": \"gZs\"\n              },\n              \"operating\": {\n                \"carrierCode\": \"<string>\"\n              },\n              \"duration\": \"<string>\",\n              \"stops\": [\n                {\n                  \"iataCode\": \"<string>\",\n                  \"duration\": \"<string>\",\n                  \"arrivalAt\": \"<dateTime>\",\n                  \"departureAt\": \"<dateTime>\"\n                }\n              ]\n            }\n          ],\n          \"duration\": \"<string>\"\n        }\n      ],\n      \"price\": {\n        \"margin\": \"<string>\",\n        \"grandTotal\": \"<string>\",\n        \"billingCurrency\": \"<string>\",\n        \"additionalServices\": [\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"MEALS\"\n          }\n        ],\n        \"currency\": \"<string>\",\n        \"total\": \"<string>\",\n        \"base\": \"<string>\",\n        \"fees\": [\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"FORM_OF_PAYMENT\"\n          }\n        ],\n        \"taxes\": [\n          {\n            \"amount\": \"<string>\",\n            \"code\": \"<string>\"\n          }\n        ],\n        \"refundableTaxes\": \"<string>\"\n      },\n      \"pricingOptions\": {\n        \"fareType\": [\n          \"CORPORATE\"\n        ],\n        \"includedCheckedBagsOnly\": \"<boolean>\",\n        \"refundableFare\": \"<boolean>\",\n        \"noRestrictionFare\": \"<boolean>\",\n        \"noPenaltyFare\": \"<boolean>\"\n      },\n      \"validatingAirlineCodes\": [\n        \"<string>\"\n      ],\n      \"travelerPricings\": [\n        {\n          \"travelerId\": \"<string>\",\n          \"fareOption\": \"AIR_FRANCE_FAMILY\",\n          \"travelerType\": \"ADULT\",\n          \"fareDetailsBySegment\": [\n            {\n              \"segmentId\": \"<string>\",\n              \"cabin\": \"ECONOMY\",\n              \"fareBasis\": \"C8MK2G59\",\n              \"brandedFare\": \"<string>\",\n              \"class\": \"F\",\n              \"isAllotment\": \"<boolean>\",\n              \"allotmentDetails\": {\n                \"tourName\": \"<string>\",\n                \"tourReference\": \"<string>\"\n              },\n              \"sliceDiceIndicator\": \"LOCAL_AVAILABILITY\",\n              \"includedCheckedBags\": {\n                \"quantity\": \"<integer>\",\n                \"weight\": \"<integer>\",\n                \"weightUnit\": \"<string>\"\n              },\n              \"additionalServices\": {\n                \"chargeableCheckedBags\": {\n                  \"quantity\": \"<integer>\",\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\",\n                  \"id\": \"<string>\"\n                },\n                \"chargeableSeat\": {\n                  \"id\": \"<string>\",\n                  \"number\": \"1\"\n                },\n                \"chargeableSeatNumber\": \"181S\",\n                \"otherServices\": [\n                  \"PRIORITY_BOARDING\"\n                ]\n              }\n            }\n          ],\n          \"associatedAdultId\": \"<string>\",\n          \"price\": {\n            \"currency\": \"<string>\",\n            \"total\": \"<string>\",\n            \"base\": \"<string>\",\n            \"fees\": [\n              {\n                \"amount\": \"<string>\",\n                \"type\": \"TICKETING\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"amount\": \"<string>\",\n                \"code\": \"<string>\"\n              }\n            ],\n            \"refundableTaxes\": \"<string>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"oneWayUpselledCombinations\": [\n      {\n        \"flightOfferId\": \"<string>\",\n        \"upselledFlightOfferIds\": [\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"dictionaries\": {\n    \"locations\": {\n      \"commodob0\": {\n        \"cityCode\": \"<string>\",\n        \"countryCode\": \"<string>\"\n      },\n      \"commodo9d\": {\n        \"cityCode\": \"<string>\",\n        \"countryCode\": \"<string>\"\n      }\n    },\n    \"aircraft\": {\n      \"eta\": \"<string>\",\n      \"anim71\": \"<string>\",\n      \"cupidatat252\": \"<string>\",\n      \"velitfde\": \"<string>\"\n    },\n    \"currencies\": {\n      \"irureb_d\": \"<string>\"\n    },\n    \"carriers\": {\n      \"ipsume\": \"<string>\",\n      \"in_eb\": \"<string>\",\n      \"laborum_35b\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:12:30.000Z",
+                      "updatedAt": "2026-06-05T13:12:30.000Z",
+                      "uid": "35240-c4a46091-04f6-4100-b85a-812c5149a2d0"
+                    },
+                    {
+                      "id": "552718df-52f9-4b1c-b456-7a88a3288f44",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) the HTTP method to apply",
+                            "key": "X-HTTP-Method-Override",
+                            "value": "GET"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/vnd.amadeus+json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"flightOffers\": [\n      {\n        \"type\": \"<string>\",\n        \"id\": \"<string>\",\n        \"source\": \"GDS\",\n        \"instantTicketingRequired\": \"<boolean>\",\n        \"disablePricing\": \"<boolean>\",\n        \"nonHomogeneous\": \"<boolean>\",\n        \"oneWay\": \"<boolean>\",\n        \"paymentCardRequired\": \"<boolean>\",\n        \"lastTicketingDate\": \"<string>\",\n        \"lastTicketingDateTime\": \"<dateTime>\",\n        \"numberOfBookableSeats\": \"<number>\",\n        \"itineraries\": [\n          {\n            \"segments\": [\n              {\n                \"id\": \"<string>\",\n                \"numberOfStops\": \"<integer>\",\n                \"blacklistedInEU\": \"<boolean>\",\n                \"co2Emissions\": [\n                  {\n                    \"weight\": \"<integer>\",\n                    \"weightUnit\": \"<string>\",\n                    \"cabin\": \"BUSINESS\"\n                  }\n                ],\n                \"departure\": {\n                  \"iataCode\": \"<string>\",\n                  \"terminal\": \"<string>\",\n                  \"at\": \"<dateTime>\"\n                },\n                \"arrival\": {\n                  \"iataCode\": \"<string>\",\n                  \"terminal\": \"<string>\",\n                  \"at\": \"<dateTime>\"\n                },\n                \"carrierCode\": \"<string>\",\n                \"number\": \"<string>\",\n                \"aircraft\": {\n                  \"code\": \"C9N\"\n                },\n                \"operating\": {\n                  \"carrierCode\": \"<string>\"\n                },\n                \"duration\": \"<string>\",\n                \"stops\": [\n                  {\n                    \"iataCode\": \"<string>\",\n                    \"duration\": \"<string>\",\n                    \"arrivalAt\": \"<dateTime>\",\n                    \"departureAt\": \"<dateTime>\"\n                  },\n                  {\n                    \"iataCode\": \"<string>\",\n                    \"duration\": \"<string>\",\n                    \"arrivalAt\": \"<dateTime>\",\n                    \"departureAt\": \"<dateTime>\"\n                  }\n                ]\n              }\n            ],\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"price\": {\n          \"margin\": \"<string>\",\n          \"grandTotal\": \"<string>\",\n          \"billingCurrency\": \"<string>\",\n          \"additionalServices\": [\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SEATS\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SEATS\"\n            }\n          ],\n          \"currency\": \"<string>\",\n          \"total\": \"<string>\",\n          \"base\": \"<string>\",\n          \"fees\": [\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"FORM_OF_PAYMENT\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SUPPLIER\"\n            }\n          ],\n          \"taxes\": [\n            {\n              \"amount\": \"<string>\",\n              \"code\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"code\": \"<string>\"\n            }\n          ],\n          \"refundableTaxes\": \"<string>\"\n        },\n        \"pricingOptions\": {\n          \"fareType\": [\n            \"CORPORATE\",\n            \"PUBLISHED\"\n          ],\n          \"includedCheckedBagsOnly\": \"<boolean>\",\n          \"refundableFare\": \"<boolean>\",\n          \"noRestrictionFare\": \"<boolean>\",\n          \"noPenaltyFare\": \"<boolean>\"\n        },\n        \"validatingAirlineCodes\": [\n          \"<string>\"\n        ],\n        \"travelerPricings\": [\n          {\n            \"travelerId\": \"<string>\",\n            \"fareOption\": \"SPANISH_CANARY_RESIDENT\",\n            \"travelerType\": \"HELD_INFANT\",\n            \"fareDetailsBySegment\": [\n              {\n                \"segmentId\": \"<string>\",\n                \"cabin\": \"FIRST\",\n                \"fareBasis\": \"IF\",\n                \"brandedFare\": \"<string>\",\n                \"class\": \"U\",\n                \"isAllotment\": \"<boolean>\",\n                \"allotmentDetails\": {\n                  \"tourName\": \"<string>\",\n                  \"tourReference\": \"<string>\"\n                },\n                \"sliceDiceIndicator\": \"SUB_OD_AVAILABILITY_2\",\n                \"includedCheckedBags\": {\n                  \"quantity\": \"<integer>\",\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\"\n                },\n                \"additionalServices\": {\n                  \"chargeableCheckedBags\": {\n                    \"quantity\": \"<integer>\",\n                    \"weight\": \"<integer>\",\n                    \"weightUnit\": \"<string>\",\n                    \"id\": \"<string>\"\n                  },\n                  \"chargeableSeat\": {\n                    \"id\": \"<string>\",\n                    \"number\": \"88Q\"\n                  },\n                  \"chargeableSeatNumber\": \"52D\",\n                  \"otherServices\": [\n                    \"PRIORITY_BOARDING\",\n                    \"PRIORITY_BOARDING\"\n                  ]\n                }\n              }\n            ],\n            \"associatedAdultId\": \"<string>\",\n            \"price\": {\n              \"currency\": \"<string>\",\n              \"total\": \"<string>\",\n              \"base\": \"<string>\",\n              \"fees\": [\n                {\n                  \"amount\": \"<string>\",\n                  \"type\": \"FORM_OF_PAYMENT\"\n                },\n                {\n                  \"amount\": \"<string>\",\n                  \"type\": \"SUPPLIER\"\n                }\n              ],\n              \"taxes\": [\n                {\n                  \"amount\": \"<string>\",\n                  \"code\": \"<string>\"\n                },\n                {\n                  \"amount\": \"<string>\",\n                  \"code\": \"<string>\"\n                }\n              ],\n              \"refundableTaxes\": \"<string>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"payments\": [\n      {\n        \"brand\": \"AMERICAN_EXPRESS\",\n        \"binNumber\": 881661,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      },\n      {\n        \"brand\": \"VISA_IXARIS\",\n        \"binNumber\": 367777,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      }\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/flight-offers/upselling",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "flight-offers",
+                            "upselling"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:30.000Z",
+                      "updatedAt": "2026-06-05T13:12:30.000Z",
+                      "uid": "35240-552718df-52f9-4b1c-b456-7a88a3288f44"
+                    },
+                    {
+                      "id": "516cd2db-3432-4d58-ba16-5b4dd147f66a",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) the HTTP method to apply",
+                            "key": "X-HTTP-Method-Override",
+                            "value": "GET"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/vnd.amadeus+json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"flightOffers\": [\n      {\n        \"type\": \"<string>\",\n        \"id\": \"<string>\",\n        \"source\": \"GDS\",\n        \"instantTicketingRequired\": \"<boolean>\",\n        \"disablePricing\": \"<boolean>\",\n        \"nonHomogeneous\": \"<boolean>\",\n        \"oneWay\": \"<boolean>\",\n        \"paymentCardRequired\": \"<boolean>\",\n        \"lastTicketingDate\": \"<string>\",\n        \"lastTicketingDateTime\": \"<dateTime>\",\n        \"numberOfBookableSeats\": \"<number>\",\n        \"itineraries\": [\n          {\n            \"segments\": [\n              {\n                \"id\": \"<string>\",\n                \"numberOfStops\": \"<integer>\",\n                \"blacklistedInEU\": \"<boolean>\",\n                \"co2Emissions\": [\n                  {\n                    \"weight\": \"<integer>\",\n                    \"weightUnit\": \"<string>\",\n                    \"cabin\": \"BUSINESS\"\n                  }\n                ],\n                \"departure\": {\n                  \"iataCode\": \"<string>\",\n                  \"terminal\": \"<string>\",\n                  \"at\": \"<dateTime>\"\n                },\n                \"arrival\": {\n                  \"iataCode\": \"<string>\",\n                  \"terminal\": \"<string>\",\n                  \"at\": \"<dateTime>\"\n                },\n                \"carrierCode\": \"<string>\",\n                \"number\": \"<string>\",\n                \"aircraft\": {\n                  \"code\": \"C9N\"\n                },\n                \"operating\": {\n                  \"carrierCode\": \"<string>\"\n                },\n                \"duration\": \"<string>\",\n                \"stops\": [\n                  {\n                    \"iataCode\": \"<string>\",\n                    \"duration\": \"<string>\",\n                    \"arrivalAt\": \"<dateTime>\",\n                    \"departureAt\": \"<dateTime>\"\n                  },\n                  {\n                    \"iataCode\": \"<string>\",\n                    \"duration\": \"<string>\",\n                    \"arrivalAt\": \"<dateTime>\",\n                    \"departureAt\": \"<dateTime>\"\n                  }\n                ]\n              }\n            ],\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"price\": {\n          \"margin\": \"<string>\",\n          \"grandTotal\": \"<string>\",\n          \"billingCurrency\": \"<string>\",\n          \"additionalServices\": [\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SEATS\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SEATS\"\n            }\n          ],\n          \"currency\": \"<string>\",\n          \"total\": \"<string>\",\n          \"base\": \"<string>\",\n          \"fees\": [\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"FORM_OF_PAYMENT\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"type\": \"SUPPLIER\"\n            }\n          ],\n          \"taxes\": [\n            {\n              \"amount\": \"<string>\",\n              \"code\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"code\": \"<string>\"\n            }\n          ],\n          \"refundableTaxes\": \"<string>\"\n        },\n        \"pricingOptions\": {\n          \"fareType\": [\n            \"CORPORATE\",\n            \"PUBLISHED\"\n          ],\n          \"includedCheckedBagsOnly\": \"<boolean>\",\n          \"refundableFare\": \"<boolean>\",\n          \"noRestrictionFare\": \"<boolean>\",\n          \"noPenaltyFare\": \"<boolean>\"\n        },\n        \"validatingAirlineCodes\": [\n          \"<string>\"\n        ],\n        \"travelerPricings\": [\n          {\n            \"travelerId\": \"<string>\",\n            \"fareOption\": \"SPANISH_CANARY_RESIDENT\",\n            \"travelerType\": \"HELD_INFANT\",\n            \"fareDetailsBySegment\": [\n              {\n                \"segmentId\": \"<string>\",\n                \"cabin\": \"FIRST\",\n                \"fareBasis\": \"IF\",\n                \"brandedFare\": \"<string>\",\n                \"class\": \"U\",\n                \"isAllotment\": \"<boolean>\",\n                \"allotmentDetails\": {\n                  \"tourName\": \"<string>\",\n                  \"tourReference\": \"<string>\"\n                },\n                \"sliceDiceIndicator\": \"SUB_OD_AVAILABILITY_2\",\n                \"includedCheckedBags\": {\n                  \"quantity\": \"<integer>\",\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\"\n                },\n                \"additionalServices\": {\n                  \"chargeableCheckedBags\": {\n                    \"quantity\": \"<integer>\",\n                    \"weight\": \"<integer>\",\n                    \"weightUnit\": \"<string>\",\n                    \"id\": \"<string>\"\n                  },\n                  \"chargeableSeat\": {\n                    \"id\": \"<string>\",\n                    \"number\": \"88Q\"\n                  },\n                  \"chargeableSeatNumber\": \"52D\",\n                  \"otherServices\": [\n                    \"PRIORITY_BOARDING\",\n                    \"PRIORITY_BOARDING\"\n                  ]\n                }\n              }\n            ],\n            \"associatedAdultId\": \"<string>\",\n            \"price\": {\n              \"currency\": \"<string>\",\n              \"total\": \"<string>\",\n              \"base\": \"<string>\",\n              \"fees\": [\n                {\n                  \"amount\": \"<string>\",\n                  \"type\": \"FORM_OF_PAYMENT\"\n                },\n                {\n                  \"amount\": \"<string>\",\n                  \"type\": \"SUPPLIER\"\n                }\n              ],\n              \"taxes\": [\n                {\n                  \"amount\": \"<string>\",\n                  \"code\": \"<string>\"\n                },\n                {\n                  \"amount\": \"<string>\",\n                  \"code\": \"<string>\"\n                }\n              ],\n              \"refundableTaxes\": \"<string>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"payments\": [\n      {\n        \"brand\": \"AMERICAN_EXPRESS\",\n        \"binNumber\": 881661,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      },\n      {\n        \"brand\": \"VISA_IXARIS\",\n        \"binNumber\": 367777,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      }\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/flight-offers/upselling",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "flight-offers",
+                            "upselling"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:30.000Z",
+                      "updatedAt": "2026-06-05T13:12:30.000Z",
+                      "uid": "35240-516cd2db-3432-4d58-ba16-5b4dd147f66a"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:12:30.000Z",
+                  "updatedAt": "2026-06-05T13:12:30.000Z",
+                  "uid": "35240-70d30127-4b76-46e9-b8b4-1943ffbc367b"
+                }
+              ],
+              "id": "0e47397b-7927-4c41-b358-bf3fd359b1ed",
+              "createdAt": "2026-06-05T13:12:30.000Z",
+              "updatedAt": "2026-06-05T13:12:30.000Z",
+              "uid": "35240-0e47397b-7927-4c41-b358-bf3fd359b1ed"
+            }
+          ],
+          "id": "53e95843-3652-4f0f-b836-96ced0568727",
+          "createdAt": "2026-06-05T13:12:30.000Z",
+          "updatedAt": "2026-06-05T13:12:30.000Z",
+          "uid": "35240-53e95843-3652-4f0f-b836-96ced0568727"
+        }
+      ],
+      "id": "32093f38-f3d3-45f3-bc56-6beaea754381",
+      "createdAt": "2026-06-05T13:12:30.000Z",
+      "updatedAt": "2026-06-05T13:12:30.000Z",
+      "uid": "35240-32093f38-f3d3-45f3-bc56-6beaea754381"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

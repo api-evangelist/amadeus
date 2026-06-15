@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "City Search",
+    "version": "1.0.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "City",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus GET Cities by Keyword",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/reference-data/locations/cities",
+            "params": [
+              {
+                "name": "countryCode",
+                "value": "FR",
+                "type": "query",
+                "description": "ISO 3166 Alpha-2 code. e.g. \"US\" United States of America."
+              },
+              {
+                "name": "keyword",
+                "value": "PARIS",
+                "type": "query",
+                "description": "keyword that should represent the start of a word in a city name."
+              },
+              {
+                "name": "max",
+                "value": "10",
+                "type": "query",
+                "description": "Number of results user want to see in response."
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Resources to be included example : Airports"
+              }
+            ]
+          },
+          "docs": "Amadeus GET Cities by Keyword"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

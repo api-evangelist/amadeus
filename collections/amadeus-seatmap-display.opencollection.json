@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Seatmap Display",
+    "version": "1.9.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Display SeatMaps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Returns All the Seat Maps of a Given Order.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/shopping/seatmaps",
+            "params": [
+              {
+                "name": "flightOrderId",
+                "value": "",
+                "type": "query",
+                "description": "identifier of the order"
+              },
+              {
+                "name": "flight-orderId",
+                "value": "",
+                "type": "query",
+                "description": "DEPRECATED identifier of the order , kept for backward compatibility"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns All the Seat Maps of a Given Order."
+        },
+        {
+          "info": {
+            "name": "Amadeus Returns All the Seat Maps of a Given FlightOffer.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/shopping/seatmaps",
+            "headers": [
+              {
+                "name": "X-HTTP-Method-Override",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Amadeus Returns All the Seat Maps of a Given FlightOffer."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,357 @@
+{
+  "info": {
+    "_postman_id": "8e58a793-82a8-41d3-a31d-7c3b498bcde4",
+    "name": "Flight Most Traveled Destinations",
+    "description": "\nBefore using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production, this API in test only returns a few selected cities. You can find the list in our **[data collection](https://github.com/amadeus4dev/data-collection)**.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:55.000Z",
+    "updatedAt": "2026-06-05T13:12:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8e58a793-82a8-41d3-a31d-7c3b498bcde4"
+  },
+  "item": [
+    {
+      "name": "travel",
+      "item": [
+        {
+          "name": "analytics",
+          "item": [
+            {
+              "name": "air-traffic",
+              "item": [
+                {
+                  "name": "traveled",
+                  "item": [
+                    {
+                      "name": "Amadeus Returns a List of Air Traffic Reports.",
+                      "id": "087da8c0-fbe0-4e38-bd43-4accb1cf1fa4",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/travel/analytics/air-traffic/traveled?originCityCode=Tza&period=<string>&max=10&fields=<string>&page[limit]=10&page[offset]=0&sort=analytics.travelers.score",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "travel",
+                            "analytics",
+                            "air-traffic",
+                            "traveled"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Code for the origin city following IATA standard ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)). - e.g. BOS for Boston",
+                              "key": "originCityCode",
+                              "value": "Tza"
+                            },
+                            {
+                              "description": "(Required) period when consumers are traveling.\n* It can be a month only. \n* [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format must be used - e.g. 2015-05. \n* Period ranges are not supported. \n* Only periods from 2011-01 up to previous month are valid. \n* Future dates are not supported.\n",
+                              "key": "period",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "maximum number of destinations in the response. Default value is **10** and maximum value is 50.",
+                              "key": "max",
+                              "value": "10"
+                            },
+                            {
+                              "description": "list of attributes desired in the response or list of attributes to remove from the response (with \"-\" before fields) \n* The attributes names must contain the whole path (except resource name) e.g. travelers",
+                              "key": "fields",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "maximum items in one page",
+                              "key": "page[limit]",
+                              "value": "10"
+                            },
+                            {
+                              "description": "start index of the requested page",
+                              "key": "page[offset]",
+                              "value": "0"
+                            },
+                            {
+                              "description": "defines on which attribute the sorting will be done:\n* **analytics.flights.score** - sort destination by flights score (decreasing)\n* **analytics.travelers.score** - sort destination by traveler's score (decreasing)\n",
+                              "key": "sort",
+                              "value": "analytics.travelers.score"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "12b5df87-91d3-41c2-b093-e8d06538b0d3",
+                          "name": "Successful Operation",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/travel/analytics/air-traffic/traveled?originCityCode=Tza&period=<string>&max=10&fields=<string>&page[limit]=10&page[offset]=0&sort=analytics.travelers.score",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "travel",
+                                "analytics",
+                                "air-traffic",
+                                "traveled"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Code for the origin city following IATA standard ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)). - e.g. BOS for Boston",
+                                  "key": "originCityCode",
+                                  "value": "Tza"
+                                },
+                                {
+                                  "description": "(Required) period when consumers are traveling.\n* It can be a month only. \n* [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format must be used - e.g. 2015-05. \n* Period ranges are not supported. \n* Only periods from 2011-01 up to previous month are valid. \n* Future dates are not supported.\n",
+                                  "key": "period",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "maximum number of destinations in the response. Default value is **10** and maximum value is 50.",
+                                  "key": "max",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "list of attributes desired in the response or list of attributes to remove from the response (with \"-\" before fields) \n* The attributes names must contain the whole path (except resource name) e.g. travelers",
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "maximum items in one page",
+                                  "key": "page[limit]",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "start index of the requested page",
+                                  "key": "page[offset]",
+                                  "value": "0"
+                                },
+                                {
+                                  "description": "defines on which attribute the sorting will be done:\n* **analytics.flights.score** - sort destination by flights score (decreasing)\n* **analytics.travelers.score** - sort destination by traveler's score (decreasing)\n",
+                                  "key": "sort",
+                                  "value": "analytics.travelers.score"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"subType\": \"<string>\",\n      \"destination\": \"<string>\",\n      \"analytics\": {\n        \"flights\": {\n          \"score\": \"<number>\"\n        },\n        \"travelers\": {\n          \"score\": \"<number>\"\n        }\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"subType\": \"<string>\",\n      \"destination\": \"<string>\",\n      \"analytics\": {\n        \"flights\": {\n          \"score\": \"<number>\"\n        },\n        \"travelers\": {\n          \"score\": \"<number>\"\n        }\n      }\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                          "createdAt": "2026-06-05T13:12:55.000Z",
+                          "updatedAt": "2026-06-05T13:12:55.000Z",
+                          "uid": "35240-12b5df87-91d3-41c2-b093-e8d06538b0d3"
+                        },
+                        {
+                          "id": "53594db6-0e5a-41be-91c8-60fa2a90d665",
+                          "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED                               \n32171   | MANDATORY",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/travel/analytics/air-traffic/traveled?originCityCode=Tza&period=<string>&max=10&fields=<string>&page[limit]=10&page[offset]=0&sort=analytics.travelers.score",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "travel",
+                                "analytics",
+                                "air-traffic",
+                                "traveled"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Code for the origin city following IATA standard ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)). - e.g. BOS for Boston",
+                                  "key": "originCityCode",
+                                  "value": "Tza"
+                                },
+                                {
+                                  "description": "(Required) period when consumers are traveling.\n* It can be a month only. \n* [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format must be used - e.g. 2015-05. \n* Period ranges are not supported. \n* Only periods from 2011-01 up to previous month are valid. \n* Future dates are not supported.\n",
+                                  "key": "period",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "maximum number of destinations in the response. Default value is **10** and maximum value is 50.",
+                                  "key": "max",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "list of attributes desired in the response or list of attributes to remove from the response (with \"-\" before fields) \n* The attributes names must contain the whole path (except resource name) e.g. travelers",
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "maximum items in one page",
+                                  "key": "page[limit]",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "start index of the requested page",
+                                  "key": "page[offset]",
+                                  "value": "0"
+                                },
+                                {
+                                  "description": "defines on which attribute the sorting will be done:\n* **analytics.flights.score** - sort destination by flights score (decreasing)\n* **analytics.travelers.score** - sort destination by traveler's score (decreasing)\n",
+                                  "key": "sort",
+                                  "value": "analytics.travelers.score"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T13:12:55.000Z",
+                          "updatedAt": "2026-06-05T13:12:55.000Z",
+                          "uid": "35240-53594db6-0e5a-41be-91c8-60fa2a90d665"
+                        },
+                        {
+                          "id": "1febbd08-4ba3-4de2-9b3d-72bfc407dd83",
+                          "name": "Unexpected Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/travel/analytics/air-traffic/traveled?originCityCode=Tza&period=<string>&max=10&fields=<string>&page[limit]=10&page[offset]=0&sort=analytics.travelers.score",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "travel",
+                                "analytics",
+                                "air-traffic",
+                                "traveled"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) Code for the origin city following IATA standard ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)). - e.g. BOS for Boston",
+                                  "key": "originCityCode",
+                                  "value": "Tza"
+                                },
+                                {
+                                  "description": "(Required) period when consumers are traveling.\n* It can be a month only. \n* [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format must be used - e.g. 2015-05. \n* Period ranges are not supported. \n* Only periods from 2011-01 up to previous month are valid. \n* Future dates are not supported.\n",
+                                  "key": "period",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "maximum number of destinations in the response. Default value is **10** and maximum value is 50.",
+                                  "key": "max",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "list of attributes desired in the response or list of attributes to remove from the response (with \"-\" before fields) \n* The attributes names must contain the whole path (except resource name) e.g. travelers",
+                                  "key": "fields",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "maximum items in one page",
+                                  "key": "page[limit]",
+                                  "value": "10"
+                                },
+                                {
+                                  "description": "start index of the requested page",
+                                  "key": "page[offset]",
+                                  "value": "0"
+                                },
+                                {
+                                  "description": "defines on which attribute the sorting will be done:\n* **analytics.flights.score** - sort destination by flights score (decreasing)\n* **analytics.travelers.score** - sort destination by traveler's score (decreasing)\n",
+                                  "key": "sort",
+                                  "value": "analytics.travelers.score"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/vnd.amadeus+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-06-05T13:12:55.000Z",
+                          "updatedAt": "2026-06-05T13:12:55.000Z",
+                          "uid": "35240-1febbd08-4ba3-4de2-9b3d-72bfc407dd83"
+                        }
+                      ],
+                      "createdAt": "2026-06-05T13:12:55.000Z",
+                      "updatedAt": "2026-06-05T13:12:55.000Z",
+                      "uid": "35240-087da8c0-fbe0-4e38-bd43-4accb1cf1fa4"
+                    }
+                  ],
+                  "id": "7f43ecbc-faf2-4037-9885-1af29d3f2090",
+                  "createdAt": "2026-06-05T13:12:55.000Z",
+                  "updatedAt": "2026-06-05T13:12:55.000Z",
+                  "uid": "35240-7f43ecbc-faf2-4037-9885-1af29d3f2090"
+                }
+              ],
+              "id": "f3dca22d-2bb5-46eb-90e9-b9f2510d5781",
+              "createdAt": "2026-06-05T13:12:55.000Z",
+              "updatedAt": "2026-06-05T13:12:55.000Z",
+              "uid": "35240-f3dca22d-2bb5-46eb-90e9-b9f2510d5781"
+            }
+          ],
+          "id": "acc5b088-c40f-4a00-857d-03a3bbdbb83f",
+          "createdAt": "2026-06-05T13:12:55.000Z",
+          "updatedAt": "2026-06-05T13:12:55.000Z",
+          "uid": "35240-acc5b088-c40f-4a00-857d-03a3bbdbb83f"
+        }
+      ],
+      "id": "9f9559c0-3dad-46fb-af30-b2a4836b8523",
+      "createdAt": "2026-06-05T13:12:55.000Z",
+      "updatedAt": "2026-06-05T13:12:55.000Z",
+      "uid": "35240-9f9559c0-3dad-46fb-af30-b2a4836b8523"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

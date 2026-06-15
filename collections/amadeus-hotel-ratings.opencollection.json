@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hotel Ratings",
+    "version": "1.0.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Hotel Ratings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Get Sentiments by Amadeus Hotel Ids",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/e-reputation/hotel-sentiments",
+            "params": [
+              {
+                "name": "hotelIds",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of Amadeus Hotel Ids (max. 3) . Amadeus Hotel Ids are found in the Hotel Search response (parameter name is 'hotelId')."
+              }
+            ]
+          },
+          "docs": "Amadeus Get Sentiments by Amadeus Hotel Ids"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

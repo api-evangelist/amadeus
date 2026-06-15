@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Transfer Booking",
+    "version": "1.11.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Booking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Performs a Transfer Reservation.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ordering/transfer-orders",
+            "params": [
+              {
+                "name": "offerId",
+                "value": "",
+                "type": "query",
+                "description": "transfer offer id from shopping/transfer-offers response"
+              }
+            ]
+          },
+          "docs": "Amadeus Performs a Transfer Reservation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

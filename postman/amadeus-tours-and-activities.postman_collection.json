@@ -1,0 +1,722 @@
+{
+  "info": {
+    "_postman_id": "d023d248-5045-4a0e-8e79-8427bc4c744c",
+    "name": "Tours and Activities",
+    "description": "\nBefore using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token. \n  \nPlease also be aware that our test environment is based on a subset of the production, this API in test only returns a few selected cities. You can find the list in our **[data collection](https://github.com/amadeus4dev/data-collection)**.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:13:18.000Z",
+    "updatedAt": "2026-06-05T13:13:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d023d248-5045-4a0e-8e79-8427bc4c744c"
+  },
+  "item": [
+    {
+      "name": "shopping",
+      "item": [
+        {
+          "name": "activities",
+          "item": [
+            {
+              "name": "by-square",
+              "item": [
+                {
+                  "name": "Amadeus Returns Activities Around a Given Location",
+                  "id": "d93d8e93-d7fe-4ca2-b5ac-053d11e42c1e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/activities/by-square?north=<number>&west=<number>&south=<number>&east=<number>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "activities",
+                        "by-square"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                          "key": "north",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                          "key": "west",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                          "key": "south",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                          "key": "east",
+                          "value": "<number>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "78d6fd27-54bd-4447-97b1-125c7fba1460",
+                      "name": "Successful Operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/activities/by-square?north=<number>&west=<number>&south=<number>&east=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "activities",
+                            "by-square"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                              "key": "north",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                              "key": "west",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                              "key": "south",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                              "key": "east",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"GET\",\n          \"GET\"\n        ]\n      },\n      \"name\": \"<string>\",\n      \"shortDescription\": \"<string>\",\n      \"description\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"rating\": \"<string>\",\n      \"price\": {\n        \"amount\": \"<string>\",\n        \"currencyCode\": \"<string>\"\n      },\n      \"pictures\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"bookingLink\": \"<string>\",\n      \"minimumDuration\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"GET\",\n          \"DELETE\"\n        ]\n      },\n      \"name\": \"<string>\",\n      \"shortDescription\": \"<string>\",\n      \"description\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"rating\": \"<string>\",\n      \"price\": {\n        \"amount\": \"<string>\",\n        \"currencyCode\": \"<string>\"\n      },\n      \"pictures\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"bookingLink\": \"<string>\",\n      \"minimumDuration\": \"<string>\"\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  },\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:19.000Z",
+                      "updatedAt": "2026-06-05T13:13:19.000Z",
+                      "uid": "35240-78d6fd27-54bd-4447-97b1-125c7fba1460"
+                    },
+                    {
+                      "id": "69bf403f-ae35-4649-904e-c16933596897",
+                      "name": "Code   | Title\n-------|----------------\n477    | INVALID FORMAT\n572    | INVALID OPTION\n4926   | INVALID DATA RECEIVED\n32171  | MANDATORY DATA MISSING\t     \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/activities/by-square?north=<number>&west=<number>&south=<number>&east=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "activities",
+                            "by-square"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                              "key": "north",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                              "key": "west",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                              "key": "south",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                              "key": "east",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:19.000Z",
+                      "updatedAt": "2026-06-05T13:13:19.000Z",
+                      "uid": "35240-69bf403f-ae35-4649-904e-c16933596897"
+                    },
+                    {
+                      "id": "b3f7508e-2e6f-4efa-8fb1-311d8c616788",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/activities/by-square?north=<number>&west=<number>&south=<number>&east=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "activities",
+                            "by-square"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                              "key": "north",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                              "key": "west",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                              "key": "south",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                              "key": "east",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:19.000Z",
+                      "updatedAt": "2026-06-05T13:13:19.000Z",
+                      "uid": "35240-b3f7508e-2e6f-4efa-8fb1-311d8c616788"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:13:19.000Z",
+                  "updatedAt": "2026-06-05T13:13:19.000Z",
+                  "uid": "35240-d93d8e93-d7fe-4ca2-b5ac-053d11e42c1e"
+                }
+              ],
+              "id": "5d28b476-6406-4638-a162-fbabb94e01b3",
+              "createdAt": "2026-06-05T13:13:19.000Z",
+              "updatedAt": "2026-06-05T13:13:19.000Z",
+              "uid": "35240-5d28b476-6406-4638-a162-fbabb94e01b3"
+            },
+            {
+              "name": "{activityId}",
+              "item": [
+                {
+                  "name": "Amadeus Retrieve One Activity by its ID",
+                  "id": "ac32fe08-dbf6-4719-b5a6-084c15ffe8c4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/activities/:activityId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "activities",
+                        ":activityId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e123e4c4-ad07-457c-a72b-43a7e7b52d0d",
+                          "key": "activityId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "bda2d420-1ddf-4561-baf6-e54cca09b3e2",
+                      "name": "Successful Operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/activities/:activityId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "activities",
+                            ":activityId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "activityId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"id\": \"<string>\",\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"methods\": [\n        \"DELETE\",\n        \"POST\"\n      ]\n    },\n    \"name\": \"<string>\",\n    \"shortDescription\": \"<string>\",\n    \"description\": \"<string>\",\n    \"geoCode\": {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\"\n    },\n    \"rating\": \"<string>\",\n    \"price\": {\n      \"amount\": \"<string>\",\n      \"currencyCode\": \"<string>\"\n    },\n    \"pictures\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"bookingLink\": \"<string>\",\n    \"minimumDuration\": \"<string>\"\n  },\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  },\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:19.000Z",
+                      "updatedAt": "2026-06-05T13:13:19.000Z",
+                      "uid": "35240-bda2d420-1ddf-4561-baf6-e54cca09b3e2"
+                    },
+                    {
+                      "id": "d3c9a3b4-2dc6-4d07-bf0c-250823888647",
+                      "name": "Code   | Title\n-------|----------------\n572    | INVALID OPTION\t     \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/activities/:activityId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "activities",
+                            ":activityId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "activityId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:19.000Z",
+                      "updatedAt": "2026-06-05T13:13:19.000Z",
+                      "uid": "35240-d3c9a3b4-2dc6-4d07-bf0c-250823888647"
+                    },
+                    {
+                      "id": "14ea0699-b950-4ef5-884b-a195071e02e6",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/activities/:activityId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "activities",
+                            ":activityId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "activityId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:19.000Z",
+                      "updatedAt": "2026-06-05T13:13:19.000Z",
+                      "uid": "35240-14ea0699-b950-4ef5-884b-a195071e02e6"
+                    },
+                    {
+                      "id": "6e721b22-5b7a-4633-95bf-24207a046ff4",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/activities/:activityId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "activities",
+                            ":activityId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "activityId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:19.000Z",
+                      "updatedAt": "2026-06-05T13:13:19.000Z",
+                      "uid": "35240-6e721b22-5b7a-4633-95bf-24207a046ff4"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:13:19.000Z",
+                  "updatedAt": "2026-06-05T13:13:19.000Z",
+                  "uid": "35240-ac32fe08-dbf6-4719-b5a6-084c15ffe8c4"
+                }
+              ],
+              "id": "98791182-38a9-41e9-9104-f5233e034480",
+              "createdAt": "2026-06-05T13:13:19.000Z",
+              "updatedAt": "2026-06-05T13:13:19.000Z",
+              "uid": "35240-98791182-38a9-41e9-9104-f5233e034480"
+            },
+            {
+              "name": "Amadeus Returns Activities Around a Given Location",
+              "id": "716bffe8-6e33-42b6-a449-3d45c05e322c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/shopping/activities?latitude=<number>&longitude=<number>&radius=1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shopping",
+                    "activities"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Latitude (decimal coordinates)",
+                      "key": "latitude",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "(Required) Longitude (decimal coordinates)",
+                      "key": "longitude",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                      "key": "radius",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a6e03897-ad4c-492d-9095-d4821bbdca64",
+                  "name": "Successful Operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/activities?latitude=<number>&longitude=<number>&radius=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "activities"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude (decimal coordinates)",
+                          "key": "latitude",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) Longitude (decimal coordinates)",
+                          "key": "longitude",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                          "key": "radius",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"GET\",\n          \"GET\"\n        ]\n      },\n      \"name\": \"<string>\",\n      \"shortDescription\": \"<string>\",\n      \"description\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"rating\": \"<string>\",\n      \"price\": {\n        \"amount\": \"<string>\",\n        \"currencyCode\": \"<string>\"\n      },\n      \"pictures\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"bookingLink\": \"<string>\",\n      \"minimumDuration\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"GET\",\n          \"DELETE\"\n        ]\n      },\n      \"name\": \"<string>\",\n      \"shortDescription\": \"<string>\",\n      \"description\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"rating\": \"<string>\",\n      \"price\": {\n        \"amount\": \"<string>\",\n        \"currencyCode\": \"<string>\"\n      },\n      \"pictures\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"bookingLink\": \"<string>\",\n      \"minimumDuration\": \"<string>\"\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  },\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:19.000Z",
+                  "updatedAt": "2026-06-05T13:13:19.000Z",
+                  "uid": "35240-a6e03897-ad4c-492d-9095-d4821bbdca64"
+                },
+                {
+                  "id": "35e2e666-5318-4eef-bcc9-a77b2bc14d85",
+                  "name": "Code   | Title\n-------|----------------\n477    | INVALID FORMAT\n572    | INVALID OPTION\n4926   | INVALID DATA RECEIVED\n32171  | MANDATORY DATA MISSING\t     \n",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/activities?latitude=<number>&longitude=<number>&radius=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "activities"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude (decimal coordinates)",
+                          "key": "latitude",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) Longitude (decimal coordinates)",
+                          "key": "longitude",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                          "key": "radius",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:19.000Z",
+                  "updatedAt": "2026-06-05T13:13:19.000Z",
+                  "uid": "35240-35e2e666-5318-4eef-bcc9-a77b2bc14d85"
+                },
+                {
+                  "id": "8a914921-2387-4f1d-8a42-714f27342985",
+                  "name": "Unexpected Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/activities?latitude=<number>&longitude=<number>&radius=1",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "activities"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude (decimal coordinates)",
+                          "key": "latitude",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "(Required) Longitude (decimal coordinates)",
+                          "key": "longitude",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                          "key": "radius",
+                          "value": "1"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:19.000Z",
+                  "updatedAt": "2026-06-05T13:13:19.000Z",
+                  "uid": "35240-8a914921-2387-4f1d-8a42-714f27342985"
+                }
+              ],
+              "createdAt": "2026-06-05T13:13:19.000Z",
+              "updatedAt": "2026-06-05T13:13:19.000Z",
+              "uid": "35240-716bffe8-6e33-42b6-a449-3d45c05e322c"
+            }
+          ],
+          "id": "78efe8f5-a453-4b05-8d77-c706f9fdf5a1",
+          "createdAt": "2026-06-05T13:13:19.000Z",
+          "updatedAt": "2026-06-05T13:13:19.000Z",
+          "uid": "35240-78efe8f5-a453-4b05-8d77-c706f9fdf5a1"
+        }
+      ],
+      "id": "aa891745-ce09-4683-87ea-faf97bca0f23",
+      "createdAt": "2026-06-05T13:13:19.000Z",
+      "updatedAt": "2026-06-05T13:13:19.000Z",
+      "uid": "35240-aa891745-ce09-4683-87ea-faf97bca0f23"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

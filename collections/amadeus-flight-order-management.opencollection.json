@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flight Order Management",
+    "version": "1.10.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Booking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Retrieve a Given Flight Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+            "params": [
+              {
+                "name": "flight-orderId",
+                "value": "",
+                "type": "path",
+                "description": "identifier of the flight order"
+              }
+            ]
+          },
+          "docs": "Amadeus Retrieve a Given Flight Order"
+        },
+        {
+          "info": {
+            "name": "Amadeus Cancel a Given Flight Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/booking/flight-orders/:flight-orderId",
+            "params": [
+              {
+                "name": "flight-orderId",
+                "value": "",
+                "type": "path",
+                "description": "identifier of the flight order"
+              }
+            ]
+          },
+          "docs": "Amadeus Cancel a Given Flight Order"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

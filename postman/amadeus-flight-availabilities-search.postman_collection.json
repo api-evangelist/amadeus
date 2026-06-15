@@ -1,0 +1,272 @@
+{
+  "info": {
+    "_postman_id": "4d746710-6734-4044-942d-aed8b73618b8",
+    "name": "Flight Availibilities Search",
+    "description": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production, if you are not returning any results try with big cities/airports like LON (London) or NYC (New-York).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:22.000Z",
+    "updatedAt": "2026-06-05T13:12:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4d746710-6734-4044-942d-aed8b73618b8"
+  },
+  "item": [
+    {
+      "name": "shopping",
+      "item": [
+        {
+          "name": "availability",
+          "item": [
+            {
+              "name": "flight-availabilities",
+              "item": [
+                {
+                  "name": "Amadeus Return List of Flight Availabilities Based on Posted Searching Criteria.",
+                  "id": "15690c77-7b2d-4186-a063-30331e427710",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) the HTTP method to apply",
+                        "key": "X-HTTP-Method-Override",
+                        "value": "GET"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.amadeus+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"<string>\",\n      \"destinationLocationCode\": \"<string>\",\n      \"includedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"departureDateTime\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\"\n      },\n      \"arrivalDateTime\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"SEATED_INFANT\",\n      \"associatedAdultId\": \"<string>\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"searchCriteria\": {\n    \"excludeAllotments\": \"<boolean>\",\n    \"flightFilters\": {\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": \"<boolean>\",\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": \"PREMIUM_ECONOMY\",\n          \"originDestinationIds\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": \"<number>\",\n        \"airportChangeAllowed\": \"<boolean>\",\n        \"technicalStopsAllowed\": \"<boolean>\"\n      }\n    },\n    \"includeClosedContent\": \"<boolean>\",\n    \"class\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/availability/flight-availabilities",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "availability",
+                        "flight-availabilities"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "570ca826-aafb-4869-be4a-99ec90a31c7d",
+                      "name": "Successful Operation",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) the HTTP method to apply",
+                            "key": "X-HTTP-Method-Override",
+                            "value": "GET"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/vnd.amadeus+json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"<string>\",\n      \"destinationLocationCode\": \"<string>\",\n      \"includedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"departureDateTime\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\"\n      },\n      \"arrivalDateTime\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"SEATED_INFANT\",\n      \"associatedAdultId\": \"<string>\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"searchCriteria\": {\n    \"excludeAllotments\": \"<boolean>\",\n    \"flightFilters\": {\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": \"<boolean>\",\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": \"PREMIUM_ECONOMY\",\n          \"originDestinationIds\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": \"<number>\",\n        \"airportChangeAllowed\": \"<boolean>\",\n        \"technicalStopsAllowed\": \"<boolean>\"\n      }\n    },\n    \"includeClosedContent\": \"<boolean>\",\n    \"class\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/availability/flight-availabilities",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "availability",
+                            "flight-availabilities"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"source\": \"GDS\",\n      \"segments\": [\n        {\n          \"closedStatus\": \"NOT_AVAILABLE\",\n          \"availabilityClasses\": [\n            {\n              \"numberOfBookableSeats\": \"<number>\",\n              \"class\": \"O\",\n              \"closedStatus\": \"WAITLIST_OPEN\",\n              \"tourAllotment\": {\n                \"tourName\": \"<string>\",\n                \"tourReference\": \"<string>\",\n                \"mode\": \"FREE\",\n                \"remainingSeats\": \"<number>\"\n              }\n            }\n          ],\n          \"id\": \"<string>\",\n          \"numberOfStops\": \"<integer>\",\n          \"blacklistedInEU\": \"<boolean>\",\n          \"co2Emissions\": [\n            {\n              \"weight\": \"<integer>\",\n              \"weightUnit\": \"<string>\",\n              \"cabin\": \"FIRST\"\n            }\n          ],\n          \"departure\": {\n            \"iataCode\": \"<string>\",\n            \"terminal\": \"<string>\",\n            \"at\": \"<dateTime>\"\n          },\n          \"arrival\": {\n            \"iataCode\": \"<string>\",\n            \"terminal\": \"<string>\",\n            \"at\": \"<dateTime>\"\n          },\n          \"carrierCode\": \"<string>\",\n          \"number\": \"<string>\",\n          \"aircraft\": {\n            \"code\": \"Vf1\"\n          },\n          \"operating\": {\n            \"carrierCode\": \"<string>\"\n          },\n          \"duration\": \"<string>\",\n          \"stops\": [\n            {\n              \"iataCode\": \"<string>\",\n              \"duration\": \"<string>\",\n              \"arrivalAt\": \"<dateTime>\",\n              \"departureAt\": \"<dateTime>\"\n            },\n            {\n              \"iataCode\": \"<string>\",\n              \"duration\": \"<string>\",\n              \"arrivalAt\": \"<dateTime>\",\n              \"departureAt\": \"<dateTime>\"\n            }\n          ]\n        }\n      ],\n      \"originDestinationId\": \"<string>\",\n      \"instantTicketingRequired\": \"<boolean>\",\n      \"paymentCardRequired\": \"<boolean>\",\n      \"duration\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"source\": \"GDS\",\n      \"segments\": [\n        {\n          \"closedStatus\": \"CANCELLED\",\n          \"availabilityClasses\": [\n            {\n              \"numberOfBookableSeats\": \"<number>\",\n              \"class\": \"R\",\n              \"closedStatus\": \"WAITLIST_CLOSED\",\n              \"tourAllotment\": {\n                \"tourName\": \"<string>\",\n                \"tourReference\": \"<string>\",\n                \"mode\": \"FREE\",\n                \"remainingSeats\": \"<number>\"\n              }\n            }\n          ],\n          \"id\": \"<string>\",\n          \"numberOfStops\": \"<integer>\",\n          \"blacklistedInEU\": \"<boolean>\",\n          \"co2Emissions\": [\n            {\n              \"weight\": \"<integer>\",\n              \"weightUnit\": \"<string>\",\n              \"cabin\": \"PREMIUM_ECONOMY\"\n            }\n          ],\n          \"departure\": {\n            \"iataCode\": \"<string>\",\n            \"terminal\": \"<string>\",\n            \"at\": \"<dateTime>\"\n          },\n          \"arrival\": {\n            \"iataCode\": \"<string>\",\n            \"terminal\": \"<string>\",\n            \"at\": \"<dateTime>\"\n          },\n          \"carrierCode\": \"<string>\",\n          \"number\": \"<string>\",\n          \"aircraft\": {\n            \"code\": \"C7j\"\n          },\n          \"operating\": {\n            \"carrierCode\": \"<string>\"\n          },\n          \"duration\": \"<string>\",\n          \"stops\": [\n            {\n              \"iataCode\": \"<string>\",\n              \"duration\": \"<string>\",\n              \"arrivalAt\": \"<dateTime>\",\n              \"departureAt\": \"<dateTime>\"\n            },\n            {\n              \"iataCode\": \"<string>\",\n              \"duration\": \"<string>\",\n              \"arrivalAt\": \"<dateTime>\",\n              \"departureAt\": \"<dateTime>\"\n            }\n          ]\n        }\n      ],\n      \"originDestinationId\": \"<string>\",\n      \"instantTicketingRequired\": \"<boolean>\",\n      \"paymentCardRequired\": \"<boolean>\",\n      \"duration\": \"<string>\"\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\"\n  },\n  \"dictionaries\": {\n    \"locations\": {\n      \"tempor_a9\": {\n        \"cityCode\": \"<string>\",\n        \"countryCode\": \"<string>\"\n      },\n      \"elitd7\": {\n        \"cityCode\": \"<string>\",\n        \"countryCode\": \"<string>\"\n      },\n      \"nulla_b4\": {\n        \"cityCode\": \"<string>\",\n        \"countryCode\": \"<string>\"\n      }\n    },\n    \"aircraft\": {\n      \"id_afa\": \"<string>\",\n      \"ipsum_c91\": \"<string>\"\n    },\n    \"currencies\": {\n      \"reprehenderit_c3f\": \"<string>\",\n      \"ut050\": \"<string>\"\n    },\n    \"carriers\": {\n      \"voluptate_ddf\": \"<string>\",\n      \"sedb\": \"<string>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:12:22.000Z",
+                      "updatedAt": "2026-06-05T13:12:22.000Z",
+                      "uid": "35240-570ca826-aafb-4869-be4a-99ec90a31c7d"
+                    },
+                    {
+                      "id": "c94a4b30-dc0c-495c-83d1-df7fb7ba11c7",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n572     | INVALID OPTION\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n2781    | INVALID LENGTH\n4926    ",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) the HTTP method to apply",
+                            "key": "X-HTTP-Method-Override",
+                            "value": "GET"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/vnd.amadeus+json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"<string>\",\n      \"destinationLocationCode\": \"<string>\",\n      \"includedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"departureDateTime\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\"\n      },\n      \"arrivalDateTime\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"SEATED_INFANT\",\n      \"associatedAdultId\": \"<string>\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"searchCriteria\": {\n    \"excludeAllotments\": \"<boolean>\",\n    \"flightFilters\": {\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": \"<boolean>\",\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": \"PREMIUM_ECONOMY\",\n          \"originDestinationIds\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": \"<number>\",\n        \"airportChangeAllowed\": \"<boolean>\",\n        \"technicalStopsAllowed\": \"<boolean>\"\n      }\n    },\n    \"includeClosedContent\": \"<boolean>\",\n    \"class\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/availability/flight-availabilities",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "availability",
+                            "flight-availabilities"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:22.000Z",
+                      "updatedAt": "2026-06-05T13:12:22.000Z",
+                      "uid": "35240-c94a4b30-dc0c-495c-83d1-df7fb7ba11c7"
+                    },
+                    {
+                      "id": "e65bad63-405a-4c10-9956-a8fbef4ceefa",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) the HTTP method to apply",
+                            "key": "X-HTTP-Method-Override",
+                            "value": "GET"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/vnd.amadeus+json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"<string>\",\n      \"destinationLocationCode\": \"<string>\",\n      \"includedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"departureDateTime\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\"\n      },\n      \"arrivalDateTime\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"SEATED_INFANT\",\n      \"associatedAdultId\": \"<string>\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"searchCriteria\": {\n    \"excludeAllotments\": \"<boolean>\",\n    \"flightFilters\": {\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": \"<boolean>\",\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": \"PREMIUM_ECONOMY\",\n          \"originDestinationIds\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": \"<number>\",\n        \"airportChangeAllowed\": \"<boolean>\",\n        \"technicalStopsAllowed\": \"<boolean>\"\n      }\n    },\n    \"includeClosedContent\": \"<boolean>\",\n    \"class\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/availability/flight-availabilities",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "availability",
+                            "flight-availabilities"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:22.000Z",
+                      "updatedAt": "2026-06-05T13:12:22.000Z",
+                      "uid": "35240-e65bad63-405a-4c10-9956-a8fbef4ceefa"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:12:22.000Z",
+                  "updatedAt": "2026-06-05T13:12:22.000Z",
+                  "uid": "35240-15690c77-7b2d-4186-a063-30331e427710"
+                }
+              ],
+              "id": "a0c07017-9042-4f87-bb2c-ff0691af3214",
+              "createdAt": "2026-06-05T13:12:22.000Z",
+              "updatedAt": "2026-06-05T13:12:22.000Z",
+              "uid": "35240-a0c07017-9042-4f87-bb2c-ff0691af3214"
+            }
+          ],
+          "id": "8dfedb98-c3a6-4210-a418-c852f00c7d53",
+          "createdAt": "2026-06-05T13:12:22.000Z",
+          "updatedAt": "2026-06-05T13:12:22.000Z",
+          "uid": "35240-8dfedb98-c3a6-4210-a418-c852f00c7d53"
+        }
+      ],
+      "id": "4a6ac8f7-d1b9-436d-8089-4514157f97ba",
+      "createdAt": "2026-06-05T13:12:22.000Z",
+      "updatedAt": "2026-06-05T13:12:22.000Z",
+      "uid": "35240-4a6ac8f7-d1b9-436d-8089-4514157f97ba"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "info": {
+    "_postman_id": "b49e1580-d8d4-45be-a31c-ed1c65aa5932",
+    "name": "Transfer Management",
+    "description": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production for this API it may change dynamically. For your tests, use big cities like LON (London) or NYC (New-York).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:13:28.000Z",
+    "updatedAt": "2026-06-05T13:13:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b49e1580-d8d4-45be-a31c-ed1c65aa5932"
+  },
+  "item": [
+    {
+      "name": "ordering",
+      "item": [
+        {
+          "name": "transfer-orders",
+          "item": [
+            {
+              "name": "{orderId}",
+              "item": [
+                {
+                  "name": "transfers",
+                  "item": [
+                    {
+                      "name": "cancellation",
+                      "item": [
+                        {
+                          "name": "Amadeus Cancel a Transfer in an Existing OrderId.",
+                          "id": "6417aab8-2957-493a-9c6c-5c513284f737",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/vnd.amadeus+json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/ordering/transfer-orders/:orderId/transfers/cancellation?confirmNbr=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ordering",
+                                "transfer-orders",
+                                ":orderId",
+                                "transfers",
+                                "cancellation"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) transfer identifier - confirmation number from transfer supplier that identifies the ride",
+                                  "key": "confirmNbr",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7cb86fe9-4446-4ff2-8444-fb572dfbf013",
+                                  "key": "orderId",
+                                  "value": "<string>",
+                                  "description": "(Required) transfer order identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "67156acc-37bf-4630-8eb4-4df3cbfacba4",
+                              "name": "Successful Operation",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.amadeus+json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ordering/transfer-orders/:orderId/transfers/cancellation?confirmNbr=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ordering",
+                                    "transfer-orders",
+                                    ":orderId",
+                                    "transfers",
+                                    "cancellation"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) transfer identifier - confirmation number from transfer supplier that identifies the ride",
+                                      "key": "confirmNbr",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "orderId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"data\": {\n    \"confirmNbr\": \"<string>\",\n    \"reservationStatus\": \"CONFIRMED\"\n  }\n}",
+                              "createdAt": "2026-06-05T13:13:29.000Z",
+                              "updatedAt": "2026-06-05T13:13:29.000Z",
+                              "uid": "35240-67156acc-37bf-4630-8eb4-4df3cbfacba4"
+                            },
+                            {
+                              "id": "d79fc835-9715-42ef-af00-d2a17f29e1cc",
+                              "name": "code    | title                                 \n------- | -------------------------------------                 \n32171   | MANDATORY DATA MISSING \t     \n",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.amadeus+json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ordering/transfer-orders/:orderId/transfers/cancellation?confirmNbr=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ordering",
+                                    "transfer-orders",
+                                    ":orderId",
+                                    "transfers",
+                                    "cancellation"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) transfer identifier - confirmation number from transfer supplier that identifies the ride",
+                                      "key": "confirmNbr",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "orderId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                              "createdAt": "2026-06-05T13:13:29.000Z",
+                              "updatedAt": "2026-06-05T13:13:29.000Z",
+                              "uid": "35240-d79fc835-9715-42ef-af00-d2a17f29e1cc"
+                            },
+                            {
+                              "id": "42d41a09-b2d2-48d7-b207-6dadc701e9be",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.amadeus+json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ordering/transfer-orders/:orderId/transfers/cancellation?confirmNbr=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ordering",
+                                    "transfer-orders",
+                                    ":orderId",
+                                    "transfers",
+                                    "cancellation"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) transfer identifier - confirmation number from transfer supplier that identifies the ride",
+                                      "key": "confirmNbr",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "orderId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                              "createdAt": "2026-06-05T13:13:29.000Z",
+                              "updatedAt": "2026-06-05T13:13:29.000Z",
+                              "uid": "35240-42d41a09-b2d2-48d7-b207-6dadc701e9be"
+                            },
+                            {
+                              "id": "edb2f63c-adbd-4c26-bfb6-448429ea8882",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.amadeus+json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ordering/transfer-orders/:orderId/transfers/cancellation?confirmNbr=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ordering",
+                                    "transfer-orders",
+                                    ":orderId",
+                                    "transfers",
+                                    "cancellation"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) transfer identifier - confirmation number from transfer supplier that identifies the ride",
+                                      "key": "confirmNbr",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "orderId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                              "createdAt": "2026-06-05T13:13:29.000Z",
+                              "updatedAt": "2026-06-05T13:13:29.000Z",
+                              "uid": "35240-edb2f63c-adbd-4c26-bfb6-448429ea8882"
+                            },
+                            {
+                              "id": "4c04fe0e-cae3-4b26-94f8-25ad834f3eb1",
+                              "name": "Unexpected Error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/vnd.amadeus+json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/ordering/transfer-orders/:orderId/transfers/cancellation?confirmNbr=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ordering",
+                                    "transfer-orders",
+                                    ":orderId",
+                                    "transfers",
+                                    "cancellation"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) transfer identifier - confirmation number from transfer supplier that identifies the ride",
+                                      "key": "confirmNbr",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "orderId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                              "createdAt": "2026-06-05T13:13:29.000Z",
+                              "updatedAt": "2026-06-05T13:13:29.000Z",
+                              "uid": "35240-4c04fe0e-cae3-4b26-94f8-25ad834f3eb1"
+                            }
+                          ],
+                          "createdAt": "2026-06-05T13:13:29.000Z",
+                          "updatedAt": "2026-06-05T13:13:29.000Z",
+                          "uid": "35240-6417aab8-2957-493a-9c6c-5c513284f737"
+                        }
+                      ],
+                      "id": "1bc76573-bff6-4060-927d-9b42fd83551e",
+                      "createdAt": "2026-06-05T13:13:29.000Z",
+                      "updatedAt": "2026-06-05T13:13:29.000Z",
+                      "uid": "35240-1bc76573-bff6-4060-927d-9b42fd83551e"
+                    }
+                  ],
+                  "id": "9366d502-e048-4938-a643-6ba9e170bf40",
+                  "createdAt": "2026-06-05T13:13:29.000Z",
+                  "updatedAt": "2026-06-05T13:13:29.000Z",
+                  "uid": "35240-9366d502-e048-4938-a643-6ba9e170bf40"
+                }
+              ],
+              "id": "a4f83615-c6fe-494c-bc8c-5e420e438d6b",
+              "createdAt": "2026-06-05T13:13:29.000Z",
+              "updatedAt": "2026-06-05T13:13:29.000Z",
+              "uid": "35240-a4f83615-c6fe-494c-bc8c-5e420e438d6b"
+            }
+          ],
+          "id": "bd0ce1e7-2206-4143-ab13-2cf286f1a724",
+          "createdAt": "2026-06-05T13:13:29.000Z",
+          "updatedAt": "2026-06-05T13:13:29.000Z",
+          "uid": "35240-bd0ce1e7-2206-4143-ab13-2cf286f1a724"
+        }
+      ],
+      "id": "fcf2e52a-956e-4568-9770-074168a70aaf",
+      "createdAt": "2026-06-05T13:13:29.000Z",
+      "updatedAt": "2026-06-05T13:13:29.000Z",
+      "uid": "35240-fcf2e52a-956e-4568-9770-074168a70aaf"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

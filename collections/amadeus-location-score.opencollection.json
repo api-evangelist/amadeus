@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Location Score",
+    "version": "1.0.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "category-rated-areas",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus GET Category Rated Areas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/location/analytics/category-rated-areas",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "41.397158",
+                "type": "query",
+                "description": "Latitude in decimal coordinates"
+              },
+              {
+                "name": "longitude",
+                "value": "2.160873",
+                "type": "query",
+                "description": "Longitude in decimal coordinates"
+              }
+            ]
+          },
+          "docs": "Amadeus GET Category Rated Areas"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

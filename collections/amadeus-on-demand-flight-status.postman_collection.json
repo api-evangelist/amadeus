@@ -1,0 +1,305 @@
+{
+  "item": [
+    {
+      "id": "8c7d7820-7a8a-41e4-ac7b-2c3dc079cfa8",
+      "name": "flights",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5bc14f0d-3513-4d90-aa9d-b2a25fa363a9",
+          "name": "Amadeus Retrieves a Unique Flight by Search Criteria.",
+          "request": {
+            "name": "Amadeus Retrieves a Unique Flight by Search Criteria.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "schedule",
+                "flights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "carrierCode",
+                  "value": "<string>",
+                  "description": "(Required) 2 to 3-character IATA carrier code ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)).\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "flightNumber",
+                  "value": "<string>",
+                  "description": "(Required) 1 to 4-digit number of the flight. e.g. 4537"
+                },
+                {
+                  "disabled": false,
+                  "key": "scheduledDepartureDate",
+                  "value": "<date>",
+                  "description": "(Required) scheduled departure date of the flight, local to the departure airport, format YYYY-MM-DD."
+                },
+                {
+                  "disabled": false,
+                  "key": "operationalSuffix",
+                  "value": "<string>",
+                  "description": "1-letter operational suffix assigned by the carrier to differentiate flight in case of delay changing the departure date e.g. A\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7f993aef-d32b-4b2a-98c6-9ceea193a539",
+              "name": "A list of dated flights",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "flights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "carrierCode",
+                      "value": "TP"
+                    },
+                    {
+                      "key": "flightNumber",
+                      "value": "487"
+                    },
+                    {
+                      "key": "scheduledDepartureDate",
+                      "value": "2023-08-01"
+                    },
+                    {
+                      "key": "operationalSuffix",
+                      "value": "string-value"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"count\": 1,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v2/schedule/flights?carrierCode=TP&flightNumber=487&scheduledDepartureDate=2023-08-01\"\n    }\n  },\n  \"data\": [\n    {\n      \"type\": \"DatedFlight\",\n      \"scheduledDepartureDate\": \"2023-08-01\",\n      \"flightDesignator\": {\n        \"carrierCode\": \"TP\",\n        \"flightNumber\": 487\n      },\n      \"flightPoints\": [\n        {\n          \"iataCode\": \"NCE\",\n          \"departure\": {\n            \"timings\": [\n              {\n                \"qualifier\": \"STD\",\n                \"value\": \"2023-08-01T18:10+02:00\"\n              }\n            ]\n          }\n        },\n        {\n          \"iataCode\": \"LIS\",\n          \"arrival\": {\n            \"timings\": [\n              {\n                \"qualifier\": \"STA\",\n                \"value\": \"2023-08-01T19:45+01:00\"\n              }\n            ]\n          }\n        }\n      ],\n      \"segments\": [\n        {\n          \"boardPointIataCode\": \"NCE\",\n          \"offPointIataCode\": \"LIS\",\n          \"scheduledSegmentDuration\": \"PT2H35M\",\n          \"partnership\": {\n            \"operatingFlight\": {\n              \"carrierCode\": \"A3\",\n              \"flightNumber\": 1748\n            }\n          }\n        }\n      ],\n      \"legs\": [\n        {\n          \"boardPointIataCode\": \"NCE\",\n          \"offPointIataCode\": \"LIS\",\n          \"aircraftEquipment\": {\n            \"aircraftType\": \"E90\"\n          },\n          \"scheduledLegDuration\": \"PT2H35M\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2aa1e5f-350b-47ed-942d-97793da9b961",
+              "name": "code    | title\n------- | -------------------------------------\n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "flights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "carrierCode",
+                      "value": "TP"
+                    },
+                    {
+                      "key": "flightNumber",
+                      "value": "487"
+                    },
+                    {
+                      "key": "scheduledDepartureDate",
+                      "value": "2023-08-01"
+                    },
+                    {
+                      "key": "operationalSuffix",
+                      "value": "string-value"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63c85be2-fe6b-4644-9eab-7f735e5cdfe2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "flights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "carrierCode",
+                      "value": "TP"
+                    },
+                    {
+                      "key": "flightNumber",
+                      "value": "487"
+                    },
+                    {
+                      "key": "scheduledDepartureDate",
+                      "value": "2023-08-01"
+                    },
+                    {
+                      "key": "operationalSuffix",
+                      "value": "string-value"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 401,\n      \"code\": 20,\n      \"title\": \"RESTRICTED\",\n      \"detail\": \"Query unauthorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff542768-5d08-47a2-9587-13ee52d816a3",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "flights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "carrierCode",
+                      "value": "TP"
+                    },
+                    {
+                      "key": "flightNumber",
+                      "value": "487"
+                    },
+                    {
+                      "key": "scheduledDepartureDate",
+                      "value": "2023-08-01"
+                    },
+                    {
+                      "key": "operationalSuffix",
+                      "value": "string-value"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "95e10694-7fb3-43a6-bfb3-b7e0d42d65bf",
+    "name": "On-Demand Flight Status",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n  \nPlease also be aware that our test environment is based on a subset of the production, to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

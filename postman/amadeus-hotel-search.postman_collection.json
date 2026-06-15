@@ -1,0 +1,712 @@
+{
+  "info": {
+    "_postman_id": "e6d0e95b-969f-4407-8324-efedd86d46a7",
+    "name": "Hotel Search API",
+    "description": "Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production for this API it may change dynamically. For your tests, use big cities like LON (London) or NYC (New-York).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:58.000Z",
+    "updatedAt": "2026-06-05T13:12:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e6d0e95b-969f-4407-8324-efedd86d46a7"
+  },
+  "item": [
+    {
+      "name": "shopping",
+      "item": [
+        {
+          "name": "hotel-offers",
+          "item": [
+            {
+              "name": "{offerId}",
+              "item": [
+                {
+                  "name": "Amadeus GetOfferPricing",
+                  "id": "4e2a4ad3-d27a-4cbe-b05c-76a403602cb2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/hotel-offers/:offerId?lang=rwdc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "hotel-offers",
+                        ":offerId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html).",
+                          "key": "lang",
+                          "value": "rwdc"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "32b708b5-7e49-4762-8e71-6d12b479dee4",
+                          "key": "offerId",
+                          "value": "T2O1YH1",
+                          "description": "(Required) Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+                        }
+                      ]
+                    },
+                    "description": " "
+                  },
+                  "response": [
+                    {
+                      "id": "0cf8966e-61ad-4200-8baf-3148284be297",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/hotel-offers/:offerId?lang=rwdc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "hotel-offers",
+                            ":offerId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html).",
+                              "key": "lang",
+                              "value": "rwdc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "offerId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"available\": \"<boolean>\",\n    \"self\": \"<string>\",\n    \"offers\": [\n      {\n        \"id\": \"PP\",\n        \"rateCode\": \"YFO\",\n        \"room\": {\n          \"type\": \"CO4\",\n          \"typeEstimated\": {\n            \"category\": \"<string>\",\n            \"beds\": \"<integer>\",\n            \"bedType\": \"<string>\"\n          },\n          \"description\": {\n            \"text\": \"<string>\",\n            \"lang\": \"<string>\"\n          }\n        },\n        \"price\": {\n          \"currency\": \"<string>\",\n          \"sellingTotal\": \"<string>\",\n          \"total\": \"<string>\",\n          \"base\": \"<string>\",\n          \"taxes\": [\n            {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\",\n              \"code\": \"<string>\",\n              \"percentage\": \"<string>\",\n              \"included\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"pricingFrequency\": \"<string>\",\n              \"pricingMode\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\",\n              \"code\": \"<string>\",\n              \"percentage\": \"<string>\",\n              \"included\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"pricingFrequency\": \"<string>\",\n              \"pricingMode\": \"<string>\"\n            }\n          ],\n          \"markups\": [\n            {\n              \"amount\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\"\n            }\n          ],\n          \"variations\": {\n            \"average\": {\n              \"currency\": \"<string>\",\n              \"sellingTotal\": \"<string>\",\n              \"total\": \"<string>\",\n              \"base\": \"<string>\",\n              \"markups\": [\n                {\n                  \"amount\": \"<string>\"\n                },\n                {\n                  \"amount\": \"<string>\"\n                }\n              ]\n            },\n            \"changes\": [\n              {\n                \"startDate\": \"<date>\",\n                \"endDate\": \"<date>\",\n                \"currency\": \"<string>\",\n                \"sellingTotal\": \"<string>\",\n                \"total\": \"<string>\",\n                \"base\": \"<string>\",\n                \"markups\": [\n                  {\n                    \"amount\": \"<string>\"\n                  },\n                  {\n                    \"amount\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"startDate\": \"<date>\",\n                \"endDate\": \"<date>\",\n                \"currency\": \"<string>\",\n                \"sellingTotal\": \"<string>\",\n                \"total\": \"<string>\",\n                \"base\": \"<string>\",\n                \"markups\": [\n                  {\n                    \"amount\": \"<string>\"\n                  },\n                  {\n                    \"amount\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          }\n        },\n        \"type\": \"hotel-offer\",\n        \"checkInDate\": \"<date>\",\n        \"checkOutDate\": \"<date>\",\n        \"roomQuantity\": \"<string>\",\n        \"rateFamilyEstimated\": {\n          \"code\": \"U28\",\n          \"type\": \"C\"\n        },\n        \"category\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"lang\": \"<string>\"\n        },\n        \"commission\": {\n          \"percentage\": \"\\\\dddddddddd\",\n          \"amount\": \"\\\\dddddddd\\\\Y\\\\ddddddd\",\n          \"description\": {\n            \"text\": \"<string>\",\n            \"lang\": \"<string>\"\n          }\n        },\n        \"boardType\": \"FULL_BREAKFAST\",\n        \"guests\": {\n          \"adults\": \"<integer>\",\n          \"childAges\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        },\n        \"policies\": {\n          \"paymentType\": \"HOLDTIME\",\n          \"guarantee\": {\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"RU\",\n              \"methods\": [\n                \"COMPANY_ADDRESS\",\n                \"DEFERED_PAYMENT\"\n              ]\n            }\n          },\n          \"deposit\": {\n            \"amount\": \"\\\\dddd\",\n            \"deadline\": \"<dateTime>\",\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"DM\",\n              \"methods\": [\n                \"CHECK\",\n                \"VCC_B2B_WALLET\"\n              ]\n            }\n          },\n          \"prepay\": {\n            \"amount\": \"\\\\dddddd\",\n            \"deadline\": \"<dateTime>\",\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"DN\",\n              \"methods\": [\n                \"DEFERED_PAYMENT\",\n                \"VCC_B2B_WALLET\"\n              ]\n            }\n          },\n          \"holdTime\": {\n            \"deadline\": \"<dateTime>\"\n          },\n          \"cancellations\": [\n            {\n              \"type\": \"FULL_STAY\",\n              \"amount\": \"\\\\ddddddddd\\\\n\\\\dd\",\n              \"numberOfNights\": \"<integer>\",\n              \"percentage\": \"\\\\ddd\",\n              \"deadline\": \"<dateTime>\",\n              \"description\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              }\n            },\n            {\n              \"type\": \"FULL_STAY\",\n              \"amount\": \"\\\\d\\\\0\\\\ddddd\",\n              \"numberOfNights\": \"<integer>\",\n              \"percentage\": \"\\\\ddddd\\\\Z\\\\dddddddd\",\n              \"deadline\": \"<dateTime>\",\n              \"description\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              }\n            }\n          ],\n          \"checkInOut\": {\n            \"checkIn\": \"<string>\",\n            \"checkInDescription\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"checkOut\": \"<string>\",\n            \"checkOutDescription\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            }\n          }\n        },\n        \"self\": \"<string>\"\n      },\n      {\n        \"id\": \"ZL9R\",\n        \"rateCode\": \"P2B\",\n        \"room\": {\n          \"type\": \"XU1\",\n          \"typeEstimated\": {\n            \"category\": \"<string>\",\n            \"beds\": \"<integer>\",\n            \"bedType\": \"<string>\"\n          },\n          \"description\": {\n            \"text\": \"<string>\",\n            \"lang\": \"<string>\"\n          }\n        },\n        \"price\": {\n          \"currency\": \"<string>\",\n          \"sellingTotal\": \"<string>\",\n          \"total\": \"<string>\",\n          \"base\": \"<string>\",\n          \"taxes\": [\n            {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\",\n              \"code\": \"<string>\",\n              \"percentage\": \"<string>\",\n              \"included\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"pricingFrequency\": \"<string>\",\n              \"pricingMode\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\",\n              \"code\": \"<string>\",\n              \"percentage\": \"<string>\",\n              \"included\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"pricingFrequency\": \"<string>\",\n              \"pricingMode\": \"<string>\"\n            }\n          ],\n          \"markups\": [\n            {\n              \"amount\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\"\n            }\n          ],\n          \"variations\": {\n            \"average\": {\n              \"currency\": \"<string>\",\n              \"sellingTotal\": \"<string>\",\n              \"total\": \"<string>\",\n              \"base\": \"<string>\",\n              \"markups\": [\n                {\n                  \"amount\": \"<string>\"\n                },\n                {\n                  \"amount\": \"<string>\"\n                }\n              ]\n            },\n            \"changes\": [\n              {\n                \"startDate\": \"<date>\",\n                \"endDate\": \"<date>\",\n                \"currency\": \"<string>\",\n                \"sellingTotal\": \"<string>\",\n                \"total\": \"<string>\",\n                \"base\": \"<string>\",\n                \"markups\": [\n                  {\n                    \"amount\": \"<string>\"\n                  },\n                  {\n                    \"amount\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"startDate\": \"<date>\",\n                \"endDate\": \"<date>\",\n                \"currency\": \"<string>\",\n                \"sellingTotal\": \"<string>\",\n                \"total\": \"<string>\",\n                \"base\": \"<string>\",\n                \"markups\": [\n                  {\n                    \"amount\": \"<string>\"\n                  },\n                  {\n                    \"amount\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          }\n        },\n        \"type\": \"hotel-offer\",\n        \"checkInDate\": \"<date>\",\n        \"checkOutDate\": \"<date>\",\n        \"roomQuantity\": \"<string>\",\n        \"rateFamilyEstimated\": {\n          \"code\": \"JQD\",\n          \"type\": \"N\"\n        },\n        \"category\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"lang\": \"<string>\"\n        },\n        \"commission\": {\n          \"percentage\": \"\\\\dddddd\",\n          \"amount\": \"\\\\ddddddddddd\",\n          \"description\": {\n            \"text\": \"<string>\",\n            \"lang\": \"<string>\"\n          }\n        },\n        \"boardType\": \"FAMILY_AMERICAN\",\n        \"guests\": {\n          \"adults\": \"<integer>\",\n          \"childAges\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        },\n        \"policies\": {\n          \"paymentType\": \"GUARANTEE\",\n          \"guarantee\": {\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"UT\",\n              \"methods\": [\n                \"HOTEL_GUEST_ID\",\n                \"VCC_BILLBACK\"\n              ]\n            }\n          },\n          \"deposit\": {\n            \"amount\": \"\\\\d\",\n            \"deadline\": \"<dateTime>\",\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"IU\",\n              \"methods\": [\n                \"DEFERED_PAYMENT\",\n                \"TRAVEL_AGENT_ID\"\n              ]\n            }\n          },\n          \"prepay\": {\n            \"amount\": \"\\\\ddddddddd\\\\N\\\\d\",\n            \"deadline\": \"<dateTime>\",\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"SA\",\n              \"methods\": [\n                \"VCC_BILLBACK\",\n                \"CORPORATE_ID\"\n              ]\n            }\n          },\n          \"holdTime\": {\n            \"deadline\": \"<dateTime>\"\n          },\n          \"cancellations\": [\n            {\n              \"type\": \"FULL_STAY\",\n              \"amount\": \"\\\\d\",\n              \"numberOfNights\": \"<integer>\",\n              \"percentage\": \"\\\\dddddddd\",\n              \"deadline\": \"<dateTime>\",\n              \"description\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              }\n            },\n            {\n              \"type\": \"FULL_STAY\",\n              \"amount\": \"\\\\dddddd\",\n              \"numberOfNights\": \"<integer>\",\n              \"percentage\": \"\\\\ddddddd\\\\ \\\\ddddd\",\n              \"deadline\": \"<dateTime>\",\n              \"description\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              }\n            }\n          ],\n          \"checkInOut\": {\n            \"checkIn\": \"<string>\",\n            \"checkInDescription\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"checkOut\": \"<string>\",\n            \"checkOutDescription\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            }\n          }\n        },\n        \"self\": \"<string>\"\n      }\n    ],\n    \"hotel\": {\n      \"hotelId\": \"IDNWQZSH\",\n      \"chainCode\": \"GX\",\n      \"brandCode\": \"TR\",\n      \"dupeId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"cityCode\": \"MQP\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:12:58.000Z",
+                      "updatedAt": "2026-06-05T13:12:58.000Z",
+                      "uid": "35240-0cf8966e-61ad-4200-8baf-3148284be297"
+                    },
+                    {
+                      "id": "fa4aaf3b-0484-4791-9794-7b8126a04f8a",
+                      "name": "Bad Request:\ncode| title\n------- | -------------------------------------\n23 | PASSENGER TYPE NOT SUPPORTED\n61 |INVALID CURRENCY CODE\n137 | INVALID ADULTS OCCUPANCY REQUESTED\n145 | DURATION PERIOD OR DATES INCORRECT\n195 | SERVICE RESTRICTION\n249 | INVALID ",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/hotel-offers/:offerId?lang=rwdc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "hotel-offers",
+                            ":offerId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html).",
+                              "key": "lang",
+                              "value": "rwdc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "offerId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:58.000Z",
+                      "updatedAt": "2026-06-05T13:12:58.000Z",
+                      "uid": "35240-fa4aaf3b-0484-4791-9794-7b8126a04f8a"
+                    },
+                    {
+                      "id": "9d127b13-1c9f-4451-ab21-acfc1957da14",
+                      "name": "Hotel or offer not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/hotel-offers/:offerId?lang=rwdc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "hotel-offers",
+                            ":offerId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html).",
+                              "key": "lang",
+                              "value": "rwdc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "offerId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:58.000Z",
+                      "updatedAt": "2026-06-05T13:12:58.000Z",
+                      "uid": "35240-9d127b13-1c9f-4451-ab21-acfc1957da14"
+                    },
+                    {
+                      "id": "5b61cf8c-2c08-42c1-a493-b67635746d60",
+                      "name": "Internal server error.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/shopping/hotel-offers/:offerId?lang=rwdc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "shopping",
+                            "hotel-offers",
+                            ":offerId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html).",
+                              "key": "lang",
+                              "value": "rwdc"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "offerId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:58.000Z",
+                      "updatedAt": "2026-06-05T13:12:58.000Z",
+                      "uid": "35240-5b61cf8c-2c08-42c1-a493-b67635746d60"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:12:58.000Z",
+                  "updatedAt": "2026-06-05T13:12:58.000Z",
+                  "uid": "35240-4e2a4ad3-d27a-4cbe-b05c-76a403602cb2"
+                }
+              ],
+              "id": "6ac8917d-ff10-42a9-a092-77a4d3077f6f",
+              "createdAt": "2026-06-05T13:12:58.000Z",
+              "updatedAt": "2026-06-05T13:12:58.000Z",
+              "uid": "35240-6ac8917d-ff10-42a9-a092-77a4d3077f6f"
+            },
+            {
+              "name": "Amadeus GetMultiHotelOffers",
+              "id": "b1c0a5e9-6bb8-4961-b434-8545906dc8cd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/shopping/hotel-offers?hotelIds=<string>&adults=1&checkInDate=<date>&checkOutDate=<date>&countryOfResidence=VN&roomQuantity=1&priceRange=<string>&currency=IXT&paymentPolicy=NONE&boardType=BREAKFAST&includeClosed=<boolean>&bestRateOnly=true&lang=rwdc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shopping",
+                    "hotel-offers"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Amadeus property codes on 8 chars. Mandatory parameter for a search by predefined list of hotels.",
+                      "key": "hotelIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Number of adult guests (1-9) per room.",
+                      "key": "adults",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Check-in date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is the present date (no dates in the past). If not present, the default value will be today's date in the GMT time zone.",
+                      "key": "checkInDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Check-out date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is checkInDate+1. If not present, it will default to checkInDate +1.",
+                      "key": "checkOutDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Code of the country of residence of the traveler expressed using ISO 3166-1 format.",
+                      "key": "countryOfResidence",
+                      "value": "VN"
+                    },
+                    {
+                      "description": "Number of rooms requested (1-9).",
+                      "key": "roomQuantity",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Filter hotel offers by price per night interval (ex: 200-300 or -300 or 100).\nIt is mandatory to include a currency when this field is set.",
+                      "key": "priceRange",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Use this parameter to request a specific currency. ISO currency code (http://www.iso.org/iso/home/standards/currency_codes.htm).\nIf a hotel does not support the requested currency, the prices for the hotel will be returned in the local currency of the hotel.",
+                      "key": "currency",
+                      "value": "IXT"
+                    },
+                    {
+                      "description": "Filter the response based on a specific payment type. NONE means all types (default).",
+                      "key": "paymentPolicy",
+                      "value": "NONE"
+                    },
+                    {
+                      "description": "Filter response based on available meals:\n        * ROOM_ONLY = Room Only\n        * BREAKFAST = Breakfast\n        * HALF_BOARD = Diner & Breakfast (only for Aggregators)\n        * FULL_BOARD = Full Board (only for Aggregators)\n        * ALL_INCLUSIVE = All Inclusive (only for Aggregators)",
+                      "key": "boardType",
+                      "value": "BREAKFAST"
+                    },
+                    {
+                      "description": "Show all properties (include sold out) or available only. For sold out properties, please check availability on other dates.",
+                      "key": "includeClosed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Used to return only the cheapest offer per hotel or all available offers.",
+                      "key": "bestRateOnly",
+                      "value": "true"
+                    },
+                    {
+                      "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html).",
+                      "key": "lang",
+                      "value": "rwdc"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "80db23b3-ca3a-40a6-9818-c8ee35c8a20e",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/hotel-offers?hotelIds=<string>&adults=1&checkInDate=<date>&checkOutDate=<date>&countryOfResidence=VN&roomQuantity=1&priceRange=<string>&currency=IXT&paymentPolicy=NONE&boardType=BREAKFAST&includeClosed=<boolean>&bestRateOnly=true&lang=rwdc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "hotel-offers"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Amadeus property codes on 8 chars. Mandatory parameter for a search by predefined list of hotels.",
+                          "key": "hotelIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of adult guests (1-9) per room.",
+                          "key": "adults",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Check-in date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is the present date (no dates in the past). If not present, the default value will be today's date in the GMT time zone.",
+                          "key": "checkInDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Check-out date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is checkInDate+1. If not present, it will default to checkInDate +1.",
+                          "key": "checkOutDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Code of the country of residence of the traveler expressed using ISO 3166-1 format.",
+                          "key": "countryOfResidence",
+                          "value": "VN"
+                        },
+                        {
+                          "description": "Number of rooms requested (1-9).",
+                          "key": "roomQuantity",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Filter hotel offers by price per night interval (ex: 200-300 or -300 or 100).\nIt is mandatory to include a currency when this field is set.",
+                          "key": "priceRange",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Use this parameter to request a specific currency. ISO currency code (http://www.iso.org/iso/home/standards/currency_codes.htm).\nIf a hotel does not support the requested currency, the prices for the hotel will be returned in the local currency of the hotel.",
+                          "key": "currency",
+                          "value": "IXT"
+                        },
+                        {
+                          "description": "Filter the response based on a specific payment type. NONE means all types (default).",
+                          "key": "paymentPolicy",
+                          "value": "NONE"
+                        },
+                        {
+                          "description": "Filter response based on available meals:\n        * ROOM_ONLY = Room Only\n        * BREAKFAST = Breakfast\n        * HALF_BOARD = Diner & Breakfast (only for Aggregators)\n        * FULL_BOARD = Full Board (only for Aggregators)\n        * ALL_INCLUSIVE = All Inclusive (only for Aggregators)",
+                          "key": "boardType",
+                          "value": "BREAKFAST"
+                        },
+                        {
+                          "description": "Show all properties (include sold out) or available only. For sold out properties, please check availability on other dates.",
+                          "key": "includeClosed",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Used to return only the cheapest offer per hotel or all available offers.",
+                          "key": "bestRateOnly",
+                          "value": "true"
+                        },
+                        {
+                          "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html).",
+                          "key": "lang",
+                          "value": "rwdc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"available\": \"<boolean>\",\n    \"self\": \"<string>\",\n    \"offers\": [\n      {\n        \"id\": \"CZ4PLH22ED\",\n        \"rateCode\": \"M9D\",\n        \"room\": {\n          \"type\": \"122\",\n          \"typeEstimated\": {\n            \"category\": \"<string>\",\n            \"beds\": \"<integer>\",\n            \"bedType\": \"<string>\"\n          },\n          \"description\": {\n            \"text\": \"<string>\",\n            \"lang\": \"<string>\"\n          }\n        },\n        \"price\": {\n          \"currency\": \"<string>\",\n          \"sellingTotal\": \"<string>\",\n          \"total\": \"<string>\",\n          \"base\": \"<string>\",\n          \"taxes\": [\n            {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\",\n              \"code\": \"<string>\",\n              \"percentage\": \"<string>\",\n              \"included\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"pricingFrequency\": \"<string>\",\n              \"pricingMode\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\",\n              \"code\": \"<string>\",\n              \"percentage\": \"<string>\",\n              \"included\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"pricingFrequency\": \"<string>\",\n              \"pricingMode\": \"<string>\"\n            }\n          ],\n          \"markups\": [\n            {\n              \"amount\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\"\n            }\n          ],\n          \"variations\": {\n            \"average\": {\n              \"currency\": \"<string>\",\n              \"sellingTotal\": \"<string>\",\n              \"total\": \"<string>\",\n              \"base\": \"<string>\",\n              \"markups\": [\n                {\n                  \"amount\": \"<string>\"\n                },\n                {\n                  \"amount\": \"<string>\"\n                }\n              ]\n            },\n            \"changes\": [\n              {\n                \"startDate\": \"<date>\",\n                \"endDate\": \"<date>\",\n                \"currency\": \"<string>\",\n                \"sellingTotal\": \"<string>\",\n                \"total\": \"<string>\",\n                \"base\": \"<string>\",\n                \"markups\": [\n                  {\n                    \"amount\": \"<string>\"\n                  },\n                  {\n                    \"amount\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"startDate\": \"<date>\",\n                \"endDate\": \"<date>\",\n                \"currency\": \"<string>\",\n                \"sellingTotal\": \"<string>\",\n                \"total\": \"<string>\",\n                \"base\": \"<string>\",\n                \"markups\": [\n                  {\n                    \"amount\": \"<string>\"\n                  },\n                  {\n                    \"amount\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          }\n        },\n        \"type\": \"hotel-offer\",\n        \"checkInDate\": \"<date>\",\n        \"checkOutDate\": \"<date>\",\n        \"roomQuantity\": \"<string>\",\n        \"rateFamilyEstimated\": {\n          \"code\": \"Q2X\",\n          \"type\": \"C\"\n        },\n        \"category\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"lang\": \"<string>\"\n        },\n        \"commission\": {\n          \"percentage\": \"\\\\dddddddd\",\n          \"amount\": \"\\\\ddddddddd\",\n          \"description\": {\n            \"text\": \"<string>\",\n            \"lang\": \"<string>\"\n          }\n        },\n        \"boardType\": \"AMERICAN\",\n        \"guests\": {\n          \"adults\": \"<integer>\",\n          \"childAges\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        },\n        \"policies\": {\n          \"paymentType\": \"GUARANTEE\",\n          \"guarantee\": {\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"YX\",\n              \"methods\": [\n                \"HOTEL_GUEST_ID\",\n                \"TRAVEL_AGENT_ID\"\n              ]\n            }\n          },\n          \"deposit\": {\n            \"amount\": \"\\\\dddd\\\\:\\\\dddddddddd\",\n            \"deadline\": \"<dateTime>\",\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"ZA\",\n              \"methods\": [\n                \"TRAVEL_AGENT_ID\",\n                \"CREDIT_CARD\"\n              ]\n            }\n          },\n          \"prepay\": {\n            \"amount\": \"\\\\ddddddddd\",\n            \"deadline\": \"<dateTime>\",\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"VY\",\n              \"methods\": [\n                \"CHECK\",\n                \"CREDIT_CARD\"\n              ]\n            }\n          },\n          \"holdTime\": {\n            \"deadline\": \"<dateTime>\"\n          },\n          \"cancellations\": [\n            {\n              \"type\": \"FULL_STAY\",\n              \"amount\": \"\\\\ddddd\",\n              \"numberOfNights\": \"<integer>\",\n              \"percentage\": \"\\\\dddd\",\n              \"deadline\": \"<dateTime>\",\n              \"description\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              }\n            },\n            {\n              \"type\": \"FULL_STAY\",\n              \"amount\": \"\\\\ddddddd\",\n              \"numberOfNights\": \"<integer>\",\n              \"percentage\": \"\\\\ddddd\",\n              \"deadline\": \"<dateTime>\",\n              \"description\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              }\n            }\n          ],\n          \"checkInOut\": {\n            \"checkIn\": \"<string>\",\n            \"checkInDescription\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"checkOut\": \"<string>\",\n            \"checkOutDescription\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            }\n          }\n        },\n        \"self\": \"<string>\"\n      },\n      {\n        \"id\": \"9W1GRMSK\",\n        \"rateCode\": \"IM3\",\n        \"room\": {\n          \"type\": \"BP6\",\n          \"typeEstimated\": {\n            \"category\": \"<string>\",\n            \"beds\": \"<integer>\",\n            \"bedType\": \"<string>\"\n          },\n          \"description\": {\n            \"text\": \"<string>\",\n            \"lang\": \"<string>\"\n          }\n        },\n        \"price\": {\n          \"currency\": \"<string>\",\n          \"sellingTotal\": \"<string>\",\n          \"total\": \"<string>\",\n          \"base\": \"<string>\",\n          \"taxes\": [\n            {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\",\n              \"code\": \"<string>\",\n              \"percentage\": \"<string>\",\n              \"included\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"pricingFrequency\": \"<string>\",\n              \"pricingMode\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\",\n              \"currency\": \"<string>\",\n              \"code\": \"<string>\",\n              \"percentage\": \"<string>\",\n              \"included\": \"<boolean>\",\n              \"description\": \"<string>\",\n              \"pricingFrequency\": \"<string>\",\n              \"pricingMode\": \"<string>\"\n            }\n          ],\n          \"markups\": [\n            {\n              \"amount\": \"<string>\"\n            },\n            {\n              \"amount\": \"<string>\"\n            }\n          ],\n          \"variations\": {\n            \"average\": {\n              \"currency\": \"<string>\",\n              \"sellingTotal\": \"<string>\",\n              \"total\": \"<string>\",\n              \"base\": \"<string>\",\n              \"markups\": [\n                {\n                  \"amount\": \"<string>\"\n                },\n                {\n                  \"amount\": \"<string>\"\n                }\n              ]\n            },\n            \"changes\": [\n              {\n                \"startDate\": \"<date>\",\n                \"endDate\": \"<date>\",\n                \"currency\": \"<string>\",\n                \"sellingTotal\": \"<string>\",\n                \"total\": \"<string>\",\n                \"base\": \"<string>\",\n                \"markups\": [\n                  {\n                    \"amount\": \"<string>\"\n                  },\n                  {\n                    \"amount\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"startDate\": \"<date>\",\n                \"endDate\": \"<date>\",\n                \"currency\": \"<string>\",\n                \"sellingTotal\": \"<string>\",\n                \"total\": \"<string>\",\n                \"base\": \"<string>\",\n                \"markups\": [\n                  {\n                    \"amount\": \"<string>\"\n                  },\n                  {\n                    \"amount\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          }\n        },\n        \"type\": \"hotel-offer\",\n        \"checkInDate\": \"<date>\",\n        \"checkOutDate\": \"<date>\",\n        \"roomQuantity\": \"<string>\",\n        \"rateFamilyEstimated\": {\n          \"code\": \"9XI\",\n          \"type\": \"P\"\n        },\n        \"category\": \"<string>\",\n        \"description\": {\n          \"text\": \"<string>\",\n          \"lang\": \"<string>\"\n        },\n        \"commission\": {\n          \"percentage\": \"\\\\ddd\\\\B\\\\ddddddddddd\",\n          \"amount\": \"\\\\ddddddddddd\\\\~\\\\ddddd\",\n          \"description\": {\n            \"text\": \"<string>\",\n            \"lang\": \"<string>\"\n          }\n        },\n        \"boardType\": \"AS_BROCHURED\",\n        \"guests\": {\n          \"adults\": \"<integer>\",\n          \"childAges\": [\n            \"<integer>\",\n            \"<integer>\"\n          ]\n        },\n        \"policies\": {\n          \"paymentType\": \"HOLDTIME\",\n          \"guarantee\": {\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"MC\",\n              \"methods\": [\n                \"MISC_CHARGE_ORDER\",\n                \"TRAVEL_AGENT_IMMEDIATE\"\n              ]\n            }\n          },\n          \"deposit\": {\n            \"amount\": \"\\\\dddddddd\\\\(\\\\dd\",\n            \"deadline\": \"<dateTime>\",\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"NM\",\n              \"methods\": [\n                \"VCC_BILLBACK\",\n                \"TRAVEL_AGENT_ID\"\n              ]\n            }\n          },\n          \"prepay\": {\n            \"amount\": \"\\\\dddddddd\",\n            \"deadline\": \"<dateTime>\",\n            \"description\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"acceptedPayments\": {\n              \"creditCards\": \"CL\",\n              \"methods\": [\n                \"TRAVEL_AGENT_IMMEDIATE\",\n                \"CHECK\"\n              ]\n            }\n          },\n          \"holdTime\": {\n            \"deadline\": \"<dateTime>\"\n          },\n          \"cancellations\": [\n            {\n              \"type\": \"FULL_STAY\",\n              \"amount\": \"\\\\ddddddddd\\\\~\\\\ddd\",\n              \"numberOfNights\": \"<integer>\",\n              \"percentage\": \"\\\\ddddddddd\\\\}\\\\ddddddddd\",\n              \"deadline\": \"<dateTime>\",\n              \"description\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              }\n            },\n            {\n              \"type\": \"FULL_STAY\",\n              \"amount\": \"\\\\d\\\\|\\\\ddddddddd\",\n              \"numberOfNights\": \"<integer>\",\n              \"percentage\": \"\\\\dddddd\",\n              \"deadline\": \"<dateTime>\",\n              \"description\": {\n                \"text\": \"<string>\",\n                \"lang\": \"<string>\"\n              }\n            }\n          ],\n          \"checkInOut\": {\n            \"checkIn\": \"<string>\",\n            \"checkInDescription\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            },\n            \"checkOut\": \"<string>\",\n            \"checkOutDescription\": {\n              \"text\": \"<string>\",\n              \"lang\": \"<string>\"\n            }\n          }\n        },\n        \"self\": \"<string>\"\n      }\n    ],\n    \"hotel\": {\n      \"hotelId\": \"DAO9DBC6\",\n      \"chainCode\": \"TN\",\n      \"brandCode\": \"UR\",\n      \"dupeId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"cityCode\": \"UCI\"\n    }\n  }\n}",
+                  "createdAt": "2026-06-05T13:12:58.000Z",
+                  "updatedAt": "2026-06-05T13:12:58.000Z",
+                  "uid": "35240-80db23b3-ca3a-40a6-9818-c8ee35c8a20e"
+                },
+                {
+                  "id": "8329d54e-261d-43f7-bc70-82f83f3d2d48",
+                  "name": "Bad request:\n\n| Code | Title  |\n|-----|-----|\n| 23   | PASSENGER TYPE NOT SUPPORTED   |\n| 61 | INVALID CURRENCY CODE|\n| 137 | INVALID ADULTS OCCUPANCY REQUESTED|\n| 145 | DURATION PERIOD OR DATES INCORRECT|\n| 195 | SERVICE RESTRICTION|\n| 249 | INVALID RATE",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/hotel-offers?hotelIds=<string>&adults=1&checkInDate=<date>&checkOutDate=<date>&countryOfResidence=VN&roomQuantity=1&priceRange=<string>&currency=IXT&paymentPolicy=NONE&boardType=BREAKFAST&includeClosed=<boolean>&bestRateOnly=true&lang=rwdc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "hotel-offers"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Amadeus property codes on 8 chars. Mandatory parameter for a search by predefined list of hotels.",
+                          "key": "hotelIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of adult guests (1-9) per room.",
+                          "key": "adults",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Check-in date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is the present date (no dates in the past). If not present, the default value will be today's date in the GMT time zone.",
+                          "key": "checkInDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Check-out date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is checkInDate+1. If not present, it will default to checkInDate +1.",
+                          "key": "checkOutDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Code of the country of residence of the traveler expressed using ISO 3166-1 format.",
+                          "key": "countryOfResidence",
+                          "value": "VN"
+                        },
+                        {
+                          "description": "Number of rooms requested (1-9).",
+                          "key": "roomQuantity",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Filter hotel offers by price per night interval (ex: 200-300 or -300 or 100).\nIt is mandatory to include a currency when this field is set.",
+                          "key": "priceRange",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Use this parameter to request a specific currency. ISO currency code (http://www.iso.org/iso/home/standards/currency_codes.htm).\nIf a hotel does not support the requested currency, the prices for the hotel will be returned in the local currency of the hotel.",
+                          "key": "currency",
+                          "value": "IXT"
+                        },
+                        {
+                          "description": "Filter the response based on a specific payment type. NONE means all types (default).",
+                          "key": "paymentPolicy",
+                          "value": "NONE"
+                        },
+                        {
+                          "description": "Filter response based on available meals:\n        * ROOM_ONLY = Room Only\n        * BREAKFAST = Breakfast\n        * HALF_BOARD = Diner & Breakfast (only for Aggregators)\n        * FULL_BOARD = Full Board (only for Aggregators)\n        * ALL_INCLUSIVE = All Inclusive (only for Aggregators)",
+                          "key": "boardType",
+                          "value": "BREAKFAST"
+                        },
+                        {
+                          "description": "Show all properties (include sold out) or available only. For sold out properties, please check availability on other dates.",
+                          "key": "includeClosed",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Used to return only the cheapest offer per hotel or all available offers.",
+                          "key": "bestRateOnly",
+                          "value": "true"
+                        },
+                        {
+                          "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html).",
+                          "key": "lang",
+                          "value": "rwdc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:58.000Z",
+                  "updatedAt": "2026-06-05T13:12:58.000Z",
+                  "uid": "35240-8329d54e-261d-43f7-bc70-82f83f3d2d48"
+                },
+                {
+                  "id": "b92fcd46-0b6a-4753-8fb9-013491fe2e3b",
+                  "name": "Internal server error.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/hotel-offers?hotelIds=<string>&adults=1&checkInDate=<date>&checkOutDate=<date>&countryOfResidence=VN&roomQuantity=1&priceRange=<string>&currency=IXT&paymentPolicy=NONE&boardType=BREAKFAST&includeClosed=<boolean>&bestRateOnly=true&lang=rwdc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "hotel-offers"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Amadeus property codes on 8 chars. Mandatory parameter for a search by predefined list of hotels.",
+                          "key": "hotelIds",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Number of adult guests (1-9) per room.",
+                          "key": "adults",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Check-in date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is the present date (no dates in the past). If not present, the default value will be today's date in the GMT time zone.",
+                          "key": "checkInDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Check-out date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is checkInDate+1. If not present, it will default to checkInDate +1.",
+                          "key": "checkOutDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Code of the country of residence of the traveler expressed using ISO 3166-1 format.",
+                          "key": "countryOfResidence",
+                          "value": "VN"
+                        },
+                        {
+                          "description": "Number of rooms requested (1-9).",
+                          "key": "roomQuantity",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Filter hotel offers by price per night interval (ex: 200-300 or -300 or 100).\nIt is mandatory to include a currency when this field is set.",
+                          "key": "priceRange",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Use this parameter to request a specific currency. ISO currency code (http://www.iso.org/iso/home/standards/currency_codes.htm).\nIf a hotel does not support the requested currency, the prices for the hotel will be returned in the local currency of the hotel.",
+                          "key": "currency",
+                          "value": "IXT"
+                        },
+                        {
+                          "description": "Filter the response based on a specific payment type. NONE means all types (default).",
+                          "key": "paymentPolicy",
+                          "value": "NONE"
+                        },
+                        {
+                          "description": "Filter response based on available meals:\n        * ROOM_ONLY = Room Only\n        * BREAKFAST = Breakfast\n        * HALF_BOARD = Diner & Breakfast (only for Aggregators)\n        * FULL_BOARD = Full Board (only for Aggregators)\n        * ALL_INCLUSIVE = All Inclusive (only for Aggregators)",
+                          "key": "boardType",
+                          "value": "BREAKFAST"
+                        },
+                        {
+                          "description": "Show all properties (include sold out) or available only. For sold out properties, please check availability on other dates.",
+                          "key": "includeClosed",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Used to return only the cheapest offer per hotel or all available offers.",
+                          "key": "bestRateOnly",
+                          "value": "true"
+                        },
+                        {
+                          "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html).",
+                          "key": "lang",
+                          "value": "rwdc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"parameter\": \"<string>\",\n        \"pointer\": \"<string>\",\n        \"example\": \"<string>\"\n      },\n      \"documentation\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:58.000Z",
+                  "updatedAt": "2026-06-05T13:12:58.000Z",
+                  "uid": "35240-b92fcd46-0b6a-4753-8fb9-013491fe2e3b"
+                }
+              ],
+              "createdAt": "2026-06-05T13:12:58.000Z",
+              "updatedAt": "2026-06-05T13:12:58.000Z",
+              "uid": "35240-b1c0a5e9-6bb8-4961-b434-8545906dc8cd"
+            }
+          ],
+          "id": "94a18712-2a14-482a-98b3-14dd1d422334",
+          "createdAt": "2026-06-05T13:12:58.000Z",
+          "updatedAt": "2026-06-05T13:12:58.000Z",
+          "uid": "35240-94a18712-2a14-482a-98b3-14dd1d422334"
+        }
+      ],
+      "id": "131853c1-d803-461d-a616-c0301700bab2",
+      "createdAt": "2026-06-05T13:12:58.000Z",
+      "updatedAt": "2026-06-05T13:12:58.000Z",
+      "uid": "35240-131853c1-d803-461d-a616-c0301700bab2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v3"
+    }
+  ]
+}

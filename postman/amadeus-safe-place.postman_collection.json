@@ -1,0 +1,802 @@
+{
+  "info": {
+    "_postman_id": "54524839-9844-4e19-9a8b-2b982fe9710a",
+    "name": "Safe Place",
+    "description": "<h3 style=\"color: red;\"> WARNING - This API will be permanently decommissioned the 12th of April. For alternative we recommend using [GeoSure](https://geosureglobal.com/).</h3>\n\n\nBefore using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token. \n  \nPlease also be aware that our test environment is based on a subset of the production, this API in test only returns a few selected cities. You can find the list in our **[data collection](https://github.com/amadeus4dev/data-collection)**.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:13:19.000Z",
+    "updatedAt": "2026-06-05T13:13:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-54524839-9844-4e19-9a8b-2b982fe9710a"
+  },
+  "item": [
+    {
+      "name": "safety",
+      "item": [
+        {
+          "name": "safety-rated-locations",
+          "item": [
+            {
+              "name": "{safety-rated-locationId}",
+              "item": [
+                {
+                  "name": "Amadeus Retieve Safety Information of a Location by its ID.",
+                  "id": "0b32cc94-3ac4-459d-84ba-84aa51f02f07",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/safety/safety-rated-locations/:safety-rated-locationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "safety",
+                        "safety-rated-locations",
+                        ":safety-rated-locationId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f9c23956-bdc2-4277-8b71-6a894f0c4efb",
+                          "key": "safety-rated-locationId",
+                          "value": "<string>",
+                          "description": "(Required) identifier of the location"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "5b025164-c7fd-4993-8214-f72efe30c79b",
+                      "name": "Successful Operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/safety/safety-rated-locations/:safety-rated-locationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "safety",
+                            "safety-rated-locations",
+                            ":safety-rated-locationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "safety-rated-locationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"safetyScore\": {\n      \"women\": \"<integer>\",\n      \"physicalHarm\": \"<integer>\",\n      \"theft\": \"<integer>\",\n      \"politicalFreedom\": \"<integer>\",\n      \"lgbtq\": \"<integer>\",\n      \"medical\": \"<integer>\",\n      \"overall\": \"<integer>\"\n    },\n    \"id\": \"<string>\",\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"methods\": [\n        \"DELETE\",\n        \"DELETE\"\n      ],\n      \"count\": \"<integer>\"\n    },\n    \"type\": \"<string>\",\n    \"subType\": \"CITY\",\n    \"name\": \"<string>\",\n    \"geoCode\": {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\"\n    }\n  },\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:13:20.000Z",
+                      "updatedAt": "2026-06-05T13:13:20.000Z",
+                      "uid": "35240-5b025164-c7fd-4993-8214-f72efe30c79b"
+                    },
+                    {
+                      "id": "44c50561-e0e1-4399-8e44-8e3dee88a97a",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/safety/safety-rated-locations/:safety-rated-locationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "safety",
+                            "safety-rated-locations",
+                            ":safety-rated-locationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "safety-rated-locationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:20.000Z",
+                      "updatedAt": "2026-06-05T13:13:20.000Z",
+                      "uid": "35240-44c50561-e0e1-4399-8e44-8e3dee88a97a"
+                    },
+                    {
+                      "id": "6f33f8dd-e6db-4a5b-9e88-83ffa03e2bf1",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/safety/safety-rated-locations/:safety-rated-locationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "safety",
+                            "safety-rated-locations",
+                            ":safety-rated-locationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "safety-rated-locationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:20.000Z",
+                      "updatedAt": "2026-06-05T13:13:20.000Z",
+                      "uid": "35240-6f33f8dd-e6db-4a5b-9e88-83ffa03e2bf1"
+                    },
+                    {
+                      "id": "f9982b35-e737-4d5a-aa2a-1bb1e61943f8",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/safety/safety-rated-locations/:safety-rated-locationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "safety",
+                            "safety-rated-locations",
+                            ":safety-rated-locationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "safety-rated-locationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:20.000Z",
+                      "updatedAt": "2026-06-05T13:13:20.000Z",
+                      "uid": "35240-f9982b35-e737-4d5a-aa2a-1bb1e61943f8"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:13:20.000Z",
+                  "updatedAt": "2026-06-05T13:13:20.000Z",
+                  "uid": "35240-0b32cc94-3ac4-459d-84ba-84aa51f02f07"
+                }
+              ],
+              "id": "4ff0e994-9bae-43ae-a5c8-e72ed846a87d",
+              "createdAt": "2026-06-05T13:13:20.000Z",
+              "updatedAt": "2026-06-05T13:13:20.000Z",
+              "uid": "35240-4ff0e994-9bae-43ae-a5c8-e72ed846a87d"
+            },
+            {
+              "name": "by-square",
+              "item": [
+                {
+                  "name": "Amadeus Returns the Safety Rating of a Given Area",
+                  "id": "97f1d30d-0260-48dc-8df1-489f506c230f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/safety/safety-rated-locations/by-square?north=<double>&west=<double>&south=<double>&east=<double>&page[limit]=10&page[offset]=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "safety",
+                        "safety-rated-locations",
+                        "by-square"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                          "key": "north",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                          "key": "west",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                          "key": "south",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                          "key": "east",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "maximum items in one page",
+                          "key": "page[limit]",
+                          "value": "10"
+                        },
+                        {
+                          "description": "start index of the requested page",
+                          "key": "page[offset]",
+                          "value": "0"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "adfa6c42-fc3c-402e-be8a-c72fa83ada72",
+                      "name": "Successful Operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/safety/safety-rated-locations/by-square?north=<double>&west=<double>&south=<double>&east=<double>&page[limit]=10&page[offset]=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "safety",
+                            "safety-rated-locations",
+                            "by-square"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                              "key": "north",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                              "key": "west",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                              "key": "south",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                              "key": "east",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "maximum items in one page",
+                              "key": "page[limit]",
+                              "value": "10"
+                            },
+                            {
+                              "description": "start index of the requested page",
+                              "key": "page[offset]",
+                              "value": "0"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"safetyScore\": {\n        \"women\": \"<integer>\",\n        \"physicalHarm\": \"<integer>\",\n        \"theft\": \"<integer>\",\n        \"politicalFreedom\": \"<integer>\",\n        \"lgbtq\": \"<integer>\",\n        \"medical\": \"<integer>\",\n        \"overall\": \"<integer>\"\n      },\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"DELETE\",\n          \"PATCH\"\n        ],\n        \"count\": \"<integer>\"\n      },\n      \"type\": \"<string>\",\n      \"subType\": \"AIRPORT\",\n      \"name\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      }\n    },\n    {\n      \"safetyScore\": {\n        \"women\": \"<integer>\",\n        \"physicalHarm\": \"<integer>\",\n        \"theft\": \"<integer>\",\n        \"politicalFreedom\": \"<integer>\",\n        \"lgbtq\": \"<integer>\",\n        \"medical\": \"<integer>\",\n        \"overall\": \"<integer>\"\n      },\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"PUT\",\n          \"PATCH\"\n        ],\n        \"count\": \"<integer>\"\n      },\n      \"type\": \"<string>\",\n      \"subType\": \"POINT_OF_INTEREST\",\n      \"name\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      }\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:13:20.000Z",
+                      "updatedAt": "2026-06-05T13:13:20.000Z",
+                      "uid": "35240-adfa6c42-fc3c-402e-be8a-c72fa83ada72"
+                    },
+                    {
+                      "id": "14c1a55a-e142-4244-a70f-ad6f43e7fab1",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/safety/safety-rated-locations/by-square?north=<double>&west=<double>&south=<double>&east=<double>&page[limit]=10&page[offset]=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "safety",
+                            "safety-rated-locations",
+                            "by-square"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                              "key": "north",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                              "key": "west",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                              "key": "south",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                              "key": "east",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "maximum items in one page",
+                              "key": "page[limit]",
+                              "value": "10"
+                            },
+                            {
+                              "description": "start index of the requested page",
+                              "key": "page[offset]",
+                              "value": "0"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:20.000Z",
+                      "updatedAt": "2026-06-05T13:13:20.000Z",
+                      "uid": "35240-14c1a55a-e142-4244-a70f-ad6f43e7fab1"
+                    },
+                    {
+                      "id": "2b5e6e7e-fbda-46c8-b8c6-cd68f371e883",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/safety/safety-rated-locations/by-square?north=<double>&west=<double>&south=<double>&east=<double>&page[limit]=10&page[offset]=0",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "safety",
+                            "safety-rated-locations",
+                            "by-square"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Latitude north of bounding box (decimal coordinates)",
+                              "key": "north",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Longitude west of bounding box (decimal coordinates)",
+                              "key": "west",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Latitude south of bounding box (decimal coordinates)",
+                              "key": "south",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) Longitude east of bounding box (decimal coordinates)",
+                              "key": "east",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "maximum items in one page",
+                              "key": "page[limit]",
+                              "value": "10"
+                            },
+                            {
+                              "description": "start index of the requested page",
+                              "key": "page[offset]",
+                              "value": "0"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:13:20.000Z",
+                      "updatedAt": "2026-06-05T13:13:20.000Z",
+                      "uid": "35240-2b5e6e7e-fbda-46c8-b8c6-cd68f371e883"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:13:20.000Z",
+                  "updatedAt": "2026-06-05T13:13:20.000Z",
+                  "uid": "35240-97f1d30d-0260-48dc-8df1-489f506c230f"
+                }
+              ],
+              "id": "13de5327-bad6-494b-a85e-332237be5933",
+              "createdAt": "2026-06-05T13:13:20.000Z",
+              "updatedAt": "2026-06-05T13:13:20.000Z",
+              "uid": "35240-13de5327-bad6-494b-a85e-332237be5933"
+            },
+            {
+              "name": "Amadeus Returns Safety Rating for a Given Location and Radius.",
+              "id": "b9268503-2bd5-4537-a88b-87ebb603b6df",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/safety/safety-rated-locations?latitude=<double>&longitude=<double>&radius=1&page[limit]=10&page[offset]=0",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "safety",
+                    "safety-rated-locations"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Latitude (decimal coordinates)",
+                      "key": "latitude",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "(Required) Longitude (decimal coordinates)",
+                      "key": "longitude",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                      "key": "radius",
+                      "value": "1"
+                    },
+                    {
+                      "description": "maximum items in one page",
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "description": "start index of the requested page",
+                      "key": "page[offset]",
+                      "value": "0"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "69d779ad-e640-4416-8710-87b3d398bb2b",
+                  "name": "Successful Operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/safety/safety-rated-locations?latitude=<double>&longitude=<double>&radius=1&page[limit]=10&page[offset]=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "safety",
+                        "safety-rated-locations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude (decimal coordinates)",
+                          "key": "latitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "(Required) Longitude (decimal coordinates)",
+                          "key": "longitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                          "key": "radius",
+                          "value": "1"
+                        },
+                        {
+                          "description": "maximum items in one page",
+                          "key": "page[limit]",
+                          "value": "10"
+                        },
+                        {
+                          "description": "start index of the requested page",
+                          "key": "page[offset]",
+                          "value": "0"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"safetyScore\": {\n        \"women\": \"<integer>\",\n        \"physicalHarm\": \"<integer>\",\n        \"theft\": \"<integer>\",\n        \"politicalFreedom\": \"<integer>\",\n        \"lgbtq\": \"<integer>\",\n        \"medical\": \"<integer>\",\n        \"overall\": \"<integer>\"\n      },\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"DELETE\",\n          \"PATCH\"\n        ],\n        \"count\": \"<integer>\"\n      },\n      \"type\": \"<string>\",\n      \"subType\": \"AIRPORT\",\n      \"name\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      }\n    },\n    {\n      \"safetyScore\": {\n        \"women\": \"<integer>\",\n        \"physicalHarm\": \"<integer>\",\n        \"theft\": \"<integer>\",\n        \"politicalFreedom\": \"<integer>\",\n        \"lgbtq\": \"<integer>\",\n        \"medical\": \"<integer>\",\n        \"overall\": \"<integer>\"\n      },\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"PUT\",\n          \"PATCH\"\n        ],\n        \"count\": \"<integer>\"\n      },\n      \"type\": \"<string>\",\n      \"subType\": \"POINT_OF_INTEREST\",\n      \"name\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      }\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                  "createdAt": "2026-06-05T13:13:20.000Z",
+                  "updatedAt": "2026-06-05T13:13:20.000Z",
+                  "uid": "35240-69d779ad-e640-4416-8710-87b3d398bb2b"
+                },
+                {
+                  "id": "3167baba-205b-4894-b17e-f3fc80cddea2",
+                  "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/safety/safety-rated-locations?latitude=<double>&longitude=<double>&radius=1&page[limit]=10&page[offset]=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "safety",
+                        "safety-rated-locations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude (decimal coordinates)",
+                          "key": "latitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "(Required) Longitude (decimal coordinates)",
+                          "key": "longitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                          "key": "radius",
+                          "value": "1"
+                        },
+                        {
+                          "description": "maximum items in one page",
+                          "key": "page[limit]",
+                          "value": "10"
+                        },
+                        {
+                          "description": "start index of the requested page",
+                          "key": "page[offset]",
+                          "value": "0"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:20.000Z",
+                  "updatedAt": "2026-06-05T13:13:20.000Z",
+                  "uid": "35240-3167baba-205b-4894-b17e-f3fc80cddea2"
+                },
+                {
+                  "id": "c2198eb7-ee4b-43d4-9004-a9e38764657f",
+                  "name": "Unexpected Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/safety/safety-rated-locations?latitude=<double>&longitude=<double>&radius=1&page[limit]=10&page[offset]=0",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "safety",
+                        "safety-rated-locations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude (decimal coordinates)",
+                          "key": "latitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "(Required) Longitude (decimal coordinates)",
+                          "key": "longitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                          "key": "radius",
+                          "value": "1"
+                        },
+                        {
+                          "description": "maximum items in one page",
+                          "key": "page[limit]",
+                          "value": "10"
+                        },
+                        {
+                          "description": "start index of the requested page",
+                          "key": "page[offset]",
+                          "value": "0"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:13:20.000Z",
+                  "updatedAt": "2026-06-05T13:13:20.000Z",
+                  "uid": "35240-c2198eb7-ee4b-43d4-9004-a9e38764657f"
+                }
+              ],
+              "createdAt": "2026-06-05T13:13:20.000Z",
+              "updatedAt": "2026-06-05T13:13:20.000Z",
+              "uid": "35240-b9268503-2bd5-4537-a88b-87ebb603b6df"
+            }
+          ],
+          "id": "6c30032e-3c65-4f70-b4b4-169629eaa66e",
+          "createdAt": "2026-06-05T13:13:20.000Z",
+          "updatedAt": "2026-06-05T13:13:20.000Z",
+          "uid": "35240-6c30032e-3c65-4f70-b4b4-169629eaa66e"
+        }
+      ],
+      "id": "72535fe6-0292-40e6-b3b0-3c843e3dd75d",
+      "createdAt": "2026-06-05T13:13:20.000Z",
+      "updatedAt": "2026-06-05T13:13:20.000Z",
+      "uid": "35240-72535fe6-0292-40e6-b3b0-3c843e3dd75d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

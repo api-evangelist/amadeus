@@ -1,0 +1,531 @@
+{
+  "item": [
+    {
+      "id": "3a8c95b9-5471-4bbe-b752-b201a9aaa685",
+      "name": "location",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1ce67bd1-2f8f-459d-8f54-7e03c622771b",
+          "name": "Amadeus Returns a List of Airports and Cities Matching a Given Keyword.",
+          "request": {
+            "name": "Amadeus Returns a List of Airports and Cities Matching a Given Keyword.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "subType",
+                  "value": "<string>,<string>",
+                  "description": "(Required) sub type of the location (AIRPORT and/or CITY)"
+                },
+                {
+                  "disabled": false,
+                  "key": "keyword",
+                  "value": "<string>",
+                  "description": "(Required) keyword that should represent the start of a word in a city or airport name or code. \nSupported charaters are: A-Za-z0-9./:-'()\""
+                },
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>",
+                  "description": "Country code of the location using [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page[limit]",
+                  "value": "10",
+                  "description": "maximum items in one page"
+                },
+                {
+                  "disabled": false,
+                  "key": "page[offset]",
+                  "value": "0",
+                  "description": "start index of the requested page"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "analytics.travelers.score",
+                  "description": "defines on which attribute the sorting will be done:\n* analytics.travelers.score - sort by the number of travelers by airport or city, the airports and cities with the highest traffic are on top of the results\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "FULL",
+                  "description": "select the level of information of the reply:\n* LIGHT - Gives only the IATACode, name, detailedName, cityName and countryName\n* FULL - Adds on top of the LIGHT information the timeZoneOffset, geocode, detailed address and travelers.score\ndefault option is FULL\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7f03305a-5516-49c6-bd70-4ab6e89a14ee",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subType",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "MUC"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "analytics.travelers.score"
+                    },
+                    {
+                      "key": "view",
+                      "value": "FULL"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"count\": 2,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/reference-data/locations?subType=CITY,AIRPORT&keyword=MUC&countryCode=DE\"\n    }\n  },\n  \"data\": [\n    {\n      \"type\": \"location\",\n      \"subType\": \"CITY\",\n      \"name\": \"MUNICH INTERNATIONAL\",\n      \"detailedName\": \"MUNICH/DE:MUNICH INTERNATIONAL\",\n      \"self\": {\n        \"href\": \"https://test.api.amadeus.com/v1/reference-data/locations/CMUC\",\n        \"methods\": [\n          \"GET\"\n        ]\n      },\n      \"timeZoneOffset\": \"+02:00\",\n      \"iataCode\": \"MUC\",\n      \"geoCode\": {\n        \"latitude\": 48.35378,\n        \"longitude\": 11.78609\n      },\n      \"address\": {\n        \"cityName\": \"MUNICH\",\n        \"cityCode\": \"MUC\",\n        \"countryName\": \"GERMANY\",\n        \"countryCode\": \"DE\",\n        \"regionCode\": \"EUROP\"\n      },\n      \"analytics\": {\n        \"travelers\": {\n          \"score\": 27\n        }\n      }\n    },\n    {\n      \"type\": \"location\",\n      \"subType\": \"AIRPORT\",\n      \"name\": \"MUNICH INTERNATIONAL\",\n      \"detailedName\": \"MUNICH/DE:MUNICH INTERNATIONAL\",\n      \"self\": {\n        \"href\": \"https://test.api.amadeus.com/v1/reference-data/locations/AMUC\",\n        \"methods\": [\n          \"GET\"\n        ]\n      },\n      \"timeZoneOffset\": \"+02:00\",\n      \"iataCode\": \"MUC\",\n      \"geoCode\": {\n        \"latitude\": 48.35378,\n        \"longitude\": 11.78609\n      },\n      \"address\": {\n        \"cityName\": \"MUNICH\",\n        \"cityCode\": \"MUC\",\n        \"countryName\": \"GERMANY\",\n        \"countryCode\": \"DE\",\n        \"regionCode\": \"EUROP\"\n      },\n      \"analytics\": {\n        \"travelers\": {\n          \"score\": 27\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff6f1220-756e-45fb-8d5a-765c9376c9a3",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION \n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subType",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "MUC"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "analytics.travelers.score"
+                    },
+                    {
+                      "key": "view",
+                      "value": "FULL"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b9ae894-5ba0-49ff-812a-d0e71e09a492",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subType",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "MUC"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "analytics.travelers.score"
+                    },
+                    {
+                      "key": "view",
+                      "value": "FULL"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcc17859-2304-4d0c-b204-2c2fb4eb2ab6",
+          "name": "Amadeus Returns a Specific Airports or Cities Based on its ID.",
+          "request": {
+            "name": "Amadeus Returns a Specific Airports or Cities Based on its ID.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations",
+                ":locationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) identifier of the location"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1793fe07-aed9-48e8-ae54-88f5b0053b11",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) identifier of the location"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"12345\",\n    \"self\": {\n      \"href\": \"https://example.com/resource\",\n      \"methods\": [\n        \"PUT\",\n        \"DELETE\"\n      ],\n      \"count\": 1\n    },\n    \"type\": \"location\",\n    \"subType\": \"AIRPORT\",\n    \"name\": \"Paris CDG\",\n    \"detailedName\": \"Paris/FR: Charles de Gaulle\",\n    \"timeZoneOffset\": \"+01:00\",\n    \"iataCode\": \"CDG\",\n    \"geoCode\": {\n      \"latitude\": 43.580418,\n      \"longitude\": 7.125102\n    },\n    \"address\": {\n      \"cityName\": \"Paris\",\n      \"cityCode\": \"PAR\",\n      \"countryName\": \"France\",\n      \"countryCode\": \"FR\",\n      \"stateCode\": \"TO\",\n      \"regionCode\": \"EUROP\"\n    },\n    \"distance\": {\n      \"value\": 152,\n      \"unit\": \"KM\"\n    },\n    \"analytics\": {\n      \"travelers\": {\n        \"score\": 68\n      }\n    },\n    \"relevance\": 9.6584,\n    \"category\": \"HISTORICAL\",\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"rank\": \"string\"\n  },\n  \"meta\": {\n    \"count\": 1,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f694814-acf0-4201-afbb-04846b6773f3",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n572     | INVALID OPTION    \n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) identifier of the location"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3c21773-ce94-4398-8f3b-7e7c19472128",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) identifier of the location"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 404,\n      \"code\": 1797,\n      \"title\": \"NOT FOUND\",\n      \"detail\": \"no response found for this query parameter\",\n      \"source\": {\n        \"parameter\": \"airport\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69adb9e1-cb1a-43e7-9dbc-3cb20a0a1b88",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) identifier of the location"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f28e7cc1-fe62-480d-aff5-13c069cd268a",
+    "name": "Airport & City Search",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production, in test this API only contains data from the United States, Spain, United Kingdom, Germany and India. ",
+      "type": "text/plain"
+    }
+  }
+}

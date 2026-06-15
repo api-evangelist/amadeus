@@ -1,0 +1,324 @@
+{
+  "info": {
+    "_postman_id": "6d12ac94-aa00-4619-bfce-1b76bce3bb1a",
+    "name": "Airport Nearest Relevant",
+    "description": "\nBefore using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production, this API in test only returns a few selected cities. You can find the list in our **[data collection](https://github.com/amadeus4dev/data-collection)**.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:49.000Z",
+    "updatedAt": "2026-06-05T13:12:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6d12ac94-aa00-4619-bfce-1b76bce3bb1a"
+  },
+  "item": [
+    {
+      "name": "reference-data",
+      "item": [
+        {
+          "name": "locations",
+          "item": [
+            {
+              "name": "airports",
+              "item": [
+                {
+                  "name": "Amadeus Returns a List of Relevant Airports Near to a Given Point.",
+                  "id": "9d4566e8-f1bd-4b80-aa24-0d58dc01722f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/locations/airports?latitude=<double>&longitude=<double>&radius=500&page[limit]=10&page[offset]=0&sort=relevance",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "locations",
+                        "airports"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) latitude location to be at the center of the search circle",
+                          "key": "latitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "(Required) longitude location to be at the center of the search circle",
+                          "key": "longitude",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "radius of the search in Kilometer. Can be from 0 to 500, default value is 500 Km.",
+                          "key": "radius",
+                          "value": "500"
+                        },
+                        {
+                          "description": "maximum items in one page",
+                          "key": "page[limit]",
+                          "value": "10"
+                        },
+                        {
+                          "description": "start index of the requested page",
+                          "key": "page[offset]",
+                          "value": "0"
+                        },
+                        {
+                          "description": "defines on which attribute the sorting will be done from the best option to the worst one:\n* **relevance** - Score value calculated based on distance and traffic analytics\n* **distance** - Distance from the location to the geo-code given in API request parameters\n* **analytics.flights.score** - Approximate score for ranking purposes calculated based on estimated number of flights from/to airport in one reference year (last year)\n* **analytics.travelers.score** - Approximate score for ranking purposes calculated based on estimated number of travelers in the airport for one reference year (last year)\n",
+                          "key": "sort",
+                          "value": "relevance"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "314f4e72-169b-4cb0-b725-6f7af64bf8db",
+                      "name": "Successful Operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/airports?latitude=<double>&longitude=<double>&radius=500&page[limit]=10&page[offset]=0&sort=relevance",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "airports"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) latitude location to be at the center of the search circle",
+                              "key": "latitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) longitude location to be at the center of the search circle",
+                              "key": "longitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "radius of the search in Kilometer. Can be from 0 to 500, default value is 500 Km.",
+                              "key": "radius",
+                              "value": "500"
+                            },
+                            {
+                              "description": "maximum items in one page",
+                              "key": "page[limit]",
+                              "value": "10"
+                            },
+                            {
+                              "description": "start index of the requested page",
+                              "key": "page[offset]",
+                              "value": "0"
+                            },
+                            {
+                              "description": "defines on which attribute the sorting will be done from the best option to the worst one:\n* **relevance** - Score value calculated based on distance and traffic analytics\n* **distance** - Distance from the location to the geo-code given in API request parameters\n* **analytics.flights.score** - Approximate score for ranking purposes calculated based on estimated number of flights from/to airport in one reference year (last year)\n* **analytics.travelers.score** - Approximate score for ranking purposes calculated based on estimated number of travelers in the airport for one reference year (last year)\n",
+                              "key": "sort",
+                              "value": "relevance"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"subType\": \"POINT_OF_INTEREST\",\n      \"name\": \"<string>\",\n      \"detailedName\": \"<string>\",\n      \"timeZoneOffset\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"address\": {\n        \"cityName\": \"<string>\",\n        \"cityCode\": \"<string>\",\n        \"countryName\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"stateCode\": \"<string>\",\n        \"regionCode\": \"<string>\"\n      },\n      \"distance\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"MI\"\n      },\n      \"analytics\": {\n        \"flights\": {\n          \"score\": \"<number>\"\n        },\n        \"travelers\": {\n          \"score\": \"<number>\"\n        }\n      },\n      \"relevance\": \"<double>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"subType\": \"DISTRICT\",\n      \"name\": \"<string>\",\n      \"detailedName\": \"<string>\",\n      \"timeZoneOffset\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"address\": {\n        \"cityName\": \"<string>\",\n        \"cityCode\": \"<string>\",\n        \"countryName\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"stateCode\": \"<string>\",\n        \"regionCode\": \"<string>\"\n      },\n      \"distance\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"KM\"\n      },\n      \"analytics\": {\n        \"flights\": {\n          \"score\": \"<number>\"\n        },\n        \"travelers\": {\n          \"score\": \"<number>\"\n        }\n      },\n      \"relevance\": \"<double>\"\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:12:50.000Z",
+                      "updatedAt": "2026-06-05T13:12:50.000Z",
+                      "uid": "35240-314f4e72-169b-4cb0-b725-6f7af64bf8db"
+                    },
+                    {
+                      "id": "3c98f73d-67ae-4d82-b9f5-abe784a281a9",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/airports?latitude=<double>&longitude=<double>&radius=500&page[limit]=10&page[offset]=0&sort=relevance",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "airports"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) latitude location to be at the center of the search circle",
+                              "key": "latitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) longitude location to be at the center of the search circle",
+                              "key": "longitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "radius of the search in Kilometer. Can be from 0 to 500, default value is 500 Km.",
+                              "key": "radius",
+                              "value": "500"
+                            },
+                            {
+                              "description": "maximum items in one page",
+                              "key": "page[limit]",
+                              "value": "10"
+                            },
+                            {
+                              "description": "start index of the requested page",
+                              "key": "page[offset]",
+                              "value": "0"
+                            },
+                            {
+                              "description": "defines on which attribute the sorting will be done from the best option to the worst one:\n* **relevance** - Score value calculated based on distance and traffic analytics\n* **distance** - Distance from the location to the geo-code given in API request parameters\n* **analytics.flights.score** - Approximate score for ranking purposes calculated based on estimated number of flights from/to airport in one reference year (last year)\n* **analytics.travelers.score** - Approximate score for ranking purposes calculated based on estimated number of travelers in the airport for one reference year (last year)\n",
+                              "key": "sort",
+                              "value": "relevance"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:50.000Z",
+                      "updatedAt": "2026-06-05T13:12:50.000Z",
+                      "uid": "35240-3c98f73d-67ae-4d82-b9f5-abe784a281a9"
+                    },
+                    {
+                      "id": "66cbbecd-b2df-497a-9520-b280ba9a6613",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/airports?latitude=<double>&longitude=<double>&radius=500&page[limit]=10&page[offset]=0&sort=relevance",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            "airports"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) latitude location to be at the center of the search circle",
+                              "key": "latitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "(Required) longitude location to be at the center of the search circle",
+                              "key": "longitude",
+                              "value": "<double>"
+                            },
+                            {
+                              "description": "radius of the search in Kilometer. Can be from 0 to 500, default value is 500 Km.",
+                              "key": "radius",
+                              "value": "500"
+                            },
+                            {
+                              "description": "maximum items in one page",
+                              "key": "page[limit]",
+                              "value": "10"
+                            },
+                            {
+                              "description": "start index of the requested page",
+                              "key": "page[offset]",
+                              "value": "0"
+                            },
+                            {
+                              "description": "defines on which attribute the sorting will be done from the best option to the worst one:\n* **relevance** - Score value calculated based on distance and traffic analytics\n* **distance** - Distance from the location to the geo-code given in API request parameters\n* **analytics.flights.score** - Approximate score for ranking purposes calculated based on estimated number of flights from/to airport in one reference year (last year)\n* **analytics.travelers.score** - Approximate score for ranking purposes calculated based on estimated number of travelers in the airport for one reference year (last year)\n",
+                              "key": "sort",
+                              "value": "relevance"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:50.000Z",
+                      "updatedAt": "2026-06-05T13:12:50.000Z",
+                      "uid": "35240-66cbbecd-b2df-497a-9520-b280ba9a6613"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:12:50.000Z",
+                  "updatedAt": "2026-06-05T13:12:50.000Z",
+                  "uid": "35240-9d4566e8-f1bd-4b80-aa24-0d58dc01722f"
+                }
+              ],
+              "id": "dd13423f-6421-45ca-afcb-1f13f910c418",
+              "createdAt": "2026-06-05T13:12:50.000Z",
+              "updatedAt": "2026-06-05T13:12:50.000Z",
+              "uid": "35240-dd13423f-6421-45ca-afcb-1f13f910c418"
+            }
+          ],
+          "id": "0da2fc67-a74b-4a3f-920e-f8a961d2359d",
+          "createdAt": "2026-06-05T13:12:50.000Z",
+          "updatedAt": "2026-06-05T13:12:50.000Z",
+          "uid": "35240-0da2fc67-a74b-4a3f-920e-f8a961d2359d"
+        }
+      ],
+      "id": "ef80edfe-d845-4884-b62e-caa15ca9821f",
+      "createdAt": "2026-06-05T13:12:50.000Z",
+      "updatedAt": "2026-06-05T13:12:50.000Z",
+      "uid": "35240-ef80edfe-d845-4884-b62e-caa15ca9821f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

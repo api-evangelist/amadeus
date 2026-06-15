@@ -1,0 +1,137 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Safe Place",
+    "version": "1.0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Returns Safety Rating for a Given Location and Radius.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/safety/safety-rated-locations",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude (decimal coordinates)"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude (decimal coordinates)"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "maximum items in one page"
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "start index of the requested page"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns Safety Rating for a Given Location and Radius."
+        },
+        {
+          "info": {
+            "name": "Amadeus Returns the Safety Rating of a Given Area",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/safety/safety-rated-locations/by-square",
+            "params": [
+              {
+                "name": "north",
+                "value": "",
+                "type": "query",
+                "description": "Latitude north of bounding box (decimal coordinates)"
+              },
+              {
+                "name": "west",
+                "value": "",
+                "type": "query",
+                "description": "Longitude west of bounding box (decimal coordinates)"
+              },
+              {
+                "name": "south",
+                "value": "",
+                "type": "query",
+                "description": "Latitude south of bounding box (decimal coordinates)"
+              },
+              {
+                "name": "east",
+                "value": "",
+                "type": "query",
+                "description": "Longitude east of bounding box (decimal coordinates)"
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "maximum items in one page"
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "start index of the requested page"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns the Safety Rating of a Given Area"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Retrieve",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Retieve Safety Information of a Location by its ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/safety/safety-rated-locations/:safety-rated-locationId",
+            "params": [
+              {
+                "name": "safety-rated-locationId",
+                "value": "",
+                "type": "path",
+                "description": "identifier of the location"
+              }
+            ]
+          },
+          "docs": "Amadeus Retieve Safety Information of a Location by its ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

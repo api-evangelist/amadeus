@@ -1,0 +1,331 @@
+{
+  "info": {
+    "_postman_id": "f4323e41-de59-40b0-94b1-1039416b42e7",
+    "name": "On-Demand Flight Status",
+    "description": "\nBefore using this API, we recommend you read our\u00a0**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\u00a0for more information on how to generate an access token. \n  \nPlease also be aware that our test environment is based on a subset of the production, to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:33.000Z",
+    "updatedAt": "2026-06-05T13:12:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f4323e41-de59-40b0-94b1-1039416b42e7"
+  },
+  "item": [
+    {
+      "name": "schedule",
+      "item": [
+        {
+          "name": "flights",
+          "item": [
+            {
+              "name": "Amadeus Retrieves a Unique Flight by Search Criteria.",
+              "id": "81031c57-ec68-4f49-9b30-b8a145a40ac0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/schedule/flights?carrierCode=<string>&flightNumber=<string>&scheduledDepartureDate=<date>&operationalSuffix=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "schedule",
+                    "flights"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) 2 to 3-character IATA carrier code ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)).\n",
+                      "key": "carrierCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) 1 to 4-digit number of the flight. e.g. 4537",
+                      "key": "flightNumber",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) scheduled departure date of the flight, local to the departure airport, format YYYY-MM-DD.",
+                      "key": "scheduledDepartureDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "1-letter operational suffix assigned by the carrier to differentiate flight in case of delay changing the departure date e.g. A\n",
+                      "key": "operationalSuffix",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "505c072f-50b9-4834-ac9d-8845348f734b",
+                  "name": "A list of dated flights",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/schedule/flights?carrierCode=<string>&flightNumber=<string>&scheduledDepartureDate=<date>&operationalSuffix=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "schedule",
+                        "flights"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) 2 to 3-character IATA carrier code ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)).\n",
+                          "key": "carrierCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) 1 to 4-digit number of the flight. e.g. 4537",
+                          "key": "flightNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) scheduled departure date of the flight, local to the departure airport, format YYYY-MM-DD.",
+                          "key": "scheduledDepartureDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "1-letter operational suffix assigned by the carrier to differentiate flight in case of delay changing the departure date e.g. A\n",
+                          "key": "operationalSuffix",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"scheduledDepartureDate\": \"<date>\",\n      \"flightDesignator\": {\n        \"carrierCode\": \"<string>\",\n        \"flightNumber\": \"<long>\",\n        \"operationalSuffix\": \"<string>\"\n      },\n      \"flightPoints\": [\n        {\n          \"iataCode\": \"<string>\",\n          \"departure\": {\n            \"terminal\": {\n              \"code\": \"<string>\"\n            },\n            \"gate\": {\n              \"mainGate\": \"<string>\"\n            },\n            \"timings\": [\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          },\n          \"arrival\": {\n            \"terminal\": {\n              \"code\": \"<string>\"\n            },\n            \"gate\": {\n              \"mainGate\": \"<string>\"\n            },\n            \"timings\": [\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          }\n        },\n        {\n          \"iataCode\": \"<string>\",\n          \"departure\": {\n            \"terminal\": {\n              \"code\": \"<string>\"\n            },\n            \"gate\": {\n              \"mainGate\": \"<string>\"\n            },\n            \"timings\": [\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          },\n          \"arrival\": {\n            \"terminal\": {\n              \"code\": \"<string>\"\n            },\n            \"gate\": {\n              \"mainGate\": \"<string>\"\n            },\n            \"timings\": [\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          }\n        }\n      ],\n      \"segments\": [\n        {\n          \"boardPointIataCode\": \"Gne\",\n          \"offPointIataCode\": \"xNF\",\n          \"scheduledSegmentDuration\": \"<string>\",\n          \"partnership\": {\n            \"operatingFlight\": {\n              \"carrierCode\": \"<string>\",\n              \"flightNumber\": \"<long>\",\n              \"operationalSuffix\": \"<string>\"\n            }\n          }\n        },\n        {\n          \"boardPointIataCode\": \"Qqr\",\n          \"offPointIataCode\": \"fED\",\n          \"scheduledSegmentDuration\": \"<string>\",\n          \"partnership\": {\n            \"operatingFlight\": {\n              \"carrierCode\": \"<string>\",\n              \"flightNumber\": \"<long>\",\n              \"operationalSuffix\": \"<string>\"\n            }\n          }\n        }\n      ],\n      \"legs\": [\n        {\n          \"boardPointIataCode\": \"mxb\",\n          \"offPointIataCode\": \"vvy\",\n          \"aircraftEquipment\": {\n            \"aircraftType\": \"<string>\"\n          },\n          \"scheduledLegDuration\": \"<string>\"\n        },\n        {\n          \"boardPointIataCode\": \"NoF\",\n          \"offPointIataCode\": \"uXD\",\n          \"aircraftEquipment\": {\n            \"aircraftType\": \"<string>\"\n          },\n          \"scheduledLegDuration\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"scheduledDepartureDate\": \"<date>\",\n      \"flightDesignator\": {\n        \"carrierCode\": \"<string>\",\n        \"flightNumber\": \"<long>\",\n        \"operationalSuffix\": \"<string>\"\n      },\n      \"flightPoints\": [\n        {\n          \"iataCode\": \"<string>\",\n          \"departure\": {\n            \"terminal\": {\n              \"code\": \"<string>\"\n            },\n            \"gate\": {\n              \"mainGate\": \"<string>\"\n            },\n            \"timings\": [\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          },\n          \"arrival\": {\n            \"terminal\": {\n              \"code\": \"<string>\"\n            },\n            \"gate\": {\n              \"mainGate\": \"<string>\"\n            },\n            \"timings\": [\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          }\n        },\n        {\n          \"iataCode\": \"<string>\",\n          \"departure\": {\n            \"terminal\": {\n              \"code\": \"<string>\"\n            },\n            \"gate\": {\n              \"mainGate\": \"<string>\"\n            },\n            \"timings\": [\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          },\n          \"arrival\": {\n            \"terminal\": {\n              \"code\": \"<string>\"\n            },\n            \"gate\": {\n              \"mainGate\": \"<string>\"\n            },\n            \"timings\": [\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              },\n              {\n                \"qualifier\": \"<string>\",\n                \"value\": \"<dateTime>\",\n                \"delays\": [\n                  {\n                    \"duration\": \"<string>\"\n                  },\n                  {\n                    \"duration\": \"<string>\"\n                  }\n                ]\n              }\n            ]\n          }\n        }\n      ],\n      \"segments\": [\n        {\n          \"boardPointIataCode\": \"SXJ\",\n          \"offPointIataCode\": \"xlF\",\n          \"scheduledSegmentDuration\": \"<string>\",\n          \"partnership\": {\n            \"operatingFlight\": {\n              \"carrierCode\": \"<string>\",\n              \"flightNumber\": \"<long>\",\n              \"operationalSuffix\": \"<string>\"\n            }\n          }\n        },\n        {\n          \"boardPointIataCode\": \"fJh\",\n          \"offPointIataCode\": \"XeP\",\n          \"scheduledSegmentDuration\": \"<string>\",\n          \"partnership\": {\n            \"operatingFlight\": {\n              \"carrierCode\": \"<string>\",\n              \"flightNumber\": \"<long>\",\n              \"operationalSuffix\": \"<string>\"\n            }\n          }\n        }\n      ],\n      \"legs\": [\n        {\n          \"boardPointIataCode\": \"QAO\",\n          \"offPointIataCode\": \"EtC\",\n          \"aircraftEquipment\": {\n            \"aircraftType\": \"<string>\"\n          },\n          \"scheduledLegDuration\": \"<string>\"\n        },\n        {\n          \"boardPointIataCode\": \"dib\",\n          \"offPointIataCode\": \"Opa\",\n          \"aircraftEquipment\": {\n            \"aircraftType\": \"<string>\"\n          },\n          \"scheduledLegDuration\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  },\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:34.000Z",
+                  "updatedAt": "2026-06-05T13:12:34.000Z",
+                  "uid": "35240-505c072f-50b9-4834-ac9d-8845348f734b"
+                },
+                {
+                  "id": "caed3c14-dd59-4bef-91fb-003d195fe554",
+                  "name": "code    | title\n------- | -------------------------------------\n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/schedule/flights?carrierCode=<string>&flightNumber=<string>&scheduledDepartureDate=<date>&operationalSuffix=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "schedule",
+                        "flights"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) 2 to 3-character IATA carrier code ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)).\n",
+                          "key": "carrierCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) 1 to 4-digit number of the flight. e.g. 4537",
+                          "key": "flightNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) scheduled departure date of the flight, local to the departure airport, format YYYY-MM-DD.",
+                          "key": "scheduledDepartureDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "1-letter operational suffix assigned by the carrier to differentiate flight in case of delay changing the departure date e.g. A\n",
+                          "key": "operationalSuffix",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:34.000Z",
+                  "updatedAt": "2026-06-05T13:12:34.000Z",
+                  "uid": "35240-caed3c14-dd59-4bef-91fb-003d195fe554"
+                },
+                {
+                  "id": "b4c8c05d-b9f8-491b-875e-839bf6cf3027",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/schedule/flights?carrierCode=<string>&flightNumber=<string>&scheduledDepartureDate=<date>&operationalSuffix=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "schedule",
+                        "flights"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) 2 to 3-character IATA carrier code ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)).\n",
+                          "key": "carrierCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) 1 to 4-digit number of the flight. e.g. 4537",
+                          "key": "flightNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) scheduled departure date of the flight, local to the departure airport, format YYYY-MM-DD.",
+                          "key": "scheduledDepartureDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "1-letter operational suffix assigned by the carrier to differentiate flight in case of delay changing the departure date e.g. A\n",
+                          "key": "operationalSuffix",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:34.000Z",
+                  "updatedAt": "2026-06-05T13:12:34.000Z",
+                  "uid": "35240-b4c8c05d-b9f8-491b-875e-839bf6cf3027"
+                },
+                {
+                  "id": "67412abb-f053-4fbc-99bb-32fda73a4085",
+                  "name": "Unexpected Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/schedule/flights?carrierCode=<string>&flightNumber=<string>&scheduledDepartureDate=<date>&operationalSuffix=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "schedule",
+                        "flights"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) 2 to 3-character IATA carrier code ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)).\n",
+                          "key": "carrierCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) 1 to 4-digit number of the flight. e.g. 4537",
+                          "key": "flightNumber",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) scheduled departure date of the flight, local to the departure airport, format YYYY-MM-DD.",
+                          "key": "scheduledDepartureDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "1-letter operational suffix assigned by the carrier to differentiate flight in case of delay changing the departure date e.g. A\n",
+                          "key": "operationalSuffix",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:34.000Z",
+                  "updatedAt": "2026-06-05T13:12:34.000Z",
+                  "uid": "35240-67412abb-f053-4fbc-99bb-32fda73a4085"
+                }
+              ],
+              "createdAt": "2026-06-05T13:12:34.000Z",
+              "updatedAt": "2026-06-05T13:12:34.000Z",
+              "uid": "35240-81031c57-ec68-4f49-9b30-b8a145a40ac0"
+            }
+          ],
+          "id": "42b85b7c-1ea2-4350-a916-b8141fa72e37",
+          "createdAt": "2026-06-05T13:12:34.000Z",
+          "updatedAt": "2026-06-05T13:12:34.000Z",
+          "uid": "35240-42b85b7c-1ea2-4350-a916-b8141fa72e37"
+        }
+      ],
+      "id": "ffe30392-bcdd-48a0-8249-92f8f3f51f81",
+      "createdAt": "2026-06-05T13:12:34.000Z",
+      "updatedAt": "2026-06-05T13:12:34.000Z",
+      "uid": "35240-ffe30392-bcdd-48a0-8249-92f8f3f51f81"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v2"
+    }
+  ]
+}

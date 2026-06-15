@@ -1,0 +1,556 @@
+{
+  "info": {
+    "_postman_id": "45c12269-9c61-43ad-8b88-9f07c963362b",
+    "name": "Airport & City Search",
+    "description": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production, in test this API only contains data from the United States, Spain, United Kingdom, Germany and India. ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:12:50.000Z",
+    "updatedAt": "2026-06-05T13:12:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-45c12269-9c61-43ad-8b88-9f07c963362b"
+  },
+  "item": [
+    {
+      "name": "reference-data",
+      "item": [
+        {
+          "name": "locations",
+          "item": [
+            {
+              "name": "{locationId}",
+              "item": [
+                {
+                  "name": "Amadeus Returns a Specific Airports or Cities Based on its ID.",
+                  "id": "7d52a4ff-6433-4a64-b8a9-04463485ece8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/locations/:locationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "locations",
+                        ":locationId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "73b8d824-6451-4a6f-a790-cd10e265a213",
+                          "key": "locationId",
+                          "value": "<string>",
+                          "description": "(Required) identifier of the location"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0901b650-000e-4ae9-b6f8-9f823a5c758f",
+                      "name": "Successful Operation",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/:locationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            ":locationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": {\n    \"id\": \"<string>\",\n    \"self\": {\n      \"href\": \"<uri>\",\n      \"methods\": [\n        \"DELETE\",\n        \"DELETE\"\n      ],\n      \"count\": \"<integer>\"\n    },\n    \"type\": \"<string>\",\n    \"subType\": \"POINT_OF_INTEREST\",\n    \"name\": \"<string>\",\n    \"detailedName\": \"<string>\",\n    \"timeZoneOffset\": \"<string>\",\n    \"iataCode\": \"<string>\",\n    \"geoCode\": {\n      \"latitude\": \"<double>\",\n      \"longitude\": \"<double>\"\n    },\n    \"address\": {\n      \"cityName\": \"<string>\",\n      \"cityCode\": \"<string>\",\n      \"countryName\": \"<string>\",\n      \"countryCode\": \"<string>\",\n      \"stateCode\": \"<string>\",\n      \"regionCode\": \"<string>\"\n    },\n    \"distance\": {\n      \"value\": \"<integer>\",\n      \"unit\": \"MI\"\n    },\n    \"analytics\": {\n      \"travelers\": {\n        \"score\": \"<number>\"\n      }\n    },\n    \"relevance\": \"<double>\",\n    \"category\": \"SIGHTS\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"rank\": \"<string>\"\n  },\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                      "createdAt": "2026-06-05T13:12:51.000Z",
+                      "updatedAt": "2026-06-05T13:12:51.000Z",
+                      "uid": "35240-0901b650-000e-4ae9-b6f8-9f823a5c758f"
+                    },
+                    {
+                      "id": "5415d0bd-76ec-4621-bbfe-295f9cc73037",
+                      "name": "code    | title                                 \n------- | ------------------------------------- \n572     | INVALID OPTION    \n",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/:locationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            ":locationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:51.000Z",
+                      "updatedAt": "2026-06-05T13:12:51.000Z",
+                      "uid": "35240-5415d0bd-76ec-4621-bbfe-295f9cc73037"
+                    },
+                    {
+                      "id": "dbcb5d55-a80f-4964-a8fb-660322fec1ea",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/:locationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            ":locationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:51.000Z",
+                      "updatedAt": "2026-06-05T13:12:51.000Z",
+                      "uid": "35240-dbcb5d55-a80f-4964-a8fb-660322fec1ea"
+                    },
+                    {
+                      "id": "2f69619e-1055-4f28-ac71-8466573b14c2",
+                      "name": "Unexpected Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.amadeus+json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reference-data/locations/:locationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reference-data",
+                            "locations",
+                            ":locationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "locationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/vnd.amadeus+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T13:12:51.000Z",
+                      "updatedAt": "2026-06-05T13:12:51.000Z",
+                      "uid": "35240-2f69619e-1055-4f28-ac71-8466573b14c2"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T13:12:51.000Z",
+                  "updatedAt": "2026-06-05T13:12:51.000Z",
+                  "uid": "35240-7d52a4ff-6433-4a64-b8a9-04463485ece8"
+                }
+              ],
+              "id": "7f890e43-4d83-46af-b74c-71fbd3132964",
+              "createdAt": "2026-06-05T13:12:51.000Z",
+              "updatedAt": "2026-06-05T13:12:51.000Z",
+              "uid": "35240-7f890e43-4d83-46af-b74c-71fbd3132964"
+            },
+            {
+              "name": "Amadeus Returns a List of Airports and Cities Matching a Given Keyword.",
+              "id": "0cbd5ae6-84c0-42fb-929a-bb066b449b35",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/reference-data/locations?subType=AIRPORT,CITY&keyword='&countryCode=<string>&page[limit]=10&page[offset]=0&sort=analytics.travelers.score&view=FULL",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "reference-data",
+                    "locations"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) sub type of the location (AIRPORT and/or CITY)",
+                      "key": "subType",
+                      "value": "AIRPORT,CITY"
+                    },
+                    {
+                      "description": "(Required) keyword that should represent the start of a word in a city or airport name or code. \nSupported charaters are: A-Za-z0-9./:-'()\"",
+                      "key": "keyword",
+                      "value": "'"
+                    },
+                    {
+                      "description": "Country code of the location using [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US).",
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "maximum items in one page",
+                      "key": "page[limit]",
+                      "value": "10"
+                    },
+                    {
+                      "description": "start index of the requested page",
+                      "key": "page[offset]",
+                      "value": "0"
+                    },
+                    {
+                      "description": "defines on which attribute the sorting will be done:\n* analytics.travelers.score - sort by the number of travelers by airport or city, the airports and cities with the highest traffic are on top of the results\n",
+                      "key": "sort",
+                      "value": "analytics.travelers.score"
+                    },
+                    {
+                      "description": "select the level of information of the reply:\n* LIGHT - Gives only the IATACode, name, detailedName, cityName and countryName\n* FULL - Adds on top of the LIGHT information the timeZoneOffset, geocode, detailed address and travelers.score\ndefault option is FULL\n",
+                      "key": "view",
+                      "value": "FULL"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "2579cb1d-cab7-4e62-8666-d74c0d2fd4d0",
+                  "name": "Successful Operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/locations?subType=AIRPORT,CITY&keyword='&countryCode=<string>&page[limit]=10&page[offset]=0&sort=analytics.travelers.score&view=FULL",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "locations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) sub type of the location (AIRPORT and/or CITY)",
+                          "key": "subType",
+                          "value": "AIRPORT,CITY"
+                        },
+                        {
+                          "description": "(Required) keyword that should represent the start of a word in a city or airport name or code. \nSupported charaters are: A-Za-z0-9./:-'()\"",
+                          "key": "keyword",
+                          "value": "'"
+                        },
+                        {
+                          "description": "Country code of the location using [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US).",
+                          "key": "countryCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "maximum items in one page",
+                          "key": "page[limit]",
+                          "value": "10"
+                        },
+                        {
+                          "description": "start index of the requested page",
+                          "key": "page[offset]",
+                          "value": "0"
+                        },
+                        {
+                          "description": "defines on which attribute the sorting will be done:\n* analytics.travelers.score - sort by the number of travelers by airport or city, the airports and cities with the highest traffic are on top of the results\n",
+                          "key": "sort",
+                          "value": "analytics.travelers.score"
+                        },
+                        {
+                          "description": "select the level of information of the reply:\n* LIGHT - Gives only the IATACode, name, detailedName, cityName and countryName\n* FULL - Adds on top of the LIGHT information the timeZoneOffset, geocode, detailed address and travelers.score\ndefault option is FULL\n",
+                          "key": "view",
+                          "value": "FULL"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"POST\",\n          \"PATCH\"\n        ],\n        \"count\": \"<integer>\"\n      },\n      \"type\": \"<string>\",\n      \"subType\": \"AIRPORT\",\n      \"name\": \"<string>\",\n      \"detailedName\": \"<string>\",\n      \"timeZoneOffset\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"address\": {\n        \"cityName\": \"<string>\",\n        \"cityCode\": \"<string>\",\n        \"countryName\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"stateCode\": \"<string>\",\n        \"regionCode\": \"<string>\"\n      },\n      \"distance\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"KM\"\n      },\n      \"analytics\": {\n        \"travelers\": {\n          \"score\": \"<number>\"\n        }\n      },\n      \"relevance\": \"<double>\",\n      \"category\": \"SHOPPING\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"rank\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"self\": {\n        \"href\": \"<uri>\",\n        \"methods\": [\n          \"POST\",\n          \"DELETE\"\n        ],\n        \"count\": \"<integer>\"\n      },\n      \"type\": \"<string>\",\n      \"subType\": \"CITY\",\n      \"name\": \"<string>\",\n      \"detailedName\": \"<string>\",\n      \"timeZoneOffset\": \"<string>\",\n      \"iataCode\": \"<string>\",\n      \"geoCode\": {\n        \"latitude\": \"<double>\",\n        \"longitude\": \"<double>\"\n      },\n      \"address\": {\n        \"cityName\": \"<string>\",\n        \"cityCode\": \"<string>\",\n        \"countryName\": \"<string>\",\n        \"countryCode\": \"<string>\",\n        \"stateCode\": \"<string>\",\n        \"regionCode\": \"<string>\"\n      },\n      \"distance\": {\n        \"value\": \"<integer>\",\n        \"unit\": \"KM\"\n      },\n      \"analytics\": {\n        \"travelers\": {\n          \"score\": \"<number>\"\n        }\n      },\n      \"relevance\": \"<double>\",\n      \"category\": \"HISTORICAL\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"rank\": \"<string>\"\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  }\n}",
+                  "createdAt": "2026-06-05T13:12:51.000Z",
+                  "updatedAt": "2026-06-05T13:12:51.000Z",
+                  "uid": "35240-2579cb1d-cab7-4e62-8666-d74c0d2fd4d0"
+                },
+                {
+                  "id": "3b7bfe10-7ffd-49f2-be50-4742e5b30445",
+                  "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION \n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/locations?subType=AIRPORT,CITY&keyword='&countryCode=<string>&page[limit]=10&page[offset]=0&sort=analytics.travelers.score&view=FULL",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "locations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) sub type of the location (AIRPORT and/or CITY)",
+                          "key": "subType",
+                          "value": "AIRPORT,CITY"
+                        },
+                        {
+                          "description": "(Required) keyword that should represent the start of a word in a city or airport name or code. \nSupported charaters are: A-Za-z0-9./:-'()\"",
+                          "key": "keyword",
+                          "value": "'"
+                        },
+                        {
+                          "description": "Country code of the location using [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US).",
+                          "key": "countryCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "maximum items in one page",
+                          "key": "page[limit]",
+                          "value": "10"
+                        },
+                        {
+                          "description": "start index of the requested page",
+                          "key": "page[offset]",
+                          "value": "0"
+                        },
+                        {
+                          "description": "defines on which attribute the sorting will be done:\n* analytics.travelers.score - sort by the number of travelers by airport or city, the airports and cities with the highest traffic are on top of the results\n",
+                          "key": "sort",
+                          "value": "analytics.travelers.score"
+                        },
+                        {
+                          "description": "select the level of information of the reply:\n* LIGHT - Gives only the IATACode, name, detailedName, cityName and countryName\n* FULL - Adds on top of the LIGHT information the timeZoneOffset, geocode, detailed address and travelers.score\ndefault option is FULL\n",
+                          "key": "view",
+                          "value": "FULL"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:51.000Z",
+                  "updatedAt": "2026-06-05T13:12:51.000Z",
+                  "uid": "35240-3b7bfe10-7ffd-49f2-be50-4742e5b30445"
+                },
+                {
+                  "id": "211fb880-e4b7-4950-ba5a-1d0a07d77996",
+                  "name": "Unexpected Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reference-data/locations?subType=AIRPORT,CITY&keyword='&countryCode=<string>&page[limit]=10&page[offset]=0&sort=analytics.travelers.score&view=FULL",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reference-data",
+                        "locations"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) sub type of the location (AIRPORT and/or CITY)",
+                          "key": "subType",
+                          "value": "AIRPORT,CITY"
+                        },
+                        {
+                          "description": "(Required) keyword that should represent the start of a word in a city or airport name or code. \nSupported charaters are: A-Za-z0-9./:-'()\"",
+                          "key": "keyword",
+                          "value": "'"
+                        },
+                        {
+                          "description": "Country code of the location using [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US).",
+                          "key": "countryCode",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "maximum items in one page",
+                          "key": "page[limit]",
+                          "value": "10"
+                        },
+                        {
+                          "description": "start index of the requested page",
+                          "key": "page[offset]",
+                          "value": "0"
+                        },
+                        {
+                          "description": "defines on which attribute the sorting will be done:\n* analytics.travelers.score - sort by the number of travelers by airport or city, the airports and cities with the highest traffic are on top of the results\n",
+                          "key": "sort",
+                          "value": "analytics.travelers.score"
+                        },
+                        {
+                          "description": "select the level of information of the reply:\n* LIGHT - Gives only the IATACode, name, detailedName, cityName and countryName\n* FULL - Adds on top of the LIGHT information the timeZoneOffset, geocode, detailed address and travelers.score\ndefault option is FULL\n",
+                          "key": "view",
+                          "value": "FULL"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:12:51.000Z",
+                  "updatedAt": "2026-06-05T13:12:51.000Z",
+                  "uid": "35240-211fb880-e4b7-4950-ba5a-1d0a07d77996"
+                }
+              ],
+              "createdAt": "2026-06-05T13:12:51.000Z",
+              "updatedAt": "2026-06-05T13:12:51.000Z",
+              "uid": "35240-0cbd5ae6-84c0-42fb-929a-bb066b449b35"
+            }
+          ],
+          "id": "84589c5b-0043-44a9-8b9c-86b573476b0a",
+          "createdAt": "2026-06-05T13:12:51.000Z",
+          "updatedAt": "2026-06-05T13:12:51.000Z",
+          "uid": "35240-84589c5b-0043-44a9-8b9c-86b573476b0a"
+        }
+      ],
+      "id": "8ce100ad-e5e4-4dc8-9f89-fc84422afd47",
+      "createdAt": "2026-06-05T13:12:51.000Z",
+      "updatedAt": "2026-06-05T13:12:51.000Z",
+      "uid": "35240-8ce100ad-e5e4-4dc8-9f89-fc84422afd47"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v1"
+    }
+  ]
+}

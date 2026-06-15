@@ -1,0 +1,692 @@
+{
+  "info": {
+    "_postman_id": "32e7cc17-6208-4239-bd61-6a4908b7ebb2",
+    "name": "Flight Offers Search",
+    "description": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production, if you are not returning any results try with big cities/airports like LON (London) or NYC (New-York).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T13:11:42.000Z",
+    "updatedAt": "2026-06-05T13:11:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-32e7cc17-6208-4239-bd61-6a4908b7ebb2"
+  },
+  "item": [
+    {
+      "name": "shopping",
+      "item": [
+        {
+          "name": "flight-offers",
+          "item": [
+            {
+              "name": "Amadeus Return List of Flight Offers Based on Posted Searching Criteria.",
+              "id": "6ff24006-87cf-4f8b-b120-28076c5d5a7b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) the HTTP method to apply",
+                    "key": "X-HTTP-Method-Override",
+                    "value": "GET"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.amadeus+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"<string>\",\n      \"destinationLocationCode\": \"<string>\",\n      \"includedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"originRadius\": \"<number>\",\n      \"alternativeOriginsCodes\": [\n        \"<string>\"\n      ],\n      \"destinationRadius\": \"<number>\",\n      \"alternativeDestinationsCodes\": [\n        \"<string>\"\n      ],\n      \"departureDateTimeRange\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\",\n        \"dateWindow\": \"P1D\",\n        \"timeWindow\": \"2H\"\n      },\n      \"arrivalDateTimeRange\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\",\n        \"dateWindow\": \"I2D\",\n        \"timeWindow\": \"10H\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"SEATED_INFANT\",\n      \"associatedAdultId\": \"<string>\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"currencyCode\": \"<string>\",\n  \"searchCriteria\": {\n    \"excludeAllotments\": \"<boolean>\",\n    \"addOneWayOffers\": \"<boolean>\",\n    \"maxFlightOffers\": 250,\n    \"maxPrice\": \"<integer>\",\n    \"allowAlternativeFareOptions\": \"<boolean>\",\n    \"oneFlightOfferPerDay\": \"<boolean>\",\n    \"additionalInformation\": {\n      \"chargeableCheckedBags\": \"<boolean>\",\n      \"brandedFares\": \"<boolean>\"\n    },\n    \"pricingOptions\": {\n      \"includedCheckedBagsOnly\": \"<boolean>\",\n      \"refundableFare\": \"<boolean>\",\n      \"noRestrictionFare\": \"<boolean>\",\n      \"noPenaltyFare\": \"<boolean>\"\n    },\n    \"flightFilters\": {\n      \"crossBorderAllowed\": \"<boolean>\",\n      \"moreOvernightsAllowed\": \"<boolean>\",\n      \"returnToDepartureAirport\": \"<boolean>\",\n      \"railSegmentAllowed\": \"<boolean>\",\n      \"busSegmentAllowed\": \"<boolean>\",\n      \"maxFlightTime\": \"<number>\",\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": false,\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": \"ECONOMY\",\n          \"originDestinationIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"coverage\": \"ALL_SEGMENTS\"\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": \"<number>\",\n        \"nonStopPreferred\": \"<boolean>\",\n        \"airportChangeAllowed\": \"<boolean>\",\n        \"technicalStopsAllowed\": \"<boolean>\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/shopping/flight-offers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "15a94d42-f4d3-420c-81c0-ca6a5a6a6971",
+                  "name": "Successful Operation",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) the HTTP method to apply",
+                        "key": "X-HTTP-Method-Override",
+                        "value": "GET"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.amadeus+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"<string>\",\n      \"destinationLocationCode\": \"<string>\",\n      \"includedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"originRadius\": \"<number>\",\n      \"alternativeOriginsCodes\": [\n        \"<string>\"\n      ],\n      \"destinationRadius\": \"<number>\",\n      \"alternativeDestinationsCodes\": [\n        \"<string>\"\n      ],\n      \"departureDateTimeRange\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\",\n        \"dateWindow\": \"P1D\",\n        \"timeWindow\": \"2H\"\n      },\n      \"arrivalDateTimeRange\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\",\n        \"dateWindow\": \"I2D\",\n        \"timeWindow\": \"10H\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"SEATED_INFANT\",\n      \"associatedAdultId\": \"<string>\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"currencyCode\": \"<string>\",\n  \"searchCriteria\": {\n    \"excludeAllotments\": \"<boolean>\",\n    \"addOneWayOffers\": \"<boolean>\",\n    \"maxFlightOffers\": 250,\n    \"maxPrice\": \"<integer>\",\n    \"allowAlternativeFareOptions\": \"<boolean>\",\n    \"oneFlightOfferPerDay\": \"<boolean>\",\n    \"additionalInformation\": {\n      \"chargeableCheckedBags\": \"<boolean>\",\n      \"brandedFares\": \"<boolean>\"\n    },\n    \"pricingOptions\": {\n      \"includedCheckedBagsOnly\": \"<boolean>\",\n      \"refundableFare\": \"<boolean>\",\n      \"noRestrictionFare\": \"<boolean>\",\n      \"noPenaltyFare\": \"<boolean>\"\n    },\n    \"flightFilters\": {\n      \"crossBorderAllowed\": \"<boolean>\",\n      \"moreOvernightsAllowed\": \"<boolean>\",\n      \"returnToDepartureAirport\": \"<boolean>\",\n      \"railSegmentAllowed\": \"<boolean>\",\n      \"busSegmentAllowed\": \"<boolean>\",\n      \"maxFlightTime\": \"<number>\",\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": false,\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": \"ECONOMY\",\n          \"originDestinationIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"coverage\": \"ALL_SEGMENTS\"\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": \"<number>\",\n        \"nonStopPreferred\": \"<boolean>\",\n        \"airportChangeAllowed\": \"<boolean>\",\n        \"technicalStopsAllowed\": \"<boolean>\"\n      }\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/flight-offers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "flight-offers"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"source\": \"GDS\",\n      \"instantTicketingRequired\": \"<boolean>\",\n      \"disablePricing\": \"<boolean>\",\n      \"nonHomogeneous\": \"<boolean>\",\n      \"oneWay\": \"<boolean>\",\n      \"paymentCardRequired\": \"<boolean>\",\n      \"lastTicketingDate\": \"<string>\",\n      \"lastTicketingDateTime\": \"<dateTime>\",\n      \"numberOfBookableSeats\": \"<number>\",\n      \"itineraries\": [\n        {\n          \"segments\": [\n            {\n              \"id\": \"<string>\",\n              \"numberOfStops\": \"<integer>\",\n              \"blacklistedInEU\": \"<boolean>\",\n              \"co2Emissions\": [\n                {\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\",\n                  \"cabin\": \"ECONOMY\"\n                }\n              ],\n              \"departure\": {\n                \"iataCode\": \"<string>\",\n                \"terminal\": \"<string>\",\n                \"at\": \"<dateTime>\"\n              },\n              \"arrival\": {\n                \"iataCode\": \"<string>\",\n                \"terminal\": \"<string>\",\n                \"at\": \"<dateTime>\"\n              },\n              \"carrierCode\": \"<string>\",\n              \"number\": \"<string>\",\n              \"aircraft\": {\n                \"code\": \"tSx\"\n              },\n              \"operating\": {\n                \"carrierCode\": \"<string>\"\n              },\n              \"duration\": \"<string>\",\n              \"stops\": [\n                {\n                  \"iataCode\": \"<string>\",\n                  \"duration\": \"<string>\",\n                  \"arrivalAt\": \"<dateTime>\",\n                  \"departureAt\": \"<dateTime>\"\n                },\n                {\n                  \"iataCode\": \"<string>\",\n                  \"duration\": \"<string>\",\n                  \"arrivalAt\": \"<dateTime>\",\n                  \"departureAt\": \"<dateTime>\"\n                }\n              ]\n            }\n          ],\n          \"duration\": \"<string>\"\n        }\n      ],\n      \"price\": {\n        \"margin\": \"<string>\",\n        \"grandTotal\": \"<string>\",\n        \"billingCurrency\": \"<string>\",\n        \"additionalServices\": [\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"CHECKED_BAGS\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"OTHER_SERVICES\"\n          }\n        ],\n        \"currency\": \"<string>\",\n        \"total\": \"<string>\",\n        \"base\": \"<string>\",\n        \"fees\": [\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"TICKETING\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"SUPPLIER\"\n          }\n        ],\n        \"taxes\": [\n          {\n            \"amount\": \"<string>\",\n            \"code\": \"<string>\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"code\": \"<string>\"\n          }\n        ],\n        \"refundableTaxes\": \"<string>\"\n      },\n      \"pricingOptions\": {\n        \"fareType\": [\n          \"CORPORATE\",\n          \"PUBLISHED\"\n        ],\n        \"includedCheckedBagsOnly\": \"<boolean>\",\n        \"refundableFare\": \"<boolean>\",\n        \"noRestrictionFare\": \"<boolean>\",\n        \"noPenaltyFare\": \"<boolean>\"\n      },\n      \"validatingAirlineCodes\": [\n        \"<string>\"\n      ],\n      \"travelerPricings\": [\n        {\n          \"travelerId\": \"<string>\",\n          \"fareOption\": \"SPANISH_CANARY_RESIDENT\",\n          \"travelerType\": \"SENIOR\",\n          \"fareDetailsBySegment\": [\n            {\n              \"segmentId\": \"<string>\",\n              \"cabin\": \"ECONOMY\",\n              \"fareBasis\": \"WX55MIEZGUI6\",\n              \"brandedFare\": \"<string>\",\n              \"class\": \"H\",\n              \"isAllotment\": \"<boolean>\",\n              \"allotmentDetails\": {\n                \"tourName\": \"<string>\",\n                \"tourReference\": \"<string>\"\n              },\n              \"sliceDiceIndicator\": \"SUB_OD_AVAILABILITY_2\",\n              \"includedCheckedBags\": {\n                \"quantity\": \"<integer>\",\n                \"weight\": \"<integer>\",\n                \"weightUnit\": \"<string>\"\n              },\n              \"additionalServices\": {\n                \"chargeableCheckedBags\": {\n                  \"quantity\": \"<integer>\",\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\",\n                  \"id\": \"<string>\"\n                },\n                \"chargeableSeat\": {\n                  \"id\": \"<string>\",\n                  \"number\": \"708\"\n                },\n                \"chargeableSeatNumber\": \"11\",\n                \"otherServices\": [\n                  \"AIRPORT_CHECKIN\",\n                  \"AIRPORT_CHECKIN\"\n                ]\n              }\n            }\n          ],\n          \"associatedAdultId\": \"<string>\",\n          \"price\": {\n            \"currency\": \"<string>\",\n            \"total\": \"<string>\",\n            \"base\": \"<string>\",\n            \"fees\": [\n              {\n                \"amount\": \"<string>\",\n                \"type\": \"TICKETING\"\n              },\n              {\n                \"amount\": \"<string>\",\n                \"type\": \"FORM_OF_PAYMENT\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"amount\": \"<string>\",\n                \"code\": \"<string>\"\n              },\n              {\n                \"amount\": \"<string>\",\n                \"code\": \"<string>\"\n              }\n            ],\n            \"refundableTaxes\": \"<string>\"\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"source\": \"GDS\",\n      \"instantTicketingRequired\": \"<boolean>\",\n      \"disablePricing\": \"<boolean>\",\n      \"nonHomogeneous\": \"<boolean>\",\n      \"oneWay\": \"<boolean>\",\n      \"paymentCardRequired\": \"<boolean>\",\n      \"lastTicketingDate\": \"<string>\",\n      \"lastTicketingDateTime\": \"<dateTime>\",\n      \"numberOfBookableSeats\": \"<number>\",\n      \"itineraries\": [\n        {\n          \"segments\": [\n            {\n              \"id\": \"<string>\",\n              \"numberOfStops\": \"<integer>\",\n              \"blacklistedInEU\": \"<boolean>\",\n              \"co2Emissions\": [\n                {\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\",\n                  \"cabin\": \"FIRST\"\n                }\n              ],\n              \"departure\": {\n                \"iataCode\": \"<string>\",\n                \"terminal\": \"<string>\",\n                \"at\": \"<dateTime>\"\n              },\n              \"arrival\": {\n                \"iataCode\": \"<string>\",\n                \"terminal\": \"<string>\",\n                \"at\": \"<dateTime>\"\n              },\n              \"carrierCode\": \"<string>\",\n              \"number\": \"<string>\",\n              \"aircraft\": {\n                \"code\": \"4zT\"\n              },\n              \"operating\": {\n                \"carrierCode\": \"<string>\"\n              },\n              \"duration\": \"<string>\",\n              \"stops\": [\n                {\n                  \"iataCode\": \"<string>\",\n                  \"duration\": \"<string>\",\n                  \"arrivalAt\": \"<dateTime>\",\n                  \"departureAt\": \"<dateTime>\"\n                },\n                {\n                  \"iataCode\": \"<string>\",\n                  \"duration\": \"<string>\",\n                  \"arrivalAt\": \"<dateTime>\",\n                  \"departureAt\": \"<dateTime>\"\n                }\n              ]\n            }\n          ],\n          \"duration\": \"<string>\"\n        }\n      ],\n      \"price\": {\n        \"margin\": \"<string>\",\n        \"grandTotal\": \"<string>\",\n        \"billingCurrency\": \"<string>\",\n        \"additionalServices\": [\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"MEALS\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"CHECKED_BAGS\"\n          }\n        ],\n        \"currency\": \"<string>\",\n        \"total\": \"<string>\",\n        \"base\": \"<string>\",\n        \"fees\": [\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"SUPPLIER\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"TICKETING\"\n          }\n        ],\n        \"taxes\": [\n          {\n            \"amount\": \"<string>\",\n            \"code\": \"<string>\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"code\": \"<string>\"\n          }\n        ],\n        \"refundableTaxes\": \"<string>\"\n      },\n      \"pricingOptions\": {\n        \"fareType\": [\n          \"NEGOTIATED\",\n          \"CORPORATE\"\n        ],\n        \"includedCheckedBagsOnly\": \"<boolean>\",\n        \"refundableFare\": \"<boolean>\",\n        \"noRestrictionFare\": \"<boolean>\",\n        \"noPenaltyFare\": \"<boolean>\"\n      },\n      \"validatingAirlineCodes\": [\n        \"<string>\"\n      ],\n      \"travelerPricings\": [\n        {\n          \"travelerId\": \"<string>\",\n          \"fareOption\": \"SPANISH_BALEARIC_RESIDENT\",\n          \"travelerType\": \"YOUNG\",\n          \"fareDetailsBySegment\": [\n            {\n              \"segmentId\": \"<string>\",\n              \"cabin\": \"ECONOMY\",\n              \"fareBasis\": \"B\",\n              \"brandedFare\": \"<string>\",\n              \"class\": \"Z\",\n              \"isAllotment\": \"<boolean>\",\n              \"allotmentDetails\": {\n                \"tourName\": \"<string>\",\n                \"tourReference\": \"<string>\"\n              },\n              \"sliceDiceIndicator\": \"SUB_OD_AVAILABILITY_1\",\n              \"includedCheckedBags\": {\n                \"quantity\": \"<integer>\",\n                \"weight\": \"<integer>\",\n                \"weightUnit\": \"<string>\"\n              },\n              \"additionalServices\": {\n                \"chargeableCheckedBags\": {\n                  \"quantity\": \"<integer>\",\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\",\n                  \"id\": \"<string>\"\n                },\n                \"chargeableSeat\": {\n                  \"id\": \"<string>\",\n                  \"number\": \"6\"\n                },\n                \"chargeableSeatNumber\": \"437O\",\n                \"otherServices\": [\n                  \"AIRPORT_CHECKIN\",\n                  \"PRIORITY_BOARDING\"\n                ]\n              }\n            }\n          ],\n          \"associatedAdultId\": \"<string>\",\n          \"price\": {\n            \"currency\": \"<string>\",\n            \"total\": \"<string>\",\n            \"base\": \"<string>\",\n            \"fees\": [\n              {\n                \"amount\": \"<string>\",\n                \"type\": \"TICKETING\"\n              },\n              {\n                \"amount\": \"<string>\",\n                \"type\": \"FORM_OF_PAYMENT\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"amount\": \"<string>\",\n                \"code\": \"<string>\"\n              },\n              {\n                \"amount\": \"<string>\",\n                \"code\": \"<string>\"\n              }\n            ],\n            \"refundableTaxes\": \"<string>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"oneWayCombinations\": [\n      {\n        \"originDestinationId\": \"<string>\",\n        \"flightOfferIds\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"originDestinationId\": \"<string>\",\n        \"flightOfferIds\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ]\n  },\n  \"dictionaries\": {\n    \"locations\": {\n      \"labore_9\": {\n        \"cityCode\": \"<string>\",\n        \"countryCode\": \"<string>\"\n      },\n      \"non_b\": {\n        \"cityCode\": \"<string>\",\n        \"countryCode\": \"<string>\"\n      }\n    },\n    \"aircraft\": {\n      \"Loremd\": \"<string>\",\n      \"ipsum_954\": \"<string>\",\n      \"ipsuma55\": \"<string>\"\n    },\n    \"currencies\": {\n      \"doloredb\": \"<string>\",\n      \"magna_1ae\": \"<string>\"\n    },\n    \"carriers\": {\n      \"cillum_93\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-06-05T13:11:43.000Z",
+                  "updatedAt": "2026-06-05T13:11:43.000Z",
+                  "uid": "35240-15a94d42-f4d3-420c-81c0-ca6a5a6a6971"
+                },
+                {
+                  "id": "e129d716-4d45-4f92-9852-909c0d2c9b02",
+                  "name": "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n4926    | INVALID DATA RECEIVED\n10661   | MAXIMUM NUMBER O",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) the HTTP method to apply",
+                        "key": "X-HTTP-Method-Override",
+                        "value": "GET"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.amadeus+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"<string>\",\n      \"destinationLocationCode\": \"<string>\",\n      \"includedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"originRadius\": \"<number>\",\n      \"alternativeOriginsCodes\": [\n        \"<string>\"\n      ],\n      \"destinationRadius\": \"<number>\",\n      \"alternativeDestinationsCodes\": [\n        \"<string>\"\n      ],\n      \"departureDateTimeRange\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\",\n        \"dateWindow\": \"P1D\",\n        \"timeWindow\": \"2H\"\n      },\n      \"arrivalDateTimeRange\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\",\n        \"dateWindow\": \"I2D\",\n        \"timeWindow\": \"10H\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"SEATED_INFANT\",\n      \"associatedAdultId\": \"<string>\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"currencyCode\": \"<string>\",\n  \"searchCriteria\": {\n    \"excludeAllotments\": \"<boolean>\",\n    \"addOneWayOffers\": \"<boolean>\",\n    \"maxFlightOffers\": 250,\n    \"maxPrice\": \"<integer>\",\n    \"allowAlternativeFareOptions\": \"<boolean>\",\n    \"oneFlightOfferPerDay\": \"<boolean>\",\n    \"additionalInformation\": {\n      \"chargeableCheckedBags\": \"<boolean>\",\n      \"brandedFares\": \"<boolean>\"\n    },\n    \"pricingOptions\": {\n      \"includedCheckedBagsOnly\": \"<boolean>\",\n      \"refundableFare\": \"<boolean>\",\n      \"noRestrictionFare\": \"<boolean>\",\n      \"noPenaltyFare\": \"<boolean>\"\n    },\n    \"flightFilters\": {\n      \"crossBorderAllowed\": \"<boolean>\",\n      \"moreOvernightsAllowed\": \"<boolean>\",\n      \"returnToDepartureAirport\": \"<boolean>\",\n      \"railSegmentAllowed\": \"<boolean>\",\n      \"busSegmentAllowed\": \"<boolean>\",\n      \"maxFlightTime\": \"<number>\",\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": false,\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": \"ECONOMY\",\n          \"originDestinationIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"coverage\": \"ALL_SEGMENTS\"\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": \"<number>\",\n        \"nonStopPreferred\": \"<boolean>\",\n        \"airportChangeAllowed\": \"<boolean>\",\n        \"technicalStopsAllowed\": \"<boolean>\"\n      }\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/flight-offers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "flight-offers"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:11:43.000Z",
+                  "updatedAt": "2026-06-05T13:11:43.000Z",
+                  "uid": "35240-e129d716-4d45-4f92-9852-909c0d2c9b02"
+                },
+                {
+                  "id": "da63ee42-70af-4fdd-b4ef-40de78b6aa58",
+                  "name": "Unexpected error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) the HTTP method to apply",
+                        "key": "X-HTTP-Method-Override",
+                        "value": "GET"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.amadeus+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"originDestinations\": [\n    {\n      \"id\": \"<string>\",\n      \"originLocationCode\": \"<string>\",\n      \"destinationLocationCode\": \"<string>\",\n      \"includedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"excludedConnectionPoints\": [\n        \"<string>\"\n      ],\n      \"originRadius\": \"<number>\",\n      \"alternativeOriginsCodes\": [\n        \"<string>\"\n      ],\n      \"destinationRadius\": \"<number>\",\n      \"alternativeDestinationsCodes\": [\n        \"<string>\"\n      ],\n      \"departureDateTimeRange\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\",\n        \"dateWindow\": \"P1D\",\n        \"timeWindow\": \"2H\"\n      },\n      \"arrivalDateTimeRange\": {\n        \"date\": \"<date>\",\n        \"time\": \"<string>\",\n        \"dateWindow\": \"I2D\",\n        \"timeWindow\": \"10H\"\n      }\n    }\n  ],\n  \"travelers\": [\n    {\n      \"id\": \"<string>\",\n      \"travelerType\": \"SEATED_INFANT\",\n      \"associatedAdultId\": \"<string>\"\n    }\n  ],\n  \"sources\": [\n    \"GDS\"\n  ],\n  \"currencyCode\": \"<string>\",\n  \"searchCriteria\": {\n    \"excludeAllotments\": \"<boolean>\",\n    \"addOneWayOffers\": \"<boolean>\",\n    \"maxFlightOffers\": 250,\n    \"maxPrice\": \"<integer>\",\n    \"allowAlternativeFareOptions\": \"<boolean>\",\n    \"oneFlightOfferPerDay\": \"<boolean>\",\n    \"additionalInformation\": {\n      \"chargeableCheckedBags\": \"<boolean>\",\n      \"brandedFares\": \"<boolean>\"\n    },\n    \"pricingOptions\": {\n      \"includedCheckedBagsOnly\": \"<boolean>\",\n      \"refundableFare\": \"<boolean>\",\n      \"noRestrictionFare\": \"<boolean>\",\n      \"noPenaltyFare\": \"<boolean>\"\n    },\n    \"flightFilters\": {\n      \"crossBorderAllowed\": \"<boolean>\",\n      \"moreOvernightsAllowed\": \"<boolean>\",\n      \"returnToDepartureAirport\": \"<boolean>\",\n      \"railSegmentAllowed\": \"<boolean>\",\n      \"busSegmentAllowed\": \"<boolean>\",\n      \"maxFlightTime\": \"<number>\",\n      \"carrierRestrictions\": {\n        \"blacklistedInEUAllowed\": false,\n        \"excludedCarrierCodes\": [\n          \"<string>\"\n        ],\n        \"includedCarrierCodes\": [\n          \"<string>\"\n        ]\n      },\n      \"cabinRestrictions\": [\n        {\n          \"cabin\": \"ECONOMY\",\n          \"originDestinationIds\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"coverage\": \"ALL_SEGMENTS\"\n        }\n      ],\n      \"connectionRestriction\": {\n        \"maxNumberOfConnections\": \"<number>\",\n        \"nonStopPreferred\": \"<boolean>\",\n        \"airportChangeAllowed\": \"<boolean>\",\n        \"technicalStopsAllowed\": \"<boolean>\"\n      }\n    }\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/flight-offers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "flight-offers"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:11:43.000Z",
+                  "updatedAt": "2026-06-05T13:11:43.000Z",
+                  "uid": "35240-da63ee42-70af-4fdd-b4ef-40de78b6aa58"
+                }
+              ],
+              "createdAt": "2026-06-05T13:11:43.000Z",
+              "updatedAt": "2026-06-05T13:11:43.000Z",
+              "uid": "35240-6ff24006-87cf-4f8b-b120-28076c5d5a7b"
+            },
+            {
+              "name": "Amadeus Return List of Flight Offers Based on Searching Criteria.",
+              "id": "242f7901-90ff-4e16-b6ed-bc20e3a5652d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/shopping/flight-offers?originLocationCode=HTS&destinationLocationCode=HTS&departureDate=<date>&returnDate=<date>&adults=1&children=<integer>&infants=<integer>&travelClass=FIRST&includedAirlineCodes=HS&excludedAirlineCodes=HS&nonStop=false&currencyCode=HTS&maxPrice=<integer>&max=250",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+                      "key": "originLocationCode",
+                      "value": "HTS"
+                    },
+                    {
+                      "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                      "key": "destinationLocationCode",
+                      "value": "HTS"
+                    },
+                    {
+                      "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+                      "key": "departureDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "the date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, only one-way itineraries are found. If this parameter is specified, only round-trip itineraries are found. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                      "key": "returnDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "(Required) the number of adult travelers (age 12 or older on date of departure).\n\nThe total number of seated travelers (adult and children) can not exceed 9.",
+                      "key": "adults",
+                      "value": "1"
+                    },
+                    {
+                      "description": "the number of child travelers (older than age 2 and younger than age 12 on date of departure) who will each have their own separate seat. If specified, this number should be greater than or equal to 0\n\nThe total number of seated travelers (adult and children) can not exceed 9.",
+                      "key": "children",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "the number of infant travelers (whose age is less or equal to 2 on date of departure). Infants travel on the lap of an adult traveler, and thus the number of infants must not exceed the number of adults. If specified, this number should be greater than or equal to 0",
+                      "key": "infants",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "most of the flight time should be spent in a cabin of this quality or higher. The accepted travel class is economy, premium economy, business or first class. If no travel class is specified, the search considers any travel class",
+                      "key": "travelClass",
+                      "value": "FIRST"
+                    },
+                    {
+                      "description": "This option ensures that the system will only consider these airlines. This can not be cumulated with parameter excludedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n",
+                      "key": "includedAirlineCodes",
+                      "value": "HS"
+                    },
+                    {
+                      "description": "This option ensures that the system will ignore these airlines. This can not be cumulated with parameter includedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n",
+                      "key": "excludedAirlineCodes",
+                      "value": "HS"
+                    },
+                    {
+                      "description": "if set to true, the search will find only flights going from the origin to the destination with no stop in between",
+                      "key": "nonStop",
+                      "value": "false"
+                    },
+                    {
+                      "description": "the preferred currency for the flight offers. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro",
+                      "key": "currencyCode",
+                      "value": "HTS"
+                    },
+                    {
+                      "description": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals",
+                      "key": "maxPrice",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "maximum number of flight offers to return. If specified, the value should be greater than or equal to 1",
+                      "key": "max",
+                      "value": "250"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "c8f378de-f91d-43b9-8605-f4105ae9bbd5",
+                  "name": "Successful Operation",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/flight-offers?originLocationCode=HTS&destinationLocationCode=HTS&departureDate=<date>&returnDate=<date>&adults=1&children=<integer>&infants=<integer>&travelClass=FIRST&includedAirlineCodes=HS&excludedAirlineCodes=HS&nonStop=false&currencyCode=HTS&maxPrice=<integer>&max=250",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "flight-offers"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+                          "key": "originLocationCode",
+                          "value": "HTS"
+                        },
+                        {
+                          "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                          "key": "destinationLocationCode",
+                          "value": "HTS"
+                        },
+                        {
+                          "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+                          "key": "departureDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "the date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, only one-way itineraries are found. If this parameter is specified, only round-trip itineraries are found. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                          "key": "returnDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "(Required) the number of adult travelers (age 12 or older on date of departure).\n\nThe total number of seated travelers (adult and children) can not exceed 9.",
+                          "key": "adults",
+                          "value": "1"
+                        },
+                        {
+                          "description": "the number of child travelers (older than age 2 and younger than age 12 on date of departure) who will each have their own separate seat. If specified, this number should be greater than or equal to 0\n\nThe total number of seated travelers (adult and children) can not exceed 9.",
+                          "key": "children",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "the number of infant travelers (whose age is less or equal to 2 on date of departure). Infants travel on the lap of an adult traveler, and thus the number of infants must not exceed the number of adults. If specified, this number should be greater than or equal to 0",
+                          "key": "infants",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "most of the flight time should be spent in a cabin of this quality or higher. The accepted travel class is economy, premium economy, business or first class. If no travel class is specified, the search considers any travel class",
+                          "key": "travelClass",
+                          "value": "FIRST"
+                        },
+                        {
+                          "description": "This option ensures that the system will only consider these airlines. This can not be cumulated with parameter excludedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n",
+                          "key": "includedAirlineCodes",
+                          "value": "HS"
+                        },
+                        {
+                          "description": "This option ensures that the system will ignore these airlines. This can not be cumulated with parameter includedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n",
+                          "key": "excludedAirlineCodes",
+                          "value": "HS"
+                        },
+                        {
+                          "description": "if set to true, the search will find only flights going from the origin to the destination with no stop in between",
+                          "key": "nonStop",
+                          "value": "false"
+                        },
+                        {
+                          "description": "the preferred currency for the flight offers. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro",
+                          "key": "currencyCode",
+                          "value": "HTS"
+                        },
+                        {
+                          "description": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals",
+                          "key": "maxPrice",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "maximum number of flight offers to return. If specified, the value should be greater than or equal to 1",
+                          "key": "max",
+                          "value": "250"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"source\": \"GDS\",\n      \"instantTicketingRequired\": \"<boolean>\",\n      \"disablePricing\": \"<boolean>\",\n      \"nonHomogeneous\": \"<boolean>\",\n      \"oneWay\": \"<boolean>\",\n      \"paymentCardRequired\": \"<boolean>\",\n      \"lastTicketingDate\": \"<string>\",\n      \"lastTicketingDateTime\": \"<dateTime>\",\n      \"numberOfBookableSeats\": \"<number>\",\n      \"itineraries\": [\n        {\n          \"segments\": [\n            {\n              \"id\": \"<string>\",\n              \"numberOfStops\": \"<integer>\",\n              \"blacklistedInEU\": \"<boolean>\",\n              \"co2Emissions\": [\n                {\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\",\n                  \"cabin\": \"PREMIUM_ECONOMY\"\n                }\n              ],\n              \"departure\": {\n                \"iataCode\": \"<string>\",\n                \"terminal\": \"<string>\",\n                \"at\": \"<dateTime>\"\n              },\n              \"arrival\": {\n                \"iataCode\": \"<string>\",\n                \"terminal\": \"<string>\",\n                \"at\": \"<dateTime>\"\n              },\n              \"carrierCode\": \"<string>\",\n              \"number\": \"<string>\",\n              \"aircraft\": {\n                \"code\": \"j6q\"\n              },\n              \"operating\": {\n                \"carrierCode\": \"<string>\"\n              },\n              \"duration\": \"<string>\",\n              \"stops\": [\n                {\n                  \"iataCode\": \"<string>\",\n                  \"duration\": \"<string>\",\n                  \"arrivalAt\": \"<dateTime>\",\n                  \"departureAt\": \"<dateTime>\"\n                },\n                {\n                  \"iataCode\": \"<string>\",\n                  \"duration\": \"<string>\",\n                  \"arrivalAt\": \"<dateTime>\",\n                  \"departureAt\": \"<dateTime>\"\n                }\n              ]\n            }\n          ],\n          \"duration\": \"<string>\"\n        }\n      ],\n      \"price\": {\n        \"margin\": \"<string>\",\n        \"grandTotal\": \"<string>\",\n        \"billingCurrency\": \"<string>\",\n        \"additionalServices\": [\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"CHECKED_BAGS\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"MEALS\"\n          }\n        ],\n        \"currency\": \"<string>\",\n        \"total\": \"<string>\",\n        \"base\": \"<string>\",\n        \"fees\": [\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"TICKETING\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"SUPPLIER\"\n          }\n        ],\n        \"taxes\": [\n          {\n            \"amount\": \"<string>\",\n            \"code\": \"<string>\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"code\": \"<string>\"\n          }\n        ],\n        \"refundableTaxes\": \"<string>\"\n      },\n      \"pricingOptions\": {\n        \"fareType\": [\n          \"PUBLISHED\",\n          \"NEGOTIATED\"\n        ],\n        \"includedCheckedBagsOnly\": \"<boolean>\",\n        \"refundableFare\": \"<boolean>\",\n        \"noRestrictionFare\": \"<boolean>\",\n        \"noPenaltyFare\": \"<boolean>\"\n      },\n      \"validatingAirlineCodes\": [\n        \"<string>\"\n      ],\n      \"travelerPricings\": [\n        {\n          \"travelerId\": \"<string>\",\n          \"fareOption\": \"INCLUSIVE_TOUR\",\n          \"travelerType\": \"STUDENT\",\n          \"fareDetailsBySegment\": [\n            {\n              \"segmentId\": \"<string>\",\n              \"cabin\": \"ECONOMY\",\n              \"fareBasis\": \"9X0UDM58AI[ZI\",\n              \"brandedFare\": \"<string>\",\n              \"class\": \"L\",\n              \"isAllotment\": \"<boolean>\",\n              \"allotmentDetails\": {\n                \"tourName\": \"<string>\",\n                \"tourReference\": \"<string>\"\n              },\n              \"sliceDiceIndicator\": \"LOCAL_AVAILABILITY\",\n              \"includedCheckedBags\": {\n                \"quantity\": \"<integer>\",\n                \"weight\": \"<integer>\",\n                \"weightUnit\": \"<string>\"\n              },\n              \"additionalServices\": {\n                \"chargeableCheckedBags\": {\n                  \"quantity\": \"<integer>\",\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\",\n                  \"id\": \"<string>\"\n                },\n                \"chargeableSeat\": {\n                  \"id\": \"<string>\",\n                  \"number\": \"3Q\"\n                },\n                \"chargeableSeatNumber\": \"955\",\n                \"otherServices\": [\n                  \"AIRPORT_CHECKIN\",\n                  \"AIRPORT_CHECKIN\"\n                ]\n              }\n            }\n          ],\n          \"associatedAdultId\": \"<string>\",\n          \"price\": {\n            \"currency\": \"<string>\",\n            \"total\": \"<string>\",\n            \"base\": \"<string>\",\n            \"fees\": [\n              {\n                \"amount\": \"<string>\",\n                \"type\": \"TICKETING\"\n              },\n              {\n                \"amount\": \"<string>\",\n                \"type\": \"SUPPLIER\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"amount\": \"<string>\",\n                \"code\": \"<string>\"\n              },\n              {\n                \"amount\": \"<string>\",\n                \"code\": \"<string>\"\n              }\n            ],\n            \"refundableTaxes\": \"<string>\"\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"<string>\",\n      \"id\": \"<string>\",\n      \"source\": \"GDS\",\n      \"instantTicketingRequired\": \"<boolean>\",\n      \"disablePricing\": \"<boolean>\",\n      \"nonHomogeneous\": \"<boolean>\",\n      \"oneWay\": \"<boolean>\",\n      \"paymentCardRequired\": \"<boolean>\",\n      \"lastTicketingDate\": \"<string>\",\n      \"lastTicketingDateTime\": \"<dateTime>\",\n      \"numberOfBookableSeats\": \"<number>\",\n      \"itineraries\": [\n        {\n          \"segments\": [\n            {\n              \"id\": \"<string>\",\n              \"numberOfStops\": \"<integer>\",\n              \"blacklistedInEU\": \"<boolean>\",\n              \"co2Emissions\": [\n                {\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\",\n                  \"cabin\": \"FIRST\"\n                }\n              ],\n              \"departure\": {\n                \"iataCode\": \"<string>\",\n                \"terminal\": \"<string>\",\n                \"at\": \"<dateTime>\"\n              },\n              \"arrival\": {\n                \"iataCode\": \"<string>\",\n                \"terminal\": \"<string>\",\n                \"at\": \"<dateTime>\"\n              },\n              \"carrierCode\": \"<string>\",\n              \"number\": \"<string>\",\n              \"aircraft\": {\n                \"code\": \"1FP\"\n              },\n              \"operating\": {\n                \"carrierCode\": \"<string>\"\n              },\n              \"duration\": \"<string>\",\n              \"stops\": [\n                {\n                  \"iataCode\": \"<string>\",\n                  \"duration\": \"<string>\",\n                  \"arrivalAt\": \"<dateTime>\",\n                  \"departureAt\": \"<dateTime>\"\n                },\n                {\n                  \"iataCode\": \"<string>\",\n                  \"duration\": \"<string>\",\n                  \"arrivalAt\": \"<dateTime>\",\n                  \"departureAt\": \"<dateTime>\"\n                }\n              ]\n            }\n          ],\n          \"duration\": \"<string>\"\n        }\n      ],\n      \"price\": {\n        \"margin\": \"<string>\",\n        \"grandTotal\": \"<string>\",\n        \"billingCurrency\": \"<string>\",\n        \"additionalServices\": [\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"MEALS\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"MEALS\"\n          }\n        ],\n        \"currency\": \"<string>\",\n        \"total\": \"<string>\",\n        \"base\": \"<string>\",\n        \"fees\": [\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"FORM_OF_PAYMENT\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"type\": \"TICKETING\"\n          }\n        ],\n        \"taxes\": [\n          {\n            \"amount\": \"<string>\",\n            \"code\": \"<string>\"\n          },\n          {\n            \"amount\": \"<string>\",\n            \"code\": \"<string>\"\n          }\n        ],\n        \"refundableTaxes\": \"<string>\"\n      },\n      \"pricingOptions\": {\n        \"fareType\": [\n          \"NEGOTIATED\",\n          \"CORPORATE\"\n        ],\n        \"includedCheckedBagsOnly\": \"<boolean>\",\n        \"refundableFare\": \"<boolean>\",\n        \"noRestrictionFare\": \"<boolean>\",\n        \"noPenaltyFare\": \"<boolean>\"\n      },\n      \"validatingAirlineCodes\": [\n        \"<string>\"\n      ],\n      \"travelerPricings\": [\n        {\n          \"travelerId\": \"<string>\",\n          \"fareOption\": \"COMPANION\",\n          \"travelerType\": \"HELD_INFANT\",\n          \"fareDetailsBySegment\": [\n            {\n              \"segmentId\": \"<string>\",\n              \"cabin\": \"PREMIUM_ECONOMY\",\n              \"fareBasis\": \"JIKJ9NIGXOACB57QB\",\n              \"brandedFare\": \"<string>\",\n              \"class\": \"Z\",\n              \"isAllotment\": \"<boolean>\",\n              \"allotmentDetails\": {\n                \"tourName\": \"<string>\",\n                \"tourReference\": \"<string>\"\n              },\n              \"sliceDiceIndicator\": \"SUB_OD_AVAILABILITY_2\",\n              \"includedCheckedBags\": {\n                \"quantity\": \"<integer>\",\n                \"weight\": \"<integer>\",\n                \"weightUnit\": \"<string>\"\n              },\n              \"additionalServices\": {\n                \"chargeableCheckedBags\": {\n                  \"quantity\": \"<integer>\",\n                  \"weight\": \"<integer>\",\n                  \"weightUnit\": \"<string>\",\n                  \"id\": \"<string>\"\n                },\n                \"chargeableSeat\": {\n                  \"id\": \"<string>\",\n                  \"number\": \"248\"\n                },\n                \"chargeableSeatNumber\": \"66M\",\n                \"otherServices\": [\n                  \"PRIORITY_BOARDING\",\n                  \"PRIORITY_BOARDING\"\n                ]\n              }\n            }\n          ],\n          \"associatedAdultId\": \"<string>\",\n          \"price\": {\n            \"currency\": \"<string>\",\n            \"total\": \"<string>\",\n            \"base\": \"<string>\",\n            \"fees\": [\n              {\n                \"amount\": \"<string>\",\n                \"type\": \"TICKETING\"\n              },\n              {\n                \"amount\": \"<string>\",\n                \"type\": \"SUPPLIER\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"amount\": \"<string>\",\n                \"code\": \"<string>\"\n              },\n              {\n                \"amount\": \"<string>\",\n                \"code\": \"<string>\"\n              }\n            ],\n            \"refundableTaxes\": \"<string>\"\n          }\n        }\n      ]\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": \"<integer>\",\n    \"links\": {\n      \"self\": \"<uri>\",\n      \"next\": \"<uri>\",\n      \"previous\": \"<uri>\",\n      \"last\": \"<uri>\",\n      \"first\": \"<uri>\",\n      \"up\": \"<uri>\"\n    }\n  },\n  \"dictionaries\": {\n    \"locations\": {\n      \"commodo214\": {\n        \"cityCode\": \"<string>\",\n        \"countryCode\": \"<string>\"\n      }\n    },\n    \"aircraft\": {\n      \"dolore6c\": \"<string>\",\n      \"ad_6c\": \"<string>\",\n      \"eu_49\": \"<string>\"\n    },\n    \"currencies\": {\n      \"cupidatate7\": \"<string>\",\n      \"exfcf\": \"<string>\"\n    },\n    \"carriers\": {\n      \"ullamco_a_5\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-06-05T13:11:43.000Z",
+                  "updatedAt": "2026-06-05T13:11:43.000Z",
+                  "uid": "35240-c8f378de-f91d-43b9-8605-f4105ae9bbd5"
+                },
+                {
+                  "id": "b2f4f741-73a2-4262-a7fc-3a359fc43c3c",
+                  "name": "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n4926    | INVALID DATA RECEIVED\n10661   | MAXIMUM NUMBER O",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/flight-offers?originLocationCode=HTS&destinationLocationCode=HTS&departureDate=<date>&returnDate=<date>&adults=1&children=<integer>&infants=<integer>&travelClass=FIRST&includedAirlineCodes=HS&excludedAirlineCodes=HS&nonStop=false&currencyCode=HTS&maxPrice=<integer>&max=250",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "flight-offers"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+                          "key": "originLocationCode",
+                          "value": "HTS"
+                        },
+                        {
+                          "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                          "key": "destinationLocationCode",
+                          "value": "HTS"
+                        },
+                        {
+                          "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+                          "key": "departureDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "the date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, only one-way itineraries are found. If this parameter is specified, only round-trip itineraries are found. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                          "key": "returnDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "(Required) the number of adult travelers (age 12 or older on date of departure).\n\nThe total number of seated travelers (adult and children) can not exceed 9.",
+                          "key": "adults",
+                          "value": "1"
+                        },
+                        {
+                          "description": "the number of child travelers (older than age 2 and younger than age 12 on date of departure) who will each have their own separate seat. If specified, this number should be greater than or equal to 0\n\nThe total number of seated travelers (adult and children) can not exceed 9.",
+                          "key": "children",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "the number of infant travelers (whose age is less or equal to 2 on date of departure). Infants travel on the lap of an adult traveler, and thus the number of infants must not exceed the number of adults. If specified, this number should be greater than or equal to 0",
+                          "key": "infants",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "most of the flight time should be spent in a cabin of this quality or higher. The accepted travel class is economy, premium economy, business or first class. If no travel class is specified, the search considers any travel class",
+                          "key": "travelClass",
+                          "value": "FIRST"
+                        },
+                        {
+                          "description": "This option ensures that the system will only consider these airlines. This can not be cumulated with parameter excludedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n",
+                          "key": "includedAirlineCodes",
+                          "value": "HS"
+                        },
+                        {
+                          "description": "This option ensures that the system will ignore these airlines. This can not be cumulated with parameter includedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n",
+                          "key": "excludedAirlineCodes",
+                          "value": "HS"
+                        },
+                        {
+                          "description": "if set to true, the search will find only flights going from the origin to the destination with no stop in between",
+                          "key": "nonStop",
+                          "value": "false"
+                        },
+                        {
+                          "description": "the preferred currency for the flight offers. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro",
+                          "key": "currencyCode",
+                          "value": "HTS"
+                        },
+                        {
+                          "description": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals",
+                          "key": "maxPrice",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "maximum number of flight offers to return. If specified, the value should be greater than or equal to 1",
+                          "key": "max",
+                          "value": "250"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:11:43.000Z",
+                  "updatedAt": "2026-06-05T13:11:43.000Z",
+                  "uid": "35240-b2f4f741-73a2-4262-a7fc-3a359fc43c3c"
+                },
+                {
+                  "id": "3afb16ad-124b-40c4-acb8-d983758b96ce",
+                  "name": "Unexpected error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.amadeus+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/shopping/flight-offers?originLocationCode=HTS&destinationLocationCode=HTS&departureDate=<date>&returnDate=<date>&adults=1&children=<integer>&infants=<integer>&travelClass=FIRST&includedAirlineCodes=HS&excludedAirlineCodes=HS&nonStop=false&currencyCode=HTS&maxPrice=<integer>&max=250",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "shopping",
+                        "flight-offers"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+                          "key": "originLocationCode",
+                          "value": "HTS"
+                        },
+                        {
+                          "description": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                          "key": "destinationLocationCode",
+                          "value": "HTS"
+                        },
+                        {
+                          "description": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+                          "key": "departureDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "the date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, only one-way itineraries are found. If this parameter is specified, only round-trip itineraries are found. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                          "key": "returnDate",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "(Required) the number of adult travelers (age 12 or older on date of departure).\n\nThe total number of seated travelers (adult and children) can not exceed 9.",
+                          "key": "adults",
+                          "value": "1"
+                        },
+                        {
+                          "description": "the number of child travelers (older than age 2 and younger than age 12 on date of departure) who will each have their own separate seat. If specified, this number should be greater than or equal to 0\n\nThe total number of seated travelers (adult and children) can not exceed 9.",
+                          "key": "children",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "the number of infant travelers (whose age is less or equal to 2 on date of departure). Infants travel on the lap of an adult traveler, and thus the number of infants must not exceed the number of adults. If specified, this number should be greater than or equal to 0",
+                          "key": "infants",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "most of the flight time should be spent in a cabin of this quality or higher. The accepted travel class is economy, premium economy, business or first class. If no travel class is specified, the search considers any travel class",
+                          "key": "travelClass",
+                          "value": "FIRST"
+                        },
+                        {
+                          "description": "This option ensures that the system will only consider these airlines. This can not be cumulated with parameter excludedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n",
+                          "key": "includedAirlineCodes",
+                          "value": "HS"
+                        },
+                        {
+                          "description": "This option ensures that the system will ignore these airlines. This can not be cumulated with parameter includedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n",
+                          "key": "excludedAirlineCodes",
+                          "value": "HS"
+                        },
+                        {
+                          "description": "if set to true, the search will find only flights going from the origin to the destination with no stop in between",
+                          "key": "nonStop",
+                          "value": "false"
+                        },
+                        {
+                          "description": "the preferred currency for the flight offers. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro",
+                          "key": "currencyCode",
+                          "value": "HTS"
+                        },
+                        {
+                          "description": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals",
+                          "key": "maxPrice",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "maximum number of flight offers to return. If specified, the value should be greater than or equal to 1",
+                          "key": "max",
+                          "value": "250"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.amadeus+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"errors\": [\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    },\n    {\n      \"status\": \"<integer>\",\n      \"code\": \"<long>\",\n      \"title\": \"<string>\",\n      \"detail\": \"<string>\",\n      \"source\": {\n        \"pointer\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-06-05T13:11:43.000Z",
+                  "updatedAt": "2026-06-05T13:11:43.000Z",
+                  "uid": "35240-3afb16ad-124b-40c4-acb8-d983758b96ce"
+                }
+              ],
+              "createdAt": "2026-06-05T13:11:43.000Z",
+              "updatedAt": "2026-06-05T13:11:43.000Z",
+              "uid": "35240-242f7901-90ff-4e16-b6ed-bc20e3a5652d"
+            }
+          ],
+          "id": "0c92be23-21b6-4755-a33c-4272af66bec7",
+          "createdAt": "2026-06-05T13:11:43.000Z",
+          "updatedAt": "2026-06-05T13:11:43.000Z",
+          "uid": "35240-0c92be23-21b6-4755-a33c-4272af66bec7"
+        }
+      ],
+      "id": "4df1667b-b894-441f-907c-f13a9c11cbfb",
+      "createdAt": "2026-06-05T13:11:43.000Z",
+      "updatedAt": "2026-06-05T13:11:43.000Z",
+      "uid": "35240-4df1667b-b894-441f-907c-f13a9c11cbfb"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://test.api.amadeus.com/v2"
+    }
+  ]
+}

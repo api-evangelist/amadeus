@@ -1,0 +1,241 @@
+{
+  "item": [
+    {
+      "id": "d37c9c57-7f2a-4338-9920-67505bce0e35",
+      "name": "Shopping",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7135ed88-97bf-4d6e-8d0e-e2b198ce47a9",
+          "name": "Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers",
+          "request": {
+            "name": "Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "flight-offers",
+                "upselling"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) the HTTP method to apply",
+                "key": "X-HTTP-Method-Override",
+                "value": "GET"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.amadeus+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"type\": \"<string>\",\n    \"flightOffers\": [\n      {\n        \"type\": \"<string>\",\n        \"id\": \"<string>\",\n        \"source\": \"<string>\",\n        \"instantTicketingRequired\": \"<boolean>\",\n        \"disablePricing\": \"<boolean>\",\n        \"nonHomogeneous\": \"<boolean>\",\n        \"oneWay\": \"<boolean>\",\n        \"paymentCardRequired\": \"<boolean>\",\n        \"lastTicketingDate\": \"<string>\",\n        \"lastTicketingDateTime\": \"<dateTime>\",\n        \"numberOfBookableSeats\": \"<number>\",\n        \"itineraries\": [\n          {\n            \"segments\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"price\": \"<object>\",\n        \"pricingOptions\": {\n          \"fareType\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"includedCheckedBagsOnly\": \"<boolean>\",\n          \"refundableFare\": \"<boolean>\",\n          \"noRestrictionFare\": \"<boolean>\",\n          \"noPenaltyFare\": \"<boolean>\"\n        },\n        \"validatingAirlineCodes\": [\n          \"<string>\"\n        ],\n        \"travelerPricings\": [\n          {\n            \"travelerId\": \"<string>\",\n            \"fareOption\": \"<string>\",\n            \"travelerType\": \"<string>\",\n            \"fareDetailsBySegment\": [\n              {\n                \"segmentId\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"cabin\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"fareBasis\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"brandedFare\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"class\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"isAllotment\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"allotmentDetails\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"sliceDiceIndicator\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"includedCheckedBags\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"additionalServices\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ],\n            \"associatedAdultId\": \"<string>\",\n            \"price\": {\n              \"currency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"base\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fees\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"taxes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"refundableTaxes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      }\n    ],\n    \"payments\": [\n      {\n        \"brand\": \"<string>\",\n        \"binNumber\": \"<integer>\",\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      },\n      {\n        \"brand\": \"<string>\",\n        \"binNumber\": \"<integer>\",\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e5dd4b8-6161-4cb9-98b4-0a68d950ba1d",
+              "name": "Successful Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers",
+                    "upselling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) the HTTP method to apply",
+                    "key": "X-HTTP-Method-Override",
+                    "value": "GET"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"flight-offer-upsell\",\n    \"flightOffers\": [\n      {\n        \"type\": \"flight-offer\",\n        \"id\": \"1\",\n        \"source\": \"GDS\",\n        \"instantTicketingRequired\": false,\n        \"disablePricing\": false,\n        \"nonHomogeneous\": false,\n        \"oneWay\": false,\n        \"paymentCardRequired\": false,\n        \"lastTicketingDate\": \"2018-06-19\",\n        \"lastTicketingDateTime\": \"2018-06-19T15:00:00\",\n        \"numberOfBookableSeats\": 9,\n        \"itineraries\": [\n          {\n            \"segments\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"duration\": \"PT2H10M\"\n          }\n        ],\n        \"price\": {\n          \"margin\": \"1.00\",\n          \"grandTotal\": \"987.00\",\n          \"billingCurrency\": \"EUR\",\n          \"additionalServices\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"currency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"total\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"base\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fees\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"refundableTaxes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"pricingOptions\": {\n          \"fareType\": [\n            \"PUBLISHED\"\n          ],\n          \"includedCheckedBagsOnly\": true,\n          \"refundableFare\": true,\n          \"noRestrictionFare\": true,\n          \"noPenaltyFare\": true\n        },\n        \"validatingAirlineCodes\": [\n          \"AF\"\n        ],\n        \"travelerPricings\": [\n          {\n            \"travelerId\": \"1\",\n            \"fareOption\": \"STANDARD\",\n            \"travelerType\": \"ADULT\",\n            \"fareDetailsBySegment\": [\n              {\n                \"segmentId\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"cabin\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"fareBasis\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"brandedFare\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"class\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"isAllotment\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"allotmentDetails\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"sliceDiceIndicator\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"includedCheckedBags\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"additionalServices\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ],\n            \"associatedAdultId\": \"12345\",\n            \"price\": {\n              \"currency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"base\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fees\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"taxes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"refundableTaxes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      }\n    ],\n    \"payments\": [\n      {\n        \"brand\": \"VISA_IXARIS\",\n        \"binNumber\": 123456,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      },\n      {\n        \"brand\": \"VISA_IXARIS\",\n        \"binNumber\": 123456,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"flight-offer\",\n      \"id\": \"1\",\n      \"source\": \"GDS\",\n      \"instantTicketingRequired\": false,\n      \"disablePricing\": false,\n      \"nonHomogeneous\": false,\n      \"oneWay\": false,\n      \"paymentCardRequired\": false,\n      \"lastTicketingDate\": \"2018-06-19\",\n      \"lastTicketingDateTime\": \"2018-06-19T15:00:00\",\n      \"numberOfBookableSeats\": 9,\n      \"itineraries\": [\n        {\n          \"segments\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"numberOfStops\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"blacklistedInEU\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"co2Emissions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"duration\": \"PT2H10M\"\n        }\n      ],\n      \"price\": {\n        \"margin\": \"1.00\",\n        \"grandTotal\": \"987.00\",\n        \"billingCurrency\": \"EUR\",\n        \"additionalServices\": [\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"currency\": \"USD\",\n        \"total\": \"932.70\",\n        \"base\": \"632.70\",\n        \"fees\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"taxes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"refundableTaxes\": \"200.00\"\n      },\n      \"pricingOptions\": {\n        \"fareType\": [\n          \"PUBLISHED\"\n        ],\n        \"includedCheckedBagsOnly\": true,\n        \"refundableFare\": true,\n        \"noRestrictionFare\": true,\n        \"noPenaltyFare\": true\n      },\n      \"validatingAirlineCodes\": [\n        \"AF\"\n      ],\n      \"travelerPricings\": [\n        {\n          \"travelerId\": \"1\",\n          \"fareOption\": \"STANDARD\",\n          \"travelerType\": \"ADULT\",\n          \"fareDetailsBySegment\": [\n            {\n              \"segmentId\": \"1\",\n              \"cabin\": \"PREMIUM_ECONOMY\",\n              \"fareBasis\": \"ANNNNF4K\",\n              \"brandedFare\": \"LIGHTONE\",\n              \"class\": \"A\",\n              \"isAllotment\": true,\n              \"allotmentDetails\": {\n                \"tourName\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"tourReference\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"sliceDiceIndicator\": \"SUB_OD_AVAILABILITY_2\",\n              \"includedCheckedBags\": {\n                \"quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weight\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weightUnit\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"additionalServices\": {\n                \"chargeableCheckedBags\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeat\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeatNumber\": \"33D\",\n                \"otherServices\": [\n                  \"PRIORITY_BOARDING\"\n                ]\n              }\n            }\n          ],\n          \"associatedAdultId\": \"12345\",\n          \"price\": {\n            \"currency\": \"USD\",\n            \"total\": \"932.70\",\n            \"base\": \"632.70\",\n            \"fees\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"refundableTaxes\": \"200.00\"\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"flight-offer\",\n      \"id\": \"1\",\n      \"source\": \"GDS\",\n      \"instantTicketingRequired\": false,\n      \"disablePricing\": false,\n      \"nonHomogeneous\": false,\n      \"oneWay\": false,\n      \"paymentCardRequired\": false,\n      \"lastTicketingDate\": \"2018-06-19\",\n      \"lastTicketingDateTime\": \"2018-06-19T15:00:00\",\n      \"numberOfBookableSeats\": 9,\n      \"itineraries\": [\n        {\n          \"segments\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"numberOfStops\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"blacklistedInEU\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"co2Emissions\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"duration\": \"PT2H10M\"\n        }\n      ],\n      \"price\": {\n        \"margin\": \"1.00\",\n        \"grandTotal\": \"987.00\",\n        \"billingCurrency\": \"EUR\",\n        \"additionalServices\": [\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"amount\": \"332.70\",\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"currency\": \"USD\",\n        \"total\": \"932.70\",\n        \"base\": \"632.70\",\n        \"fees\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"taxes\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"refundableTaxes\": \"200.00\"\n      },\n      \"pricingOptions\": {\n        \"fareType\": [\n          \"PUBLISHED\"\n        ],\n        \"includedCheckedBagsOnly\": true,\n        \"refundableFare\": true,\n        \"noRestrictionFare\": true,\n        \"noPenaltyFare\": true\n      },\n      \"validatingAirlineCodes\": [\n        \"AF\"\n      ],\n      \"travelerPricings\": [\n        {\n          \"travelerId\": \"1\",\n          \"fareOption\": \"STANDARD\",\n          \"travelerType\": \"ADULT\",\n          \"fareDetailsBySegment\": [\n            {\n              \"segmentId\": \"1\",\n              \"cabin\": \"PREMIUM_ECONOMY\",\n              \"fareBasis\": \"ANNNNF4K\",\n              \"brandedFare\": \"LIGHTONE\",\n              \"class\": \"A\",\n              \"isAllotment\": true,\n              \"allotmentDetails\": {\n                \"tourName\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"tourReference\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"sliceDiceIndicator\": \"LOCAL_AVAILABILITY\",\n              \"includedCheckedBags\": {\n                \"quantity\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weight\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"weightUnit\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"additionalServices\": {\n                \"chargeableCheckedBags\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeat\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"chargeableSeatNumber\": \"33D\",\n                \"otherServices\": [\n                  \"PRIORITY_BOARDING\"\n                ]\n              }\n            }\n          ],\n          \"associatedAdultId\": \"12345\",\n          \"price\": {\n            \"currency\": \"USD\",\n            \"total\": \"932.70\",\n            \"base\": \"632.70\",\n            \"fees\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"taxes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"refundableTaxes\": \"200.00\"\n          }\n        }\n      ]\n    }\n  ],\n  \"warnings\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ],\n  \"meta\": {\n    \"count\": 1,\n    \"oneWayUpselledCombinations\": [\n      {\n        \"flightOfferId\": \"12345\",\n        \"upselledFlightOfferIds\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"flightOfferId\": \"12345\",\n        \"upselledFlightOfferIds\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"dictionaries\": {\n    \"locations\": {\n      \"key_0\": {\n        \"cityCode\": \"PAR\",\n        \"countryCode\": \"FR\"\n      }\n    },\n    \"aircraft\": {\n      \"key_0\": \"string\"\n    },\n    \"currencies\": {\n      \"key_0\": \"EUR\",\n      \"key_1\": \"EUR\",\n      \"key_2\": \"EUR\",\n      \"key_3\": \"EUR\"\n    },\n    \"carriers\": {\n      \"key_0\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7de260fa-e989-4a06-9ca0-d127d9b21f53",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n39397   | UNABLE TO RETRIEVE UPSELL OFFER\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers",
+                    "upselling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) the HTTP method to apply",
+                    "key": "X-HTTP-Method-Override",
+                    "value": "GET"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"flight-offer-upsell\",\n    \"flightOffers\": [\n      {\n        \"type\": \"flight-offer\",\n        \"id\": \"1\",\n        \"source\": \"GDS\",\n        \"instantTicketingRequired\": false,\n        \"disablePricing\": false,\n        \"nonHomogeneous\": false,\n        \"oneWay\": false,\n        \"paymentCardRequired\": false,\n        \"lastTicketingDate\": \"2018-06-19\",\n        \"lastTicketingDateTime\": \"2018-06-19T15:00:00\",\n        \"numberOfBookableSeats\": 9,\n        \"itineraries\": [\n          {\n            \"segments\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"duration\": \"PT2H10M\"\n          }\n        ],\n        \"price\": {\n          \"margin\": \"1.00\",\n          \"grandTotal\": \"987.00\",\n          \"billingCurrency\": \"EUR\",\n          \"additionalServices\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"currency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"total\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"base\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fees\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"refundableTaxes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"pricingOptions\": {\n          \"fareType\": [\n            \"PUBLISHED\"\n          ],\n          \"includedCheckedBagsOnly\": true,\n          \"refundableFare\": true,\n          \"noRestrictionFare\": true,\n          \"noPenaltyFare\": true\n        },\n        \"validatingAirlineCodes\": [\n          \"AF\"\n        ],\n        \"travelerPricings\": [\n          {\n            \"travelerId\": \"1\",\n            \"fareOption\": \"STANDARD\",\n            \"travelerType\": \"ADULT\",\n            \"fareDetailsBySegment\": [\n              {\n                \"segmentId\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"cabin\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"fareBasis\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"brandedFare\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"class\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"isAllotment\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"allotmentDetails\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"sliceDiceIndicator\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"includedCheckedBags\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"additionalServices\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ],\n            \"associatedAdultId\": \"12345\",\n            \"price\": {\n              \"currency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"base\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fees\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"taxes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"refundableTaxes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      }\n    ],\n    \"payments\": [\n      {\n        \"brand\": \"VISA_IXARIS\",\n        \"binNumber\": 123456,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      },\n      {\n        \"brand\": \"VISA_IXARIS\",\n        \"binNumber\": 123456,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    },\n    {\n      \"status\": 1,\n      \"code\": 1,\n      \"title\": \"string-value\",\n      \"detail\": \"string-value\",\n      \"source\": {\n        \"pointer\": \"string-value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab0f06fb-9baa-4697-97ee-fb86f767f105",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers",
+                    "upselling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) the HTTP method to apply",
+                    "key": "X-HTTP-Method-Override",
+                    "value": "GET"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"type\": \"flight-offer-upsell\",\n    \"flightOffers\": [\n      {\n        \"type\": \"flight-offer\",\n        \"id\": \"1\",\n        \"source\": \"GDS\",\n        \"instantTicketingRequired\": false,\n        \"disablePricing\": false,\n        \"nonHomogeneous\": false,\n        \"oneWay\": false,\n        \"paymentCardRequired\": false,\n        \"lastTicketingDate\": \"2018-06-19\",\n        \"lastTicketingDateTime\": \"2018-06-19T15:00:00\",\n        \"numberOfBookableSeats\": 9,\n        \"itineraries\": [\n          {\n            \"segments\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"duration\": \"PT2H10M\"\n          }\n        ],\n        \"price\": {\n          \"margin\": \"1.00\",\n          \"grandTotal\": \"987.00\",\n          \"billingCurrency\": \"EUR\",\n          \"additionalServices\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"currency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"total\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"base\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"fees\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"taxes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"refundableTaxes\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"pricingOptions\": {\n          \"fareType\": [\n            \"PUBLISHED\"\n          ],\n          \"includedCheckedBagsOnly\": true,\n          \"refundableFare\": true,\n          \"noRestrictionFare\": true,\n          \"noPenaltyFare\": true\n        },\n        \"validatingAirlineCodes\": [\n          \"AF\"\n        ],\n        \"travelerPricings\": [\n          {\n            \"travelerId\": \"1\",\n            \"fareOption\": \"STANDARD\",\n            \"travelerType\": \"ADULT\",\n            \"fareDetailsBySegment\": [\n              {\n                \"segmentId\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"cabin\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"fareBasis\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"brandedFare\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"class\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"isAllotment\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"allotmentDetails\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"sliceDiceIndicator\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"includedCheckedBags\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"additionalServices\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ],\n            \"associatedAdultId\": \"12345\",\n            \"price\": {\n              \"currency\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"total\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"base\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"fees\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"taxes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"refundableTaxes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          }\n        ]\n      }\n    ],\n    \"payments\": [\n      {\n        \"brand\": \"VISA_IXARIS\",\n        \"binNumber\": 123456,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      },\n      {\n        \"brand\": \"VISA_IXARIS\",\n        \"binNumber\": 123456,\n        \"flightOfferIds\": [\n          \"<string>\"\n        ]\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f148f256-45c1-4b0e-875f-74657f7a506f",
+    "name": "Branded Fares Upsell",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nBefore using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. \n\nPlease also be aware that our test environment is based on a subset of the production, if you are not returning any results try with big cities/airports like LON (London) or NYC (New-York).",
+      "type": "text/plain"
+    }
+  }
+}

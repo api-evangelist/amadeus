@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Flight Offers Price",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shopping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Confirm Pricing of Given FlightOffers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/shopping/flight-offers/pricing",
+            "headers": [
+              {
+                "name": "X-HTTP-Method-Override",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Sub-resources to be included:\n * **credit-card-fees** to get the credit card fee applied on the booking\n * **bags** to get extra bag options\n * **other-services** to get services options\n * **detailed-fare-rules** to get detailed fare rules options\n"
+              },
+              {
+                "name": "forceClass",
+                "value": "",
+                "type": "query",
+                "description": "parameter to force the usage of booking class for pricing\n- **true**, to for pricing with the specified booking class\n- **false**, to get the best available price\n"
+              }
+            ]
+          },
+          "docs": "Amadeus Confirm Pricing of Given FlightOffers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

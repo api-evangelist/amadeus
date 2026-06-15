@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airport Routes",
+    "version": "1.1.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "direct-destinations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Get Airport Direct Routes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/airport/direct-destinations",
+            "params": [
+              {
+                "name": "departureAirportCode",
+                "value": "BLR",
+                "type": "query",
+                "description": "Departure Airport code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)"
+              },
+              {
+                "name": "max",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of destination in the response."
+              },
+              {
+                "name": "arrivalCountryCode",
+                "value": "FR",
+                "type": "query",
+                "description": "Arrival country code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to filter the list of destinations"
+              }
+            ]
+          },
+          "docs": "Amadeus Get Airport Direct Routes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
