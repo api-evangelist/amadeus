@@ -3,19 +3,13 @@
   "feeds": [
     {
       "source": "https://developers.amadeus.com/blog",
-      "feed_url": "https://developers.amadeus.com/blog",
-      "title": "",
+      "feed_url": "",
       "saved": 0,
-      "method": "none"
-    },
-    {
-      "source": "https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/api-rate-limits/",
-      "feed_url": "https://developers.amadeus.com/self-service/apis-docs/guides/developer-guides/api-rate-limits/",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "method": "agent-scrape",
+      "error": "Listing reachable (HTTP 200) but content is JS-rendered/empty; no posts extractable"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:23:21Z",
+  "agent_pulled": "2026-06-27"
 }

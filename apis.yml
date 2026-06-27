@@ -260,67 +260,67 @@ apis:
     url: json-structure/flight-offers-search-traveler-pricing-fare-option-structure.json
   - type: JSONStructure
     url: json-structure/flight-offers-search-traveler-type-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-aircraft-equipment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-allotment-details-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-baggage-allowance-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-cabin-restriction-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-carrier-restrictions-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-chargeable-seat-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-co2-emission-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-collection-meta-link-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-connection-restriction-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-date-time-type-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-dictionaries-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-extended-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-extended-pricing-options-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-fee-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-flight-filters-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-flight-offer-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-flight-segment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-get-flight-offers-query-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-location-value-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-operating-flight-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-origin-destination-light-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-original-flight-end-point-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-original-flight-stop-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-search-criteria-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-tax-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
   - url: graphql/amadeus-graphql.md
     type: GraphQL
@@ -598,77 +598,77 @@ apis:
     url: json-structure/flight-offers-price-traveler-structure.json
   - type: JSONStructure
     url: json-structure/flight-offers-price-traveler-type-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-address-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-aircraft-equipment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-allotment-details-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-baggage-allowance-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-base-name-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-chargeable-seat-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-co2-emission-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-contact-dictionary-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-credit-card-fee-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-detailed-fare-rules-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-dictionaries-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-discount-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-document-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-elementary-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-emergency-contact-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-extended-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-fare-rules-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-fee-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-flight-offer-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-flight-offer-pricing-in-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-flight-offer-pricing-out-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-flight-segment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-location-value-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-loyalty-program-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-operating-flight-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-original-flight-end-point-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-original-flight-stop-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-other-services-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-phone-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-stakeholder-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-tax-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-offers-price-term-and-condition-example.json
 - name: Flight Create Orders
   description: Books a flight offer by creating a flight order (PNR) with traveler
@@ -1008,93 +1008,93 @@ apis:
     url: json-structure/flight-create-orders-traveler-type-structure.json
   - type: JSONStructure
     url: json-structure/flight-create-orders-virtual-credit-card-details-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-address-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-air-travel-document-common-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-aircraft-equipment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-airline-remark-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-allotment-details-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-associated-record-common-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-automated-process-common-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-b2b-wallet-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-baggage-allowance-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-base-name-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-chargeable-seat-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-co2-emission-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-collection-meta-link-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-contact-dictionary-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-credit-card-common-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-credit-card-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-dictionaries-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-discount-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-document-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-elementary-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-emergency-contact-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-extended-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-fee-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-flight-offer-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-flight-order-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-flight-segment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-form-of-identification-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-form-of-payment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-general-remark-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-location-value-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-loyalty-program-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-operating-flight-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-original-flight-end-point-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-original-flight-stop-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-other-method-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-phone-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-remarks-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-stakeholder-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-tax-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-create-orders-ticketing-agreement-example.json
 - name: Flight Order Management
   description: Retrieves and cancels existing flight orders. Use after Flight Create
@@ -1438,95 +1438,95 @@ apis:
     url: json-structure/flight-order-management-traveler-type-structure.json
   - type: JSONStructure
     url: json-structure/flight-order-management-virtual-credit-card-details-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-address-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-air-travel-document-common-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-aircraft-equipment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-airline-remark-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-allotment-details-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-associated-record-common-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-automated-process-common-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-b2b-wallet-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-baggage-allowance-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-base-name-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-chargeable-seat-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-co2-emission-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-collection-meta-link-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-contact-dictionary-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-credit-card-common-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-credit-card-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-dictionaries-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-discount-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-document-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-elementary-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-emergency-contact-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-error-404-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-extended-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-fee-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-flight-offer-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-flight-order-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-flight-segment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-form-of-identification-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-form-of-payment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-general-remark-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-location-value-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-loyalty-program-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-operating-flight-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-original-flight-end-point-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-original-flight-stop-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-other-method-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-phone-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-remarks-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-stakeholder-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-tax-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-order-management-ticketing-agreement-example.json
 - name: Flight Availabilities Search
   description: Searches real-time flight availability and inventory between origin
@@ -1695,53 +1695,53 @@ apis:
     url: json-structure/flight-availabilities-search-traveler-info-structure.json
   - type: JSONStructure
     url: json-structure/flight-availabilities-search-traveler-type-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-aircraft-equipment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-allotment-details-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-availability-class-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-cabin-restriction-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-carrier-restrictions-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-co2-emission-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-collection-meta-avail-search-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-connection-restriction-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-date-time-type-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-dictionaries-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-flight-availability-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-flight-filters-light-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-flight-segment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-get-flight-availabilities-query-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-location-value-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-operating-flight-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-origin-destination-light-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-original-flight-end-point-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-original-flight-stop-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-search-criteria-light-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-availabilities-search-traveler-info-example.json
 - name: SeatMap Display
   description: Returns the seat map for a specific flight, including available, occupied,
@@ -2045,97 +2045,97 @@ apis:
     url: json-structure/seatmap-display-traveler-structure.json
   - type: JSONStructure
     url: json-structure/seatmap-display-traveler-type-structure.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-address-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-aircraft-cabin-amenities-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-aircraft-equipment-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-amenity-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-amenity-media-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-amenity-seat-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-available-seats-counter-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-baggage-allowance-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-base-name-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-co2-emission-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-contact-dictionary-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-coordinates-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-deck-configuration-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-deck-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-discount-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-document-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-elementary-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-emergency-contact-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-error-404-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-extended-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-facility-dictionary-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-facility-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-fare-rules-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-fee-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-flight-end-point-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-flight-offer-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-flight-segment-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-flight-stop-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-link-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-location-value-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-loyalty-program-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-operating-flight-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-phone-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-qualified-free-text-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-seat-characteristic-dictionary-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-seat-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-seat-map-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-seatmap-traveler-pricing-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-stakeholder-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-tax-example.json
-  - type: Example
+  - type: Examples
     url: examples/seatmap-display-term-and-condition-example.json
 - name: Branded Fares Upsell
   description: Returns branded fares (e.g. Economy Light, Economy Flex, Business Lite)
@@ -2311,49 +2311,49 @@ apis:
     url: json-structure/branded-fares-upsell-traveler-pricing-fare-option-structure.json
   - type: JSONStructure
     url: json-structure/branded-fares-upsell-traveler-type-structure.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-aircraft-equipment-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-allotment-details-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-baggage-allowance-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-chargeable-seat-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-co2-emission-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-collection-meta-upsell-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-dictionaries-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-extended-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-fee-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-flight-offer-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-flight-offer-upsell-in-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-flight-segment-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-location-value-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-operating-flight-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-original-flight-end-point-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-original-flight-stop-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-payment-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/branded-fares-upsell-tax-example.json
 - name: Flight Check-in Links
   description: Returns direct check-in URLs for a given airline (IATA code) and language,
@@ -2393,17 +2393,17 @@ apis:
     url: json-structure/flight-checkin-links-issue-structure.json
   - type: JSONStructure
     url: json-structure/flight-checkin-links-parameter-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-checkin-links-checkin-link-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-checkin-links-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-checkin-links-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-checkin-links-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-checkin-links-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-checkin-links-parameter-example.json
 - name: On Demand Flight Status
   description: Returns the real-time status (scheduled, delayed, departed, landed)
@@ -2491,41 +2491,41 @@ apis:
     url: json-structure/on-demand-flight-status-terminal-structure.json
   - type: JSONStructure
     url: json-structure/on-demand-flight-status-timing-structure.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-aircraft-equipment-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-arrival-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-dated-flight-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-delay-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-departure-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-error-401-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-flight-designator-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-flight-point-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-gate-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-leg-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-partnership-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-segment-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-terminal-example.json
-  - type: Example
+  - type: Examples
     url: examples/on-demand-flight-status-timing-example.json
 - name: Flight Inspiration Search
   description: Suggests cheap destinations from a given origin within a budget and
@@ -2597,29 +2597,29 @@ apis:
     url: json-structure/flight-inspiration-search-meta-structure.json
   - type: JSONStructure
     url: json-structure/flight-inspiration-search-price-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-defaults-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-dictionaries-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-error-404-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-flight-destination-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-flight-destinations-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-links-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-location-value-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-inspiration-search-price-example.json
 - name: Flight Cheapest Date Search
   description: Returns the cheapest dates to fly between two cities over a given date
@@ -2691,29 +2691,29 @@ apis:
     url: json-structure/flight-cheapest-date-search-meta-structure.json
   - type: JSONStructure
     url: json-structure/flight-cheapest-date-search-price-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-defaults-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-dictionaries-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-error-404-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-flight-date-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-flight-dates-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-links-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-location-value-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-cheapest-date-search-price-example.json
 - name: Flight Price Analysis
   description: Compares a current flight price to historical prices for the same route
@@ -2747,13 +2747,13 @@ apis:
     url: json-structure/flight-price-analysis-itinerary-price-metric-structure.json
   - type: JSONStructure
     url: json-structure/flight-price-analysis-warning-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-price-analysis-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-price-analysis-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-price-analysis-itinerary-price-metric-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-price-analysis-warning-example.json
 - name: Flight Choice Prediction
   description: Predicts the probability that a given flight offer will be chosen by
@@ -2922,49 +2922,49 @@ apis:
     url: json-structure/flight-choice-prediction-traveler-pricing-fare-option-structure.json
   - type: JSONStructure
     url: json-structure/flight-choice-prediction-traveler-type-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-aircraft-equipment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-baggage-allowance-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-co2-emission-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-collection-links-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-dictionaries-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-extended-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-fare-rules-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-fee-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-flight-offer-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-flight-offers-search-reply-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-flight-segment-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-location-value-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-operating-flight-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-original-flight-end-point-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-original-flight-stop-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-tax-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-choice-prediction-term-and-condition-example.json
 - name: Flight Delay Prediction
   description: Predicts the probability that a flight will be delayed by 30 minutes,
@@ -3009,17 +3009,17 @@ apis:
     url: json-structure/flight-delay-prediction-prediction-result-type-structure.json
   - type: JSONStructure
     url: json-structure/flight-delay-prediction-prediction-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-delay-prediction-collection-meta-link-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-delay-prediction-delay-prediction-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-delay-prediction-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-delay-prediction-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-delay-prediction-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-delay-prediction-prediction-example.json
 - name: Airport On-Time Performance
   description: Returns the on-time performance score for an airport on a specific
@@ -3068,19 +3068,19 @@ apis:
     url: json-structure/airport-on-time-performance-prediction-result-type-structure.json
   - type: JSONStructure
     url: json-structure/airport-on-time-performance-prediction-structure.json
-  - type: Example
+  - type: Examples
     url: examples/airport-on-time-performance-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-on-time-performance-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-on-time-performance-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-on-time-performance-links-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-on-time-performance-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-on-time-performance-on-time-prediction-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-on-time-performance-prediction-example.json
 - name: Airport Routes
   description: Returns all destinations served from a given origin airport, with carriers
@@ -3117,15 +3117,15 @@ apis:
     url: json-structure/airport-routes-response-error-structure.json
   - type: JSONStructure
     url: json-structure/airport-routes-warnings-structure.json
-  - type: Example
+  - type: Examples
     url: examples/airport-routes-locations-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-routes-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-routes-response-airport-routes-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-routes-response-error-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-routes-warnings-example.json
 - name: Airline Routes
   description: Returns all routes operated by a given airline (IATA code), enabling
@@ -3162,15 +3162,15 @@ apis:
     url: json-structure/airline-routes-response-error-structure.json
   - type: JSONStructure
     url: json-structure/airline-routes-warnings-structure.json
-  - type: Example
+  - type: Examples
     url: examples/airline-routes-locations-example.json
-  - type: Example
+  - type: Examples
     url: examples/airline-routes-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/airline-routes-response-airline-routes-example.json
-  - type: Example
+  - type: Examples
     url: examples/airline-routes-response-error-example.json
-  - type: Example
+  - type: Examples
     url: examples/airline-routes-warnings-example.json
 - name: Airport Nearest Relevant
   description: Returns the most relevant nearby airports for a given latitude/longitude,
@@ -3230,27 +3230,27 @@ apis:
     url: json-structure/airport-nearest-relevant-location-structure.json
   - type: JSONStructure
     url: json-structure/airport-nearest-relevant-travelers-structure.json
-  - type: Example
+  - type: Examples
     url: examples/airport-nearest-relevant-address-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-nearest-relevant-analytics-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-nearest-relevant-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-nearest-relevant-distance-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-nearest-relevant-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-nearest-relevant-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-nearest-relevant-flights-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-nearest-relevant-geo-code-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-nearest-relevant-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-nearest-relevant-location-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-nearest-relevant-travelers-example.json
 - name: Airport and City Search
   description: Searches airports and cities by keyword and returns IATA codes, names,
@@ -3315,29 +3315,29 @@ apis:
     url: json-structure/airport-city-search-location-structure.json
   - type: JSONStructure
     url: json-structure/airport-city-search-travelers-structure.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-address-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-analytics-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-distance-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-error-404-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-geo-code-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-links-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-location-example.json
-  - type: Example
+  - type: Examples
     url: examples/airport-city-search-travelers-example.json
 - name: City Search
   description: Searches cities matching a keyword, returning city codes, country,
@@ -3373,13 +3373,13 @@ apis:
     url: json-structure/city-search-response-error-structure.json
   - type: JSONStructure
     url: json-structure/city-search-warning-structure.json
-  - type: Example
+  - type: Examples
     url: examples/city-search-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/city-search-response-city-search-example.json
-  - type: Example
+  - type: Examples
     url: examples/city-search-response-error-example.json
-  - type: Example
+  - type: Examples
     url: examples/city-search-warning-example.json
 - name: Airline Code Lookup
   description: Returns the airline name and details for a given IATA or ICAO airline
@@ -3407,11 +3407,11 @@ apis:
     url: json-structure/airline-code-lookup-meta-structure.json
   - type: JSONStructure
     url: json-structure/airline-code-lookup-warning-structure.json
-  - type: Example
+  - type: Examples
     url: examples/airline-code-lookup-airline-example.json
-  - type: Example
+  - type: Examples
     url: examples/airline-code-lookup-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/airline-code-lookup-warning-example.json
 - name: Flight Most Booked Destinations
   description: Returns the most booked destinations from a given origin city for a
@@ -3459,21 +3459,21 @@ apis:
     url: json-structure/flight-most-booked-destinations-issue-structure.json
   - type: JSONStructure
     url: json-structure/flight-most-booked-destinations-travelers-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-booked-destinations-air-traffic-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-booked-destinations-analytics-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-booked-destinations-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-booked-destinations-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-booked-destinations-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-booked-destinations-flights-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-booked-destinations-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-booked-destinations-travelers-example.json
 - name: Flight Most Traveled Destinations
   description: Returns the most traveled-to destinations from a given origin city
@@ -3521,21 +3521,21 @@ apis:
     url: json-structure/flight-most-traveled-destinations-issue-structure.json
   - type: JSONStructure
     url: json-structure/flight-most-traveled-destinations-travelers-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-traveled-destinations-air-traffic-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-traveled-destinations-analytics-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-traveled-destinations-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-traveled-destinations-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-traveled-destinations-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-traveled-destinations-flights-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-traveled-destinations-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-most-traveled-destinations-travelers-example.json
 - name: Flight Busiest Traveling Period
   description: Returns the busiest travel periods (months) for a given city, helping
@@ -3579,19 +3579,19 @@ apis:
     url: json-structure/flight-busiest-traveling-period-issue-structure.json
   - type: JSONStructure
     url: json-structure/flight-busiest-traveling-period-travelers-structure.json
-  - type: Example
+  - type: Examples
     url: examples/flight-busiest-traveling-period-air-traffic-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-busiest-traveling-period-analytics-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-busiest-traveling-period-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-busiest-traveling-period-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-busiest-traveling-period-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-busiest-traveling-period-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/flight-busiest-traveling-period-travelers-example.json
 - name: Hotel List
   description: Returns the list of hotels in a given city, geographic area, or by
@@ -3632,15 +3632,15 @@ apis:
     url: json-structure/hotel-list-hotel-structure.json
   - type: JSONStructure
     url: json-structure/hotel-list-meta-structure.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-list-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-list-error-404-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-list-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-list-hotel-search-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-list-meta-example.json
 - name: Hotel Search
   description: Returns available hotel offers (rates, room types, board, cancellation
@@ -3777,55 +3777,55 @@ apis:
     url: json-structure/hotel-search-tax-structure.json
   - type: JSONStructure
     url: json-structure/hotel-search-type-structure.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-error-source-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-offer-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-offers-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-cancellation-policy-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-check-in-out-policy-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-commission-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-deposit-policy-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-estimated-room-type-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-guarantee-policy-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-guests-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-hold-policy-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-hotel-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-payment-policy-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-policy-details-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-price-variation-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-price-variations-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-rate-family-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-hotel-product-room-details-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-markup-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-multi-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-pricing-response-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-qualified-free-text-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-search-tax-example.json
 - name: Hotel Booking
   description: Creates a hotel booking (reservation) from a confirmed offer, including
@@ -3944,53 +3944,53 @@ apis:
     url: json-structure/hotel-booking-v1-warning-structure.json
   - type: JSONStructure
     url: json-structure/hotel-booking-warning-structure.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-address-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-arrival-flight-details-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-create-hotel-booking-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-guest-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-guests-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-hotel-booking-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-hotel-contact-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-hotel-order-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-hotel-product-deposit-policy-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-hotel-product-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-hotel-product-payment-policy-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-payment-input-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-payment-output-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-qualified-free-text-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-room-association-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-v1-associated-record-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-v1-contact-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-v1-hotel-booking-light-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-v1-name-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-v1-payment-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-v1-stakeholder-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-v1-warning-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-booking-warning-example.json
 - name: Hotel Name Autocomplete
   description: Returns up to 20 hotels whose names match a search keyword, with full
@@ -4062,21 +4062,21 @@ apis:
     url: json-structure/hotel-ratings-warning-not-found-structure.json
   - type: JSONStructure
     url: json-structure/hotel-ratings-warning-structure.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-ratings-collection-links-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-ratings-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-ratings-error-source-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-ratings-error400-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-ratings-error401-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-ratings-error500-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-ratings-hotel-sentiment-example.json
-  - type: Example
+  - type: Examples
     url: examples/hotel-ratings-warning-example.json
 - name: Points of Interest
   description: Returns points of interest (sights, restaurants, nightlife, shopping)
@@ -4124,21 +4124,21 @@ apis:
     url: json-structure/points-of-interest-links-structure.json
   - type: JSONStructure
     url: json-structure/points-of-interest-location-structure.json
-  - type: Example
+  - type: Examples
     url: examples/points-of-interest-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/points-of-interest-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/points-of-interest-error-404-example.json
-  - type: Example
+  - type: Examples
     url: examples/points-of-interest-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/points-of-interest-geo-code-example.json
-  - type: Example
+  - type: Examples
     url: examples/points-of-interest-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/points-of-interest-links-example.json
-  - type: Example
+  - type: Examples
     url: examples/points-of-interest-location-example.json
 - name: Tours and Activities
   description: Returns bookable tours, activities, and experiences for a given location
@@ -4190,23 +4190,23 @@ apis:
     url: json-structure/tours-and-activities-issue-structure.json
   - type: JSONStructure
     url: json-structure/tours-and-activities-link-structure.json
-  - type: Example
+  - type: Examples
     url: examples/tours-and-activities-activity-example.json
-  - type: Example
+  - type: Examples
     url: examples/tours-and-activities-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/tours-and-activities-elementary-price-example.json
-  - type: Example
+  - type: Examples
     url: examples/tours-and-activities-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/tours-and-activities-error-404-example.json
-  - type: Example
+  - type: Examples
     url: examples/tours-and-activities-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/tours-and-activities-geo-code-example.json
-  - type: Example
+  - type: Examples
     url: examples/tours-and-activities-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/tours-and-activities-link-example.json
 - name: Safe Place
   description: Returns a safety score for a location across categories like LGBTQ+,
@@ -4262,25 +4262,25 @@ apis:
     url: json-structure/safe-place-safety-rated-location-structure.json
   - type: JSONStructure
     url: json-structure/safe-place-safety-score-structure.json
-  - type: Example
+  - type: Examples
     url: examples/safe-place-collection-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/safe-place-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/safe-place-error-404-example.json
-  - type: Example
+  - type: Examples
     url: examples/safe-place-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/safe-place-geo-code-example.json
-  - type: Example
+  - type: Examples
     url: examples/safe-place-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/safe-place-links-example.json
-  - type: Example
+  - type: Examples
     url: examples/safe-place-location-example.json
-  - type: Example
+  - type: Examples
     url: examples/safe-place-safety-rated-location-example.json
-  - type: Example
+  - type: Examples
     url: examples/safe-place-safety-score-example.json
 - name: Location Score
   description: Returns a 0-100 score for a location across categories (sights, restaurants,
@@ -4316,13 +4316,13 @@ apis:
     url: json-structure/location-score-response-location-score-structure.json
   - type: JSONStructure
     url: json-structure/location-score-warning-structure.json
-  - type: Example
+  - type: Examples
     url: examples/location-score-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/location-score-response-error-example.json
-  - type: Example
+  - type: Examples
     url: examples/location-score-response-location-score-example.json
-  - type: Example
+  - type: Examples
     url: examples/location-score-warning-example.json
 - name: Travel Recommendations
   description: Returns destination recommendations based on a list of seed cities
@@ -4358,13 +4358,13 @@ apis:
     url: json-structure/travel-recommendations-response-recommended-location-structure.json
   - type: JSONStructure
     url: json-structure/travel-recommendations-warning-structure.json
-  - type: Example
+  - type: Examples
     url: examples/travel-recommendations-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/travel-recommendations-response-error-example.json
-  - type: Example
+  - type: Examples
     url: examples/travel-recommendations-response-recommended-location-example.json
-  - type: Example
+  - type: Examples
     url: examples/travel-recommendations-warning-example.json
 - name: Trip Purpose Prediction
   description: Predicts whether a trip is for business or leisure based on the itinerary's
@@ -4417,21 +4417,21 @@ apis:
     url: json-structure/trip-purpose-prediction-prediction-structure.json
   - type: JSONStructure
     url: json-structure/trip-purpose-prediction-purpose-prediction-structure.json
-  - type: Example
+  - type: Examples
     url: examples/trip-purpose-prediction-defaults-example.json
-  - type: Example
+  - type: Examples
     url: examples/trip-purpose-prediction-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/trip-purpose-prediction-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/trip-purpose-prediction-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/trip-purpose-prediction-links-example.json
-  - type: Example
+  - type: Examples
     url: examples/trip-purpose-prediction-meta-example.json
-  - type: Example
+  - type: Examples
     url: examples/trip-purpose-prediction-prediction-example.json
-  - type: Example
+  - type: Examples
     url: examples/trip-purpose-prediction-purpose-prediction-example.json
 - name: Transfer Search
   description: Searches private and shared transfer options (taxi, limo, shuttle)
@@ -4571,53 +4571,53 @@ apis:
     url: json-structure/transfer-search-travel-segment-structure.json
   - type: JSONStructure
     url: json-structure/transfer-search-vehicle-structure.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-address-common-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-address-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-baggage-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-cancellation-rule-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-contact-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-discount-code-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-distance-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-equipment-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-error-401-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-extra-service-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-location-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-partner-info-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-passenger-characteristics-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-points-and-cash-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-seat-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-service-provider-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-stop-over-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-stop-over-request-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-travel-segment-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-travel-segment-location-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-search-vehicle-example.json
 - name: Transfer Book
   description: Books a transfer based on the offer returned by Transfer Search, capturing
@@ -4785,67 +4785,67 @@ apis:
     url: json-structure/transfer-book-travel-segment-structure.json
   - type: JSONStructure
     url: json-structure/transfer-book-vehicle-structure.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-address-common-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-address-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-agency-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-baggage-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-cancellation-rule-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-contact-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-corporation-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-credit-card-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-discount-code-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-distance-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-equipment-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-error-401-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-extra-service-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-location-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-loyalty-number-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-name-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-partner-info-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-passenger-characteristics-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-payment-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-points-and-cash-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-seat-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-service-provider-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-stop-over-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-transfer-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-transfer-order-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-travel-segment-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-travel-segment-location-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-book-vehicle-example.json
 - name: Transfer Management
   description: Cancels an existing transfer booking and manages the transfer order
@@ -4885,17 +4885,17 @@ apis:
     url: json-structure/transfer-management-issue-structure.json
   - type: JSONStructure
     url: json-structure/transfer-management-transfer-cancellation-structure.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-management-error-400-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-management-error-401-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-management-error-404-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-management-error-500-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-management-issue-example.json
-  - type: Example
+  - type: Examples
     url: examples/transfer-management-transfer-cancellation-example.json
 - name: Authorization
   description: OAuth2 client credentials token endpoint used by every Self-Service
@@ -4916,86 +4916,65 @@ apis:
     url: json-schema/authorization-amadeus-oauth2-token-schema.json
   - type: JSONStructure
     url: json-structure/authorization-amadeus-oauth2-token-structure.json
-  - type: Example
+  - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amadeus/overview
-- type: ArazzoWorkflows
-  url: arazzo/
-  workflows:
-  - url: arazzo/amadeus-airline-flight-status-checkin-workflow.yml
-    name: Amadeus Airline Flight Status and Check-in
-    summary: Validate an airline code, get on-demand flight status for a flight, then
-      fetch its check-in links.
-  - url: arazzo/amadeus-city-hotels-with-ratings-workflow.yml
-    name: Amadeus City Hotels with Ratings
-    summary: List hotels in a city, then fetch aggregated guest sentiment ratings
-      for them.
-  - url: arazzo/amadeus-city-points-of-interest-workflow.yml
-    name: Amadeus City Points of Interest
-    summary: Resolve a city to its coordinates, list nearby points of interest, then
-      fetch one in detail.
-  - url: arazzo/amadeus-city-safety-and-livability-workflow.yml
-    name: Amadeus City Safety and Livability
-    summary: Resolve a city to coordinates, score its safety ranking, then rate its
-      area by category.
-  - url: arazzo/amadeus-city-tours-and-activities-workflow.yml
-    name: Amadeus City Tours and Activities
-    summary: Resolve a city to coordinates, list bookable tours and activities nearby,
-      then fetch one in detail.
-  - url: arazzo/amadeus-direct-destinations-search-flights-workflow.yml
-    name: Amadeus Direct Destinations Then Search Flights
-    summary: List direct destinations from an airport, then search flight offers to
-      the first destination.
-  - url: arazzo/amadeus-flight-availability-to-offers-workflow.yml
-    name: Amadeus Flight Availability to Offers
-    summary: Check seat availability for a city pair and date, then search priced
-      flight offers for the same trip.
-  - url: arazzo/amadeus-flight-book-and-retrieve-order-workflow.yml
-    name: Amadeus Flight Book and Retrieve Order
-    summary: Price a flight offer, create the order, then retrieve the persisted order
-      to confirm it.
-  - url: arazzo/amadeus-flight-branded-fares-upsell-workflow.yml
-    name: Amadeus Flight Branded Fares Upsell
-    summary: Search flight offers, retrieve branded fare upsell options, then price
-      the chosen upsell.
-  - url: arazzo/amadeus-flight-inspiration-to-offers-workflow.yml
-    name: Amadeus Flight Inspiration to Offers
-    summary: Find inspirational destinations from an origin, get the cheapest dates
-      to one, then search bookable offers.
-  - url: arazzo/amadeus-flight-offer-seatmap-workflow.yml
-    name: Amadeus Flight Offer Seatmap
-    summary: Search flight offers for a trip, then display the seat map for the first
-      offer.
-  - url: arazzo/amadeus-flight-order-cancel-lifecycle-workflow.yml
-    name: Amadeus Flight Order Cancel Lifecycle
-    summary: Create a flight order from a priced offer, retrieve it, then cancel it
-      to release the booking.
-  - url: arazzo/amadeus-flight-search-price-book-workflow.yml
-    name: Amadeus Flight Search, Price, and Book
-    summary: Search flight offers, confirm the live price of a chosen offer, then
-      create a booked flight order.
-  - url: arazzo/amadeus-geocode-hotels-and-offers-workflow.yml
-    name: Amadeus Geocode Hotels and Offers
-    summary: Resolve a city to coordinates, find hotels by geocode, then fetch live
-      offers for the nearest one.
-  - url: arazzo/amadeus-hotel-autocomplete-ratings-offers-workflow.yml
-    name: Amadeus Hotel Autocomplete, Ratings, and Offers
-    summary: Autocomplete a hotel by name, fetch its guest-sentiment rating, then
-      pull its live offers.
-  - url: arazzo/amadeus-hotel-search-and-book-workflow.yml
-    name: Amadeus Hotel Search and Book
-    summary: List hotels in a city, fetch live offers for them, price the chosen offer,
-      then create a hotel order.
-  - url: arazzo/amadeus-nearest-airport-flights-workflow.yml
-    name: Amadeus Nearest Airport Flights
-    summary: Find the nearest relevant airport to a coordinate, then search flight
-      offers departing from it.
-  - url: arazzo/amadeus-resolve-locations-and-search-flights-workflow.yml
-    name: Amadeus Resolve Locations and Search Flights
-    summary: Resolve origin and destination IATA codes from keywords, then search
-      flight offers between them.
+- type: Arazzo
+  url: arazzo/amadeus-airline-flight-status-checkin-workflow.yml
+  name: Amadeus Airline Flight Status and Check-in
+- type: Arazzo
+  url: arazzo/amadeus-city-hotels-with-ratings-workflow.yml
+  name: Amadeus City Hotels with Ratings
+- type: Arazzo
+  url: arazzo/amadeus-city-points-of-interest-workflow.yml
+  name: Amadeus City Points of Interest
+- type: Arazzo
+  url: arazzo/amadeus-city-safety-and-livability-workflow.yml
+  name: Amadeus City Safety and Livability
+- type: Arazzo
+  url: arazzo/amadeus-city-tours-and-activities-workflow.yml
+  name: Amadeus City Tours and Activities
+- type: Arazzo
+  url: arazzo/amadeus-direct-destinations-search-flights-workflow.yml
+  name: Amadeus Direct Destinations Then Search Flights
+- type: Arazzo
+  url: arazzo/amadeus-flight-availability-to-offers-workflow.yml
+  name: Amadeus Flight Availability to Offers
+- type: Arazzo
+  url: arazzo/amadeus-flight-book-and-retrieve-order-workflow.yml
+  name: Amadeus Flight Book and Retrieve Order
+- type: Arazzo
+  url: arazzo/amadeus-flight-branded-fares-upsell-workflow.yml
+  name: Amadeus Flight Branded Fares Upsell
+- type: Arazzo
+  url: arazzo/amadeus-flight-inspiration-to-offers-workflow.yml
+  name: Amadeus Flight Inspiration to Offers
+- type: Arazzo
+  url: arazzo/amadeus-flight-offer-seatmap-workflow.yml
+  name: Amadeus Flight Offer Seatmap
+- type: Arazzo
+  url: arazzo/amadeus-flight-order-cancel-lifecycle-workflow.yml
+  name: Amadeus Flight Order Cancel Lifecycle
+- type: Arazzo
+  url: arazzo/amadeus-flight-search-price-book-workflow.yml
+  name: Amadeus Flight Search, Price, and Book
+- type: Arazzo
+  url: arazzo/amadeus-geocode-hotels-and-offers-workflow.yml
+  name: Amadeus Geocode Hotels and Offers
+- type: Arazzo
+  url: arazzo/amadeus-hotel-autocomplete-ratings-offers-workflow.yml
+  name: Amadeus Hotel Autocomplete, Ratings, and Offers
+- type: Arazzo
+  url: arazzo/amadeus-hotel-search-and-book-workflow.yml
+  name: Amadeus Hotel Search and Book
+- type: Arazzo
+  url: arazzo/amadeus-nearest-airport-flights-workflow.yml
+  name: Amadeus Nearest Airport Flights
+- type: Arazzo
+  url: arazzo/amadeus-resolve-locations-and-search-flights-workflow.yml
+  name: Amadeus Resolve Locations and Search Flights
 - type: Website
   url: https://amadeus.com
 - type: DeveloperPortal
@@ -5009,7 +4988,7 @@ common:
   url: https://www.linkedin.com/company/amadeus
 - type: Twitter
   url: https://twitter.com/AmadeusITGroup
-- type: SignUp
+- type: Signup
   url: https://developers.amadeus.com/register
 - type: Console
   title: My Apps
@@ -5043,16 +5022,16 @@ common:
   url: https://www.postman.com/amadeus4dev/amadeus-for-developers-s-public-workspace
 - type: TestData
   url: https://github.com/amadeus4dev/data-collection
-- type: SDK
+- type: SDKs
   title: Node.js SDK
   url: https://www.npmjs.com/package/amadeus
-- type: SDK
+- type: SDKs
   title: Python SDK
   url: https://pypi.org/project/amadeus/
-- type: SDK
+- type: SDKs
   title: Java SDK
   url: https://central.sonatype.com/artifact/com.amadeus/amadeus-java
-- type: SDK
+- type: SDKs
   title: Ruby SDK
   url: https://github.com/amadeus4dev/amadeus-ruby
 - type: CodeExamples
@@ -5086,7 +5065,7 @@ common:
   url: rules/amadeus-rules.yml
 - type: Vocabulary
   url: vocabulary/amadeus-vocabulary.yml
-- type: JSON-LD
+- type: JSONLD
   url: json-ld/amadeus-context.jsonld
 - type: Plans
   url: plans/amadeus-plans-pricing.yml
