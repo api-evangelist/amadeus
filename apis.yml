@@ -4919,6 +4919,10 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 common:
+- type: VulnerabilityDisclosure
+  url: security/amadeus-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amadeus-domain-security.yml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amadeus/overview
 - type: Arazzo
