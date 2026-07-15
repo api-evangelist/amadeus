@@ -1,0 +1,673 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/amadeus-airline-code-lookup-openapi.yml, openapi/amadeus-airline-routes-openapi.yml,
+  openapi/amadeus-airport-city-search-openapi.yml, openapi/amadeus-airport-nearest-relevant-openapi.yml,
+  openapi/amadeus-airport-on-time-performance-openapi.yml, openapi/amadeus-airport-routes-openapi.yml,
+  openapi/amadeus-authorization-openapi.yml, openapi/amadeus-branded-fares-upsell-openapi.yml,
+  openapi/amadeus-city-search-openapi.yml, openapi/amadeus-flight-availabilities-search-openapi.yml,
+  openapi/amadeus-flight-busiest-traveling-period-openapi.yml, openapi/amadeus-flight-cheapest-date-search-openapi.yml,
+  openapi/amadeus-flight-checkin-links-openapi.yml, openapi/amadeus-flight-choice-prediction-openapi.yml,
+  openapi/amadeus-flight-create-orders-openapi.yml, openapi/amadeus-flight-delay-prediction-openapi.yml,
+  openapi/amadeus-flight-inspiration-search-openapi.yml, openapi/amadeus-flight-most-booked-destinations-openapi.yml,
+  openapi/amadeus-flight-most-traveled-destinations-openapi.yml, openapi/amadeus-flight-offers-price-openapi.yml,
+  openapi/amadeus-flight-offers-search-openapi.yml, openapi/amadeus-flight-order-management-openapi.yml,
+  openapi/amadeus-flight-price-analysis-openapi.yml, openapi/amadeus-hotel-booking-openapi.yml,
+  openapi/amadeus-hotel-booking-v1-openapi.yml, openapi/amadeus-hotel-list-openapi.yml, openapi/amadeus-hotel-name-autocomplete-openapi.yml,
+  openapi/amadeus-hotel-ratings-openapi.yml, openapi/amadeus-hotel-search-openapi.yml, openapi/amadeus-location-score-openapi.yml,
+  openapi/amadeus-on-demand-flight-status-openapi.yml, openapi/amadeus-points-of-interest-openapi.yml,
+  openapi/amadeus-safe-place-openapi.yml, openapi/amadeus-seatmap-display-openapi.yml, openapi/amadeus-tours-and-activities-openapi.yml,
+  openapi/amadeus-transfer-book-openapi.yml, openapi/amadeus-transfer-management-openapi.yml,
+  openapi/amadeus-transfer-search-openapi.yml, openapi/amadeus-travel-recommendations-openapi.yml,
+  openapi/amadeus-trip-purpose-prediction-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 54
+  by_action_class:
+    connected: 40
+    acting: 14
+  by_consequence:
+    read: 40
+    write: 7
+    physical: 7
+  human_in_the_loop_required: 0
+operations:
+- path: /reference-data/airlines
+  method: get
+  operationId: getairlines
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /airline/destinations
+  method: get
+  operationId: airline/destinations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /reference-data/locations
+  method: get
+  operationId: getAirportCitySearch
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /reference-data/locations/{locationId}
+  method: get
+  operationId: getAirportCity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /reference-data/locations/airports
+  method: get
+  operationId: getNearestRelevantAirports
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /airport/predictions/on-time
+  method: get
+  operationId: getAirportOnTimePrediction
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /airport/direct-destinations
+  method: get
+  operationId: airport/direct-destinations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /security/oauth2/token
+  method: post
+  operationId: oauth2Token
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /security/oauth2/token/{access_token}
+  method: get
+  operationId: getOauth2TokenInfo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/flight-offers/upselling
+  method: post
+  operationId: upsellAirOffers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /reference-data/locations/cities
+  method: get
+  operationId: GETCities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/availability/flight-availabilities
+  method: post
+  operationId: searchFlightAvailabilities
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /travel/analytics/air-traffic/busiest-period
+  method: get
+  operationId: getAirTraffic
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/flight-dates
+  method: get
+  operationId: getFlightDates
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /reference-data/urls/checkin-links
+  method: get
+  operationId: getCheckinURLs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/flight-offers/prediction
+  method: post
+  operationId: getFlightChoicePredict
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /booking/flight-orders
+  method: post
+  operationId: createFligtOrders
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /travel/predictions/flight-delay
+  method: get
+  operationId: getFlightDelayPrediction
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/flight-destinations
+  method: get
+  operationId: getFlightDestinations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /travel/analytics/air-traffic/booked
+  method: get
+  operationId: getAirTraffic
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /travel/analytics/air-traffic/traveled
+  method: get
+  operationId: getAirTraffic
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/flight-offers/pricing
+  method: post
+  operationId: quoteAirOffers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /shopping/flight-offers
+  method: post
+  operationId: searchFlightOffers
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /shopping/flight-offers
+  method: get
+  operationId: getFlightOffers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /booking/flight-orders/{flight-orderId}
+  method: get
+  operationId: getFlightOrder
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /booking/flight-orders/{flight-orderId}
+  method: delete
+  operationId: cancelFlightOrder
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /analytics/itinerary-price-metrics
+  method: get
+  operationId: get-itinerary-price-metrics
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /booking/hotel-orders
+  method: post
+  operationId: createHotelOrder
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /booking/hotel-bookings
+  method: post
+  operationId: createBooking
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /reference-data/locations/hotels/by-hotels
+  method: get
+  operationId: get-shopping-hotels-by-hotels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /reference-data/locations/hotels/by-city
+  method: get
+  operationId: get-shopping-hotels-by-city
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /reference-data/locations/hotels/by-geocode
+  method: get
+  operationId: get-shopping-hotels-geocodes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /reference-data/locations/hotel
+  method: get
+  operationId: gethotels
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /e-reputation/hotel-sentiments
+  method: get
+  operationId: getSentimentsByHotelIds
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/hotel-offers
+  method: get
+  operationId: getMultiHotelOffers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/hotel-offers/{offerId}
+  method: get
+  operationId: getOfferPricing
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /location/analytics/category-rated-areas
+  method: get
+  operationId: get-category-rated-areas
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /schedule/flights
+  method: get
+  operationId: getFlightsStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /reference-data/locations/pois
+  method: get
+  operationId: getPointsOfInterest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /reference-data/locations/pois/{poisId}
+  method: get
+  operationId: getPointOfInterest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /reference-data/locations/pois/by-square
+  method: get
+  operationId: getPointsOfInterestBySquare
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /safety/safety-rated-locations
+  method: get
+  operationId: getSafetyRanking
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /safety/safety-rated-locations/{safety-rated-locationId}
+  method: get
+  operationId: getLocationSafetyRanking
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /safety/safety-rated-locations/by-square
+  method: get
+  operationId: getSafetyRankBySquare
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/seatmaps
+  method: get
+  operationId: getSeatmapFromOrder
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/seatmaps
+  method: post
+  operationId: getSeatmapFromFlightOffer
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /shopping/activities
+  method: get
+  operationId: ListActivities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/activities/by-square
+  method: get
+  operationId: ListActivitiesBySquare
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /shopping/activities/{activityId}
+  method: get
+  operationId: GETActivity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ordering/transfer-orders
+  method: post
+  operationId: createTransferOrder
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ordering/transfer-orders/{orderId}/transfers/cancellation
+  method: post
+  operationId: cancelTransfer
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /shopping/transfer-offers
+  method: post
+  operationId: getTransferOffers
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /reference-data/recommended-locations
+  method: get
+  operationId: getRecommendedLocation
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /travel/predictions/trip-purpose
+  method: get
+  operationId: getTripPurposePrediction
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
