@@ -1,0 +1,942 @@
+openapi: 3.0.1
+info:
+  title: Airline Code Lookup air-traffic location API
+  description: 'Before using this API, we recommend you read our
+
+    **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
+
+    for more information on how to generate an access token.
+
+
+    Please also be aware that our test environment is based on a subset of the production,
+
+    to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.
+
+    '
+  version: 1.2.1
+  x-status: validated
+  x-tags:
+  - '#ama-for-dev'
+  x-release-note:
+    1.2.0:
+    - Migration to OAS3
+    1.1.0:
+    - Correct example
+    - Regroup parameter "IATACode" and "ICAOCode" under the same name "airlineCodes"
+    1.0.0:
+    - initial version
+    - List all airlines information (name and code)
+    - Introduction of search per IATA or ICAO code
+servers:
+- url: https://test.api.amadeus.com/v1
+tags:
+- name: location
+paths:
+  /reference-data/locations:
+    get:
+      tags:
+      - location
+      operationId: getAirportCitySearch
+      summary: Amadeus Returns a List of Airports and Cities Matching a Given Keyword.
+      parameters:
+      - name: subType
+        description: sub type of the location (AIRPORT and/or CITY)
+        in: query
+        required: true
+        type: array
+        items:
+          type: string
+          enum:
+          - AIRPORT
+          - CITY
+        collectionFormat: csv
+        x-example: CITY
+      - name: keyword
+        description: "keyword that should represent the start of a word in a city or airport name or code. \nSupported charaters are: A-Za-z0-9./:-'()\""
+        in: query
+        required: true
+        type: string
+        x-example: MUC
+        pattern: '[A-Za-z0-9./:()''"-]'
+      - name: countryCode
+        description: Country code of the location using [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US).
+        in: query
+        required: false
+        type: string
+        x-example: FR
+      - $ref: '#/parameters/pageLimit'
+      - $ref: '#/parameters/pageOffset'
+      - $ref: '#/parameters/sort'
+      - $ref: '#/parameters/view'
+      responses:
+        '200':
+          $ref: '#/responses/airport-city-autocomplete'
+        '400':
+          $ref: '#/responses/400'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /reference-data/locations/{locationId}:
+    get:
+      tags:
+      - location
+      operationId: getAirportCity
+      summary: Amadeus Returns a Specific Airports or Cities Based on its ID.
+      parameters:
+      - $ref: '#/parameters/locationId'
+      responses:
+        '200':
+          $ref: '#/responses/airport-city'
+        '400':
+          $ref: '#/responses/400_GET-Id'
+        '404':
+          $ref: '#/responses/404'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /reference-data/locations/airports:
+    get:
+      tags:
+      - location
+      operationId: getNearestRelevantAirports
+      summary: Amadeus Returns a List of Relevant Airports Near to a Given Point.
+      parameters:
+      - name: latitude
+        description: latitude location to be at the center of the search circle
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 51.57285
+      - name: longitude
+        description: longitude location to be at the center of the search circle
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: -0.44161
+      - name: radius
+        description: radius of the search in Kilometer. Can be from 0 to 500, default value is 500 Km.
+        in: query
+        required: false
+        type: integer
+        minimum: 0
+        maximum: 500
+        default: 500
+        x-example: 1
+      - $ref: '#/parameters/pageLimit'
+      - $ref: '#/parameters/pageOffset'
+      - $ref: '#/parameters/sort_2'
+      responses:
+        '200':
+          $ref: '#/responses/nearest-relevant-airports'
+        '400':
+          $ref: '#/responses/400_2'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  GeoCode:
+    properties:
+      latitude:
+        description: latitude of the location
+        type: number
+        format: double
+        example: 43.580418
+      longitude:
+        description: longitude of the location
+        type: number
+        format: double
+        example: 7.125102
+  Address:
+    properties:
+      cityName:
+        description: name of the city of the location; equal to name if the location is a city
+        type: string
+        example: Paris
+      cityCode:
+        description: IATA code of the city of the location; equal to IATAcode if the location is a city
+        type: string
+        example: PAR
+      countryName:
+        description: name of the country of the location
+        type: string
+        example: France
+      countryCode:
+        description: code of the country of the location in ISO standard
+        type: string
+        example: FR
+      stateCode:
+        description: code of the state of the location if any
+        type: string
+        example: TO
+      regionCode:
+        description: code of the region of the location in ISO standard
+        type: string
+        example: EUROP
+  Travelers:
+    properties:
+      score:
+        type: number
+        format: integer
+        description: Approximate score for ranking purposes calculated based on number of travelers in the location.
+        example: 68
+  Issue:
+    properties:
+      status:
+        description: the HTTP status code applicable to this error
+        type: integer
+        example: 1
+      code:
+        description: an application-specific error code
+        type: integer
+        format: int64
+        example: 1
+      title:
+        description: a short summary of the error
+        type: string
+        example: string-value
+      detail:
+        description: explanation of the error
+        type: string
+        example: string-value
+      source:
+        type: object
+        title: Issue_Source
+        description: an object containing references to the source of the error
+        maxProperties: 1
+        properties:
+          pointer:
+            description: a JSON Pointer [RFC6901] to the associated entity in the request document
+            type: string
+            example: string-value
+          parameter:
+            description: a string indicating which URI query parameter caused the issue
+            type: string
+            example: string-value
+          example:
+            description: a string indicating an example of the right value
+            type: string
+            example: string-value
+  Analytics:
+    properties:
+      travelers:
+        $ref: '#/definitions/Travelers'
+  Distance:
+    properties:
+      value:
+        description: great-circle distance between two locations. This distance thus do not take into account traffic conditions; international boundaries; mountains; water; or other elements that might make the a nearby location hard to reach.
+        type: integer
+        example: 152
+      unit:
+        description: unit of the distance
+        type: string
+        example: KM
+        enum:
+        - KM
+        - MI
+  Collection_Meta:
+    title: Collection_Meta
+    properties:
+      count:
+        type: integer
+        example: 1
+      links:
+        title: CollectionLinks
+        properties:
+          self:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          next:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          previous:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          last:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          first:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          up:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+        example:
+          self: https://test.api.amadeus.com/v1/area/resources?param=value
+  Links:
+    required:
+    - href
+    properties:
+      href:
+        type: string
+        format: uri
+        example: https://example.com/resource
+      methods:
+        type: array
+        items:
+          type: string
+          enum:
+          - GET
+          - PUT
+          - DELETE
+          - POST
+          - PATCH
+      count:
+        type: integer
+        example: 1
+    example:
+      href: string
+  Analytics_2:
+    properties:
+      flights:
+        $ref: '#/definitions/Flights'
+      travelers:
+        $ref: '#/definitions/Travelers'
+  Location_2:
+    properties:
+      type:
+        description: the resource name
+        type: string
+        example: location
+      subType:
+        description: location sub type
+        type: string
+        enum:
+        - AIRPORT
+        - CITY
+        - POINT_OF_INTEREST
+        - DISTRICT
+        example: AIRPORT
+      name:
+        description: short name of the location
+        type: string
+        example: Paris CDG
+      detailedName:
+        description: detailed name of the location. For a city location it contains city name and country code. For an airport location it contains city name; country code and airport full name
+        type: string
+        example: 'Paris/FR: Charles de Gaulle'
+      timeZoneOffset:
+        description: timezone offset of the location at the date of the API call (including daylight saving time)
+        type: string
+        example: +01:00
+      iataCode:
+        description: IATA code of the location. ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) here)
+        type: string
+        example: CDG
+      geoCode:
+        $ref: '#/definitions/GeoCode'
+      address:
+        $ref: '#/definitions/Address'
+      distance:
+        $ref: '#/definitions/Distance'
+      analytics:
+        $ref: '#/definitions/Analytics_2'
+      relevance:
+        type: number
+        format: double
+        description: score value calculated based on distance and analytics
+        example: 9.6584
+  Location:
+    properties:
+      id:
+        description: id of the ressource
+        type: string
+        example: '12345'
+      self:
+        $ref: '#/definitions/Links'
+      type:
+        description: the resource name
+        type: string
+        example: location
+      subType:
+        description: location sub type
+        type: string
+        enum:
+        - AIRPORT
+        - CITY
+        - POINT_OF_INTEREST
+        - DISTRICT
+        example: AIRPORT
+      name:
+        description: short name of the location
+        type: string
+        example: Paris CDG
+      detailedName:
+        description: detailed name of the location. For a city location it contains city name and country code. For an airport location it contains city name; country code and airport full name
+        type: string
+        example: 'Paris/FR: Charles de Gaulle'
+      timeZoneOffset:
+        description: timezone offset of the location at the date of the API call (including daylight saving time)
+        type: string
+        example: +01:00
+      iataCode:
+        description: IATA code of the location. ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) here)
+        type: string
+        example: CDG
+      geoCode:
+        $ref: '#/definitions/GeoCode'
+      address:
+        $ref: '#/definitions/Address'
+      distance:
+        $ref: '#/definitions/Distance'
+      analytics:
+        $ref: '#/definitions/Analytics'
+      relevance:
+        type: number
+        format: double
+        description: score value calculated based on distance and analytics
+        example: 9.6584
+      category:
+        description: category of the location
+        type: string
+        enum:
+        - SIGHTS
+        - BEACH_PARK
+        - HISTORICAL
+        - NIGHTLIFE
+        - RESTAURANT
+        - SHOPPING
+        example: HISTORICAL
+      tags:
+        description: list of tags related to the location
+        type: array
+        items:
+          type: string
+          example:
+          - grocery
+          - japanese
+          - cafe
+      rank:
+        description: the rank is the position compared to other locations based on how famous is a place. 1 being the highest.
+        type: string
+        example: 1
+  Error_400:
+    properties:
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Issue'
+    required:
+    - errors
+    example:
+      errors:
+      - status: 400
+        code: 477
+        title: INVALID FORMAT
+        detail: invalid query parameter format
+        source:
+          parameter: airport
+          example: CDG
+  Error_500:
+    properties:
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Issue'
+    required:
+    - errors
+    example:
+      errors:
+      - status: 500
+        code: 141
+        title: SYSTEM ERROR HAS OCCURRED
+  Flights:
+    properties:
+      score:
+        type: number
+        format: integer
+        description: Approximate score for ranking purposes calculated based on number of flights from / to the airport or city
+        example: 56
+  Error_404:
+    properties:
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Issue'
+    required:
+    - errors
+    example:
+      errors:
+      - status: 404
+        code: 1797
+        title: NOT FOUND
+        detail: no response found for this query parameter
+        source:
+          parameter: airport
+parameters:
+  view:
+    name: view
+    description: 'select the level of information of the reply:
+
+      * LIGHT - Gives only the IATACode, name, detailedName, cityName and countryName
+
+      * FULL - Adds on top of the LIGHT information the timeZoneOffset, geocode, detailed address and travelers.score
+
+      default option is FULL
+
+      '
+    required: false
+    in: query
+    default: FULL
+    type: string
+    enum:
+    - LIGHT
+    - FULL
+  pageOffset:
+    name: page[offset]
+    description: start index of the requested page
+    required: false
+    in: query
+    type: integer
+    default: 0
+  pageLimit:
+    name: page[limit]
+    description: maximum items in one page
+    required: false
+    in: query
+    type: integer
+    default: 10
+  sort_2:
+    description: 'defines on which attribute the sorting will be done from the best option to the worst one:
+
+      * **relevance** - Score value calculated based on distance and traffic analytics
+
+      * **distance** - Distance from the location to the geo-code given in API request parameters
+
+      * **analytics.flights.score** - Approximate score for ranking purposes calculated based on estimated number of flights from/to airport in one reference year (last year)
+
+      * **analytics.travelers.score** - Approximate score for ranking purposes calculated based on estimated number of travelers in the airport for one reference year (last year)
+
+      '
+    name: sort
+    required: false
+    in: query
+    type: string
+    default: relevance
+    enum:
+    - relevance
+    - distance
+    - analytics.flights.score
+    - analytics.travelers.score
+  locationId:
+    name: locationId
+    description: identifier of the location
+    required: true
+    in: path
+    type: string
+    x-example: CMUC
+  sort:
+    name: sort
+    description: 'defines on which attribute the sorting will be done:
+
+      * analytics.travelers.score - sort by the number of travelers by airport or city, the airports and cities with the highest traffic are on top of the results
+
+      '
+    required: false
+    in: query
+    type: string
+    default: analytics.travelers.score
+    enum:
+    - analytics.travelers.score
+responses:
+  '404':
+    description: Not Found
+    schema:
+      $ref: '#/definitions/Error_404'
+  '500':
+    description: Unexpected Error
+    schema:
+      $ref: '#/definitions/Error_500'
+  '400_2':
+    description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
+    schema:
+      $ref: '#/definitions/Error_400'
+  400_GET-Id:
+    description: "code    | title                                 \n------- | ------------------------------------- \n572     | INVALID OPTION    \n"
+    schema:
+      $ref: '#/definitions/Error_400'
+  airport-city:
+    description: Successful Operation
+    schema:
+      title: Success
+      required:
+      - data
+      properties:
+        meta:
+          $ref: '#/definitions/Collection_Meta'
+        data:
+          $ref: '#/definitions/Location'
+      example:
+        meta:
+          links:
+            self: https://test.api.amadeus.com/v1/reference-data/locations/CMUC
+        data:
+          type: location
+          subType: CITY
+          name: MUNICH INTERNATIONAL
+          detailedName: MUNICH/DE:MUNICH INTERNATIONAL
+          id: CMUC
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/CMUC
+            methods:
+            - GET
+          timeZoneOffset: +02:00
+          iataCode: MUC
+          geoCode:
+            latitude: 48.35378
+            longitude: 11.78609
+          address:
+            cityName: MUNICH
+            cityCode: MUC
+            countryName: GERMANY
+            countryCode: DE
+            regionCode: EUROP
+          analytics:
+            travelers:
+              score: 27
+  nearest-relevant-airports:
+    description: Successful Operation
+    schema:
+      title: Success
+      required:
+      - data
+      properties:
+        meta:
+          $ref: '#/definitions/Collection_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/Location_2'
+      example:
+        meta:
+          count: 32
+          links:
+            self: https://test.api.amadeus.com/v1/reference-data/locations/airports?latitude=51.57285&longitude=-0.44161
+            next: https://test.api.amadeus.com/v1/reference-data/locations/airports?latitude=51.57285&longitude=-0.44161&page%5Boffset%5D=10
+            last: https://test.api.amadeus.com/v1/reference-data/locations/airports?latitude=51.57285&longitude=-0.44161&page%5Boffset%5D=22
+        data:
+        - type: location
+          subType: AIRPORT
+          name: HEATHROW
+          detailedName: LONDON/GB:HEATHROW
+          timeZoneOffset: +01:00
+          iataCode: LHR
+          geoCode:
+            latitude: 51.47294
+            longitude: -0.45061
+          address:
+            cityName: LONDON
+            cityCode: LON
+            countryName: UNITED KINGDOM
+            countryCode: GB
+            regionCode: EUROP
+          distance:
+            value: 11
+            unit: KM
+          analytics:
+            flights:
+              score: 39
+            travelers:
+              score: 45
+          relevance: 350.54587
+        - type: location
+          subType: AIRPORT
+          name: GATWICK
+          detailedName: LONDON/GB:GATWICK
+          timeZoneOffset: +01:00
+          iataCode: LGW
+          geoCode:
+            latitude: 51.15609
+            longitude: -0.17818
+          address:
+            cityName: LONDON
+            cityCode: LON
+            countryName: UNITED KINGDOM
+            countryCode: GB
+            regionCode: EUROP
+          distance:
+            value: 49
+            unit: KM
+          analytics:
+            flights:
+              score: 27
+            travelers:
+              score: 27
+          relevance: 53.62667
+        - type: location
+          subType: AIRPORT
+          name: LUTON
+          detailedName: LONDON/GB:LUTON
+          timeZoneOffset: +01:00
+          iataCode: LTN
+          geoCode:
+            latitude: 51.87472
+            longitude: -0.36833
+          address:
+            cityName: LONDON
+            cityCode: LON
+            countryName: UNITED KINGDOM
+            countryCode: GB
+            regionCode: EUROP
+          distance:
+            value: 33
+            unit: KM
+          analytics:
+            flights:
+              score: 11
+            travelers:
+              score: 10
+          relevance: 33.10184
+        - type: location
+          subType: AIRPORT
+          name: STANSTED
+          detailedName: LONDON/GB:STANSTED
+          timeZoneOffset: +01:00
+          iataCode: STN
+          geoCode:
+            latitude: 51.885
+            longitude: 0.235
+          address:
+            cityName: LONDON
+            cityCode: LON
+            countryName: UNITED KINGDOM
+            countryCode: GB
+            regionCode: EUROP
+          distance:
+            value: 58
+            unit: KM
+          analytics:
+            flights:
+              score: 16
+            travelers:
+              score: 15
+          relevance: 27.50241
+        - type: location
+          subType: AIRPORT
+          name: CITY AIRPORT
+          detailedName: LONDON/GB:CITY AIRPORT
+          timeZoneOffset: +01:00
+          iataCode: LCY
+          geoCode:
+            latitude: 51.50528
+            longitude: 0.05528
+          address:
+            cityName: LONDON
+            cityCode: LON
+            countryName: UNITED KINGDOM
+            countryCode: GB
+            regionCode: EUROP
+          distance:
+            value: 35
+            unit: KM
+          analytics:
+            flights:
+              score: 8
+            travelers:
+              score: 4
+          relevance: 21.78754
+        - type: location
+          subType: AIRPORT
+          name: BIRMINGHAM
+          detailedName: BIRMINGHAM/GB:BIRMINGHAM
+          timeZoneOffset: +01:00
+          iataCode: BHX
+          geoCode:
+            latitude: 52.45386
+            longitude: -1.74803
+          address:
+            cityName: BIRMINGHAM
+            cityCode: BHX
+            countryName: UNITED KINGDOM
+            countryCode: GB
+            regionCode: EUROP
+          distance:
+            value: 132
+            unit: KM
+          analytics:
+            flights:
+              score: 10
+            travelers:
+              score: 8
+          relevance: 7.73356
+        - type: location
+          subType: AIRPORT
+          name: MANCHESTER AIRPORT
+          detailedName: MANCHESTER/GB:MANCHESTER AIRPO
+          timeZoneOffset: +01:00
+          iataCode: MAN
+          geoCode:
+            latitude: 53.35374
+            longitude: -2.27495
+          address:
+            cityName: MANCHESTER
+            cityCode: MAN
+            countryName: UNITED KINGDOM
+            countryCode: GB
+            regionCode: EUROP
+          distance:
+            value: 233
+            unit: KM
+          analytics:
+            flights:
+              score: 18
+            travelers:
+              score: 17
+          relevance: 7.71084
+        - type: location
+          subType: AIRPORT
+          name: SOUTHAMPTON
+          detailedName: SOUTHAMPTON/GB
+          timeZoneOffset: +01:00
+          iataCode: SOU
+          geoCode:
+            latitude: 50.95026
+            longitude: -1.3568
+          address:
+            cityName: SOUTHAMPTON
+            cityCode: SOU
+            countryName: UNITED KINGDOM
+            countryCode: GB
+            regionCode: EUROP
+          distance:
+            value: 94
+            unit: KM
+          analytics:
+            flights:
+              score: 4
+            travelers:
+              score: 2
+          relevance: 4.4788
+        - type: location
+          subType: AIRPORT
+          name: BRISTOL
+          detailedName: BRISTOL/GB:BRISTOL
+          timeZoneOffset: +01:00
+          iataCode: BRS
+          geoCode:
+            latitude: 51.38267
+            longitude: -2.71909
+          address:
+            cityName: BRISTOL
+            cityCode: BRS
+            countryName: UNITED KINGDOM
+            countryCode: GB
+            regionCode: EUROP
+          distance:
+            value: 159
+            unit: KM
+          analytics:
+            flights:
+              score: 7
+            travelers:
+              score: 5
+          relevance: 4.08617
+        - type: location
+          subType: AIRPORT
+          name: EAST MIDLANDS
+          detailedName: NOTTINGHAM/GB:EAST MIDLANDS
+          timeZoneOffset: +01:00
+          iataCode: EMA
+          geoCode:
+            latitude: 52.83111
+            longitude: -1.32806
+          address:
+            cityName: NOTTINGHAM
+            cityCode: NQT
+            countryName: UNITED KINGDOM
+            countryCode: GB
+            regionCode: EUROP
+          distance:
+            value: 152
+            unit: KM
+          analytics:
+            flights:
+              score: 4
+            travelers:
+              score: 3
+          relevance: 2.66099
+  '400':
+    description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION \n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
+    schema:
+      $ref: '#/definitions/Error_400'
+  airport-city-autocomplete:
+    description: Successful Operation
+    schema:
+      title: Success
+      required:
+      - data
+      properties:
+        meta:
+          $ref: '#/definitions/Collection_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/Location'
+      example:
+        meta:
+          count: 2
+          links:
+            self: https://test.api.amadeus.com/v1/reference-data/locations?subType=CITY,AIRPORT&keyword=MUC&countryCode=DE
+        data:
+        - type: location
+          subType: CITY
+          name: MUNICH INTERNATIONAL
+          detailedName: MUNICH/DE:MUNICH INTERNATIONAL
+          id: CMUC
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/CMUC
+            methods:
+            - GET
+          timeZoneOffset: +02:00
+          iataCode: MUC
+          geoCode:
+            latitude: 48.35378
+            longitude: 11.78609
+          address:
+            cityName: MUNICH
+            cityCode: MUC
+            countryName: GERMANY
+            countryCode: DE
+            regionCode: EUROP
+          analytics:
+            travelers:
+              score: 27
+        - type: location
+          subType: AIRPORT
+          name: MUNICH INTERNATIONAL
+          detailedName: MUNICH/DE:MUNICH INTERNATIONAL
+          id: AMUC
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/AMUC
+            methods:
+            - GET
+          timeZoneOffset: +02:00
+          iataCode: MUC
+          geoCode:
+            latitude: 48.35378
+            longitude: 11.78609
+          address:
+            cityName: MUNICH
+            cityCode: MUC
+            countryName: GERMANY
+            countryCode: DE
+            regionCode: EUROP
+          analytics:
+            travelers:
+              score: 27

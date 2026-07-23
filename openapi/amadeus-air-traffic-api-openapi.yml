@@ -1,0 +1,702 @@
+openapi: 3.0.1
+info:
+  title: Airline Code Lookup air-traffic API
+  description: 'Before using this API, we recommend you read our
+
+    **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
+
+    for more information on how to generate an access token.
+
+
+    Please also be aware that our test environment is based on a subset of the production,
+
+    to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.
+
+    '
+  version: 1.2.1
+  x-status: validated
+  x-tags:
+  - '#ama-for-dev'
+  x-release-note:
+    1.2.0:
+    - Migration to OAS3
+    1.1.0:
+    - Correct example
+    - Regroup parameter "IATACode" and "ICAOCode" under the same name "airlineCodes"
+    1.0.0:
+    - initial version
+    - List all airlines information (name and code)
+    - Introduction of search per IATA or ICAO code
+servers:
+- url: https://test.api.amadeus.com/v1
+tags:
+- name: air-traffic
+paths:
+  /travel/analytics/air-traffic/busiest-period:
+    get:
+      tags:
+      - air-traffic
+      operationId: getAirTraffic
+      summary: Amadeus Returns a List of Air Traffic Reports.
+      parameters:
+      - name: cityCode
+        description: Code for the city following IATA standard. [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. BOS for Boston
+        in: query
+        required: true
+        type: string
+        pattern: '[A-Za-z]{3}'
+        x-example: MAD
+      - name: period
+        description: 'time period (year) of the statistics.
+
+
+          Year for which the statistic are requested following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+          '
+        in: query
+        required: true
+        type: string
+        x-example: 2017
+      - name: direction
+        description: 'Use ARRIVING to have statistics on travelers coming to the city or DEPARTING for statistics on travelers leaving the city.
+
+
+          By default, statistics are given on travelers ARRIVING the city.
+
+          '
+        in: query
+        required: false
+        default: ARRIVING
+        type: string
+        enum:
+        - ARRIVING
+        - DEPARTING
+        x-example: ARRIVING
+      responses:
+        '200':
+          $ref: '#/responses/air-traffic'
+        '400':
+          $ref: '#/responses/400'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /travel/analytics/air-traffic/booked:
+    get:
+      tags:
+      - air-traffic
+      operationId: getAirTraffic
+      summary: Amadeus Returns a List of Air Traffic Reports.
+      parameters:
+      - name: originCityCode
+        description: Code for the origin city following IATA standard ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)). - e.g. BOS for Boston
+        in: query
+        required: true
+        type: string
+        pattern: '[A-Za-z]{3}'
+        x-example: MAD
+      - name: period
+        description: "period when consumers are traveling.\n* It can be a month only. \n* ISO format must be used - e.g. 2015-05. \n* Period ranges are not supported. \n* Only periods from 2011-01 up to previous month are valid. \n* Future dates are not supported.\n"
+        in: query
+        required: true
+        type: string
+        x-example: 2017-08
+      - name: max
+        description: maximum number of destinations in the response. Default value is 10 and maximum value is 50.
+        in: query
+        required: false
+        default: 10
+        type: number
+        format: integer
+        x-example: 1.0
+      - $ref: '#/parameters/fields'
+      - $ref: '#/parameters/pageLimit'
+      - $ref: '#/parameters/pageOffset'
+      - $ref: '#/parameters/sort'
+      responses:
+        '200':
+          $ref: '#/responses/air-traffic_2'
+        '400':
+          $ref: '#/responses/400_2'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /travel/analytics/air-traffic/traveled:
+    get:
+      tags:
+      - air-traffic
+      operationId: getAirTraffic
+      summary: Amadeus Returns a List of Air Traffic Reports.
+      parameters:
+      - name: originCityCode
+        description: Code for the origin city following IATA standard ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)). - e.g. BOS for Boston
+        in: query
+        required: true
+        type: string
+        pattern: '[A-Za-z]{3}'
+        x-example: MAD
+      - name: period
+        description: "period when consumers are traveling.\n* It can be a month only. \n* [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format must be used - e.g. 2015-05. \n* Period ranges are not supported. \n* Only periods from 2011-01 up to previous month are valid. \n* Future dates are not supported.\n"
+        in: query
+        required: true
+        type: string
+        x-example: 2017-01
+      - name: max
+        description: maximum number of destinations in the response. Default value is **10** and maximum value is 50.
+        in: query
+        required: false
+        default: 10
+        type: number
+        format: integer
+        x-example: 1.0
+      - $ref: '#/parameters/fields'
+      - $ref: '#/parameters/pageLimit'
+      - $ref: '#/parameters/pageOffset'
+      - $ref: '#/parameters/sort_2'
+      responses:
+        '200':
+          $ref: '#/responses/air-traffic_3'
+        '400':
+          $ref: '#/responses/400_3'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  Air_Traffic_2:
+    properties:
+      type:
+        type: string
+        example: air-traffic
+      subType:
+        type: string
+        example: string-value
+      destination:
+        description: IATA code of the destination city - [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
+        type: string
+        example: WAS
+      analytics:
+        $ref: '#/definitions/Analytics_2'
+  Travelers:
+    properties:
+      score:
+        type: number
+        format: integer
+        description: Approximate score for ranking purposes calculated based on number of travelers in the location.
+        example: 68
+  Analytics_3:
+    properties:
+      flights:
+        $ref: '#/definitions/Flights'
+      travelers:
+        $ref: '#/definitions/Travelers'
+  Issue:
+    properties:
+      status:
+        description: the HTTP status code applicable to this error
+        type: integer
+        example: 1
+      code:
+        description: an application-specific error code
+        type: integer
+        format: int64
+        example: 1
+      title:
+        description: a short summary of the error
+        type: string
+        example: string-value
+      detail:
+        description: explanation of the error
+        type: string
+        example: string-value
+      source:
+        type: object
+        title: Issue_Source
+        description: an object containing references to the source of the error
+        maxProperties: 1
+        properties:
+          pointer:
+            description: a JSON Pointer [RFC6901] to the associated entity in the request document
+            type: string
+            example: string-value
+          parameter:
+            description: a string indicating which URI query parameter caused the issue
+            type: string
+            example: string-value
+          example:
+            description: a string indicating an example of the right value
+            type: string
+            example: string-value
+  Analytics:
+    properties:
+      travelers:
+        $ref: '#/definitions/Travelers'
+  Collection_Meta:
+    title: Collection_Meta
+    properties:
+      count:
+        type: integer
+        example: 1
+      links:
+        title: CollectionLinks
+        properties:
+          self:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          next:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          previous:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          last:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          first:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          up:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+        example:
+          self: https://test.api.amadeus.com/v1/area/resources?param=value
+  Analytics_2:
+    properties:
+      flights:
+        $ref: '#/definitions/Flights'
+      travelers:
+        $ref: '#/definitions/Travelers'
+  Air_Traffic:
+    properties:
+      type:
+        type: string
+        example: air-traffic
+      period:
+        description: Time period following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard
+        type: string
+        example: 2017-01
+      analytics:
+        $ref: '#/definitions/Analytics'
+  Error_400:
+    properties:
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Issue'
+    required:
+    - errors
+    example:
+      errors:
+      - status: 400
+        code: 477
+        title: INVALID FORMAT
+        detail: invalid query parameter format
+        source:
+          parameter: airport
+          example: CDG
+  Error_500:
+    properties:
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Issue'
+    required:
+    - errors
+    example:
+      errors:
+      - status: 500
+        code: 141
+        title: SYSTEM ERROR HAS OCCURRED
+  Flights:
+    properties:
+      score:
+        type: number
+        format: integer
+        description: Approximate score for ranking purposes calculated based on number of flights from / to the airport or city
+        example: 56
+  Air_Traffic_3:
+    properties:
+      type:
+        type: string
+        example: air-traffic
+      subType:
+        type: string
+        example: string-value
+      destination:
+        description: IATA code of the destination city - [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
+        type: string
+        example: WAS
+      analytics:
+        $ref: '#/definitions/Analytics_3'
+parameters:
+  pageOffset:
+    name: page[offset]
+    description: start index of the requested page
+    required: false
+    in: query
+    type: integer
+    default: 0
+  pageLimit:
+    name: page[limit]
+    description: maximum items in one page
+    required: false
+    in: query
+    type: integer
+    default: 10
+  sort_2:
+    description: 'defines on which attribute the sorting will be done:
+
+      * **analytics.flights.score** - sort destination by flights score (decreasing)
+
+      * **analytics.travelers.score** - sort destination by traveler''s score (decreasing)
+
+      '
+    name: sort
+    required: false
+    in: query
+    type: string
+    default: analytics.travelers.score
+    enum:
+    - analytics.flights.score
+    - analytics.travelers.score
+  sort:
+    description: 'defines on which attribute the sorting will be done:
+
+      * analytics.flights.score - sort destinations by flights score (decreasing)
+
+      * analytics.travelers.score - sort destination by traveler''s score (decreasing)
+
+      '
+    name: sort
+    required: false
+    in: query
+    type: string
+    default: analytics.travelers.score
+    enum:
+    - analytics.flights.score
+    - analytics.travelers.score
+  fields:
+    name: fields
+    required: false
+    in: query
+    type: string
+    description: "list of attributes desired in the response or list of attributes to remove from the response (with \"-\" before fields) \n* The attributes names must contain the whole path (except resource name) e.g. travelers"
+responses:
+  '500':
+    description: Unexpected Error
+    schema:
+      $ref: '#/definitions/Error_500'
+  '400_2':
+    description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED                               \n32171   | MANDATORY DATA MISSING \t     \n"
+    schema:
+      $ref: '#/definitions/Error_400'
+  air-traffic_2:
+    description: Successful Operation
+    schema:
+      title: Success
+      required:
+      - data
+      properties:
+        warnings:
+          type: array
+          items:
+            $ref: '#/definitions/Issue'
+        meta:
+          $ref: '#/definitions/Collection_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/Air_Traffic_2'
+      example:
+        meta:
+          count: 10
+          links:
+            self: https://test.api.amadeus.com/v1/travel/analytics/air-traffic/booked?originCityCode=MAD&page%5Blimit%5D=10&page%5Boffset%5D=0&period=2017-08
+        data:
+        - type: air-traffic
+          destination: PAR
+          subType: BOOKED
+          analytics:
+            flights:
+              score: 100
+            travelers:
+              score: 100
+        - type: air-traffic
+          destination: TCI
+          subType: BOOKED
+          analytics:
+            flights:
+              score: 61
+            travelers:
+              score: 80
+        - type: air-traffic
+          destination: LON
+          subType: BOOKED
+          analytics:
+            flights:
+              score: 93
+            travelers:
+              score: 65
+        - type: air-traffic
+          destination: BCN
+          subType: BOOKED
+          analytics:
+            flights:
+              score: 91
+            travelers:
+              score: 61
+        - type: air-traffic
+          destination: NYC
+          subType: BOOKED
+          analytics:
+            flights:
+              score: 61
+            travelers:
+              score: 51
+        - type: air-traffic
+          destination: BRU
+          subType: BOOKED
+          analytics:
+            flights:
+              score: 41
+            travelers:
+              score: 39
+        - type: air-traffic
+          destination: UIO
+          subType: BOOKED
+          analytics:
+            flights:
+              score: 48
+            travelers:
+              score: 37
+        - type: air-traffic
+          destination: SDQ
+          subType: BOOKED
+          analytics:
+            flights:
+              score: 15
+            travelers:
+              score: 19
+        - type: air-traffic
+          destination: DXB
+          subType: BOOKED
+          analytics:
+            flights:
+              score: 22
+            travelers:
+              score: 11
+        - type: air-traffic
+          destination: OPO
+          subType: BOOKED
+          analytics:
+            flights:
+              score: 18
+            travelers:
+              score: 8
+  air-traffic:
+    description: Successful Operation
+    schema:
+      title: Success
+      required:
+      - data
+      properties:
+        warnings:
+          type: array
+          items:
+            $ref: '#/definitions/Issue'
+        meta:
+          $ref: '#/definitions/Collection_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/Air_Traffic'
+      example:
+        meta:
+          count: 12
+          links:
+            self: https://test.api.amadeus.com/v1/travel/analytics/air-traffic/busiest-period?cityCode=MAD&direction=ARRIVING&period=2017
+        data:
+        - type: air-traffic
+          period: 2017-05
+          analytics:
+            travelers:
+              score: 9
+        - type: air-traffic
+          period: 2017-12
+          analytics:
+            travelers:
+              score: 9
+        - type: air-traffic
+          period: 2017-09
+          analytics:
+            travelers:
+              score: 8
+        - type: air-traffic
+          period: 2017-10
+          analytics:
+            travelers:
+              score: 8
+        - type: air-traffic
+          period: 2017-07
+          analytics:
+            travelers:
+              score: 8
+        - type: air-traffic
+          period: 2017-06
+          analytics:
+            travelers:
+              score: 8
+        - type: air-traffic
+          period: 2017-02
+          analytics:
+            travelers:
+              score: 8
+        - type: air-traffic
+          period: 2017-03
+          analytics:
+            travelers:
+              score: 8
+        - type: air-traffic
+          period: 2017-01
+          analytics:
+            travelers:
+              score: 8
+        - type: air-traffic
+          period: 2017-04
+          analytics:
+            travelers:
+              score: 8
+        - type: air-traffic
+          period: 2017-08
+          analytics:
+            travelers:
+              score: 8
+        - type: air-traffic
+          period: 2017-11
+          analytics:
+            travelers:
+              score: 8
+  '400_3':
+    description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED                               \n32171   | MANDATORY DATA MISSING \t     \n"
+    schema:
+      $ref: '#/definitions/Error_400'
+  '400':
+    description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n"
+    schema:
+      $ref: '#/definitions/Error_400'
+  air-traffic_3:
+    description: Successful Operation
+    schema:
+      title: Success
+      required:
+      - data
+      properties:
+        warnings:
+          type: array
+          items:
+            $ref: '#/definitions/Issue'
+        meta:
+          $ref: '#/definitions/Collection_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/Air_Traffic_3'
+      example:
+        meta:
+          count: 10
+          links:
+            self: https://test.api.amadeus.com/v1/travel/analytics/air-traffic/traveled?max=10&originCityCode=MAD&page%5Blimit%5D=10&page%5Boffset%5D=0&period=2017-01&sort=analytics.travelers.score
+        data:
+        - type: air-traffic
+          destination: PAR
+          subType: TRAVELED
+          analytics:
+            flights:
+              score: 74
+            travelers:
+              score: 100
+        - type: air-traffic
+          destination: BCN
+          subType: TRAVELED
+          analytics:
+            flights:
+              score: 100
+            travelers:
+              score: 78
+        - type: air-traffic
+          destination: TCI
+          subType: TRAVELED
+          analytics:
+            flights:
+              score: 33
+            travelers:
+              score: 67
+        - type: air-traffic
+          destination: LON
+          subType: TRAVELED
+          analytics:
+            flights:
+              score: 71
+            travelers:
+              score: 56
+        - type: air-traffic
+          destination: BRU
+          subType: TRAVELED
+          analytics:
+            flights:
+              score: 23
+            travelers:
+              score: 38
+        - type: air-traffic
+          destination: NYC
+          subType: TRAVELED
+          analytics:
+            flights:
+              score: 43
+            travelers:
+              score: 22
+        - type: air-traffic
+          destination: UIO
+          subType: TRAVELED
+          analytics:
+            flights:
+              score: 38
+            travelers:
+              score: 15
+        - type: air-traffic
+          destination: SDQ
+          subType: TRAVELED
+          analytics:
+            flights:
+              score: 10
+            travelers:
+              score: 15
+        - type: air-traffic
+          destination: OPO
+          subType: TRAVELED
+          analytics:
+            flights:
+              score: 16
+            travelers:
+              score: 8
+        - type: air-traffic
+          destination: DXB
+          subType: TRAVELED
+          analytics:
+            flights:
+              score: 26
+            travelers:
+              score: 7

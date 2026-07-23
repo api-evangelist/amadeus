@@ -1,0 +1,1824 @@
+openapi: 3.0.1
+info:
+  title: Airline Code Lookup air-traffic Search API
+  description: 'Before using this API, we recommend you read our
+
+    **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
+
+    for more information on how to generate an access token.
+
+
+    Please also be aware that our test environment is based on a subset of the production,
+
+    to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.
+
+    '
+  version: 1.2.1
+  x-status: validated
+  x-tags:
+  - '#ama-for-dev'
+  x-release-note:
+    1.2.0:
+    - Migration to OAS3
+    1.1.0:
+    - Correct example
+    - Regroup parameter "IATACode" and "ICAOCode" under the same name "airlineCodes"
+    1.0.0:
+    - initial version
+    - List all airlines information (name and code)
+    - Introduction of search per IATA or ICAO code
+servers:
+- url: https://test.api.amadeus.com/v1
+tags:
+- name: Search
+paths:
+  /reference-data/locations/hotel:
+    get:
+      tags:
+      - Search
+      summary: Amadeus Returns a List of Hotels Matching a Given Keyword.
+      operationId: gethotels
+      description: ''
+      parameters:
+      - name: keyword
+        in: query
+        description: Location query keyword
+        required: true
+        type: string
+        pattern: ^[A-Za-z0-9 *'-]{4,40}$
+        minLength: 4
+        maxLength: 40
+        x-example: PARI
+      - name: subType
+        in: query
+        description: "Category of search - To enter several values, repeat the query parameter \nUse HOTEL_LEISURE to target aggregators or HOTEL_GDS to target directly the chains"
+        required: true
+        type: array
+        items:
+          type: string
+          enum:
+          - HOTEL_LEISURE
+          - HOTEL_GDS
+        collectionFormat: multi
+        x-example: []
+      - name: countryCode
+        in: query
+        description: The country in which you search the subType. Country Code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format
+        type: string
+        pattern: '[A-Za-z]{2}$'
+        minLength: 2
+        maxLength: 2
+        x-example: FR
+      - name: lang
+        in: query
+        description: "The language in which you want the results in following [ISO 639-1](https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1). \n\nIf the language entered is not available then the results will be shown in the default language, English."
+        required: false
+        type: string
+        pattern: '[A-Za-z]{2}$'
+        minLength: 2
+        maxLength: 2
+        default: EN
+        x-example: EN
+      - name: max
+        in: query
+        description: The number of results requested from 1 to 20
+        required: false
+        type: integer
+        default: 20
+        x-example: 1
+      responses:
+        '200':
+          description: Successful Search Operation
+          schema:
+            required:
+            - data
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                      description: ID of the resource.
+                      minimum: 1
+                      maximum: 10
+                    type:
+                      type: string
+                      description: Type of resource or the resource name.
+                    name:
+                      type: string
+                      description: Name of the location (Hotel Name)
+                      minLength: 1
+                      maxLength: 80
+                      pattern: ^[A-Za-z0-9 - * '.]+
+                    iataCode:
+                      type: string
+                      description: '[IATA codes](http://www.iata.org/publications/Pages/code-search.aspx) associated with the location.'
+                      minLength: 3
+                      maxLength: 3
+                      pattern: ^[A-Z]+
+                    hotelIds:
+                      type: array
+                      description: 'HotelIDs associated with the location only if it''s a hotel. For leisure property dupes ID are listed as well. '
+                      uniqueItems: true
+                      maxItems: 10
+                      minItems: 1
+                      items:
+                        type: string
+                    subType:
+                      type: string
+                      description: The category of the location or Point of reference (HOTEL_LEISURE,HOTEL_GDS).
+                      enum:
+                      - HOTEL_GDS
+                      - HOTEL_LEISURE
+                    address:
+                      type: object
+                      description: Address of the location containing Cityname, Statecode and countrycode respectively.
+                      properties:
+                        cityName:
+                          type: string
+                          description: The name of the city to which the location belongs to.
+                          minLength: 1
+                          maxLength: 105
+                          pattern: ^[A-Za-z0-9 - ]+
+                        stateCode:
+                          type: string
+                          description: The statecode to which the location belongs to.
+                          minLength: 2
+                          maxLength: 2
+                          pattern: ^[A-Z]+
+                        countryCode:
+                          type: string
+                          description: The countrycode to which the location belongs to.
+                          minLength: 2
+                          maxLength: 2
+                          pattern: ^[A-Z]+
+                      required:
+                      - cityName
+                      - countryCode
+                    geoCode:
+                      type: object
+                      description: Geocode of the location containing latitude and longitude respectively.
+                      properties:
+                        latitude:
+                          type: number
+                          format: double
+                          description: Latitude of the location on Earth.
+                        longitude:
+                          type: number
+                          format: double
+                          description: Longitude of the location on Earth.
+                      required:
+                      - latitude
+                      - longitude
+                    relevance:
+                      type: integer
+                      description: A no. between 1-100. The higher the number better is the relevant search for that location.
+                  required:
+                  - id
+                  - type
+                  - name
+                  - iataCode
+                  - hotelIds
+                  - subType
+            title: Success
+            example: &id001
+              data:
+              - id: 4630140
+                name: DE PARIS SAINT GEORGES EX KYRIAD PARIS
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 74
+                type: location
+                hotelIds:
+                - CTPARB08
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.88081
+                  longitude: 2.33541
+              - id: 4629897
+                name: DE PARIS OPERA EX DE PARIS MAUBEUGE
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 74
+                type: location
+                hotelIds:
+                - CTPARATH
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.87877
+                  longitude: 2.34593
+              - id: 4629762
+                name: LE PARISIS PARIS TOUR EIFFEL EX RAMADA
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 74
+                type: location
+                hotelIds:
+                - CTPARAPQ
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.8496
+                  longitude: 2.29553
+              - id: 4316057
+                name: COMFORT HOTEL PARIS LAFAYETTE PARIS
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 74
+                type: location
+                hotelIds:
+                - HVPARBHU
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.87646
+                  longitude: 2.34884
+              - id: 4629509
+                name: CAMPANILE PARIS 15 EX CAMPANILE PARIS
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 74
+                type: location
+                hotelIds:
+                - CTPARAIP
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.85
+                  longitude: 2.2884
+              - id: 4343671
+                name: THE ORIGINALS PARIS GARE DE L EST PARISI
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 74
+                type: location
+                hotelIds:
+                - TVPARAB7
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.8766
+                  longitude: 2.35422
+              - id: 4315654
+                name: CITADINES OPERA PARIS PARIS
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 74
+                type: location
+                hotelIds:
+                - HVPARAPG
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.87146
+                  longitude: 2.33834
+              - id: 4601316
+                name: THE ORIGINALS PARIS GARE DE L EST PARISI
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 74
+                type: location
+                hotelIds:
+                - SJPARALM
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.87661
+                  longitude: 2.35417
+              - id: 4905890
+                name: LE PARISIS PARIS TOUR EIFFEL
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 74
+                type: location
+                hotelIds:
+                - ADPAR093
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.84972
+                  longitude: 2.29565
+              - id: 4630373
+                name: HOTEL R DE PARIS EX DU CASINO PARIS
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 74
+                type: location
+                hotelIds:
+                - CTPARB6P
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.88004
+                  longitude: 2.32894
+              - id: 4930258
+                name: LE PARISIS PARIS TOUR EIFFEL
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 74
+                type: location
+                hotelIds:
+                - XDPARAYA
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.84972
+                  longitude: 2.29565
+              - id: 4930306
+                name: THE ORIGINALS CITY HOTEL PARISIANA PARIS
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 72
+                type: location
+                hotelIds:
+                - XDPARAZM
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.87663
+                  longitude: 2.35418
+              - id: 2330480
+                name: HOTEL PARADIS PARIS
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 71
+                type: location
+                hotelIds:
+                - DGPARACN
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.8738
+                  longitude: 2.34993
+              - id: 4630331
+                name: MIDNIGHT HOTEL PARIS EX ARIS NORD
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 71
+                type: location
+                hotelIds:
+                - CTPARB5J
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.8774
+                  longitude: 2.35609
+              - id: 4309354
+                name: HOTEL DE PARIS
+                iataCode: MOW
+                subType: HOTEL_LEISURE
+                relevance: 70
+                type: location
+                hotelIds:
+                - BKMOWB4L
+                address:
+                  cityName: THE HAGUE
+                  countryCode: AU
+                geoCode:
+                  latitude: 55.76364
+                  longitude: 37.60079
+              - id: 4313435
+                name: PULLMAN PARIS TOUR EIFFEL HOTEL
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 70
+                type: location
+                hotelIds:
+                - EYPARCQV
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.85598
+                  longitude: 2.29321
+              - id: 4313453
+                name: MERCURE PARIS CHAMPS ELYSEES
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 70
+                type: location
+                hotelIds:
+                - EYPARCRN
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.86811
+                  longitude: 2.29095
+              - id: 4448070
+                name: THE WESTIN PARIS VENDOME
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 70
+                type: location
+                hotelIds:
+                - ASPARADC
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.86561
+                  longitude: 2.32785
+              - id: 2356646
+                name: B B HOTEL PARIS PORTE DE LA VILLETTE
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 70
+                type: location
+                hotelIds:
+                - GUPARBQV
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.901
+                  longitude: 2.387
+              - id: 4313461
+                name: TIVOLI HOTEL PARIS
+                iataCode: PAR
+                subType: HOTEL_LEISURE
+                relevance: 70
+                type: location
+                hotelIds:
+                - EYPARCRV
+                address:
+                  cityName: PARIS
+                  countryCode: FR
+                geoCode:
+                  latitude: 48.87622
+                  longitude: 2.29592
+          examples:
+            application/vnd.amadeus+json: *id001
+        '400':
+          description: "code    | title                                 \n------- | ------------------------------------- \n477     | NOT FOUND \n1797    | INVALID FORMAT\n572     | INVALID LENGTH\n32171   | MANDATORY DATA MISSING \t     \n"
+          schema:
+            example: &id002
+              errors:
+              - status: 400
+                code: 572
+                title: INVALID FORMAT
+                detail: invalid query parameter format
+            type: object
+            properties:
+              errors:
+                type: array
+                items:
+                  properties:
+                    status:
+                      type: integer
+                      description: the HTTP status code applicable to this error
+                    code:
+                      type: integer
+                      format: int64
+                      description: an application-specific error code
+                    title:
+                      type: string
+                      description: a short summary of the error
+                    detail:
+                      type: string
+                      description: explanation of the error
+                    source:
+                      type: object
+                      properties:
+                        pointer:
+                          type: string
+                          description: a JSON Pointer [RFC6901] to the associated entity in the request document
+                        parameter:
+                          type: string
+                          description: a string indicating which URI query parameter caused the issue
+                        example:
+                          type: string
+                          description: a string indicating an example of the right value
+                      description: an object containing references to the source of the error
+            required:
+            - errors
+          examples:
+            application/vnd.amadeus+json: *id002
+        '500':
+          description: Unexpected Error
+          schema:
+            required:
+            - errors
+            properties:
+              errors:
+                type: array
+                items:
+                  properties:
+                    status:
+                      type: integer
+                      description: the HTTP status code applicable to this error
+                    code:
+                      type: integer
+                      format: int64
+                      description: an application-specific error code
+                    title:
+                      type: string
+                      description: a short summary of the error
+                    detail:
+                      type: string
+                      description: explanation of the error
+                    source:
+                      type: object
+                      properties:
+                        pointer:
+                          type: string
+                          description: a JSON Pointer [RFC6901] to the associated entity in the request document
+                        parameter:
+                          type: string
+                          description: a string indicating which URI query parameter caused the issue
+                        example:
+                          type: string
+                          description: a string indicating an example of the right value
+                      description: an object containing references to the source of the error
+            example: &id003
+              errors:
+              - status: 500
+                code: 141
+                title: SYSTEM ERROR HAS OCCURRED
+          examples:
+            application/vnd.amadeus+json: *id003
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /reference-data/locations/pois:
+    get:
+      tags:
+      - Search
+      operationId: getPointsOfInterest
+      summary: Amadeus Returns Points of Interest for a Given Location and Radius.
+      parameters:
+      - name: latitude
+        description: Latitude (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 41.397158
+      - name: longitude
+        description: Longitude (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 2.160873
+      - name: radius
+        description: radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.
+        in: query
+        required: false
+        type: integer
+        minimum: 0
+        maximum: 20
+        default: 1
+        x-example: 1
+      - $ref: '#/parameters/pageLimit'
+      - $ref: '#/parameters/pageOffset'
+      - $ref: '#/parameters/categories'
+      responses:
+        '200':
+          $ref: '#/responses/points-of-interest'
+        '400':
+          $ref: '#/responses/400'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /reference-data/locations/pois/by-square:
+    get:
+      tags:
+      - Search
+      operationId: getPointsOfInterestBySquare
+      summary: Amadeus Returns Points of Interest for a Given Area
+      parameters:
+      - name: north
+        description: Latitude north of bounding box (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 41.397158
+      - name: west
+        description: Longitude west of bounding box (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 2.160873
+      - name: south
+        description: Latitude south of bounding box (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 41.394582
+      - name: east
+        description: Longitude east of bounding box (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 2.177181
+      - $ref: '#/parameters/pageLimit'
+      - $ref: '#/parameters/pageOffset'
+      - $ref: '#/parameters/categories'
+      responses:
+        '200':
+          $ref: '#/responses/points-of-interest'
+        '400':
+          $ref: '#/responses/400'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /safety/safety-rated-locations:
+    get:
+      tags:
+      - Search
+      operationId: getSafetyRanking
+      deprecated: true
+      summary: Amadeus Returns Safety Rating for a Given Location and Radius.
+      parameters:
+      - name: latitude
+        description: Latitude (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 41.397158
+      - name: longitude
+        description: Longitude (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 2.160873
+      - name: radius
+        description: radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.
+        in: query
+        required: false
+        type: integer
+        minimum: 0
+        maximum: 20
+        default: 1
+        x-example: 1
+      - $ref: '#/parameters/pageLimit'
+      - $ref: '#/parameters/pageOffset'
+      responses:
+        '200':
+          $ref: '#/responses/safety-rated-locations'
+        '400':
+          $ref: '#/responses/400'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /safety/safety-rated-locations/by-square:
+    get:
+      tags:
+      - Search
+      operationId: getSafetyRankBySquare
+      deprecated: true
+      summary: Amadeus Returns the Safety Rating of a Given Area
+      parameters:
+      - name: north
+        description: Latitude north of bounding box (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 41.397158
+      - name: west
+        description: Longitude west of bounding box (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 2.160873
+      - name: south
+        description: Latitude south of bounding box (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 41.394582
+      - name: east
+        description: Longitude east of bounding box (decimal coordinates)
+        in: query
+        required: true
+        type: number
+        format: double
+        x-example: 2.177181
+      - $ref: '#/parameters/pageLimit'
+      - $ref: '#/parameters/pageOffset'
+      responses:
+        '200':
+          $ref: '#/responses/safety-rated-locations'
+        '400':
+          $ref: '#/responses/400'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /shopping/activities:
+    get:
+      tags:
+      - Search
+      operationId: ListActivities
+      summary: Amadeus Returns Activities Around a Given Location
+      parameters:
+      - type: number
+        in: query
+        name: latitude
+        description: Latitude (decimal coordinates)
+        required: true
+        x-example: 41.397158
+      - type: number
+        in: query
+        required: true
+        name: longitude
+        description: Longitude (decimal coordinates)
+        x-example: 2.160873
+      - type: integer
+        default: 1
+        in: query
+        name: radius
+        description: radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.
+        x-example: 1
+      responses:
+        '200':
+          $ref: '#/responses/activities'
+        '400':
+          $ref: '#/responses/400_Search'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /shopping/activities/by-square:
+    get:
+      tags:
+      - Search
+      operationId: ListActivitiesBySquare
+      summary: Amadeus Returns Activities Around a Given Location
+      parameters:
+      - type: number
+        in: query
+        name: north
+        required: true
+        description: Latitude north of bounding box (decimal coordinates)
+        x-example: 41.397158
+      - type: number
+        in: query
+        name: west
+        description: Longitude west of bounding box (decimal coordinates)
+        required: true
+        x-example: 2.160873
+      - type: number
+        in: query
+        required: true
+        name: south
+        description: Latitude south of bounding box (decimal coordinates)
+        x-example: 41.394582
+      - type: number
+        in: query
+        required: true
+        name: east
+        description: Longitude east of bounding box (decimal coordinates)
+        x-example: 2.177181
+      responses:
+        '200':
+          $ref: '#/responses/activities'
+        '400':
+          $ref: '#/responses/400_Search'
+        default:
+          $ref: '#/responses/500'
+      description: ''
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+definitions:
+  SafetyRatedLocation:
+    type: object
+    title: SafetyRatedLocation
+    allOf:
+    - type: object
+      properties:
+        safetyScore:
+          $ref: '#/definitions/SafetyScore'
+    - $ref: '#/definitions/Location_2'
+  Collection_Meta_2:
+    type: object
+    title: Collection_Meta
+    properties:
+      count:
+        type: integer
+        example: 1
+      links:
+        type: object
+        title: CollectionLinks
+        properties:
+          self:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          next:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          previous:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          last:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          first:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          up:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+        example:
+          self: https://test.api.amadeus.com/v1/area/resources?param=value
+  Activity:
+    type: object
+    title: Activity
+    description: Activity description
+    properties:
+      type:
+        type: string
+        description: the ressource name
+        readOnly: true
+        example: string-value
+      id:
+        type: string
+        description: unique id of the ressource
+        readOnly: true
+        example: '12345'
+      self:
+        $ref: '#/definitions/Link'
+      name:
+        type: string
+        description: activity name
+        example: Sample Name
+      shortDescription:
+        type: string
+        description: short description of the activity
+        example: Sample description text.
+      description:
+        type: string
+        description: full description of the activity
+        example: Sample description text.
+      geoCode:
+        $ref: '#/definitions/GeoCode_2'
+      rating:
+        type: string
+        description: rating of the activity
+        example: string-value
+      price:
+        $ref: '#/definitions/ElementaryPrice'
+      pictures:
+        type: array
+        description: link to picture related to the activity
+        items:
+          type: string
+      bookingLink:
+        type: string
+        description: url to book the activity
+        example: string-value
+      minimumDuration:
+        type: string
+        description: Minimum recommended duration for the activity
+        example: PT2H30M
+  GeoCode:
+    properties:
+      latitude:
+        description: latitude of the location
+        type: number
+        format: double
+        example: 43.580418
+      longitude:
+        description: longitude of the location
+        type: number
+        format: double
+        example: 7.125102
+  Issue:
+    properties:
+      status:
+        description: the HTTP status code applicable to this error
+        type: integer
+        example: 1
+      code:
+        description: an application-specific error code
+        type: integer
+        format: int64
+        example: 1
+      title:
+        description: a short summary of the error
+        type: string
+        example: string-value
+      detail:
+        description: explanation of the error
+        type: string
+        example: string-value
+      source:
+        type: object
+        title: Issue_Source
+        description: an object containing references to the source of the error
+        maxProperties: 1
+        properties:
+          pointer:
+            description: a JSON Pointer [RFC6901] to the associated entity in the request document
+            type: string
+            example: string-value
+          parameter:
+            description: a string indicating which URI query parameter caused the issue
+            type: string
+            example: string-value
+          example:
+            description: a string indicating an example of the right value
+            type: string
+            example: string-value
+  GeoCode_2:
+    type: object
+    description: geo position
+    properties:
+      latitude:
+        description: latitude of the location
+        type: number
+        format: double
+        example: 43.580418
+      longitude:
+        description: longitude of the location
+        type: number
+        format: double
+        example: 7.125102
+  Issue_2:
+    type: object
+    properties:
+      status:
+        description: the HTTP status code applicable to this error
+        type: integer
+        example: 1
+      code:
+        description: an application-specific error code
+        type: integer
+        format: int64
+        example: 1
+      title:
+        description: a short summary of the error
+        type: string
+        example: string-value
+      detail:
+        description: explanation of the error
+        type: string
+        example: string-value
+      source:
+        type: object
+        title: Issue_Source
+        description: an object containing references to the source of the error
+        maxProperties: 1
+        properties:
+          pointer:
+            description: a JSON Pointer [RFC6901] to the associated entity in the request document
+            type: string
+            example: string-value
+          parameter:
+            description: a string indicating which URI query parameter caused the issue
+            type: string
+            example: string-value
+          example:
+            description: a string indicating an example of the right value
+            type: string
+            example: string-value
+  Collection_Meta:
+    title: Collection_Meta
+    properties:
+      count:
+        type: integer
+        example: 1
+      links:
+        title: CollectionLinks
+        properties:
+          self:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          next:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          previous:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          last:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          first:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+          up:
+            type: string
+            format: uri
+            example: https://test.api.amadeus.com/v1/area/resources?...
+        example:
+          self: https://test.api.amadeus.com/v1/area/resources?param=value
+  Links:
+    properties:
+      href:
+        type: string
+        format: uri
+        example: https://example.com/resource
+      methods:
+        type: array
+        items:
+          type: string
+          enum:
+          - GET
+          - PUT
+          - DELETE
+          - POST
+          - PATCH
+    example:
+      href: string
+  Location_2:
+    properties:
+      id:
+        description: id of the ressource
+        type: string
+        example: '12345'
+      self:
+        $ref: '#/definitions/Links_2'
+      type:
+        description: the resource name
+        type: string
+        example: location
+      subType:
+        description: location sub type
+        type: string
+        enum:
+        - AIRPORT
+        - CITY
+        - POINT_OF_INTEREST
+        - DISTRICT
+        example: AIRPORT
+      name:
+        description: short name of the location
+        type: string
+        example: Paris CDG
+      geoCode:
+        $ref: '#/definitions/GeoCode'
+  ElementaryPrice:
+    description: elementaryPrice
+    type: object
+    properties:
+      amount:
+        type: string
+        description: Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection.
+        example: '199.50'
+      currencyCode:
+        type: string
+        description: Currency type of the fare.
+        example: EUR
+  Location:
+    properties:
+      id:
+        description: id of the ressource
+        type: string
+        example: '12345'
+      self:
+        $ref: '#/definitions/Links'
+      type:
+        description: the resource name
+        type: string
+        example: location
+      subType:
+        description: location sub type
+        type: string
+        enum:
+        - AIRPORT
+        - CITY
+        - POINT_OF_INTEREST
+        - DISTRICT
+        example: AIRPORT
+      name:
+        description: short name of the location
+        type: string
+        example: Paris CDG
+      geoCode:
+        $ref: '#/definitions/GeoCode'
+      category:
+        description: category of the location
+        type: string
+        enum:
+        - SIGHTS
+        - BEACH_PARK
+        - HISTORICAL
+        - NIGHTLIFE
+        - RESTAURANT
+        - SHOPPING
+        example: HISTORICAL
+      tags:
+        description: list of tags related to the location
+        type: array
+        items:
+          type: string
+          example:
+          - grocery
+          - japanese
+          - cafe
+      rank:
+        description: the rank is the position compared to other locations based on how famous is a place. 1 being the highest.
+        type: string
+        example: 1
+  Error_400_2:
+    type: object
+    properties:
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Issue_2'
+    required:
+    - errors
+    example:
+      errors:
+      - status: 400
+        code: 477
+        title: INVALID FORMAT
+        detail: invalid query parameter format
+        source:
+          parameter: airport
+          example: CDG
+  Link:
+    type: object
+    properties:
+      href:
+        type: string
+        format: uri
+        example: https://example.com/resource
+      methods:
+        type: array
+        items:
+          type: string
+          enum:
+          - GET
+          - PUT
+          - DELETE
+          - POST
+          - PATCH
+    example:
+      href: string
+  SafetyScore:
+    properties:
+      women:
+        description: Likelihood of inappropriate behavior against females. Score go from 1 (not likely) to 100 (very likely).
+        type: integer
+        example: 1
+      physicalHarm:
+        description: Likelihood of injury due to harmful intent. Score go from 1 (not likely) to 100 (very likely).
+        type: integer
+        example: 1
+      theft:
+        description: Likelihood of theft. Score go from 1 (not likely) to 100 (very likely).
+        type: integer
+        example: 1
+      politicalFreedom:
+        description: Potential for infringement of political rights or political unrest. Score go from 1 (not likely) to 100 (very likely).
+        type: integer
+        example: 1
+      lgbtq:
+        description: Likelihood of harm or discrimination against LGBTQ persons or groups and level of caution required at location. Score go from 1 (not likely) to 100 (very likely).
+        type: integer
+        example: 1
+      medical:
+        description: Likelihood of illness or disease, assessment of water and air quality, and access to reliable medical care. Score go from 1 (not likely) to 100 (very likely).
+        type: integer
+        example: 1
+      overall:
+        description: An average of the 6 “sub”-categories. Score go from 1 (very safe) to 100 (very dangerous).
+        type: integer
+        example: 1
+  Error_400:
+    properties:
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Issue'
+    required:
+    - errors
+    example:
+      errors:
+      - status: 400
+        code: 477
+        title: INVALID FORMAT
+        detail: invalid query parameter format
+        source:
+          parameter: airport
+          example: CDG
+  Error_500:
+    properties:
+      errors:
+        type: array
+        items:
+          $ref: '#/definitions/Issue'
+    required:
+    - errors
+    example:
+      errors:
+      - status: 500
+        code: 141
+        title: SYSTEM ERROR HAS OCCURRED
+  Links_2:
+    required:
+    - href
+    properties:
+      href:
+        type: string
+        format: uri
+        example: https://example.com/resource
+      methods:
+        type: array
+        items:
+          type: string
+          enum:
+          - GET
+          - PUT
+          - DELETE
+          - POST
+          - PATCH
+      count:
+        type: integer
+        example: 1
+    example:
+      href: string
+parameters:
+  categories:
+    name: categories
+    description: "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n"
+    in: query
+    required: false
+    type: array
+    items:
+      type: string
+      enum:
+      - SIGHTS
+      - NIGHTLIFE
+      - RESTAURANT
+      - SHOPPING
+      collectionFormat: csv
+  pageOffset:
+    name: page[offset]
+    description: start index of the requested page
+    required: false
+    in: query
+    type: integer
+    default: 0
+  pageLimit:
+    name: page[limit]
+    description: maximum items in one page
+    required: false
+    in: query
+    type: integer
+    default: 10
+responses:
+  400_Search:
+    description: "Code   | Title\n-------|----------------\n477    | INVALID FORMAT\n572    | INVALID OPTION\n4926   | INVALID DATA RECEIVED\n32171  | MANDATORY DATA MISSING\t     \n"
+    schema:
+      $ref: '#/definitions/Error_400_2'
+  '500':
+    description: Unexpected Error
+    schema:
+      $ref: '#/definitions/Error_500'
+  activities:
+    description: Successful Operation
+    schema:
+      title: Successful Search
+      required:
+      - data
+      properties:
+        meta:
+          $ref: '#/definitions/Collection_Meta_2'
+        warnings:
+          type: array
+          items:
+            $ref: '#/definitions/Issue_2'
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/Activity'
+      example:
+        meta:
+          count: '1'
+          links:
+            self: https://test.api.amadeus.com/v1/shopping/activities?longitude=-3.69170868&latitude=40.41436995&radius=1
+        data:
+        - id: '23642'
+          type: activity
+          self:
+            href: https://test.api.amadeus.com/v1/shopping/activities/23642
+            methods:
+            - GET
+          name: Skip-the-line tickets to the Prado Museum
+          shortDescription: Book your tickets for the Prado Museum in Madrid, discover masterpieces by Velázquez, Goya, Mantegna, Raphael, Tintoretto and access all temporary exhibitions.
+          geoCode:
+            latitude: '40.414000'
+            longitude: '-3.691000'
+          rating: '4.500000'
+          pictures:
+          - https://images.musement.com/cover/0001/07/prado-museum-tickets_header-6456.jpeg?w=500
+          bookingLink: https://b2c.mla.cloud/c/QCejqyor?c=2WxbgL36
+          price:
+            currencyCode: EUR
+            amount: '16.00'
+  safety-rated-locations:
+    description: Successful Operation
+    schema:
+      title: Success
+      required:
+      - data
+      properties:
+        warnings:
+          type: array
+          items:
+            $ref: '#/definitions/Issue'
+        meta:
+          $ref: '#/definitions/Collection_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/SafetyRatedLocation'
+      example:
+        meta:
+          count: 43
+          links:
+            self: https://test.api.amadeus.com/v1/safety/safety-rated-locations?latitude=41.397158&longitude=2.160873&radius=2
+            next: https://test.api.amadeus.com/v1/safety/safety-rated-locations?latitude=41.397158&longitude=2.160873&page%5Boffset%5D=1&radius=2
+            last: https://test.api.amadeus.com/v1/safety/safety-rated-locations?latitude=41.397158&longitude=2.160873&page%5Boffset%5D=4&radius=2
+            first: https://test.api.amadeus.com/v1/safety/safety-rated-locations?latitude=41.397158&longitude=2.160873&page%5Boffset%5D=0&radius=2
+        data:
+        - type: safety-rated-location
+          id: Q930402719
+          self:
+            type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402719
+            methods:
+            - GET
+          subType: CITY
+          name: Barcelona
+          geoCode:
+            latitude: 41.385064
+            longitude: 2.173404
+          safetyScores:
+            lgbtq: 39
+            medical: 0
+            overall: 45
+            physicalHarm: 36
+            politicalFreedom: 50
+            theft: 44
+            women: 34
+        - type: safety-rated-location
+          id: Q930402720
+          self:
+            type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402720
+            methods:
+            - GET
+          subType: DISTRICT
+          name: Antiga Esquerra de l'Eixample (Barcelona)
+          geoCode:
+            latitude: 41.3885573
+            longitude: 2.1573033
+          safetyScores:
+            lgbtq: 37
+            medical: 0
+            overall: 44
+            physicalHarm: 34
+            politicalFreedom: 50
+            theft: 42
+            women: 33
+        - type: safety-rated-location
+          id: Q930402721
+          self:
+            type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402721
+            methods:
+            - GET
+          subType: DISTRICT
+          name: Baix Guinardó (Barcelona)
+          geoCode:
+            latitude: 41.412131
+            longitude: 2.1683571
+          safetyScores:
+            lgbtq: 37
+            medical: 0
+            overall: 44
+            physicalHarm: 34
+            politicalFreedom: 50
+            theft: 42
+            women: 33
+        - type: safety-rated-location
+          id: Q930402722
+          self:
+            type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402722
+            methods:
+            - GET
+          subType: DISTRICT
+          name: Barceloneta (Barcelona)
+          geoCode:
+            latitude: 41.380894
+            longitude: 2.189385
+          safetyScores:
+            lgbtq: 42
+            medical: 0
+            overall: 47
+            physicalHarm: 39
+            politicalFreedom: 50
+            theft: 49
+            women: 34
+        - type: safety-rated-location
+          id: Q930402724
+          self:
+            type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402724
+            methods:
+            - GET
+          subType: DISTRICT
+          name: Can Baró (Barcelona)
+          geoCode:
+            latitude: 41.4172284
+            longitude: 2.163444
+          safetyScores:
+            lgbtq: 37
+            medical: 0
+            overall: 44
+            physicalHarm: 34
+            politicalFreedom: 50
+            theft: 42
+            women: 33
+        - type: safety-rated-location
+          id: Q930402731
+          self:
+            type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402731
+            methods:
+            - GET
+          subType: DISTRICT
+          name: El Born (Barcelona)
+          geoCode:
+            latitude: 41.384728
+            longitude: 2.18286
+          safetyScores:
+            lgbtq: 42
+            medical: 0
+            overall: 47
+            physicalHarm: 39
+            politicalFreedom: 50
+            theft: 49
+            women: 34
+        - type: safety-rated-location
+          id: Q930402732
+          self:
+            type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402732
+            methods:
+            - GET
+          subType: DISTRICT
+          name: El Camp de l'Arpa del Clot (Barcelona)
+          geoCode:
+            latitude: 41.4118532
+            longitude: 2.1830997
+          safetyScores:
+            lgbtq: 37
+            medical: 0
+            overall: 45
+            physicalHarm: 35
+            politicalFreedom: 50
+            theft: 43
+            women: 33
+        - type: safety-rated-location
+          id: Q930402733
+          self:
+            type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402733
+            methods:
+            - GET
+          subType: DISTRICT
+          name: El Camp d'en Grassot i Gràcia Nova (Barcelona)
+          geoCode:
+            latitude: 41.4046685
+            longitude: 2.1659005
+          safetyScores:
+            lgbtq: 37
+            medical: 0
+            overall: 44
+            physicalHarm: 34
+            politicalFreedom: 50
+            theft: 42
+            women: 33
+        - type: safety-rated-location
+          id: Q930402734
+          self:
+            type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402734
+            methods:
+            - GET
+          subType: DISTRICT
+          name: El Carmel (Barcelona)
+          geoCode:
+            latitude: 41.422371
+            longitude: 2.1560753
+          safetyScores:
+            lgbtq: 37
+            medical: 0
+            overall: 44
+            physicalHarm: 34
+            politicalFreedom: 50
+            theft: 42
+            women: 33
+        - type: safety-rated-location
+          id: Q930402735
+          self:
+            type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402735
+            methods:
+            - GET
+          subType: DISTRICT
+          name: El Clot (Barcelona)
+          geoCode:
+            latitude: 41.4097037
+            longitude: 2.1892366
+          safetyScores:
+            lgbtq: 37
+            medical: 0
+            overall: 45
+            physicalHarm: 35
+            politicalFreedom: 50
+            theft: 43
+            women: 33
+  points-of-interest:
+    description: Successful Operation
+    schema:
+      title: Success
+      required:
+      - data
+      properties:
+        meta:
+          $ref: '#/definitions/Collection_Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/definitions/Location'
+      example:
+        data:
+        - type: location
+          subType: POINT_OF_INTEREST
+          id: 9CB40CB5D0
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/pois/9CB40CB5D0
+            methods:
+            - GET
+          geoCode:
+            latitude: 41.39165
+            longitude: 2.164772
+          name: Casa Batlló
+          category: SIGHTS
+          rank: 5
+          tags:
+          - sightseeing
+          - sights
+          - museum
+          - landmark
+          - tourguide
+          - restaurant
+          - attraction
+          - activities
+          - commercialplace
+          - shopping
+          - souvenir
+        - type: location
+          subType: POINT_OF_INTEREST
+          id: 4690B83DCA
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/pois/4690B83DCA
+            methods:
+            - GET
+          geoCode:
+            latitude: 41.397987
+            longitude: 2.161159
+          name: La Pepita
+          category: RESTAURANT
+          rank: 30
+          tags:
+          - restaurant
+          - tapas
+          - pub
+          - bar
+          - sightseeing
+          - commercialplace
+        - type: location
+          subType: POINT_OF_INTEREST
+          id: 3EF139D861
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/pois/3EF139D861
+            methods:
+            - GET
+          geoCode:
+            latitude: 41.38827
+            longitude: 2.161604
+          name: Brunch & Cake
+          category: RESTAURANT
+          rank: 30
+          tags:
+          - vegetarian
+          - restaurant
+          - breakfast
+          - shopping
+          - bakery
+          - transport
+          - patio
+          - garden
+        - type: location
+          subType: POINT_OF_INTEREST
+          id: AB3F122E3E
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/pois/AB3F122E3E
+            methods:
+            - GET
+          geoCode:
+            latitude: 41.392376
+            longitude: 2.160919
+          name: Cervecería Catalana
+          category: RESTAURANT
+          rank: 30
+          tags:
+          - restaurant
+          - tapas
+          - sightseeing
+          - traditionalcuisine
+          - bar
+          - activities
+          - commercialplace
+        - type: location
+          subType: POINT_OF_INTEREST
+          id: 752402FCA2
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/pois/752402FCA2
+            methods:
+            - GET
+          geoCode:
+            latitude: 41.40043
+            longitude: 2.15463
+          name: Botafumeiro
+          category: RESTAURANT
+          rank: 30
+          tags:
+          - restaurant
+          - seafood
+          - sightseeing
+          - professionalservices
+          - transport
+          - commercialplace
+        - type: location
+          subType: POINT_OF_INTEREST
+          id: 5F1CED3994
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/pois/5F1CED3994
+            methods:
+            - GET
+          geoCode:
+            latitude: 41.39148
+            longitude: 2.164981
+          name: Casa Amatller
+          category: SIGHTS
+          rank: 100
+          tags:
+          - sightseeing
+          - sights
+          - museum
+          - landmark
+          - restaurant
+          - tourguide
+          - historicplace
+          - historic
+          - attraction
+          - commercialplace
+          - activities
+          - shopping
+          - events
+        - type: location
+          subType: POINT_OF_INTEREST
+          id: 30601A1A90
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/pois/30601A1A90
+            methods:
+            - GET
+          geoCode:
+            latitude: 41.390785
+            longitude: 2.167414
+          name: Tapas 24
+          category: RESTAURANT
+          rank: 100
+          tags:
+          - restaurant
+          - tapas
+          - traditionalcuisine
+          - sightseeing
+          - commercialplace
+          - transport
+          - patio
+          - garden
+          - activities
+          - bar
+        - type: location
+          subType: POINT_OF_INTEREST
+          id: 15C8B8148C
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/pois/15C8B8148C
+            methods:
+            - GET
+          geoCode:
+            latitude: 41.392677
+            longitude: 2.153942
+          name: Dry Martini
+          category: NIGHTLIFE
+          rank: 100
+          tags:
+          - bar
+          - restaurant
+          - nightlife
+          - club
+          - sightseeing
+          - attraction
+          - activities
+        - type: location
+          subType: POINT_OF_INTEREST
+          id: BD29CF2CCD
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/pois/BD29CF2CCD
+            methods:
+            - GET
+          geoCode:
+            latitude: 41.399193
+            longitude: 2.159853
+          name: Con Gracia
+          category: RESTAURANT
+          rank: 100
+          tags:
+          - restaurant
+          - sightseeing
+          - commercialplace
+          - professionalservices
+          - activities
+        - type: location
+          subType: POINT_OF_INTEREST
+          id: 24DE6CE737
+          self:
+            href: https://test.api.amadeus.com/v1/reference-data/locations/pois/24DE6CE737
+            methods:
+            - GET
+          geoCode:
+            latitude: 41.390198
+            longitude: 2.156974
+          name: Osmosis
+          category: RESTAURANT
+          rank: 100
+          tags:
+          - restaurant
+          - shopping
+          - transport
+          - professionalservices
+        meta:
+          count: 120
+          links:
+            self: https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873
+            next: https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873&page[offset]=10&page[limit]=10
+            last: https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873&page[offset]=120&page[limit]=10
+            first: https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873&page[offset]=0&page[limit]=10
+            up: https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873
+  '400':
+    description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
+    schema:
+      $ref: '#/definitions/Error_400'
