@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "id": "3a185fca-86d6-4405-a156-e9aee7727b36",
+      "name": "Availibility",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "912e38d8-f7b0-4301-887f-040b80e2d825",
+          "name": "Amadeus Return List of Flight Availabilities Based on Posted Searching Criteria.",
+          "request": {
+            "name": "Amadeus Return List of Flight Availabilities Based on Posted Searching Criteria.",
+            "description": {},
+            "url": {
+              "path": [
+                "shopping",
+                "availability",
+                "flight-availabilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a659019-0801-41ba-9ea1-57b2d920ce2c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "availability",
+                    "flight-availabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "494a7819-ca0d-4cc6-baa0-47d831b847b4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "availability",
+                    "flight-availabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "baf457bc-7ab5-4519-92fd-d21428e1cb70",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "availability",
+                    "flight-availabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3bdc4265-ba15-4392-8dd7-6b83baae96b8",
+    "name": "Airline Code Lookup air-traffic Availibility API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "item": [
+    {
+      "id": "dc24e743-5853-44c1-99e8-2455cbd1b254",
+      "name": "City",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "21692a5a-c53e-45e0-b062-7f7d88765e90",
+          "name": "Amadeus GET Cities by Keyword",
+          "request": {
+            "name": "Amadeus GET Cities by Keyword",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations",
+                "cities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>",
+                  "description": "ISO 3166 Alpha-2 code. e.g. \"US\" United States of America."
+                },
+                {
+                  "disabled": false,
+                  "key": "keyword",
+                  "value": "<string>",
+                  "description": "(Required) keyword that should represent the start of a word in a city name."
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Number of results user want to see in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>,<string>",
+                  "description": "Resources to be included example : Airports"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "908f72ad-1f76-4107-b058-675db5a91a8e",
+              "name": "Successful Reply",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "cities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "countryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "PARIS"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "include",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"type\": \"location\",\n      \"subType\": \"city\",\n      \"name\": \"PARIS\",\n      \"iataCode\": \"PAR\",\n      \"address\": {\n        \"CountryCode\": \"FR\"\n      },\n      \"geoCode\": {\n        \"latitude\": \"49.01278\",\n        \"longitude\": \"2.55\"\n      },\n      \"relationships\": [\n        {\n          \"id\": \"CDG\",\n          \"type\": \"Airport\",\n          \"href\": \"#/included/airports/CDG\"\n        },\n        {\n          \"id\": \"ORY\",\n          \"type\": \"Airport\",\n          \"href\": \"#/included/airports/ORY\"\n        }\n      ]\n    }\n  ],\n  \"included\": {\n    \"airports\": {\n      \"CDG\": {\n        \"name\": \"CHARLES DE GAULLE\",\n        \"iataCode\": \"CDG\",\n        \"subType\": \"Airport\"\n      },\n      \"ORY\": {\n        \"name\": \"ORLY\",\n        \"iataCode\": \"ORY\",\n        \"subType\": \"Airport\"\n      }\n    }\n  },\n  \"meta\": {\n    \"count\": \"1\",\n    \"links\": {\n      \"self\": \"https://api.amadeus.net/v1/reference-data/locations/cities/keyword=PARIS&CountryCode=FR&include=AIRPORTS\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "59f5c3fb-4625-498f-9aac-8ea36c0e129a",
+              "name": "Bad Request\n\ncode    | title                                 \n------- | -------------------------------------                        \n32171   | MANDATORY DATA MISSING \n572     | INVALID OPTION\n2781    | INVALID LENGTH\n477     | INVALID FORMAT\n4926    | INVALID DATA RECEIVED\n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "cities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "countryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "PARIS"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "include",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 400,\n      \"code\": 32171,\n      \"title\": \"MANDATORY DATA MISSING\",\n      \"detail\": \"Missing mandatory query parameter\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3dd11ac5-7ee0-4982-9165-bb6d85f72333",
+              "name": "Internal Server Error\n\ncode    | title                                 \n------- | ------------------------------------- \n141     | SYSTEM ERROR HAS OCCURRED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "cities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "countryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "keyword",
+                      "value": "PARIS"
+                    },
+                    {
+                      "key": "max",
+                      "value": "10"
+                    },
+                    {
+                      "key": "include",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "34a400be-0812-43be-ad38-c531e4f856b4",
+    "name": "Airline Code Lookup air-traffic City API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

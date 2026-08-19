@@ -1,0 +1,197 @@
+{
+  "item": [
+    {
+      "id": "1f6732e6-5ece-40db-b385-888e06fcdea1",
+      "name": "checkin-links",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a31d4987-9736-430e-8230-17804c950ae3",
+          "name": "Amadeus Lists Check-in URLs.",
+          "request": {
+            "name": "Amadeus Lists Check-in URLs.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "urls",
+                "checkin-links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Airline code following IATA or ICAO standard - e.g. 1X; AF or ESY\n\n[IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)\n\n[ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)\n",
+                    "type": "text/plain"
+                  },
+                  "key": "airlineCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Check-in page language with one of the following patterns 'languageCode' (e.g. EN) or 'languageCode-IATAcountryCode' (e.g. en-GB). \n\nDefault value is **en-GB** (used when required language is not available or when no value is specified).\n",
+                    "type": "text/plain"
+                  },
+                  "key": "language",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b59b850-3232-40d7-9020-6204e318f83c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "urls",
+                    "checkin-links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airlineCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "language",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dfbeb731-ae65-4aa2-9a76-4cecd4ee5236",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "urls",
+                    "checkin-links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airlineCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "language",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a9d4a3d3-af02-411d-81af-35cde9ef2087",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "urls",
+                    "checkin-links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airlineCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "language",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c8c00ec8-959a-46da-91a1-f233d545562b",
+    "name": "Airline Code Lookup air-traffic checkin-links API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

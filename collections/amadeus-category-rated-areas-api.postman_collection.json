@@ -1,0 +1,220 @@
+{
+  "item": [
+    {
+      "id": "6dc49465-2729-437d-bb71-7c7da8e7c01d",
+      "name": "category-rated-areas",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "038e3a4b-f48e-4c6c-91e9-a88c751bcd03",
+          "name": "Amadeus GET Category Rated Areas",
+          "request": {
+            "name": "Amadeus GET Category Rated Areas",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "location",
+                "analytics",
+                "category-rated-areas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<number>",
+                  "description": "(Required) Latitude in decimal coordinates"
+                },
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<number>",
+                  "description": "(Required) Longitude in decimal coordinates"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "caedae26-b456-42f1-b48b-b81498825026",
+              "name": "Successful Reply",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "location",
+                    "analytics",
+                    "category-rated-areas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "41.397158"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "2.160873"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"count\": 3,\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/location/analytics/category-rated-areas?latitude=41.397158&longitude=2.160873\"\n    }\n  },\n  \"data\": [\n    {\n      \"type\": \"category-rated-area\",\n      \"geoCode\": {\n        \"longitude\": 41.397158,\n        \"latitude\": 2.160873\n      },\n      \"radius\": 200,\n      \"categoryScores\": {\n        \"sight\": {\n          \"overall\": 90,\n          \"historical\": 86,\n          \"beachAndPark\": 0\n        },\n        \"restaurant\": {\n          \"overall\": 99,\n          \"vegetarian\": 82\n        },\n        \"shopping\": {\n          \"overall\": 99,\n          \"luxury\": 97\n        },\n        \"nightLife\": {\n          \"overall\": 93\n        }\n      }\n    },\n    {\n      \"type\": \"category-rated-area\",\n      \"geoCode\": {\n        \"longitude\": 41.397158,\n        \"latitude\": 2.160873\n      },\n      \"radius\": 500,\n      \"categoryScores\": {\n        \"sight\": {\n          \"overall\": 99,\n          \"historical\": 89,\n          \"beachAndPark\": 0\n        },\n        \"restaurant\": {\n          \"overall\": 99,\n          \"vegetarian\": 92\n        },\n        \"shopping\": {\n          \"overall\": 99,\n          \"luxury\": 99\n        },\n        \"nightLife\": {\n          \"overall\": 96\n        }\n      }\n    },\n    {\n      \"type\": \"category-rated-area\",\n      \"geoCode\": {\n        \"longitude\": 41.397158,\n        \"latitude\": 2.160873\n      },\n      \"radius\": 1500,\n      \"categoryScores\": {\n        \"sight\": {\n          \"overall\": 99,\n          \"historical\": 99,\n          \"beachAndPark\": 58\n        },\n        \"restaurant\": {\n          \"overall\": 99,\n          \"vegetarian\": 99\n        },\n        \"shopping\": {\n          \"overall\": 99,\n          \"luxury\": 99\n        },\n        \"nightLife\": {\n          \"overall\": 99\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99da2e03-49fe-4807-a1e0-7fb335fc96ef",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION                            \n32171   | MANDATORY DATA MISSING ",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "location",
+                    "analytics",
+                    "category-rated-areas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "41.397158"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "2.160873"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 400,\n      \"code\": 477,\n      \"title\": \"INVALID FORMAT\",\n      \"detail\": \"invalid query parameter format\",\n      \"source\": {\n        \"parameter\": \"latitude\",\n        \"example\": \"41.397158\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2fa0feba-d384-4f3b-ae74-eac545d94cbd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "location",
+                    "analytics",
+                    "category-rated-areas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "41.397158"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "2.160873"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "059968a6-c5b2-4b30-90c3-f6d3620fb3ce",
+    "name": "Airline Code Lookup air-traffic category-rated-areas API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

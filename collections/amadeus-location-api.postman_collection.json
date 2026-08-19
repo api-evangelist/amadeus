@@ -1,0 +1,549 @@
+{
+  "item": [
+    {
+      "id": "408aa514-9d04-4b77-9177-355571a04be0",
+      "name": "location",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e59fb60a-603e-4896-9784-ece5190f762b",
+          "name": "Amadeus Returns a List of Airports and Cities Matching a Given Keyword.",
+          "request": {
+            "name": "Amadeus Returns a List of Airports and Cities Matching a Given Keyword.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) sub type of the location (AIRPORT and/or CITY)",
+                    "type": "text/plain"
+                  },
+                  "key": "subType",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) keyword that should represent the start of a word in a city or airport name or code. \nSupported charaters are: A-Za-z0-9./:-'()\"",
+                    "type": "text/plain"
+                  },
+                  "key": "keyword",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Country code of the location using [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US).",
+                    "type": "text/plain"
+                  },
+                  "key": "countryCode",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0ab5334-5591-43ea-ba21-6d81014fe624",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subType",
+                      "value": ""
+                    },
+                    {
+                      "key": "keyword",
+                      "value": ""
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e082e48a-d808-41af-bb9b-5f6c944bc93e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subType",
+                      "value": ""
+                    },
+                    {
+                      "key": "keyword",
+                      "value": ""
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "56018291-1576-4e7a-be40-1285a976111c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "subType",
+                      "value": ""
+                    },
+                    {
+                      "key": "keyword",
+                      "value": ""
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18d34152-87e6-4f53-8495-aea126c57d4a",
+          "name": "Amadeus Returns a Specific Airports or Cities Based on its ID.",
+          "request": {
+            "name": "Amadeus Returns a Specific Airports or Cities Based on its ID.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations",
+                ":locationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7316df0-5c3c-435e-8b6c-35f4c3d8583e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9325cc4-9cf3-44dd-807b-85080dedbaa2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aa5bbb85-d891-4812-b5b5-bb1f23aaf97e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "03e76159-964a-4579-b713-c8384f9ee2c1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29b6c4a8-fc04-4396-a460-701d6f1e2842",
+          "name": "Amadeus Returns a List of Relevant Airports Near to a Given Point.",
+          "request": {
+            "name": "Amadeus Returns a List of Relevant Airports Near to a Given Point.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations",
+                "airports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) latitude location to be at the center of the search circle",
+                    "type": "text/plain"
+                  },
+                  "key": "latitude",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) longitude location to be at the center of the search circle",
+                    "type": "text/plain"
+                  },
+                  "key": "longitude",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "radius of the search in Kilometer. Can be from 0 to 500, default value is 500 Km.",
+                    "type": "text/plain"
+                  },
+                  "key": "radius",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5032979a-94ed-49ae-a9ae-2c8d8f60fbd8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "airports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "595ec732-7bf8-4018-b1e0-c1a7fb2f4fb6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "airports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bbb20c31-e874-4f7d-a770-8b322f3cd31b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "airports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4f5393d3-e865-4c7b-bc0d-a89964e15b8d",
+    "name": "Airline Code Lookup air-traffic location API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

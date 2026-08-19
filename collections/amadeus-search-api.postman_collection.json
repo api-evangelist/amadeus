@@ -1,0 +1,1426 @@
+{
+  "item": [
+    {
+      "id": "debf843d-de71-4190-b1b7-8dfff83d2e04",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "91630468-a913-4001-9b47-4fd786d97749",
+          "name": "Amadeus Returns a List of Hotels Matching a Given Keyword.",
+          "request": {
+            "name": "Amadeus Returns a List of Hotels Matching a Given Keyword.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations",
+                "hotel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Location query keyword",
+                    "type": "text/plain"
+                  },
+                  "key": "keyword",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Category of search - To enter several values, repeat the query parameter \nUse HOTEL_LEISURE to target aggregators or HOTEL_GDS to target directly the chains",
+                    "type": "text/plain"
+                  },
+                  "key": "subType",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "The country in which you search the subType. Country Code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format",
+                    "type": "text/plain"
+                  },
+                  "key": "countryCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "The language in which you want the results in following [ISO 639-1](https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1). \n\nIf the language entered is not available then the results will be shown in the default language, English.",
+                    "type": "text/plain"
+                  },
+                  "key": "lang",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "The number of results requested from 1 to 20",
+                    "type": "text/plain"
+                  },
+                  "key": "max",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29c256aa-270a-476b-bf70-1776305fc24f",
+              "name": "Successful Search Operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "hotel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "keyword",
+                      "value": ""
+                    },
+                    {
+                      "key": "subType",
+                      "value": ""
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "lang",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2017f99a-607a-4714-b13a-ea83692e97cf",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | NOT FOUND \n1797    | INVALID FORMAT\n572     | INVALID LENGTH\n32171   | MANDATORY DATA MISSING \t     \n",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "hotel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "keyword",
+                      "value": ""
+                    },
+                    {
+                      "key": "subType",
+                      "value": ""
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "lang",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d59f8059-ac40-44a9-a003-06c44c07ec02",
+              "name": "Unexpected Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "hotel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "keyword",
+                      "value": ""
+                    },
+                    {
+                      "key": "subType",
+                      "value": ""
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "lang",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b6021f1-d46b-4b4b-b0f4-5c7e360d5f67",
+          "name": "Amadeus Returns Points of Interest for a Given Location and Radius.",
+          "request": {
+            "name": "Amadeus Returns Points of Interest for a Given Location and Radius.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations",
+                "pois"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Latitude (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "latitude",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Longitude (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "longitude",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                    "type": "text/plain"
+                  },
+                  "key": "radius",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a5bad62-a4e1-4c20-8ff0-cec5e7993b18",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74411a6c-6554-48e2-95d5-839dc2d062ef",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b048a6d-1e1e-4be2-a5db-3aa5cfcec122",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8923845a-f466-4d85-a6b9-ac00451f702f",
+          "name": "Amadeus Returns Points of Interest for a Given Area",
+          "request": {
+            "name": "Amadeus Returns Points of Interest for a Given Area",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "locations",
+                "pois",
+                "by-square"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Latitude north of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "north",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Longitude west of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "west",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Latitude south of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "south",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Longitude east of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "east",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d48a7173-863e-411b-8425-6c16c7094ae7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": ""
+                    },
+                    {
+                      "key": "west",
+                      "value": ""
+                    },
+                    {
+                      "key": "south",
+                      "value": ""
+                    },
+                    {
+                      "key": "east",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "464aeeae-74aa-4279-95cf-76cdf8b65c4f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": ""
+                    },
+                    {
+                      "key": "west",
+                      "value": ""
+                    },
+                    {
+                      "key": "south",
+                      "value": ""
+                    },
+                    {
+                      "key": "east",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "01e75fd9-f1fe-4fe8-8e1d-099def7e7830",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "locations",
+                    "pois",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": ""
+                    },
+                    {
+                      "key": "west",
+                      "value": ""
+                    },
+                    {
+                      "key": "south",
+                      "value": ""
+                    },
+                    {
+                      "key": "east",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d90dda9e-b4dd-40ef-8151-bf24c29d0cdd",
+          "name": "Amadeus Returns Safety Rating for a Given Location and Radius.",
+          "request": {
+            "name": "Amadeus Returns Safety Rating for a Given Location and Radius.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "safety",
+                "safety-rated-locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Latitude (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "latitude",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Longitude (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "longitude",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                    "type": "text/plain"
+                  },
+                  "key": "radius",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cabb4a9a-6997-4df2-b053-1e5e5365ccfb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "safety",
+                    "safety-rated-locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1dcfd496-c11f-46dd-91d0-f72db0ced8d0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "safety",
+                    "safety-rated-locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "88471ee5-8402-4eb9-acf7-d7c257cdef79",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "safety",
+                    "safety-rated-locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2ae221b-76cd-4e2a-b454-5cdfdb6993b9",
+          "name": "Amadeus Returns the Safety Rating of a Given Area",
+          "request": {
+            "name": "Amadeus Returns the Safety Rating of a Given Area",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "safety",
+                "safety-rated-locations",
+                "by-square"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Latitude north of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "north",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Longitude west of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "west",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Latitude south of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "south",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Longitude east of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "east",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28eba2f2-425d-4c07-abfa-8b41e37f34cf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "safety",
+                    "safety-rated-locations",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": ""
+                    },
+                    {
+                      "key": "west",
+                      "value": ""
+                    },
+                    {
+                      "key": "south",
+                      "value": ""
+                    },
+                    {
+                      "key": "east",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c857bfe-7da2-447b-82b7-40778843b86a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "safety",
+                    "safety-rated-locations",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": ""
+                    },
+                    {
+                      "key": "west",
+                      "value": ""
+                    },
+                    {
+                      "key": "south",
+                      "value": ""
+                    },
+                    {
+                      "key": "east",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f9652ad-36a0-4fdd-86cc-590fca3fab70",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "safety",
+                    "safety-rated-locations",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": ""
+                    },
+                    {
+                      "key": "west",
+                      "value": ""
+                    },
+                    {
+                      "key": "south",
+                      "value": ""
+                    },
+                    {
+                      "key": "east",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08e143d1-f9ac-46db-b904-0b6b68ad7ddf",
+          "name": "Amadeus Returns Activities Around a Given Location",
+          "request": {
+            "name": "Amadeus Returns Activities Around a Given Location",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "activities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Latitude (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "latitude",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Longitude (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "longitude",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "radius of the search in Kilometer. Can be from 0 to 20, default value is 1 Km.",
+                    "type": "text/plain"
+                  },
+                  "key": "radius",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6fb4552-1c99-4127-84a5-940dc74cd3a7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d5c0171-076d-4fdd-b0fe-478bbca1520a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b35e296-2fd4-4bbf-ad91-46ffc5ec39f2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "activities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "longitude",
+                      "value": ""
+                    },
+                    {
+                      "key": "radius",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4ff1cb3-fe2c-45e8-a68e-56ffade817fb",
+          "name": "Amadeus Returns Activities Around a Given Location",
+          "request": {
+            "name": "Amadeus Returns Activities Around a Given Location",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "activities",
+                "by-square"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Latitude north of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "north",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Longitude west of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "west",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Latitude south of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "south",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) Longitude east of bounding box (decimal coordinates)",
+                    "type": "text/plain"
+                  },
+                  "key": "east",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6bcedad3-30d7-43dc-9588-a76c36756a47",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "activities",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": ""
+                    },
+                    {
+                      "key": "west",
+                      "value": ""
+                    },
+                    {
+                      "key": "south",
+                      "value": ""
+                    },
+                    {
+                      "key": "east",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4abbb548-4acd-49f9-9c70-02372491a6fd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "activities",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": ""
+                    },
+                    {
+                      "key": "west",
+                      "value": ""
+                    },
+                    {
+                      "key": "south",
+                      "value": ""
+                    },
+                    {
+                      "key": "east",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48484e81-fe5f-404b-b13a-d3dc2ce4aeec",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "activities",
+                    "by-square"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "north",
+                      "value": ""
+                    },
+                    {
+                      "key": "west",
+                      "value": ""
+                    },
+                    {
+                      "key": "south",
+                      "value": ""
+                    },
+                    {
+                      "key": "east",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8f36286c-ced3-49bf-b67e-34551bf6da52",
+    "name": "Airline Code Lookup air-traffic Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

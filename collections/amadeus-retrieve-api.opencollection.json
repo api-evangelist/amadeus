@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airline Code Lookup air-traffic Retrieve API",
+    "version": "1.2.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Retrieve",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Retieve One Point of Interest by its ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/reference-data/locations/pois/:poisId",
+            "params": [
+              {
+                "name": "poisId",
+                "value": "",
+                "type": "path",
+                "description": "identifier of the pois"
+              }
+            ]
+          },
+          "docs": "Amadeus Retieve One Point of Interest by its ID."
+        },
+        {
+          "info": {
+            "name": "Amadeus Retieve Safety Information of a Location by its ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/safety/safety-rated-locations/:safety-rated-locationId",
+            "params": [
+              {
+                "name": "safety-rated-locationId",
+                "value": "",
+                "type": "path",
+                "description": "identifier of the location"
+              }
+            ]
+          },
+          "docs": "Amadeus Retieve Safety Information of a Location by its ID."
+        },
+        {
+          "info": {
+            "name": "Amadeus Retrieve One Activity by its ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/shopping/activities/:activityId",
+            "params": [
+              {
+                "name": "activityId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Amadeus Retrieve One Activity by its ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,234 @@
+{
+  "item": [
+    {
+      "id": "4e8d0c24-810d-4ffa-a836-7adc7582c460",
+      "name": "destinations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5580263f-eb03-46a0-ba7a-6947ff69e088",
+          "name": "Amadeus Get Airline Destinations",
+          "request": {
+            "name": "Amadeus Get Airline Destinations",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "airline",
+                "destinations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "airlineCode",
+                  "value": "<string>",
+                  "description": "(Required) Airline code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Maximum number of destinations in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "arrivalCountryCode",
+                  "value": "<string>",
+                  "description": "Arrival country code following [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx), to filter the list of destinations"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8398abb0-9cf4-41a8-b788-783eadba0643",
+              "name": "Success Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airline",
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airlineCode",
+                      "value": "BA"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    },
+                    {
+                      "key": "arrivalCountryCode",
+                      "value": "FR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"count\": 3,\n    \"links\": {\n      \"self\": \"https:/test.api.amadeus.com/v1/airline/destinations?airlineCode=AF&max=3&arrivalCountryCode=FR\"\n    }\n  },\n  \"data\": [\n    {\n      \"type\": \"location\",\n      \"subtype\": \"city\",\n      \"name\": \"PARIS\",\n      \"iataCode\": \"PAR\",\n      \"geoCode\": {\n        \"latitude\": 48.85334,\n        \"longitude\": 2.34889\n      },\n      \"address\": {\n        \"cityName\": \"PARIS\",\n        \"countryName\": \"FRANCE\",\n        \"stateCode\": \"FR-75\",\n        \"regionCode\": \"EUROP\"\n      },\n      \"timeZone\": {\n        \"offset\": \"+02:00\",\n        \"referenceLocalDateTime\": \"2022-10-25T10:17:00\"\n      },\n      \"metrics\": {\n        \"relevance\": 100\n      }\n    },\n    {\n      \"type\": \"location\",\n      \"subtype\": \"city\",\n      \"name\": \"NICE\",\n      \"iataCode\": \"NCE\",\n      \"geoCode\": {\n        \"latitude\": 43.66272,\n        \"longitude\": 7.20787\n      },\n      \"address\": {\n        \"cityName\": \"NICE\",\n        \"countryName\": \"FRANCE\",\n        \"stateCode\": \"FR-06\",\n        \"regionCode\": \"EUROP\"\n      },\n      \"timeZone\": {\n        \"offset\": \"+02:00\",\n        \"referenceLocalDateTime\": \"2022-10-25T10:17:00\"\n      },\n      \"metrics\": {\n        \"relevance\": 12\n      }\n    },\n    {\n      \"type\": \"location\",\n      \"subtype\": \"city\",\n      \"name\": \"MARSEILLE\",\n      \"iataCode\": \"MRS\",\n      \"geoCode\": {\n        \"latitude\": 43.43556,\n        \"longitude\": 5.21361\n      },\n      \"address\": {\n        \"cityName\": \"MARSEILLE\",\n        \"countryName\": \"FRANCE\",\n        \"stateCode\": \"FR-06\",\n        \"regionCode\": \"EUROP\"\n      },\n      \"timeZone\": {\n        \"offset\": \"+02:00\",\n        \"referenceLocalDateTime\": \"2022-10-25T10:17:00\"\n      },\n      \"metrics\": {\n        \"relevance\": 9\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "121af7be-6109-44d8-8123-3bf189c4a050",
+              "name": "Bad Request\n\ncode    | title                                 \n------- | ------------------------------------- \n572     | INVALID OPTION                         \n32171   | MANDATORY DATA MISSING \n477     | INVALID FORMAT\n4926    | INVALID DATA RECEIVED              \n2781    | INVALID LENGTH                 ",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airline",
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airlineCode",
+                      "value": "BA"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    },
+                    {
+                      "key": "arrivalCountryCode",
+                      "value": "FR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 400,\n      \"code\": 32171,\n      \"title\": \"MANDATORY DATA MISSING\",\n      \"detail\": \"Missing mandatory query parameter 'airlineCode\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3650df3-8ac9-4fc7-9a5a-6bbdc079e192",
+              "name": "Internal Server Error\n\ncode    | title                                 \n------- | ------------------------------------- \n141     | SYSTEM ERROR HAS OCCURRED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airline",
+                    "destinations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airlineCode",
+                      "value": "BA"
+                    },
+                    {
+                      "key": "max",
+                      "value": "1"
+                    },
+                    {
+                      "key": "arrivalCountryCode",
+                      "value": "FR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8b76dce0-c574-4bfd-9159-a424167d4a47",
+    "name": "Airline Code Lookup air-traffic destinations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

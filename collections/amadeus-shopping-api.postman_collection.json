@@ -1,0 +1,1590 @@
+{
+  "item": [
+    {
+      "id": "bc39c959-8742-44cc-a6d6-5a914559510b",
+      "name": "Shopping",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f7f2dc2-c863-49f9-b011-81fb5c739c02",
+          "name": "Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers",
+          "request": {
+            "name": "Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "flight-offers",
+                "upselling"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9436a899-6e76-43fd-ba4e-08a0e01766b2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers",
+                    "upselling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9db3f8b-2c55-452a-aafa-bc531c846d71",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers",
+                    "upselling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1d69465b-aafe-41b8-8d68-183a2b8780d6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers",
+                    "upselling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10d15620-52d2-4eb3-a9a3-1312d30a4f29",
+          "name": "Amadeus Confirm Pricing of Given FlightOffers.",
+          "request": {
+            "name": "Amadeus Confirm Pricing of Given FlightOffers.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "flight-offers",
+                "pricing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "Sub-resources to be included:\n * **credit-card-fees** to get the credit card fee applied on the booking\n * **bags** to get extra bag options\n * **other-services** to get services options\n * **detailed-fare-rules** to get detailed fare rules options\n",
+                    "type": "text/plain"
+                  },
+                  "key": "include",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "parameter to force the usage of booking class for pricing\n- **true**, to for pricing with the specified booking class\n- **false**, to get the best available price\n",
+                    "type": "text/plain"
+                  },
+                  "key": "forceClass",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b9077b2-1e4d-4149-b03f-631c9b827387",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers",
+                    "pricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": ""
+                    },
+                    {
+                      "key": "forceClass",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "551fa53e-2eb3-4aa1-8e86-e8a8a27b83c4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers",
+                    "pricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": ""
+                    },
+                    {
+                      "key": "forceClass",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a535e06c-ad90-4748-984d-cb17c4b5dc3a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers",
+                    "pricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": ""
+                    },
+                    {
+                      "key": "forceClass",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a2cb00b-efbe-40ec-ab45-0621fda5fcec",
+          "name": "Amadeus Return List of Flight Offers Based on Posted Searching Criteria.",
+          "request": {
+            "name": "Amadeus Return List of Flight Offers Based on Posted Searching Criteria.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "flight-offers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04bbca85-7c74-4dd4-b07e-a1cfe496384d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c286fd3b-e1fb-4879-bc36-32fc8a8d5d6b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1eef579c-0d20-4958-8f61-b1d0dde485c9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44cb2385-684b-4ee1-8c14-d3a4f7cc8b03",
+          "name": "Amadeus Return List of Flight Offers Based on Searching Criteria.",
+          "request": {
+            "name": "Amadeus Return List of Flight Offers Based on Searching Criteria.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "flight-offers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+                    "type": "text/plain"
+                  },
+                  "key": "originLocationCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                    "type": "text/plain"
+                  },
+                  "key": "destinationLocationCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+                    "type": "text/plain"
+                  },
+                  "key": "departureDate",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "the date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, only one-way itineraries are found. If this parameter is specified, only round-trip itineraries are found. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                    "type": "text/plain"
+                  },
+                  "key": "returnDate",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) the number of adult travelers (age 12 or older on date of departure).\n\nThe total number of seated travelers (adult and children) can not exceed 9.",
+                    "type": "text/plain"
+                  },
+                  "key": "adults",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "the number of child travelers (older than age 2 and younger than age 12 on date of departure) who will each have their own separate seat. If specified, this number should be greater than or equal to 0\n\nThe total number of seated travelers (adult and children) can not exceed 9.",
+                    "type": "text/plain"
+                  },
+                  "key": "children",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "the number of infant travelers (whose age is less or equal to 2 on date of departure). Infants travel on the lap of an adult traveler, and thus the number of infants must not exceed the number of adults. If specified, this number should be greater than or equal to 0",
+                    "type": "text/plain"
+                  },
+                  "key": "infants",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "most of the flight time should be spent in a cabin of this quality or higher. The accepted travel class is economy, premium economy, business or first class. If no travel class is specified, the search considers any travel class (This can only be one of ECONOMY,PREMIUM_ECONOMY,BUSINESS,FIRST)",
+                    "type": "text/plain"
+                  },
+                  "key": "travelClass",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "This option ensures that the system will only consider these airlines. This can not be cumulated with parameter excludedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n",
+                    "type": "text/plain"
+                  },
+                  "key": "includedAirlineCodes",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "This option ensures that the system will ignore these airlines. This can not be cumulated with parameter includedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n",
+                    "type": "text/plain"
+                  },
+                  "key": "excludedAirlineCodes",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "if set to true, the search will find only flights going from the origin to the destination with no stop in between",
+                    "type": "text/plain"
+                  },
+                  "key": "nonStop",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "the preferred currency for the flight offers. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro",
+                    "type": "text/plain"
+                  },
+                  "key": "currencyCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals",
+                    "type": "text/plain"
+                  },
+                  "key": "maxPrice",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "maximum number of flight offers to return. If specified, the value should be greater than or equal to 1",
+                    "type": "text/plain"
+                  },
+                  "key": "max",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45fd86b7-0c00-4d71-bbb4-71c6b45fa9f9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "returnDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "adults",
+                      "value": ""
+                    },
+                    {
+                      "key": "children",
+                      "value": ""
+                    },
+                    {
+                      "key": "infants",
+                      "value": ""
+                    },
+                    {
+                      "key": "travelClass",
+                      "value": ""
+                    },
+                    {
+                      "key": "includedAirlineCodes",
+                      "value": ""
+                    },
+                    {
+                      "key": "excludedAirlineCodes",
+                      "value": ""
+                    },
+                    {
+                      "key": "nonStop",
+                      "value": ""
+                    },
+                    {
+                      "key": "currencyCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e269acfc-5a69-4441-ba17-0de5a612d85f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "returnDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "adults",
+                      "value": ""
+                    },
+                    {
+                      "key": "children",
+                      "value": ""
+                    },
+                    {
+                      "key": "infants",
+                      "value": ""
+                    },
+                    {
+                      "key": "travelClass",
+                      "value": ""
+                    },
+                    {
+                      "key": "includedAirlineCodes",
+                      "value": ""
+                    },
+                    {
+                      "key": "excludedAirlineCodes",
+                      "value": ""
+                    },
+                    {
+                      "key": "nonStop",
+                      "value": ""
+                    },
+                    {
+                      "key": "currencyCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9aa3f6b5-f327-49d3-998a-e401301b2826",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "flight-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "returnDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "adults",
+                      "value": ""
+                    },
+                    {
+                      "key": "children",
+                      "value": ""
+                    },
+                    {
+                      "key": "infants",
+                      "value": ""
+                    },
+                    {
+                      "key": "travelClass",
+                      "value": ""
+                    },
+                    {
+                      "key": "includedAirlineCodes",
+                      "value": ""
+                    },
+                    {
+                      "key": "excludedAirlineCodes",
+                      "value": ""
+                    },
+                    {
+                      "key": "nonStop",
+                      "value": ""
+                    },
+                    {
+                      "key": "currencyCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "maxPrice",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a683124-b66a-48bc-aabe-13e718162bca",
+          "name": "Amadeus GetMultiHotelOffers",
+          "request": {
+            "name": "Amadeus GetMultiHotelOffers",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "hotel-offers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Amadeus property codes on 8 chars. Mandatory parameter for a search by predefined list of hotels.",
+                    "type": "text/plain"
+                  },
+                  "key": "hotelIds",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Number of adult guests (1-9) per room.",
+                    "type": "text/plain"
+                  },
+                  "key": "adults",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Check-in date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is the present date (no dates in the past). If not present, the default value will be today's date in the GMT time zone.",
+                    "type": "text/plain"
+                  },
+                  "key": "checkInDate",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Check-out date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is checkInDate+1. If not present, it will default to checkInDate +1.",
+                    "type": "text/plain"
+                  },
+                  "key": "checkOutDate",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Code of the country of residence of the traveler expressed using ISO 3166-1 format.",
+                    "type": "text/plain"
+                  },
+                  "key": "countryOfResidence",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Number of rooms requested (1-9).",
+                    "type": "text/plain"
+                  },
+                  "key": "roomQuantity",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Filter hotel offers by price per night interval (ex: 200-300 or -300 or 100).\nIt is mandatory to include a currency when this field is set.",
+                    "type": "text/plain"
+                  },
+                  "key": "priceRange",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Use this parameter to request a specific currency. ISO currency code (http://www.iso.org/iso/home/standards/currency_codes.htm).\nIf a hotel does not support the requested currency, the prices for the hotel will be returned in the local currency of the hotel.",
+                    "type": "text/plain"
+                  },
+                  "key": "currency",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Filter the response based on a specific payment type. NONE means all types (default). (This can only be one of GUARANTEE,DEPOSIT,NONE)",
+                    "type": "text/plain"
+                  },
+                  "key": "paymentPolicy",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Filter response based on available meals:\n        * ROOM_ONLY = Room Only\n        * BREAKFAST = Breakfast\n        * HALF_BOARD = Diner & Breakfast (only for Aggregators)\n        * FULL_BOARD = Full Board (only for Aggregators)\n        * ALL_INCLUSIVE = All Inclusive (only for Aggregators) (This can only be one of ROOM_ONLY,BREAKFAST,HALF_BOARD,FULL_BOARD,ALL_INCLUSIVE)",
+                    "type": "text/plain"
+                  },
+                  "key": "boardType",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Show all properties (include sold out) or available only. For sold out properties, please check availability on other dates.",
+                    "type": "text/plain"
+                  },
+                  "key": "includeClosed",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Used to return only the cheapest offer per hotel or all available offers.",
+                    "type": "text/plain"
+                  },
+                  "key": "bestRateOnly",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html).",
+                    "type": "text/plain"
+                  },
+                  "key": "lang",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "99fcf0da-69fa-4cae-948f-c2ccdcce0153",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hotelIds",
+                      "value": ""
+                    },
+                    {
+                      "key": "adults",
+                      "value": ""
+                    },
+                    {
+                      "key": "checkInDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "checkOutDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "countryOfResidence",
+                      "value": ""
+                    },
+                    {
+                      "key": "roomQuantity",
+                      "value": ""
+                    },
+                    {
+                      "key": "priceRange",
+                      "value": ""
+                    },
+                    {
+                      "key": "currency",
+                      "value": ""
+                    },
+                    {
+                      "key": "paymentPolicy",
+                      "value": ""
+                    },
+                    {
+                      "key": "boardType",
+                      "value": ""
+                    },
+                    {
+                      "key": "includeClosed",
+                      "value": ""
+                    },
+                    {
+                      "key": "bestRateOnly",
+                      "value": ""
+                    },
+                    {
+                      "key": "lang",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8419a4a-21a2-4ebe-a970-ff9bec4ddfb8",
+              "name": "Bad request:\n\n| Code | Title  |\n|-----|-----|\n| 23   | PASSENGER TYPE NOT SUPPORTED   |\n| 61 | INVALID CURRENCY CODE|\n| 137 | INVALID ADULTS OCCUPANCY REQUESTED|\n| 145 | DURATION PERIOD OR DATES INCORRECT|\n| 195 | SERVICE RESTRICTION|\n| 249 | INVALID RATE CODE|\n| 377 | MAX STAY DURATION IS EXCEEDED|\n| 381 | INVALID CHECK-IN DATE|\n| 382 | INVALID CHECK-OUT DATE|\n| 383 | INVALID CITY CODE|\n| 392 | INVALID HOTEL CODE|\n| 397 | INVALID NUMBER OF ADULTS|\n| 400 | INVALID PROPERTY CODE|\n| 404 | CHECK_OUT DATE MUST BE FURTHER IN THE FUTURE THAN CHECK-IN DATE|\n| 424 | NO HOTELS FOUND WHICH MATCH THIS INPUT|\n| 431 | CHECK-OUT DATE IS TOO FAR IN THE FUTURE THAN CHECK-IN DATE|\n| 424 | NO HOTELS FOUND WHICH MATCH THIS INPUT|\n| 431 | CHECK-OUT DATE IS TOO FAR IN THE FUTURE|\n| 450 | INVALID PROVIDER RESPONSE|\n| 451 | INVALID CREDENTIALS|\n| 562 | RESTRICTED ACCESS FOR THE REQUESTED RATES AND CHAINS|\n| 784 | PROVIDER TIME OUT|\n| 790 | RATE SECURITY NOT LOADED| ",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hotelIds",
+                      "value": ""
+                    },
+                    {
+                      "key": "adults",
+                      "value": ""
+                    },
+                    {
+                      "key": "checkInDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "checkOutDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "countryOfResidence",
+                      "value": ""
+                    },
+                    {
+                      "key": "roomQuantity",
+                      "value": ""
+                    },
+                    {
+                      "key": "priceRange",
+                      "value": ""
+                    },
+                    {
+                      "key": "currency",
+                      "value": ""
+                    },
+                    {
+                      "key": "paymentPolicy",
+                      "value": ""
+                    },
+                    {
+                      "key": "boardType",
+                      "value": ""
+                    },
+                    {
+                      "key": "includeClosed",
+                      "value": ""
+                    },
+                    {
+                      "key": "bestRateOnly",
+                      "value": ""
+                    },
+                    {
+                      "key": "lang",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7724203e-3550-4e9d-911e-db7bd09b19e8",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hotelIds",
+                      "value": ""
+                    },
+                    {
+                      "key": "adults",
+                      "value": ""
+                    },
+                    {
+                      "key": "checkInDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "checkOutDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "countryOfResidence",
+                      "value": ""
+                    },
+                    {
+                      "key": "roomQuantity",
+                      "value": ""
+                    },
+                    {
+                      "key": "priceRange",
+                      "value": ""
+                    },
+                    {
+                      "key": "currency",
+                      "value": ""
+                    },
+                    {
+                      "key": "paymentPolicy",
+                      "value": ""
+                    },
+                    {
+                      "key": "boardType",
+                      "value": ""
+                    },
+                    {
+                      "key": "includeClosed",
+                      "value": ""
+                    },
+                    {
+                      "key": "bestRateOnly",
+                      "value": ""
+                    },
+                    {
+                      "key": "lang",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9fdf364-1b9e-450b-bd5d-87ec94b49abd",
+          "name": "Amadeus GetOfferPricing",
+          "request": {
+            "name": "Amadeus GetOfferPricing",
+            "description": {
+              "content": " ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "hotel-offers",
+                ":offerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html).",
+                    "type": "text/plain"
+                  },
+                  "key": "lang",
+                  "value": ""
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "",
+                  "key": "offerId",
+                  "description": "(Required) Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e649cf6-5391-4e9f-8c87-e049444260c7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers",
+                    ":offerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "offerId",
+                      "description": "(Required) Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "158d0257-d088-4b7e-9d59-493b98bda5a2",
+              "name": "Bad Request:\ncode| title\n------- | -------------------------------------\n23 | PASSENGER TYPE NOT SUPPORTED\n61 |INVALID CURRENCY CODE\n137 | INVALID ADULTS OCCUPANCY REQUESTED\n145 | DURATION PERIOD OR DATES INCORRECT\n195 | SERVICE RESTRICTION\n249 | INVALID RATE CODE\n377 | MAX STAY DURATION IS EXCEEDED\n381 | INVALID CHECK-IN DATE\n382 | INVALID CHECK-OUT DATE\n383 | INVALID CITY CODE\n392 | INVALID HOTEL CODE\n397 | INVALID NUMBER OF ADULTS\n400 | INVALID PROPERTY CODE\n402 | INVALID ROOM TYPE\n404 | CHECK_OUT DATE MUST BE FURTHER IN THE FUTURE THAN CHECK-IN DATE\n424 | NO HOTELS FOUND WHICH MATCH THIS INPUT\n431 | CHECK-OUT DATE IS TOO FAR IN THE FUTURE\n450 | INVALID PROVIDER RESPONSE\n451 | INVALID CREDENTIAL\n562 | RESTRICTED ACCESS FOR THE REQUESTED RATES AND CHAINS\n784 | PROVIDER TIME OUT\n790 | NO PROPERTIES FOUND WITHIN THIS RADIUS\n795 | NO SIMILAR NAME FOUND, PLEASE ENLARGE YOUR SEARCH CRITERIA\n842 | RATE SECURITY NOT LOADED",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers",
+                    ":offerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "offerId",
+                      "description": "(Required) Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48df0e88-0f61-429a-8505-d76bf2ed1ec2",
+              "name": "Hotel or offer not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers",
+                    ":offerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "offerId",
+                      "description": "(Required) Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e28e38a-223c-4cdf-bc84-24ee60a08b30",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "hotel-offers",
+                    ":offerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lang",
+                      "value": ""
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "offerId",
+                      "description": "(Required) Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0842e44-00f1-4ebd-b55f-f39a2f7fb448",
+          "name": "Amadeus Gets Transfer Offers.",
+          "request": {
+            "name": "Amadeus Gets Transfer Offers.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shopping",
+                "transfer-offers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c92af8f8-50e1-4e66-95a1-b9403acd7170",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "transfer-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "acba6c96-fc2b-49b2-9d5a-bdaeb9a7c60c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "transfer-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9011ef18-0815-46e5-ab4e-a27210f3d2ba",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "transfer-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb958142-b78b-44fc-97cc-551f813e25a9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shopping",
+                    "transfer-offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9f925b50-fffb-41a1-8465-5fbd95de59f5",
+    "name": "Airline Code Lookup air-traffic Shopping API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,599 @@
+{
+  "item": [
+    {
+      "id": "ac6b5bd1-c2fb-4455-a748-450cc55a9344",
+      "name": "air-traffic",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "79180502-5780-40b6-9a84-11796ef01c6c",
+          "name": "Amadeus Returns a List of Air Traffic Reports.",
+          "request": {
+            "name": "Amadeus Returns a List of Air Traffic Reports.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "travel",
+                "analytics",
+                "air-traffic",
+                "busiest-period"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Code for the city following IATA standard. [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) - e.g. BOS for Boston",
+                    "type": "text/plain"
+                  },
+                  "key": "cityCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) time period (year) of the statistics.\n\nYear for which the statistic are requested following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)\n",
+                    "type": "text/plain"
+                  },
+                  "key": "period",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "Use ARRIVING to have statistics on travelers coming to the city or DEPARTING for statistics on travelers leaving the city.\n\nBy default, statistics are given on travelers ARRIVING the city.\n (This can only be one of ARRIVING,DEPARTING)",
+                    "type": "text/plain"
+                  },
+                  "key": "direction",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "318d45c6-eaaa-47d3-b50c-ba07c6ffe483",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "busiest-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cityCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "period",
+                      "value": ""
+                    },
+                    {
+                      "key": "direction",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5875d870-e522-4fff-8962-eef60be23306",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "busiest-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cityCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "period",
+                      "value": ""
+                    },
+                    {
+                      "key": "direction",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "33ba46a7-f358-4505-9fcd-12952e2c15ed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "busiest-period"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cityCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "period",
+                      "value": ""
+                    },
+                    {
+                      "key": "direction",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0364104b-8121-4eae-baf8-bfcd8fb87fa2",
+          "name": "Amadeus Returns a List of Air Traffic Reports.",
+          "request": {
+            "name": "Amadeus Returns a List of Air Traffic Reports.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "travel",
+                "analytics",
+                "air-traffic",
+                "booked"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Code for the origin city following IATA standard ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)). - e.g. BOS for Boston",
+                    "type": "text/plain"
+                  },
+                  "key": "originCityCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) period when consumers are traveling.\n* It can be a month only. \n* ISO format must be used - e.g. 2015-05. \n* Period ranges are not supported. \n* Only periods from 2011-01 up to previous month are valid. \n* Future dates are not supported.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "period",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "maximum number of destinations in the response. Default value is 10 and maximum value is 50.",
+                    "type": "text/plain"
+                  },
+                  "key": "max",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "44fb0139-33b8-4ca1-9952-33f5e05d1008",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "booked"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originCityCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "period",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aed2b5fe-1461-4f0d-a121-9c61cbff2956",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "booked"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originCityCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "period",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9840aa3e-f16b-43b1-a17e-42701fb1ffd8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "booked"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originCityCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "period",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "290b6635-02b5-4644-8211-9edfa86f2c50",
+          "name": "Amadeus Returns a List of Air Traffic Reports.",
+          "request": {
+            "name": "Amadeus Returns a List of Air Traffic Reports.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "travel",
+                "analytics",
+                "air-traffic",
+                "traveled"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) Code for the origin city following IATA standard ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)). - e.g. BOS for Boston",
+                    "type": "text/plain"
+                  },
+                  "key": "originCityCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) period when consumers are traveling.\n* It can be a month only. \n* [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format must be used - e.g. 2015-05. \n* Period ranges are not supported. \n* Only periods from 2011-01 up to previous month are valid. \n* Future dates are not supported.\n",
+                    "type": "text/plain"
+                  },
+                  "key": "period",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "maximum number of destinations in the response. Default value is **10** and maximum value is 50.",
+                    "type": "text/plain"
+                  },
+                  "key": "max",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6505dcd1-15d3-45c6-93c6-d3792ecf8fca",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "traveled"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originCityCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "period",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "64258f30-d3ef-4d86-8cc2-71812be3ad0a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "traveled"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originCityCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "period",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f9719024-d19f-4cb1-90c5-450d5b171f86",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "analytics",
+                    "air-traffic",
+                    "traveled"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originCityCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "period",
+                      "value": ""
+                    },
+                    {
+                      "key": "max",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2e1f557f-8f78-4fd1-9678-5c5e16e0d299",
+    "name": "Airline Code Lookup air-traffic API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

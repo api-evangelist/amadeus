@@ -1,0 +1,197 @@
+{
+  "item": [
+    {
+      "id": "e3c1d0c6-66ca-4f21-b605-a300c6ce62aa",
+      "name": "airport-ontime-prediction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a341b9ff-5095-4cb3-8961-bb45710e580a",
+          "name": "Amadeus Returns a Percentage of On-time Flight Departures from a Given Airport.",
+          "request": {
+            "name": "Amadeus Returns a Percentage of On-time Flight Departures from a Given Airport.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "airport",
+                "predictions",
+                "on-time"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx), e.g. BOS for Boston",
+                    "type": "text/plain"
+                  },
+                  "key": "airportCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) the date on which the traveler will depart from the give airport. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2019-12-25",
+                    "type": "text/plain"
+                  },
+                  "key": "date",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06e98d24-ac40-4733-ab96-162cdca9aeec",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airport",
+                    "predictions",
+                    "on-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airportCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "date",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0402f6a3-e3cf-49c3-8934-24fc3dcedee9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airport",
+                    "predictions",
+                    "on-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airportCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "date",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "56558262-1379-488e-9744-de9338eef4ae",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "airport",
+                    "predictions",
+                    "on-time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "airportCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "date",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c88725cf-2b53-41ca-b55f-dca766981f8e",
+    "name": "Airline Code Lookup air-traffic airport-ontime-prediction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airline Code Lookup air-traffic Shopping API",
+    "version": "1.2.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shopping",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://test.api.amadeus.com/v1/shopping/flight-offers/upselling",
+            "headers": [
+              {
+                "name": "X-HTTP-Method-Override",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Amadeus Return a List of Upsell Flight Offers Based on Given Flight Offers"
+        },
+        {
+          "info": {
+            "name": "Amadeus Confirm Pricing of Given FlightOffers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://test.api.amadeus.com/v1/shopping/flight-offers/pricing",
+            "headers": [
+              {
+                "name": "X-HTTP-Method-Override",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Sub-resources to be included:\n * **credit-card-fees** to get the credit card fee applied on the booking\n * **bags** to get extra bag options\n * **other-services** to get services options\n * **detailed-fare-rules** to get detailed fare rules options\n"
+              },
+              {
+                "name": "forceClass",
+                "value": "",
+                "type": "query",
+                "description": "parameter to force the usage of booking class for pricing\n- **true**, to for pricing with the specified booking class\n- **false**, to get the best available price\n"
+              }
+            ]
+          },
+          "docs": "Amadeus Confirm Pricing of Given FlightOffers."
+        },
+        {
+          "info": {
+            "name": "Amadeus Return List of Flight Offers Based on Searching Criteria.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/shopping/flight-offers",
+            "params": [
+              {
+                "name": "originLocationCode",
+                "value": "",
+                "type": "query",
+                "description": "city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston"
+              },
+              {
+                "name": "destinationLocationCode",
+                "value": "",
+                "type": "query",
+                "description": "city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris"
+              },
+              {
+                "name": "departureDate",
+                "value": "",
+                "type": "query",
+                "description": "the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25"
+              },
+              {
+                "name": "returnDate",
+                "value": "",
+                "type": "query",
+                "description": "the date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, only one-way itineraries are found. If this parameter is specified, only round-trip itineraries are found. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28"
+              },
+              {
+                "name": "adults",
+                "value": "",
+                "type": "query",
+                "description": "the number of adult travelers (age 12 or older on date of departure).\n\nThe total number of seated travelers (adult and children) can not exceed 9."
+              },
+              {
+                "name": "children",
+                "value": "",
+                "type": "query",
+                "description": "the number of child travelers (older than age 2 and younger than age 12 on date of departure) who will each have their own separate seat. If specified, this number should be greater than or equal to 0\n\nThe total number of seated travelers (adult and children) can not exceed 9."
+              },
+              {
+                "name": "infants",
+                "value": "",
+                "type": "query",
+                "description": "the number of infant travelers (whose age is less or equal to 2 on date of departure). Infants travel on the lap of an adult traveler, and thus the number of infants must not exceed the number of adults. If specified, this number should be greater than or equal to 0"
+              },
+              {
+                "name": "travelClass",
+                "value": "",
+                "type": "query",
+                "description": "most of the flight time should be spent in a cabin of this quality or higher. The accepted travel class is economy, premium economy, business or first class. If no travel class is specified, the search considers any travel class"
+              },
+              {
+                "name": "includedAirlineCodes",
+                "value": "",
+                "type": "query",
+                "description": "This option ensures that the system will only consider these airlines. This can not be cumulated with parameter excludedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n"
+              },
+              {
+                "name": "excludedAirlineCodes",
+                "value": "",
+                "type": "query",
+                "description": "This option ensures that the system will ignore these airlines. This can not be cumulated with parameter includedAirlineCodes.\n\nAirlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X\n"
+              },
+              {
+                "name": "nonStop",
+                "value": "",
+                "type": "query",
+                "description": "if set to true, the search will find only flights going from the origin to the destination with no stop in between"
+              },
+              {
+                "name": "currencyCode",
+                "value": "",
+                "type": "query",
+                "description": "the preferred currency for the flight offers. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro"
+              },
+              {
+                "name": "maxPrice",
+                "value": "",
+                "type": "query",
+                "description": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "maximum number of flight offers to return. If specified, the value should be greater than or equal to 1"
+              }
+            ]
+          },
+          "docs": "Amadeus Return List of Flight Offers Based on Searching Criteria."
+        },
+        {
+          "info": {
+            "name": "Amadeus Return List of Flight Offers Based on Posted Searching Criteria.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://test.api.amadeus.com/v1/shopping/flight-offers",
+            "headers": [
+              {
+                "name": "X-HTTP-Method-Override",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Amadeus Return List of Flight Offers Based on Posted Searching Criteria."
+        },
+        {
+          "info": {
+            "name": "Amadeus GetMultiHotelOffers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/shopping/hotel-offers",
+            "params": [
+              {
+                "name": "hotelIds",
+                "value": "",
+                "type": "query",
+                "description": "Amadeus property codes on 8 chars. Mandatory parameter for a search by predefined list of hotels."
+              },
+              {
+                "name": "adults",
+                "value": "",
+                "type": "query",
+                "description": "Number of adult guests (1-9) per room."
+              },
+              {
+                "name": "checkInDate",
+                "value": "",
+                "type": "query",
+                "description": "Check-in date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is the present date (no dates in the past). If not present, the default value will be today's date in the GMT time zone."
+              },
+              {
+                "name": "checkOutDate",
+                "value": "",
+                "type": "query",
+                "description": "Check-out date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is checkInDate+1. If not present, it will default to checkInDate +1."
+              },
+              {
+                "name": "countryOfResidence",
+                "value": "",
+                "type": "query",
+                "description": "Code of the country of residence of the traveler expressed using ISO 3166-1 format."
+              },
+              {
+                "name": "roomQuantity",
+                "value": "",
+                "type": "query",
+                "description": "Number of rooms requested (1-9)."
+              },
+              {
+                "name": "priceRange",
+                "value": "",
+                "type": "query",
+                "description": "Filter hotel offers by price per night interval (ex: 200-300 or -300 or 100).\nIt is mandatory to include a currency when this field is set."
+              },
+              {
+                "name": "currency",
+                "value": "",
+                "type": "query",
+                "description": "Use this parameter to request a specific currency. ISO currency code (http://www.iso.org/iso/home/standards/currency_codes.htm).\nIf a hotel does not support the requested currency, the prices for the hotel will be returned in the local currency of the hotel."
+              },
+              {
+                "name": "paymentPolicy",
+                "value": "",
+                "type": "query",
+                "description": "Filter the response based on a specific payment type. NONE means all types (default)."
+              },
+              {
+                "name": "boardType",
+                "value": "",
+                "type": "query",
+                "description": "Filter response based on available meals:\n        * ROOM_ONLY = Room Only\n        * BREAKFAST = Breakfast\n        * HALF_BOARD = Diner & Breakfast (only for Aggregators)\n        * FULL_BOARD = Full Board (only for Aggregators)\n        * ALL_INCLUSIVE = All Inclusive (only for Aggregators)"
+              },
+              {
+                "name": "includeClosed",
+                "value": "",
+                "type": "query",
+                "description": "Show all properties (include sold out) or available only. For sold out properties, please check availability on other dates."
+              },
+              {
+                "name": "bestRateOnly",
+                "value": "",
+                "type": "query",
+                "description": "Used to return only the cheapest offer per hotel or all available offers."
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html)."
+              }
+            ]
+          },
+          "docs": "Amadeus GetMultiHotelOffers"
+        },
+        {
+          "info": {
+            "name": "Amadeus GetOfferPricing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/shopping/hotel-offers/:offerId",
+            "params": [
+              {
+                "name": "offerId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime."
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Requested language of descriptive texts. \nExamples: FR , fr , fr-FR.\nIf a language is not available the text will be returned in english.\nISO language code (https://www.iso.org/iso-639-language-codes.html)."
+              }
+            ]
+          },
+          "docs": " "
+        },
+        {
+          "info": {
+            "name": "Amadeus Gets Transfer Offers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://test.api.amadeus.com/v1/shopping/transfer-offers"
+          },
+          "docs": "Amadeus Gets Transfer Offers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

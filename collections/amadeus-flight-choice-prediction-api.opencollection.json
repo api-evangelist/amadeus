@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airline Code Lookup air-traffic flight-choice-prediction API",
+    "version": "1.2.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "flight-choice-prediction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Predict the Choice of Flight Offers.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://test.api.amadeus.com/v1/shopping/flight-offers/prediction",
+            "headers": [
+              {
+                "name": "X-HTTP-Method-Override",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Amadeus Predict the Choice of Flight Offers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

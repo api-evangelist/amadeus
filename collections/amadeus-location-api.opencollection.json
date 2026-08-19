@@ -1,0 +1,141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Airline Code Lookup air-traffic location API",
+    "version": "1.2.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "location",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amadeus Returns a List of Airports and Cities Matching a Given Keyword.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/reference-data/locations",
+            "params": [
+              {
+                "name": "subType",
+                "value": "",
+                "type": "query",
+                "description": "sub type of the location (AIRPORT and/or CITY)"
+              },
+              {
+                "name": "keyword",
+                "value": "",
+                "type": "query",
+                "description": "keyword that should represent the start of a word in a city or airport name or code. \nSupported charaters are: A-Za-z0-9./:-'()\""
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query",
+                "description": "Country code of the location using [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "maximum items in one page"
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "start index of the requested page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "defines on which attribute the sorting will be done:\n* analytics.travelers.score - sort by the number of travelers by airport or city, the airports and cities with the highest traffic are on top of the results\n"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "select the level of information of the reply:\n* LIGHT - Gives only the IATACode, name, detailedName, cityName and countryName\n* FULL - Adds on top of the LIGHT information the timeZoneOffset, geocode, detailed address and travelers.score\ndefault option is FULL\n"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns a List of Airports and Cities Matching a Given Keyword."
+        },
+        {
+          "info": {
+            "name": "Amadeus Returns a Specific Airports or Cities Based on its ID.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/reference-data/locations/:locationId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "",
+                "type": "path",
+                "description": "identifier of the location"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns a Specific Airports or Cities Based on its ID."
+        },
+        {
+          "info": {
+            "name": "Amadeus Returns a List of Relevant Airports Near to a Given Point.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://test.api.amadeus.com/v1/reference-data/locations/airports",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "latitude location to be at the center of the search circle"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "longitude location to be at the center of the search circle"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "radius of the search in Kilometer. Can be from 0 to 500, default value is 500 Km."
+              },
+              {
+                "name": "page[limit]",
+                "value": "",
+                "type": "query",
+                "description": "maximum items in one page"
+              },
+              {
+                "name": "page[offset]",
+                "value": "",
+                "type": "query",
+                "description": "start index of the requested page"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "defines on which attribute the sorting will be done from the best option to the worst one:\n* **relevance** - Score value calculated based on distance and traffic analytics\n* **distance** - Distance from the location to the geo-code given in API request parameters\n* **analytics.flights.score** - Approximate score for ranking purposes calculated based on estimated number of flights from/to airport in one reference year (last year)\n* **analytics.travelers.score** - Approximate score for ranking purposes calculated based on estimated number of travelers in the airport for one reference year (last year)\n"
+              }
+            ]
+          },
+          "docs": "Amadeus Returns a List of Relevant Airports Near to a Given Point."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

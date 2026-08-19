@@ -1,0 +1,279 @@
+{
+  "item": [
+    {
+      "id": "8add4ba8-1d8f-4b8a-9ff7-dad283a25e12",
+      "name": "flights",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2a71697f-6147-4ac4-89e4-0f1dbbe26d47",
+          "name": "Amadeus Retrieves a Unique Flight by Search Criteria.",
+          "request": {
+            "name": "Amadeus Retrieves a Unique Flight by Search Criteria.",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "schedule",
+                "flights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) 2 to 3-character IATA carrier code ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)).\n",
+                    "type": "text/plain"
+                  },
+                  "key": "carrierCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) 1 to 4-digit number of the flight. e.g. 4537",
+                    "type": "text/plain"
+                  },
+                  "key": "flightNumber",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) scheduled departure date of the flight, local to the departure airport, format YYYY-MM-DD.",
+                    "type": "text/plain"
+                  },
+                  "key": "scheduledDepartureDate",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "1-letter operational suffix assigned by the carrier to differentiate flight in case of delay changing the departure date e.g. A\n",
+                    "type": "text/plain"
+                  },
+                  "key": "operationalSuffix",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4c7a466-0714-4c41-940d-b1d36ae13839",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "flights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "carrierCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "flightNumber",
+                      "value": ""
+                    },
+                    {
+                      "key": "scheduledDepartureDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "operationalSuffix",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9fb6392-2d6f-410d-8db0-1b0fbe570d9d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "flights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "carrierCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "flightNumber",
+                      "value": ""
+                    },
+                    {
+                      "key": "scheduledDepartureDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "operationalSuffix",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "167d8b80-1819-4e59-9e63-9c40e3f2eb82",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "flights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "carrierCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "flightNumber",
+                      "value": ""
+                    },
+                    {
+                      "key": "scheduledDepartureDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "operationalSuffix",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd725d28-39da-4cb2-80b4-0914d32bfe46",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schedule",
+                    "flights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "carrierCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "flightNumber",
+                      "value": ""
+                    },
+                    {
+                      "key": "scheduledDepartureDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "operationalSuffix",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "776b0358-d028-4d29-8976-601b4c3de18d",
+    "name": "Airline Code Lookup air-traffic flights API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

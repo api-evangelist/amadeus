@@ -1,0 +1,257 @@
+{
+  "item": [
+    {
+      "id": "f4d49a91-c751-46d9-9df5-655adb1c9601",
+      "name": "trip-purpose-prediction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0834d832-62b8-46b5-b791-1f5f313ce74f",
+          "name": "Amadeus Returns the Forecast Purpose of a Trip",
+          "request": {
+            "name": "Amadeus Returns the Forecast Purpose of a Trip",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "travel",
+                "predictions",
+                "trip-purpose"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+                    "type": "text/plain"
+                  },
+                  "key": "originLocationCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+                    "type": "text/plain"
+                  },
+                  "key": "destinationLocationCode",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+                    "type": "text/plain"
+                  },
+                  "key": "departureDate",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "(Required) the date on which the traveler will depart from the destination to return to the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                    "type": "text/plain"
+                  },
+                  "key": "returnDate",
+                  "value": ""
+                },
+                {
+                  "description": {
+                    "content": "the date on which the traveler is performing the search. If this parameter is not specified, current date will be used. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+                    "type": "text/plain"
+                  },
+                  "key": "searchDate",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a30509fe-5a91-4fa8-8298-b4f077b03f4d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "predictions",
+                    "trip-purpose"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "returnDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "searchDate",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3cf47779-790e-45a3-8dd2-b3143cbb05c5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "predictions",
+                    "trip-purpose"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "returnDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "searchDate",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bebf6454-cb74-4b6e-8051-7482cad65a33",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "travel",
+                    "predictions",
+                    "trip-purpose"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "originLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "destinationLocationCode",
+                      "value": ""
+                    },
+                    {
+                      "key": "departureDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "returnDate",
+                      "value": ""
+                    },
+                    {
+                      "key": "searchDate",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ec02c92c-3d15-4007-9912-e0237b646e0e",
+    "name": "Airline Code Lookup air-traffic trip-purpose-prediction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}

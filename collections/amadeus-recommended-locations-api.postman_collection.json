@@ -1,0 +1,234 @@
+{
+  "item": [
+    {
+      "id": "7e9aa0fc-9cd5-416a-b289-5cfbc7fbb69c",
+      "name": "recommended-locations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aeff17f6-5da3-433c-8568-2e0a0cd9319d",
+          "name": "Amadeus GET Recommended Destinations",
+          "request": {
+            "name": "Amadeus GET Recommended Destinations",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "reference-data",
+                "recommended-locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cityCodes",
+                  "value": "<string>",
+                  "description": "(Required) City used by the algorythm to recommend new destination. Several cities can be specified using comma.\n\nCity codes follow [IATA standard](http://www.iata.org/publications/Pages/code-search.aspx)"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelerCountryCode",
+                  "value": "FR",
+                  "description": "Origin country of the traveler following [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)"
+                },
+                {
+                  "disabled": false,
+                  "key": "destinationCountryCodes",
+                  "value": "<string>",
+                  "description": "List of country the traveler want to visit, separated with comma.\n\nCountry codes follow [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.amadeus+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f551ed19-3035-459d-8aa3-829fd102db51",
+              "name": "Successful reply",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "recommended-locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cityCodes",
+                      "value": "PAR"
+                    },
+                    {
+                      "key": "travelerCountryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "destinationCountryCodes",
+                      "value": "FR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"links\": {\n      \"self\": \"https://test.api.amadeus.com/v1/reference-data/recommended-locations?cityCodes=LON&travelerCountryCode=FR\"\n    },\n    \"count\": 2\n  },\n  \"data\": [\n    {\n      \"type\": \"recommended-location\",\n      \"subtype\": \"CITY\",\n      \"name\": \"PARIS\",\n      \"iataCode\": \"PAR\",\n      \"geoCode\": {\n        \"longiture\": 2.34276,\n        \"latitude\": 48.85755\n      },\n      \"relevance\": 0.71\n    },\n    {\n      \"type\": \"recommended-location\",\n      \"subtype\": \"CITY\",\n      \"name\": \"MADRID\",\n      \"iataCode\": \"MAD\",\n      \"geoCode\": {\n        \"longiture\": 3.70348,\n        \"latitude\": 40.41654\n      },\n      \"relevance\": 0.68\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2c891c0-0332-49ef-bafa-951e84a98526",
+              "name": "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION                            \n32171   | MANDATORY DATA MISSING ",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "recommended-locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cityCodes",
+                      "value": "PAR"
+                    },
+                    {
+                      "key": "travelerCountryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "destinationCountryCodes",
+                      "value": "FR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 400,\n      \"code\": 477,\n      \"title\": \"INVALID FORMAT\",\n      \"detail\": \"invalid query parameter format\",\n      \"source\": {\n        \"parameter\": \"cityCodes\",\n        \"example\": \"PAR\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93635ded-9dda-42a9-bfd5-de7cb7be31d5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "reference-data",
+                    "recommended-locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cityCodes",
+                      "value": "PAR"
+                    },
+                    {
+                      "key": "travelerCountryCode",
+                      "value": "FR"
+                    },
+                    {
+                      "key": "destinationCountryCodes",
+                      "value": "FR"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.amadeus+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.amadeus+json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": 500,\n      \"code\": 141,\n      \"title\": \"SYSTEM ERROR HAS OCCURRED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://test.api.amadeus.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4ac16d31-997c-4ca8-a4fa-0f99c2fe70b7",
+    "name": "Airline Code Lookup air-traffic recommended-locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Before using this API, we recommend you read our\n**[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**\nfor more information on how to generate an access token.\n\nPlease also be aware that our test environment is based on a subset of the production,\nto see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.\n",
+      "type": "text/plain"
+    }
+  }
+}
