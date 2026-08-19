@@ -40,7 +40,7 @@ description: 'Amadeus for Developers is the self-service developer program from 
   2026; Enterprise customers retain access to the equivalent Enterprise APIs.'
 created: '2026-05-05'
 modified: '2026-05-30'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: amadeus:amadeus-air-traffic-api
   name: Amadeus air-traffic API
