@@ -49,6 +49,8 @@ apis:
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
   baseURL: https://test.api.amadeus.com/v2
   tags:
+  - Air Traffic
+  tags_raw:
   - air-traffic
   properties:
   - type: OpenAPI
@@ -4492,6 +4494,8 @@ apis:
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
   baseURL: https://test.api.amadeus.com/v2
   tags:
+  - Airlines
+  tags_raw:
   - airlines
   properties:
   - type: OpenAPI
@@ -35594,6 +35598,8 @@ apis:
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
   baseURL: https://test.api.amadeus.com/v2
   tags:
+  - Destinations
+  tags_raw:
   - destinations
   properties:
   - type: OpenAPI
@@ -66697,6 +66703,8 @@ apis:
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
   baseURL: https://test.api.amadeus.com/v2
   tags:
+  - Flights
+  tags_raw:
   - flights
   properties:
   - type: OpenAPI
@@ -80026,6 +80034,8 @@ apis:
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
   baseURL: https://test.api.amadeus.com/v2
   tags:
+  - Location
+  tags_raw:
   - location
   properties:
   - type: OpenAPI
@@ -97797,7 +97807,8 @@ apis:
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
   baseURL: https://test.api.amadeus.com/v2
-  tags:
+  tags: []
+  tags_raw:
   - Retrieve
   properties:
   - type: OpenAPI
