@@ -11,14 +11,14 @@ info:
     OpenAPI descriptions.
   version: 1.0.0
 sourceDescriptions:
-- name: hotelNameAutocomplete
-  url: ../openapi/amadeus-hotel-name-autocomplete-openapi.yml
+- name: hotelRatingsApi
+  url: ../openapi/amadeus-hotel-ratings-api-openapi.yml
   type: openapi
-- name: hotelRatings
-  url: ../openapi/amadeus-hotel-ratings-openapi.yml
+- name: searchApi
+  url: ../openapi/amadeus-search-api-openapi.yml
   type: openapi
-- name: hotelSearch
-  url: ../openapi/amadeus-hotel-search-openapi.yml
+- name: shoppingApi
+  url: ../openapi/amadeus-shopping-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: hotel-autocomplete-ratings-offers

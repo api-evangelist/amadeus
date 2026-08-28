@@ -12,14 +12,14 @@ info:
     descriptions.
   version: 1.0.0
 sourceDescriptions:
-- name: airlineCodeLookup
-  url: ../openapi/amadeus-airline-code-lookup-openapi.yml
+- name: airlinesApi
+  url: ../openapi/amadeus-airlines-api-openapi.yml
   type: openapi
-- name: onDemandFlightStatus
-  url: ../openapi/amadeus-on-demand-flight-status-openapi.yml
+- name: checkinLinksApi
+  url: ../openapi/amadeus-checkin-links-api-openapi.yml
   type: openapi
-- name: flightCheckinLinks
-  url: ../openapi/amadeus-flight-checkin-links-openapi.yml
+- name: flightsApi
+  url: ../openapi/amadeus-flights-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: airline-flight-status-checkin

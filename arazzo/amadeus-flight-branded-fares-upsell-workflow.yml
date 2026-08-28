@@ -11,14 +11,8 @@ info:
     opening the underlying OpenAPI descriptions.
   version: 1.0.0
 sourceDescriptions:
-- name: flightOffersSearch
-  url: ../openapi/amadeus-flight-offers-search-openapi.yml
-  type: openapi
-- name: brandedFaresUpsell
-  url: ../openapi/amadeus-branded-fares-upsell-openapi.yml
-  type: openapi
-- name: flightOffersPrice
-  url: ../openapi/amadeus-flight-offers-price-openapi.yml
+- name: shoppingApi
+  url: ../openapi/amadeus-shopping-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: upsell-branded-fare

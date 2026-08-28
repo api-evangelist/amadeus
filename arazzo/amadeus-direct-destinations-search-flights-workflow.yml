@@ -11,11 +11,11 @@ info:
     the underlying OpenAPI descriptions.
   version: 1.0.0
 sourceDescriptions:
-- name: airportRoutes
-  url: ../openapi/amadeus-airport-routes-openapi.yml
+- name: directDestinationsApi
+  url: ../openapi/amadeus-direct-destinations-api-openapi.yml
   type: openapi
-- name: flightOffersSearch
-  url: ../openapi/amadeus-flight-offers-search-openapi.yml
+- name: shoppingApi
+  url: ../openapi/amadeus-shopping-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: direct-destinations-search-flights

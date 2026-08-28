@@ -11,11 +11,11 @@ info:
     be read and executed directly.
   version: 1.0.0
 sourceDescriptions:
-- name: airportNearestRelevant
-  url: ../openapi/amadeus-airport-nearest-relevant-openapi.yml
+- name: locationApi
+  url: ../openapi/amadeus-location-api-openapi.yml
   type: openapi
-- name: flightOffersSearch
-  url: ../openapi/amadeus-flight-offers-search-openapi.yml
+- name: shoppingApi
+  url: ../openapi/amadeus-shopping-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: nearest-airport-flights

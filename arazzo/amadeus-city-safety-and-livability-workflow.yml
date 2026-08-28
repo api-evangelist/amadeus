@@ -12,14 +12,14 @@ info:
     descriptions.
   version: 1.0.0
 sourceDescriptions:
-- name: airportCitySearch
-  url: ../openapi/amadeus-airport-city-search-openapi.yml
+- name: categoryRatedAreasApi
+  url: ../openapi/amadeus-category-rated-areas-api-openapi.yml
   type: openapi
-- name: safePlace
-  url: ../openapi/amadeus-safe-place-openapi.yml
+- name: locationApi
+  url: ../openapi/amadeus-location-api-openapi.yml
   type: openapi
-- name: locationScore
-  url: ../openapi/amadeus-location-score-openapi.yml
+- name: searchApi
+  url: ../openapi/amadeus-search-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: city-safety-and-livability

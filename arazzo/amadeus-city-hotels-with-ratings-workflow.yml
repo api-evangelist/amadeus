@@ -11,11 +11,11 @@ info:
     OpenAPI descriptions.
   version: 1.0.0
 sourceDescriptions:
-- name: hotelList
-  url: ../openapi/amadeus-hotel-list-openapi.yml
+- name: hotelRatingsApi
+  url: ../openapi/amadeus-hotel-ratings-api-openapi.yml
   type: openapi
-- name: hotelRatings
-  url: ../openapi/amadeus-hotel-ratings-openapi.yml
+- name: hotelsApi
+  url: ../openapi/amadeus-hotels-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: city-hotels-with-ratings

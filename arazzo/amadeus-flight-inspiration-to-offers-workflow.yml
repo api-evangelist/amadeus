@@ -11,14 +11,14 @@ info:
     executed without opening the underlying OpenAPI descriptions.
   version: 1.0.0
 sourceDescriptions:
-- name: flightInspirationSearch
-  url: ../openapi/amadeus-flight-inspiration-search-openapi.yml
+- name: flightDatesApi
+  url: ../openapi/amadeus-flight-dates-api-openapi.yml
   type: openapi
-- name: flightCheapestDateSearch
-  url: ../openapi/amadeus-flight-cheapest-date-search-openapi.yml
+- name: flightDestinationsApi
+  url: ../openapi/amadeus-flight-destinations-api-openapi.yml
   type: openapi
-- name: flightOffersSearch
-  url: ../openapi/amadeus-flight-offers-search-openapi.yml
+- name: shoppingApi
+  url: ../openapi/amadeus-shopping-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: flight-inspiration-to-offers

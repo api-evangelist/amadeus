@@ -11,14 +11,14 @@ info:
     underlying OpenAPI descriptions.
   version: 1.0.0
 sourceDescriptions:
-- name: airportCitySearch
-  url: ../openapi/amadeus-airport-city-search-openapi.yml
+- name: hotelsApi
+  url: ../openapi/amadeus-hotels-api-openapi.yml
   type: openapi
-- name: hotelList
-  url: ../openapi/amadeus-hotel-list-openapi.yml
+- name: locationApi
+  url: ../openapi/amadeus-location-api-openapi.yml
   type: openapi
-- name: hotelSearch
-  url: ../openapi/amadeus-hotel-search-openapi.yml
+- name: shoppingApi
+  url: ../openapi/amadeus-shopping-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: geocode-hotels-and-offers

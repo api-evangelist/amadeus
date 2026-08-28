@@ -11,11 +11,14 @@ info:
     underlying OpenAPI descriptions.
   version: 1.0.0
 sourceDescriptions:
-- name: airportCitySearch
-  url: ../openapi/amadeus-airport-city-search-openapi.yml
+- name: locationApi
+  url: ../openapi/amadeus-location-api-openapi.yml
   type: openapi
-- name: pointsOfInterest
-  url: ../openapi/amadeus-points-of-interest-openapi.yml
+- name: retrieveApi
+  url: ../openapi/amadeus-retrieve-api-openapi.yml
+  type: openapi
+- name: searchApi
+  url: ../openapi/amadeus-search-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: city-points-of-interest

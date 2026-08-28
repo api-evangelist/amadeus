@@ -10,11 +10,11 @@ info:
     without opening the underlying OpenAPI descriptions.
   version: 1.0.0
 sourceDescriptions:
-- name: flightOffersSearch
-  url: ../openapi/amadeus-flight-offers-search-openapi.yml
+- name: displaySeatmapsApi
+  url: ../openapi/amadeus-display-seatmaps-api-openapi.yml
   type: openapi
-- name: seatmapDisplay
-  url: ../openapi/amadeus-seatmap-display-openapi.yml
+- name: shoppingApi
+  url: ../openapi/amadeus-shopping-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: flight-offer-seatmap
