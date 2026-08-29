@@ -1,0 +1,27 @@
+slug: amadeus
+provider: Amadeus
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Travel & Hospitality
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Booking
+  spec_file: amadeus-booking-api-openapi.yml
+  capability_id: BC-4020.10
+  capability_id_l1: BC-4020
+  capability_name: Reservation Capture
+  confidence: 0.8
+  evidence: POST /booking/flight-orders 'Create Order Associated to the Flight Offers'; DELETE /booking/flight-orders/{flight-orderId}
+    'Cancel a Given Flight Order'; POST /booking/hotel-bookings 'Create Orders Associated to the Hotel
+    Offers'
+  reason: Operations create, retrieve and cancel flight, hotel and transfer orders — the reservation lifecycle.
+    Capture dominates (multiple create endpoints), though cancellation operations also touch BC-4020.20,
+    hence L2 confidence below 0.9.

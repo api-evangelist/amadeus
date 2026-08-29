@@ -115588,6 +115588,9 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 common:
+- type: CapabilityMap
+  url: capabilities/amadeus-capability-edges.yml
+  name: Amadeus Business Capability Map
 - type: AgenticAccess
   url: agentic-access/amadeus-agentic-access.yml
 - type: VulnerabilityDisclosure
