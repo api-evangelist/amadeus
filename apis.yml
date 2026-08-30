@@ -61,7 +61,7 @@ apis:
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
   baseURL: https://test.api.amadeus.com/v2
   tags:
-  - Air Traffic
+  - air-traffic
   tags_raw:
   - air-traffic
   properties:
@@ -4506,7 +4506,7 @@ apis:
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
   baseURL: https://test.api.amadeus.com/v2
   tags:
-  - Airlines
+  - airlines
   tags_raw:
   - airlines
   properties:
@@ -35610,7 +35610,7 @@ apis:
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
   baseURL: https://test.api.amadeus.com/v2
   tags:
-  - Destinations
+  - destinations
   tags_raw:
   - destinations
   properties:
