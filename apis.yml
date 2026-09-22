@@ -115587,6 +115587,118 @@ apis:
     url: json-structure/authorization-amadeus-oauth2-token-structure.json
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
+- aid: amadeus:amadeus-media-hotel-content-api
+  name: Amadeus Hotel Content API
+  description: Operations for retrieving detailed hotel property content.
+  humanURL: https://developers.amadeus.com/enterprise/category/hotel/api/content
+  baseURL: https://api.amadeus.com
+  tags:
+  - Hotel Content
+  properties:
+  - type: OpenAPI
+    url: openapi/amadeus-media-hotel-content-api-openapi.yml
+  - type: Documentation
+    url: https://developers.amadeus.com/enterprise/category/hotel/api/content
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-content-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-content-response-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-media-response-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-media-item-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-media-asset-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-basic-info-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-description-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-address-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-geo-code-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-media-data-schema.json
+  - type: JSONStructure
+    url: json-structure/hotel-content-hotel-content-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-content-hotel-content-response-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-content-hotel-media-response-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-hotel-content-context.jsonld
+  - type: Documentation
+    url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list
+  - type: APIReference
+    url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list/api-reference
+  - type: JSONSchema
+    url: json-schema/amadeus-media-hotel-list-hotel-schema.json
+  - type: JSONSchema
+    url: json-schema/amadeus-media-hotel-list-hotel-search-response-schema.json
+  - type: JSONStructure
+    url: json-structure/amadeus-media-hotel-list-hotel-structure.json
+  - type: JSONStructure
+    url: json-structure/amadeus-media-hotel-list-hotel-search-response-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-hotel-list-context.jsonld
+- aid: amadeus:amadeus-media-hotel-media-api
+  name: Amadeus Hotel Media API
+  description: Operations for retrieving hotel media assets including images and videos.
+  humanURL: https://developers.amadeus.com/enterprise/category/hotel/api/content
+  baseURL: https://api.amadeus.com
+  tags:
+  - Hotel Media
+  properties:
+  - type: OpenAPI
+    url: openapi/amadeus-media-hotel-media-api-openapi.yml
+  - type: Documentation
+    url: https://developers.amadeus.com/enterprise/category/hotel/api/content
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-content-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-content-response-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-media-response-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-media-item-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-media-asset-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-basic-info-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-description-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-contact-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-address-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-geo-code-schema.json
+  - type: JSONSchema
+    url: json-schema/hotel-content-hotel-media-data-schema.json
+  - type: JSONStructure
+    url: json-structure/hotel-content-hotel-content-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-content-hotel-content-response-structure.json
+  - type: JSONStructure
+    url: json-structure/hotel-content-hotel-media-response-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-hotel-content-context.jsonld
+  - type: Documentation
+    url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list
+  - type: APIReference
+    url: https://developers.amadeus.com/self-service/category/hotels/api-doc/hotel-list/api-reference
+  - type: JSONSchema
+    url: json-schema/amadeus-media-hotel-list-hotel-schema.json
+  - type: JSONSchema
+    url: json-schema/amadeus-media-hotel-list-hotel-search-response-schema.json
+  - type: JSONStructure
+    url: json-structure/amadeus-media-hotel-list-hotel-structure.json
+  - type: JSONStructure
+    url: json-structure/amadeus-media-hotel-list-hotel-search-response-structure.json
+  - type: JSONLD
+    url: json-ld/amadeus-hotel-list-context.jsonld
 common:
 - type: CapabilityMap
   url: capabilities/amadeus-capability-edges.yml
