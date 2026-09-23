@@ -1,42 +1,18 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Airline Code Lookup air-traffic destinations API
-  description: 'Before using this API, we recommend you read our
-
-    **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
-
-    for more information on how to generate an access token.
-
-
-    Please also be aware that our test environment is based on a subset of the production,
-
-    to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.
-
-    '
-  version: 1.2.1
-  x-status: validated
-  x-tags:
-  - '#ama-for-dev'
-  x-release-note:
-    1.2.0:
-    - Migration to OAS3
-    1.1.0:
-    - Correct example
-    - Regroup parameter "IATACode" and "ICAOCode" under the same name "airlineCodes"
-    1.0.0:
-    - initial version
-    - List all airlines information (name and code)
-    - Introduction of search per IATA or ICAO code
+  title: Airline Routes Destinations API
+  version: 1.1.1
+  description: Before using the API you will need to get an access token. Please read our **Authorization Guide** for more information on how to get your token.
 servers:
 - url: https://test.api.amadeus.com/v1
 tags:
-- name: destinations
+- name: Destinations
 paths:
   /airline/destinations:
     get:
       summary: Amadeus Get Airline Destinations
       tags:
-      - destinations
+      - Destinations
       responses:
         '200':
           description: Success Response
@@ -157,68 +133,20 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    errors:
-      title: Error
-      properties:
-        status:
-          type: integer
-          description: The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status.
-          example: 1
-        code:
-          type: integer
-          description: A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error
-          example: 1
-        title:
-          type: string
-          description: An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized
-          example: string-value
-        detail:
-          type: string
-          description: An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized.
-          example: string-value
-        source:
-          type: object
-          title: Error_Source
-          properties:
-            parameter:
-              type: string
-              description: The key of the URI path or query parameter that caused the error
-              example: string-value
-            pointer:
-              type: string
-              description: A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error
-              example: string-value
-            example:
-              type: string
-              description: A sample input to guide the user when resolving this issue
-              example: string-value
-    response_error:
+    response_airlineRoutes:
       type: object
-      title: Error Reply
+      title: Airline Routes Reply
       properties:
-        errors:
+        warnings:
           type: array
           items:
-            $ref: '#/components/schemas/errors'
-    meta:
-      title: meta
-      type: object
-      description: Meta information about the returned object(s) in "data"
-      properties:
-        count:
-          type: integer
-          description: Total number of object(s) retrieved
-          format: int64
-          example: 1
-        links:
-          type: object
-          description: Links related to the returned object(s)
-          properties:
-            self:
-              type: string
-              description: Link to the same page.
-              format: uri
-              example: https://example.com/resource
+            $ref: '#/components/schemas/warnings'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/locations'
+        meta:
+          $ref: '#/components/schemas/meta'
     locations:
       title: destination
       type: object
@@ -289,6 +217,14 @@ components:
               type: integer
               description: Score value based on the number of travelers per year and per destination. Score is between 0 and 100, 100 being the value for the destination city with the highest value of travelers for the origin airport
               example: '100'
+    response_error:
+      type: object
+      title: Error Reply
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/errors'
     warnings:
       title: warning
       type: object
@@ -321,17 +257,57 @@ components:
               type: string
               description: A sample input to guide the user when resolving this issue
               example: string-value
-    response_airlineRoutes:
+    meta:
+      title: meta
       type: object
-      title: Airline Routes Reply
+      description: Meta information about the returned object(s) in "data"
       properties:
-        warnings:
-          type: array
-          items:
-            $ref: '#/components/schemas/warnings'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/locations'
-        meta:
-          $ref: '#/components/schemas/meta'
+        count:
+          type: integer
+          description: Total number of object(s) retrieved
+          format: int64
+          example: 1
+        links:
+          type: object
+          description: Links related to the returned object(s)
+          properties:
+            self:
+              type: string
+              description: Link to the same page.
+              format: uri
+              example: https://example.com/resource
+    errors:
+      title: Error
+      properties:
+        status:
+          type: integer
+          description: The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status.
+          example: 1
+        code:
+          type: integer
+          description: A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error
+          example: 1
+        title:
+          type: string
+          description: An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized
+          example: string-value
+        detail:
+          type: string
+          description: An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized.
+          example: string-value
+        source:
+          type: object
+          title: Error_Source
+          properties:
+            parameter:
+              type: string
+              description: The key of the URI path or query parameter that caused the error
+              example: string-value
+            pointer:
+              type: string
+              description: A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error
+              example: string-value
+            example:
+              type: string
+              description: A sample input to guide the user when resolving this issue
+              example: string-value

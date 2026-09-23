@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus-media/refs/heads/main/json-schema/hotel-content-geo-code-schema.json",
+  "title": "GeoCode",
+  "description": "Geographic coordinates of the hotel.",
+  "type": "object",
+  "properties": {
+    "latitude": {
+      "type": "number",
+      "format": "double",
+      "description": "Latitude in decimal degrees.",
+      "example": 51.508
+    },
+    "longitude": {
+      "type": "number",
+      "format": "double",
+      "description": "Longitude in decimal degrees.",
+      "example": -0.145
+    }
+  }
+}

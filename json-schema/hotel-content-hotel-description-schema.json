@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus-media/refs/heads/main/json-schema/hotel-content-hotel-description-schema.json",
+  "title": "HotelDescription",
+  "description": "Hotel description in a specific language.",
+  "type": "object",
+  "properties": {
+    "lang": {
+      "type": "string",
+      "description": "ISO 639-1 language code.",
+      "example": "EN"
+    },
+    "text": {
+      "type": "string",
+      "description": "Hotel description text.",
+      "example": "A luxury boutique hotel offering exceptional service and stunning city views."
+    }
+  }
+}

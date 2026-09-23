@@ -1,0 +1,399 @@
+openapi: 3.2.0
+info:
+  title: Amadeus Hotel Content API
+  version: 1.0.0
+  description: 'The Amadeus Hotel Content API provides detailed property information for hotels in the Amadeus inventory, including property descriptions, amenities, facilities, contact details, and media assets such as images and multimedia content. This Enterprise API enables travel platforms to build rich hotel profiles with photos, room images, and comprehensive property descriptions.
+
+    Before using this API, obtain an access token. See the Authorization Guide for details.'
+  contact:
+    name: Amadeus for Developers
+    url: https://developers.amadeus.com/support
+  license:
+    name: Amadeus Terms and Conditions
+    url: https://developers.amadeus.com/legal/terms-and-conditions
+  x-generated-from: documentation
+servers:
+- url: https://api.amadeus.com/v1
+  description: Production server
+- url: https://test.api.amadeus.com/v1
+  description: Test server
+security:
+- BearerAuth: []
+tags:
+- name: Hotel Content
+  description: Operations for retrieving detailed hotel property content.
+paths:
+  /reference-data/locations/hotels/by-hotels/content:
+    get:
+      operationId: getHotelContent
+      summary: Amadeus Get Hotel Content
+      description: Returns detailed content for one or more hotels including property descriptions, amenities, facilities, contact information, geolocation, and media assets such as images and videos. Provide one or more hotel IDs (Amadeus property codes) to retrieve their content.
+      tags:
+      - Hotel Content
+      parameters:
+      - name: hotelIds
+        in: query
+        required: true
+        description: Amadeus property codes (8 characters) for which to retrieve content. Up to 20 hotel IDs can be specified per request.
+        schema:
+          type: array
+          items:
+            type: string
+          minItems: 1
+          maxItems: 20
+          example:
+          - MCLONGHM
+        style: form
+        explode: false
+      - name: language
+        in: query
+        required: false
+        description: Language code for the content response (e.g., EN, FR, DE). Defaults to English if not specified.
+        schema:
+          type: string
+          example: EN
+      - name: fields
+        in: query
+        required: false
+        description: 'Comma-separated list of content fields to include in the response. Options include: basicInfo, descriptions, amenities, media, contact, location.'
+        schema:
+          type: string
+          example: basicInfo,descriptions,media,amenities
+      responses:
+        '200':
+          description: Successful response with hotel content data.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/HotelContentResponse'
+              examples:
+                GetHotelContent200Example:
+                  summary: Default getHotelContent 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - hotelId: MCLONGHM
+                      chainCode: MC
+                      iataCode: LON
+                      name: THE LONGCHAMP HOTEL
+                      basicInfo:
+                        category: 4
+                        rating: FOUR_STARS
+                        numberOfRooms: 120
+                        checkInTime: '14:00'
+                        checkOutTime: '12:00'
+                      descriptions:
+                      - lang: EN
+                        text: A luxury boutique hotel in the heart of London, offering stunning views and exceptional service.
+                      contact:
+                        phone: +44-20-12345678
+                        email: info@thelongchamp.com
+                        website: https://www.thelongchamp.com
+                      address:
+                        lines:
+                        - 15 Park Lane
+                        postalCode: W1K 1BE
+                        cityName: London
+                        countryCode: GB
+                      geoCode:
+                        latitude: 51.508
+                        longitude: -0.145
+                      amenities:
+                      - WIFI
+                      - RESTAURANT
+                      - SPA
+                      - GYM
+                      - PARKING
+                      media:
+                      - category: EXTERIOR
+                        uri: https://media.amadeus.com/hotels/MCLONGHM/exterior-01.jpg
+                        caption: Hotel Exterior
+                      - category: LOBBY
+                        uri: https://media.amadeus.com/hotels/MCLONGHM/lobby-01.jpg
+                        caption: Grand Lobby
+                      - category: ROOM
+                        uri: https://media.amadeus.com/hotels/MCLONGHM/room-deluxe-01.jpg
+                        caption: Deluxe Room
+                    meta:
+                      count: 1
+                      links:
+                        self: https://api.amadeus.com/v1/reference-data/locations/hotels/by-hotels/content?hotelIds=MCLONGHM
+        '400':
+          description: Bad request. Invalid parameters.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                GetHotelContent400Example:
+                  summary: Default getHotelContent 400 response
+                  x-microcks-default: true
+                  value:
+                    errors:
+                    - status: 400
+                      code: 477
+                      title: INVALID FORMAT
+                      detail: Invalid value for parameter hotelIds. Must be 8-character Amadeus property codes.
+        '401':
+          description: Unauthorized. Access token missing or invalid.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not found. No hotels found for the given IDs.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    HotelBasicInfo:
+      type: object
+      description: Basic hotel classification information.
+      properties:
+        category:
+          type: integer
+          description: Hotel star category (1-5).
+          example: 4
+        rating:
+          type: string
+          description: Hotel rating classification.
+          example: FOUR_STARS
+        numberOfRooms:
+          type: integer
+          description: Total number of rooms in the property.
+          example: 120
+        checkInTime:
+          type: string
+          description: Standard check-in time (HH:MM format).
+          example: '14:00'
+        checkOutTime:
+          type: string
+          description: Standard check-out time (HH:MM format).
+          example: '12:00'
+    HotelAddress:
+      type: object
+      description: Hotel physical address.
+      properties:
+        lines:
+          type: array
+          description: Street address lines.
+          items:
+            type: string
+          example:
+          - 15 Park Lane
+        postalCode:
+          type: string
+          description: Postal or ZIP code.
+          example: W1K 1BE
+        cityName:
+          type: string
+          description: City name.
+          example: London
+        countryCode:
+          type: string
+          description: ISO 3166-1 alpha-2 country code.
+          example: GB
+        stateCode:
+          type: string
+          description: State or province code (where applicable).
+          example: ENG
+    Meta:
+      type: object
+      description: Metadata about the response.
+      properties:
+        count:
+          type: integer
+          description: Number of results returned.
+          example: 1
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+              description: URL of the current request.
+              example: https://api.amadeus.com/v1/reference-data/locations/hotels/by-hotels/content
+    GeoCode:
+      type: object
+      description: Geographic coordinates of the hotel.
+      properties:
+        latitude:
+          type: number
+          format: double
+          description: Latitude in decimal degrees.
+          example: 51.508
+        longitude:
+          type: number
+          format: double
+          description: Longitude in decimal degrees.
+          example: -0.145
+    HotelDescription:
+      type: object
+      description: Hotel description in a specific language.
+      properties:
+        lang:
+          type: string
+          description: ISO 639-1 language code.
+          example: EN
+        text:
+          type: string
+          description: Hotel description text.
+          example: A luxury boutique hotel offering exceptional service and stunning city views.
+    HotelContact:
+      type: object
+      description: Hotel contact information.
+      properties:
+        phone:
+          type: string
+          description: Hotel phone number in international format.
+          example: +44-20-12345678
+        fax:
+          type: string
+          description: Hotel fax number.
+          example: +44-20-12345679
+        email:
+          type: string
+          format: email
+          description: Hotel email address.
+          example: info@hotel.com
+        website:
+          type: string
+          format: uri
+          description: Hotel website URL.
+          example: https://www.hotel.com
+    ErrorResponse:
+      type: object
+      description: Error response from the API.
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+    Error:
+      type: object
+      description: Individual error detail.
+      properties:
+        status:
+          type: integer
+          description: HTTP status code.
+          example: 400
+        code:
+          type: integer
+          description: Amadeus error code.
+          example: 477
+        title:
+          type: string
+          description: Short error title.
+          example: INVALID FORMAT
+        detail:
+          type: string
+          description: Detailed error description.
+          example: Invalid value for parameter.
+        source:
+          type: object
+          properties:
+            parameter:
+              type: string
+              description: Name of the parameter that caused the error.
+              example: hotelIds
+    HotelContentResponse:
+      type: object
+      description: Response containing hotel content data for one or more hotels.
+      properties:
+        data:
+          type: array
+          description: Array of hotel content objects.
+          items:
+            $ref: '#/components/schemas/HotelContent'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    HotelContent:
+      type: object
+      description: Detailed content for a single hotel property.
+      properties:
+        hotelId:
+          type: string
+          description: Amadeus property code (8 characters).
+          example: MCLONGHM
+        chainCode:
+          type: string
+          description: Hotel chain code.
+          example: MC
+        iataCode:
+          type: string
+          description: IATA city code where the hotel is located.
+          example: LON
+        name:
+          type: string
+          description: Hotel name.
+          example: THE LONGCHAMP HOTEL
+        basicInfo:
+          $ref: '#/components/schemas/HotelBasicInfo'
+        descriptions:
+          type: array
+          description: Hotel descriptions in various languages.
+          items:
+            $ref: '#/components/schemas/HotelDescription'
+        contact:
+          $ref: '#/components/schemas/HotelContact'
+        address:
+          $ref: '#/components/schemas/HotelAddress'
+        geoCode:
+          $ref: '#/components/schemas/GeoCode'
+        amenities:
+          type: array
+          description: List of hotel amenity codes.
+          items:
+            type: string
+          example:
+          - WIFI
+          - RESTAURANT
+          - SPA
+        media:
+          type: array
+          description: List of hotel media assets.
+          items:
+            $ref: '#/components/schemas/MediaAsset'
+    MediaAsset:
+      type: object
+      description: A single media asset (image or video) for a hotel property.
+      properties:
+        category:
+          type: string
+          description: Media category.
+          enum:
+          - EXTERIOR
+          - LOBBY
+          - ROOM
+          - RESTAURANT
+          - POOL
+          - SPA
+          - GYM
+          - MEETING_ROOM
+          - COMMON_AREA
+          example: EXTERIOR
+        uri:
+          type: string
+          format: uri
+          description: URL of the full-size media asset.
+          example: https://media.amadeus.com/hotels/MCLONGHM/exterior-01.jpg
+        caption:
+          type: string
+          description: Caption or alt text for the media asset.
+          example: Hotel Exterior
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth2 Bearer token. Obtain a token using the Amadeus Authorization API at https://test.api.amadeus.com/v1/security/oauth2/token.

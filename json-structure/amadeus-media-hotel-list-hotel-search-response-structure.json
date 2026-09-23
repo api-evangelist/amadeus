@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus-media/refs/heads/main/json-structure/hotel-list-hotel-search-response-structure.json",
+  "name": "HotelSearchResponse",
+  "description": "HotelSearchResponse schema from Hotel List",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Hotel"
+      }
+    },
+    "meta": {
+      "$ref": "#/components/schemas/Meta"
+    }
+  }
+}

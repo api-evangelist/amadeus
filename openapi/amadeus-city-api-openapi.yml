@@ -1,32 +1,8 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Airline Code Lookup air-traffic City API
-  description: 'Before using this API, we recommend you read our
-
-    **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
-
-    for more information on how to generate an access token.
-
-
-    Please also be aware that our test environment is based on a subset of the production,
-
-    to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.
-
-    '
-  version: 1.2.1
-  x-status: validated
-  x-tags:
-  - '#ama-for-dev'
-  x-release-note:
-    1.2.0:
-    - Migration to OAS3
-    1.1.0:
-    - Correct example
-    - Regroup parameter "IATACode" and "ICAOCode" under the same name "airlineCodes"
-    1.0.0:
-    - initial version
-    - List all airlines information (name and code)
-    - Introduction of search per IATA or ICAO code
+  title: Search City API
+  version: 1.0.2
+  description: Before using the API you will need to get an access token. Please read our **Authorization Guide** for more information on how to get your token.
 servers:
 - url: https://test.api.amadeus.com/v1
 tags:
@@ -148,16 +124,14 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    errors:
-      title: Error
+    Warning:
+      type: object
+      description: The Warning Definition
+      title: Warning
       properties:
-        status:
-          type: integer
-          description: The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status.
-          example: 1
         code:
           type: integer
-          description: A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error
+          description: A machine-readable error code from the Canned Messages table, that will enable the API Consumers code to handle this type of error
           example: 1
         title:
           type: string
@@ -169,7 +143,8 @@ components:
           example: string-value
         source:
           type: object
-          title: Error_Source
+          description: The Warning Source Definition
+          title: Warning_Source
           properties:
             parameter:
               type: string
@@ -181,8 +156,32 @@ components:
               example: string-value
             example:
               type: string
-              description: A sample input to guide the user when resolving this issue
+              description: A sample input to guide the user when resolving this issu
               example: string-value
+      required:
+      - code
+      - title
+    Meta:
+      type: object
+      description: Meta information about the returned object(s) in "data"
+      title: Meta
+      properties:
+        count:
+          type: integer
+          format: int64
+          description: Total number of object(s) retrieved
+          minimum: 0
+          example: 1
+        links:
+          type: object
+          title: Links
+          description: Links related to the returned object(s)
+          properties:
+            self:
+              type: string
+              format: url
+              description: Link to the same page.
+              example: https://example.com/resource
     response_error:
       type: object
       description: A set of errors
@@ -259,50 +258,26 @@ components:
                 format: float
                 description: Latitude of the position expressed in decimal degrees (WSG 84), e.g. 6.244203. A positive value denotes northern hemisphere or the equator, and a negative value denotes southern hemisphere. The number of digits to represent the precision of the coordinate.
                 minimum: -90
-                exclusiveMinimum: false
                 maximum: 90
-                exclusiveMaximum: false
                 example: 48.85837
               longitude:
                 type: number
                 format: float
                 description: Longitude of the position expressed in decimal degrees (WSG 84), e.g. -75.581211. A positive value denotes east longitude or the prime meridian, and a negative value denotes west longitude.  The number of digits to represent the precision of the coordinate.
                 minimum: -180
-                exclusiveMinimum: false
                 maximum: 180
-                exclusiveMaximum: false
                 example: 2.294481
       description: ''
-    Meta:
-      type: object
-      description: Meta information about the returned object(s) in "data"
-      title: Meta
+    errors:
+      title: Error
       properties:
-        count:
+        status:
           type: integer
-          format: int64
-          description: Total number of object(s) retrieved
-          minimum: 0
-          exclusiveMinimum: false
+          description: The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status.
           example: 1
-        links:
-          type: object
-          title: Links
-          description: Links related to the returned object(s)
-          properties:
-            self:
-              type: string
-              format: url
-              description: Link to the same page.
-              example: https://example.com/resource
-    Warning:
-      type: object
-      description: The Warning Definition
-      title: Warning
-      properties:
         code:
           type: integer
-          description: A machine-readable error code from the Canned Messages table, that will enable the API Consumers code to handle this type of error
+          description: A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error
           example: 1
         title:
           type: string
@@ -314,8 +289,7 @@ components:
           example: string-value
         source:
           type: object
-          description: The Warning Source Definition
-          title: Warning_Source
+          title: Error_Source
           properties:
             parameter:
               type: string
@@ -327,11 +301,8 @@ components:
               example: string-value
             example:
               type: string
-              description: A sample input to guide the user when resolving this issu
+              description: A sample input to guide the user when resolving this issue
               example: string-value
-      required:
-      - code
-      - title
     response_citySearch:
       type: object
       title: City Search Reply

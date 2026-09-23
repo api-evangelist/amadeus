@@ -1,18 +1,16 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Airline Code Lookup air-traffic airlines API
+  title: Airline Code Lookup Airlines API
   description: 'Before using this API, we recommend you read our
 
-    **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)**
+    **Authorization Guide**
 
     for more information on how to generate an access token.
 
 
     Please also be aware that our test environment is based on a subset of the production,
 
-    to see what is included in test please refer to our **[data collection](https://github.com/amadeus4dev/data-collection)**.
-
-    '
+    to see what is included in test please refer to our **data collection**.'
   version: 1.2.1
   x-status: validated
   x-tags:
@@ -30,13 +28,13 @@ info:
 servers:
 - url: https://test.api.amadeus.com/v1
 tags:
-- name: airlines
+- name: Airlines
 paths:
   /reference-data/airlines:
     get:
       tags:
-      - airlines
-      summary: Amadeus Return Airlines Information.
+      - Airlines
+      summary: Amadeus Return Airlines Information
       operationId: getairlines
       parameters:
       - name: airlineCodes
@@ -64,6 +62,29 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Airline:
+      type: object
+      properties:
+        type:
+          type: string
+          description: the resource name
+          example: airline
+        iataCode:
+          type: string
+          description: IATA airline code. see [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
+          example: WN
+        icaoCode:
+          type: string
+          description: IATA airline code. see [ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)
+          example: SWA
+        businessName:
+          type: string
+          description: airline business name
+          example: SOUTHWEST AIRLINES TEXAS
+        commonName:
+          type: string
+          description: airline common name
+          example: SW AIRLINES
     Warning:
       type: object
       properties:
@@ -97,29 +118,6 @@ components:
               description: a string indicating an example of the right value
               example: string-value
           description: an object containing references to the source of the error
-    Airline:
-      type: object
-      properties:
-        type:
-          type: string
-          description: the resource name
-          example: airline
-        iataCode:
-          type: string
-          description: IATA airline code. see [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
-          example: WN
-        icaoCode:
-          type: string
-          description: IATA airline code. see [ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)
-          example: SWA
-        businessName:
-          type: string
-          description: airline business name
-          example: SOUTHWEST AIRLINES TEXAS
-        commonName:
-          type: string
-          description: airline common name
-          example: SW AIRLINES
     Meta:
       title: Meta
       type: object

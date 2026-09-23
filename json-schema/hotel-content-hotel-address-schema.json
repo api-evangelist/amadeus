@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus-media/refs/heads/main/json-schema/hotel-content-hotel-address-schema.json",
+  "title": "HotelAddress",
+  "description": "Hotel physical address.",
+  "type": "object",
+  "properties": {
+    "lines": {
+      "type": "array",
+      "description": "Street address lines.",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "15 Park Lane"
+      ]
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Postal or ZIP code.",
+      "example": "W1K 1BE"
+    },
+    "cityName": {
+      "type": "string",
+      "description": "City name.",
+      "example": "London"
+    },
+    "countryCode": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 country code.",
+      "example": "GB"
+    },
+    "stateCode": {
+      "type": "string",
+      "description": "State or province code (where applicable).",
+      "example": "ENG"
+    }
+  }
+}

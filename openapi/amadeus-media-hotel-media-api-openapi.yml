@@ -1,0 +1,270 @@
+openapi: 3.2.0
+info:
+  title: Amadeus Hotel Content Hotel Media API
+  version: 1.0.0
+  description: 'The Amadeus Hotel Content API provides detailed property information for hotels in the Amadeus inventory, including property descriptions, amenities, facilities, contact details, and media assets such as images and multimedia content. This Enterprise API enables travel platforms to build rich hotel profiles with photos, room images, and comprehensive property descriptions.
+
+    Before using this API, obtain an access token. See the Authorization Guide for details.'
+  contact:
+    name: Amadeus for Developers
+    url: https://developers.amadeus.com/support
+  license:
+    name: Amadeus Terms and Conditions
+    url: https://developers.amadeus.com/legal/terms-and-conditions
+  x-generated-from: documentation
+servers:
+- url: https://api.amadeus.com/v1
+  description: Production server
+- url: https://test.api.amadeus.com/v1
+  description: Test server
+security:
+- BearerAuth: []
+tags:
+- name: Hotel Media
+  description: Operations for retrieving hotel media assets including images and videos.
+paths:
+  /reference-data/locations/hotels/by-hotels/media:
+    get:
+      operationId: getHotelMedia
+      summary: Amadeus Get Hotel Media
+      description: Returns media assets (images, videos) for one or more hotels in the Amadeus inventory. Media includes exterior shots, lobby photos, room images, restaurant photos, and amenity images categorized by type.
+      tags:
+      - Hotel Media
+      parameters:
+      - name: hotelIds
+        in: query
+        required: true
+        description: Amadeus property codes (8 characters). Up to 20 hotel IDs per request.
+        schema:
+          type: array
+          items:
+            type: string
+          minItems: 1
+          maxItems: 20
+          example:
+          - MCLONGHM
+        style: form
+        explode: false
+      - name: category
+        in: query
+        required: false
+        description: 'Filter media by category. Options: EXTERIOR, LOBBY, ROOM, RESTAURANT, POOL, SPA, GYM, MEETING_ROOM, COMMON_AREA.'
+        schema:
+          type: string
+          enum:
+          - EXTERIOR
+          - LOBBY
+          - ROOM
+          - RESTAURANT
+          - POOL
+          - SPA
+          - GYM
+          - MEETING_ROOM
+          - COMMON_AREA
+          example: EXTERIOR
+      - name: format
+        in: query
+        required: false
+        description: 'Preferred image format. Options: JPEG, PNG, WEBP.'
+        schema:
+          type: string
+          enum:
+          - JPEG
+          - PNG
+          - WEBP
+          example: JPEG
+      responses:
+        '200':
+          description: Successful response with hotel media assets.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/HotelMediaResponse'
+              examples:
+                GetHotelMedia200Example:
+                  summary: Default getHotelMedia 200 response
+                  x-microcks-default: true
+                  value:
+                    data:
+                    - hotelId: MCLONGHM
+                      media:
+                      - id: media-001
+                        category: EXTERIOR
+                        uri: https://media.amadeus.com/hotels/MCLONGHM/exterior-01.jpg
+                        thumbnailUri: https://media.amadeus.com/hotels/MCLONGHM/exterior-01-thumb.jpg
+                        caption: Hotel Exterior
+                        width: 1920
+                        height: 1080
+                        format: JPEG
+                        isPrimary: true
+                      - id: media-002
+                        category: ROOM
+                        uri: https://media.amadeus.com/hotels/MCLONGHM/room-deluxe-01.jpg
+                        thumbnailUri: https://media.amadeus.com/hotels/MCLONGHM/room-deluxe-01-thumb.jpg
+                        caption: Deluxe Double Room
+                        width: 1920
+                        height: 1080
+                        format: JPEG
+                        isPrimary: false
+                    meta:
+                      count: 1
+                      links:
+                        self: https://api.amadeus.com/v1/reference-data/locations/hotels/by-hotels/media?hotelIds=MCLONGHM
+        '400':
+          description: Bad request.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                GetHotelMedia400Example:
+                  summary: Default getHotelMedia 400 response
+                  x-microcks-default: true
+                  value:
+                    errors:
+                    - status: 400
+                      code: 477
+                      title: INVALID FORMAT
+                      detail: Invalid value for parameter hotelIds.
+        '401':
+          description: Unauthorized.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error.
+          content:
+            application/vnd.amadeus+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Meta:
+      type: object
+      description: Metadata about the response.
+      properties:
+        count:
+          type: integer
+          description: Number of results returned.
+          example: 1
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+              description: URL of the current request.
+              example: https://api.amadeus.com/v1/reference-data/locations/hotels/by-hotels/content
+    HotelMediaResponse:
+      type: object
+      description: Response containing media assets for one or more hotels.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/HotelMediaData'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    HotelMediaItem:
+      type: object
+      description: A detailed media item with dimensions and format information.
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the media item.
+          example: media-001
+        category:
+          type: string
+          description: Media category type.
+          example: EXTERIOR
+        uri:
+          type: string
+          format: uri
+          description: URL of the full-size image.
+          example: https://media.amadeus.com/hotels/MCLONGHM/exterior-01.jpg
+        thumbnailUri:
+          type: string
+          format: uri
+          description: URL of the thumbnail image.
+          example: https://media.amadeus.com/hotels/MCLONGHM/exterior-01-thumb.jpg
+        caption:
+          type: string
+          description: Image caption or alt text.
+          example: Hotel Exterior View
+        width:
+          type: integer
+          description: Image width in pixels.
+          example: 1920
+        height:
+          type: integer
+          description: Image height in pixels.
+          example: 1080
+        format:
+          type: string
+          description: Image format.
+          enum:
+          - JPEG
+          - PNG
+          - WEBP
+          example: JPEG
+        isPrimary:
+          type: boolean
+          description: Indicates whether this is the primary/featured image for this category.
+          example: true
+    ErrorResponse:
+      type: object
+      description: Error response from the API.
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
+    HotelMediaData:
+      type: object
+      description: Media assets for a single hotel.
+      properties:
+        hotelId:
+          type: string
+          description: Amadeus property code.
+          example: MCLONGHM
+        media:
+          type: array
+          description: List of media assets for the hotel.
+          items:
+            $ref: '#/components/schemas/HotelMediaItem'
+    Error:
+      type: object
+      description: Individual error detail.
+      properties:
+        status:
+          type: integer
+          description: HTTP status code.
+          example: 400
+        code:
+          type: integer
+          description: Amadeus error code.
+          example: 477
+        title:
+          type: string
+          description: Short error title.
+          example: INVALID FORMAT
+        detail:
+          type: string
+          description: Detailed error description.
+          example: Invalid value for parameter.
+        source:
+          type: object
+          properties:
+            parameter:
+              type: string
+              description: Name of the parameter that caused the error.
+              example: hotelIds
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: OAuth2 Bearer token. Obtain a token using the Amadeus Authorization API at https://test.api.amadeus.com/v1/security/oauth2/token.

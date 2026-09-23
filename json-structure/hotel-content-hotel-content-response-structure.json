@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus-media/refs/heads/main/json-structure/hotel-content-hotel-content-response-structure.json",
+  "name": "HotelContentResponse",
+  "description": "Response containing hotel content data for one or more hotels.",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "array",
+      "description": "Array of hotel content objects.",
+      "items": {
+        "$ref": "#/components/schemas/HotelContent"
+      }
+    },
+    "meta": {
+      "$ref": "#/components/schemas/Meta"
+    }
+  }
+}

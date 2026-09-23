@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus-media/refs/heads/main/json-schema/hotel-content-hotel-media-data-schema.json",
+  "title": "HotelMediaData",
+  "description": "Media assets for a single hotel.",
+  "type": "object",
+  "properties": {
+    "hotelId": {
+      "type": "string",
+      "description": "Amadeus property code.",
+      "example": "MCLONGHM"
+    },
+    "media": {
+      "type": "array",
+      "description": "List of media assets for the hotel.",
+      "items": {
+        "$ref": "#/components/schemas/HotelMediaItem"
+      }
+    }
+  }
+}

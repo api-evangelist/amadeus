@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus-media/refs/heads/main/json-structure/hotel-content-hotel-content-structure.json",
+  "name": "HotelContent",
+  "description": "Detailed content for a single hotel property.",
+  "type": "object",
+  "properties": {
+    "hotelId": {
+      "type": "string",
+      "description": "Amadeus property code (8 characters).",
+      "example": "MCLONGHM"
+    },
+    "chainCode": {
+      "type": "string",
+      "description": "Hotel chain code.",
+      "example": "MC"
+    },
+    "iataCode": {
+      "type": "string",
+      "description": "IATA city code where the hotel is located.",
+      "example": "LON"
+    },
+    "name": {
+      "type": "string",
+      "description": "Hotel name.",
+      "example": "THE LONGCHAMP HOTEL"
+    },
+    "basicInfo": {
+      "$ref": "#/components/schemas/HotelBasicInfo"
+    },
+    "descriptions": {
+      "type": "array",
+      "description": "Hotel descriptions in various languages.",
+      "items": {
+        "$ref": "#/components/schemas/HotelDescription"
+      }
+    },
+    "contact": {
+      "$ref": "#/components/schemas/HotelContact"
+    },
+    "address": {
+      "$ref": "#/components/schemas/HotelAddress"
+    },
+    "geoCode": {
+      "$ref": "#/components/schemas/GeoCode"
+    },
+    "amenities": {
+      "type": "array",
+      "description": "List of hotel amenity codes.",
+      "items": {
+        "type": "string"
+      },
+      "example": [
+        "WIFI",
+        "RESTAURANT",
+        "SPA"
+      ]
+    },
+    "media": {
+      "type": "array",
+      "description": "List of hotel media assets.",
+      "items": {
+        "$ref": "#/components/schemas/MediaAsset"
+      }
+    }
+  }
+}

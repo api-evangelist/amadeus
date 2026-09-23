@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amadeus-media/refs/heads/main/json-schema/hotel-content-hotel-contact-schema.json",
+  "title": "HotelContact",
+  "description": "Hotel contact information.",
+  "type": "object",
+  "properties": {
+    "phone": {
+      "type": "string",
+      "description": "Hotel phone number in international format.",
+      "example": "+44-20-12345678"
+    },
+    "fax": {
+      "type": "string",
+      "description": "Hotel fax number.",
+      "example": "+44-20-12345679"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Hotel email address.",
+      "example": "info@hotel.com"
+    },
+    "website": {
+      "type": "string",
+      "format": "uri",
+      "description": "Hotel website URL.",
+      "example": "https://www.hotel.com"
+    }
+  }
+}

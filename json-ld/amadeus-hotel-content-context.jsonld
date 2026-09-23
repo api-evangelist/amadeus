@@ -1,0 +1,175 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "amadeus": "https://amadeus.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "HotelContact": "amadeus:HotelContact",
+    "GeoCode": "amadeus:GeoCode",
+    "HotelBasicInfo": "amadeus:HotelBasicInfo",
+    "HotelContent": "amadeus:HotelContent",
+    "HotelMediaItem": "amadeus:HotelMediaItem",
+    "HotelContentResponse": "amadeus:HotelContentResponse",
+    "HotelMediaData": "amadeus:HotelMediaData",
+    "MediaAsset": "amadeus:MediaAsset",
+    "HotelDescription": "amadeus:HotelDescription",
+    "HotelAddress": "amadeus:HotelAddress",
+    "HotelMediaResponse": "amadeus:HotelMediaResponse",
+    "phone": {
+      "@id": "amadeus:phone",
+      "@type": "xsd:string"
+    },
+    "fax": {
+      "@id": "amadeus:fax",
+      "@type": "xsd:string"
+    },
+    "email": "schema:email",
+    "website": {
+      "@id": "amadeus:website",
+      "@type": "@id"
+    },
+    "latitude": {
+      "@id": "amadeus:latitude",
+      "@type": "xsd:double"
+    },
+    "longitude": {
+      "@id": "amadeus:longitude",
+      "@type": "xsd:double"
+    },
+    "category": {
+      "@id": "amadeus:category",
+      "@type": "xsd:integer"
+    },
+    "rating": {
+      "@id": "amadeus:rating",
+      "@type": "xsd:string"
+    },
+    "numberOfRooms": {
+      "@id": "amadeus:numberOfRooms",
+      "@type": "xsd:integer"
+    },
+    "checkInTime": {
+      "@id": "amadeus:checkInTime",
+      "@type": "xsd:string"
+    },
+    "checkOutTime": {
+      "@id": "amadeus:checkOutTime",
+      "@type": "xsd:string"
+    },
+    "hotelId": {
+      "@id": "amadeus:hotelId",
+      "@type": "xsd:string"
+    },
+    "chainCode": {
+      "@id": "amadeus:chainCode",
+      "@type": "xsd:string"
+    },
+    "iataCode": {
+      "@id": "amadeus:iataCode",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "basicInfo": {
+      "@id": "amadeus:basicInfo",
+      "@type": "xsd:string"
+    },
+    "descriptions": {
+      "@id": "amadeus:descriptions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "contact": {
+      "@id": "amadeus:contact",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "amadeus:address",
+      "@type": "xsd:string"
+    },
+    "geoCode": {
+      "@id": "amadeus:geoCode",
+      "@type": "xsd:string"
+    },
+    "amenities": {
+      "@id": "amadeus:amenities",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "media": {
+      "@id": "amadeus:media",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "amadeus:id",
+      "@type": "xsd:string"
+    },
+    "uri": {
+      "@id": "amadeus:uri",
+      "@type": "@id"
+    },
+    "thumbnailUri": {
+      "@id": "amadeus:thumbnailUri",
+      "@type": "@id"
+    },
+    "caption": {
+      "@id": "amadeus:caption",
+      "@type": "xsd:string"
+    },
+    "width": {
+      "@id": "amadeus:width",
+      "@type": "xsd:integer"
+    },
+    "height": {
+      "@id": "amadeus:height",
+      "@type": "xsd:integer"
+    },
+    "format": {
+      "@id": "amadeus:format",
+      "@type": "xsd:string"
+    },
+    "isPrimary": {
+      "@id": "amadeus:isPrimary",
+      "@type": "xsd:boolean"
+    },
+    "data": {
+      "@id": "amadeus:data",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "meta": {
+      "@id": "amadeus:meta",
+      "@type": "xsd:string"
+    },
+    "lang": {
+      "@id": "amadeus:lang",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "amadeus:text",
+      "@type": "xsd:string"
+    },
+    "lines": {
+      "@id": "amadeus:lines",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "amadeus:postalCode",
+      "@type": "xsd:string"
+    },
+    "cityName": {
+      "@id": "amadeus:cityName",
+      "@type": "xsd:string"
+    },
+    "countryCode": {
+      "@id": "amadeus:countryCode",
+      "@type": "xsd:string"
+    },
+    "stateCode": {
+      "@id": "amadeus:stateCode",
+      "@type": "xsd:string"
+    }
+  }
+}
