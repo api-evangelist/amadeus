@@ -55,7 +55,7 @@ modified: '2026-05-30'
 specificationVersion: '0.23'
 apis:
 - aid: amadeus:amadeus-air-traffic-api
-  name: Amadeus air-traffic API
+  name: Amadeus Air Traffic API
   description: The air-traffic API from Amadeus — 3 operation(s) for air-traffic.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -347,8 +347,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -4500,7 +4498,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-airlines-api
-  name: Amadeus airlines API
+  name: Amadeus Airlines API
   description: The airlines API from Amadeus — 1 operation(s) for airlines.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -4792,8 +4790,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -8945,7 +8941,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-airport-ontime-prediction-api
-  name: Amadeus airport-ontime-prediction API
+  name: Amadeus Airport Ontime Prediction API
   description: >-
     The airport-ontime-prediction API from Amadeus — 1 operation(s) for airport-ontime-prediction.
   humanURL: >-
@@ -9236,8 +9232,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -13679,8 +13673,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -18122,8 +18114,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -22275,7 +22265,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-category-rated-areas-api
-  name: Amadeus category-rated-areas API
+  name: Amadeus Category Rated Areas API
   description: The category-rated-areas API from Amadeus — 1 operation(s) for category-rated-areas.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -22565,8 +22555,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -26718,7 +26706,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-checkin-links-api
-  name: Amadeus checkin-links API
+  name: Amadeus Checkin Links API
   description: The checkin-links API from Amadeus — 1 operation(s) for checkin-links.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -27008,8 +26996,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -31451,8 +31437,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -35604,7 +35588,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-destinations-api
-  name: Amadeus destinations API
+  name: Amadeus Destinations API
   description: The destinations API from Amadeus — 1 operation(s) for destinations.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -35896,8 +35880,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -40049,7 +40031,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-direct-destinations-api
-  name: Amadeus direct-destinations API
+  name: Amadeus Direct Destinations API
   description: The direct-destinations API from Amadeus — 1 operation(s) for direct-destinations.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -40339,8 +40321,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -44782,8 +44762,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -48935,7 +48913,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-flight-choice-prediction-api
-  name: Amadeus flight-choice-prediction API
+  name: Amadeus Flight Choice Prediction API
   description: >-
     The flight-choice-prediction API from Amadeus — 1 operation(s) for flight-choice-prediction.
   humanURL: >-
@@ -49226,8 +49204,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -53379,7 +53355,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-flight-dates-api
-  name: Amadeus flight-dates API
+  name: Amadeus Flight Dates API
   description: The flight-dates API from Amadeus — 1 operation(s) for flight-dates.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -53669,8 +53645,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -57822,7 +57796,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-flight-delay-prediction-api
-  name: Amadeus flight-delay-prediction API
+  name: Amadeus Flight Delay Prediction API
   description: >-
     The flight-delay-prediction API from Amadeus — 1 operation(s) for flight-delay-prediction.
   humanURL: >-
@@ -58113,8 +58087,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -62266,7 +62238,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-flight-destinations-api
-  name: Amadeus flight-destinations API
+  name: Amadeus Flight Destinations API
   description: The flight-destinations API from Amadeus — 1 operation(s) for flight-destinations.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -62556,8 +62528,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -66709,7 +66679,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-flights-api
-  name: Amadeus flights API
+  name: Amadeus Flights API
   description: The flights API from Amadeus — 1 operation(s) for flights.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -67001,8 +66971,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -71444,8 +71412,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -75887,8 +75853,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -80040,7 +80004,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-location-api
-  name: Amadeus location API
+  name: Amadeus Location API
   description: The location API from Amadeus — 3 operation(s) for location.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -80332,8 +80296,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -84775,8 +84737,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -88928,7 +88888,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-price-metrics-api
-  name: Amadeus price-metrics API
+  name: Amadeus Price Metrics API
   description: The price-metrics API from Amadeus — 1 operation(s) for price-metrics.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -89218,8 +89178,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -93371,7 +93329,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-recommended-locations-api
-  name: Amadeus recommended-locations API
+  name: Amadeus Recommended Locations API
   description: The recommended-locations API from Amadeus — 1 operation(s) for recommended-locations.
   humanURL: >-
     https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-search
@@ -93661,8 +93619,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -98105,8 +98061,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -102548,8 +102502,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -106991,8 +106943,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
@@ -111144,7 +111094,7 @@ apis:
   - type: Examples
     url: examples/authorization-amadeus-oauth2-token-example.json
 - aid: amadeus:amadeus-trip-purpose-prediction-api
-  name: Amadeus trip-purpose-prediction API
+  name: Amadeus Trip Purpose Prediction API
   description: >-
     The trip-purpose-prediction API from Amadeus — 1 operation(s) for trip-purpose-prediction.
   humanURL: >-
@@ -111435,8 +111385,6 @@ apis:
     url: examples/flight-offers-search-tax-example.json
   - type: Examples
     url: examples/flight-offers-search-traveler-info-example.json
-  - type: GraphQL
-    url: graphql/amadeus-graphql.md
   - type: Documentation
     url: https://developers.amadeus.com/self-service/category/flights/api-doc/flight-offers-price
   - type: JSONSchema
