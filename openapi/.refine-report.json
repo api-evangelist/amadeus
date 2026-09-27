@@ -40,7 +40,9 @@
     "_original/amadeus-transfer-management-openapi.yml",
     "_original/amadeus-transfer-search-openapi.yml",
     "_original/amadeus-travel-recommendations-openapi.yml",
-    "_original/amadeus-trip-purpose-prediction-openapi.yml"
+    "_original/amadeus-trip-purpose-prediction-openapi.yml",
+    "amadeus-media-hotel-content-api-openapi.yml",
+    "amadeus-media-hotel-media-api-openapi.yml"
   ],
   "outputs": [
     "amadeus-airlines-api-openapi.yml",
@@ -68,14 +70,21 @@
     "amadeus-retrieve-api-openapi.yml",
     "amadeus-display-seatmaps-api-openapi.yml",
     "amadeus-recommended-locations-api-openapi.yml",
-    "amadeus-trip-purpose-prediction-api-openapi.yml"
+    "amadeus-trip-purpose-prediction-api-openapi.yml",
+    "amadeus-hotel-content-api-openapi.yml",
+    "amadeus-hotel-media-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 2 superseded output(s) from the previous generation"
+  ],
   "errors": [
     "amadeus-airline-code-lookup-openapi.yml: dangling $ref: #/components/responses/400",
     "amadeus-airline-code-lookup-openapi.yml: dangling $ref: #/components/responses/500"
   ],
-  "warnings": [],
+  "warnings": [
+    "amadeus-media-hotel-content-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /reference-data/locations/hotels/by-hotels/content get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "amadeus-media-hotel-media-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /reference-data/locations/hotels/by-hotels/media get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
+  ],
   "notes": [
     "sourced from openapi/_original/ (40 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "amadeus-airline-code-lookup-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
@@ -164,7 +173,8 @@
     "tag 'Booking' spans 6 source specs (amadeus-flight-create-orders-openapi.yml, amadeus-flight-order-management-openapi.yml, amadeus-hotel-booking-openapi.yml, amadeus-hotel-booking-v1-openapi.yml, amadeus-transfer-book-openapi.yml, amadeus-transfer-management-openapi.yml): per-path servers applied",
     "tag 'Search' spans 4 source specs (amadeus-hotel-name-autocomplete-openapi.yml, amadeus-points-of-interest-openapi.yml, amadeus-safe-place-openapi.yml, amadeus-tours-and-activities-openapi.yml): per-path servers applied",
     "tag 'Retrieve' spans 3 source specs (amadeus-points-of-interest-openapi.yml, amadeus-safe-place-openapi.yml, amadeus-tours-and-activities-openapi.yml): per-path servers applied",
-    "apis.yml register: already-registered"
+    "superseded outputs removed: amadeus-media-hotel-content-api-openapi.yml, amadeus-media-hotel-media-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 28 total)"
   ],
   "skipped": [
     "amadeus-air-traffic-api-openapi.yml: previously refined output, superseded by openapi/_original/",

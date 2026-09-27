@@ -125,46 +125,13 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    LocationDictionary:
-      additionalProperties:
-        $ref: '#/components/schemas/LocationValue'
-    Issue:
+    Dictionaries:
+      type: object
       properties:
-        status:
-          description: the HTTP status code applicable to this error
-          type: integer
-          example: 1
-        code:
-          description: an application-specific error code
-          type: integer
-          format: int64
-          example: 1
-        title:
-          description: a short summary of the error
-          type: string
-          example: string-value
-        detail:
-          description: explanation of the error
-          type: string
-          example: string-value
-        source:
-          type: object
-          title: Issue_Source
-          description: an object containing references to the source of the error
-          maxProperties: 1
-          properties:
-            pointer:
-              description: a JSON Pointer [RFC6901] to the associated entity in the request document
-              type: string
-              example: string-value
-            parameter:
-              description: a string indicating which URI query parameter caused the issue
-              type: string
-              example: string-value
-            example:
-              description: a string indicating an example of the right value
-              type: string
-              example: string-value
+        currencies:
+          $ref: '#/components/schemas/CurrencyDictionary'
+        locations:
+          $ref: '#/components/schemas/LocationDictionary'
     Error_404:
       properties:
         errors:
@@ -181,65 +148,12 @@ components:
           detail: no response found for this query parameter
           source:
             parameter: airport
-    Dictionaries:
-      type: object
-      properties:
-        currencies:
-          $ref: '#/components/schemas/CurrencyDictionary'
-        locations:
-          $ref: '#/components/schemas/LocationDictionary'
-    Meta:
-      type: object
-      properties:
-        currency:
-          type: string
-          description: the currency in which the prices of the flight offers are returned. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro
-          pattern: '[A-Z]{3}'
-          example: EUR
-        links:
-          $ref: '#/components/schemas/Links'
-        defaults:
-          $ref: '#/components/schemas/Defaults'
-    CurrencyDictionary:
-      additionalProperties:
-        type: string
-        example: EUR
     Price:
       properties:
         total:
           description: Total amount paid by the user
           type: string
           example: '932.70'
-    Error_400:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
-    LocationValue:
-      properties:
-        subType:
-          type: string
-          description: 'location type: airport or city'
-          enum:
-          - AIRPORT
-          - CITY
-          example: AIRPORT
-        detailedName:
-          type: string
-          description: name of the location
-          example: 'Paris/FR: Charles de Gaulle'
     FlightDates:
       type: object
       properties:
@@ -7813,25 +7727,43 @@ components:
             viewBy: DURATION
         warnings:
         - title: Maximum response size reached
-    Error_500:
+    Issue:
       properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    Links:
-      properties:
-        self:
+        status:
+          description: the HTTP status code applicable to this error
+          type: integer
+          example: 1
+        code:
+          description: an application-specific error code
+          type: integer
+          format: int64
+          example: 1
+        title:
+          description: a short summary of the error
           type: string
-          format: uri
-          example: https://example.com/resource
+          example: string-value
+        detail:
+          description: explanation of the error
+          type: string
+          example: string-value
+        source:
+          type: object
+          title: Issue_Source
+          description: an object containing references to the source of the error
+          maxProperties: 1
+          properties:
+            pointer:
+              description: a JSON Pointer [RFC6901] to the associated entity in the request document
+              type: string
+              example: string-value
+            parameter:
+              description: a string indicating which URI query parameter caused the issue
+              type: string
+              example: string-value
+            example:
+              description: a string indicating an example of the right value
+              type: string
+              example: string-value
     FlightDate:
       type: object
       properties:
@@ -7862,6 +7794,18 @@ components:
             flightOffers:
               type: string
               example: https://test.api.amadeus.com/v1/shopping/flight-offers?origin=PAR&destination=MAD&departureDate=2017-08-26&returnDate=2017-08-30&adults=1
+    Meta:
+      type: object
+      properties:
+        currency:
+          type: string
+          description: the currency in which the prices of the flight offers are returned. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro
+          pattern: '[A-Z]{3}'
+          example: EUR
+        links:
+          $ref: '#/components/schemas/Links'
+        defaults:
+          $ref: '#/components/schemas/Defaults'
     Defaults:
       description: the query parameters for which default values were used are returned here
       type: object
@@ -7890,16 +7834,72 @@ components:
           - DURATION
           - WEEK
           example: DATE
+    CurrencyDictionary:
+      additionalProperties:
+        type: string
+        example: EUR
+    Error_500:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    LocationDictionary:
+      additionalProperties:
+        $ref: '#/components/schemas/LocationValue'
+    Error_400:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
+    LocationValue:
+      properties:
+        subType:
+          type: string
+          description: 'location type: airport or city'
+          enum:
+          - AIRPORT
+          - CITY
+          example: AIRPORT
+        detailedName:
+          type: string
+          description: name of the location
+          example: 'Paris/FR: Charles de Gaulle'
+    Links:
+      properties:
+        self:
+          type: string
+          format: uri
+          example: https://example.com/resource
   responses:
-    '500':
-      description: Unexpected error
+    '404':
+      description: "code    | title                                 \n------- | ------------------------------------- \n6003    | ITEM/DATA NOT FOUND OR DATA NOT EXISTING\n"
       content:
         application/vnd.amadeus+json:
           schema:
-            $ref: '#/components/schemas/Error_500'
+            $ref: '#/components/schemas/Error_404'
         application/json:
           schema:
-            $ref: '#/components/schemas/Error_500'
+            $ref: '#/components/schemas/Error_404'
     '400':
       description: "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n"
       content:
@@ -7918,13 +7918,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/FlightDates'
-    '404':
-      description: "code    | title                                 \n------- | ------------------------------------- \n6003    | ITEM/DATA NOT FOUND OR DATA NOT EXISTING\n"
+    '500':
+      description: Unexpected error
       content:
         application/vnd.amadeus+json:
           schema:
-            $ref: '#/components/schemas/Error_404'
+            $ref: '#/components/schemas/Error_500'
         application/json:
           schema:
-            $ref: '#/components/schemas/Error_404'
+            $ref: '#/components/schemas/Error_500'
 x-generatedAt: '2020-07-23T08:39:43.848Z'

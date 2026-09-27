@@ -1138,18 +1138,6 @@ paths:
     - url: https://test.api.amadeus.com/v1
 components:
   responses:
-    '500':
-      description: Unexpected Error
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
-    '400':
-      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
     points-of-interest:
       description: Successful Operation
       content:
@@ -1392,6 +1380,18 @@ components:
                   last: https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873&page[offset]=120&page[limit]=10
                   first: https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873&page[offset]=0&page[limit]=10
                   up: https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873
+    '500':
+      description: Unexpected Error
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
+    '400':
+      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
     safety-rated-locations:
       description: Successful Operation
       content:
@@ -1660,6 +1660,59 @@ components:
           schema:
             $ref: '#/components/schemas/Error_400_2'
   schemas:
+    Links:
+      properties:
+        href:
+          type: string
+          format: uri
+          example: https://example.com/resource
+        methods:
+          type: array
+          items:
+            type: string
+            enum:
+            - GET
+            - PUT
+            - DELETE
+            - POST
+            - PATCH
+      example:
+        href: string
+    Collection_Meta:
+      title: Collection_Meta
+      properties:
+        count:
+          type: integer
+          example: 1
+        links:
+          title: CollectionLinks
+          properties:
+            self:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            next:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            previous:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            last:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            first:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            up:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+          example:
+            self: https://test.api.amadeus.com/v1/area/resources?param=value
     Issue:
       properties:
         status:
@@ -1697,41 +1750,31 @@ components:
               description: a string indicating an example of the right value
               type: string
               example: string-value
-    Collection_Meta:
-      title: Collection_Meta
+    Error_500:
       properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          title: CollectionLinks
-          properties:
-            self:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            next:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            previous:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            last:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            first:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            up:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-          example:
-            self: https://test.api.amadeus.com/v1/area/resources?param=value
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    GeoCode:
+      properties:
+        latitude:
+          description: latitude of the location
+          type: number
+          format: double
+          example: 43.580418
+        longitude:
+          description: longitude of the location
+          type: number
+          format: double
+          example: 7.125102
     Error_400:
       properties:
         errors:
@@ -1800,49 +1843,6 @@ components:
           description: the rank is the position compared to other locations based on how famous is a place. 1 being the highest.
           type: string
           example: 1
-    Error_500:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    Links:
-      properties:
-        href:
-          type: string
-          format: uri
-          example: https://example.com/resource
-        methods:
-          type: array
-          items:
-            type: string
-            enum:
-            - GET
-            - PUT
-            - DELETE
-            - POST
-            - PATCH
-      example:
-        href: string
-    GeoCode:
-      properties:
-        latitude:
-          description: latitude of the location
-          type: number
-          format: double
-          example: 43.580418
-        longitude:
-          description: longitude of the location
-          type: number
-          format: double
-          example: 7.125102
     SafetyScore:
       properties:
         women:
@@ -1873,6 +1873,29 @@ components:
           description: An average of the 6 “sub”-categories. Score go from 1 (very safe) to 100 (very dangerous).
           type: integer
           example: 1
+    Links_2:
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          format: uri
+          example: https://example.com/resource
+        methods:
+          type: array
+          items:
+            type: string
+            enum:
+            - GET
+            - PUT
+            - DELETE
+            - POST
+            - PATCH
+        count:
+          type: integer
+          example: 1
+      example:
+        href: string
     SafetyRatedLocation:
       type: object
       title: SafetyRatedLocation
@@ -1909,118 +1932,6 @@ components:
           example: Paris CDG
         geoCode:
           $ref: '#/components/schemas/GeoCode'
-    Links_2:
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          format: uri
-          example: https://example.com/resource
-        methods:
-          type: array
-          items:
-            type: string
-            enum:
-            - GET
-            - PUT
-            - DELETE
-            - POST
-            - PATCH
-        count:
-          type: integer
-          example: 1
-      example:
-        href: string
-    Issue_2:
-      type: object
-      properties:
-        status:
-          description: the HTTP status code applicable to this error
-          type: integer
-          example: 1
-        code:
-          description: an application-specific error code
-          type: integer
-          format: int64
-          example: 1
-        title:
-          description: a short summary of the error
-          type: string
-          example: string-value
-        detail:
-          description: explanation of the error
-          type: string
-          example: string-value
-        source:
-          type: object
-          title: Issue_Source
-          description: an object containing references to the source of the error
-          maxProperties: 1
-          properties:
-            pointer:
-              description: a JSON Pointer [RFC6901] to the associated entity in the request document
-              type: string
-              example: string-value
-            parameter:
-              description: a string indicating which URI query parameter caused the issue
-              type: string
-              example: string-value
-            example:
-              description: a string indicating an example of the right value
-              type: string
-              example: string-value
-    GeoCode_2:
-      type: object
-      description: geo position
-      properties:
-        latitude:
-          description: latitude of the location
-          type: number
-          format: double
-          example: 43.580418
-        longitude:
-          description: longitude of the location
-          type: number
-          format: double
-          example: 7.125102
-    Link:
-      type: object
-      properties:
-        href:
-          type: string
-          format: uri
-          example: https://example.com/resource
-        methods:
-          type: array
-          items:
-            type: string
-            enum:
-            - GET
-            - PUT
-            - DELETE
-            - POST
-            - PATCH
-      example:
-        href: string
-    Error_400_2:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue_2'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
     ElementaryPrice:
       description: elementaryPrice
       type: object
@@ -2033,20 +1944,6 @@ components:
           type: string
           description: Currency type of the fare.
           example: EUR
-    Error_500_2:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue_2'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
     Activity:
       type: object
       title: Activity
@@ -2134,15 +2031,110 @@ components:
               example: https://test.api.amadeus.com/v1/area/resources?...
           example:
             self: https://test.api.amadeus.com/v1/area/resources?param=value
+    Issue_2:
+      type: object
+      properties:
+        status:
+          description: the HTTP status code applicable to this error
+          type: integer
+          example: 1
+        code:
+          description: an application-specific error code
+          type: integer
+          format: int64
+          example: 1
+        title:
+          description: a short summary of the error
+          type: string
+          example: string-value
+        detail:
+          description: explanation of the error
+          type: string
+          example: string-value
+        source:
+          type: object
+          title: Issue_Source
+          description: an object containing references to the source of the error
+          maxProperties: 1
+          properties:
+            pointer:
+              description: a JSON Pointer [RFC6901] to the associated entity in the request document
+              type: string
+              example: string-value
+            parameter:
+              description: a string indicating which URI query parameter caused the issue
+              type: string
+              example: string-value
+            example:
+              description: a string indicating an example of the right value
+              type: string
+              example: string-value
+    Error_500_2:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue_2'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    GeoCode_2:
+      type: object
+      description: geo position
+      properties:
+        latitude:
+          description: latitude of the location
+          type: number
+          format: double
+          example: 43.580418
+        longitude:
+          description: longitude of the location
+          type: number
+          format: double
+          example: 7.125102
+    Error_400_2:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue_2'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
+          example: https://example.com/resource
+        methods:
+          type: array
+          items:
+            type: string
+            enum:
+            - GET
+            - PUT
+            - DELETE
+            - POST
+            - PATCH
+      example:
+        href: string
   parameters:
-    pageLimit:
-      name: page[limit]
-      description: maximum items in one page
-      required: false
-      in: query
-      schema:
-        type: integer
-        default: 10
     pageOffset:
       name: page[offset]
       description: start index of the requested page
@@ -2151,6 +2143,14 @@ components:
       schema:
         type: integer
         default: 0
+    pageLimit:
+      name: page[limit]
+      description: maximum items in one page
+      required: false
+      in: query
+      schema:
+        type: integer
+        default: 10
     categories:
       name: categories
       description: "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n"

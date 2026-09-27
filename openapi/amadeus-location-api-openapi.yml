@@ -139,7 +139,488 @@ paths:
     servers:
     - url: https://test.api.amadeus.com/v1
 components:
+  schemas:
+    Error_404:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 404
+          code: 1797
+          title: NOT FOUND
+          detail: no response found for this query parameter
+          source:
+            parameter: airport
+    Analytics:
+      properties:
+        travelers:
+          $ref: '#/components/schemas/Travelers'
+    Location:
+      properties:
+        id:
+          description: id of the ressource
+          type: string
+          example: '12345'
+        self:
+          $ref: '#/components/schemas/Links'
+        type:
+          description: the resource name
+          type: string
+          example: location
+        subType:
+          description: location sub type
+          type: string
+          enum:
+          - AIRPORT
+          - CITY
+          - POINT_OF_INTEREST
+          - DISTRICT
+          example: AIRPORT
+        name:
+          description: short name of the location
+          type: string
+          example: Paris CDG
+        detailedName:
+          description: detailed name of the location. For a city location it contains city name and country code. For an airport location it contains city name; country code and airport full name
+          type: string
+          example: 'Paris/FR: Charles de Gaulle'
+        timeZoneOffset:
+          description: timezone offset of the location at the date of the API call (including daylight saving time)
+          type: string
+          example: +01:00
+        iataCode:
+          description: IATA code of the location. ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) here)
+          type: string
+          example: CDG
+        geoCode:
+          $ref: '#/components/schemas/GeoCode'
+        address:
+          $ref: '#/components/schemas/Address'
+        distance:
+          $ref: '#/components/schemas/Distance'
+        analytics:
+          $ref: '#/components/schemas/Analytics'
+        relevance:
+          type: number
+          format: double
+          description: score value calculated based on distance and analytics
+          example: 9.6584
+        category:
+          description: category of the location
+          type: string
+          enum:
+          - SIGHTS
+          - BEACH_PARK
+          - HISTORICAL
+          - NIGHTLIFE
+          - RESTAURANT
+          - SHOPPING
+          example: HISTORICAL
+        tags:
+          description: list of tags related to the location
+          type: array
+          items:
+            type: string
+            example:
+            - grocery
+            - japanese
+            - cafe
+        rank:
+          description: the rank is the position compared to other locations based on how famous is a place. 1 being the highest.
+          type: string
+          example: 1
+    Distance:
+      properties:
+        value:
+          description: great-circle distance between two locations. This distance thus do not take into account traffic conditions; international boundaries; mountains; water; or other elements that might make the a nearby location hard to reach.
+          type: integer
+          example: 152
+        unit:
+          description: unit of the distance
+          type: string
+          example: KM
+          enum:
+          - KM
+          - MI
+    Collection_Meta:
+      title: Collection_Meta
+      properties:
+        count:
+          type: integer
+          example: 1
+        links:
+          title: CollectionLinks
+          properties:
+            self:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            next:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            previous:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            last:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            first:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            up:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+          example:
+            self: https://test.api.amadeus.com/v1/area/resources?param=value
+    Issue:
+      properties:
+        status:
+          description: the HTTP status code applicable to this error
+          type: integer
+          example: 1
+        code:
+          description: an application-specific error code
+          type: integer
+          format: int64
+          example: 1
+        title:
+          description: a short summary of the error
+          type: string
+          example: string-value
+        detail:
+          description: explanation of the error
+          type: string
+          example: string-value
+        source:
+          type: object
+          title: Issue_Source
+          description: an object containing references to the source of the error
+          maxProperties: 1
+          properties:
+            pointer:
+              description: a JSON Pointer [RFC6901] to the associated entity in the request document
+              type: string
+              example: string-value
+            parameter:
+              description: a string indicating which URI query parameter caused the issue
+              type: string
+              example: string-value
+            example:
+              description: a string indicating an example of the right value
+              type: string
+              example: string-value
+    Travelers:
+      properties:
+        score:
+          type: number
+          format: integer
+          description: Approximate score for ranking purposes calculated based on number of travelers in the location.
+          example: 68
+    Error_500:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    GeoCode:
+      properties:
+        latitude:
+          description: latitude of the location
+          type: number
+          format: double
+          example: 43.580418
+        longitude:
+          description: longitude of the location
+          type: number
+          format: double
+          example: 7.125102
+    Error_400:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
+    Links:
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          format: uri
+          example: https://example.com/resource
+        methods:
+          type: array
+          items:
+            type: string
+            enum:
+            - GET
+            - PUT
+            - DELETE
+            - POST
+            - PATCH
+        count:
+          type: integer
+          example: 1
+      example:
+        href: string
+    Address:
+      properties:
+        cityName:
+          description: name of the city of the location; equal to name if the location is a city
+          type: string
+          example: Paris
+        cityCode:
+          description: IATA code of the city of the location; equal to IATAcode if the location is a city
+          type: string
+          example: PAR
+        countryName:
+          description: name of the country of the location
+          type: string
+          example: France
+        countryCode:
+          description: code of the country of the location in ISO standard
+          type: string
+          example: FR
+        stateCode:
+          description: code of the state of the location if any
+          type: string
+          example: TO
+        regionCode:
+          description: code of the region of the location in ISO standard
+          type: string
+          example: EUROP
+    Flights:
+      properties:
+        score:
+          type: number
+          format: integer
+          description: Approximate score for ranking purposes calculated based on number of flights from / to the airport or city
+          example: 56
+    Analytics_2:
+      properties:
+        flights:
+          $ref: '#/components/schemas/Flights'
+        travelers:
+          $ref: '#/components/schemas/Travelers'
+    Location_2:
+      properties:
+        type:
+          description: the resource name
+          type: string
+          example: location
+        subType:
+          description: location sub type
+          type: string
+          enum:
+          - AIRPORT
+          - CITY
+          - POINT_OF_INTEREST
+          - DISTRICT
+          example: AIRPORT
+        name:
+          description: short name of the location
+          type: string
+          example: Paris CDG
+        detailedName:
+          description: detailed name of the location. For a city location it contains city name and country code. For an airport location it contains city name; country code and airport full name
+          type: string
+          example: 'Paris/FR: Charles de Gaulle'
+        timeZoneOffset:
+          description: timezone offset of the location at the date of the API call (including daylight saving time)
+          type: string
+          example: +01:00
+        iataCode:
+          description: IATA code of the location. ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) here)
+          type: string
+          example: CDG
+        geoCode:
+          $ref: '#/components/schemas/GeoCode'
+        address:
+          $ref: '#/components/schemas/Address'
+        distance:
+          $ref: '#/components/schemas/Distance'
+        analytics:
+          $ref: '#/components/schemas/Analytics_2'
+        relevance:
+          type: number
+          format: double
+          description: score value calculated based on distance and analytics
+          example: 9.6584
+  parameters:
+    view:
+      name: view
+      description: 'select the level of information of the reply:
+
+        * LIGHT - Gives only the IATACode, name, detailedName, cityName and countryName
+
+        * FULL - Adds on top of the LIGHT information the timeZoneOffset, geocode, detailed address and travelers.score
+
+        default option is FULL
+
+        '
+      required: false
+      in: query
+      schema:
+        type: string
+        enum:
+        - LIGHT
+        - FULL
+        default: FULL
+    locationId:
+      name: locationId
+      description: identifier of the location
+      required: true
+      in: path
+      x-example: CMUC
+      schema:
+        type: string
+    pageOffset:
+      name: page[offset]
+      description: start index of the requested page
+      required: false
+      in: query
+      schema:
+        type: integer
+        default: 0
+    sort:
+      name: sort
+      description: 'defines on which attribute the sorting will be done:
+
+        * analytics.travelers.score - sort by the number of travelers by airport or city, the airports and cities with the highest traffic are on top of the results
+
+        '
+      required: false
+      in: query
+      schema:
+        type: string
+        enum:
+        - analytics.travelers.score
+        default: analytics.travelers.score
+    pageLimit:
+      name: page[limit]
+      description: maximum items in one page
+      required: false
+      in: query
+      schema:
+        type: integer
+        default: 10
+    sort_2:
+      description: 'defines on which attribute the sorting will be done from the best option to the worst one:
+
+        * **relevance** - Score value calculated based on distance and traffic analytics
+
+        * **distance** - Distance from the location to the geo-code given in API request parameters
+
+        * **analytics.flights.score** - Approximate score for ranking purposes calculated based on estimated number of flights from/to airport in one reference year (last year)
+
+        * **analytics.travelers.score** - Approximate score for ranking purposes calculated based on estimated number of travelers in the airport for one reference year (last year)
+
+        '
+      name: sort
+      required: false
+      in: query
+      schema:
+        type: string
+        enum:
+        - relevance
+        - distance
+        - analytics.flights.score
+        - analytics.travelers.score
+        default: relevance
   responses:
+    airport-city:
+      description: Successful Operation
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            title: Success
+            required:
+            - data
+            properties:
+              meta:
+                $ref: '#/components/schemas/Collection_Meta'
+              data:
+                $ref: '#/components/schemas/Location'
+            example:
+              meta:
+                links:
+                  self: https://test.api.amadeus.com/v1/reference-data/locations/CMUC
+              data:
+                type: location
+                subType: CITY
+                name: MUNICH INTERNATIONAL
+                detailedName: MUNICH/DE:MUNICH INTERNATIONAL
+                id: CMUC
+                self:
+                  href: https://test.api.amadeus.com/v1/reference-data/locations/CMUC
+                  methods:
+                  - GET
+                timeZoneOffset: +02:00
+                iataCode: MUC
+                geoCode:
+                  latitude: 48.35378
+                  longitude: 11.78609
+                address:
+                  cityName: MUNICH
+                  cityCode: MUC
+                  countryName: GERMANY
+                  countryCode: DE
+                  regionCode: EUROP
+                analytics:
+                  travelers:
+                    score: 27
+    400_GET-Id:
+      description: "code    | title                                 \n------- | ------------------------------------- \n572     | INVALID OPTION    \n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
+    '500':
+      description: Unexpected Error
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
+    '404':
+      description: Not Found
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_404'
+    '400':
+      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION \n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
     airport-city-autocomplete:
       description: Successful Operation
       content:
@@ -207,71 +688,6 @@ components:
                 analytics:
                   travelers:
                     score: 27
-    '404':
-      description: Not Found
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_404'
-    400_GET-Id:
-      description: "code    | title                                 \n------- | ------------------------------------- \n572     | INVALID OPTION    \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
-    '500':
-      description: Unexpected Error
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
-    airport-city:
-      description: Successful Operation
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            title: Success
-            required:
-            - data
-            properties:
-              meta:
-                $ref: '#/components/schemas/Collection_Meta'
-              data:
-                $ref: '#/components/schemas/Location'
-            example:
-              meta:
-                links:
-                  self: https://test.api.amadeus.com/v1/reference-data/locations/CMUC
-              data:
-                type: location
-                subType: CITY
-                name: MUNICH INTERNATIONAL
-                detailedName: MUNICH/DE:MUNICH INTERNATIONAL
-                id: CMUC
-                self:
-                  href: https://test.api.amadeus.com/v1/reference-data/locations/CMUC
-                  methods:
-                  - GET
-                timeZoneOffset: +02:00
-                iataCode: MUC
-                geoCode:
-                  latitude: 48.35378
-                  longitude: 11.78609
-                address:
-                  cityName: MUNICH
-                  cityCode: MUC
-                  countryName: GERMANY
-                  countryCode: DE
-                  regionCode: EUROP
-                analytics:
-                  travelers:
-                    score: 27
-    '400':
-      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION \n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
     nearest-relevant-airports:
       description: Successful Operation
       content:
@@ -541,422 +957,6 @@ components:
         application/vnd.amadeus+json:
           schema:
             $ref: '#/components/schemas/Error_400'
-  parameters:
-    sort:
-      name: sort
-      description: 'defines on which attribute the sorting will be done:
-
-        * analytics.travelers.score - sort by the number of travelers by airport or city, the airports and cities with the highest traffic are on top of the results
-
-        '
-      required: false
-      in: query
-      schema:
-        type: string
-        enum:
-        - analytics.travelers.score
-        default: analytics.travelers.score
-    pageOffset:
-      name: page[offset]
-      description: start index of the requested page
-      required: false
-      in: query
-      schema:
-        type: integer
-        default: 0
-    pageLimit:
-      name: page[limit]
-      description: maximum items in one page
-      required: false
-      in: query
-      schema:
-        type: integer
-        default: 10
-    view:
-      name: view
-      description: 'select the level of information of the reply:
-
-        * LIGHT - Gives only the IATACode, name, detailedName, cityName and countryName
-
-        * FULL - Adds on top of the LIGHT information the timeZoneOffset, geocode, detailed address and travelers.score
-
-        default option is FULL
-
-        '
-      required: false
-      in: query
-      schema:
-        type: string
-        enum:
-        - LIGHT
-        - FULL
-        default: FULL
-    locationId:
-      name: locationId
-      description: identifier of the location
-      required: true
-      in: path
-      x-example: CMUC
-      schema:
-        type: string
-    sort_2:
-      description: 'defines on which attribute the sorting will be done from the best option to the worst one:
-
-        * **relevance** - Score value calculated based on distance and traffic analytics
-
-        * **distance** - Distance from the location to the geo-code given in API request parameters
-
-        * **analytics.flights.score** - Approximate score for ranking purposes calculated based on estimated number of flights from/to airport in one reference year (last year)
-
-        * **analytics.travelers.score** - Approximate score for ranking purposes calculated based on estimated number of travelers in the airport for one reference year (last year)
-
-        '
-      name: sort
-      required: false
-      in: query
-      schema:
-        type: string
-        enum:
-        - relevance
-        - distance
-        - analytics.flights.score
-        - analytics.travelers.score
-        default: relevance
-  schemas:
-    Collection_Meta:
-      title: Collection_Meta
-      properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          title: CollectionLinks
-          properties:
-            self:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            next:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            previous:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            last:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            first:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            up:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-          example:
-            self: https://test.api.amadeus.com/v1/area/resources?param=value
-    Issue:
-      properties:
-        status:
-          description: the HTTP status code applicable to this error
-          type: integer
-          example: 1
-        code:
-          description: an application-specific error code
-          type: integer
-          format: int64
-          example: 1
-        title:
-          description: a short summary of the error
-          type: string
-          example: string-value
-        detail:
-          description: explanation of the error
-          type: string
-          example: string-value
-        source:
-          type: object
-          title: Issue_Source
-          description: an object containing references to the source of the error
-          maxProperties: 1
-          properties:
-            pointer:
-              description: a JSON Pointer [RFC6901] to the associated entity in the request document
-              type: string
-              example: string-value
-            parameter:
-              description: a string indicating which URI query parameter caused the issue
-              type: string
-              example: string-value
-            example:
-              description: a string indicating an example of the right value
-              type: string
-              example: string-value
-    Travelers:
-      properties:
-        score:
-          type: number
-          format: integer
-          description: Approximate score for ranking purposes calculated based on number of travelers in the location.
-          example: 68
-    Location:
-      properties:
-        id:
-          description: id of the ressource
-          type: string
-          example: '12345'
-        self:
-          $ref: '#/components/schemas/Links'
-        type:
-          description: the resource name
-          type: string
-          example: location
-        subType:
-          description: location sub type
-          type: string
-          enum:
-          - AIRPORT
-          - CITY
-          - POINT_OF_INTEREST
-          - DISTRICT
-          example: AIRPORT
-        name:
-          description: short name of the location
-          type: string
-          example: Paris CDG
-        detailedName:
-          description: detailed name of the location. For a city location it contains city name and country code. For an airport location it contains city name; country code and airport full name
-          type: string
-          example: 'Paris/FR: Charles de Gaulle'
-        timeZoneOffset:
-          description: timezone offset of the location at the date of the API call (including daylight saving time)
-          type: string
-          example: +01:00
-        iataCode:
-          description: IATA code of the location. ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) here)
-          type: string
-          example: CDG
-        geoCode:
-          $ref: '#/components/schemas/GeoCode'
-        address:
-          $ref: '#/components/schemas/Address'
-        distance:
-          $ref: '#/components/schemas/Distance'
-        analytics:
-          $ref: '#/components/schemas/Analytics'
-        relevance:
-          type: number
-          format: double
-          description: score value calculated based on distance and analytics
-          example: 9.6584
-        category:
-          description: category of the location
-          type: string
-          enum:
-          - SIGHTS
-          - BEACH_PARK
-          - HISTORICAL
-          - NIGHTLIFE
-          - RESTAURANT
-          - SHOPPING
-          example: HISTORICAL
-        tags:
-          description: list of tags related to the location
-          type: array
-          items:
-            type: string
-            example:
-            - grocery
-            - japanese
-            - cafe
-        rank:
-          description: the rank is the position compared to other locations based on how famous is a place. 1 being the highest.
-          type: string
-          example: 1
-    Distance:
-      properties:
-        value:
-          description: great-circle distance between two locations. This distance thus do not take into account traffic conditions; international boundaries; mountains; water; or other elements that might make the a nearby location hard to reach.
-          type: integer
-          example: 152
-        unit:
-          description: unit of the distance
-          type: string
-          example: KM
-          enum:
-          - KM
-          - MI
-    Error_400:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
-    Links:
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          format: uri
-          example: https://example.com/resource
-        methods:
-          type: array
-          items:
-            type: string
-            enum:
-            - GET
-            - PUT
-            - DELETE
-            - POST
-            - PATCH
-        count:
-          type: integer
-          example: 1
-      example:
-        href: string
-    Analytics:
-      properties:
-        travelers:
-          $ref: '#/components/schemas/Travelers'
-    Error_404:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 404
-          code: 1797
-          title: NOT FOUND
-          detail: no response found for this query parameter
-          source:
-            parameter: airport
-    Error_500:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    Address:
-      properties:
-        cityName:
-          description: name of the city of the location; equal to name if the location is a city
-          type: string
-          example: Paris
-        cityCode:
-          description: IATA code of the city of the location; equal to IATAcode if the location is a city
-          type: string
-          example: PAR
-        countryName:
-          description: name of the country of the location
-          type: string
-          example: France
-        countryCode:
-          description: code of the country of the location in ISO standard
-          type: string
-          example: FR
-        stateCode:
-          description: code of the state of the location if any
-          type: string
-          example: TO
-        regionCode:
-          description: code of the region of the location in ISO standard
-          type: string
-          example: EUROP
-    GeoCode:
-      properties:
-        latitude:
-          description: latitude of the location
-          type: number
-          format: double
-          example: 43.580418
-        longitude:
-          description: longitude of the location
-          type: number
-          format: double
-          example: 7.125102
-    Analytics_2:
-      properties:
-        flights:
-          $ref: '#/components/schemas/Flights'
-        travelers:
-          $ref: '#/components/schemas/Travelers'
-    Flights:
-      properties:
-        score:
-          type: number
-          format: integer
-          description: Approximate score for ranking purposes calculated based on number of flights from / to the airport or city
-          example: 56
-    Location_2:
-      properties:
-        type:
-          description: the resource name
-          type: string
-          example: location
-        subType:
-          description: location sub type
-          type: string
-          enum:
-          - AIRPORT
-          - CITY
-          - POINT_OF_INTEREST
-          - DISTRICT
-          example: AIRPORT
-        name:
-          description: short name of the location
-          type: string
-          example: Paris CDG
-        detailedName:
-          description: detailed name of the location. For a city location it contains city name and country code. For an airport location it contains city name; country code and airport full name
-          type: string
-          example: 'Paris/FR: Charles de Gaulle'
-        timeZoneOffset:
-          description: timezone offset of the location at the date of the API call (including daylight saving time)
-          type: string
-          example: +01:00
-        iataCode:
-          description: IATA code of the location. ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) here)
-          type: string
-          example: CDG
-        geoCode:
-          $ref: '#/components/schemas/GeoCode'
-        address:
-          $ref: '#/components/schemas/Address'
-        distance:
-          $ref: '#/components/schemas/Distance'
-        analytics:
-          $ref: '#/components/schemas/Analytics_2'
-        relevance:
-          type: number
-          format: double
-          description: score value calculated based on distance and analytics
-          example: 9.6584
 x-refined-from:
 - amadeus-airport-city-search-openapi.yml
 - amadeus-airport-nearest-relevant-openapi.yml

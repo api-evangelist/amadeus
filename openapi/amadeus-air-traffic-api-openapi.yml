@@ -73,7 +73,7 @@ paths:
     get:
       tags:
       - air-traffic
-      operationId: getAirTraffic
+      operationId: getTravelAnalyticsAirTrafficBooked
       summary: Amadeus Returns a List of Air Traffic Reports
       parameters:
       - name: originCityCode
@@ -115,13 +115,15 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      x-operation-id-source: normalized
+      x-operation-id-original: getAirTraffic
     servers:
     - url: https://test.api.amadeus.com/v1
   /travel/analytics/air-traffic/traveled:
     get:
       tags:
       - air-traffic
-      operationId: getAirTraffic
+      operationId: getTravelAnalyticsAirTrafficTraveled
       summary: Amadeus Returns a List of Air Traffic Reports
       parameters:
       - name: originCityCode
@@ -163,181 +165,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+      x-operation-id-source: normalized
+      x-operation-id-original: getAirTraffic
     servers:
     - url: https://test.api.amadeus.com/v1
 components:
-  schemas:
-    Analytics:
-      properties:
-        travelers:
-          $ref: '#/components/schemas/Travelers'
-    Issue:
-      properties:
-        status:
-          description: the HTTP status code applicable to this error
-          type: integer
-          example: 1
-        code:
-          description: an application-specific error code
-          type: integer
-          format: int64
-          example: 1
-        title:
-          description: a short summary of the error
-          type: string
-          example: string-value
-        detail:
-          description: explanation of the error
-          type: string
-          example: string-value
-        source:
-          type: object
-          title: Issue_Source
-          description: an object containing references to the source of the error
-          maxProperties: 1
-          properties:
-            pointer:
-              description: a JSON Pointer [RFC6901] to the associated entity in the request document
-              type: string
-              example: string-value
-            parameter:
-              description: a string indicating which URI query parameter caused the issue
-              type: string
-              example: string-value
-            example:
-              description: a string indicating an example of the right value
-              type: string
-              example: string-value
-    Travelers:
-      properties:
-        score:
-          type: number
-          format: integer
-          description: Approximate score for ranking purposes calculated based on number of travelers in the location.
-          example: 68
-    Error_400:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
-    Error_500:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    Air_Traffic:
-      properties:
-        type:
-          type: string
-          example: air-traffic
-        period:
-          description: Time period following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard
-          type: string
-          example: 2017-01
-        analytics:
-          $ref: '#/components/schemas/Analytics'
-    Collection_Meta:
-      title: Collection_Meta
-      properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          title: CollectionLinks
-          properties:
-            self:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            next:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            previous:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            last:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            first:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            up:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-          example:
-            self: https://test.api.amadeus.com/v1/area/resources?param=value
-    Analytics_2:
-      properties:
-        flights:
-          $ref: '#/components/schemas/Flights'
-        travelers:
-          $ref: '#/components/schemas/Travelers'
-    Flights:
-      properties:
-        score:
-          type: number
-          format: integer
-          description: Approximate score for ranking purposes calculated based on number of flights from / to the airport or city
-          example: 56
-    Air_Traffic_2:
-      properties:
-        type:
-          type: string
-          example: air-traffic
-        subType:
-          type: string
-          example: string-value
-        destination:
-          description: IATA code of the destination city - [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
-          type: string
-          example: WAS
-        analytics:
-          $ref: '#/components/schemas/Analytics_2'
-    Analytics_3:
-      properties:
-        flights:
-          $ref: '#/components/schemas/Flights'
-        travelers:
-          $ref: '#/components/schemas/Travelers'
-    Air_Traffic_3:
-      properties:
-        type:
-          type: string
-          example: air-traffic
-        subType:
-          type: string
-          example: string-value
-        destination:
-          description: IATA code of the destination city - [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
-          type: string
-          example: WAS
-        analytics:
-          $ref: '#/components/schemas/Analytics_3'
   responses:
     air-traffic:
       description: Successful Operation
@@ -658,15 +490,179 @@ components:
         application/vnd.amadeus+json:
           schema:
             $ref: '#/components/schemas/Error_400'
+  schemas:
+    Issue:
+      properties:
+        status:
+          description: the HTTP status code applicable to this error
+          type: integer
+          example: 1
+        code:
+          description: an application-specific error code
+          type: integer
+          format: int64
+          example: 1
+        title:
+          description: a short summary of the error
+          type: string
+          example: string-value
+        detail:
+          description: explanation of the error
+          type: string
+          example: string-value
+        source:
+          type: object
+          title: Issue_Source
+          description: an object containing references to the source of the error
+          maxProperties: 1
+          properties:
+            pointer:
+              description: a JSON Pointer [RFC6901] to the associated entity in the request document
+              type: string
+              example: string-value
+            parameter:
+              description: a string indicating which URI query parameter caused the issue
+              type: string
+              example: string-value
+            example:
+              description: a string indicating an example of the right value
+              type: string
+              example: string-value
+    Collection_Meta:
+      title: Collection_Meta
+      properties:
+        count:
+          type: integer
+          example: 1
+        links:
+          title: CollectionLinks
+          properties:
+            self:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            next:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            previous:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            last:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            first:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            up:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+          example:
+            self: https://test.api.amadeus.com/v1/area/resources?param=value
+    Travelers:
+      properties:
+        score:
+          type: number
+          format: integer
+          description: Approximate score for ranking purposes calculated based on number of travelers in the location.
+          example: 68
+    Error_500:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    Air_Traffic:
+      properties:
+        type:
+          type: string
+          example: air-traffic
+        period:
+          description: Time period following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard
+          type: string
+          example: 2017-01
+        analytics:
+          $ref: '#/components/schemas/Analytics'
+    Analytics:
+      properties:
+        travelers:
+          $ref: '#/components/schemas/Travelers'
+    Error_400:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
+    Flights:
+      properties:
+        score:
+          type: number
+          format: integer
+          description: Approximate score for ranking purposes calculated based on number of flights from / to the airport or city
+          example: 56
+    Air_Traffic_2:
+      properties:
+        type:
+          type: string
+          example: air-traffic
+        subType:
+          type: string
+          example: string-value
+        destination:
+          description: IATA code of the destination city - [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
+          type: string
+          example: WAS
+        analytics:
+          $ref: '#/components/schemas/Analytics_2'
+    Analytics_2:
+      properties:
+        flights:
+          $ref: '#/components/schemas/Flights'
+        travelers:
+          $ref: '#/components/schemas/Travelers'
+    Air_Traffic_3:
+      properties:
+        type:
+          type: string
+          example: air-traffic
+        subType:
+          type: string
+          example: string-value
+        destination:
+          description: IATA code of the destination city - [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
+          type: string
+          example: WAS
+        analytics:
+          $ref: '#/components/schemas/Analytics_3'
+    Analytics_3:
+      properties:
+        flights:
+          $ref: '#/components/schemas/Flights'
+        travelers:
+          $ref: '#/components/schemas/Travelers'
   parameters:
-    pageLimit:
-      name: page[limit]
-      description: maximum items in one page
-      required: false
-      in: query
-      schema:
-        type: integer
-        default: 10
     fields:
       name: fields
       required: false
@@ -674,6 +670,14 @@ components:
       description: "list of attributes desired in the response or list of attributes to remove from the response (with \"-\" before fields) \n* The attributes names must contain the whole path (except resource name) e.g. travelers"
       schema:
         type: string
+    pageOffset:
+      name: page[offset]
+      description: start index of the requested page
+      required: false
+      in: query
+      schema:
+        type: integer
+        default: 0
     sort:
       description: 'defines on which attribute the sorting will be done:
 
@@ -691,14 +695,14 @@ components:
         - analytics.flights.score
         - analytics.travelers.score
         default: analytics.travelers.score
-    pageOffset:
-      name: page[offset]
-      description: start index of the requested page
+    pageLimit:
+      name: page[limit]
+      description: maximum items in one page
       required: false
       in: query
       schema:
         type: integer
-        default: 0
+        default: 10
     sort_2:
       description: 'defines on which attribute the sorting will be done:
 

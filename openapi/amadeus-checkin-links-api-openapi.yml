@@ -63,6 +63,158 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  schemas:
+    Collection_Meta:
+      title: Collection_Meta
+      properties:
+        count:
+          type: integer
+          example: 1
+        links:
+          title: CollectionLinks
+          properties:
+            self:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            next:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            previous:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            last:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            first:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            up:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+          example:
+            self: https://test.api.amadeus.com/v1/area/resources?param=value
+    Error_500:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    CheckinLink:
+      required:
+      - type
+      - id
+      - href
+      - channel
+      properties:
+        type:
+          description: the resource name
+          type: string
+          example: checkin-link
+        id:
+          type: string
+          description: identifier of the resource
+          example: 1XEN-GBMobile
+        href:
+          description: direct URL to the relevant page
+          type: string
+          format: uri
+          example: https://example.com/resource
+        channel:
+          description: indicates the type of channel supported by the URL
+          type: string
+          enum:
+          - Mobile
+          - Web
+          - All
+          example: Mobile
+        parameters:
+          description: list of URL parameters with descriptive information such as description and/or type and/or format
+          additionalProperties:
+            $ref: '#/components/schemas/Parameter'
+          example: string-value
+    Issue:
+      properties:
+        status:
+          description: the HTTP status code applicable to this error
+          type: integer
+          example: 1
+        code:
+          description: an application-specific error code
+          type: integer
+          format: int64
+          example: 1
+        title:
+          description: a short summary of the error
+          type: string
+          example: string-value
+        detail:
+          description: explanation of the error
+          type: string
+          example: string-value
+        source:
+          type: object
+          title: Issue_Source
+          description: an object containing references to the source of the error
+          maxProperties: 1
+          properties:
+            pointer:
+              description: a JSON Pointer [RFC6901] to the associated entity in the request document
+              type: string
+              example: string-value
+            parameter:
+              description: a string indicating which URI query parameter caused the issue
+              type: string
+              example: string-value
+            example:
+              description: a string indicating an example of the right value
+              type: string
+              example: string-value
+    Error_400:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
+    Parameter:
+      required:
+      - type
+      properties:
+        description:
+          description: parameter descriptive information
+          type: string
+          example: Passenger last name
+        type:
+          description: type of the parameter
+          type: string
+          example: string
+        format:
+          description: format of the parameter
+          type: string
+          example: ([a-zA-Z]|[0-9]){6}
   responses:
     '500':
       description: Unexpected Error
@@ -109,156 +261,4 @@ components:
                 id: BAEN-GBWeb
                 href: https://www.britishairways.com/travel/olcilandingpageauthreq/public/en_gb
                 channel: Web
-  schemas:
-    Issue:
-      properties:
-        status:
-          description: the HTTP status code applicable to this error
-          type: integer
-          example: 1
-        code:
-          description: an application-specific error code
-          type: integer
-          format: int64
-          example: 1
-        title:
-          description: a short summary of the error
-          type: string
-          example: string-value
-        detail:
-          description: explanation of the error
-          type: string
-          example: string-value
-        source:
-          type: object
-          title: Issue_Source
-          description: an object containing references to the source of the error
-          maxProperties: 1
-          properties:
-            pointer:
-              description: a JSON Pointer [RFC6901] to the associated entity in the request document
-              type: string
-              example: string-value
-            parameter:
-              description: a string indicating which URI query parameter caused the issue
-              type: string
-              example: string-value
-            example:
-              description: a string indicating an example of the right value
-              type: string
-              example: string-value
-    Parameter:
-      required:
-      - type
-      properties:
-        description:
-          description: parameter descriptive information
-          type: string
-          example: Passenger last name
-        type:
-          description: type of the parameter
-          type: string
-          example: string
-        format:
-          description: format of the parameter
-          type: string
-          example: ([a-zA-Z]|[0-9]){6}
-    CheckinLink:
-      required:
-      - type
-      - id
-      - href
-      - channel
-      properties:
-        type:
-          description: the resource name
-          type: string
-          example: checkin-link
-        id:
-          type: string
-          description: identifier of the resource
-          example: 1XEN-GBMobile
-        href:
-          description: direct URL to the relevant page
-          type: string
-          format: uri
-          example: https://example.com/resource
-        channel:
-          description: indicates the type of channel supported by the URL
-          type: string
-          enum:
-          - Mobile
-          - Web
-          - All
-          example: Mobile
-        parameters:
-          description: list of URL parameters with descriptive information such as description and/or type and/or format
-          additionalProperties:
-            $ref: '#/components/schemas/Parameter'
-          example: string-value
-    Error_400:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
-    Error_500:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    Collection_Meta:
-      title: Collection_Meta
-      properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          title: CollectionLinks
-          properties:
-            self:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            next:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            previous:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            last:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            first:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            up:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-          example:
-            self: https://test.api.amadeus.com/v1/area/resources?param=value
 x-generatedAt: '2020-07-23T11:25:45.773Z'

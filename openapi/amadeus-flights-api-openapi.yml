@@ -69,90 +69,30 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Timing:
+    Terminal:
       properties:
-        qualifier:
-          description: the qualifier of the timing. e.g. STD (stands for Schedule Time Departure)
+        code:
+          description: the code of the terminal
           type: string
-          example: STD
-        value:
-          type: string
-          format: date-time
-          example: 06:00:00
-        delays:
-          description: delays that might be recorded on a timing
-          type: array
-          items:
-            $ref: '#/components/schemas/Delay'
-    Delay:
-      properties:
-        duration:
-          description: the delay recorded for the timing following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-          type: string
-          example: PT25M
-    Departure:
-      properties:
-        terminal:
-          description: the departure terminal of the airport
-          $ref: '#/components/schemas/Terminal'
-        gate:
-          description: the departure gate of the airport
-          $ref: '#/components/schemas/Gate'
-        timings:
-          description: the list of timings
-          type: array
-          items:
-            $ref: '#/components/schemas/Timing'
+          example: 1
     Partnership:
       properties:
         operatingFlight:
           $ref: '#/components/schemas/FlightDesignator'
-    DatedFlight:
+    Error_401:
       properties:
-        type:
-          description: the resource name
-          type: string
-          readOnly: true
-          example: string-value
-        scheduledDepartureDate:
-          description: the scheduled departure date
-          type: string
-          format: date
-          example: '2018-11-06'
-        flightDesignator:
-          description: the flight designator element
-          $ref: '#/components/schemas/FlightDesignator'
-          example:
-            carrierCode: QF
-            flightNumber: 1
-            operationalSuffix: _
-        flightPoints:
-          description: 'the flight points of the flight.
-
-            At least one departure, one arrival
-
-            '
+        errors:
           type: array
           items:
-            $ref: '#/components/schemas/FlightPoint'
-        segments:
-          description: 'the list of segments of the datedFlight
-
-            - definition of segment: the commercial unit corresponding to the passenger journey traveling between two points with the same flight (same flight designator)
-
-            '
-          type: array
-          items:
-            $ref: '#/components/schemas/Segment'
-        legs:
-          description: 'the list of legs of the datedFlight.
-
-            - definition of leg: operation of the aircraft between a departure station and the next arrival station (between take off and landing)
-
-            '
-          type: array
-          items:
-            $ref: '#/components/schemas/Leg'
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 401
+          code: 20
+          title: RESTRICTED
+          detail: Query unauthorized
     Collection_Meta:
       type: object
       title: Collection_Meta
@@ -190,6 +130,37 @@ components:
               example: https://test.api.amadeus.com/v1/area/resources?...
           example:
             self: https://test.api.amadeus.com/v1/area/resources?param=value
+    FlightPoint:
+      properties:
+        iataCode:
+          description: 3-letter IATA code of the airport. e.g. CDG
+          type: string
+          example: CDG
+        departure:
+          description: the departure information if the flightPoint is a departure for the flight
+          $ref: '#/components/schemas/Departure'
+        arrival:
+          description: the arrival information if the flightPoint is an arrival for the flight
+          $ref: '#/components/schemas/Arrival'
+    Delay:
+      properties:
+        duration:
+          description: the delay recorded for the timing following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+          type: string
+          example: PT25M
+    Departure:
+      properties:
+        terminal:
+          description: the departure terminal of the airport
+          $ref: '#/components/schemas/Terminal'
+        gate:
+          description: the departure gate of the airport
+          $ref: '#/components/schemas/Gate'
+        timings:
+          description: the list of timings
+          type: array
+          items:
+            $ref: '#/components/schemas/Timing'
     Segment:
       properties:
         boardPointIataCode:
@@ -246,26 +217,73 @@ components:
               description: a string indicating an example of the right value
               type: string
               example: string-value
-    Error_401:
+    AircraftEquipment:
       properties:
-        errors:
+        aircraftType:
+          description: the type of aircraft that will operate the leg
+          type: string
+          example: 733
+    DatedFlight:
+      properties:
+        type:
+          description: the resource name
+          type: string
+          readOnly: true
+          example: string-value
+        scheduledDepartureDate:
+          description: the scheduled departure date
+          type: string
+          format: date
+          example: '2018-11-06'
+        flightDesignator:
+          description: the flight designator element
+          $ref: '#/components/schemas/FlightDesignator'
+          example:
+            carrierCode: QF
+            flightNumber: 1
+            operationalSuffix: _
+        flightPoints:
+          description: 'the flight points of the flight.
+
+            At least one departure, one arrival
+
+            '
           type: array
           items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 401
-          code: 20
-          title: RESTRICTED
-          detail: Query unauthorized
-    Terminal:
+            $ref: '#/components/schemas/FlightPoint'
+        segments:
+          description: 'the list of segments of the datedFlight
+
+            - definition of segment: the commercial unit corresponding to the passenger journey traveling between two points with the same flight (same flight designator)
+
+            '
+          type: array
+          items:
+            $ref: '#/components/schemas/Segment'
+        legs:
+          description: 'the list of legs of the datedFlight.
+
+            - definition of leg: operation of the aircraft between a departure station and the next arrival station (between take off and landing)
+
+            '
+          type: array
+          items:
+            $ref: '#/components/schemas/Leg'
+    Timing:
       properties:
-        code:
-          description: the code of the terminal
+        qualifier:
+          description: the qualifier of the timing. e.g. STD (stands for Schedule Time Departure)
           type: string
-          example: 1
+          example: STD
+        value:
+          type: string
+          format: date-time
+          example: 06:00:00
+        delays:
+          description: delays that might be recorded on a timing
+          type: array
+          items:
+            $ref: '#/components/schemas/Delay'
     Arrival:
       properties:
         terminal:
@@ -279,6 +297,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Timing'
+    Error_500:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
     Error_400:
       type: object
       properties:
@@ -297,24 +329,6 @@ components:
           source:
             parameter: airport
             example: CDG
-    FlightPoint:
-      properties:
-        iataCode:
-          description: 3-letter IATA code of the airport. e.g. CDG
-          type: string
-          example: CDG
-        departure:
-          description: the departure information if the flightPoint is a departure for the flight
-          $ref: '#/components/schemas/Departure'
-        arrival:
-          description: the arrival information if the flightPoint is an arrival for the flight
-          $ref: '#/components/schemas/Arrival'
-    Gate:
-      properties:
-        mainGate:
-          description: the main gate number
-          type: string
-          example: 10A
     Leg:
       properties:
         boardPointIataCode:
@@ -348,26 +362,12 @@ components:
           description: 1-letter operational suffix of the flight e.g. A
           type: string
           example: string-value
-    Error_500:
-      type: object
+    Gate:
       properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    AircraftEquipment:
-      properties:
-        aircraftType:
-          description: the type of aircraft that will operate the leg
+        mainGate:
+          description: the main gate number
           type: string
-          example: 733
+          example: 10A
   responses:
     datedFlights:
       description: A list of dated flights
@@ -424,6 +424,12 @@ components:
                   aircraftEquipment:
                     aircraftType: E90
                   scheduledLegDuration: PT2H35M
+    '401':
+      description: Unauthorized
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_401'
     '500':
       description: Unexpected Error
       content:
@@ -450,10 +456,4 @@ components:
         application/vnd.amadeus+json:
           schema:
             $ref: '#/components/schemas/Error_400'
-    '401':
-      description: Unauthorized
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_401'
 x-generatedAt: '2020-09-07T09:52:13.997Z'

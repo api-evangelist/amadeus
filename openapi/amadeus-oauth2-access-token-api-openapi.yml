@@ -98,6 +98,38 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ErrorResponse:
+      description: Error responses are sent when an error (e.g. unauthorized, bad request, ...) occurred.
+      type: object
+      title: ErrorResponse
+      required:
+      - error
+      - error_description
+      - code
+      - title
+      properties:
+        error:
+          description: Name is the error name.
+          type: string
+          example: string-value
+        error_description:
+          description: A small description about the error
+          type: string
+          example: Sample description text.
+        code:
+          description: Debug contains debug information.
+          type: integer
+          format: int64
+          example: 1
+        title:
+          description: Debug contains debug information. This is usually not available and has to be enabled.
+          type: string
+          example: string-value
+      example:
+        error: invalid_client
+        error_description: Client credentials are invalid
+        code: 38187
+        title: Invalid parameters
     AmadeusOAuth2Token:
       description: The token response
       type: object
@@ -149,35 +181,3 @@ components:
         expires_in: 1799
         state: approved
         scope: ''
-    ErrorResponse:
-      description: Error responses are sent when an error (e.g. unauthorized, bad request, ...) occurred.
-      type: object
-      title: ErrorResponse
-      required:
-      - error
-      - error_description
-      - code
-      - title
-      properties:
-        error:
-          description: Name is the error name.
-          type: string
-          example: string-value
-        error_description:
-          description: A small description about the error
-          type: string
-          example: Sample description text.
-        code:
-          description: Debug contains debug information.
-          type: integer
-          format: int64
-          example: 1
-        title:
-          description: Debug contains debug information. This is usually not available and has to be enabled.
-          type: string
-          example: string-value
-      example:
-        error: invalid_client
-        error_description: Client credentials are invalid
-        code: 38187
-        title: Invalid parameters

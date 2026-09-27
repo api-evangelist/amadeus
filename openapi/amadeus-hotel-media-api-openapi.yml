@@ -143,32 +143,14 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Meta:
+    ErrorResponse:
       type: object
-      description: Metadata about the response.
+      description: Error response from the API.
       properties:
-        count:
-          type: integer
-          description: Number of results returned.
-          example: 1
-        links:
-          type: object
-          properties:
-            self:
-              type: string
-              format: uri
-              description: URL of the current request.
-              example: https://api.amadeus.com/v1/reference-data/locations/hotels/by-hotels/content
-    HotelMediaResponse:
-      type: object
-      description: Response containing media assets for one or more hotels.
-      properties:
-        data:
+        errors:
           type: array
           items:
-            $ref: '#/components/schemas/HotelMediaData'
-        meta:
-          $ref: '#/components/schemas/Meta'
+            $ref: '#/components/schemas/Error'
     HotelMediaItem:
       type: object
       description: A detailed media item with dimensions and format information.
@@ -215,27 +197,22 @@ components:
           type: boolean
           description: Indicates whether this is the primary/featured image for this category.
           example: true
-    ErrorResponse:
+    Meta:
       type: object
-      description: Error response from the API.
+      description: Metadata about the response.
       properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Error'
-    HotelMediaData:
-      type: object
-      description: Media assets for a single hotel.
-      properties:
-        hotelId:
-          type: string
-          description: Amadeus property code.
-          example: MCLONGHM
-        media:
-          type: array
-          description: List of media assets for the hotel.
-          items:
-            $ref: '#/components/schemas/HotelMediaItem'
+        count:
+          type: integer
+          description: Number of results returned.
+          example: 1
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+              description: URL of the current request.
+              example: https://api.amadeus.com/v1/reference-data/locations/hotels/by-hotels/content
     Error:
       type: object
       description: Individual error detail.
@@ -263,6 +240,29 @@ components:
               type: string
               description: Name of the parameter that caused the error.
               example: hotelIds
+    HotelMediaData:
+      type: object
+      description: Media assets for a single hotel.
+      properties:
+        hotelId:
+          type: string
+          description: Amadeus property code.
+          example: MCLONGHM
+        media:
+          type: array
+          description: List of media assets for the hotel.
+          items:
+            $ref: '#/components/schemas/HotelMediaItem'
+    HotelMediaResponse:
+      type: object
+      description: Response containing media assets for one or more hotels.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/HotelMediaData'
+        meta:
+          $ref: '#/components/schemas/Meta'
   securitySchemes:
     BearerAuth:
       type: http

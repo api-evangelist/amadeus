@@ -157,121 +157,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    HotelBasicInfo:
-      type: object
-      description: Basic hotel classification information.
-      properties:
-        category:
-          type: integer
-          description: Hotel star category (1-5).
-          example: 4
-        rating:
-          type: string
-          description: Hotel rating classification.
-          example: FOUR_STARS
-        numberOfRooms:
-          type: integer
-          description: Total number of rooms in the property.
-          example: 120
-        checkInTime:
-          type: string
-          description: Standard check-in time (HH:MM format).
-          example: '14:00'
-        checkOutTime:
-          type: string
-          description: Standard check-out time (HH:MM format).
-          example: '12:00'
-    HotelAddress:
-      type: object
-      description: Hotel physical address.
-      properties:
-        lines:
-          type: array
-          description: Street address lines.
-          items:
-            type: string
-          example:
-          - 15 Park Lane
-        postalCode:
-          type: string
-          description: Postal or ZIP code.
-          example: W1K 1BE
-        cityName:
-          type: string
-          description: City name.
-          example: London
-        countryCode:
-          type: string
-          description: ISO 3166-1 alpha-2 country code.
-          example: GB
-        stateCode:
-          type: string
-          description: State or province code (where applicable).
-          example: ENG
-    Meta:
-      type: object
-      description: Metadata about the response.
-      properties:
-        count:
-          type: integer
-          description: Number of results returned.
-          example: 1
-        links:
-          type: object
-          properties:
-            self:
-              type: string
-              format: uri
-              description: URL of the current request.
-              example: https://api.amadeus.com/v1/reference-data/locations/hotels/by-hotels/content
-    GeoCode:
-      type: object
-      description: Geographic coordinates of the hotel.
-      properties:
-        latitude:
-          type: number
-          format: double
-          description: Latitude in decimal degrees.
-          example: 51.508
-        longitude:
-          type: number
-          format: double
-          description: Longitude in decimal degrees.
-          example: -0.145
-    HotelDescription:
-      type: object
-      description: Hotel description in a specific language.
-      properties:
-        lang:
-          type: string
-          description: ISO 639-1 language code.
-          example: EN
-        text:
-          type: string
-          description: Hotel description text.
-          example: A luxury boutique hotel offering exceptional service and stunning city views.
-    HotelContact:
-      type: object
-      description: Hotel contact information.
-      properties:
-        phone:
-          type: string
-          description: Hotel phone number in international format.
-          example: +44-20-12345678
-        fax:
-          type: string
-          description: Hotel fax number.
-          example: +44-20-12345679
-        email:
-          type: string
-          format: email
-          description: Hotel email address.
-          example: info@hotel.com
-        website:
-          type: string
-          format: uri
-          description: Hotel website URL.
-          example: https://www.hotel.com
     ErrorResponse:
       type: object
       description: Error response from the API.
@@ -280,44 +165,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Error'
-    Error:
-      type: object
-      description: Individual error detail.
-      properties:
-        status:
-          type: integer
-          description: HTTP status code.
-          example: 400
-        code:
-          type: integer
-          description: Amadeus error code.
-          example: 477
-        title:
-          type: string
-          description: Short error title.
-          example: INVALID FORMAT
-        detail:
-          type: string
-          description: Detailed error description.
-          example: Invalid value for parameter.
-        source:
-          type: object
-          properties:
-            parameter:
-              type: string
-              description: Name of the parameter that caused the error.
-              example: hotelIds
-    HotelContentResponse:
-      type: object
-      description: Response containing hotel content data for one or more hotels.
-      properties:
-        data:
-          type: array
-          description: Array of hotel content objects.
-          items:
-            $ref: '#/components/schemas/HotelContent'
-        meta:
-          $ref: '#/components/schemas/Meta'
     HotelContent:
       type: object
       description: Detailed content for a single hotel property.
@@ -365,6 +212,135 @@ components:
           description: List of hotel media assets.
           items:
             $ref: '#/components/schemas/MediaAsset'
+    HotelContact:
+      type: object
+      description: Hotel contact information.
+      properties:
+        phone:
+          type: string
+          description: Hotel phone number in international format.
+          example: +44-20-12345678
+        fax:
+          type: string
+          description: Hotel fax number.
+          example: +44-20-12345679
+        email:
+          type: string
+          format: email
+          description: Hotel email address.
+          example: info@hotel.com
+        website:
+          type: string
+          format: uri
+          description: Hotel website URL.
+          example: https://www.hotel.com
+    HotelAddress:
+      type: object
+      description: Hotel physical address.
+      properties:
+        lines:
+          type: array
+          description: Street address lines.
+          items:
+            type: string
+          example:
+          - 15 Park Lane
+        postalCode:
+          type: string
+          description: Postal or ZIP code.
+          example: W1K 1BE
+        cityName:
+          type: string
+          description: City name.
+          example: London
+        countryCode:
+          type: string
+          description: ISO 3166-1 alpha-2 country code.
+          example: GB
+        stateCode:
+          type: string
+          description: State or province code (where applicable).
+          example: ENG
+    Meta:
+      type: object
+      description: Metadata about the response.
+      properties:
+        count:
+          type: integer
+          description: Number of results returned.
+          example: 1
+        links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+              description: URL of the current request.
+              example: https://api.amadeus.com/v1/reference-data/locations/hotels/by-hotels/content
+    Error:
+      type: object
+      description: Individual error detail.
+      properties:
+        status:
+          type: integer
+          description: HTTP status code.
+          example: 400
+        code:
+          type: integer
+          description: Amadeus error code.
+          example: 477
+        title:
+          type: string
+          description: Short error title.
+          example: INVALID FORMAT
+        detail:
+          type: string
+          description: Detailed error description.
+          example: Invalid value for parameter.
+        source:
+          type: object
+          properties:
+            parameter:
+              type: string
+              description: Name of the parameter that caused the error.
+              example: hotelIds
+    HotelDescription:
+      type: object
+      description: Hotel description in a specific language.
+      properties:
+        lang:
+          type: string
+          description: ISO 639-1 language code.
+          example: EN
+        text:
+          type: string
+          description: Hotel description text.
+          example: A luxury boutique hotel offering exceptional service and stunning city views.
+    HotelContentResponse:
+      type: object
+      description: Response containing hotel content data for one or more hotels.
+      properties:
+        data:
+          type: array
+          description: Array of hotel content objects.
+          items:
+            $ref: '#/components/schemas/HotelContent'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    GeoCode:
+      type: object
+      description: Geographic coordinates of the hotel.
+      properties:
+        latitude:
+          type: number
+          format: double
+          description: Latitude in decimal degrees.
+          example: 51.508
+        longitude:
+          type: number
+          format: double
+          description: Longitude in decimal degrees.
+          example: -0.145
     MediaAsset:
       type: object
       description: A single media asset (image or video) for a hotel property.
@@ -392,6 +368,30 @@ components:
           type: string
           description: Caption or alt text for the media asset.
           example: Hotel Exterior
+    HotelBasicInfo:
+      type: object
+      description: Basic hotel classification information.
+      properties:
+        category:
+          type: integer
+          description: Hotel star category (1-5).
+          example: 4
+        rating:
+          type: string
+          description: Hotel rating classification.
+          example: FOUR_STARS
+        numberOfRooms:
+          type: integer
+          description: Total number of rooms in the property.
+          example: 120
+        checkInTime:
+          type: string
+          description: Standard check-in time (HH:MM format).
+          example: '14:00'
+        checkOutTime:
+          type: string
+          description: Standard check-out time (HH:MM format).
+          example: '12:00'
   securitySchemes:
     BearerAuth:
       type: http
