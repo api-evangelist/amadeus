@@ -120,51 +120,55 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  responses:
+    '200':
+      description: Success
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Prediction'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Prediction'
+    '500':
+      description: Unexpected Error
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
+    '400':
+      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
   schemas:
-    PredictionResultType:
-      description: forecast description
-      type: string
-      enum:
-      - LESS_THAN_30_MINUTES
-      - BETWEEN_30_AND_60_MINUTES
-      - BETWEEN_60_AND_120_MINUTES
-      - OVER_120_MINUTES_OR_CANCELLED
-      example: LESS_THAN_30_MINUTES
-    Prediction:
-      type: object
+    Delay_Prediction:
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Delay_Prediction'
-        meta:
-          $ref: '#/components/schemas/Collection_Meta_Link'
-      example:
-        data:
-        - id: TK1816NCEIST20200801
-          probability: '0.13336977'
-          result: LESS_THAN_30_MINUTES
-          subType: flight-delay
-          type: prediction
-        - id: TK1816NCEIST20200801
-          probability: '0.42023364'
-          result: BETWEEN_30_AND_60_MINUTES
-          subType: flight-delay
-          type: prediction
-        - id: TK1816NCEIST20200801
-          probability: '0.34671372'
-          result: BETWEEN_60_AND_120_MINUTES
-          subType: flight-delay
-          type: prediction
-        - id: TK1816NCEIST20200801
-          probability: '0.09968289'
-          result: OVER_120_MINUTES_OR_CANCELLED
-          subType: flight-delay
-          type: prediction
-        meta:
-          count: 4
-          links:
-            self: https://test.api.amadeus.com/v1/travel/predictions/flight-delay?originLocationCode=NCE&destinationLocationCode=IST&departureDate=2020-08-01&departureTime=18:20:00&arrivalDate=2020-08-01&arrivalTime=22:15:00&aircraftCode=321&carrierCode=TK&flightNumber=1816&duration=PT31H10M
+        type:
+          description: the resource name (`prediction`)
+          type: string
+          example: string-value
+        subType:
+          type: string
+          example: trip-purpose
+        id:
+          description: item identifier
+          type: string
+          readOnly: true
+          example: '12345'
+        result:
+          $ref: '#/components/schemas/PredictionResultType'
+        probability:
+          description: probability of the forecast (between 0 and 1)
+          type: string
+          example: string-value
     Collection_Meta_Link:
       title: Collection_Meta
       properties:
@@ -200,26 +204,6 @@ components:
               example: https://test.api.amadeus.com/v1/area/resources?...
           example:
             self: https://test.api.amadeus.com/v1/area/resources?param=value
-    Delay_Prediction:
-      properties:
-        type:
-          description: the resource name (`prediction`)
-          type: string
-          example: string-value
-        subType:
-          type: string
-          example: trip-purpose
-        id:
-          description: item identifier
-          type: string
-          readOnly: true
-          example: '12345'
-        result:
-          $ref: '#/components/schemas/PredictionResultType'
-        probability:
-          description: probability of the forecast (between 0 and 1)
-          type: string
-          example: string-value
     Error_500:
       properties:
         errors:
@@ -287,32 +271,48 @@ components:
           source:
             parameter: airport
             example: CDG
-  responses:
-    '200':
-      description: Success
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Prediction'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Prediction'
-    '500':
-      description: Unexpected Error
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
-    '400':
-      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
+    Prediction:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Delay_Prediction'
+        meta:
+          $ref: '#/components/schemas/Collection_Meta_Link'
+      example:
+        data:
+        - id: TK1816NCEIST20200801
+          probability: '0.13336977'
+          result: LESS_THAN_30_MINUTES
+          subType: flight-delay
+          type: prediction
+        - id: TK1816NCEIST20200801
+          probability: '0.42023364'
+          result: BETWEEN_30_AND_60_MINUTES
+          subType: flight-delay
+          type: prediction
+        - id: TK1816NCEIST20200801
+          probability: '0.34671372'
+          result: BETWEEN_60_AND_120_MINUTES
+          subType: flight-delay
+          type: prediction
+        - id: TK1816NCEIST20200801
+          probability: '0.09968289'
+          result: OVER_120_MINUTES_OR_CANCELLED
+          subType: flight-delay
+          type: prediction
+        meta:
+          count: 4
+          links:
+            self: https://test.api.amadeus.com/v1/travel/predictions/flight-delay?originLocationCode=NCE&destinationLocationCode=IST&departureDate=2020-08-01&departureTime=18:20:00&arrivalDate=2020-08-01&arrivalTime=22:15:00&aircraftCode=321&carrierCode=TK&flightNumber=1816&duration=PT31H10M
+    PredictionResultType:
+      description: forecast description
+      type: string
+      enum:
+      - LESS_THAN_30_MINUTES
+      - BETWEEN_30_AND_60_MINUTES
+      - BETWEEN_60_AND_120_MINUTES
+      - OVER_120_MINUTES_OR_CANCELLED
+      example: LESS_THAN_30_MINUTES
 x-generatedAt: '2020-07-23T09:48:28.158Z'

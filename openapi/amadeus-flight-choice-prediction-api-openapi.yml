@@ -47,40 +47,66 @@ paths:
         required: true
 components:
   schemas:
-    Fee:
-      description: a fee
+    Segment:
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: Id of the segment
+            type: string
+            example: 1
+          numberOfStops:
+            description: Number of stops
+            type: integer
+            example: 0
+          blacklistedInEU:
+            description: "When the flight has a marketing or/and operating airline that is identified as blacklisted by the European Commission. \n\nTo improve travel safety, the European Commission regularly updates the list of the banned carriers from operating in Europe. It allows any Travel Agency located in the European Union to easily identify and hide any travel recommendation based on some unsafe airlines. \nThe [list of the banned airlines](https://ec.europa.eu/transport/sites/transport/files/air-safety-list_en.pdf) is published in the Official Journal of the European Union, where they are included as annexes A and B to the Commission Regulation. The blacklist of an airline can concern all its flights or some specific aircraft types pertaining to the airline   \n"
+            type: boolean
+            example: false
+          co2Emissions:
+            description: Co2 informations
+            type: array
+            minItems: 1
+            items:
+              title: Co2Emission
+              $ref: '#/components/schemas/Co2Emission'
+      - $ref: '#/components/schemas/FlightSegment'
+    OperatingFlight:
+      type: object
+      description: information about the operating flight
       properties:
-        amount:
+        carrierCode:
           type: string
-          example: '332.70'
-        type:
-          $ref: '#/components/schemas/FeeType'
-    CarrierEntry:
-      additionalProperties:
-        description: the carrier name
-        type: string
-    CurrencyEntry:
-      additionalProperties:
-        type: string
-        example: EUR
-    LocationEntry:
-      additionalProperties:
-        $ref: '#/components/schemas/LocationValue'
-    ServiceName:
-      description: type of service
+          description: providing the airline / carrier code
+          minLength: 1
+          maxLength: 2
+          example: DL
+        number:
+          type: string
+          description: the flight number as assigned by the carrier
+          minLength: 1
+          maxLength: 4
+          example: '212'
+        suffix:
+          type: string
+          description: the flight number suffix as assigned by the carrier
+          minLength: 1
+          maxLength: 4
+          example: string-value
+    FlightOfferSource:
+      description: source of the flight offer
       type: string
       enum:
-      - PRIORITY_BOARDING
-      - AIRPORT_CHECKIN
-      example: PRIORITY_BOARDING
-    FeeType:
+      - GDS
+      - PYTON
+      example: GDS
+    SliceDiceIndicator:
+      description: slice and Dice indicator, such as Local Availability, Sub OnD(Origin and Destination) 1 Availability and Sub OnD 2 Availability
       type: string
-      description: type of fee
       enum:
-      - TICKETING
-      - FORM_OF_PAYMENT
-      - SUPPLIER
-      example: TICKETING
+      - LOCAL_AVAILABILITY
+      - SUB_OD_AVAILABILITY_1
+      - SUB_OD_AVAILABILITY_2
     FlightOffer:
       title: Flight-offer
       type: object
@@ -297,39 +323,6 @@ components:
         fareRules:
           description: Fare rules of the flight offer
           $ref: '#/components/schemas/FareRules'
-    TermAndCondition:
-      properties:
-        category:
-          type: string
-          description: This defines what type of modification is concerned in this rule.
-          enum:
-          - REFUND
-          - EXCHANGE
-          - REVALIDATION
-          - REISSUE
-          - REBOOK
-          - CANCELLATION
-          example: EXCHANGE
-        circumstances:
-          type: string
-          example: string-value
-        notApplicable:
-          type: boolean
-          example: true
-        maxPenaltyAmount:
-          type: string
-          example: '199.50'
-        descriptions:
-          type: array
-          items:
-            title: Description
-            properties:
-              descriptionType:
-                type: string
-                example: Sample description text.
-              text:
-                type: string
-                example: string-value
     FlightStop:
       title: FlightStop
       description: details of stops for direct or change of gauge flights
@@ -347,302 +340,6 @@ components:
             type: string
             format: date-time
             example: '2017-10-23T20:00:00'
-    Collection_Meta:
-      type: object
-      title: Collection_Meta
-      description: meta information
-      properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          title: CollectionLinks
-          $ref: '#/components/schemas/CollectionLinks'
-        oneWayCombinations:
-          type: array
-          items:
-            title: oneWayCombinations
-            properties:
-              originDestinationId:
-                type: string
-                example: '12345'
-              flightOfferIds:
-                type: array
-                items:
-                  type: string
-    Price:
-      properties:
-        currency:
-          type: string
-          example: USD
-        total:
-          description: Total amount paid by the user
-          type: string
-          example: '932.70'
-        base:
-          description: Amount without taxes
-          type: string
-          example: '632.70'
-        fees:
-          description: List of applicable fees
-          type: array
-          items:
-            $ref: '#/components/schemas/Fee'
-        taxes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tax'
-    Extended_Price:
-      type: object
-      title: Price
-      description: price information
-      allOf:
-      - type: object
-        properties:
-          margin:
-            description: BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated.
-            type: string
-            example: '1.00'
-          grandTotal:
-            description: Total amount paid by the user (including fees and selected additional services).
-            type: string
-            example: '987.00'
-          billingCurrency:
-            description: Currency of the payment. It may be different than the requested currency
-            type: string
-            example: EUR
-          additionalServices:
-            type: array
-            title: AdditionalServices
-            items:
-              title: AdditionalService
-              type: object
-              properties:
-                amount:
-                  type: string
-                  example: '332.70'
-                type:
-                  $ref: '#/components/schemas/AdditionalServiceType'
-      - $ref: '#/components/schemas/Price'
-    PricingOptionsFareType:
-      type: array
-      description: type of fare of the flight-offer
-      items:
-        type: string
-        enum:
-        - PUBLISHED
-        - NEGOTIATED
-        - CORPORATE
-      example:
-      - PUBLISHED
-    OriginalFlightStop:
-      description: details of stops for direct or change of gauge flights
-      type: object
-      properties:
-        iataCode:
-          description: '[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)'
-          type: string
-          example: JFK
-        duration:
-          type: string
-          description: stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M
-          example: PT2H10M
-    SliceDiceIndicator:
-      description: slice and Dice indicator, such as Local Availability, Sub OnD(Origin and Destination) 1 Availability and Sub OnD 2 Availability
-      type: string
-      enum:
-      - LOCAL_AVAILABILITY
-      - SUB_OD_AVAILABILITY_1
-      - SUB_OD_AVAILABILITY_2
-    AdditionalServiceType:
-      type: string
-      description: additional service type
-      enum:
-      - CHECKED_BAGS
-      - MEALS
-      - SEATS
-      - OTHER_SERVICES
-      example: CHECKED_BAGS
-    FlightOfferSource:
-      description: source of the flight offer
-      type: string
-      enum:
-      - GDS
-      - PYTON
-      example: GDS
-    CollectionLinks:
-      title: CollectionLinks
-      properties:
-        self:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-        next:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-        previous:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-        last:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-        first:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-        up:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-      example:
-        self: https://test.api.amadeus.com/v1/area/resources?param=value
-    TravelerType:
-      type: string
-      description: 'traveler type
-
-        age restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y
-
-        '
-      enum:
-      - ADULT
-      - CHILD
-      - SENIOR
-      - YOUNG
-      - HELD_INFANT
-      - SEATED_INFANT
-      - STUDENT
-      example: ADULT
-    BaggageAllowance:
-      description: baggageAllowance
-      type: object
-      properties:
-        quantity:
-          type: integer
-          description: Total number of units
-          example: 1
-        weight:
-          type: integer
-          description: Weight of the baggage allowance
-          example: 20
-        weightUnit:
-          type: string
-          description: Code to qualify unit as pounds or kilos
-          example: KG
-    TravelerPricingFareOption:
-      description: 'option specifying a group of fares, which may be valid under certain conditons
-
-        Can be used to specify special fare discount for a passenger
-
-        '
-      type: string
-      enum:
-      - STANDARD
-      - INCLUSIVE_TOUR
-      - SPANISH_MELILLA_RESIDENT
-      - SPANISH_CEUTA_RESIDENT
-      - SPANISH_CANARY_RESIDENT
-      - SPANISH_BALEARIC_RESIDENT
-      - AIR_FRANCE_METROPOLITAN_DISCOUNT_PASS
-      - AIR_FRANCE_DOM_DISCOUNT_PASS
-      - AIR_FRANCE_COMBINED_DISCOUNT_PASS
-      - AIR_FRANCE_FAMILY
-      - ADULT_WITH_COMPANION
-      - COMPANION
-      example: STANDARD
-    Segment:
-      allOf:
-      - type: object
-        properties:
-          id:
-            description: Id of the segment
-            type: string
-            example: 1
-          numberOfStops:
-            description: Number of stops
-            type: integer
-            example: 0
-          blacklistedInEU:
-            description: "When the flight has a marketing or/and operating airline that is identified as blacklisted by the European Commission. \n\nTo improve travel safety, the European Commission regularly updates the list of the banned carriers from operating in Europe. It allows any Travel Agency located in the European Union to easily identify and hide any travel recommendation based on some unsafe airlines. \nThe [list of the banned airlines](https://ec.europa.eu/transport/sites/transport/files/air-safety-list_en.pdf) is published in the Official Journal of the European Union, where they are included as annexes A and B to the Commission Regulation. The blacklist of an airline can concern all its flights or some specific aircraft types pertaining to the airline   \n"
-            type: boolean
-            example: false
-          co2Emissions:
-            description: Co2 informations
-            type: array
-            minItems: 1
-            items:
-              title: Co2Emission
-              $ref: '#/components/schemas/Co2Emission'
-      - $ref: '#/components/schemas/FlightSegment'
-    Issue:
-      properties:
-        status:
-          description: the HTTP status code applicable to this error
-          type: integer
-          example: 1
-        code:
-          description: an application-specific error code
-          type: integer
-          format: int64
-          example: 1
-        title:
-          description: a short summary of the error
-          type: string
-          example: string-value
-        detail:
-          description: explanation of the error
-          type: string
-          example: string-value
-        source:
-          type: object
-          title: Issue_Source
-          description: an object containing references to the source of the error
-          maxProperties: 1
-          properties:
-            pointer:
-              description: a JSON Pointer [RFC6901] to the associated entity in the request document
-              type: string
-              example: string-value
-            parameter:
-              description: a string indicating which URI query parameter caused the issue
-              type: string
-              example: string-value
-            example:
-              description: a string indicating an example of the right value
-              type: string
-              example: string-value
-    Error_500:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    AircraftEquipment:
-      description: information related to the aircraft
-      properties:
-        code:
-          type: string
-          description: 'IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)
-
-            '
-          pattern: '[a-zA-Z0-9]{3}'
-          example: '318'
-        configurationVersion:
-          type: string
-          description: 'aircraft Configuration Version code. Physical configuration, also called ACV code (aircraft type + fitted configuration)
-
-            '
-          pattern: '[A-Z0-9]{3}'
-          example: 2C1
     FlightOffersSearchReply:
       title: FlightOffersSearchReply
       required:
@@ -1374,59 +1071,38 @@ components:
             LA: LATAM AIRLINES GROUP
             IB: IBERIA
             BA: BRITISH AIRWAYS
-    Error_400:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
-    LocationValue:
-      properties:
-        cityCode:
-          type: string
-          description: City code associated to the airport
-          example: PAR
-        countryCode:
-          type: string
-          description: Country code of the airport
-          example: FR
-    AircraftEntry:
-      additionalProperties:
-        description: the manufacturer/model of aircraft
-        type: string
-    Tax:
-      description: a tax
+    Extended_Price:
       type: object
-      properties:
-        amount:
-          type: string
-          example: '332.70'
-        code:
-          type: string
-          example: MX
-    OriginalFlightEndPoint:
-      type: object
-      description: departure or arrival information
-      properties:
-        iataCode:
-          description: '[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)'
-          type: string
-          example: JFK
-        terminal:
-          description: terminal name / number
-          type: string
-          example: T2
+      title: Price
+      description: price information
+      allOf:
+      - type: object
+        properties:
+          margin:
+            description: BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated.
+            type: string
+            example: '1.00'
+          grandTotal:
+            description: Total amount paid by the user (including fees and selected additional services).
+            type: string
+            example: '987.00'
+          billingCurrency:
+            description: Currency of the payment. It may be different than the requested currency
+            type: string
+            example: EUR
+          additionalServices:
+            type: array
+            title: AdditionalServices
+            items:
+              title: AdditionalService
+              type: object
+              properties:
+                amount:
+                  type: string
+                  example: '332.70'
+                type:
+                  $ref: '#/components/schemas/AdditionalServiceType'
+      - $ref: '#/components/schemas/Price'
     FlightEndPoint:
       title: FlightEndPoint
       description: departure or arrival information
@@ -1439,6 +1115,97 @@ components:
             type: string
             format: date-time
             example: '2017-10-23T20:00:00'
+    ServiceName:
+      description: type of service
+      type: string
+      enum:
+      - PRIORITY_BOARDING
+      - AIRPORT_CHECKIN
+      example: PRIORITY_BOARDING
+    Co2Emission:
+      type: object
+      properties:
+        weight:
+          description: Weight of Co2 emitted for the concerned segment
+          type: integer
+          example: 90
+        weightUnit:
+          description: Code to qualify unit as pounds or kilos
+          type: string
+          example: KG
+        cabin:
+          $ref: '#/components/schemas/TravelClass'
+    CarrierEntry:
+      additionalProperties:
+        description: the carrier name
+        type: string
+    AircraftEquipment:
+      description: information related to the aircraft
+      properties:
+        code:
+          type: string
+          description: 'IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)
+
+            '
+          pattern: '[a-zA-Z0-9]{3}'
+          example: '318'
+        configurationVersion:
+          type: string
+          description: 'aircraft Configuration Version code. Physical configuration, also called ACV code (aircraft type + fitted configuration)
+
+            '
+          pattern: '[A-Z0-9]{3}'
+          example: 2C1
+    BaggageAllowance:
+      description: baggageAllowance
+      type: object
+      properties:
+        quantity:
+          type: integer
+          description: Total number of units
+          example: 1
+        weight:
+          type: integer
+          description: Weight of the baggage allowance
+          example: 20
+        weightUnit:
+          type: string
+          description: Code to qualify unit as pounds or kilos
+          example: KG
+    TravelerPricingFareOption:
+      description: 'option specifying a group of fares, which may be valid under certain conditons
+
+        Can be used to specify special fare discount for a passenger
+
+        '
+      type: string
+      enum:
+      - STANDARD
+      - INCLUSIVE_TOUR
+      - SPANISH_MELILLA_RESIDENT
+      - SPANISH_CEUTA_RESIDENT
+      - SPANISH_CANARY_RESIDENT
+      - SPANISH_BALEARIC_RESIDENT
+      - AIR_FRANCE_METROPOLITAN_DISCOUNT_PASS
+      - AIR_FRANCE_DOM_DISCOUNT_PASS
+      - AIR_FRANCE_COMBINED_DISCOUNT_PASS
+      - AIR_FRANCE_FAMILY
+      - ADULT_WITH_COMPANION
+      - COMPANION
+      example: STANDARD
+    FareRules:
+      type: object
+      title: FareRules
+      properties:
+        currency:
+          type: string
+          description: The currency of the penalties
+          example: EUR
+        rules:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/TermAndCondition'
     Dictionaries:
       type: object
       properties:
@@ -1450,6 +1217,190 @@ components:
           $ref: '#/components/schemas/CurrencyEntry'
         carriers:
           $ref: '#/components/schemas/CarrierEntry'
+    Price:
+      properties:
+        currency:
+          type: string
+          example: USD
+        total:
+          description: Total amount paid by the user
+          type: string
+          example: '932.70'
+        base:
+          description: Amount without taxes
+          type: string
+          example: '632.70'
+        fees:
+          description: List of applicable fees
+          type: array
+          items:
+            $ref: '#/components/schemas/Fee'
+        taxes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tax'
+    Issue:
+      properties:
+        status:
+          description: the HTTP status code applicable to this error
+          type: integer
+          example: 1
+        code:
+          description: an application-specific error code
+          type: integer
+          format: int64
+          example: 1
+        title:
+          description: a short summary of the error
+          type: string
+          example: string-value
+        detail:
+          description: explanation of the error
+          type: string
+          example: string-value
+        source:
+          type: object
+          title: Issue_Source
+          description: an object containing references to the source of the error
+          maxProperties: 1
+          properties:
+            pointer:
+              description: a JSON Pointer [RFC6901] to the associated entity in the request document
+              type: string
+              example: string-value
+            parameter:
+              description: a string indicating which URI query parameter caused the issue
+              type: string
+              example: string-value
+            example:
+              description: a string indicating an example of the right value
+              type: string
+              example: string-value
+    AdditionalServiceType:
+      type: string
+      description: additional service type
+      enum:
+      - CHECKED_BAGS
+      - MEALS
+      - SEATS
+      - OTHER_SERVICES
+      example: CHECKED_BAGS
+    Error_500:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    OriginalFlightStop:
+      description: details of stops for direct or change of gauge flights
+      type: object
+      properties:
+        iataCode:
+          description: '[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)'
+          type: string
+          example: JFK
+        duration:
+          type: string
+          description: stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M
+          example: PT2H10M
+    AircraftEntry:
+      additionalProperties:
+        description: the manufacturer/model of aircraft
+        type: string
+    Collection_Meta:
+      type: object
+      title: Collection_Meta
+      description: meta information
+      properties:
+        count:
+          type: integer
+          example: 1
+        links:
+          title: CollectionLinks
+          $ref: '#/components/schemas/CollectionLinks'
+        oneWayCombinations:
+          type: array
+          items:
+            title: oneWayCombinations
+            properties:
+              originDestinationId:
+                type: string
+                example: '12345'
+              flightOfferIds:
+                type: array
+                items:
+                  type: string
+    LocationEntry:
+      additionalProperties:
+        $ref: '#/components/schemas/LocationValue'
+    TravelerType:
+      type: string
+      description: 'traveler type
+
+        age restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y
+
+        '
+      enum:
+      - ADULT
+      - CHILD
+      - SENIOR
+      - YOUNG
+      - HELD_INFANT
+      - SEATED_INFANT
+      - STUDENT
+      example: ADULT
+    CurrencyEntry:
+      additionalProperties:
+        type: string
+        example: EUR
+    OriginalFlightEndPoint:
+      type: object
+      description: departure or arrival information
+      properties:
+        iataCode:
+          description: '[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)'
+          type: string
+          example: JFK
+        terminal:
+          description: terminal name / number
+          type: string
+          example: T2
+    FeeType:
+      type: string
+      description: type of fee
+      enum:
+      - TICKETING
+      - FORM_OF_PAYMENT
+      - SUPPLIER
+      example: TICKETING
+    PricingOptionsFareType:
+      type: array
+      description: type of fare of the flight-offer
+      items:
+        type: string
+        enum:
+        - PUBLISHED
+        - NEGOTIATED
+        - CORPORATE
+      example:
+      - PUBLISHED
+    LocationValue:
+      properties:
+        cityCode:
+          type: string
+          description: City code associated to the airport
+          example: PAR
+        countryCode:
+          type: string
+          description: Country code of the airport
+          example: FR
     TravelClass:
       description: quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class
       type: string
@@ -1508,55 +1459,113 @@ components:
           description: information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge...
           items:
             $ref: '#/components/schemas/FlightStop'
-    Co2Emission:
+    Tax:
+      description: a tax
       type: object
       properties:
-        weight:
-          description: Weight of Co2 emitted for the concerned segment
-          type: integer
-          example: 90
-        weightUnit:
-          description: Code to qualify unit as pounds or kilos
+        amount:
           type: string
-          example: KG
-        cabin:
-          $ref: '#/components/schemas/TravelClass'
-    OperatingFlight:
-      type: object
-      description: information about the operating flight
+          example: '332.70'
+        code:
+          type: string
+          example: MX
+    Error_400:
       properties:
-        carrierCode:
-          type: string
-          description: providing the airline / carrier code
-          minLength: 1
-          maxLength: 2
-          example: DL
-        number:
-          type: string
-          description: the flight number as assigned by the carrier
-          minLength: 1
-          maxLength: 4
-          example: '212'
-        suffix:
-          type: string
-          description: the flight number suffix as assigned by the carrier
-          minLength: 1
-          maxLength: 4
-          example: string-value
-    FareRules:
-      type: object
-      title: FareRules
-      properties:
-        currency:
-          type: string
-          description: The currency of the penalties
-          example: EUR
-        rules:
+        errors:
           type: array
-          minItems: 1
           items:
-            $ref: '#/components/schemas/TermAndCondition'
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
+    CollectionLinks:
+      title: CollectionLinks
+      properties:
+        self:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+        next:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+        previous:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+        last:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+        first:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+        up:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+      example:
+        self: https://test.api.amadeus.com/v1/area/resources?param=value
+    TermAndCondition:
+      properties:
+        category:
+          type: string
+          description: This defines what type of modification is concerned in this rule.
+          enum:
+          - REFUND
+          - EXCHANGE
+          - REVALIDATION
+          - REISSUE
+          - REBOOK
+          - CANCELLATION
+          example: EXCHANGE
+        circumstances:
+          type: string
+          example: string-value
+        notApplicable:
+          type: boolean
+          example: true
+        maxPenaltyAmount:
+          type: string
+          example: '199.50'
+        descriptions:
+          type: array
+          items:
+            title: Description
+            properties:
+              descriptionType:
+                type: string
+                example: Sample description text.
+              text:
+                type: string
+                example: string-value
+    Fee:
+      description: a fee
+      properties:
+        amount:
+          type: string
+          example: '332.70'
+        type:
+          $ref: '#/components/schemas/FeeType'
   responses:
+    '400':
+      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n32171   | MANDATORY DATA MISSING\n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
     '200':
       description: Flight Offers Search Reply with prediction
       content:
@@ -2675,15 +2684,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error_500'
-    '400':
-      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n32171   | MANDATORY DATA MISSING\n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
   parameters:
     getOverride:
       name: X-HTTP-Method-Override

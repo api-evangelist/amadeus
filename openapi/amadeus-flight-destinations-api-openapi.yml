@@ -115,30 +115,60 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  responses:
+    '200':
+      description: Success
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/FlightDestinations'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FlightDestinations'
+    '500':
+      description: Unexpected error
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
+    '404':
+      description: "code    | title                                 \n------- | ------------------------------------- \n6003    | ITEM/DATA NOT FOUND OR DATA NOT EXISTING\n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_404'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error_404'
+    '400':
+      description: "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
   schemas:
-    Dictionaries:
-      type: object
+    LocationValue:
       properties:
-        currencies:
-          $ref: '#/components/schemas/CurrencyDictionary'
-        locations:
-          $ref: '#/components/schemas/LocationDictionary'
-    Error_404:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 404
-          code: 1797
-          title: NOT FOUND
-          detail: no response found for this query parameter
-          source:
-            parameter: airport
+        subType:
+          type: string
+          description: 'location type: airport or city'
+          enum:
+          - AIRPORT
+          - CITY
+          example: AIRPORT
+        detailedName:
+          type: string
+          description: name of the location
+          example: 'Paris/FR: Charles de Gaulle'
+    LocationDictionary:
+      additionalProperties:
+        $ref: '#/components/schemas/LocationValue'
     FlightDestinations:
       type: object
       properties:
@@ -606,48 +636,19 @@ components:
             duration: 1,15
             nonStop: false
             viewBy: DESTINATION
-    FlightDestination:
+    Price:
+      properties:
+        total:
+          description: Total amount paid by the user
+          type: string
+          example: '932.70'
+    Dictionaries:
       type: object
       properties:
-        type:
-          type: string
-          description: the resource name
-          example: flight-destination
-        origin:
-          type: string
-          example: PAR
-        destination:
-          type: string
-          example: DXB
-        departureDate:
-          type: string
-          example: '2017-08-19'
-        returnDate:
-          type: string
-          example: '2017-08-22'
-        price:
-          $ref: '#/components/schemas/Price'
-        links:
-          type: object
-          properties:
-            flightDates:
-              type: string
-              example: https://test.api.amadeus.com/v1/shopping/flight-dates?origin=PAR
-            flightOffers:
-              type: string
-              example: https://test.api.amadeus.com/v1/shopping/flight-offers?origin=PAR&destination=MAD&departureDate=2017-08-26&returnDate=2017-08-30&adults=1
-    Meta:
-      type: object
-      properties:
-        currency:
-          type: string
-          description: the currency in which the prices of the flight offers are returned. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro
-          pattern: '[A-Z]{3}'
-          example: EUR
-        links:
-          $ref: '#/components/schemas/Links'
-        defaults:
-          $ref: '#/components/schemas/Defaults'
+        currencies:
+          $ref: '#/components/schemas/CurrencyDictionary'
+        locations:
+          $ref: '#/components/schemas/LocationDictionary'
     Issue:
       properties:
         status:
@@ -685,6 +686,31 @@ components:
               description: a string indicating an example of the right value
               type: string
               example: string-value
+    Error_500:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    Meta:
+      type: object
+      properties:
+        currency:
+          type: string
+          description: the currency in which the prices of the flight offers are returned. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro
+          pattern: '[A-Z]{3}'
+          example: EUR
+        links:
+          $ref: '#/components/schemas/Links'
+        defaults:
+          $ref: '#/components/schemas/Defaults'
     Defaults:
       description: the query parameters for which default values were used are returned here
       type: object
@@ -715,17 +741,11 @@ components:
           - DURATION
           - WEEK
           example: COUNTRY
-    Price:
-      properties:
-        total:
-          description: Total amount paid by the user
-          type: string
-          example: '932.70'
     CurrencyDictionary:
       additionalProperties:
         type: string
         example: EUR
-    Error_500:
+    Error_404:
       properties:
         errors:
           type: array
@@ -735,12 +755,12 @@ components:
       - errors
       example:
         errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    LocationDictionary:
-      additionalProperties:
-        $ref: '#/components/schemas/LocationValue'
+        - status: 404
+          code: 1797
+          title: NOT FOUND
+          detail: no response found for this query parameter
+          source:
+            parameter: airport
     Error_400:
       properties:
         errors:
@@ -758,60 +778,40 @@ components:
           source:
             parameter: airport
             example: CDG
-    LocationValue:
+    FlightDestination:
+      type: object
       properties:
-        subType:
+        type:
           type: string
-          description: 'location type: airport or city'
-          enum:
-          - AIRPORT
-          - CITY
-          example: AIRPORT
-        detailedName:
+          description: the resource name
+          example: flight-destination
+        origin:
           type: string
-          description: name of the location
-          example: 'Paris/FR: Charles de Gaulle'
+          example: PAR
+        destination:
+          type: string
+          example: DXB
+        departureDate:
+          type: string
+          example: '2017-08-19'
+        returnDate:
+          type: string
+          example: '2017-08-22'
+        price:
+          $ref: '#/components/schemas/Price'
+        links:
+          type: object
+          properties:
+            flightDates:
+              type: string
+              example: https://test.api.amadeus.com/v1/shopping/flight-dates?origin=PAR
+            flightOffers:
+              type: string
+              example: https://test.api.amadeus.com/v1/shopping/flight-offers?origin=PAR&destination=MAD&departureDate=2017-08-26&returnDate=2017-08-30&adults=1
     Links:
       properties:
         self:
           type: string
           format: uri
           example: https://example.com/resource
-  responses:
-    '404':
-      description: "code    | title                                 \n------- | ------------------------------------- \n6003    | ITEM/DATA NOT FOUND OR DATA NOT EXISTING\n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_404'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error_404'
-    '400':
-      description: "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
-    '200':
-      description: Success
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/FlightDestinations'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/FlightDestinations'
-    '500':
-      description: Unexpected error
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
 x-generatedAt: '2020-07-23T08:15:14.050Z'

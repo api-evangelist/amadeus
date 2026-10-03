@@ -84,58 +84,152 @@ paths:
     servers:
     - url: https://test.api.amadeus.com/v1
 components:
+  responses:
+    '500':
+      description: Unexpected Error
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
+    point-of-interest:
+      description: Successful Operation
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            title: Success
+            required:
+            - data
+            properties:
+              meta:
+                $ref: '#/components/schemas/Collection_Meta'
+              data:
+                $ref: '#/components/schemas/Location'
+            example:
+              data:
+                type: location
+                subType: POINT_OF_INTEREST
+                id: 9CB40CB5D0
+                self:
+                  href: https://test.api.amadeus.com/v1/reference-data/locations/pois/9CB40CB5D0
+                  methods:
+                  - GET
+                geoCode:
+                  latitude: 41.39165
+                  longitude: 2.164772
+                name: Casa Batlló
+                category: SIGHTS
+                rank: 1
+                tags:
+                - sightseeing
+                - sights
+                - museum
+                - landmark
+                - tourguide
+                - restaurant
+                - attraction
+                - activities
+                - commercialplace
+                - shopping
+                - souvenir
+    '404':
+      description: Not Found
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_404'
+    '400':
+      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
+    safety-rated-location:
+      description: Successful Operation
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            title: Success
+            required:
+            - data
+            properties:
+              warnings:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Issue'
+              meta:
+                $ref: '#/components/schemas/Collection_Meta'
+              data:
+                $ref: '#/components/schemas/SafetyRatedLocation'
+            example:
+              meta:
+                links:
+                  self: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402719
+              data:
+              - type: safety-rated-location
+                id: Q930402719
+                self:
+                  type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402719
+                  methods:
+                  - GET
+                subType: CITY
+                name: Barcelona
+                geoCode:
+                  latitude: 41.385064
+                  longitude: 2.173404
+                safetyScores:
+                  lgbtq: 39
+                  medical: 0
+                  overall: 45
+                  physicalHarm: 36
+                  politicalFreedom: 50
+                  theft: 44
+                  women: 34
+    400_Retreive:
+      description: "Code   | Title\n-------|----------------\n572    | INVALID OPTION\t     \n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400_2'
+    activity:
+      description: Successful Operation
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            title: Successful Search
+            required:
+            - data
+            properties:
+              meta:
+                $ref: '#/components/schemas/Collection_Meta_2'
+              warnings:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Issue_2'
+              data:
+                $ref: '#/components/schemas/Activity'
+            example:
+              meta:
+                self: https://test.api.amadeus.com/v1/shopping/activities/23642
+              data:
+                id: '23642'
+                type: activity
+                self:
+                  href: https://test.api.amadeus.com/v1/shopping/activities/23642
+                  methods:
+                  - GET
+                name: Skip-the-line tickets to the Prado Museum
+                shortDescription: Book your tickets for the Prado Museum in Madrid, discover masterpieces by Velázquez, Goya, Mantegna, Raphael, Tintoretto and access all temporary exhibitions.
+                geoCode:
+                  latitude: '40.414000'
+                  longitude: '-3.691000'
+                rating: '4.500000'
+                pictures:
+                - https://images.musement.com/cover/0001/07/prado-museum-tickets_header-6456.jpeg?w=500
+                bookingLink: https://b2c.mla.cloud/c/QCejqyor?c=2WxbgL36
+                price:
+                  currencyCode: EUR
+                  amount: '16.00'
   schemas:
-    Error_404:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 404
-          code: 1797
-          title: NOT FOUND
-          detail: no response found for this query parameter
-          source:
-            parameter: airport
-    Collection_Meta:
-      title: Collection_Meta
-      properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          title: CollectionLinks
-          properties:
-            self:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            next:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            previous:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            last:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            first:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            up:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-          example:
-            self: https://test.api.amadeus.com/v1/area/resources?param=value
     Issue:
       properties:
         status:
@@ -173,48 +267,6 @@ components:
               description: a string indicating an example of the right value
               type: string
               example: string-value
-    Error_500:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    GeoCode:
-      properties:
-        latitude:
-          description: latitude of the location
-          type: number
-          format: double
-          example: 43.580418
-        longitude:
-          description: longitude of the location
-          type: number
-          format: double
-          example: 7.125102
-    Error_400:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
     Location:
       properties:
         id:
@@ -266,6 +318,99 @@ components:
           description: the rank is the position compared to other locations based on how famous is a place. 1 being the highest.
           type: string
           example: 1
+    Error_500:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    Error_404:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 404
+          code: 1797
+          title: NOT FOUND
+          detail: no response found for this query parameter
+          source:
+            parameter: airport
+    Error_400:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
+    GeoCode:
+      properties:
+        latitude:
+          description: latitude of the location
+          type: number
+          format: double
+          example: 43.580418
+        longitude:
+          description: longitude of the location
+          type: number
+          format: double
+          example: 7.125102
+    Collection_Meta:
+      title: Collection_Meta
+      properties:
+        count:
+          type: integer
+          example: 1
+        links:
+          title: CollectionLinks
+          properties:
+            self:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            next:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            previous:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            last:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            first:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            up:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+          example:
+            self: https://test.api.amadeus.com/v1/area/resources?param=value
     Links:
       properties:
         href:
@@ -284,6 +429,42 @@ components:
             - PATCH
       example:
         href: string
+    SafetyRatedLocation:
+      type: object
+      title: SafetyRatedLocation
+      allOf:
+      - type: object
+        properties:
+          safetyScore:
+            $ref: '#/components/schemas/SafetyScore'
+      - $ref: '#/components/schemas/Location_2'
+    Location_2:
+      properties:
+        id:
+          description: id of the ressource
+          type: string
+          example: '12345'
+        self:
+          $ref: '#/components/schemas/Links_2'
+        type:
+          description: the resource name
+          type: string
+          example: location
+        subType:
+          description: location sub type
+          type: string
+          enum:
+          - AIRPORT
+          - CITY
+          - POINT_OF_INTEREST
+          - DISTRICT
+          example: AIRPORT
+        name:
+          description: short name of the location
+          type: string
+          example: Paris CDG
+        geoCode:
+          $ref: '#/components/schemas/GeoCode'
     SafetyScore:
       properties:
         women:
@@ -337,71 +518,25 @@ components:
           example: 1
       example:
         href: string
-    SafetyRatedLocation:
-      type: object
-      title: SafetyRatedLocation
-      allOf:
-      - type: object
-        properties:
-          safetyScore:
-            $ref: '#/components/schemas/SafetyScore'
-      - $ref: '#/components/schemas/Location_2'
-    Location_2:
-      properties:
-        id:
-          description: id of the ressource
-          type: string
-          example: '12345'
-        self:
-          $ref: '#/components/schemas/Links_2'
-        type:
-          description: the resource name
-          type: string
-          example: location
-        subType:
-          description: location sub type
-          type: string
-          enum:
-          - AIRPORT
-          - CITY
-          - POINT_OF_INTEREST
-          - DISTRICT
-          example: AIRPORT
-        name:
-          description: short name of the location
-          type: string
-          example: Paris CDG
-        geoCode:
-          $ref: '#/components/schemas/GeoCode'
-    Error_404_2:
+    Link:
       type: object
       properties:
-        errors:
+        href:
+          type: string
+          format: uri
+          example: https://example.com/resource
+        methods:
           type: array
           items:
-            $ref: '#/components/schemas/Issue_2'
-      required:
-      - errors
+            type: string
+            enum:
+            - GET
+            - PUT
+            - DELETE
+            - POST
+            - PATCH
       example:
-        errors:
-        - status: 404
-          code: 1797
-          title: NOT FOUND
-          detail: no response found for this query parameter
-          source:
-            parameter: airport
-    ElementaryPrice:
-      description: elementaryPrice
-      type: object
-      properties:
-        amount:
-          type: string
-          description: Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection.
-          example: '199.50'
-        currencyCode:
-          type: string
-          description: Currency type of the fare.
-          example: EUR
+        href: string
     Activity:
       type: object
       title: Activity
@@ -452,43 +587,6 @@ components:
           type: string
           description: Minimum recommended duration for the activity
           example: PT2H30M
-    Collection_Meta_2:
-      type: object
-      title: Collection_Meta
-      properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          type: object
-          title: CollectionLinks
-          properties:
-            self:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            next:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            previous:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            last:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            first:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            up:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-          example:
-            self: https://test.api.amadeus.com/v1/area/resources?param=value
     Issue_2:
       type: object
       properties:
@@ -555,6 +653,60 @@ components:
           type: number
           format: double
           example: 7.125102
+    Error_404_2:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue_2'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 404
+          code: 1797
+          title: NOT FOUND
+          detail: no response found for this query parameter
+          source:
+            parameter: airport
+    Collection_Meta_2:
+      type: object
+      title: Collection_Meta
+      properties:
+        count:
+          type: integer
+          example: 1
+        links:
+          type: object
+          title: CollectionLinks
+          properties:
+            self:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            next:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            previous:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            last:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            first:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            up:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+          example:
+            self: https://test.api.amadeus.com/v1/area/resources?param=value
     Error_400_2:
       type: object
       properties:
@@ -573,170 +725,18 @@ components:
           source:
             parameter: airport
             example: CDG
-    Link:
+    ElementaryPrice:
+      description: elementaryPrice
       type: object
       properties:
-        href:
+        amount:
           type: string
-          format: uri
-          example: https://example.com/resource
-        methods:
-          type: array
-          items:
-            type: string
-            enum:
-            - GET
-            - PUT
-            - DELETE
-            - POST
-            - PATCH
-      example:
-        href: string
-  responses:
-    point-of-interest:
-      description: Successful Operation
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            title: Success
-            required:
-            - data
-            properties:
-              meta:
-                $ref: '#/components/schemas/Collection_Meta'
-              data:
-                $ref: '#/components/schemas/Location'
-            example:
-              data:
-                type: location
-                subType: POINT_OF_INTEREST
-                id: 9CB40CB5D0
-                self:
-                  href: https://test.api.amadeus.com/v1/reference-data/locations/pois/9CB40CB5D0
-                  methods:
-                  - GET
-                geoCode:
-                  latitude: 41.39165
-                  longitude: 2.164772
-                name: Casa Batlló
-                category: SIGHTS
-                rank: 1
-                tags:
-                - sightseeing
-                - sights
-                - museum
-                - landmark
-                - tourguide
-                - restaurant
-                - attraction
-                - activities
-                - commercialplace
-                - shopping
-                - souvenir
-    '404':
-      description: Not Found
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_404'
-    '500':
-      description: Unexpected Error
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
-    '400':
-      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
-    safety-rated-location:
-      description: Successful Operation
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            title: Success
-            required:
-            - data
-            properties:
-              warnings:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Issue'
-              meta:
-                $ref: '#/components/schemas/Collection_Meta'
-              data:
-                $ref: '#/components/schemas/SafetyRatedLocation'
-            example:
-              meta:
-                links:
-                  self: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402719
-              data:
-              - type: safety-rated-location
-                id: Q930402719
-                self:
-                  type: https://test.api.amadeus.com/v1/safety/safety-rated-locations/Q930402719
-                  methods:
-                  - GET
-                subType: CITY
-                name: Barcelona
-                geoCode:
-                  latitude: 41.385064
-                  longitude: 2.173404
-                safetyScores:
-                  lgbtq: 39
-                  medical: 0
-                  overall: 45
-                  physicalHarm: 36
-                  politicalFreedom: 50
-                  theft: 44
-                  women: 34
-    activity:
-      description: Successful Operation
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            title: Successful Search
-            required:
-            - data
-            properties:
-              meta:
-                $ref: '#/components/schemas/Collection_Meta_2'
-              warnings:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Issue_2'
-              data:
-                $ref: '#/components/schemas/Activity'
-            example:
-              meta:
-                self: https://test.api.amadeus.com/v1/shopping/activities/23642
-              data:
-                id: '23642'
-                type: activity
-                self:
-                  href: https://test.api.amadeus.com/v1/shopping/activities/23642
-                  methods:
-                  - GET
-                name: Skip-the-line tickets to the Prado Museum
-                shortDescription: Book your tickets for the Prado Museum in Madrid, discover masterpieces by Velázquez, Goya, Mantegna, Raphael, Tintoretto and access all temporary exhibitions.
-                geoCode:
-                  latitude: '40.414000'
-                  longitude: '-3.691000'
-                rating: '4.500000'
-                pictures:
-                - https://images.musement.com/cover/0001/07/prado-museum-tickets_header-6456.jpeg?w=500
-                bookingLink: https://b2c.mla.cloud/c/QCejqyor?c=2WxbgL36
-                price:
-                  currencyCode: EUR
-                  amount: '16.00'
-    400_Retreive:
-      description: "Code   | Title\n-------|----------------\n572    | INVALID OPTION\t     \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400_2'
+          description: Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection.
+          example: '199.50'
+        currencyCode:
+          type: string
+          description: Currency type of the fare.
+          example: EUR
   parameters:
     poisId:
       name: poisId

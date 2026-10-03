@@ -140,7 +140,68 @@ paths:
     - url: https://test.api.amadeus.com/v1
 components:
   schemas:
-    Error_404:
+    Distance:
+      properties:
+        value:
+          description: great-circle distance between two locations. This distance thus do not take into account traffic conditions; international boundaries; mountains; water; or other elements that might make the a nearby location hard to reach.
+          type: integer
+          example: 152
+        unit:
+          description: unit of the distance
+          type: string
+          example: KM
+          enum:
+          - KM
+          - MI
+    Analytics:
+      properties:
+        travelers:
+          $ref: '#/components/schemas/Travelers'
+    Travelers:
+      properties:
+        score:
+          type: number
+          format: integer
+          description: Approximate score for ranking purposes calculated based on number of travelers in the location.
+          example: 68
+    Issue:
+      properties:
+        status:
+          description: the HTTP status code applicable to this error
+          type: integer
+          example: 1
+        code:
+          description: an application-specific error code
+          type: integer
+          format: int64
+          example: 1
+        title:
+          description: a short summary of the error
+          type: string
+          example: string-value
+        detail:
+          description: explanation of the error
+          type: string
+          example: string-value
+        source:
+          type: object
+          title: Issue_Source
+          description: an object containing references to the source of the error
+          maxProperties: 1
+          properties:
+            pointer:
+              description: a JSON Pointer [RFC6901] to the associated entity in the request document
+              type: string
+              example: string-value
+            parameter:
+              description: a string indicating which URI query parameter caused the issue
+              type: string
+              example: string-value
+            example:
+              description: a string indicating an example of the right value
+              type: string
+              example: string-value
+    Error_500:
       properties:
         errors:
           type: array
@@ -150,16 +211,67 @@ components:
       - errors
       example:
         errors:
-        - status: 404
-          code: 1797
-          title: NOT FOUND
-          detail: no response found for this query parameter
-          source:
-            parameter: airport
-    Analytics:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    Collection_Meta:
+      title: Collection_Meta
       properties:
-        travelers:
-          $ref: '#/components/schemas/Travelers'
+        count:
+          type: integer
+          example: 1
+        links:
+          title: CollectionLinks
+          properties:
+            self:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            next:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            previous:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            last:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            first:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            up:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+          example:
+            self: https://test.api.amadeus.com/v1/area/resources?param=value
+    Links:
+      required:
+      - href
+      properties:
+        href:
+          type: string
+          format: uri
+          example: https://example.com/resource
+        methods:
+          type: array
+          items:
+            type: string
+            enum:
+            - GET
+            - PUT
+            - DELETE
+            - POST
+            - PATCH
+        count:
+          type: integer
+          example: 1
+      example:
+        href: string
     Location:
       properties:
         id:
@@ -234,111 +346,6 @@ components:
           description: the rank is the position compared to other locations based on how famous is a place. 1 being the highest.
           type: string
           example: 1
-    Distance:
-      properties:
-        value:
-          description: great-circle distance between two locations. This distance thus do not take into account traffic conditions; international boundaries; mountains; water; or other elements that might make the a nearby location hard to reach.
-          type: integer
-          example: 152
-        unit:
-          description: unit of the distance
-          type: string
-          example: KM
-          enum:
-          - KM
-          - MI
-    Collection_Meta:
-      title: Collection_Meta
-      properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          title: CollectionLinks
-          properties:
-            self:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            next:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            previous:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            last:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            first:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            up:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-          example:
-            self: https://test.api.amadeus.com/v1/area/resources?param=value
-    Issue:
-      properties:
-        status:
-          description: the HTTP status code applicable to this error
-          type: integer
-          example: 1
-        code:
-          description: an application-specific error code
-          type: integer
-          format: int64
-          example: 1
-        title:
-          description: a short summary of the error
-          type: string
-          example: string-value
-        detail:
-          description: explanation of the error
-          type: string
-          example: string-value
-        source:
-          type: object
-          title: Issue_Source
-          description: an object containing references to the source of the error
-          maxProperties: 1
-          properties:
-            pointer:
-              description: a JSON Pointer [RFC6901] to the associated entity in the request document
-              type: string
-              example: string-value
-            parameter:
-              description: a string indicating which URI query parameter caused the issue
-              type: string
-              example: string-value
-            example:
-              description: a string indicating an example of the right value
-              type: string
-              example: string-value
-    Travelers:
-      properties:
-        score:
-          type: number
-          format: integer
-          description: Approximate score for ranking purposes calculated based on number of travelers in the location.
-          example: 68
-    Error_500:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
     GeoCode:
       properties:
         latitude:
@@ -351,6 +358,22 @@ components:
           type: number
           format: double
           example: 7.125102
+    Error_404:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 404
+          code: 1797
+          title: NOT FOUND
+          detail: no response found for this query parameter
+          source:
+            parameter: airport
     Error_400:
       properties:
         errors:
@@ -368,29 +391,6 @@ components:
           source:
             parameter: airport
             example: CDG
-    Links:
-      required:
-      - href
-      properties:
-        href:
-          type: string
-          format: uri
-          example: https://example.com/resource
-        methods:
-          type: array
-          items:
-            type: string
-            enum:
-            - GET
-            - PUT
-            - DELETE
-            - POST
-            - PATCH
-        count:
-          type: integer
-          example: 1
-      example:
-        href: string
     Address:
       properties:
         cityName:
@@ -417,13 +417,6 @@ components:
           description: code of the region of the location in ISO standard
           type: string
           example: EUROP
-    Flights:
-      properties:
-        score:
-          type: number
-          format: integer
-          description: Approximate score for ranking purposes calculated based on number of flights from / to the airport or city
-          example: 56
     Analytics_2:
       properties:
         flights:
@@ -474,7 +467,38 @@ components:
           format: double
           description: score value calculated based on distance and analytics
           example: 9.6584
+    Flights:
+      properties:
+        score:
+          type: number
+          format: integer
+          description: Approximate score for ranking purposes calculated based on number of flights from / to the airport or city
+          example: 56
   parameters:
+    locationId:
+      name: locationId
+      description: identifier of the location
+      required: true
+      in: path
+      x-example: CMUC
+      schema:
+        type: string
+    pageOffset:
+      name: page[offset]
+      description: start index of the requested page
+      required: false
+      in: query
+      schema:
+        type: integer
+        default: 0
+    pageLimit:
+      name: page[limit]
+      description: maximum items in one page
+      required: false
+      in: query
+      schema:
+        type: integer
+        default: 10
     view:
       name: view
       description: 'select the level of information of the reply:
@@ -494,22 +518,6 @@ components:
         - LIGHT
         - FULL
         default: FULL
-    locationId:
-      name: locationId
-      description: identifier of the location
-      required: true
-      in: path
-      x-example: CMUC
-      schema:
-        type: string
-    pageOffset:
-      name: page[offset]
-      description: start index of the requested page
-      required: false
-      in: query
-      schema:
-        type: integer
-        default: 0
     sort:
       name: sort
       description: 'defines on which attribute the sorting will be done:
@@ -524,14 +532,6 @@ components:
         enum:
         - analytics.travelers.score
         default: analytics.travelers.score
-    pageLimit:
-      name: page[limit]
-      description: maximum items in one page
-      required: false
-      in: query
-      schema:
-        type: integer
-        default: 10
     sort_2:
       description: 'defines on which attribute the sorting will be done from the best option to the worst one:
 
@@ -556,6 +556,24 @@ components:
         - analytics.travelers.score
         default: relevance
   responses:
+    '400':
+      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION \n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
+    '404':
+      description: Not Found
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_404'
+    400_GET-Id:
+      description: "code    | title                                 \n------- | ------------------------------------- \n572     | INVALID OPTION    \n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
     airport-city:
       description: Successful Operation
       content:
@@ -597,30 +615,12 @@ components:
                 analytics:
                   travelers:
                     score: 27
-    400_GET-Id:
-      description: "code    | title                                 \n------- | ------------------------------------- \n572     | INVALID OPTION    \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
     '500':
       description: Unexpected Error
       content:
         application/vnd.amadeus+json:
           schema:
             $ref: '#/components/schemas/Error_500'
-    '404':
-      description: Not Found
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_404'
-    '400':
-      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION \n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
     airport-city-autocomplete:
       description: Successful Operation
       content:
@@ -688,6 +688,12 @@ components:
                 analytics:
                   travelers:
                     score: 27
+    '400_2':
+      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
     nearest-relevant-airports:
       description: Successful Operation
       content:
@@ -951,12 +957,6 @@ components:
                   travelers:
                     score: 3
                 relevance: 2.66099
-    '400_2':
-      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
 x-refined-from:
 - amadeus-airport-city-search-openapi.yml
 - amadeus-airport-nearest-relevant-openapi.yml

@@ -62,6 +62,39 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Warning:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: an application-specific error code
+          format: int64
+          example: 1
+        title:
+          type: string
+          description: a short summary of the error
+          example: string-value
+        detail:
+          type: string
+          description: explanation of the error
+          example: string-value
+        source:
+          title: Issue_Source
+          type: object
+          properties:
+            pointer:
+              type: string
+              description: a JSON Pointer [RFC6901] to the associated entity in the request document
+              example: string-value
+            parameter:
+              type: string
+              description: a string indicating which URI query parameter caused the issue
+              example: string-value
+            example:
+              type: string
+              description: a string indicating an example of the right value
+              example: string-value
+          description: an object containing references to the source of the error
     Airline:
       type: object
       properties:
@@ -122,39 +155,6 @@ components:
               example: https://test.api.amadeus.com/v1/area/resources?...
           example:
             self: https://test.api.amadeus.com/v1/area/resources?param=value
-    Warning:
-      type: object
-      properties:
-        code:
-          type: integer
-          description: an application-specific error code
-          format: int64
-          example: 1
-        title:
-          type: string
-          description: a short summary of the error
-          example: string-value
-        detail:
-          type: string
-          description: explanation of the error
-          example: string-value
-        source:
-          title: Issue_Source
-          type: object
-          properties:
-            pointer:
-              type: string
-              description: a JSON Pointer [RFC6901] to the associated entity in the request document
-              example: string-value
-            parameter:
-              type: string
-              description: a string indicating which URI query parameter caused the issue
-              example: string-value
-            example:
-              type: string
-              description: a string indicating an example of the right value
-              example: string-value
-          description: an object containing references to the source of the error
   responses:
     airlines:
       description: Successful Operation

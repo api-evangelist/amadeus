@@ -1138,6 +1138,12 @@ paths:
     - url: https://test.api.amadeus.com/v1
 components:
   responses:
+    '500':
+      description: Unexpected Error
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
     points-of-interest:
       description: Successful Operation
       content:
@@ -1380,12 +1386,6 @@ components:
                   last: https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873&page[offset]=120&page[limit]=10
                   first: https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873&page[offset]=0&page[limit]=10
                   up: https://test.api.amadeus.com/v1/reference-data/locations/pois?latitude=41.397158&longitude=2.160873
-    '500':
-      description: Unexpected Error
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
     '400':
       description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
       content:
@@ -1610,6 +1610,12 @@ components:
                   politicalFreedom: 50
                   theft: 43
                   women: 33
+    400_Search:
+      description: "Code   | Title\n-------|----------------\n477    | INVALID FORMAT\n572    | INVALID OPTION\n4926   | INVALID DATA RECEIVED\n32171  | MANDATORY DATA MISSING\t     \n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400_2'
     activities:
       description: Successful Operation
       content:
@@ -1653,66 +1659,39 @@ components:
                 price:
                   currencyCode: EUR
                   amount: '16.00'
-    400_Search:
-      description: "Code   | Title\n-------|----------------\n477    | INVALID FORMAT\n572    | INVALID OPTION\n4926   | INVALID DATA RECEIVED\n32171  | MANDATORY DATA MISSING\t     \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400_2'
-  schemas:
-    Links:
-      properties:
-        href:
+  parameters:
+    pageOffset:
+      name: page[offset]
+      description: start index of the requested page
+      required: false
+      in: query
+      schema:
+        type: integer
+        default: 0
+    pageLimit:
+      name: page[limit]
+      description: maximum items in one page
+      required: false
+      in: query
+      schema:
+        type: integer
+        default: 10
+    categories:
+      name: categories
+      description: "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n"
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
           type: string
-          format: uri
-          example: https://example.com/resource
-        methods:
-          type: array
-          items:
-            type: string
-            enum:
-            - GET
-            - PUT
-            - DELETE
-            - POST
-            - PATCH
-      example:
-        href: string
-    Collection_Meta:
-      title: Collection_Meta
-      properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          title: CollectionLinks
-          properties:
-            self:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            next:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            previous:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            last:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            first:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            up:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-          example:
-            self: https://test.api.amadeus.com/v1/area/resources?param=value
+          enum:
+          - SIGHTS
+          - NIGHTLIFE
+          - RESTAURANT
+          - SHOPPING
+          collectionFormat: csv
+  schemas:
     Issue:
       properties:
         status:
@@ -1750,48 +1729,6 @@ components:
               description: a string indicating an example of the right value
               type: string
               example: string-value
-    Error_500:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    GeoCode:
-      properties:
-        latitude:
-          description: latitude of the location
-          type: number
-          format: double
-          example: 43.580418
-        longitude:
-          description: longitude of the location
-          type: number
-          format: double
-          example: 7.125102
-    Error_400:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
     Location:
       properties:
         id:
@@ -1843,6 +1780,137 @@ components:
           description: the rank is the position compared to other locations based on how famous is a place. 1 being the highest.
           type: string
           example: 1
+    Error_500:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    GeoCode:
+      properties:
+        latitude:
+          description: latitude of the location
+          type: number
+          format: double
+          example: 43.580418
+        longitude:
+          description: longitude of the location
+          type: number
+          format: double
+          example: 7.125102
+    Error_400:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
+    Collection_Meta:
+      title: Collection_Meta
+      properties:
+        count:
+          type: integer
+          example: 1
+        links:
+          title: CollectionLinks
+          properties:
+            self:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            next:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            previous:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            last:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            first:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            up:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+          example:
+            self: https://test.api.amadeus.com/v1/area/resources?param=value
+    Links:
+      properties:
+        href:
+          type: string
+          format: uri
+          example: https://example.com/resource
+        methods:
+          type: array
+          items:
+            type: string
+            enum:
+            - GET
+            - PUT
+            - DELETE
+            - POST
+            - PATCH
+      example:
+        href: string
+    SafetyRatedLocation:
+      type: object
+      title: SafetyRatedLocation
+      allOf:
+      - type: object
+        properties:
+          safetyScore:
+            $ref: '#/components/schemas/SafetyScore'
+      - $ref: '#/components/schemas/Location_2'
+    Location_2:
+      properties:
+        id:
+          description: id of the ressource
+          type: string
+          example: '12345'
+        self:
+          $ref: '#/components/schemas/Links_2'
+        type:
+          description: the resource name
+          type: string
+          example: location
+        subType:
+          description: location sub type
+          type: string
+          enum:
+          - AIRPORT
+          - CITY
+          - POINT_OF_INTEREST
+          - DISTRICT
+          example: AIRPORT
+        name:
+          description: short name of the location
+          type: string
+          example: Paris CDG
+        geoCode:
+          $ref: '#/components/schemas/GeoCode'
     SafetyScore:
       properties:
         women:
@@ -1896,54 +1964,25 @@ components:
           example: 1
       example:
         href: string
-    SafetyRatedLocation:
-      type: object
-      title: SafetyRatedLocation
-      allOf:
-      - type: object
-        properties:
-          safetyScore:
-            $ref: '#/components/schemas/SafetyScore'
-      - $ref: '#/components/schemas/Location_2'
-    Location_2:
-      properties:
-        id:
-          description: id of the ressource
-          type: string
-          example: '12345'
-        self:
-          $ref: '#/components/schemas/Links_2'
-        type:
-          description: the resource name
-          type: string
-          example: location
-        subType:
-          description: location sub type
-          type: string
-          enum:
-          - AIRPORT
-          - CITY
-          - POINT_OF_INTEREST
-          - DISTRICT
-          example: AIRPORT
-        name:
-          description: short name of the location
-          type: string
-          example: Paris CDG
-        geoCode:
-          $ref: '#/components/schemas/GeoCode'
-    ElementaryPrice:
-      description: elementaryPrice
+    Link:
       type: object
       properties:
-        amount:
+        href:
           type: string
-          description: Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection.
-          example: '199.50'
-        currencyCode:
-          type: string
-          description: Currency type of the fare.
-          example: EUR
+          format: uri
+          example: https://example.com/resource
+        methods:
+          type: array
+          items:
+            type: string
+            enum:
+            - GET
+            - PUT
+            - DELETE
+            - POST
+            - PATCH
+      example:
+        href: string
     Activity:
       type: object
       title: Activity
@@ -1994,43 +2033,6 @@ components:
           type: string
           description: Minimum recommended duration for the activity
           example: PT2H30M
-    Collection_Meta_2:
-      type: object
-      title: Collection_Meta
-      properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          type: object
-          title: CollectionLinks
-          properties:
-            self:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            next:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            previous:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            last:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            first:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            up:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-          example:
-            self: https://test.api.amadeus.com/v1/area/resources?param=value
     Issue_2:
       type: object
       properties:
@@ -2097,6 +2099,43 @@ components:
           type: number
           format: double
           example: 7.125102
+    Collection_Meta_2:
+      type: object
+      title: Collection_Meta
+      properties:
+        count:
+          type: integer
+          example: 1
+        links:
+          type: object
+          title: CollectionLinks
+          properties:
+            self:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            next:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            previous:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            last:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            first:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            up:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+          example:
+            self: https://test.api.amadeus.com/v1/area/resources?param=value
     Error_400_2:
       type: object
       properties:
@@ -2115,57 +2154,18 @@ components:
           source:
             parameter: airport
             example: CDG
-    Link:
+    ElementaryPrice:
+      description: elementaryPrice
       type: object
       properties:
-        href:
+        amount:
           type: string
-          format: uri
-          example: https://example.com/resource
-        methods:
-          type: array
-          items:
-            type: string
-            enum:
-            - GET
-            - PUT
-            - DELETE
-            - POST
-            - PATCH
-      example:
-        href: string
-  parameters:
-    pageOffset:
-      name: page[offset]
-      description: start index of the requested page
-      required: false
-      in: query
-      schema:
-        type: integer
-        default: 0
-    pageLimit:
-      name: page[limit]
-      description: maximum items in one page
-      required: false
-      in: query
-      schema:
-        type: integer
-        default: 10
-    categories:
-      name: categories
-      description: "category of the location. \n\nMultiple value can be selected using a comma i.e. SIGHTS, SHOPPING\n"
-      in: query
-      required: false
-      schema:
-        type: array
-        items:
+          description: Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection.
+          example: '199.50'
+        currencyCode:
           type: string
-          enum:
-          - SIGHTS
-          - NIGHTLIFE
-          - RESTAURANT
-          - SHOPPING
-          collectionFormat: csv
+          description: Currency type of the fare.
+          example: EUR
 x-refined-from:
 - amadeus-hotel-name-autocomplete-openapi.yml
 - amadeus-points-of-interest-openapi.yml
