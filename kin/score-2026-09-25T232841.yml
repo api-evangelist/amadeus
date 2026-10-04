@@ -1,22 +1,20 @@
-# Kin Score artifact — amadeus — 2026-08-29T230545
+# Kin Score artifact — amadeus — 2026-09-25T232841
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: amadeus
-  schema_version: 0.16.0
-  scored_at: '2026-08-29'
-  run_ts: 2026-08-29T230545
-  composite: 51.7
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T232841
+  composite: 48.5
   band: developing
   facets:
-    discoverability: 68.5
-    contract_quality: 71.2
-    governance: 28.8
-    operational_transparency: 34.2
-    developer_ergonomics: 42.9
-    commercial_clarity: 52.6
-    contract_governance: 28.8
-    access_clarity: 52.6
+    discoverability: 66.1
+    contract_quality: 62.0
+    contract_governance: 27.3
+    operational_transparency: 31.1
+    developer_ergonomics: 45.2
+    access_clarity: 49.5
   agent_readiness:
     score: 33.5
     band: agent-ready
@@ -40,10 +38,16 @@ kin_score:
       protected_resource_metadata: false
       dynamic_client_registration: false
       agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Horizontal (data, software, accessibility, platform)
+    regime_id: horizontal
+    score: 20.9
+    matched_via: fallback
   provenance:
     agentic_access: derived
     contracts:
-      total: 26
-      derived: 0
-      coverage: 0.0
-      callable: 0.0
+      total: 28
+      derived: 2
+      coverage: 7.1
+      callable: 7.1
