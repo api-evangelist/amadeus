@@ -47,6 +47,236 @@ paths:
         required: true
 components:
   schemas:
+    CarrierEntry:
+      additionalProperties:
+        description: the carrier name
+        type: string
+    Price:
+      properties:
+        currency:
+          type: string
+          example: USD
+        total:
+          description: Total amount paid by the user
+          type: string
+          example: '932.70'
+        base:
+          description: Amount without taxes
+          type: string
+          example: '632.70'
+        fees:
+          description: List of applicable fees
+          type: array
+          items:
+            $ref: '#/components/schemas/Fee'
+        taxes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tax'
+    FeeType:
+      type: string
+      description: type of fee
+      enum:
+      - TICKETING
+      - FORM_OF_PAYMENT
+      - SUPPLIER
+      example: TICKETING
+    TravelerType:
+      type: string
+      description: 'traveler type
+
+        age restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y
+
+        '
+      enum:
+      - ADULT
+      - CHILD
+      - SENIOR
+      - YOUNG
+      - HELD_INFANT
+      - SEATED_INFANT
+      - STUDENT
+      example: ADULT
+    Tax:
+      description: a tax
+      type: object
+      properties:
+        amount:
+          type: string
+          example: '332.70'
+        code:
+          type: string
+          example: MX
+    TermAndCondition:
+      properties:
+        category:
+          type: string
+          description: This defines what type of modification is concerned in this rule.
+          enum:
+          - REFUND
+          - EXCHANGE
+          - REVALIDATION
+          - REISSUE
+          - REBOOK
+          - CANCELLATION
+          example: EXCHANGE
+        circumstances:
+          type: string
+          example: string-value
+        notApplicable:
+          type: boolean
+          example: true
+        maxPenaltyAmount:
+          type: string
+          example: '199.50'
+        descriptions:
+          type: array
+          items:
+            title: Description
+            properties:
+              descriptionType:
+                type: string
+                example: Sample description text.
+              text:
+                type: string
+                example: string-value
+    AircraftEquipment:
+      description: information related to the aircraft
+      properties:
+        code:
+          type: string
+          description: 'IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)
+
+            '
+          pattern: '[a-zA-Z0-9]{3}'
+          example: '318'
+        configurationVersion:
+          type: string
+          description: 'aircraft Configuration Version code. Physical configuration, also called ACV code (aircraft type + fitted configuration)
+
+            '
+          pattern: '[A-Z0-9]{3}'
+          example: 2C1
+    TravelClass:
+      description: quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class
+      type: string
+      enum:
+      - ECONOMY
+      - PREMIUM_ECONOMY
+      - BUSINESS
+      - FIRST
+      example: PREMIUM_ECONOMY
+    Dictionaries:
+      type: object
+      properties:
+        locations:
+          $ref: '#/components/schemas/LocationEntry'
+        aircraft:
+          $ref: '#/components/schemas/AircraftEntry'
+        currencies:
+          $ref: '#/components/schemas/CurrencyEntry'
+        carriers:
+          $ref: '#/components/schemas/CarrierEntry'
+    Fee:
+      description: a fee
+      properties:
+        amount:
+          type: string
+          example: '332.70'
+        type:
+          $ref: '#/components/schemas/FeeType'
+    LocationValue:
+      properties:
+        cityCode:
+          type: string
+          description: City code associated to the airport
+          example: PAR
+        countryCode:
+          type: string
+          description: Country code of the airport
+          example: FR
+    CollectionLinks:
+      title: CollectionLinks
+      properties:
+        self:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+        next:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+        previous:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+        last:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+        first:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+        up:
+          type: string
+          format: uri
+          example: https://test.api.amadeus.com/v1/area/resources?...
+      example:
+        self: https://test.api.amadeus.com/v1/area/resources?param=value
+    SliceDiceIndicator:
+      description: slice and Dice indicator, such as Local Availability, Sub OnD(Origin and Destination) 1 Availability and Sub OnD 2 Availability
+      type: string
+      enum:
+      - LOCAL_AVAILABILITY
+      - SUB_OD_AVAILABILITY_1
+      - SUB_OD_AVAILABILITY_2
+    Collection_Meta:
+      type: object
+      title: Collection_Meta
+      description: meta information
+      properties:
+        count:
+          type: integer
+          example: 1
+        links:
+          title: CollectionLinks
+          $ref: '#/components/schemas/CollectionLinks'
+        oneWayCombinations:
+          type: array
+          items:
+            title: oneWayCombinations
+            properties:
+              originDestinationId:
+                type: string
+                example: '12345'
+              flightOfferIds:
+                type: array
+                items:
+                  type: string
+    BaggageAllowance:
+      description: baggageAllowance
+      type: object
+      properties:
+        quantity:
+          type: integer
+          description: Total number of units
+          example: 1
+        weight:
+          type: integer
+          description: Weight of the baggage allowance
+          example: 20
+        weightUnit:
+          type: string
+          description: Code to qualify unit as pounds or kilos
+          example: KG
+    CurrencyEntry:
+      additionalProperties:
+        type: string
+        example: EUR
+    LocationEntry:
+      additionalProperties:
+        $ref: '#/components/schemas/LocationValue'
     Segment:
       allOf:
       - type: object
@@ -71,6 +301,87 @@ components:
               title: Co2Emission
               $ref: '#/components/schemas/Co2Emission'
       - $ref: '#/components/schemas/FlightSegment'
+    OriginalFlightEndPoint:
+      type: object
+      description: departure or arrival information
+      properties:
+        iataCode:
+          description: '[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)'
+          type: string
+          example: JFK
+        terminal:
+          description: terminal name / number
+          type: string
+          example: T2
+    Extended_Price:
+      type: object
+      title: Price
+      description: price information
+      allOf:
+      - type: object
+        properties:
+          margin:
+            description: BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated.
+            type: string
+            example: '1.00'
+          grandTotal:
+            description: Total amount paid by the user (including fees and selected additional services).
+            type: string
+            example: '987.00'
+          billingCurrency:
+            description: Currency of the payment. It may be different than the requested currency
+            type: string
+            example: EUR
+          additionalServices:
+            type: array
+            title: AdditionalServices
+            items:
+              title: AdditionalService
+              type: object
+              properties:
+                amount:
+                  type: string
+                  example: '332.70'
+                type:
+                  $ref: '#/components/schemas/AdditionalServiceType'
+      - $ref: '#/components/schemas/Price'
+    Issue:
+      properties:
+        status:
+          description: the HTTP status code applicable to this error
+          type: integer
+          example: 1
+        code:
+          description: an application-specific error code
+          type: integer
+          format: int64
+          example: 1
+        title:
+          description: a short summary of the error
+          type: string
+          example: string-value
+        detail:
+          description: explanation of the error
+          type: string
+          example: string-value
+        source:
+          type: object
+          title: Issue_Source
+          description: an object containing references to the source of the error
+          maxProperties: 1
+          properties:
+            pointer:
+              description: a JSON Pointer [RFC6901] to the associated entity in the request document
+              type: string
+              example: string-value
+            parameter:
+              description: a string indicating which URI query parameter caused the issue
+              type: string
+              example: string-value
+            example:
+              description: a string indicating an example of the right value
+              type: string
+              example: string-value
     OperatingFlight:
       type: object
       description: information about the operating flight
@@ -93,236 +404,126 @@ components:
           minLength: 1
           maxLength: 4
           example: string-value
-    FlightOfferSource:
-      description: source of the flight offer
-      type: string
-      enum:
-      - GDS
-      - PYTON
-      example: GDS
-    SliceDiceIndicator:
-      description: slice and Dice indicator, such as Local Availability, Sub OnD(Origin and Destination) 1 Availability and Sub OnD 2 Availability
-      type: string
-      enum:
-      - LOCAL_AVAILABILITY
-      - SUB_OD_AVAILABILITY_1
-      - SUB_OD_AVAILABILITY_2
-    FlightOffer:
-      title: Flight-offer
-      type: object
-      required:
-      - type
-      - id
-      - source
+    Error_500:
       properties:
-        type:
-          type: string
-          description: the resource name
-          example: flight-offer
-        id:
-          description: Id of the flight offer
-          type: string
-          example: '1'
-        choiceProbability:
-          type: string
-          description: the choice probability of this Flight Offer. The value is between 1 (100% chance the FlightOffer will be selected) and 0 (no change the FlightOffer will be selected)
-          example: '0.42'
-        source:
-          $ref: '#/components/schemas/FlightOfferSource'
-        instantTicketingRequired:
-          description: If true, inform that a ticketing will be required at booking step.
-          type: boolean
-          example: false
-        disablePricing:
-          description: BOOK step ONLY - If true, allows to book a PNR without pricing. Only for the source "GDS"
-          type: boolean
-          example: false
-        nonHomogeneous:
-          description: If true, upon completion of the booking, this pricing solution is expected to yield multiple records (a record contains booking information confirmed and stored, typically a Passenger Name Record (PNR), in the provider GDS or system)
-          type: boolean
-          example: false
-        oneWay:
-          description: If true, the flight offer fulfills only one originDestination and has to be combined with other oneWays to complete the whole journey.
-          type: boolean
-          example: false
-        paymentCardRequired:
-          description: If true, a payment card is mandatory to book this flight offer
-          type: boolean
-          example: false
-        lastTicketingDate:
-          description: If booked on the same day as the search (with respect to timezone), this flight offer is guaranteed to be thereafter valid for ticketing until this date (included). Unspecified when it does not make sense for this flight offer (e.g. no control over ticketing once booked). YYYY-MM-DD format, e.g. 2019-06-07
-          type: string
-          example: '2018-06-19T00:00:00.000Z'
-        numberOfBookableSeats:
-          description: Number of seats bookable in a single request. Can not be higher than 9.
-          type: number
-          example: 9
-          minimum: 1
-          maximum: 9
-        itineraries:
+        errors:
           type: array
-          minItems: 1
-          maxItems: 250
           items:
-            title: Itineraries
-            type: object
-            properties:
-              duration:
-                description: duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m
-                type: string
-                example: PT2H10M
-              segments:
-                title: Segments
-                type: array
-                minItems: 1
-                maxItems: 9
-                items:
-                  $ref: '#/components/schemas/Segment'
-            required:
-            - segments
-        price:
-          $ref: '#/components/schemas/Extended_Price'
-        pricingOptions:
-          title: PricingOptions
-          type: object
-          properties:
-            fareType:
-              description: type of fare of the flight-offer
-              $ref: '#/components/schemas/PricingOptionsFareType'
-            corporateCodes:
-              type: array
-              description: Allow Corporate negotiated fares using one or more corporate number (corporate code).
-              items:
-                type: string
-              example:
-              - '123456'
-            includedCheckedBagsOnly:
-              type: boolean
-              description: If true, returns the flight-offers with included checked bags only
-              example: true
-            refundableFare:
-              type: boolean
-              description: If true, returns the flight-offers with refundable fares only
-              example: true
-            noRestrictionFare:
-              type: boolean
-              description: If true, returns the flight-offers with no restriction fares only
-              example: true
-            noPenaltyFare:
-              type: boolean
-              description: If true, returns the flight-offers with no penalty fares only
-              example: true
-        validatingAirlineCodes:
-          description: This option ensures that the system will only consider these airlines.
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    Co2Emission:
+      type: object
+      properties:
+        weight:
+          description: Weight of Co2 emitted for the concerned segment
+          type: integer
+          example: 90
+        weightUnit:
+          description: Code to qualify unit as pounds or kilos
+          type: string
+          example: KG
+        cabin:
+          $ref: '#/components/schemas/TravelClass'
+    Error_400:
+      properties:
+        errors:
           type: array
-          minItems: 1
-          maxItems: 9
           items:
-            type: string
-          example:
-          - AF
-        travelerPricings:
-          title: TravelerPricings
-          description: Fare information for each traveler/segment
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
+    TravelerPricingFareOption:
+      description: 'option specifying a group of fares, which may be valid under certain conditons
+
+        Can be used to specify special fare discount for a passenger
+
+        '
+      type: string
+      enum:
+      - STANDARD
+      - INCLUSIVE_TOUR
+      - SPANISH_MELILLA_RESIDENT
+      - SPANISH_CEUTA_RESIDENT
+      - SPANISH_CANARY_RESIDENT
+      - SPANISH_BALEARIC_RESIDENT
+      - AIR_FRANCE_METROPOLITAN_DISCOUNT_PASS
+      - AIR_FRANCE_DOM_DISCOUNT_PASS
+      - AIR_FRANCE_COMBINED_DISCOUNT_PASS
+      - AIR_FRANCE_FAMILY
+      - ADULT_WITH_COMPANION
+      - COMPANION
+      example: STANDARD
+    ServiceName:
+      description: type of service
+      type: string
+      enum:
+      - PRIORITY_BOARDING
+      - AIRPORT_CHECKIN
+      example: PRIORITY_BOARDING
+    FlightSegment:
+      type: object
+      description: defining a flight segment; including both operating and marketing details when applicable
+      properties:
+        departure:
+          $ref: '#/components/schemas/FlightEndPoint'
+        arrival:
+          $ref: '#/components/schemas/FlightEndPoint'
+        carrierCode:
+          type: string
+          description: providing the airline / carrier code
+          minLength: 1
+          maxLength: 2
+          example: DL
+        number:
+          type: string
+          description: the flight number as assigned by the carrier
+          minLength: 1
+          maxLength: 4
+          example: '212'
+        suffix:
+          type: string
+          description: the flight number suffix as assigned by the carrier
+          minLength: 1
+          maxLength: 4
+          example: string-value
+        aircraft:
+          $ref: '#/components/schemas/AircraftEquipment'
+        class:
+          type: string
+          description: reservation booking designator (RBD) of the carrier
+          minLength: 1
+          maxLength: 2
+          example: string-value
+        cabin:
+          type: string
+          description: booking cabin / class of service of the carrier
+          example: string-value
+        operating:
+          $ref: '#/components/schemas/OperatingFlight'
+        duration:
+          type: string
+          description: stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M
+          example: PT2H10M
+        stops:
           type: array
-          minItems: 1
-          maxItems: 18
+          description: information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge...
           items:
-            title: TravelerPricing
-            required:
-            - travelerId
-            - fareOption
-            - travelerType
-            - fareDetailsBySegment
-            properties:
-              travelerId:
-                type: string
-                example: '1'
-                description: Id of the traveler
-              fareOption:
-                $ref: '#/components/schemas/TravelerPricingFareOption'
-              travelerType:
-                $ref: '#/components/schemas/TravelerType'
-              associatedAdultId:
-                type: string
-                description: if type="HELD_INFANT", corresponds to the adult traveler's id who will share the seat
-                example: '12345'
-              price:
-                description: price detail of the traveler
-                $ref: '#/components/schemas/Price'
-              fareDetailsBySegment:
-                type: array
-                minItems: 1
-                maxItems: 18
-                items:
-                  title: FareDetailsBySegment
-                  description: Fare details of the segment
-                  required:
-                  - segmentId
-                  properties:
-                    segmentId:
-                      type: string
-                      example: '1'
-                      description: Id of the segment
-                    cabin:
-                      $ref: '#/components/schemas/TravelClass'
-                    fareBasis:
-                      description: Fare basis specifying the rules of a fare. Usually, though not always, is composed of the booking class code followed by a set of letters and digits representing other characteristics of the ticket, such as refundability, minimum stay requirements, discounts or special promotional elements.
-                      type: string
-                      example: ANNNNF4K
-                      pattern: '[[A-Z0-9]{1,18}'
-                    brandedFare:
-                      description: The name of the Fare Family corresponding to the fares. Only for the GDS provider and if the airline has fare families filled
-                      type: string
-                      example: LIGHTONE
-                    class:
-                      description: The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)
-                      type: string
-                      example: A
-                      pattern: '[A-Z]{1}'
-                    isAllotment:
-                      description: True if the corresponding booking class is in an allotment
-                      type: boolean
-                      example: true
-                    allotmentDetails:
-                      title: AllotmentDetails
-                      type: object
-                      properties:
-                        tourName:
-                          type: string
-                          example: Sample Name
-                        tourReference:
-                          type: string
-                          example: string-value
-                    sliceDiceIndicator:
-                      $ref: '#/components/schemas/SliceDiceIndicator'
-                    includedCheckedBags:
-                      title: includedCheckedBags
-                      $ref: '#/components/schemas/BaggageAllowance'
-                      description: Details of the included checked bags
-                    additionalServices:
-                      type: object
-                      title: AdditionalServicesRequest
-                      properties:
-                        chargeableCheckedBags:
-                          title: chargeableCheckedBags
-                          $ref: '#/components/schemas/BaggageAllowance'
-                          description: Details of chargeable checked bags
-                        chargeableSeatNumber:
-                          type: string
-                          description: seat number
-                          example: 33D
-                          pattern: '[1-9][0-9]{0,2}[A-Z]?'
-                        otherServices:
-                          type: array
-                          description: Other services to add
-                          items:
-                            $ref: '#/components/schemas/ServiceName'
-                          example:
-                          - PRIORITY_BOARDING
-        fareRules:
-          description: Fare rules of the flight offer
-          $ref: '#/components/schemas/FareRules'
+            $ref: '#/components/schemas/FlightStop'
     FlightStop:
       title: FlightStop
       description: details of stops for direct or change of gauge flights
@@ -340,6 +541,42 @@ components:
             type: string
             format: date-time
             example: '2017-10-23T20:00:00'
+    FareRules:
+      type: object
+      title: FareRules
+      properties:
+        currency:
+          type: string
+          description: The currency of the penalties
+          example: EUR
+        rules:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/TermAndCondition'
+    FlightEndPoint:
+      title: FlightEndPoint
+      description: departure or arrival information
+      allOf:
+      - $ref: '#/components/schemas/OriginalFlightEndPoint'
+      - type: object
+        properties:
+          at:
+            description: local date and time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00
+            type: string
+            format: date-time
+            example: '2017-10-23T20:00:00'
+    PricingOptionsFareType:
+      type: array
+      description: type of fare of the flight-offer
+      items:
+        type: string
+        enum:
+        - PUBLISHED
+        - NEGOTIATED
+        - CORPORATE
+      example:
+      - PUBLISHED
     FlightOffersSearchReply:
       title: FlightOffersSearchReply
       required:
@@ -1071,211 +1308,222 @@ components:
             LA: LATAM AIRLINES GROUP
             IB: IBERIA
             BA: BRITISH AIRWAYS
-    Extended_Price:
+    FlightOffer:
+      title: Flight-offer
       type: object
-      title: Price
-      description: price information
-      allOf:
-      - type: object
-        properties:
-          margin:
-            description: BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated.
-            type: string
-            example: '1.00'
-          grandTotal:
-            description: Total amount paid by the user (including fees and selected additional services).
-            type: string
-            example: '987.00'
-          billingCurrency:
-            description: Currency of the payment. It may be different than the requested currency
-            type: string
-            example: EUR
-          additionalServices:
-            type: array
-            title: AdditionalServices
-            items:
-              title: AdditionalService
-              type: object
-              properties:
-                amount:
-                  type: string
-                  example: '332.70'
-                type:
-                  $ref: '#/components/schemas/AdditionalServiceType'
-      - $ref: '#/components/schemas/Price'
-    FlightEndPoint:
-      title: FlightEndPoint
-      description: departure or arrival information
-      allOf:
-      - $ref: '#/components/schemas/OriginalFlightEndPoint'
-      - type: object
-        properties:
-          at:
-            description: local date and time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00
-            type: string
-            format: date-time
-            example: '2017-10-23T20:00:00'
-    ServiceName:
-      description: type of service
-      type: string
-      enum:
-      - PRIORITY_BOARDING
-      - AIRPORT_CHECKIN
-      example: PRIORITY_BOARDING
-    Co2Emission:
-      type: object
+      required:
+      - type
+      - id
+      - source
       properties:
-        weight:
-          description: Weight of Co2 emitted for the concerned segment
-          type: integer
-          example: 90
-        weightUnit:
-          description: Code to qualify unit as pounds or kilos
+        type:
           type: string
-          example: KG
-        cabin:
-          $ref: '#/components/schemas/TravelClass'
-    CarrierEntry:
-      additionalProperties:
-        description: the carrier name
-        type: string
-    AircraftEquipment:
-      description: information related to the aircraft
-      properties:
-        code:
+          description: the resource name
+          example: flight-offer
+        id:
+          description: Id of the flight offer
           type: string
-          description: 'IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)
-
-            '
-          pattern: '[a-zA-Z0-9]{3}'
-          example: '318'
-        configurationVersion:
+          example: '1'
+        choiceProbability:
           type: string
-          description: 'aircraft Configuration Version code. Physical configuration, also called ACV code (aircraft type + fitted configuration)
-
-            '
-          pattern: '[A-Z0-9]{3}'
-          example: 2C1
-    BaggageAllowance:
-      description: baggageAllowance
-      type: object
-      properties:
-        quantity:
-          type: integer
-          description: Total number of units
-          example: 1
-        weight:
-          type: integer
-          description: Weight of the baggage allowance
-          example: 20
-        weightUnit:
+          description: the choice probability of this Flight Offer. The value is between 1 (100% chance the FlightOffer will be selected) and 0 (no change the FlightOffer will be selected)
+          example: '0.42'
+        source:
+          $ref: '#/components/schemas/FlightOfferSource'
+        instantTicketingRequired:
+          description: If true, inform that a ticketing will be required at booking step.
+          type: boolean
+          example: false
+        disablePricing:
+          description: BOOK step ONLY - If true, allows to book a PNR without pricing. Only for the source "GDS"
+          type: boolean
+          example: false
+        nonHomogeneous:
+          description: If true, upon completion of the booking, this pricing solution is expected to yield multiple records (a record contains booking information confirmed and stored, typically a Passenger Name Record (PNR), in the provider GDS or system)
+          type: boolean
+          example: false
+        oneWay:
+          description: If true, the flight offer fulfills only one originDestination and has to be combined with other oneWays to complete the whole journey.
+          type: boolean
+          example: false
+        paymentCardRequired:
+          description: If true, a payment card is mandatory to book this flight offer
+          type: boolean
+          example: false
+        lastTicketingDate:
+          description: If booked on the same day as the search (with respect to timezone), this flight offer is guaranteed to be thereafter valid for ticketing until this date (included). Unspecified when it does not make sense for this flight offer (e.g. no control over ticketing once booked). YYYY-MM-DD format, e.g. 2019-06-07
           type: string
-          description: Code to qualify unit as pounds or kilos
-          example: KG
-    TravelerPricingFareOption:
-      description: 'option specifying a group of fares, which may be valid under certain conditons
-
-        Can be used to specify special fare discount for a passenger
-
-        '
-      type: string
-      enum:
-      - STANDARD
-      - INCLUSIVE_TOUR
-      - SPANISH_MELILLA_RESIDENT
-      - SPANISH_CEUTA_RESIDENT
-      - SPANISH_CANARY_RESIDENT
-      - SPANISH_BALEARIC_RESIDENT
-      - AIR_FRANCE_METROPOLITAN_DISCOUNT_PASS
-      - AIR_FRANCE_DOM_DISCOUNT_PASS
-      - AIR_FRANCE_COMBINED_DISCOUNT_PASS
-      - AIR_FRANCE_FAMILY
-      - ADULT_WITH_COMPANION
-      - COMPANION
-      example: STANDARD
-    FareRules:
-      type: object
-      title: FareRules
-      properties:
-        currency:
-          type: string
-          description: The currency of the penalties
-          example: EUR
-        rules:
+          example: '2018-06-19T00:00:00.000Z'
+        numberOfBookableSeats:
+          description: Number of seats bookable in a single request. Can not be higher than 9.
+          type: number
+          example: 9
+          minimum: 1
+          maximum: 9
+        itineraries:
           type: array
           minItems: 1
+          maxItems: 250
           items:
-            $ref: '#/components/schemas/TermAndCondition'
-    Dictionaries:
-      type: object
-      properties:
-        locations:
-          $ref: '#/components/schemas/LocationEntry'
-        aircraft:
-          $ref: '#/components/schemas/AircraftEntry'
-        currencies:
-          $ref: '#/components/schemas/CurrencyEntry'
-        carriers:
-          $ref: '#/components/schemas/CarrierEntry'
-    Price:
-      properties:
-        currency:
-          type: string
-          example: USD
-        total:
-          description: Total amount paid by the user
-          type: string
-          example: '932.70'
-        base:
-          description: Amount without taxes
-          type: string
-          example: '632.70'
-        fees:
-          description: List of applicable fees
-          type: array
-          items:
-            $ref: '#/components/schemas/Fee'
-        taxes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Tax'
-    Issue:
-      properties:
-        status:
-          description: the HTTP status code applicable to this error
-          type: integer
-          example: 1
-        code:
-          description: an application-specific error code
-          type: integer
-          format: int64
-          example: 1
-        title:
-          description: a short summary of the error
-          type: string
-          example: string-value
-        detail:
-          description: explanation of the error
-          type: string
-          example: string-value
-        source:
+            title: Itineraries
+            type: object
+            properties:
+              duration:
+                description: duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m
+                type: string
+                example: PT2H10M
+              segments:
+                title: Segments
+                type: array
+                minItems: 1
+                maxItems: 9
+                items:
+                  $ref: '#/components/schemas/Segment'
+            required:
+            - segments
+        price:
+          $ref: '#/components/schemas/Extended_Price'
+        pricingOptions:
+          title: PricingOptions
           type: object
-          title: Issue_Source
-          description: an object containing references to the source of the error
-          maxProperties: 1
           properties:
-            pointer:
-              description: a JSON Pointer [RFC6901] to the associated entity in the request document
-              type: string
-              example: string-value
-            parameter:
-              description: a string indicating which URI query parameter caused the issue
-              type: string
-              example: string-value
-            example:
-              description: a string indicating an example of the right value
-              type: string
-              example: string-value
+            fareType:
+              description: type of fare of the flight-offer
+              $ref: '#/components/schemas/PricingOptionsFareType'
+            corporateCodes:
+              type: array
+              description: Allow Corporate negotiated fares using one or more corporate number (corporate code).
+              items:
+                type: string
+              example:
+              - '123456'
+            includedCheckedBagsOnly:
+              type: boolean
+              description: If true, returns the flight-offers with included checked bags only
+              example: true
+            refundableFare:
+              type: boolean
+              description: If true, returns the flight-offers with refundable fares only
+              example: true
+            noRestrictionFare:
+              type: boolean
+              description: If true, returns the flight-offers with no restriction fares only
+              example: true
+            noPenaltyFare:
+              type: boolean
+              description: If true, returns the flight-offers with no penalty fares only
+              example: true
+        validatingAirlineCodes:
+          description: This option ensures that the system will only consider these airlines.
+          type: array
+          minItems: 1
+          maxItems: 9
+          items:
+            type: string
+          example:
+          - AF
+        travelerPricings:
+          title: TravelerPricings
+          description: Fare information for each traveler/segment
+          type: array
+          minItems: 1
+          maxItems: 18
+          items:
+            title: TravelerPricing
+            required:
+            - travelerId
+            - fareOption
+            - travelerType
+            - fareDetailsBySegment
+            properties:
+              travelerId:
+                type: string
+                example: '1'
+                description: Id of the traveler
+              fareOption:
+                $ref: '#/components/schemas/TravelerPricingFareOption'
+              travelerType:
+                $ref: '#/components/schemas/TravelerType'
+              associatedAdultId:
+                type: string
+                description: if type="HELD_INFANT", corresponds to the adult traveler's id who will share the seat
+                example: '12345'
+              price:
+                description: price detail of the traveler
+                $ref: '#/components/schemas/Price'
+              fareDetailsBySegment:
+                type: array
+                minItems: 1
+                maxItems: 18
+                items:
+                  title: FareDetailsBySegment
+                  description: Fare details of the segment
+                  required:
+                  - segmentId
+                  properties:
+                    segmentId:
+                      type: string
+                      example: '1'
+                      description: Id of the segment
+                    cabin:
+                      $ref: '#/components/schemas/TravelClass'
+                    fareBasis:
+                      description: Fare basis specifying the rules of a fare. Usually, though not always, is composed of the booking class code followed by a set of letters and digits representing other characteristics of the ticket, such as refundability, minimum stay requirements, discounts or special promotional elements.
+                      type: string
+                      example: ANNNNF4K
+                      pattern: '[[A-Z0-9]{1,18}'
+                    brandedFare:
+                      description: The name of the Fare Family corresponding to the fares. Only for the GDS provider and if the airline has fare families filled
+                      type: string
+                      example: LIGHTONE
+                    class:
+                      description: The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)
+                      type: string
+                      example: A
+                      pattern: '[A-Z]{1}'
+                    isAllotment:
+                      description: True if the corresponding booking class is in an allotment
+                      type: boolean
+                      example: true
+                    allotmentDetails:
+                      title: AllotmentDetails
+                      type: object
+                      properties:
+                        tourName:
+                          type: string
+                          example: Sample Name
+                        tourReference:
+                          type: string
+                          example: string-value
+                    sliceDiceIndicator:
+                      $ref: '#/components/schemas/SliceDiceIndicator'
+                    includedCheckedBags:
+                      title: includedCheckedBags
+                      $ref: '#/components/schemas/BaggageAllowance'
+                      description: Details of the included checked bags
+                    additionalServices:
+                      type: object
+                      title: AdditionalServicesRequest
+                      properties:
+                        chargeableCheckedBags:
+                          title: chargeableCheckedBags
+                          $ref: '#/components/schemas/BaggageAllowance'
+                          description: Details of chargeable checked bags
+                        chargeableSeatNumber:
+                          type: string
+                          description: seat number
+                          example: 33D
+                          pattern: '[1-9][0-9]{0,2}[A-Z]?'
+                        otherServices:
+                          type: array
+                          description: Other services to add
+                          items:
+                            $ref: '#/components/schemas/ServiceName'
+                          example:
+                          - PRIORITY_BOARDING
+        fareRules:
+          description: Fare rules of the flight offer
+          $ref: '#/components/schemas/FareRules'
     AdditionalServiceType:
       type: string
       description: additional service type
@@ -1285,19 +1533,6 @@ components:
       - SEATS
       - OTHER_SERVICES
       example: CHECKED_BAGS
-    Error_500:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
     OriginalFlightStop:
       description: details of stops for direct or change of gauge flights
       type: object
@@ -1310,253 +1545,36 @@ components:
           type: string
           description: stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M
           example: PT2H10M
+    FlightOfferSource:
+      description: source of the flight offer
+      type: string
+      enum:
+      - GDS
+      - PYTON
+      example: GDS
     AircraftEntry:
       additionalProperties:
         description: the manufacturer/model of aircraft
         type: string
-    Collection_Meta:
-      type: object
-      title: Collection_Meta
-      description: meta information
-      properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          title: CollectionLinks
-          $ref: '#/components/schemas/CollectionLinks'
-        oneWayCombinations:
-          type: array
-          items:
-            title: oneWayCombinations
-            properties:
-              originDestinationId:
-                type: string
-                example: '12345'
-              flightOfferIds:
-                type: array
-                items:
-                  type: string
-    LocationEntry:
-      additionalProperties:
-        $ref: '#/components/schemas/LocationValue'
-    TravelerType:
-      type: string
-      description: 'traveler type
-
-        age restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y
-
-        '
-      enum:
-      - ADULT
-      - CHILD
-      - SENIOR
-      - YOUNG
-      - HELD_INFANT
-      - SEATED_INFANT
-      - STUDENT
-      example: ADULT
-    CurrencyEntry:
-      additionalProperties:
+  parameters:
+    getOverride:
+      name: X-HTTP-Method-Override
+      description: the HTTP method to apply
+      required: true
+      in: header
+      schema:
         type: string
-        example: EUR
-    OriginalFlightEndPoint:
-      type: object
-      description: departure or arrival information
-      properties:
-        iataCode:
-          description: '[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)'
-          type: string
-          example: JFK
-        terminal:
-          description: terminal name / number
-          type: string
-          example: T2
-    FeeType:
-      type: string
-      description: type of fee
-      enum:
-      - TICKETING
-      - FORM_OF_PAYMENT
-      - SUPPLIER
-      example: TICKETING
-    PricingOptionsFareType:
-      type: array
-      description: type of fare of the flight-offer
-      items:
-        type: string
-        enum:
-        - PUBLISHED
-        - NEGOTIATED
-        - CORPORATE
-      example:
-      - PUBLISHED
-    LocationValue:
-      properties:
-        cityCode:
-          type: string
-          description: City code associated to the airport
-          example: PAR
-        countryCode:
-          type: string
-          description: Country code of the airport
-          example: FR
-    TravelClass:
-      description: quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class
-      type: string
-      enum:
-      - ECONOMY
-      - PREMIUM_ECONOMY
-      - BUSINESS
-      - FIRST
-      example: PREMIUM_ECONOMY
-    FlightSegment:
-      type: object
-      description: defining a flight segment; including both operating and marketing details when applicable
-      properties:
-        departure:
-          $ref: '#/components/schemas/FlightEndPoint'
-        arrival:
-          $ref: '#/components/schemas/FlightEndPoint'
-        carrierCode:
-          type: string
-          description: providing the airline / carrier code
-          minLength: 1
-          maxLength: 2
-          example: DL
-        number:
-          type: string
-          description: the flight number as assigned by the carrier
-          minLength: 1
-          maxLength: 4
-          example: '212'
-        suffix:
-          type: string
-          description: the flight number suffix as assigned by the carrier
-          minLength: 1
-          maxLength: 4
-          example: string-value
-        aircraft:
-          $ref: '#/components/schemas/AircraftEquipment'
-        class:
-          type: string
-          description: reservation booking designator (RBD) of the carrier
-          minLength: 1
-          maxLength: 2
-          example: string-value
-        cabin:
-          type: string
-          description: booking cabin / class of service of the carrier
-          example: string-value
-        operating:
-          $ref: '#/components/schemas/OperatingFlight'
-        duration:
-          type: string
-          description: stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M
-          example: PT2H10M
-        stops:
-          type: array
-          description: information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge...
-          items:
-            $ref: '#/components/schemas/FlightStop'
-    Tax:
-      description: a tax
-      type: object
-      properties:
-        amount:
-          type: string
-          example: '332.70'
-        code:
-          type: string
-          example: MX
-    Error_400:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
-    CollectionLinks:
-      title: CollectionLinks
-      properties:
-        self:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-        next:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-        previous:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-        last:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-        first:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-        up:
-          type: string
-          format: uri
-          example: https://test.api.amadeus.com/v1/area/resources?...
-      example:
-        self: https://test.api.amadeus.com/v1/area/resources?param=value
-    TermAndCondition:
-      properties:
-        category:
-          type: string
-          description: This defines what type of modification is concerned in this rule.
-          enum:
-          - REFUND
-          - EXCHANGE
-          - REVALIDATION
-          - REISSUE
-          - REBOOK
-          - CANCELLATION
-          example: EXCHANGE
-        circumstances:
-          type: string
-          example: string-value
-        notApplicable:
-          type: boolean
-          example: true
-        maxPenaltyAmount:
-          type: string
-          example: '199.50'
-        descriptions:
-          type: array
-          items:
-            title: Description
-            properties:
-              descriptionType:
-                type: string
-                example: Sample description text.
-              text:
-                type: string
-                example: string-value
-    Fee:
-      description: a fee
-      properties:
-        amount:
-          type: string
-          example: '332.70'
-        type:
-          $ref: '#/components/schemas/FeeType'
+        default: GET
   responses:
+    '500':
+      description: Unexpected error
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
     '400':
       description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n32171   | MANDATORY DATA MISSING\n"
       content:
@@ -2675,22 +2693,4 @@ components:
                     cabin: ECONOMY
                     fareBasis: YFFBR
                     class: Y
-    '500':
-      description: Unexpected error
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
-  parameters:
-    getOverride:
-      name: X-HTTP-Method-Override
-      description: the HTTP method to apply
-      required: true
-      in: header
-      schema:
-        type: string
-        default: GET
 x-generatedAt: '2020-07-30T12:58:11.566Z'

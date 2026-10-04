@@ -116,33 +116,6 @@ paths:
         dispatcher: FALLBACK
 components:
   responses:
-    '200':
-      description: Success
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/FlightDestinations'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/FlightDestinations'
-    '500':
-      description: Unexpected error
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error_500'
-    '404':
-      description: "code    | title                                 \n------- | ------------------------------------- \n6003    | ITEM/DATA NOT FOUND OR DATA NOT EXISTING\n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_404'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error_404'
     '400':
       description: "code    | title                                 \n------- | ------------------------------------- \n425     | INVALID DATE\n477     | INVALID FORMAT\n2668    | PARAMETER COMBINATION INVALID/RESTRICTED\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n"
       content:
@@ -152,23 +125,171 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error_400'
+    '200':
+      description: Success
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/FlightDestinations'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/FlightDestinations'
+    '404':
+      description: "code    | title                                 \n------- | ------------------------------------- \n6003    | ITEM/DATA NOT FOUND OR DATA NOT EXISTING\n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_404'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error_404'
+    '500':
+      description: Unexpected error
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
   schemas:
-    LocationValue:
+    Defaults:
+      description: the query parameters for which default values were used are returned here
+      type: object
       properties:
-        subType:
+        departureDate:
+          description: the date, or range of dates, on which the flight will depart from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25. Ranges are specified with a comma and are inclusive
           type: string
-          description: 'location type: airport or city'
+          example: 2011-09-10,2011-09-15
+        oneWay:
+          description: if this parameter is set to true, only one-way flights are considered. If this parameter is not set or set to false, only round-trip flights are considered
+          type: boolean
+          example: true
+        duration:
+          description: exact duration or range of durations of the travel, in days. This parameter must not be set if oneWay is true. Ranges are specified with a comma and are inclusive, e.g. 2,8
+          type: string
+          example: 2,5
+        nonStop:
+          description: if this parameter is set to true, only flights going from the origin to the destination with no stop in-between are considered
+          type: boolean
+          example: true
+        viewBy:
+          type: string
+          description: view the flight destinations by COUNTRY, DATE, DESTINATION, DURATION, or WEEK. View by COUNTRY to get the cheapest flight dates for every country in the given range. View by DATE to get the cheapest flight dates for every departure date in the given range. View by DURATION to get the cheapest flight dates for every departure date and for every duration in the given ranges. View by WEEK to get the cheapest flight destination for every week in the given range of departure dates
           enum:
-          - AIRPORT
-          - CITY
-          example: AIRPORT
-        detailedName:
+          - COUNTRY
+          - DATE
+          - DESTINATION
+          - DURATION
+          - WEEK
+          example: COUNTRY
+    Issue:
+      properties:
+        status:
+          description: the HTTP status code applicable to this error
+          type: integer
+          example: 1
+        code:
+          description: an application-specific error code
+          type: integer
+          format: int64
+          example: 1
+        title:
+          description: a short summary of the error
           type: string
-          description: name of the location
-          example: 'Paris/FR: Charles de Gaulle'
-    LocationDictionary:
-      additionalProperties:
-        $ref: '#/components/schemas/LocationValue'
+          example: string-value
+        detail:
+          description: explanation of the error
+          type: string
+          example: string-value
+        source:
+          type: object
+          title: Issue_Source
+          description: an object containing references to the source of the error
+          maxProperties: 1
+          properties:
+            pointer:
+              description: a JSON Pointer [RFC6901] to the associated entity in the request document
+              type: string
+              example: string-value
+            parameter:
+              description: a string indicating which URI query parameter caused the issue
+              type: string
+              example: string-value
+            example:
+              description: a string indicating an example of the right value
+              type: string
+              example: string-value
+    Error_400:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
+    Error_500:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
+    Price:
+      properties:
+        total:
+          description: Total amount paid by the user
+          type: string
+          example: '932.70'
+    Links:
+      properties:
+        self:
+          type: string
+          format: uri
+          example: https://example.com/resource
+    Meta:
+      type: object
+      properties:
+        currency:
+          type: string
+          description: the currency in which the prices of the flight offers are returned. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro
+          pattern: '[A-Z]{3}'
+          example: EUR
+        links:
+          $ref: '#/components/schemas/Links'
+        defaults:
+          $ref: '#/components/schemas/Defaults'
+    Error_404:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 404
+          code: 1797
+          title: NOT FOUND
+          detail: no response found for this query parameter
+          source:
+            parameter: airport
     FlightDestinations:
       type: object
       properties:
@@ -636,148 +757,6 @@ components:
             duration: 1,15
             nonStop: false
             viewBy: DESTINATION
-    Price:
-      properties:
-        total:
-          description: Total amount paid by the user
-          type: string
-          example: '932.70'
-    Dictionaries:
-      type: object
-      properties:
-        currencies:
-          $ref: '#/components/schemas/CurrencyDictionary'
-        locations:
-          $ref: '#/components/schemas/LocationDictionary'
-    Issue:
-      properties:
-        status:
-          description: the HTTP status code applicable to this error
-          type: integer
-          example: 1
-        code:
-          description: an application-specific error code
-          type: integer
-          format: int64
-          example: 1
-        title:
-          description: a short summary of the error
-          type: string
-          example: string-value
-        detail:
-          description: explanation of the error
-          type: string
-          example: string-value
-        source:
-          type: object
-          title: Issue_Source
-          description: an object containing references to the source of the error
-          maxProperties: 1
-          properties:
-            pointer:
-              description: a JSON Pointer [RFC6901] to the associated entity in the request document
-              type: string
-              example: string-value
-            parameter:
-              description: a string indicating which URI query parameter caused the issue
-              type: string
-              example: string-value
-            example:
-              description: a string indicating an example of the right value
-              type: string
-              example: string-value
-    Error_500:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    Meta:
-      type: object
-      properties:
-        currency:
-          type: string
-          description: the currency in which the prices of the flight offers are returned. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro
-          pattern: '[A-Z]{3}'
-          example: EUR
-        links:
-          $ref: '#/components/schemas/Links'
-        defaults:
-          $ref: '#/components/schemas/Defaults'
-    Defaults:
-      description: the query parameters for which default values were used are returned here
-      type: object
-      properties:
-        departureDate:
-          description: the date, or range of dates, on which the flight will depart from the origin. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25. Ranges are specified with a comma and are inclusive
-          type: string
-          example: 2011-09-10,2011-09-15
-        oneWay:
-          description: if this parameter is set to true, only one-way flights are considered. If this parameter is not set or set to false, only round-trip flights are considered
-          type: boolean
-          example: true
-        duration:
-          description: exact duration or range of durations of the travel, in days. This parameter must not be set if oneWay is true. Ranges are specified with a comma and are inclusive, e.g. 2,8
-          type: string
-          example: 2,5
-        nonStop:
-          description: if this parameter is set to true, only flights going from the origin to the destination with no stop in-between are considered
-          type: boolean
-          example: true
-        viewBy:
-          type: string
-          description: view the flight destinations by COUNTRY, DATE, DESTINATION, DURATION, or WEEK. View by COUNTRY to get the cheapest flight dates for every country in the given range. View by DATE to get the cheapest flight dates for every departure date in the given range. View by DURATION to get the cheapest flight dates for every departure date and for every duration in the given ranges. View by WEEK to get the cheapest flight destination for every week in the given range of departure dates
-          enum:
-          - COUNTRY
-          - DATE
-          - DESTINATION
-          - DURATION
-          - WEEK
-          example: COUNTRY
-    CurrencyDictionary:
-      additionalProperties:
-        type: string
-        example: EUR
-    Error_404:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 404
-          code: 1797
-          title: NOT FOUND
-          detail: no response found for this query parameter
-          source:
-            parameter: airport
-    Error_400:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
     FlightDestination:
       type: object
       properties:
@@ -808,10 +787,31 @@ components:
             flightOffers:
               type: string
               example: https://test.api.amadeus.com/v1/shopping/flight-offers?origin=PAR&destination=MAD&departureDate=2017-08-26&returnDate=2017-08-30&adults=1
-    Links:
+    LocationDictionary:
+      additionalProperties:
+        $ref: '#/components/schemas/LocationValue'
+    Dictionaries:
+      type: object
       properties:
-        self:
+        currencies:
+          $ref: '#/components/schemas/CurrencyDictionary'
+        locations:
+          $ref: '#/components/schemas/LocationDictionary'
+    LocationValue:
+      properties:
+        subType:
           type: string
-          format: uri
-          example: https://example.com/resource
+          description: 'location type: airport or city'
+          enum:
+          - AIRPORT
+          - CITY
+          example: AIRPORT
+        detailedName:
+          type: string
+          description: name of the location
+          example: 'Paris/FR: Charles de Gaulle'
+    CurrencyDictionary:
+      additionalProperties:
+        type: string
+        example: EUR
 x-generatedAt: '2020-07-23T08:15:14.050Z'

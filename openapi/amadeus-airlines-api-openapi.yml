@@ -95,29 +95,6 @@ components:
               description: a string indicating an example of the right value
               example: string-value
           description: an object containing references to the source of the error
-    Airline:
-      type: object
-      properties:
-        type:
-          type: string
-          description: the resource name
-          example: airline
-        iataCode:
-          type: string
-          description: IATA airline code. see [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
-          example: WN
-        icaoCode:
-          type: string
-          description: IATA airline code. see [ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)
-          example: SWA
-        businessName:
-          type: string
-          description: airline business name
-          example: SOUTHWEST AIRLINES TEXAS
-        commonName:
-          type: string
-          description: airline common name
-          example: SW AIRLINES
     Meta:
       title: Meta
       type: object
@@ -155,6 +132,29 @@ components:
               example: https://test.api.amadeus.com/v1/area/resources?...
           example:
             self: https://test.api.amadeus.com/v1/area/resources?param=value
+    Airline:
+      type: object
+      properties:
+        type:
+          type: string
+          description: the resource name
+          example: airline
+        iataCode:
+          type: string
+          description: IATA airline code. see [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
+          example: WN
+        icaoCode:
+          type: string
+          description: IATA airline code. see [ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)
+          example: SWA
+        businessName:
+          type: string
+          description: airline business name
+          example: SOUTHWEST AIRLINES TEXAS
+        commonName:
+          type: string
+          description: airline common name
+          example: SW AIRLINES
   responses:
     airlines:
       description: Successful Operation

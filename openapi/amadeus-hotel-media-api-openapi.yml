@@ -143,6 +143,16 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    HotelMediaResponse:
+      type: object
+      description: Response containing media assets for one or more hotels.
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/HotelMediaData'
+        meta:
+          $ref: '#/components/schemas/Meta'
     Error:
       type: object
       description: Individual error detail.
@@ -170,16 +180,6 @@ components:
               type: string
               description: Name of the parameter that caused the error.
               example: hotelIds
-    HotelMediaResponse:
-      type: object
-      description: Response containing media assets for one or more hotels.
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/HotelMediaData'
-        meta:
-          $ref: '#/components/schemas/Meta'
     ErrorResponse:
       type: object
       description: Error response from the API.
@@ -188,6 +188,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Error'
+    HotelMediaData:
+      type: object
+      description: Media assets for a single hotel.
+      properties:
+        hotelId:
+          type: string
+          description: Amadeus property code.
+          example: MCLONGHM
+        media:
+          type: array
+          description: List of media assets for the hotel.
+          items:
+            $ref: '#/components/schemas/HotelMediaItem'
     Meta:
       type: object
       description: Metadata about the response.
@@ -204,19 +217,6 @@ components:
               format: uri
               description: URL of the current request.
               example: https://api.amadeus.com/v1/reference-data/locations/hotels/by-hotels/content
-    HotelMediaData:
-      type: object
-      description: Media assets for a single hotel.
-      properties:
-        hotelId:
-          type: string
-          description: Amadeus property code.
-          example: MCLONGHM
-        media:
-          type: array
-          description: List of media assets for the hotel.
-          items:
-            $ref: '#/components/schemas/HotelMediaItem'
     HotelMediaItem:
       type: object
       description: A detailed media item with dimensions and format information.

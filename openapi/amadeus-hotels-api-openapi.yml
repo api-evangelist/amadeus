@@ -523,6 +523,55 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Error_400:
+      type: object
+      description: A set of errors
+      title: Error 400
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            description: The Error Definition
+            title: Error
+            properties:
+              status:
+                type: integer
+                description: The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status.
+                example: 1
+              code:
+                type: integer
+                description: A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error
+                example: 1
+              title:
+                type: string
+                description: An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized
+                example: string-value
+              detail:
+                type: string
+                description: An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized.
+                example: string-value
+              source:
+                type: object
+                title: Error_Source
+                properties:
+                  parameter:
+                    type: string
+                    description: The key of the URI path or query parameter that caused the error
+                    example: string-value
+                  pointer:
+                    type: string
+                    description: A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error
+                    example: string-value
+                  example:
+                    type: string
+                    description: A sample input to guide the user when resolving this issue
+                    example: string-value
+              documentation:
+                type: string
+                format: url
+                description: A link to a web page or file with further documentation to help the API consumer resolve this error
+                example: https://example.com/resource
     HotelSearchResponse:
       title: Hotel Search Response
       type: object
@@ -533,6 +582,60 @@ components:
             $ref: '#/components/schemas/Hotel'
         meta:
           $ref: '#/components/schemas/Meta'
+    Error_500:
+      type: object
+      description: A set of errors
+      title: Error 500
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            description: The Error Definition
+            title: Error
+            properties:
+              status:
+                type: integer
+                description: The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status.
+                example: 1
+              code:
+                type: integer
+                description: A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error
+                example: 1
+              title:
+                type: string
+                description: An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized
+                example: string-value
+              detail:
+                type: string
+                description: An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized.
+                example: string-value
+              source:
+                type: object
+                title: Error_Source
+                properties:
+                  parameter:
+                    type: string
+                    description: The key of the URI path or query parameter that caused the error
+                    example: string-value
+                  pointer:
+                    type: string
+                    description: A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error
+                    example: string-value
+                  example:
+                    type: string
+                    description: A sample input to guide the user when resolving this issue
+                    example: string-value
+              documentation:
+                type: string
+                format: url
+                description: A link to a web page or file with further documentation to help the API consumer resolve this error
+                example: https://example.com/resource
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
     Hotel:
       title: Hotel
       description: Hotel location information
@@ -645,106 +748,6 @@ components:
             type: string
             description: Last time the content was updated by a provider.
             format: date-time
-    Error_500:
-      type: object
-      description: A set of errors
-      title: Error 500
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            description: The Error Definition
-            title: Error
-            properties:
-              status:
-                type: integer
-                description: The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status.
-                example: 1
-              code:
-                type: integer
-                description: A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error
-                example: 1
-              title:
-                type: string
-                description: An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized
-                example: string-value
-              detail:
-                type: string
-                description: An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized.
-                example: string-value
-              source:
-                type: object
-                title: Error_Source
-                properties:
-                  parameter:
-                    type: string
-                    description: The key of the URI path or query parameter that caused the error
-                    example: string-value
-                  pointer:
-                    type: string
-                    description: A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error
-                    example: string-value
-                  example:
-                    type: string
-                    description: A sample input to guide the user when resolving this issue
-                    example: string-value
-              documentation:
-                type: string
-                format: url
-                description: A link to a web page or file with further documentation to help the API consumer resolve this error
-                example: https://example.com/resource
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    Meta:
-      type: object
-      description: Meta information about the returned object(s) in "data"
-      title: Meta
-      properties:
-        count:
-          type: integer
-          format: int64
-          description: Total number of object(s) retrieved
-          minimum: 0
-          example: 1
-        sort:
-          type: array
-          description: Sorting fields criteria and their associated priority and direction. Sorting priority is indicated by the order of the strings within the array. E.g. sort=title,size means that items are ordered by title and then, as a second ordering by size. A '-' sign before the search criteria indicates a descending ordering direction (Z to A), whereas no sign indicates a ascending direction (A to Z). E.g. sort=-title mean that the objects are ordered by title in reverse order (Z to A).
-          items:
-            type: string
-        links:
-          type: object
-          title: Links
-          description: Links related to the returned object(s)
-          properties:
-            self:
-              type: string
-              format: url
-              description: Link to the same page.
-              example: https://example.com/resource
-            first:
-              type: string
-              format: url
-              description: Link to the first page.
-              example: https://example.com/resource
-            prev:
-              type: string
-              format: url
-              description: Link to the previous page.
-              example: https://example.com/resource
-            next:
-              type: string
-              format: url
-              description: Link to the next page.
-              example: https://example.com/resource
-            last:
-              type: string
-              format: url
-              description: Link to the last page.
-              example: https://example.com/resource
     Error_404:
       type: object
       description: A set of errors
@@ -802,52 +805,49 @@ components:
           detail: no response found for this query parameter
           source:
             parameter: hotelIds
-    Error_400:
+    Meta:
       type: object
-      description: A set of errors
-      title: Error 400
+      description: Meta information about the returned object(s) in "data"
+      title: Meta
       properties:
-        errors:
+        count:
+          type: integer
+          format: int64
+          description: Total number of object(s) retrieved
+          minimum: 0
+          example: 1
+        sort:
           type: array
+          description: Sorting fields criteria and their associated priority and direction. Sorting priority is indicated by the order of the strings within the array. E.g. sort=title,size means that items are ordered by title and then, as a second ordering by size. A '-' sign before the search criteria indicates a descending ordering direction (Z to A), whereas no sign indicates a ascending direction (A to Z). E.g. sort=-title mean that the objects are ordered by title in reverse order (Z to A).
           items:
-            type: object
-            description: The Error Definition
-            title: Error
-            properties:
-              status:
-                type: integer
-                description: The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status.
-                example: 1
-              code:
-                type: integer
-                description: A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error
-                example: 1
-              title:
-                type: string
-                description: An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized
-                example: string-value
-              detail:
-                type: string
-                description: An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized.
-                example: string-value
-              source:
-                type: object
-                title: Error_Source
-                properties:
-                  parameter:
-                    type: string
-                    description: The key of the URI path or query parameter that caused the error
-                    example: string-value
-                  pointer:
-                    type: string
-                    description: A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error
-                    example: string-value
-                  example:
-                    type: string
-                    description: A sample input to guide the user when resolving this issue
-                    example: string-value
-              documentation:
-                type: string
-                format: url
-                description: A link to a web page or file with further documentation to help the API consumer resolve this error
-                example: https://example.com/resource
+            type: string
+        links:
+          type: object
+          title: Links
+          description: Links related to the returned object(s)
+          properties:
+            self:
+              type: string
+              format: url
+              description: Link to the same page.
+              example: https://example.com/resource
+            first:
+              type: string
+              format: url
+              description: Link to the first page.
+              example: https://example.com/resource
+            prev:
+              type: string
+              format: url
+              description: Link to the previous page.
+              example: https://example.com/resource
+            next:
+              type: string
+              format: url
+              description: Link to the next page.
+              example: https://example.com/resource
+            last:
+              type: string
+              format: url
+              description: Link to the last page.
+              example: https://example.com/resource

@@ -171,12 +171,12 @@ paths:
     - url: https://test.api.amadeus.com/v1
 components:
   responses:
-    '500':
-      description: Unexpected Error
+    '400':
+      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n"
       content:
         application/vnd.amadeus+json:
           schema:
-            $ref: '#/components/schemas/Error_500'
+            $ref: '#/components/schemas/Error_400'
     air-traffic:
       description: Successful Operation
       content:
@@ -262,8 +262,14 @@ components:
                 analytics:
                   travelers:
                     score: 8
-    '400':
-      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED\n32171   | MANDATORY DATA MISSING\n"
+    '500':
+      description: Unexpected Error
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_500'
+    '400_2':
+      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED                               \n32171   | MANDATORY DATA MISSING \t     \n"
       content:
         application/vnd.amadeus+json:
           schema:
@@ -373,7 +379,7 @@ components:
                     score: 18
                   travelers:
                     score: 8
-    '400_2':
+    '400_3':
       description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED                               \n32171   | MANDATORY DATA MISSING \t     \n"
       content:
         application/vnd.amadeus+json:
@@ -484,28 +490,24 @@ components:
                     score: 26
                   travelers:
                     score: 7
-    '400_3':
-      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n2781    | INVALID LENGTH\n4926    | INVALID DATA RECEIVED                               \n32171   | MANDATORY DATA MISSING \t     \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
   schemas:
-    Air_Traffic:
+    Error_400:
       properties:
-        type:
-          type: string
-          example: air-traffic
-        period:
-          description: Time period following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard
-          type: string
-          example: 2017-01
-        analytics:
-          $ref: '#/components/schemas/Analytics'
-    Analytics:
-      properties:
-        travelers:
-          $ref: '#/components/schemas/Travelers'
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
     Issue:
       properties:
         status:
@@ -556,23 +558,10 @@ components:
         - status: 500
           code: 141
           title: SYSTEM ERROR HAS OCCURRED
-    Error_400:
+    Analytics:
       properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
+        travelers:
+          $ref: '#/components/schemas/Travelers'
     Travelers:
       properties:
         score:
@@ -580,6 +569,17 @@ components:
           format: integer
           description: Approximate score for ranking purposes calculated based on number of travelers in the location.
           example: 68
+    Air_Traffic:
+      properties:
+        type:
+          type: string
+          example: air-traffic
+        period:
+          description: Time period following [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard
+          type: string
+          example: 2017-01
+        analytics:
+          $ref: '#/components/schemas/Analytics'
     Collection_Meta:
       title: Collection_Meta
       properties:
@@ -615,6 +615,12 @@ components:
               example: https://test.api.amadeus.com/v1/area/resources?...
           example:
             self: https://test.api.amadeus.com/v1/area/resources?param=value
+    Analytics_2:
+      properties:
+        flights:
+          $ref: '#/components/schemas/Flights'
+        travelers:
+          $ref: '#/components/schemas/Travelers'
     Air_Traffic_2:
       properties:
         type:
@@ -629,12 +635,6 @@ components:
           example: WAS
         analytics:
           $ref: '#/components/schemas/Analytics_2'
-    Analytics_2:
-      properties:
-        flights:
-          $ref: '#/components/schemas/Flights'
-        travelers:
-          $ref: '#/components/schemas/Travelers'
     Flights:
       properties:
         score:
@@ -642,6 +642,12 @@ components:
           format: integer
           description: Approximate score for ranking purposes calculated based on number of flights from / to the airport or city
           example: 56
+    Analytics_3:
+      properties:
+        flights:
+          $ref: '#/components/schemas/Flights'
+        travelers:
+          $ref: '#/components/schemas/Travelers'
     Air_Traffic_3:
       properties:
         type:
@@ -656,12 +662,6 @@ components:
           example: WAS
         analytics:
           $ref: '#/components/schemas/Analytics_3'
-    Analytics_3:
-      properties:
-        flights:
-          $ref: '#/components/schemas/Flights'
-        travelers:
-          $ref: '#/components/schemas/Travelers'
   parameters:
     fields:
       name: fields
@@ -670,22 +670,6 @@ components:
       description: "list of attributes desired in the response or list of attributes to remove from the response (with \"-\" before fields) \n* The attributes names must contain the whole path (except resource name) e.g. travelers"
       schema:
         type: string
-    pageOffset:
-      name: page[offset]
-      description: start index of the requested page
-      required: false
-      in: query
-      schema:
-        type: integer
-        default: 0
-    pageLimit:
-      name: page[limit]
-      description: maximum items in one page
-      required: false
-      in: query
-      schema:
-        type: integer
-        default: 10
     sort:
       description: 'defines on which attribute the sorting will be done:
 
@@ -703,6 +687,22 @@ components:
         - analytics.flights.score
         - analytics.travelers.score
         default: analytics.travelers.score
+    pageLimit:
+      name: page[limit]
+      description: maximum items in one page
+      required: false
+      in: query
+      schema:
+        type: integer
+        default: 10
+    pageOffset:
+      name: page[offset]
+      description: start index of the requested page
+      required: false
+      in: query
+      schema:
+        type: integer
+        default: 0
     sort_2:
       description: 'defines on which attribute the sorting will be done:
 
