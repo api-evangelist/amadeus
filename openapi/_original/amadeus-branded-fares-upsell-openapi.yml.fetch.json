@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/BrandedFaresUpsell_v1_swagger_specification.json",
+ "requested_url": "https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/BrandedFaresUpsell_v1_swagger_specification.json",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 158660,
+ "sha256": "d45e9d5fa6e38876388180c04ce9056225a83e2f3958d346d5e91ca7f7d7ad38",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}

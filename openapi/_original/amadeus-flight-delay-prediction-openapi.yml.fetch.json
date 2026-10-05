@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightDelayPrediction_v1_swagger_specification.json",
+ "requested_url": "https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightDelayPrediction_v1_swagger_specification.json",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 12232,
+ "sha256": "5ccd2e4b976b2ab8910c9d3ee6f5f94f4e114a84cebbceee4833b239ff1a53cf",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}

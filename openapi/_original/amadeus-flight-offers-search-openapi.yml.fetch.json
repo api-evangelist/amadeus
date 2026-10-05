@@ -1,0 +1,12 @@
+{
+ "url": "https://developers.amadeus.com/PAS-EAS/api/v0/documents/10181/file",
+ "requested_url": "https://developers.amadeus.com/PAS-EAS/api/v0/documents/10181/file",
+ "status": 200,
+ "content_type": "application/octet-stream",
+ "bytes": 96354,
+ "sha256": "a8bdba419444cbad2df623b9ae6fd20a0bf6aa31e5d72db9328ad41cbcfc80f5",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}

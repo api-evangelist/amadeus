@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/TripPurposePrediction_v1_swagger_specification.json",
+ "requested_url": "https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/TripPurposePrediction_v1_swagger_specification.json",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 8881,
+ "sha256": "d50b5f248a1ce9712b0445cd956dde1b17b8d7ebf7f36ce85d2015b8c031f7ef",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}

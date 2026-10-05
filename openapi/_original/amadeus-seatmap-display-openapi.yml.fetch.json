@@ -1,0 +1,12 @@
+{
+ "url": "https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/SeatMapDisplay_v1_swagger_specification.json",
+ "requested_url": "https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/SeatMapDisplay_v1_swagger_specification.json",
+ "status": 200,
+ "content_type": "text/plain; charset=utf-8",
+ "bytes": 659978,
+ "sha256": "f156e2cd7606663d30e89ed6e89c0563029ba56c01d66a1ef88f82e7930d2f7d",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
