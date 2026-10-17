@@ -121,15 +121,6 @@ paths:
         dispatcher: FALLBACK
 components:
   responses:
-    '400':
-      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
-      content:
-        application/vnd.amadeus+json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error_400'
     '200':
       description: Success
       content:
@@ -148,7 +139,68 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error_500'
+    '400':
+      description: "code    | title                                 \n------- | ------------------------------------- \n477     | INVALID FORMAT\n572     | INVALID OPTION\n4926    | INVALID DATA RECEIVED               \n32171   | MANDATORY DATA MISSING \t     \n"
+      content:
+        application/vnd.amadeus+json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error_400'
   schemas:
+    Error_400:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 400
+          code: 477
+          title: INVALID FORMAT
+          detail: invalid query parameter format
+          source:
+            parameter: airport
+            example: CDG
+    Collection_Meta_Link:
+      title: Collection_Meta
+      properties:
+        count:
+          type: integer
+          example: 1
+        links:
+          title: CollectionLinks
+          properties:
+            self:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            next:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            previous:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            last:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            first:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+            up:
+              type: string
+              format: uri
+              example: https://test.api.amadeus.com/v1/area/resources?...
+          example:
+            self: https://test.api.amadeus.com/v1/area/resources?param=value
     Delay_Prediction:
       properties:
         type:
@@ -169,15 +221,6 @@ components:
           description: probability of the forecast (between 0 and 1)
           type: string
           example: string-value
-    PredictionResultType:
-      description: forecast description
-      type: string
-      enum:
-      - LESS_THAN_30_MINUTES
-      - BETWEEN_30_AND_60_MINUTES
-      - BETWEEN_60_AND_120_MINUTES
-      - OVER_120_MINUTES_OR_CANCELLED
-      example: LESS_THAN_30_MINUTES
     Issue:
       properties:
         status:
@@ -215,71 +258,6 @@ components:
               description: a string indicating an example of the right value
               type: string
               example: string-value
-    Collection_Meta_Link:
-      title: Collection_Meta
-      properties:
-        count:
-          type: integer
-          example: 1
-        links:
-          title: CollectionLinks
-          properties:
-            self:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            next:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            previous:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            last:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            first:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-            up:
-              type: string
-              format: uri
-              example: https://test.api.amadeus.com/v1/area/resources?...
-          example:
-            self: https://test.api.amadeus.com/v1/area/resources?param=value
-    Error_500:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 500
-          code: 141
-          title: SYSTEM ERROR HAS OCCURRED
-    Error_400:
-      properties:
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/Issue'
-      required:
-      - errors
-      example:
-        errors:
-        - status: 400
-          code: 477
-          title: INVALID FORMAT
-          detail: invalid query parameter format
-          source:
-            parameter: airport
-            example: CDG
     Prediction:
       type: object
       properties:
@@ -315,4 +293,26 @@ components:
           count: 4
           links:
             self: https://test.api.amadeus.com/v1/travel/predictions/flight-delay?originLocationCode=NCE&destinationLocationCode=IST&departureDate=2020-08-01&departureTime=18:20:00&arrivalDate=2020-08-01&arrivalTime=22:15:00&aircraftCode=321&carrierCode=TK&flightNumber=1816&duration=PT31H10M
+    PredictionResultType:
+      description: forecast description
+      type: string
+      enum:
+      - LESS_THAN_30_MINUTES
+      - BETWEEN_30_AND_60_MINUTES
+      - BETWEEN_60_AND_120_MINUTES
+      - OVER_120_MINUTES_OR_CANCELLED
+      example: LESS_THAN_30_MINUTES
+    Error_500:
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+      required:
+      - errors
+      example:
+        errors:
+        - status: 500
+          code: 141
+          title: SYSTEM ERROR HAS OCCURRED
 x-generatedAt: '2020-07-23T09:48:28.158Z'

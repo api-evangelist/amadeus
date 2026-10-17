@@ -62,39 +62,29 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Warning:
+    Airline:
       type: object
       properties:
-        code:
-          type: integer
-          description: an application-specific error code
-          format: int64
-          example: 1
-        title:
+        type:
           type: string
-          description: a short summary of the error
-          example: string-value
-        detail:
+          description: the resource name
+          example: airline
+        iataCode:
           type: string
-          description: explanation of the error
-          example: string-value
-        source:
-          title: Issue_Source
-          type: object
-          properties:
-            pointer:
-              type: string
-              description: a JSON Pointer [RFC6901] to the associated entity in the request document
-              example: string-value
-            parameter:
-              type: string
-              description: a string indicating which URI query parameter caused the issue
-              example: string-value
-            example:
-              type: string
-              description: a string indicating an example of the right value
-              example: string-value
-          description: an object containing references to the source of the error
+          description: IATA airline code. see [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
+          example: WN
+        icaoCode:
+          type: string
+          description: IATA airline code. see [ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)
+          example: SWA
+        businessName:
+          type: string
+          description: airline business name
+          example: SOUTHWEST AIRLINES TEXAS
+        commonName:
+          type: string
+          description: airline common name
+          example: SW AIRLINES
     Meta:
       title: Meta
       type: object
@@ -132,29 +122,39 @@ components:
               example: https://test.api.amadeus.com/v1/area/resources?...
           example:
             self: https://test.api.amadeus.com/v1/area/resources?param=value
-    Airline:
+    Warning:
       type: object
       properties:
-        type:
+        code:
+          type: integer
+          description: an application-specific error code
+          format: int64
+          example: 1
+        title:
           type: string
-          description: the resource name
-          example: airline
-        iataCode:
+          description: a short summary of the error
+          example: string-value
+        detail:
           type: string
-          description: IATA airline code. see [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx)
-          example: WN
-        icaoCode:
-          type: string
-          description: IATA airline code. see [ICAO airlines table codes](https://en.wikipedia.org/wiki/List_of_airline_codes)
-          example: SWA
-        businessName:
-          type: string
-          description: airline business name
-          example: SOUTHWEST AIRLINES TEXAS
-        commonName:
-          type: string
-          description: airline common name
-          example: SW AIRLINES
+          description: explanation of the error
+          example: string-value
+        source:
+          title: Issue_Source
+          type: object
+          properties:
+            pointer:
+              type: string
+              description: a JSON Pointer [RFC6901] to the associated entity in the request document
+              example: string-value
+            parameter:
+              type: string
+              description: a string indicating which URI query parameter caused the issue
+              example: string-value
+            example:
+              type: string
+              description: a string indicating an example of the right value
+              example: string-value
+          description: an object containing references to the source of the error
   responses:
     airlines:
       description: Successful Operation

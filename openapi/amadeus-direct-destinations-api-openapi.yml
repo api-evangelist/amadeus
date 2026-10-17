@@ -133,20 +133,33 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    response_airportRoutes:
+    meta:
+      title: meta
       type: object
-      title: Airport Routes Reply
+      description: Meta information about the returned object(s) in "data"
       properties:
-        warnings:
+        count:
+          type: integer
+          description: Total number of object(s) retrieved
+          format: int64
+          example: 1
+        links:
+          type: object
+          description: Links related to the returned object(s)
+          properties:
+            self:
+              type: string
+              description: Link to the same page.
+              format: uri
+              example: https://example.com/resource
+    response_error:
+      type: object
+      title: Error Reply
+      properties:
+        errors:
           type: array
           items:
-            $ref: '#/components/schemas/warnings'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/locations'
-        meta:
-          $ref: '#/components/schemas/meta'
+            $ref: '#/components/schemas/errors'
     warnings:
       title: warning
       type: object
@@ -179,25 +192,6 @@ components:
               type: string
               description: A sample input to guide the user when resolving this issue
               example: string-value
-    meta:
-      title: meta
-      type: object
-      description: Meta information about the returned object(s) in "data"
-      properties:
-        count:
-          type: integer
-          description: Total number of object(s) retrieved
-          format: int64
-          example: 1
-        links:
-          type: object
-          description: Links related to the returned object(s)
-          properties:
-            self:
-              type: string
-              description: Link to the same page.
-              format: uri
-              example: https://example.com/resource
     errors:
       title: Error
       properties:
@@ -307,11 +301,17 @@ components:
               description: Score value based on the number of travelers per year and per destination. Score is between 0 and 100, 100 being the value for the destination city with the highest value of travelers for the origin airport
               example: '100'
               type: integer
-    response_error:
+    response_airportRoutes:
       type: object
-      title: Error Reply
+      title: Airport Routes Reply
       properties:
-        errors:
+        warnings:
           type: array
           items:
-            $ref: '#/components/schemas/errors'
+            $ref: '#/components/schemas/warnings'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/locations'
+        meta:
+          $ref: '#/components/schemas/meta'
