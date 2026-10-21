@@ -4,6 +4,14 @@ checked:
 - https://azuremarketplace.microsoft.com/
 - https://marketplace.visualstudio.com/vscode
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
+- https://aci-lac.aero/en/regular-world-business-partners/
+- https://eur-registry.swim.aero/
+- https://portal.airportscouncil.org/Portal/Directories/World_Business_Partners.aspx
+- https://www.aci-africa.aero/members/business-partners/
+- https://www.aci-asiapac.aero/membership/wbp-capability-database
+- https://www.aci-europe.org/aci-membership/wbp-directory.html
+- https://www.faa.gov/air_traffic/technology/swim
+- https://www.iata.org/en/programs/airline-distribution/retailing/ndc/
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -62,5 +70,55 @@ edges:
   category: Microsoft Teams app
   publisher_verified:
   - Microsoft 365 Certified
+- partner_name: ACI EUROPE World Business Partners
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.aci-europe.org/aci-membership/wbp-directory/176-amadeus.html
+  category: class="partner-txt"> IT & Communications
+  contract_reference:
+    register: ACI EUROPE World Business Partners Directory (aci-europe.org/aci-membership/wbp-directory.html)
+    standard: ACI World Business Partner programme (airport industry)
+    spec_file: null
+    role: aci-world-business-partner
+    registered_name: Amadeus
+    register_country: Spain
+    register_id: http://amadeus.com/airports
+    matched_domain: amadeus.com
+    matched_by: domain
+    signal_note: 'participation only: listed as an ACI World Business Partner in the regional directory, which links
+      each partner''s own website; listing is membership, not conformance'
+    detected_by: sweep-air-traffic-aviation-data.py
+    detected: '2026-10-20'
+  detected_by: sweep-air-traffic-aviation-data.py
+  first_seen: '2026-10-20'
+- partner_name: ACI Africa World Business Partners
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.aci-africa.aero/members/business-partners/
+  category: airport industry business-partner directory
+  contract_reference:
+    register: ACI Africa Business Partners (aci-africa.aero/members/business-partners/)
+    standard: ACI World Business Partner programme (airport industry)
+    spec_file: null
+    role: aci-world-business-partner
+    registered_name: Amadeus
+    register_country: null
+    register_id: https://amadeus.com/en/airports/overview
+    matched_domain: amadeus.com
+    matched_by: domain
+    signal_note: 'participation only: listed as an ACI World Business Partner in the regional directory, which links
+      each partner''s own website; listing is membership, not conformance'
+    detected_by: sweep-air-traffic-aviation-data.py
+    detected: '2026-10-20'
+  detected_by: sweep-air-traffic-aviation-data.py
+  first_seen: '2026-10-20'
 source:
 - https://marketplace.visualstudio.com/vscode

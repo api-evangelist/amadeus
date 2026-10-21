@@ -40,3 +40,53 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: amadeus-aci-europe-world-business-partners
+  label: ACI EUROPE World Business Partners
+  partner_name: ACI EUROPE World Business Partners
+  category: class="partner-txt"> IT & Communications
+  type: register
+  channel: standard-directory
+  evidence: https://www.aci-europe.org/aci-membership/wbp-directory/176-amadeus.html
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: ACI EUROPE World Business Partners Directory (aci-europe.org/aci-membership/wbp-directory.html)
+    standard: ACI World Business Partner programme (airport industry)
+    spec_file: null
+    role: aci-world-business-partner
+    registered_name: Amadeus
+    register_country: Spain
+    register_id: http://amadeus.com/airports
+    matched_domain: amadeus.com
+    matched_by: domain
+    signal_note: 'participation only: listed as an ACI World Business Partner in the regional directory, which links
+      each partner''s own website; listing is membership, not conformance'
+    detected_by: sweep-air-traffic-aviation-data.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: amadeus-aci-africa-world-business-partners
+  label: ACI Africa World Business Partners
+  partner_name: ACI Africa World Business Partners
+  category: airport industry business-partner directory
+  type: register
+  channel: standard-directory
+  evidence: https://www.aci-africa.aero/members/business-partners/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: ACI Africa Business Partners (aci-africa.aero/members/business-partners/)
+    standard: ACI World Business Partner programme (airport industry)
+    spec_file: null
+    role: aci-world-business-partner
+    registered_name: Amadeus
+    register_country: null
+    register_id: https://amadeus.com/en/airports/overview
+    matched_domain: amadeus.com
+    matched_by: domain
+    signal_note: 'participation only: listed as an ACI World Business Partner in the regional directory, which links
+      each partner''s own website; listing is membership, not conformance'
+    detected_by: sweep-air-traffic-aviation-data.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
