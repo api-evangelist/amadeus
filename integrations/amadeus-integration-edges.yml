@@ -78,7 +78,7 @@ edges:
   relationship: standard-participant
   direction: partner-built
   evidence: https://www.aci-europe.org/aci-membership/wbp-directory/176-amadeus.html
-  category: class="partner-txt"> IT & Communications
+  category: IT & Communications
   contract_reference:
     register: ACI EUROPE World Business Partners Directory (aci-europe.org/aci-membership/wbp-directory.html)
     standard: ACI World Business Partner programme (airport industry)
