@@ -90,3 +90,263 @@
     detected: '2026-10-20'
   status: not-a-workflow
   arazzo: null
+- slug: amadeus-apis-guru-openapi-directory
+  label: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_name: APIs.guru OpenAPI Directory
+  category: API definition directory listing (OpenAPI)
+  type: register
+  channel: standard-directory
+  evidence: https://apis.guru/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: amadeus.com
+    matched_domain: amadeus.com
+    matched_by: domain
+    apis_listed: 32
+    version_count: 32
+    first_added: '2020-09-04'
+    last_updated: '2023-03-24'
+    origin_publisher_hosted: true
+    origin_hosts:
+    - developers.amadeus.com
+    - raw.githubusercontent.com
+    categories:
+    - location
+    own_openapi_files: 28
+    listings:
+    - key: amadeus.com
+      title: Flight Offers Search
+      preferred: 2.2.0
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/2.2.0/openapi.json
+      origin_url: https://developers.amadeus.com/PAS-EAS/api/v0/documents/10181/file
+      openapi_version: 3.0.0
+    - key: amadeus.com:amadeus-airline-code-lookup
+      title: Airline Code Lookup API
+      preferred: 1.1.1
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-airline-code-lookup/1.1.1/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/AirlineCodeLookUp_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-airport-&-city-search
+      title: Airport & City Search
+      preferred: 1.2.3
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-airport-&-city-search/1.2.3/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/AirportCitySearch_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-airport-nearest-relevant
+      title: Airport Nearest Relevant
+      preferred: 1.1.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-airport-nearest-relevant/1.1.2/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/AirportNearestRelevant_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-airport-on-time-performance
+      title: Airport On-Time Performance
+      preferred: 1.0.4
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-airport-on-time-performance/1.0.4/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/AirportOnTimePerformance_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-branded-fares-upsell
+      title: Branded Fares Upsell
+      preferred: 1.0.1
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-branded-fares-upsell/1.0.1/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/BrandedFaresUpsell_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-availabilities-search
+      title: Flight Availibilities Search
+      preferred: 1.0.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-availabilities-search/1.0.2/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightAvailabilitiesSearch_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-busiest-traveling-period
+      title: Flight Busiest Traveling Period
+      preferred: 1.0.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-busiest-traveling-period/1.0.2/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightBusiestTravelingPeriod_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-cheapest-date-search
+      title: Flight Cheapest Date Search
+      preferred: 1.0.6
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-cheapest-date-search/1.0.6/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightCheapestDateSearch_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-check-in-links
+      title: Flight Check-in Links
+      preferred: 2.1.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-check-in-links/2.1.2/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightCheck-inLinks_v2_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-choice-prediction
+      title: Flight Choice Prediction
+      preferred: 2.0.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-choice-prediction/2.0.2/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightChoicePrediction_v2_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-create-orders
+      title: Flight Create Orders
+      preferred: 1.9.0
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-create-orders/1.9.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightCreateOrders_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-delay-prediction
+      title: Flight Delay Prediction
+      preferred: 1.0.6
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-delay-prediction/1.0.6/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightDelayPrediction_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-inspiration-search
+      title: Flight Inspiration Search
+      preferred: 1.0.6
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-inspiration-search/1.0.6/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightInspirationSearch_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-most-booked-destinations
+      title: Flight Most Booked Destinations
+      preferred: 1.1.1
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-most-booked-destinations/1.1.1/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightMostBookedDestinations_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-most-traveled-destinations
+      title: Flight Most Traveled Destinations
+      preferred: 1.1.1
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-most-traveled-destinations/1.1.1/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightMostTraveledDestinations_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-offers-price
+      title: Flight Offers Price
+      preferred: 1.2.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-offers-price/1.2.2/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightOffersPrice_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-order-management
+      title: Flight Order Management
+      preferred: 1.9.0
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-order-management/1.9.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightOrderManagement_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-flight-price-analysis
+      title: Flight Price Analysis API
+      preferred: 1.0.1
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-flight-price-analysis/1.0.1/openapi.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightPriceAnalysis_v1_swagger_specification.json
+      openapi_version: 3.0.0
+    - key: amadeus.com:amadeus-hotel-booking
+      title: Hotel Booking
+      preferred: 1.1.3
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-hotel-booking/1.1.3/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/HotelBooking_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-hotel-name-autocomplete
+      title: Hotel Name Autocomplete
+      preferred: 1.0.3
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-hotel-name-autocomplete/1.0.3/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/HotelNameAutocomplete_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-hotel-ratings
+      title: Hotel Ratings
+      preferred: 1.0.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-hotel-ratings/1.0.2/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/HotelRatings_v2_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-hotel-search
+      title: Hotel Search API
+      preferred: 3.0.8
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-hotel-search/3.0.8/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/HotelSearch_v3_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-location-score
+      title: Location Score
+      preferred: 1.0.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-location-score/1.0.2/openapi.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/LocationScore_v1_swagger_specification.json
+      openapi_version: 3.0.0
+    - key: amadeus.com:amadeus-on-demand-flight-status
+      title: On-Demand Flight Status
+      preferred: 2.0.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-on-demand-flight-status/2.0.2/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/OnDemandFlightStatus_v2_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-points-of-interest
+      title: Points of Interest
+      preferred: 1.1.1
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-points-of-interest/1.1.1/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/PointsOfInterest_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-safe-place-
+      title: Safe Place
+      preferred: 1.0.0
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-safe-place-/1.0.0/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/SafePlaceAPI_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-seatmap-display
+      title: Seatmap Display
+      preferred: 1.9.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-seatmap-display/1.9.2/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/SeatMapDisplay_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-tours-and-activities
+      title: Tours and Activities
+      preferred: 1.0.2
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-tours-and-activities/1.0.2/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/ToursandActivities_v1_swagger_specification.json
+      openapi_version: '2.0'
+    - key: amadeus.com:amadeus-travel-recommendations
+      title: Travel Recommendations API
+      preferred: 1.0.3
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-travel-recommendations/1.0.3/openapi.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/TravelRecommendations_v1_swagger_specification.json
+      openapi_version: 3.0.0
+    - key: amadeus.com:amadeus-trip-parser
+      title: Trip Parser
+      preferred: 3.0.1
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-trip-parser/3.0.1/openapi.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/TripParser_v3_swagger_specification.json
+      openapi_version: 3.0.0
+    - key: amadeus.com:amadeus-trip-purpose-prediction
+      title: Trip Purpose Prediction
+      preferred: 1.1.4
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/amadeus.com/amadeus-trip-purpose-prediction/1.1.4/swagger.json
+      origin_url: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/TripPurposePrediction_v1_swagger_specification.json
+      openapi_version: '2.0'
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
