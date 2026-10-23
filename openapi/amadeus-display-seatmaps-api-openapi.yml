@@ -12123,3 +12123,9 @@ components:
           schema:
             $ref: '#/components/schemas/Error_404'
 x-generatedAt: '2021-01-07T18:16:56.364Z'
+x-provenance:
+  method: harvested
+  publisher: Amadeus
+  source: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/SeatMapDisplay_v1_swagger_specification.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

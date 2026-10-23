@@ -316,3 +316,9 @@ components:
           code: 141
           title: SYSTEM ERROR HAS OCCURRED
 x-generatedAt: '2020-07-23T09:48:28.158Z'
+x-provenance:
+  method: harvested
+  publisher: Amadeus
+  source: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightDelayPrediction_v1_swagger_specification.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

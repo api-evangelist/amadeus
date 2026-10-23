@@ -262,3 +262,9 @@ components:
           schema:
             $ref: '#/components/schemas/Error_400'
 x-generatedAt: '2020-07-23T11:25:45.773Z'
+x-provenance:
+  method: harvested
+  publisher: Amadeus
+  source: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightCheck-inLinks_v2_swagger_specification.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
