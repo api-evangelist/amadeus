@@ -7934,3 +7934,9 @@ x-provenance:
   source: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightCheapestDateSearch_v1_swagger_specification.json
   note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
     stamped by stamp-openapi-provenance.py (roadmap#793)
+x-provenance:
+  method: harvested
+  publisher: Amadeus
+  source: https://raw.githubusercontent.com/amadeus4dev/amadeus-open-api-specification/main/spec/json/FlightCheapestDateSearch_v1_swagger_specification.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
